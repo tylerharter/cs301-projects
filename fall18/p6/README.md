@@ -1,3 +1,3 @@
-# Project 0
+# Project 6
 
 More details coming soon.
