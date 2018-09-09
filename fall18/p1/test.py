@@ -4,10 +4,13 @@ import subprocess, json, re, sys
 PASS = 'PASS'
 PROBLEMS = 20
 
+def clean_lines(lines):
+    return [l.strip() for l in lines if l.strip() != '']
+
 # ignore whitespace and case
 def are_lines_expected(actual_lines, expected_lines):
-    actual_lines = [l.strip() for l in actual_lines if l.strip() != '']
-    expected_lines = [l.strip() for l in expected_lines if l.strip() != '']
+    actual_lines = clean_lines(actual_lines)
+    expected_lines = clean_lines(expected_lines)
     if len(actual_lines) < len(expected_lines):
         return 'fewer output lines than expected'
     if len(actual_lines) > len(expected_lines):
@@ -112,6 +115,77 @@ def problem12(lines):
     ]
     error = are_lines_expected(lines, expected)
     return error if error else PASS
+
+def problem13(lines):
+    try:
+        answer = float(clean_lines(lines[-1]))
+        if abs(answer-27) < 0.01:
+            return PASS
+    except:
+        pass
+    return 'expected 27'
+
+def problem14(lines):
+    try:
+        answer = float(clean_lines(lines[-1]))
+        if abs(answer-15424.418419015) < 0.01:
+            return PASS
+    except:
+        pass
+    return 'expected about $15,424'
+
+def problem15(lines):
+    expected = [
+        "this is False: 321 is greater than 100 and less than 200",
+        'True',
+    ]
+    error = are_lines_expected(lines, expected)
+    return error if error else PASS
+
+def problem15(lines):
+    expected = [
+        "this is False: 321 is greater than 100 and less than 200",
+        'False',
+    ]
+    error = are_lines_expected(lines, expected)
+    return error if error else PASS
+
+def problem16(lines):
+    expected = [
+        'True',
+    ]
+    error = are_lines_expected(lines, expected)
+    return error if error else PASS
+
+def problem17(lines):
+    expected = [
+        'True',
+    ]
+    error = are_lines_expected(lines, expected)
+    return error if error else PASS
+
+def problem18(lines):
+    expected = [
+        'True',
+    ]
+    error = are_lines_expected(lines, expected)
+    return error if error else PASS
+
+def problem19(lines):
+    expected = [
+        'True',
+    ]
+    error = are_lines_expected(lines, expected)
+    return error if error else PASS
+
+def problem20(lines):
+    try:
+        answer = float(clean_lines(lines[-1]))
+        if abs(answer-37.699111843077) < 0.25:
+            return PASS
+    except:
+        pass
+    return 'expected about $15,424'
 
 def main():
     result = {'score': 0, 'tests': []}
