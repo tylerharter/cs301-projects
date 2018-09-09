@@ -1,5 +1,5 @@
 #!/usr/bin/python
-import subprocess, json, re
+import subprocess, json, re, sys
 
 PASS = 'PASS'
 PROBLEMS = 20
@@ -34,13 +34,93 @@ def problem2(lines):
     return error if error else PASS
 
 def problem3(lines):
-    pass
+    expected = [
+        'the type of 5 is a(n):',
+        "<class 'int'>",
+    ]
+    error = are_lines_expected(lines, expected)
+    return error if error else PASS
+
+def problem4(lines):
+    expected = [
+        'the type of 1.5 is a(n):',
+        "<class 'float'>",
+    ]
+    error = are_lines_expected(lines, expected)
+    return error if error else PASS
+
+def problem5(lines):
+    expected = [
+        'the type of 5.0 is a(n):',
+        "<class 'float'>",
+    ]
+    error = are_lines_expected(lines, expected)
+    return error if error else PASS
+
+def problem6(lines):
+    expected = [
+        'the type of "5.0" is a(n):',
+        "<class 'str'>",
+    ]
+    error = are_lines_expected(lines, expected)
+    return error if error else PASS
+
+def problem7(lines):
+    expected = [
+        'the type of "True" is a(n):',
+        "<class 'str'>",
+    ]
+    error = are_lines_expected(lines, expected)
+    return error if error else PASS
+
+def problem8(lines):
+    expected = [
+        'the type of False is a(n):',
+        "<class 'bool'>",
+    ]
+    error = are_lines_expected(lines, expected)
+    return error if error else PASS
+
+def problem9(lines):
+    expected = [
+        'the type of 5>3 is a(n):',
+        "<class 'bool'>",
+    ]
+    error = are_lines_expected(lines, expected)
+    return error if error else PASS
+
+def problem10(lines):
+    expected = [
+        'three plus four is:',
+        "7",
+    ]
+    error = are_lines_expected(lines, expected)
+    return error if error else PASS
+
+def problem11(lines):
+    expected = [
+        'here are 10 exclamation marks:',
+        '!!!!!!!!!!',
+    ]
+    error = are_lines_expected(lines, expected)
+    return error if error else PASS
+
+def problem12(lines):
+    expected = [
+        'three times ten is:',
+        '30',
+    ]
+    error = are_lines_expected(lines, expected)
+    return error if error else PASS
 
 def main():
     result = {'score': 0, 'tests': []}
     output = None
+    program = 'main.py'
+    if len(sys.argv) == 2:
+        program = sys.argv[1]
     try:
-        output = subprocess.check_output(['python3', 'main.py'])
+        output = subprocess.check_output(['python3', program])
     except:
         print('Your Python program crashed.  Please fix it to get any points.')
 
@@ -90,7 +170,7 @@ def main():
             })
         # final score
         passing = [t for t in result['tests'] if t['result'] == PASS]
-        result['score'] = len(passing) * 100 / len(result['tests'])
+        result['score'] = len(passing) * 100 // len(result['tests'])
 
     # save/display results
     with open('result.json', 'w') as f:
