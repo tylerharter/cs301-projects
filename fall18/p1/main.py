@@ -137,6 +137,7 @@ print("this is False: 321 is greater than 100 and less than 200")
 
 # use the "and" operator to complete this and make it print false
 print(321 > 100)
+print()
 
 ############################################################
 print('Problem 16')
@@ -145,6 +146,7 @@ print('Problem 16')
 x = 0
 
 print(x < -10 and x > -20)
+print()
 
 ############################################################
 print('Problem 17')
@@ -161,6 +163,7 @@ print('Problem 18')
 x = 0
 
 print(not (x > -1000 and x < 1000))
+print()
 
 ############################################################
 print('Problem 19')
@@ -173,14 +176,16 @@ print('Do we have a winning number?')
 # for 98, and will also show True if we were to replace 98 with 145 or
 # 456
 print(number == 145 and number == 98 and number == 256)
+print()
 
 ############################################################
 print('Problem 20')
 
-print("the area of a cylinder with radius 2 and height 3 is:")
+print("the volume of a cylinder with radius 2 and height 3 is:")
 
 # please fix this (answer using calculation)
 print(0)
+print()
 
 ############################################################
 
