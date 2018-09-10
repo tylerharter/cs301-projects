@@ -38,7 +38,7 @@ def problem2(lines):
 
 def problem3(lines):
     expected = [
-        'the type of 5 is a(n):',
+        'the type of 5 is:',
         "<class 'int'>",
     ]
     error = are_lines_expected(lines, expected)
@@ -46,7 +46,7 @@ def problem3(lines):
 
 def problem4(lines):
     expected = [
-        'the type of 1.5 is a(n):',
+        'the type of 1.5 is:',
         "<class 'float'>",
     ]
     error = are_lines_expected(lines, expected)
@@ -54,7 +54,7 @@ def problem4(lines):
 
 def problem5(lines):
     expected = [
-        'the type of 5.0 is a(n):',
+        'the type of 5.0 is:',
         "<class 'float'>",
     ]
     error = are_lines_expected(lines, expected)
@@ -62,7 +62,7 @@ def problem5(lines):
 
 def problem6(lines):
     expected = [
-        'the type of "5.0" is a(n):',
+        'the type of "5.0" is:',
         "<class 'str'>",
     ]
     error = are_lines_expected(lines, expected)
@@ -70,7 +70,7 @@ def problem6(lines):
 
 def problem7(lines):
     expected = [
-        'the type of "True" is a(n):',
+        'the type of "True" is:',
         "<class 'str'>",
     ]
     error = are_lines_expected(lines, expected)
@@ -78,7 +78,7 @@ def problem7(lines):
 
 def problem8(lines):
     expected = [
-        'the type of False is a(n):',
+        'the type of False is:',
         "<class 'bool'>",
     ]
     error = are_lines_expected(lines, expected)
@@ -86,7 +86,7 @@ def problem8(lines):
 
 def problem9(lines):
     expected = [
-        'the type of 5>3 is a(n):',
+        'the type of 5>3 is:',
         "<class 'bool'>",
     ]
     error = are_lines_expected(lines, expected)
@@ -117,17 +117,19 @@ def problem12(lines):
     return error if error else PASS
 
 def problem13(lines):
+    answer_raw = ''
     try:
-        answer = float(clean_lines(lines[-1]))
+        answer_raw = clean_lines(lines)[-1]
+        answer = float(answer_raw)
         if abs(answer-27) < 0.01:
             return PASS
     except:
         pass
-    return 'expected 27'
+    return 'expected (27), got (%s)' % answer_raw
 
 def problem14(lines):
     try:
-        answer = float(clean_lines(lines[-1]))
+        answer = float(clean_lines(lines)[-1])
         if abs(answer-15424.418419015) < 0.01:
             return PASS
     except:
@@ -173,6 +175,8 @@ def problem18(lines):
 
 def problem19(lines):
     expected = [
+        'There are three winners, with numbers 145, 98, and 256!',
+        'Do we have a winning number?',
         'True',
     ]
     error = are_lines_expected(lines, expected)
@@ -180,12 +184,12 @@ def problem19(lines):
 
 def problem20(lines):
     try:
-        answer = float(clean_lines(lines[-1]))
+        answer = float(clean_lines(lines)[-1])
         if abs(answer-37.699111843077) < 0.25:
             return PASS
     except:
         pass
-    return 'expected about $15,424'
+    return 'expected about 37.69'
 
 def main():
     result = {'score': 0, 'tests': []}
@@ -252,7 +256,7 @@ def main():
     print('RESULTS:')
     for test in result['tests']:
         print('  Problem %d: %s' % (test['test'], test['result']))
-    print('Score: %d' % result['score'])
+    print('Score: %d%%' % result['score'])
 
 if __name__ == '__main__':
     main()

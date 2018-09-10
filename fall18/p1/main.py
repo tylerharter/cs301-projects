@@ -1,6 +1,6 @@
 # This line is a comment because it starts with a pound sign (#). That
 # means Python ignores it.  A comment is just for a human reading the
-# code.  This project involve 20 small problems to give you practice
+# code.  This project involves 20 small problems to give you practice
 # with operators, types, and boolean logic.  We'll give you directions
 # (as comments) on what to do for each problem.
 
@@ -16,14 +16,15 @@ print()
 ############################################################
 print('Problem 2')
 
-# now fix this one so it prints 4 by adding 2 with 2.  If you just
+print('two plus two is:')
+
+# now fix the next line so it prints 4 by adding 2 with 2.  If you just
 # print 4, you may pass the tests and initially get a good grade
 # automatically, but we'll take away those points later when a TA
 # reads your solution!  (this example about grading applies
 # generally).
-
-print('two plus two is:')
 print(0)
+
 print()
 
 ############################################################
@@ -31,14 +32,14 @@ print('Problem 3')
 
 # we did this one for you too!
 
-print('the type of 5 is a(n):')
+print('the type of 5 is:')
 print(type(5))
 print()
 
 ############################################################
 print('Problem 4')
 
-print('the type of 1.5 is a(n):')
+print('the type of 1.5 is:')
 
 # put something in the parenthesis here to get an answer
 print()
@@ -47,7 +48,7 @@ print()
 ############################################################
 print('Problem 5')
 
-print('the type of 5.0 is a(n):')
+print('the type of 5.0 is:')
 
 # put something in the parenthesis here to get an answer
 print()
@@ -56,7 +57,7 @@ print()
 ############################################################
 print('Problem 6')
 
-print('the type of "5.0" is a(n):') # note the quotes!
+print('the type of "5.0" is:') # note the quotes!
 
 # put something in the parenthesis here to get an answer
 print()
@@ -65,7 +66,7 @@ print()
 ############################################################
 print('Problem 7')
 
-print('the type "True" is a(n):')
+print('the type "True" is:')
 
 # put something in the parenthesis here to get an answer
 print()
@@ -74,7 +75,7 @@ print()
 ############################################################
 print('Problem 8')
 
-print('the type False is a(n):')
+print('the type of False is:')
 
 # put something in the parenthesis here to get an answer
 print()
@@ -83,7 +84,7 @@ print()
 ############################################################
 print('Problem 9')
 
-print('the type 2>2 is a(n):')
+print('the type of 5>3 is:')
 
 # put something in the parenthesis here to get an answer
 print()
@@ -117,7 +118,7 @@ print()
 ############################################################
 print('Problem 13')
 
-print("the area of a cube with side length 3 is:")
+print("the volume of a cube with side length 3 is:")
 print(3 ** 2) # oops, this looks like the area of a square; please fix!
 print()
 
@@ -126,6 +127,10 @@ print('Problem 14')
 
 print("alice has $9000, and she makes 8% interest a year.")
 print("this is how much money she will have in 7 years:")
+
+# note, this means Alice will have 9000*1.08 after one year,
+# 9000*1.08*1.08 after two years, 9000*1.08*1.08*1.08 after three
+# years, and so on...
 
 # please fix by ONLY adding parenthesis
 print(9000 * 1+0.08 ** 7)
