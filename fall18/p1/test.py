@@ -191,14 +191,31 @@ def problem20(lines):
         pass
     return 'expected about 37.69'
 
+def get_python_version():
+    try:
+        output = subprocess.check_output(['python', '--version'],
+                                         stderr=subprocess.STDOUT)
+        output = str(output, 'utf-8')
+    except:
+        return 'unknown'
+    return output
+
 def main():
     result = {'score': 0, 'tests': []}
     output = None
     program = 'main.py'
+
+    version = get_python_version()
+    print('Your Python version: '+version)
+    if version.lower().find('python 3') < 0:
+        print('WARNING! Your Python version may not work for this class.')
+        print('Please check with us about this.')
+        print()
+
     if len(sys.argv) == 2:
         program = sys.argv[1]
     try:
-        output = subprocess.check_output(['python3', program])
+        output = subprocess.check_output(['python', program])
     except:
         print('Your Python program crashed.  Please fix it to get any points.')
 
