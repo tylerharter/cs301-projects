@@ -1,14 +1,14 @@
 # Project 1
 
 In this project, you'll learn about types, operators, and boolean
-logic.  Two start, download these two files:
+logic.  To start, download these two files:
 
 * [main.py](https://raw.githubusercontent.com/tylerharter/cs301-projects/master/fall18/p1/main.py)
 * [test.py](https://raw.githubusercontent.com/tylerharter/cs301-projects/master/fall18/p1/test.py)
 
 You will change main.py and hand it in.  You should not change
-test.py, and you should not hand it in; it's only purpose is tell you
-your grade in advance.
+test.py, and you should not hand it in; it's only purpose is to tell
+you your grade in advance.
 
 After you've downloaded both files to the same directory, open your
 terminal, navigate to that directory, and run the following:
@@ -53,5 +53,5 @@ output above says "PASS" by them.  Your goal is to get more points by
 getting test.py to print "PASS" by more problems.
 
 The rest of the instructions are in main.py, so open it up in your
-editor (probably PyCharm), and starting coding.  Have fun, and run
+editor (probably PyCharm), and start coding.  Have fun, and run
 tests.py often to track your progress!

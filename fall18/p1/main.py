@@ -66,7 +66,7 @@ print()
 ############################################################
 print('Problem 7')
 
-print('the type "True" is:')
+print('the type of "True" is:')
 
 # put something in the parenthesis here to get an answer
 print()
@@ -179,7 +179,7 @@ print('Do we have a winning number?')
 
 # aww, why didn't win?  Fix the following so that it will show True
 # for 98, and will also show True if we were to replace 98 with 145 or
-# 456
+# 256
 print(number == 145 and number == 98 and number == 256)
 print()
 
