@@ -3,6 +3,14 @@
 # code.  This project involves 20 small problems to give you practice
 # with operators, types, and boolean logic.  We'll give you directions
 # (as comments) on what to do for each problem.
+#
+# Before you get started, please tell us who you are.  Put your NetID
+# (the part before @wisc.edu in your campus email address) below for
+# you and your partner (replace YOUR-NETID and PARTNER-NETID).  If you
+# don't have a partner, just delete the line that says "partner-login".
+#
+# my-login: YOUR-NETID
+# partner-login: PARTNER-NETID
 
 ############################################################
 print('Problem 1')
