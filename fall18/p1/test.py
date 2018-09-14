@@ -191,9 +191,16 @@ def problem20(lines):
         pass
     return 'expected about 37.69'
 
-def get_python_version():
+def get_python_binary_name():
     try:
-        output = subprocess.check_output(['python', '--version'],
+        subprocess.check_output(['python3', '--version'], stderr=subprocess.STDOUT)
+        return 'python3'
+    except:
+        return 'python'
+
+def get_python_version(python_binary):
+    try:
+        output = subprocess.check_output([python_binary, '--version'],
                                          stderr=subprocess.STDOUT)
         output = str(output, 'utf-8')
     except:
@@ -205,8 +212,10 @@ def main():
     output = None
     program = 'main.py'
 
-    version = get_python_version()
+    python_binary = get_python_binary_name()
+    version = get_python_version(python_binary)
     print('Your Python version: '+version)
+
     if version.lower().find('python 3') < 0:
         print('WARNING! Your Python version may not work for this class.')
         print('Please check with us about this.')
@@ -215,7 +224,9 @@ def main():
     if len(sys.argv) == 2:
         program = sys.argv[1]
     try:
-        output = subprocess.check_output(['python', program])
+        cmd = [python_binary, program]
+        print('Running your program with this command: ' + ' '.join(cmd) + '\n')
+        output = subprocess.check_output(cmd)
     except:
         print('Your Python program crashed.  Please fix it to get any points.')
 
