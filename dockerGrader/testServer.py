@@ -20,13 +20,13 @@ logging.basicConfig(
     level=logging.INFO)
 
 class timerThread(threading.Thread):
-    def __init__(self, dockerId, project, netId):
+    def __init__(self, containerId, project, netId):
         threading.Thread.__init__(self)
-        self.dockerId = dockerId
+        self.containerId = containerId
         self.project = project
         self.netId = netId
     def run(self):
-        dockerTimer(self.dockerId, self.project, self.netId)
+        dockerTimer(self.containerId, self.project, self.netId)
 
 def downloadSubmission(projectPath):
     # a project path will look something like this:
@@ -81,21 +81,21 @@ def fetchFromS3(project, netId):
     curPath = ACCESS_PATH.format(project=project, googleId=googleId)
     downloadSubmission(curPath)
 
-def containerStatus(dockerId):
-    checkCmd = ["docker", "inspect", "-f", "{{.State.ExitCode}} {{.State.Running}}", dockerId]
+def containerStatus(containerId):
+    checkCmd = ["docker", "inspect", "-f", "{{.State.ExitCode}} {{.State.Running}}", containerId]
     output = subprocess.check_output(checkCmd).decode("ascii").replace("\n","")
     response = output.split(' ')
     str2bool = {"false" : False, "true" : True}
     if len(response) == 2:
         return int(response[0]), str2bool[response[1]]
     else:
-        logging.warning("Unexpected response when checking the container {} running status. Response: {}".format(dockerId, output))
+        logging.warning("Unexpected response when checking the container {} running status. Response: {}".format(containerId, output))
         return None, None
 
-def dockerTimer(dockerId, project, netId):
-    forceKillCmd = ["docker", "rm", "-f", dockerId]
+def dockerTimer(containerId, project, netId):
+    forceKillCmd = ["docker", "rm", "-f", containerId]
     time.sleep(3)
-    exitCode, isRunning = containerStatus(dockerId)
+    exitCode, isRunning = containerStatus(containerId)
     if isRunning:
         subprocess.run(forceKillCmd)
         uploadResult(project, netId, {"error":"Timeout"})
@@ -135,10 +135,10 @@ def sendToDocker(project, netId):
            '-p', project,
            '-i', netId]                      # command to run inside
     logging.info("docker cmd:" + ' '.join(cmd))
-    dockerId = subprocess.check_output(cmd).decode("ascii").replace("\n","")
-    logging.info("docker id:" + dockerId)
-    waitDockerCmd = ['docker', 'wait', dockerId]
-    timer = timerThread(dockerId, project, netId)
+    containerId = subprocess.check_output(cmd).decode("ascii").replace("\n","")
+    logging.info("container id:" + containerId)
+    waitDockerCmd = ['docker', 'wait', containerId]
+    timer = timerThread(containerId, project, netId)
     timer.start()
     subprocess.check_output(waitDockerCmd)
 
