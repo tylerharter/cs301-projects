@@ -1,7 +1,8 @@
-import argparse, boto3, botocore, csv, logging, requests, threading, time, json
+import argparse, boto3, botocore, csv, math, logging, requests, threading, time, json
 
 REQUEST_URL="http://{ip}:{port}/json/{project}/{netId}"
 RESULT_PATH="ta/grading/{project}/{netId}.json"
+METADATA_PATH="projects/{project}/users/{googleId}/curr.json"
 SUBMISSIONS = 'submissions'
 BUCKET = 'caraza-harter-cs301'
 session = boto3.Session(profile_name='cs301ta')
@@ -55,38 +56,62 @@ def sendRequests(ip, port, project, netIdList, numContainers):
             logging.info("wait for the completion.")
             time.sleep(3)
 
+# General template to fetch from s3
+def s3Fetcher(path, name, raiseError = True):
+    try:
+        response = s3.get_object(Bucket=BUCKET, Key=path)
+        return response['Body'].read().decode('utf-8')
+    except botocore.exceptions.ClientError as e:
+        if e.response['Error']['Code'] == "NoSuchKey":
+            logging.info(
+                "key {} doesn't exist when look up for {}.".format(path, name))
+        else:
+            logging.warning(
+                "Unexpected error {} when look up for {}.".format(e.response['Error']['Code'], name))
+            if raiseError:
+                raise e
+
+def lookupGoogleId(netId):
+    path = 'users/net_id_to_google/%s.txt' % netId
+    return s3Fetcher(path, "Google ID", False)
+
+def getMetadataInfoJson(netId, project):
+    googleId = lookupGoogleId(netId)
+    metadataPath = METADATA_PATH.format(googleId=googleId, project=project)
+    response = s3Fetcher(metadataPath, "Metadata Info", False)
+    return json.loads(response)
+
 def downloadGrade(netIdList, project):
     gradeInfo = []
     for netId in netIdList:
         resultPath = RESULT_PATH.format(project=project, netId=netId)
-        try:
-            response = s3.get_object(Bucket=BUCKET, Key=resultPath)
-        except botocore.exceptions.ClientError as e:
-            if e.response['Error']['Code'] == "NoSuchKey":
-                logging.warning(
-                    "Result not found. (project: {}, netid: {}, path: {})".format(
-                        project, netId, resultPath))
-            gradeInfo.append((netId, 0, "Result not found"))
+        response = s3Fetcher(resultPath, "Grade Result", False)
+        if not response:
+            gradeInfo.append((netId, 0, "Result not found", -1))
             continue
-        gradeJson = json.loads(response['Body'].read().decode('utf-8'))
-        errorReason = None
-        grade = 0
-        if "error" in gradeJson:
-            errorReason = gradeJson["error"]
+
+        gradeJson = json.loads(response)
+        grade = gradeJson.get("score", 0)
+        errorReason = gradeJson.get("error")
+        metadataInfo = getMetadataInfoJson(netId, project)
+
         if "score" not in gradeJson:
             logging.warning("Invalid result. json file fetched for netId: {}".format(netId))
-        else:
-            grade = gradeJson["score"]
-        logging.info("netId: {} processed. grade: {} {}".format(
-            netId, grade, "Error: {}".format(errorReason) if errorReason else ""))
-        gradeInfo.append((netId, grade, errorReason))
+        lateDays = metadataInfo.get("late_days", 0) if metadataInfo else -1
+        intLateDays = 0 if lateDays <= 0 else math.ceil(lateDays)
+        logging.info("netId: {} processed. grade: {} {} late days: {}".format(
+            netId,
+            grade,
+            "Error: {}".format(errorReason) if errorReason else "",
+            lateDays))
+        gradeInfo.append((netId, grade, errorReason, intLateDays))
     return gradeInfo
 
 def generateCsv(gradeInfo, saveFileName):
     with open(saveFileName, "w") as csvfw:
         csvWriter = csv.writer(csvfw)
-        for netId, grade, errorReason in gradeInfo:
-            csvWriter.writerow([netId, grade, errorReason])
+        for netId, grade, errorReason, lateDays in gradeInfo:
+            csvWriter.writerow([netId, grade, errorReason, lateDays])
     print("Successfully generated csv file " + saveFileName)
 
 if __name__ == "__main__":
@@ -125,9 +150,9 @@ if __name__ == "__main__":
     sendRequests(
         args.ip, args.port, args.project, netIdList, args.num_containers)
     print("Waiting for the completion of grading container", end="")
-    for i in range(4):
+    for i in range(5):
         time.sleep(1)
-        print("...", end="")
+        print("...")
     gradeInfo = downloadGrade(netIdList, args.project)
     generateCsv(gradeInfo, "{}_{}.csv".format(
         args.project, time.strftime("%m%d_%H%M", time.gmtime(time.time()))))
