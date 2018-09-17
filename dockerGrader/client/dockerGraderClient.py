@@ -2,7 +2,7 @@ import argparse, boto3, botocore, csv, math, logging, requests, threading, time,
 
 REQUEST_URL="http://{ip}:{port}/json/{project}/{netId}"
 RESULT_PATH="ta/grading/{project}/{netId}.json"
-METADATA_PATH="projects/{project}/users/{googleId}/curr.json"
+CUR_SUBMISSION_PATH="projects/{project}/users/{googleId}/curr.json"
 SUBMISSIONS = 'submissions'
 BUCKET = 'caraza-harter-cs301'
 session = boto3.Session(profile_name='cs301ta')
@@ -77,7 +77,7 @@ def lookupGoogleId(netId):
 
 def getMetadataInfoJson(netId, project):
     googleId = lookupGoogleId(netId)
-    metadataPath = METADATA_PATH.format(googleId=googleId, project=project)
+    metadataPath = CUR_SUBMISSION_PATH.format(googleId=googleId, project=project)
     response = s3Fetcher(metadataPath, "Metadata Info", False)
     return json.loads(response)
 
@@ -87,12 +87,13 @@ def downloadGrade(netIdList, project):
         resultPath = RESULT_PATH.format(project=project, netId=netId)
         response = s3Fetcher(resultPath, "Grade Result", False)
         if not response:
-            gradeInfo.append((netId, 0, "Result not found", -1))
+            gradeInfo.append((netId, 0, "Result not found", -1, ""))
             continue
 
         gradeJson = json.loads(response)
         grade = gradeJson.get("score", 0)
         errorReason = gradeJson.get("error")
+        partnerId = gradeJson.get("partner_netid")
         metadataInfo = getMetadataInfoJson(netId, project)
 
         if "score" not in gradeJson:
@@ -104,14 +105,14 @@ def downloadGrade(netIdList, project):
             grade,
             "Error: {}".format(errorReason) if errorReason else "",
             lateDays))
-        gradeInfo.append((netId, grade, errorReason, intLateDays))
+        gradeInfo.append((netId, grade, errorReason, intLateDays, partnerId))
     return gradeInfo
 
 def generateCsv(gradeInfo, saveFileName):
     with open(saveFileName, "w") as csvfw:
         csvWriter = csv.writer(csvfw)
-        for netId, grade, errorReason, lateDays in gradeInfo:
-            csvWriter.writerow([netId, grade, errorReason, lateDays])
+        for row in gradeInfo:
+            csvWriter.writerow(row)
     print("Successfully generated csv file " + saveFileName)
 
 if __name__ == "__main__":
