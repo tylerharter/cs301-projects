@@ -3,7 +3,7 @@ from flask import Flask
 
 ACCESS_PATH = "projects/{project}/users/{googleId}/curr.json"
 CODE_DIR = "./submission"
-TEST_DIR = "/tmp/test"
+TEST_DIR = "/tmp/test/{netId}"
 
 SUBMISSIONS = 'submissions'
 BUCKET = 'caraza-harter-cs301'
@@ -49,17 +49,19 @@ def downloadSubmission(projectPath):
     with open(os.path.join(CODE_DIR, 'meta.json'), 'w') as f:
         f.write(json.dumps(submission, indent=2))
 
-def uploadResult(project, studentID, errorLog = None):
+def uploadResult(project, netId, errorLog = None):
+    curTestDir = TEST_DIR.format(netId=netId)
     if errorLog:
         serializedResult = json.dumps(errorLog)
     else:
-        with open("{}/result.json".format(TEST_DIR), "r") as fr:
+        with open("{}/result.json".format(curTestDir), "r") as fr:
             serializedResult = fr.read()
     s3.put_object(
         Bucket=BUCKET,
-        Key='ta/grading/{}/{}.json'.format(project, studentID),
+        Key='ta/grading/{}/{}.json'.format(project, netId),
         Body=serializedResult.encode('utf-8'),
         ContentType='text/plain')
+    shutil.rmtree(curTestDir)
 
 def lookupGoogleId(netId):
     path = 'users/net_id_to_google/%s.txt' % netId
@@ -109,15 +111,16 @@ def dockerTimer(containerId, project, netId):
 
 def sendToDocker(project, netId):
     # create directory to mount inside a docker container
-    if os.path.exists(TEST_DIR):
-        shutil.rmtree(TEST_DIR)
-    shutil.copytree(CODE_DIR, TEST_DIR)
-    shutil.copytree("./io", TEST_DIR + "/io")
+    curTestDir = TEST_DIR.format(netId=netId)
+    if os.path.exists(curTestDir):
+        shutil.rmtree(curTestDir)
+    shutil.copytree(CODE_DIR, curTestDir)
+    shutil.copytree("./io", curTestDir + "/io")
     # we can't use shutil.copytree here again because TEST_DIR exists
     testCodePath = "./test/{}".format(project)
     for item in os.listdir(testCodePath):
         src = os.path.join(testCodePath, item)
-        dest = os.path.join(TEST_DIR, item)
+        dest = os.path.join(curTestDir, item)
         if os.path.isdir(src):
             shutil.copytree(src, dest)
         else:
@@ -128,7 +131,7 @@ def sendToDocker(project, netId):
 
     cmd = ['docker', 'run',                           # start a container
            '-d',                                      # detach mode
-           '-v', os.path.abspath(TEST_DIR)+':/code',  # share the test dir inside
+           '-v', os.path.abspath(curTestDir)+':/code',  # share the test dir inside
            '-w', '/code',                             # working dir is w/ code
            image,                                     # what docker image?
            'python3', 'test.py',
