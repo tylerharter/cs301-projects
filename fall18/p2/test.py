@@ -8,10 +8,19 @@ EPSILON = 0.0001
 
 TESTS_FUNC = [
     ("getMaximumLand", ["Arizona", "California", "Connecticut"], 163694.74), #1
-    ("getMinimumPopulationDensity", ["Wisconsin", "Iowa", "Minnesota", 2010], 54.13546968775862), #2
-    ("predictPopulation", ["Hawaii", 2000, 2010, 0.4], 66147678.89670547), #3
-    ("predictPopulation", ["Hawaii", 2000, 2010], 3293299.011605786), #4
-    ("calcGrowthRate", ["Hawaii", 2000, 2015], 0.010596535979501064) #5
+    ("getMaximumLand", ["Georgia", "Iowa", "Hawaii"], 59425.15), #2
+    ("getMinimumPopulationDensity", ["Wisconsin", "Iowa", "Minnesota", 2010], 54.13546968775862), #3
+    ("getMinimumPopulationDensity", ["Wisconsin", "Iowa", "Minnesota", 2015], 55.257254791434804), #4
+    ("getMinimumPopulationDensity", ["Georgia", "Iowa", "Hawaii", 2000], 52.002450206414075), #5
+    ("predictPopulation", ["Wisconsin", 2000, 2010, 0.5], 796039951.1495125), #6
+    ("predictPopulation", ["Hawaii", 2000, 2010, 0.4], 66147678.89670547), #7
+    ("predictPopulation", ["Georgia", 2000, 2010, 0.5], 1214977351.5747654), #8
+    ("predictPopulation", ["Hawaii", 2000, 2010], 3293299.011605786), #9
+    ("predictPopulation", ["Hawaii", 2000, 2010], 3293299.011605786), #10
+    ("calcGrowthRate", ["Wisconsin", 2000, 2010], 0.005853103209551789), #11
+    ("calcGrowthRate", ["Hawaii", 2000, 2015], 0.010596535979501064), #12
+    ("calcGrowthRate", ["Georgia", 2010, 2015], 0.008279847004730256), #13
+    ("calcGrowthRate", ["Iowa", 2000, 2015], 0.004047253559630651) #14
 ]
 
 TESTS_PRINT = [
@@ -112,7 +121,6 @@ def mainFunc():
         print('Your Python program crashed.  Please fix it to get any points.')
 
     studentFunctions = dict([func for func in getmembers(main) if isfunction(func[1])])
-
     for problemNum in range(1, TESTS_FUNC_NUM + 1):
         testCase = TESTS_FUNC[problemNum - 1]
         try:
@@ -122,10 +130,9 @@ def mainFunc():
             testResult = "Got exception {} when running test {}".format(
                 str(e), problemNum)
         result['tests'].append({
-            'test': problemNum,
+            'test': "Function test {} ({})".format(problemNum, testCase[0]),
             'result': testResult
         })
-
     if output:
         # normalize windows => unix, as a string (not bytes)
         output = str(output, 'utf-8')
@@ -142,19 +149,19 @@ def mainFunc():
             elif problem_number:
                 problems[problem_number].append(line)
 
-        for problemNum in range(6, 12):
-            testCase = TESTS_PRINT[problemNum - 6]
+        for problemNum in range(1, TESTS_PRINT_NUM + 1):
+            testCase = TESTS_PRINT[problemNum - 1]
             lines = problems.pop(problemNum, None)         # student code
             # did student produce output?
             if lines is None:
                 result['tests'].append({
-                    'test': problem_num,
-                    'result': 'Problem %d output missing' % problem_num
+                    'test': "Main function print test (Problem {})".format(problemNum),
+                    'result': 'Main function print test {} output missing'.format(problemNum)
                 })
                 continue
             testResult = runPrintTest(lines, testCase)
             result['tests'].append({
-                'test': problemNum + TESTS_FUNC_NUM,
+                'test': "Main function print test (Problem {})".format(problemNum),
                 'result': testResult
             })
 
@@ -167,7 +174,7 @@ def mainFunc():
         f.write(json.dumps(result, indent=2))
     print('RESULTS:')
     for test in result['tests']:
-        print('  Problem %d: %s' % (test['test'], test['result']))
+        print('  {}: {}'.format(test['test'], test['result']))
     print('Score: %d%%' % result['score'])
 
 if __name__ == '__main__':
