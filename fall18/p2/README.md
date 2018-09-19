@@ -2,11 +2,11 @@
 
 In this project, you'll learn about creating and calling functions, arguments, return values and math module. To start, download these files (Note: right click on the links below, not the links above that only show a preview):
 
-* [main.py](https://raw.githubusercontent.com/shenghaozou/taDebug/master/main.py)
-* [project.py](https://raw.githubusercontent.com/shenghaozou/taDebug/master/project.py)
-* [test.py](https://raw.githubusercontent.com/shenghaozou/taDebug/master/test.py)
-* [area.csv](https://raw.githubusercontent.com/shenghaozou/taDebug/master/area.csv)
-* [population.csv](https://raw.githubusercontent.com/shenghaozou/taDebug/master/population.csv)
+* [main.py](https://raw.githubusercontent.com/tylerharter/cs301-projects/master/fall18/p2/main.py)
+* [project.py](https://raw.githubusercontent.com/tylerharter/cs301-projects/master/fall18/p2/project.py)
+* [test.py](https://raw.githubusercontent.com/tylerharter/cs301-projects/master/fall18/p2/test.py)
+* [area.csv](https://raw.githubusercontent.com/tylerharter/cs301-projects/master/fall18/p2/area.csv)
+* [population.csv](https://raw.githubusercontent.com/tylerharter/cs301-projects/master/fall18/p2/population.csv)
 
 You will change main.py and hand it in. You should not change test.py, and you should not hand it in; it's only purpose is to tell you your grade in advance.
 
