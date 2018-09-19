@@ -90,7 +90,7 @@ getPopulation function takes the name of one state and a year as arguments and r
 ```
 
 ## Program Requirements
-You will write **at least four(4)** functions with the following names and behaviors:
+You will write **at least four(4)** functions with the following names and behaviors. You will also fix some lines in main function.
 
 **Function 1: getMaximumLand(stateName1, stateName2, stateName3)**
 

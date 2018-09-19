@@ -13,7 +13,7 @@ import math
 # Step3: Return the min value that you calculated.
 
 
-# Insert predictPopulation(stateName, growthRate, yearA, yearB) function here
+# Insert predictPopulation(stateName, yearA, yearB, growthRate = 0.1) function here
 # Step 1: Using the statename retrieve the population for yearA
 # Step 2: Calculate time between yearA and yearB
 # Step 3: Use the math.exp() function in the given formula to calculate final population
@@ -29,34 +29,36 @@ import math
 
 def main():
     # Example state names. Please play around by changing the state names
-    # You don't need to change anything below this line
-    state1Name = "Wisconsin"
-    state2Name = "Iowa"
-    state3Name = "Minnesota"
+    # Fix the main code so it will print the correct value
+
+    # Read Area Data
+    print("The area of Wisconsin is ", project.getArea("Wisconsin"))
+    print()
+
+    # Read Population Area
+    # Fix the code below to print out the correct value
+    print("The population of Wisconsin is ", 0)
+    print()
 
     # Solving Q1: Finding max Area
-    # Here we call the function and see if it gives the correct output
-    # Play around by changing the state names and your program should still work.
-    maxArea = getMaximumLand(state1Name, state2Name, state3Name)
-    print("Maximum land area among " + state1Name + "," + state2Name + "," + state3Name + " is " + maxArea)
+    # Fix the code below to print out the correct value
+    print("Maximum land area among Wisconsin, Iowa, Minnesota is ", 0)
+    print()
 
     # Solving Q2: Finding minimum Population Density
-    # Play around by changing the state names and the year and your program should still work.
-    minDensity = getMinimumPopulationDensity(state1Name, state2Name, state3Name, 2000)
-    print("Minimum population density among " + state1Name + "," + state2Name + "," + state3Name + " is " + minDensity)
+    # Fix the code below to print out the correct value
+    print("Minimum population density among Wisconsin, Iowa, Minnesota is ", 0)
+    print()
 
     # Solving Q3: Finding final population
-    # Play around by changing the state names and the year and your program should still work.
-    finalPopulation = predictPopulation(state1Name, 0.5, 2000, 2010)
-    print("The new population for " + state1Name + " is " + finalPopulation)
-
+    # Fix the code below to print out the correct value
+    print("The predicted population for Wisconsin in year 2010 is (assume start yearA is 2000, growth rate is 0.5) ", 0)
+    print()
 
     # Solving Q4: Calculating growth rate
-    # Play around by changing the state names and the year and your program should still work.
-    growthRate = calcGrowthRate(state1Name, 2000, 2010)
-    print ("The growth rate for " + state1Name + " is " + growthRate)
-
-
+    # Fix the code below to print out the correct value
+    print("The growth rate for Wisconsin between year 2000 and 2010 is ", 0)
+    print()
 
 if __name__ == "__main__":
     main()
