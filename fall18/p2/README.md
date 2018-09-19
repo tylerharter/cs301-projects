@@ -8,7 +8,7 @@ In this project, you'll learn about creating and calling functions, arguments, r
 * [area.csv](https://raw.githubusercontent.com/tylerharter/cs301-projects/master/fall18/p2/area.csv)
 * [population.csv](https://raw.githubusercontent.com/tylerharter/cs301-projects/master/fall18/p2/population.csv)
 
-You will change main.py and hand it in. You should not change test.py, and you should not hand it in; it's only purpose is to tell you your grade in advance.
+You will change main.py and hand it in. You should not change test.py and project.py, and you should not hand them in; it's only purpose is to tell you your grade in advance.
 
 After you've downloaded all the above 5 files to the same directory, open your terminal, navigate to that directory, and run the following:
 
@@ -17,6 +17,7 @@ python test.py
 ```
 
 You should see the following output:
+(Note: the python version may be different depending on the version of the python interpreter you use.)
 
 ```
 Your Python version: Python 3.6.5
@@ -59,6 +60,7 @@ The table below shows a **sample** from the dataset that we have.
 |Illinois|57913.55 |12419293|12830632|12882189|
 
 </center>
+In this project, we are interested in these following 4 questions:
 
 1. What is the value of the maximum land area among any three given states?
 2. What is the least value of population density among any three given states?
@@ -90,7 +92,7 @@ getPopulation function takes the name of one state and a year as arguments and r
 ## Program Requirements
 You will write **at least four(4)** functions with the following names and behaviors:
 
-**getMaximumLand(stateName1, stateName2, stateName3)**
+**Function 1: getMaximumLand(stateName1, stateName2, stateName3)**
 
 Find the max value for land area among the three given area values which will be passed as parameters. To do this we can use the inbuilt [max()](https://docs.python.org/2/library/functions.html#max) function.
 
@@ -101,13 +103,13 @@ Example:
 >>> 86935.83
 ```
 
-**getMinimumPopulationDensity(stateName1, stateName2, stateName3, year)**
+**Function 2: getMinimumPopulationDensity(stateName1, stateName2, stateName3, year)**
 
 Population density is measured as population per unit area. 
 
 The formula to calculate population density is:
 
-**Population Density = Population / Land Area (mi²)**
+Population Density = Population / Land Area (mi²)
 
 For this function, you need to retrieve population and area values for the given states and calculate the density. We then find the min value of population density among the three values passed as parameters. To do this, we can use the inbuilt [min()](https://docs.python.org/2/library/functions.html#min) function.
 
@@ -118,7 +120,7 @@ Example:
 >>> 52.002450206414075
 ```
 
-**predictPopulation(stateName, growthRate, yearA, yearB)**
+**Function 3: predictPopulation(stateName, growthRate, yearA, yearB)**
 
 We use the following formula for population growth prediction in this question: <img src="Population.png" alt="drawing" width="100"/>. Here,
 
@@ -136,9 +138,9 @@ Example:
 >>> 796039951.1495125
 ```
 
-**calcGrowthRate(stateName, yearA, yearB)**
+**Function 4: calcGrowthRate(stateName, yearA, yearB)**
 
-Use the same formula as above to calculate the growth rate. To do this, you can use the log fucntion present in Python [math library](https://docs.python.org/3/library/math.html). 
+Use the same formula as above to calculate the growth rate. To do this, you can use the log function present in Python [math library](https://docs.python.org/3/library/math.html). (Hint: math.log(e ** (rt)) == rt, you need to rearrange the above formula to isolate *r*, the growth rate.)
 
 Example:
 

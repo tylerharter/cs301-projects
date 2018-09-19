@@ -40,7 +40,7 @@ def main():
     maxArea = getMaximumLand(state1Name, state2Name, state3Name)
     print("Maximum land area among " + state1Name + "," + state2Name + "," + state3Name + " is " + maxArea)
 
-    # Solving Q2: Finding minimum Population Densit,
+    # Solving Q2: Finding minimum Population Density
     # Play around by changing the state names and the year and your program should still work.
     minDensity = getMinimumPopulationDensity(state1Name, state2Name, state3Name, 2000)
     print("Minimum population density among " + state1Name + "," + state2Name + "," + state3Name + " is " + minDensity)
@@ -51,7 +51,7 @@ def main():
     print("The new population for " + state1Name + " is " + finalPopulation)
 
 
-    # Solving Q4: Finding minimum Population Density
+    # Solving Q4: Calculating growth rate
     # Play around by changing the state names and the year and your program should still work.
     growthRate = calcGrowthRate(state1Name, 2000, 2010)
     print ("The growth rate for " + state1Name + " is " + growthRate)
