@@ -1,6 +1,6 @@
 # Project 2
 
-In this project, you'll learn about creating and calling functions, arguments, return values and math module. To start, download these files:
+In this project, you'll learn about creating and calling functions, arguments, return values and math module. To start, download these files (Note: right click on the links below, not the links above that only show a preview):
 
 * [main.py](https://raw.githubusercontent.com/shenghaozou/taDebug/master/main.py)
 * [project.py](https://raw.githubusercontent.com/shenghaozou/taDebug/master/project.py)
@@ -10,7 +10,7 @@ In this project, you'll learn about creating and calling functions, arguments, r
 
 You will change main.py and hand it in. You should not change test.py, and you should not hand it in; it's only purpose is to tell you your grade in advance.
 
-After you've downloaded both files to the same directory, open your terminal, navigate to that directory, and run the following:
+After you've downloaded all the above 5 files to the same directory, open your terminal, navigate to that directory, and run the following:
 
 ```
 python test.py
@@ -42,6 +42,7 @@ RESULTS:
   Problem 18: function calcGrowthRate not found
   Problem 19: function calcGrowthRate not found
   Problem 20: function calcGrowthRate not found
+Score: 0%
 ```
 
 ##  Introduction
@@ -64,12 +65,12 @@ The table below shows a **sample** from the dataset that we have.
 3. For a given state, what’s the predicted population in the given year? (The function will take in values of initial year, final year, growth rate and state name)
 4. Between any two given years, what is the population growth rate of particular state?
 
-### Provided Function in Module project.py
+### Provided Functions in Module project.py
 We don’t require you to know how to read from data file so we have provided the following functions. Please make sure the data file area.csv and population.csv are in the same folder along with main.py.
 
 **getArea(stateName)** 
 
-getArea function takes the name of one state as an argument and returns the size of this state area.
+getArea function takes the name of one state as an argument and returns the area of this state.
 
 ```
 >>> import project
