@@ -7,27 +7,11 @@ PASS = 'PASS'
 PROBLEMS = 20
 EPSILON = 0.0001
 
-TESTS = [
-    ("getMaximumLand", ["Wisconsin", "Iowa", "Minnesota"], 86935.83), #1-1
-    ("getMaximumLand", ["Arizona", "California", "Connecticut"], 163694.74), #1-2
-    ("getMaximumLand", ["Georgia", "Iowa", "Hawaii"], 59425.15), #1-3
-    ("getMaximumLand", ["Minnesota", "Iowa", "Wisconsin"], 86935.83), #1-4
-    ("getMaximumLand", ["Pennsylvania", "West Virginia", "Texas"], 268596.46), #1-5
-    ("getMinimumPopulationDensity", ["Wisconsin", "Iowa", "Minnesota", 2000], 52.002450206414075), #2-1
-    ("getMinimumPopulationDensity", ["Georgia", "Iowa", "Hawaii", 2000], 52.002450206414075), #2-2
-    ("getMinimumPopulationDensity", ["Wisconsin", "Iowa", "Minnesota", 2010], 54.13546968775862), #2-3
-    ("getMinimumPopulationDensity", ["Connecticut", "California", "Arizona", 2010], 56.07509586341995), #2-4
-    ("getMinimumPopulationDensity", ["Wisconsin", "Iowa", "Minnesota", 2015], 55.257254791434804), #2-5
-    ("predictPopulation", ["Wisconsin", 0.5, 2000, 2010], 796039951.1495125), #3-1
-    ("predictPopulation", ["Georgia", 0.5, 2000, 2010], 1214977351.5747654), #3-2
-    ("predictPopulation", ["Wisconsin", 0.4, 2000, 2010], 292846732.3790249), #3-3
-    ("predictPopulation", ["Hawaii", 0.4, 2000, 2010], 66147678.89670547), #3-4
-    ("predictPopulation", ["California", 0.6, 2010, 2015], 748265708.7728088), #3-5
-    ("calcGrowthRate", ["Wisconsin", 2000, 2010], 0.005853103209551789), #4-1
-    ("calcGrowthRate", ["Georgia", 2010, 2015], 0.008279847004730256), #4-2
-    ("calcGrowthRate", ["Hawaii", 2000, 2015], 0.010596535979501064), #4-3
-    ("calcGrowthRate", ["California", 2000, 2010], 0.009517981825461748), #4-4
-    ("calcGrowthRate", ["Iowa", 2000, 2015], 0.004047253559630651) #4-5
+TESTS_FUNC = [
+    ("getMaximumLand", ["Arizona", "California", "Connecticut"], 163694.74),
+    ("getMinimumPopulationDensity", ["Wisconsin", "Iowa", "Minnesota", 2010], 54.13546968775862),
+    ("predictPopulation", ["Hawaii", 0.4, 2000, 2010], 66147678.89670547),
+    ("calcGrowthRate", ["Hawaii", 2000, 2015], 0.010596535979501064)
 ]
 
 def runTest(functionName, fn, args, expectedResult):
@@ -72,7 +56,7 @@ def mainFunc():
     studentFunctions = dict([func for func in getmembers(main) if isfunction(func[1])])
 
     for problemNum in range(1, PROBLEMS + 1):
-        testCase = TESTS[problemNum - 1]
+        testCase = TESTS_FUNC[problemNum - 1]
         # run test and record output
         try:
             testResult = runTest(
