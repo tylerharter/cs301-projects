@@ -15,7 +15,7 @@ import math
 # Step3: Return the min value that you calculated.
 # Note: You shouldn't use print in this function.
 
-# Problem 3 & 4 (It only means we have 2 tests here: w/w.o. default arguments)
+# Problem 3 & 4 (It only means we have 2 tests here: w/w.o. the default argument)
 # Insert predictPopulation(stateName, yearA, yearB, growthRate = 0.1) function here
 # Step 1: Using the statename retrieve the population for yearA
 # Step 2: Calculate time between yearA and yearB
