@@ -11,10 +11,10 @@ def getArea(stateName):
 
 
 def getPopulation(stateName,year):
-    """ Function that takes in state name and year to returns the population for that year"""
+    """ Function that takes in state name and year and returns the population for that year"""
     with open('population.csv') as csvDataFile:
         csvReader = csv.reader(csvDataFile)
-        row0= next(csvReader)
+        row0 = next(csvReader)
         for row in csvReader:
             if row[0] == stateName and year == int(row0[1]):
                 return float(row[1])
