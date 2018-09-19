@@ -120,7 +120,9 @@ Example:
 >>> 52.002450206414075
 ```
 
-**Function 3: predictPopulation(stateName, growthRate, yearA, yearB)**
+**Function 3: predictPopulation(stateName, yearA, yearB, growthRate = 0.1)**
+
+Note: This function has a default argument growthRate. By default it should be 0.1.
 
 We use the following formula for population growth prediction in this question: <img src="Population.png" alt="drawing" width="100"/>. Here,
 
