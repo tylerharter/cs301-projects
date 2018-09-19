@@ -25,18 +25,27 @@ Your Python version: Python 3.6.5
 Running your program with this command: python3 main.py
 
 RESULTS:
-  Problem 1: function getMaximumLand not found
-  Problem 2: function getMinimumPopulationDensity not found
-  Problem 3: function predictPopulation not found
-  Problem 4: function predictPopulation not found
-  Problem 5: function calcGrowthRate not found
-  Problem 11: PASS
-  Problem 12: expected (5686986.0) but found (0)
-  Problem 13: expected (86935.83) but found (0)
-  Problem 14: expected (52.002450206414075) but found (0)
-  Problem 15: expected (796039951.1495125) but found (0)
-  Problem 16: expected (0.005853103209551789) but found (0)
-Score: 9%
+  Function test 1 (getMaximumLand): function getMaximumLand not found
+  Function test 2 (getMaximumLand): function getMaximumLand not found
+  Function test 3 (getMinimumPopulationDensity): function getMinimumPopulationDensity not found
+  Function test 4 (getMinimumPopulationDensity): function getMinimumPopulationDensity not found
+  Function test 5 (getMinimumPopulationDensity): function getMinimumPopulationDensity not found
+  Function test 6 (predictPopulation): function predictPopulation not found
+  Function test 7 (predictPopulation): function predictPopulation not found
+  Function test 8 (predictPopulation): function predictPopulation not found
+  Function test 9 (predictPopulation): function predictPopulation not found
+  Function test 10 (predictPopulation): function predictPopulation not found
+  Function test 11 (calcGrowthRate): function calcGrowthRate not found
+  Function test 12 (calcGrowthRate): function calcGrowthRate not found
+  Function test 13 (calcGrowthRate): function calcGrowthRate not found
+  Function test 14 (calcGrowthRate): function calcGrowthRate not found
+  Main function print test 1: PASS
+  Main function print test 2: expected (5686986.0) but found (0)
+  Main function print test 3: expected (86935.83) but found (0)
+  Main function print test 4: expected (52.002450206414075) but found (0)
+  Main function print test 5: expected (796039951.1495125) but found (0)
+  Main function print test 6: expected (0.005853103209551789) but found (0)
+Score: 5%
 ```
 
 ##  Introduction
