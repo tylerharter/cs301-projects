@@ -22,34 +22,27 @@ You should see the following output:
 ```
 Your Python version: Python 3.6.5
 
+Running your program with this command: python3 main.py
+
 RESULTS:
   Problem 1: function getMaximumLand not found
-  Problem 2: function getMaximumLand not found
-  Problem 3: function getMaximumLand not found
-  Problem 4: function getMaximumLand not found
-  Problem 5: function getMaximumLand not found
-  Problem 6: function getMinimumPopulationDensity not found
-  Problem 7: function getMinimumPopulationDensity not found
-  Problem 8: function getMinimumPopulationDensity not found
-  Problem 9: function getMinimumPopulationDensity not found
-  Problem 10: function getMinimumPopulationDensity not found
-  Problem 11: function predictPopulation not found
-  Problem 12: function predictPopulation not found
-  Problem 13: function predictPopulation not found
-  Problem 14: function predictPopulation not found
-  Problem 15: function predictPopulation not found
-  Problem 16: function calcGrowthRate not found
-  Problem 17: function calcGrowthRate not found
-  Problem 18: function calcGrowthRate not found
-  Problem 19: function calcGrowthRate not found
-  Problem 20: function calcGrowthRate not found
-Score: 0%
+  Problem 2: function getMinimumPopulationDensity not found
+  Problem 3: function predictPopulation not found
+  Problem 4: function predictPopulation not found
+  Problem 5: function calcGrowthRate not found
+  Problem 11: PASS
+  Problem 12: expected (5686986.0) but found (0)
+  Problem 13: expected (86935.83) but found (0)
+  Problem 14: expected (52.002450206414075) but found (0)
+  Problem 15: expected (796039951.1495125) but found (0)
+  Problem 16: expected (0.005853103209551789) but found (0)
+Score: 9%
 ```
 
 ##  Introduction
 We provide you with a data file containing information about 50 states in the United States. Our task for this assignment is to look at the table and try to answer the questions that follow. We are going to write a few functions in order to make these calculations.
 
-The table below shows a **sample** from the dataset that we have. 
+The table below shows a **sample** from the dataset that we have.
 
 <center>
 
@@ -70,7 +63,7 @@ In this project, we are interested in these following 4 questions:
 ### Provided Functions in Module project.py
 We don’t require you to know how to read from data file so we have provided the following functions. Please make sure the data file area.csv and population.csv are in the same folder along with main.py.
 
-**getArea(stateName)** 
+**getArea(stateName)**
 
 getArea function takes the name of one state as an argument and returns the area of this state.
 
@@ -105,7 +98,7 @@ Example:
 
 **Function 2: getMinimumPopulationDensity(stateName1, stateName2, stateName3, year)**
 
-Population density is measured as population per unit area. 
+Population density is measured as population per unit area.
 
 The formula to calculate population density is:
 
@@ -127,7 +120,7 @@ Note: This function has a default argument growthRate. By default it should be 0
 We use the following formula for population growth prediction in this question: <img src="Population.png" alt="drawing" width="100"/>. Here,
 
  1. <img src="Pa.png" alt="drawing" width="15"/> is the population for the specific state in year *a*.
- 2. <img src="Pb.png" alt="drawing" width="15"/> is the predicted population for the specific state in year *b*, *b* > *a*. 
+ 2. <img src="Pb.png" alt="drawing" width="15"/> is the predicted population for the specific state in year *b*, *b* > *a*.
  3. *r* is the growth rate.
  4. *t* is the number of years between year *a* and the year *b*.
 
