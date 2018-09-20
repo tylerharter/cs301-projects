@@ -1,7 +1,7 @@
 #!/usr/bin/python
-import subprocess, json, re, sys
+import subprocess, json, re, sys, importlib
 from inspect import getmembers, isfunction
-import main
+#import main
 
 PASS = 'PASS'
 EPSILON = 0.0001
@@ -100,6 +100,7 @@ def get_python_version(python_binary):
 def mainFunc():
     result = {'score': 0, 'tests': []}
     program = 'main.py'
+    module_name = 'main'
     output = None
 
     python_binary = get_python_binary_name()
@@ -113,6 +114,7 @@ def mainFunc():
 
     if len(sys.argv) == 2:
         program = sys.argv[1]
+        module_name = program.split('.')[0]
     try:
         cmd = [python_binary, program]
         print('Running your program with this command: ' + ' '.join(cmd) + '\n')
@@ -120,7 +122,8 @@ def mainFunc():
     except:
         print('Your Python program crashed.  Please fix it to get any points.')
 
-    studentFunctions = dict([func for func in getmembers(main) if isfunction(func[1])])
+    main_module = importlib.import_module(module_name)
+    studentFunctions = dict([func for func in getmembers(main_module) if isfunction(func[1])])
     for problemNum in range(1, TESTS_FUNC_NUM + 1):
         testCase = TESTS_FUNC[problemNum - 1]
         try:
