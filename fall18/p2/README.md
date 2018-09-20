@@ -138,8 +138,10 @@ The function should take in the values for the state name, state growth rate and
 Example:
 
 ```
->>> predictPopulation("Wisconsin", 0.5, 2000, 2010)
+>>> predictPopulation("Wisconsin", 2000, 2010, 0.5)
 >>> 796039951.1495125
+>>> predictPopulation("Wisconsin", 2000, 2010)
+>>> 14579980.286260068
 ```
 
 **Function 4: calcGrowthRate(stateName, yearA, yearB)**
