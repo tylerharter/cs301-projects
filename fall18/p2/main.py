@@ -63,7 +63,7 @@ def main():
     # Solving Q2: Finding minimum Population Density
     # Fix the code below to print out the correct value
     print('Problem 4')
-    print("Minimum population density among Wisconsin, Iowa, Minnesota is ")
+    print("Minimum population density among Wisconsin, Iowa, Minnesota in 2000 is ")
     print(0)
     print()
 
