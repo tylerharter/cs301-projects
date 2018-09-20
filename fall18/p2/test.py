@@ -27,7 +27,7 @@ TESTS_PRINT = [
     ["The area of Wisconsin is ", 65496.38], #1
     ["The population of Wisconsin in 2010 is ", 5686986.0], #2
     ["Maximum land area among Wisconsin, Iowa, Minnesota is ", 86935.83], #3
-    ["Minimum population density among Wisconsin, Iowa, Minnesota is ", 52.002450206414075], #4
+    ["Minimum population density among Wisconsin, Iowa, Minnesota in 2000 is ", 52.002450206414075], #4
     ["The predicted population for Wisconsin in year 2010 is (assume start yearA is 2000, growth rate is 0.5) ", 796039951.1495125], #5
     ["The growth rate for Wisconsin between year 2000 and 2010 is ", 0.005853103209551789] #6
 ]
