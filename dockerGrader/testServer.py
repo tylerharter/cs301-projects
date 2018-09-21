@@ -103,7 +103,6 @@ def dockerTimer(containerId, project, netId):
     time.sleep(3)
     exitCode, isRunning = containerStatus(containerId)
     if isRunning:
-        subprocess.run(forceKillCmd)
         uploadResult(project, netId, {"error":"Timeout"})
         logging.info("project: {}, netid: {}, timeout".format(project, netId))
     elif exitCode:
@@ -112,6 +111,7 @@ def dockerTimer(containerId, project, netId):
     else:
         uploadResult(project, netId)
         logging.info("project: {}, netid: {}, docker exit normally".format(project, netId))
+    subprocess.run(forceKillCmd)
 
 def sendToDocker(project, netId):
     # create directory to mount inside a docker container
@@ -147,7 +147,7 @@ def sendToDocker(project, netId):
     waitDockerCmd = ['docker', 'wait', containerId]
     timer = timerThread(containerId, project, netId)
     timer.start()
-    subprocess.check_output(waitDockerCmd)
+    # subprocess.check_output(waitDockerCmd)
 
 @app.route('/')
 def index():
