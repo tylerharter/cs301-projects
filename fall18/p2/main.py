@@ -33,7 +33,6 @@ import math
 # Note: You shouldn't use print in this function.
 
 def main():
-    # Example state names. Please play around by changing the state names
     # Fix the main code so it will print the correct value
 
     # Problem 1
