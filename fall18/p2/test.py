@@ -136,6 +136,7 @@ def mainFunc():
             'test': "Function test {} ({})".format(problemNum, testCase[0]),
             'result': testResult
         })
+    problems = dict() # key:problem number, val: list of lines
     if output:
         # normalize windows => unix, as a string (not bytes)
         output = str(output, 'utf-8')
@@ -143,7 +144,6 @@ def mainFunc():
 
         # chuck output lines by problem
         problem_number = None
-        problems = dict() # key:problem number, val: list of lines
         for line in output.split('\n'):
             m = re.match(r'Problem (\d+)$', line)
             if m:
@@ -152,21 +152,21 @@ def mainFunc():
             elif problem_number:
                 problems[problem_number].append(line)
 
-        for problemNum in range(1, TESTS_PRINT_NUM + 1):
-            testCase = TESTS_PRINT[problemNum - 1]
-            lines = problems.pop(problemNum, None)         # student code
-            # did student produce output?
-            if lines is None:
-                result['tests'].append({
-                    'test': "Main function print test (Problem {})".format(problemNum),
-                    'result': 'Main function print test {} output missing'.format(problemNum)
-                })
-                continue
-            testResult = runPrintTest(lines, testCase)
+    for problemNum in range(1, TESTS_PRINT_NUM + 1):
+        testCase = TESTS_PRINT[problemNum - 1]
+        lines = problems.pop(problemNum, None)         # student code
+        # did student produce output?
+        if lines is None:
             result['tests'].append({
                 'test': "Main function print test (Problem {})".format(problemNum),
-                'result': testResult
+                'result': 'Main function print test {} output missing'.format(problemNum)
             })
+            continue
+        testResult = runPrintTest(lines, testCase)
+        result['tests'].append({
+            'test': "Main function print test (Problem {})".format(problemNum),
+            'result': testResult
+        })
 
     # final score
     passing = [t for t in result['tests'] if t['result'] == PASS]
