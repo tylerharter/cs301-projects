@@ -1,10 +1,9 @@
-import base64, boto3, botocore, logging, os, sys, json, subprocess, shutil, threading, time
+import base64, boto3, botocore, logging, os, sys, json, subprocess, shutil, threading, time, traceback
 from flask import Flask
 
 ACCESS_PATH = "projects/{project}/users/{googleId}/curr.json"
 CODE_DIR = "./submission"
 TEST_DIR = "/tmp/test/{netId}"
-
 SUBMISSIONS = 'submissions'
 BUCKET = 'caraza-harter-cs301'
 session = boto3.Session(profile_name='cs301ta')
@@ -29,7 +28,7 @@ class timerThread(threading.Thread):
             dockerTimer(self.project, self.netId)
         except Exception as e:
             logging.warning("Unexpcted exception {} in timer threads: {}".format(
-                str(e), sys.exc_info()))
+                str(e), traceback.format_exc()))
 
 def downloadSubmission(projectPath):
     # a project path will look something like this:
@@ -77,7 +76,7 @@ def lookupGoogleId(netId):
             # unexpected error
             logging.warning(
                 'Unexpected error when look up Googlg ID:' + e.response['Error']['Code'])
-        raise e
+            raise e
 
 def fetchFromS3(project, netId):
     googleId = lookupGoogleId(netId)
@@ -146,7 +145,6 @@ def dockerTimer(project, netId):
 def sendToDocker(project, netId):
     timer = timerThread(project, netId)
     timer.start()
-    # subprocess.check_output(waitDockerCmd)
 
 @app.route('/')
 def index():
@@ -158,6 +156,6 @@ def gradingJson(project, netId):
         fetchFromS3(project, netId)
         sendToDocker(project, netId)
     except Exception as e:
-        logging.warning("Unexpcted exception {} in gradingJson: {}".format(
-            str(e), sys.exc_info()))
+        logging.warning("Unexpcted exception {} in gradingJson:".format(
+            str(e), traceback.format_exc()))
     return "{}"
