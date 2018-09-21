@@ -26,7 +26,11 @@ class timerThread(threading.Thread):
         self.project = project
         self.netId = netId
     def run(self):
-        dockerTimer(self.containerId, self.project, self.netId)
+        try:
+            dockerTimer(self.containerId, self.project, self.netId)
+        except Exception as e:
+            logging.warning("Unexpcted exception {} in timer threads: {}".format(
+                str(e), sys.exc_info()))
 
 def downloadSubmission(projectPath):
     # a project path will look something like this:
@@ -155,5 +159,6 @@ def gradingJson(project, netId):
         fetchFromS3(project, netId)
         sendToDocker(project, netId)
     except Exception as e:
-        logging.warning("Unexpected Error: " + str(e))
+        logging.warning("Unexpcted exception {} in gradingJson: {}".format(
+            str(e), sys.exc_info()))
     return "{}"
