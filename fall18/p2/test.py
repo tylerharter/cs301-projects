@@ -78,7 +78,7 @@ def runFuncTest(functionName, fn, args, expectedResult):
         return "function %s not found" % functionName
     if abs(actualResult - expectedResult) > EPSILON:
         return "%s(%s) expected return %s but found %s" % (
-            functionName, ', '.join([str(arg) for arg in args]), actualResult, expectedResult)
+            functionName, ', '.join([str(arg) for arg in args]), expectedResult, actualResult)
     return PASS
 
 def get_python_binary_name():
