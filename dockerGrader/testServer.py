@@ -20,14 +20,13 @@ logging.basicConfig(
     level=logging.INFO)
 
 class timerThread(threading.Thread):
-    def __init__(self, containerId, project, netId):
+    def __init__(self, project, netId):
         threading.Thread.__init__(self)
-        self.containerId = containerId
         self.project = project
         self.netId = netId
     def run(self):
         try:
-            dockerTimer(self.containerId, self.project, self.netId)
+            dockerTimer(self.project, self.netId)
         except Exception as e:
             logging.warning("Unexpcted exception {} in timer threads: {}".format(
                 str(e), sys.exc_info()))
@@ -98,22 +97,7 @@ def containerStatus(containerId):
         logging.warning("Unexpected response when checking the container {} running status. Response: {}".format(containerId, output))
         return None, None
 
-def dockerTimer(containerId, project, netId):
-    forceKillCmd = ["docker", "rm", "-f", containerId]
-    time.sleep(3)
-    exitCode, isRunning = containerStatus(containerId)
-    if isRunning:
-        uploadResult(project, netId, {"error":"Timeout"})
-        logging.info("project: {}, netid: {}, timeout".format(project, netId))
-    elif exitCode:
-        uploadResult(project, netId, {"error":"ExitCode:" + str(exitCode)})
-        logging.info("project: {}, netid: {}, exit with {}".format(project, netId, exitCode))
-    else:
-        uploadResult(project, netId)
-        logging.info("project: {}, netid: {}, docker exit normally".format(project, netId))
-    subprocess.run(forceKillCmd)
-
-def sendToDocker(project, netId):
+def dockerTimer(project, netId):
     # create directory to mount inside a docker container
     curTestDir = TEST_DIR.format(netId=netId)
     if os.path.exists(curTestDir):
@@ -132,7 +116,6 @@ def sendToDocker(project, netId):
 
     # run tests inside a docker container
     image = 'python:3.7-stretch' # TODO: find/build some anaconda image
-
     cmd = ['docker', 'run',                           # start a container
            '-d',                                      # detach mode
            '-v', os.path.abspath(curTestDir)+':/code',  # share the test dir inside
@@ -145,7 +128,23 @@ def sendToDocker(project, netId):
     containerId = subprocess.check_output(cmd).decode("ascii").replace("\n","")
     logging.info("container id:" + containerId)
     waitDockerCmd = ['docker', 'wait', containerId]
-    timer = timerThread(containerId, project, netId)
+
+    forceKillCmd = ["docker", "rm", "-f", containerId]
+    time.sleep(3)
+    exitCode, isRunning = containerStatus(containerId)
+    if isRunning:
+        uploadResult(project, netId, {"error":"Timeout"})
+        logging.info("project: {}, netid: {}, timeout".format(project, netId))
+    elif exitCode:
+        uploadResult(project, netId, {"error":"ExitCode:" + str(exitCode)})
+        logging.info("project: {}, netid: {}, exit with {}".format(project, netId, exitCode))
+    else:
+        uploadResult(project, netId)
+        logging.info("project: {}, netid: {}, docker exit normally".format(project, netId))
+    subprocess.run(forceKillCmd)
+
+def sendToDocker(project, netId):
+    timer = timerThread(project, netId)
     timer.start()
     # subprocess.check_output(waitDockerCmd)
 
