@@ -154,6 +154,7 @@ if __name__ == "__main__":
     for i in range(5):
         time.sleep(1)
         print("...")
+    pause = input("Press any key to continue. Please make sure all docker tasks finished.")
     gradeInfo = downloadGrade(netIdList, args.project)
     generateCsv(gradeInfo, "{}_{}.csv".format(
         args.project, time.strftime("%m%d_%H%M", time.gmtime(time.time()))))
