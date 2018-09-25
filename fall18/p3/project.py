@@ -1,36 +1,46 @@
 import csv
-hurricane_data_do_not_touch = []
+__hurricane__ = []
 def init():
+    """This function will read in the csv_file and store it in a list of dictionaries"""
     with open('hurricanes.csv', mode='r') as csv_file:
         csv_reader = csv.DictReader(csv_file)
         for row in csv_reader:
-            hurricane_data_do_not_touch.append(row)
+            __hurricane__ .append(row)
             
 def getNumRecords():
-    return len(hurricane_data_do_not_touch)
+    """This function will return the number of records in the dataset"""
+    return len(__hurricane__ )
 
 def getName(index):
-    return hurricane_data_do_not_touch[int(index) - 1]['Name']
+    """This function will return the name of the hurricane at the given index"""
+    return __hurricane__ [int(index)]['Name']
 
 def getDate(index):
-    return int(hurricane_data_do_not_touch[int(index) - 1]['Date'])
+    """This function will return the date of the hurricane at the given index"""
+    return int(__hurricane__ [int(index)]['Date'])
 
 def getTime(index):
-    return int(hurricane_data_do_not_touch[int(index) - 1]['Time'])
+    """This function will return the time of the hurricane at the given index"""
+    return int(__hurricane__ [int(index)]['Time'])
 
 def getStatus(index):
-    return hurricane_data_do_not_touch[int(index) - 1]['Status']
+    """This function will return the status of the hurricane at the given index"""
+    return __hurricane__ [int(index)]['Status']
 
 def getLatitude(index):
-    return hurricane_data_do_not_touch[int(index) - 1]['Latitude']
+    """This function will return the Latitude of the hurricane at the given index"""
+    return __hurricane__ [int(index)]['Latitude']
 
 def getLongitude(index):
-    return hurricane_data_do_not_touch[int(index) - 1]['Longitude']
+    """This function will return the Longitude of the hurricane at the given index"""
+    return __hurricane__ [int(index)]['Longitude']
 
 def getWindSpeed(index):
-    return int(hurricane_data_do_not_touch[int(index) - 1]['WindSpeed'])
+    """This function will return the WindSpeed of the hurricane at the given index"""
+    return int(__hurricane__ [int(index)]['WindSpeed'])
 
 def getOcean(index):
-    return hurricane_data_do_not_touch[int(index) - 1]['Ocean']
+    """This function will return the oceanName of the hurricane at the given index"""
+    return __hurricane__ [int(index)]['Ocean']
 
 init()
