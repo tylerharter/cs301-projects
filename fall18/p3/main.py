@@ -1,7 +1,13 @@
 import project 
 
+# my-login: YOUR-NETID
+# partner-login: PARTNER-NETID
+
 #Function 1
 #testGetNumRecords()
+def testGetNumRecords():
+    pass
+
 
 
 #Function 2
@@ -13,7 +19,14 @@ import project
 
 #Function 4
 #searchHurricane(name)
-
+def serachHurricane(name):
+    #create counter here
+    while(False): #stopping condition, this will currently not loop, fix it
+        #code you want to occur every loop goes here     
+        pass
+        #code you want to occur every loop stops here
+        #increment should go here
+    return 0 
 
 #Function 5
 #searchHurricaneByLocation(lat, long)
