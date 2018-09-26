@@ -11,11 +11,11 @@ def testGetNumRecords():
 
 
 #Function 2
-#testGetName(index)
+#testGetName(row)
 
 
 #Function 3
-#testGetWindSpeed(index)
+#testGetWindSpeed(row)
 
 #Function 4
 #searchHurricane(name)
