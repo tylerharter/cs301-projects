@@ -56,9 +56,9 @@ implement the first three functions in the main.py file.
 
 These should be:
 
-testGetNumRecords()
-testGetName(row)
-testGetWindSpeed(row)
+1. testGetNumRecords()
+2. testGetName(row)
+3. testGetWindSpeed(row)
 
 * Reminder: quite a few things in computer science are indexed by 0, this means that the 1st row of the dataset would actually be located at the 0th index. Remember to do this small conversion
 * These three functions are simple shells which will just test your ability to use the functions provided in the project.py file
@@ -66,7 +66,8 @@ testGetWindSpeed(row)
 
 
 ## Step 2.
-implement the search hurricane function
+Implement the search hurricane function
+
 this might be your first time attemping to implement a while loop.
 As a recap there are 3 important elements to remember when designing a loop
 
@@ -84,32 +85,32 @@ For this function you will be given the name of a hurricane as a parameter and i
 ## Step 3. 
 
 Implement the searchHurricaneByLocation(lat, long) function
-this function should be similar to what you did in the searchHurricane function
-Just remember you have two values that need to match to one hurricane now
-And instead of returning true or false, you need to return the name of the hurricane at that location
+
+* this function should be similar to what you did in the searchHurricane function
+* Just remember you have two values that need to match to one hurricane now
+* Instead of returning true or false, you need to return the name of the hurricane at that location
 
 ## Step 4.
 
 Implement the countHurricane(oceanName) function
-For this function you will still be looping over all the values in the dataset
-However now we aren't looking for one item, but rather looking for a whole lot of items
-loop through the dataset and count each time you find an item that its from the ocean indicated by oceanName
 
-this function should take in the name of the ocean you are searching for as oceanName, and it should return the count of how many times it was found
+* For this function you will still be looping over all the values in the dataset
+* However now we aren't looking for one item, but rather looking for a whole lot of items
+* loop through the dataset and count each time you find an item that its from the ocean indicated by oceanName
+* this function should take in the name of the ocean you are searching for as oceanName, and it should return the count of how many times it was found
 
 
 ## Step 5.
 
-Implement Max/Min WindSpeed() fucntions
-For this function you will need to loop through all the WindSpeed values in the dataset and determine the largest and smallest values
+Implement Max/Min WindSpeed() functions
+* For this function you will need to loop through all the WindSpeed values in the dataset and determine the largest and smallest values
+* your function should take in no parameters and return the largest/smallest value respectively 
 
-your function should take in no parameters and return the largest/smallest value respectively 
+## Step 6.
 
-##Step 6.
-
-Solve the problems in main using the functions that you have already created in the previous steps
-This step just involves calling the functions that you designed in order to answer some questions that we provided.
-It is important that you use your functions to solve these problems, so make sure that each of your solutions calls atleast one of the functions that you created
+* Solve the problems in main using the functions that you have already created in the previous steps
+* This step just involves calling the functions that you designed in order to answer some questions that we provided.
+* It is important that you use your functions to solve these problems, so make sure that each of your solutions calls atleast one of the functions that you created
 
 
 
