@@ -49,6 +49,20 @@ RESULTS:
 Score: 4%
 ```
 
+# IMPORTANT NOTE
+In Computer Science, indexing starts with the number 0(zero) and not with
+1(one).
+* So, if I ask you what is the name of the first (1st) hurricane in the dataset
+(i.e., hurricanes.csv), then the answer is `'HEIDI'` (see the hurricanes.csv
+file to confirm this).
+* What is the hurricane at index 1 (one)? In this case, the answer is `'OLAF'`
+since `'HEIDI'` is at index 0 (zero) and `'OLAF'` is at index 1 (one).
+* So, what is the second (2nd) hurricane in the dataset? YES! The answer is
+still `'OLAF'` since it's the second hurricane (that is at index 1) in the
+given dataset.
+* What is the third hurricane in the dataset? It's the hurricane at index 2
+which is 'TINA'.
+
 # Directions
 
 The order in which you should implement the functions are as follows:
