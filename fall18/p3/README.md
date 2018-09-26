@@ -1,14 +1,16 @@
 # Project 3
 
-This project will focus on **conditional statments** and **loops**, to start download the 4 files given below.
-For those using pycharm, it may be easier to make a new project before downloading these files so that you can save these files in the new project directory that you created.
+This project will focus on **conditional statments** and **loops**. To start
+download the 4 files given below.  For those using pycharm, it may be easier to
+make a new project before downloading these files, so that you can save these
+files in the new project directory that you created.
 
 * [main.py](https://raw.githubusercontent.com/tylerharter/cs301-projects/master/fall18/p3/main.py)
 * [project.py](https://raw.githubusercontent.com/tylerharter/cs301-projects/master/fall18/p3/project.py)
 * [test.py](https://raw.githubusercontent.com/tylerharter/cs301-projects/master/fall18/p3/test.py)
 * [hurricanes.csv](https://raw.githubusercontent.com/tylerharter/cs301-projects/master/fall18/p3/hurricanes.csv)
 
-A reminder: only make changes to the main.py file.
+**A reminder:** You should make your changes ONLY to the **main.py** file. DO NOT EDIT ANY OTHER FILES.
 
 After getting all the files into the same directory try running
 
@@ -58,30 +60,32 @@ Implement the problems **1 - n1** in under the main function.
 Implement the `searchHurricane(name)` function.
 
 This might be your first time attemping to implement a while loop.
-As a recap there are 3 important elements to remember when designing a loop:
+As a recap, there are 3 important elements to remember when designing a loop:
 
 1. The stopping condition. 
-2. Code to run on every iteration of th loop.
+2. Code to run on every iteration of the loop.
 3. An increment/decrement statement. 
 
-A small framework to help you design a while loop has been givin in main.py, this is given to demonstrate which element goes where in the loop.
+A small framework to help you design a while loop has been givin in main.py for this function. This is given to demonstrate which element goes where in the loop.
 
 * For this function you will be given the name of a hurricane as a parameter
 and it is your goal to return `True` if the hurricane is in the database, and
 `False` if it is not.
 
-* If the name of the hurricane is not found in the list of hurricanes (in the
-file hurricanes.csv), then this function should return `None`. `None` is special
-data type in python which represents the absense of a value. For example, in
-this case, `None` signifies that there is no hurricane with the given name.
-
 ## Step 3. 
 Implement the `searchHurricaneByLocation(latitude, longitude)` function.
 
-* This function should be similar to what you did in the `searchHurricane()` function.
-* Just remember you have two values (i.e., `latitude` and `longitude`) that need to match to one hurricane now.
-* Instead of returning `True` or `False`, you need to return the name of the hurricane at that location.
-* If there are no hurricanes with the given `latitude` and `longitude`, then this function should return `None`.
+* This function should be similar to what you did in the `searchHurricane()`
+function.
+* Just remember you have two values (i.e., `latitude` and `longitude`) that
+need to match to one hurricane now.
+* Instead of returning `True` or `False`, you need to return the name of the
+hurricane at that location.
+* If there are no hurricanes with the given `latitude` and `longitude`, then
+this function should return `None`.  `None` is special value in python
+which represents the absense of something. For example, in this case, `None`
+signifies that there is no hurricane with the given `latitude` and `longitude`.
+
 
 ## Step 4.
 Implement the `countHurricane(oceanName)` function.
