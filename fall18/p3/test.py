@@ -45,49 +45,61 @@ if PYTHON_VERSION.lower().find('python 3') < 0:
 
 def problem_1(actual_lines):
     return check_problem(actual_lines, [
-        "The number of records in the DataSet is ",
+        "The number of records in the dataset is ",
         529
     ])
 
 def problem_2(actual_lines):
     return check_problem(actual_lines, [
-        "The name of the hurricane in the 20th row of the dataset is ",
-        "BABE"
+        "The name of the first hurricane (the one at index 0) is ",
+        "HEIDI"
     ])
 
 def problem_3(actual_lines):
     return check_problem(actual_lines, [
-        "Does the hurricane 'BOB' Exist in the Dataset?",
-        "True"
+        "The name of the second hurricane (the one at index 1) is ",
+        "OLAF"
     ])
 
 def problem_4(actual_lines):
     return check_problem(actual_lines, [
-        "Does the hurricane 'BRITNEY' Exist in the Dataset?",
-        "False"
+        "The name of the hurricane in the 20th row of the dataset is ",
+        "BABE"
     ])
 
 def problem_5(actual_lines):
+    return check_problem(actual_lines, [
+        "Does the hurricane 'BOB' exist in the dataset?",
+        "True"
+    ])
+
+def problem_6(actual_lines):
+    return check_problem(actual_lines, [
+        "Does the hurricane 'BRITNEY' exist in the dataset?",
+        "False"
+    ])
+
+def problem_7(actual_lines):
     return check_problem(actual_lines, [
         "Find the hurricane that came at 9.0N Latitude and 157.0W Longitude",
         "JUNE"
     ])
 
-def problem_6(actual_lines):
+def problem_8(actual_lines):
     return check_problem(actual_lines, [
         "How many hurricanes came from the Pacific?",
         241
     ])
 
-def problem_7(actual_lines):
+def problem_9(actual_lines):
     return check_problem(actual_lines, [
         "How many hurricanes came from the Atlantic?",
         288
     ])
 
-def problem_8(actual_lines):
+def problem_10(actual_lines):
     return check_problem(actual_lines, [
-        "What is the difference between the max Windspeed and min Windspeed of the dataSet?",
+        "What is the difference between the max wind speed and min wind speed of the dataset?",
         65
     ])
 
@@ -96,29 +108,6 @@ def problem_8(actual_lines):
 ##################################################
 
 def test_1():
-    error = check_has_function('testGetNumRecords')
-    if error:
-        return error
-    expected = 529
-    actual = MAIN.testGetNumRecords()
-    return check_answer(expected, actual)
-
-def test_2():
-    error = check_has_function('testGetName')
-    if error:
-        return error
-    actual = MAIN.testGetName(24)
-    return check_answer(expected, actual)
-
-def test_3():
-    error = check_has_function('testGetWindSpeed')
-    if error:
-        return error
-    expected = 25
-    actual = MAIN.testGetWindSpeed(38)
-    return check_answer(expected, actual)
-
-def test_4():
     error = check_has_function('searchHurricane')
     if error:
         return error
@@ -126,7 +115,7 @@ def test_4():
     actual = MAIN.searchHurricane("EMILY")
     return check_answer(expected, actual)
 
-def test_5():
+def test_2():
     error = check_has_function('searchHurricane')
     if error:
         return error
@@ -134,7 +123,7 @@ def test_5():
     actual = MAIN.searchHurricane("Random1")
     return check_answer(expected, actual)
 
-def test_6():
+def test_3():
     error = check_has_function('searchHurricane')
     if error:
         return error
@@ -142,7 +131,7 @@ def test_6():
     actual = MAIN.searchHurricane("KENNETH")
     return check_answer(expected, actual)
 
-def test_7():
+def test_4():
     error = check_has_function('searchHurricane')
     if error:
         return error
@@ -150,7 +139,7 @@ def test_7():
     actual = MAIN.searchHurricane("BORA")
     return check_answer(expected, actual)
 
-def test_8():
+def test_5():
     error = check_has_function('searchHurricaneByLocation')
     if error:
         return error
@@ -158,7 +147,7 @@ def test_8():
     actual = MAIN.searchHurricaneByLocation("12.9N", "20.5W")
     return check_answer(expected, actual)
 
-def test_9():
+def test_6():
     error = check_has_function('searchHurricaneByLocation')
     if error:
         return error
@@ -166,7 +155,7 @@ def test_9():
     actual = MAIN.searchHurricaneByLocation("11.2N","95.0W")
     return check_answer(expected, actual)
 
-def test_10():
+def test_7():
     error = check_has_function('countHurricane')
     if error:
         return error
@@ -174,7 +163,7 @@ def test_10():
     actual = MAIN.countHurricane("Atlantic")
     return check_answer(expected, actual)
 
-def test_12():
+def test_8():
     error = check_has_function('countHurricane')
     if error:
         return error
@@ -182,13 +171,22 @@ def test_12():
     actual = MAIN.maxWindSpeedHurricane()
     return check_answer(expected, actual)
 
-def test_13():
+def test_9():
     error = check_has_function('minWindSpeedHurricane')
     if error:
         return error
     expected = 15
     actual = MAIN.minWindSpeedHurricane()
     return check_answer(expected, actual)
+
+def test_10():
+    error = check_has_function('maxWindSpeedHurricane')
+    if error:
+        return error
+    expected = 80
+    actual = MAIN.maxWindSpeedHurricane()
+    return check_answer(expected, actual)
+
 
 def check_has_function(function_name):
     for name, member in getmembers(MAIN):

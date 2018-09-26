@@ -3,86 +3,73 @@ import project
 # my-login: YOUR-NETID
 # partner-login: PARTNER-NETID
 
-#Function 1
-#testGetNumRecords()
-def testGetNumRecords():
-    pass
+# TODO: finish this function
+def searchHurricane(name):
+    # create an index variable, starting at 0
 
+    while(False): # stopping condition, this will currently not loop, fix it
+        pass # this is a placeholder for an empty loop, so delete it
+        
+        # use the project.getName function to check if the hurricane
+        # at the current index is the one we're looking for
 
-
-#Function 2
-#testGetName(row)
-
-
-#Function 3
-#testGetWindSpeed(row)
-
-#Function 4
-#searchHurricane(name)
-def serachHurricane(name):
-    #create counter here
-    while(False): #stopping condition, this will currently not loop, fix it
-        #code you want to occur every loop goes here     
-        pass
-        #code you want to occur every loop stops here
-        #increment should go here
+        # increment your index
     return 0 
 
-#Function 5
-#searchHurricaneByLocation(lat, long)
+
+# TODO: define searchHurricaneByLocation(lat, long)
 
 
-
-#Function 6
-#countHurricane(oceanName)       
+# TODO: define countHurricane(oceanName)       
         
 
-#Function 7
-#maxWindSpeedHurricane()
+# TODO: define maxWindSpeedHurricane()
 
-#Function 8 
-#minWindSpeedHurricane()
+
+# TODO: define minWindSpeedHurricane()
+
 
 def main():
-    print("Problem 1")
-    print("The number of records in the DataSet is ")
-    print(0)
-    print()
-    
-    print("Problem 2")
+    print("\nProblem 1")
+    print("The number of records in the dataset is ")
+    print() # answer here
+
+    print("\nProblem 2")
+    print("The name of the first hurricane (the one at index 0) is ")
+    print() # answer here
+
+    print("\nProblem 3")
+    print("The name of the second hurricane (the one at index 1) is ")
+    print() # answer here
+
+    print("\nProblem 4")
     print("The name of the hurricane in the 20th row of the dataset is ")
-    print(0)
-    print()
+    print() # answer here
     
-    print("Problem 3")
-    print("Does the hurricane 'BOB' Exist in the Dataset?")
-    print(True)
-    print()
+    print("\nProblem 5")
+    print("Does the hurricane 'BOB' exist in the dataset?")
+    print() # answer here
     
-    print("Problem 4")
-    print("Does the hurricane 'BRITNEY' Exist in the Dataset?")
-    print(0)
-    print()
+    print("\nProblem 6")
+    print("Does the hurricane 'BRITNEY' exist in the dataset?")
+    print() # answer here
     
-    print("Problem 5")
+    print("\nProblem 7")
     print("Find the hurricane that came at 9.0N Latitude and 157.0W Longitude")
-    print(0)
-    print()
+    print() # answer here
     
-    print("Problem 6")
+    print("\nProblem 8")
     print("How many hurricanes came from the Pacific?")
-    print(0)
-    print()
+    print() # answer here
     
-    print("Problem 7")
+    print("\nProblem 9")
     print("How many hurricanes came from the Atlantic?")
-    print(0)
-    print()
+    print() # answer here
     
-    print("Problem 8")
-    print("What is the difference between the max Windspeed and min Windspeed of the dataSet?")
-    print(0)
-    print()
+    print("\nProblem 10")
+    print("What is the difference between the max wind speed and min wind speed of the dataset?")
+    print() # answer here
+
 if __name__ == '__main__':
     main()    
 
