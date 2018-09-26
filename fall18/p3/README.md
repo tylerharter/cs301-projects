@@ -1,6 +1,6 @@
 # Project 3
 
-This project will focus on **conditional statments** and **loops**. To start
+This project will focus on **conditional statments** and **loops**. To start,
 download the 4 files given below.  For those using pycharm, it may be easier to
 make a new project before downloading these files, so that you can save these
 files in the new project directory that you created.
@@ -54,7 +54,7 @@ Score: 4%
 The order in which you should implement the functions are as follows:
 
 ## Step 1.
-Implement the problems **1 - n1** in under the main function.
+Implement the problems **1 - n1** in the main function.
 
 ## Step 2.
 Implement the `searchHurricane(name)` function.
@@ -66,9 +66,9 @@ As a recap, there are 3 important elements to remember when designing a loop:
 2. Code to run on every iteration of the loop.
 3. An increment/decrement statement. 
 
-A small framework to help you design a while loop has been givin in main.py for this function. This is given to demonstrate which element goes where in the loop.
+A small framework to help you design a while loop has been given in main.py for this function. This should help you to determine which element goes where in the loop.
 
-* For this function you will be given the name of a hurricane as a parameter
+* For this function, you will be given the `name` of a hurricane as a parameter
 and it is your goal to return `True` if the hurricane is in the database, and
 `False` if it is not.
 
@@ -90,18 +90,20 @@ signifies that there is no hurricane with the given `latitude` and `longitude`.
 ## Step 4.
 Implement the `countHurricane(oceanName)` function.
 
-* For this function you will still be looping over all the values in the dataset.
-* Loop through the dataset and count each time you find a hurricane that is from the ocean indicated by oceanName.
-* This function should take in the name of the ocean you are searching for as oceanName, and it should return the count of how many times it was found.
+* For this function, you will still be looping over all the values in the dataset.
+* Loop through the dataset and increment a counter each time you find a hurricane that is from the ocean indicated by `oceanName`.
+* This function should take in the name of the ocean you are searching for as `oceanName`, and it should return the count of how many times this `oceanName` was found in the dataset of hurricanes.
 * If there are no hurricanes with the given `oceanName`, then this function should return 0 (zero).
 
 ## Step 5.
 Implement `maxWindSpeed()` and `minWindSpeed()` functions.
-* For this function you will need to loop through all the WindSpeed values in the dataset and determine the largest and smallest values.
+* For this function, you will need to loop through all the WindSpeed values in the dataset and determine the largest and the smallest values.
 * Your function should take in no parameters and return the largest/smallest wind speed value respectively.
 
 ## Step 6.
 * Solve the problems **n1 - n2** in main using the functions that you have already created in the previous steps.
-* This step just involves calling the functions that you designed in order to answer some questions that we have provided.
+* This step just involves **calling** the functions that you designed in order to answer some questions that we have provided.
 * It is important that you use your functions to solve these problems, so make sure that each of your solutions calls atleast one of the functions that you created.
+
+##### Good luck with this project!
 
