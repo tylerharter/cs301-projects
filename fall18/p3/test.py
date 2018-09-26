@@ -77,6 +77,11 @@ def areLinesExpected(actual_lines, expected_lines):
             return 'expected ({}) but found ({})'.format(e, a)
     return None
 
+def runStringFuncTests(actual_line, expected_line):
+    if actual_line.lower() != expected_line.lower():
+        return 'expected ({}) but found ({})'.format(expected_line, actual_line)
+    return PASS
+
 def runPrintTest(lines, expected):
     error = areLinesExpected(lines, expected)
     return error if error else PASS
@@ -90,7 +95,7 @@ def runFuncTest(functionName, fn, args, expectedResult):
         return "%s(%s) expected return %s but found %s" % (
             functionName, ', '.join([str(arg) for arg in args]), expectedResult, actualResult)
     elif type(expectedResult) == str or type(actualResult) == str:
-        return runPrintTest(expectedResult, actualResult)
+        return runStringFuncTests(str(actualResult) , str(expectedResult))
         
     return PASS
 
