@@ -1,7 +1,7 @@
 # Project 3
 
-This project will focus on conditional statments and loops, to start download these files:
-For those using pycharm, it may be easier to make the new project before downloading the files so you can save the files to the new directory created
+This project will focus on **conditional statments** and **loops**, to start download the 4 files given below.
+For those using pycharm, it may be easier to make a new project before downloading these files so that you can save these files in the new project directory that you created.
 
 * [main.py](https://raw.githubusercontent.com/tylerharter/cs301-projects/master/fall18/p3/main.py)
 * [project.py](https://raw.githubusercontent.com/tylerharter/cs301-projects/master/fall18/p3/project.py)
@@ -10,13 +10,13 @@ For those using pycharm, it may be easier to make the new project before downloa
 
 A reminder: only make changes to the main.py file.
 
-after getting all the files into the same directory try running 
+After getting all the files into the same directory try running
 
 ```
 python test.py
 ```
 
-you should see 
+and you should see 
 ```
 Your Python version: Python 3.6.5 :: Anaconda, Inc.
 
@@ -49,68 +49,55 @@ Score: 4%
 
 # Directions
 
-The Order in which you should implement the functions are as follows:
+The order in which you should implement the functions are as follows:
 
 ## Step 1.
-implement the first three functions in the main.py file.
-
-These should be:
-
-1. testGetNumRecords()
-2. testGetName(row)
-3. testGetWindSpeed(row)
-
-* Reminder: quite a few things in computer science are indexed by 0, this means that the 1st row of the dataset would actually be located at the 0th index. Remember to do this small conversion.
-* These three functions are simple shells which will just test your ability to use the functions provided in the project.py file.
-* the first function has been made into a shell using pass to demonstrate how to design function shells in this manner.
-
+Implement the problems **1 - n1** in under the main function.
 
 ## Step 2.
-Implement the search hurricane function.
+Implement the `searchHurricane(name)` function.
 
-this might be your first time attemping to implement a while loop.
+This might be your first time attemping to implement a while loop.
 As a recap there are 3 important elements to remember when designing a loop:
 
 1. The stopping condition. 
-2. Code to be implemented on Every Loop.
-3. An increment/decrement. 
+2. Code to run on every iteration of th loop.
+3. An increment/decrement statement. 
 
- A small framework to help you design a while loop has been givin in main.py, this should help to demonstrate which element goes where.
+A small framework to help you design a while loop has been givin in main.py, this is given to demonstrate which element goes where in the loop.
 
-For this function you will be given the name of a hurricane as a parameter and it is your goal to return true if the hurricane is in the database, and false if it is not.
+* For this function you will be given the name of a hurricane as a parameter
+and it is your goal to return `True` if the hurricane is in the database, and
+`False` if it is not.
 
-
-
+* If the name of the hurricane is not found in the list of hurricanes (in the
+file hurricanes.csv), then this function should return `None`. `None` is special
+data type in python which represents the absense of a value. For example, in
+this case, `None` signifies that there is no hurricane with the given name.
 
 ## Step 3. 
+Implement the `searchHurricaneByLocation(latitude, longitude)` function.
 
-Implement the searchHurricaneByLocation(lat, long) function.
-
-* this function should be similar to what you did in the searchHurricane function.
-* Just remember you have two values that need to match to one hurricane now.
-* Instead of returning true or false, you need to return the name of the hurricane at that location.
+* This function should be similar to what you did in the `searchHurricane()` function.
+* Just remember you have two values (i.e., `latitude` and `longitude`) that need to match to one hurricane now.
+* Instead of returning `True` or `False`, you need to return the name of the hurricane at that location.
+* If there are no hurricanes with the given `latitude` and `longitude`, then this function should return `None`.
 
 ## Step 4.
-
-Implement the countHurricane(oceanName) function.
+Implement the `countHurricane(oceanName)` function.
 
 * For this function you will still be looping over all the values in the dataset.
-* Loop through the dataset and count each time you find an item that its from the ocean indicated by oceanName.
+* Loop through the dataset and count each time you find a hurricane that is from the ocean indicated by oceanName.
 * This function should take in the name of the ocean you are searching for as oceanName, and it should return the count of how many times it was found.
-
+* If there are no hurricanes with the given `oceanName`, then this function should return 0 (zero).
 
 ## Step 5.
-
-Implement Max/Min WindSpeed() functions
+Implement `maxWindSpeed()` and `minWindSpeed()` functions.
 * For this function you will need to loop through all the WindSpeed values in the dataset and determine the largest and smallest values.
-* Your function should take in no parameters and return the largest/smallest value respectively.
+* Your function should take in no parameters and return the largest/smallest wind speed value respectively.
 
 ## Step 6.
-
-* Solve the problems in main using the functions that you have already created in the previous steps.
-* This step just involves calling the functions that you designed in order to answer some questions that we provided.
+* Solve the problems **n1 - n2** in main using the functions that you have already created in the previous steps.
+* This step just involves calling the functions that you designed in order to answer some questions that we have provided.
 * It is important that you use your functions to solve these problems, so make sure that each of your solutions calls atleast one of the functions that you created.
-
-
-
 
