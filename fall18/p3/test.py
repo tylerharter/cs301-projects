@@ -51,19 +51,19 @@ def problem_1(actual_lines):
 
 def problem_2(actual_lines):
     return check_problem(actual_lines, [
-        "The name of the first hurricane (the one at index 0) is ",
+        "The name of the hurricane at index 0 is ",
         "HEIDI"
     ])
 
 def problem_3(actual_lines):
     return check_problem(actual_lines, [
-        "The name of the second hurricane (the one at index 1) is ",
+        "The name of the hurricane at index 1 is ",
         "OLAF"
     ])
 
 def problem_4(actual_lines):
     return check_problem(actual_lines, [
-        "The name of the hurricane in the 20th row of the dataset is ",
+        "The name of the hurricane at index 19 is ",
         "BABE"
     ])
 
@@ -143,8 +143,8 @@ def test_5():
     error = check_has_function('searchHurricaneByLocation')
     if error:
         return error
-    expected = "FAITH"
-    actual = MAIN.searchHurricaneByLocation("12.9N", "20.5W")
+    expected = "KATHERINE"
+    actual = MAIN.searchHurricaneByLocation("11.5N", "109.8W")
     return check_answer(expected, actual)
 
 def test_6():
@@ -167,8 +167,8 @@ def test_8():
     error = check_has_function('countHurricane')
     if error:
         return error
-    expected = 80
-    actual = MAIN.maxWindSpeedHurricane()
+    expected = 241
+    actual = MAIN.countHurricane("Pacific")
     return check_answer(expected, actual)
 
 def test_9():

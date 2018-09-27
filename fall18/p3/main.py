@@ -1,4 +1,4 @@
-import project 
+import project
 
 # my-login: YOUR-NETID
 # partner-login: PARTNER-NETID
@@ -7,21 +7,22 @@ import project
 def searchHurricane(name):
     # create an index variable, starting at 0
 
-    while(False): # stopping condition, this will currently not loop, fix it
+    while False: # stopping condition, this will currently not loop, fix it
         pass # this is a placeholder for an empty loop, so delete it
-        
+
         # use the project.getName function to check if the hurricane
-        # at the current index is the one we're looking for
+        # at the current index is the one we're looking for and if so
+        # return True
 
         # increment your index
-    return 0 
+    return None  # fix this
 
 
 # TODO: define searchHurricaneByLocation(lat, long)
 
 
-# TODO: define countHurricane(oceanName)       
-        
+# TODO: define countHurricane(oceanName)
+
 
 # TODO: define maxWindSpeedHurricane()
 
@@ -30,22 +31,31 @@ def searchHurricane(name):
 
 
 def main():
+    # For problems 1 to 4, you need not define
     print("\nProblem 1")
     print("The number of records in the dataset is ")
     print() # answer here
 
     print("\nProblem 2")
-    print("The name of the first hurricane (the one at index 0) is ")
+    print("The name of the hurricane at index 0 is ")
     print() # answer here
 
     print("\nProblem 3")
-    print("The name of the second hurricane (the one at index 1) is ")
+    print("The name of the hurricane at index 1 is ")
     print() # answer here
 
     print("\nProblem 4")
-    print("The name of the hurricane in the 20th row of the dataset is ")
+    print("The name of the hurricane at index 19 is ")
     print() # answer here
-    
+
+    # For problems 5 to 10 below, you should first define
+    # the functions given at the top of this file and call
+    # the corresponding function for each problem as needed.
+
+    # For example, you should first define the method named
+    # searchHurricane(name) and then call that method inside
+    # the print statement below (that says # answer here) to
+    # solve problem 5.
     print("\nProblem 5")
     print("Does the hurricane 'BOB' exist in the dataset?")
     print() # answer here
@@ -70,7 +80,6 @@ def main():
     print("What is the difference between the max wind speed and min wind speed of the dataset?")
     print() # answer here
 
+
 if __name__ == '__main__':
     main()    
-
-
