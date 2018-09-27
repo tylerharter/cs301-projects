@@ -128,7 +128,7 @@ Implement the `searchHurricaneByLocation(latitude, longitude)` function.
 dataset, given it's `latitude` and `longitude` as input.
 * This function should be similar to what you did in the `searchHurricane()`
 function.
-* Just remember that, you have two values (i.e., `latitude` and `longitude`) that
+* Just remember that you have two values (i.e., `latitude` and `longitude`) that
 need to match to one hurricane now.
 * Instead of returning `True` or `False`, you need to return the name of the
 hurricane at that location.
