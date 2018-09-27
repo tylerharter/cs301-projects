@@ -31,7 +31,9 @@ def searchHurricane(name):
 
 
 def main():
-    # For problems 1 to 4, you need not define
+    # For problems 1 to 4, you need not define any functions
+    # but instead you just need to use the helper functions
+    # that we have written for you in the file project.py
     print("\nProblem 1")
     print("The number of records in the dataset is ")
     print() # answer here
