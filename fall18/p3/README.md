@@ -68,7 +68,7 @@ Can you tell what is the hurricane at index 10 in this list of hurricanes?
 
 The order in which you should implement the functions are as follows:
 
-## Step 1.
+## Step 1
 Implement the problems 1 - 4 in the `main()` function within
 the file *main.py*. To solve these problems, you don't have to define
 any functions of your own. Instead you should just make use of the
@@ -86,7 +86,7 @@ of each function by doing the following on your python console:
 
 ``` 
 
-## Step 2.
+## Step 2
 Implement (i.e, define) the `searchHurricane(name)` function.
 
 ```python
@@ -122,7 +122,7 @@ and it's goal is to return `True` if the hurricane is in the dataset, and
 * You may have to use the helpers functions provided in *project.py*
 to implement this function and the functions below.
 
-## Step 3. 
+## Step 3
 Implement the `searchHurricaneByLocation(latitude, longitude)` function.
 * The purpose of this function is to find if a hurricane is present in the
 dataset, given it's `latitude` and `longitude` as input.
@@ -137,7 +137,7 @@ this function should return `None`.  `None` is special value in python
 which represents the absence of something. For example, in this case, `None`
 signifies that there is no hurricane with the given `latitude` and `longitude`.
 
-## Step 4.
+## Step 4
 Implement the `countHurricane(oceanName)` function.
 * The purpose of this function is to compute and return the number of
 hurricanes that occured in a particular ocean (e.g., Pacific), given the
@@ -147,21 +147,21 @@ ocean name as input.
 * This function should take in the name of the ocean you are searching for as `oceanName`, and it should return the count of how many times this `oceanName` was found in the dataset of hurricanes.
 * If there are no hurricanes with the given `oceanName`, then this function should return 0 (zero).
 
-## Step 5.
+## Step 5
 Implement `maxWindSpeedHurricane()` function.
 * The purpose of this function is to find and return the maximum wind speed
 among all the hurricanes in the dataset.
 * For this function, you will need to loop through all the wind speed values in the dataset and determine the largest value.
 * Your function should take no parameters and should return the largest wind speed value.
 
-## Step 6.
+## Step 6
 Implement `minWindSpeedHurricane()` function.
 * The purpose of this function is to find and return the minimum wind speed
 among all the hurricanes in the dataset.
 * For this function, you will need to loop through all the wind speed values in the dataset and determine the smallest value.
 * Your function should take no parameters and should return the smallest wind speed value.
 
-## Step 7.
+## Step 7
 * Solve the problems 5 - 10 in main using the functions that you have already created in the previous steps.
 * This step just involves **calling** the functions that you have already defined in order to answer some questions that we have asked.
 * It is important that you use your functions to solve these problems. Make sure that each of your solution calls at least one of the functions that you created.

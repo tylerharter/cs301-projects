@@ -18,7 +18,7 @@ def searchHurricane(name):
     return None  # fix this
 
 
-# TODO: define searchHurricaneByLocation(lat, long)
+# TODO: define searchHurricaneByLocation(latitude, longitude)
 
 
 # TODO: define countHurricane(oceanName)
