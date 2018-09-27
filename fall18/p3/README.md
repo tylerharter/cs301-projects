@@ -11,7 +11,7 @@ download the 4 files given below into your project directory.
 **A reminder:** You should make your changes ONLY to the **main.py** file.
 DO NOT EDIT ANY OTHER FILES.
 
-After getting all the files into the same directory try running the command below:
+After downloading all the files into the same directory try running the command below:
 
 ```
 python test.py
@@ -78,7 +78,7 @@ functions that are defined in *project.py*, you may open that file and
 read the docstring (i.e., the line(s) below the function definition that
 documents the purpose of the function). You may also find the purpose
 of each function by doing the following on your python console:
-```pydocstring
+```python
 >>> import project
 >>> project.getNumRecords.__doc__
 'This function will return the number of records in the dataset'
