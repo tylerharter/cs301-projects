@@ -18,16 +18,16 @@ logging.basicConfig(
     ],
     level=logging.INFO)
 
-class timerThread(threading.Thread):
+class dockerRunThread(threading.Thread):
     def __init__(self, project, netId):
         threading.Thread.__init__(self)
         self.project = project
         self.netId = netId
     def run(self):
         try:
-            dockerTimer(self.project, self.netId)
+            dockerRun(self.project, self.netId)
         except Exception as e:
-            logging.warning("Unexpcted exception {} in timer threads: {}".format(
+            logging.warning("Unexpcted exception {} in docker threads: {}".format(
                 str(e), traceback.format_exc()))
 
 def downloadSubmission(projectPath):
@@ -87,7 +87,11 @@ def fetchFromS3(project, netId):
 
 def containerStatus(containerId):
     checkCmd = ["docker", "inspect", "-f", "{{.State.ExitCode}} {{.State.Running}}", containerId]
-    output = subprocess.check_output(checkCmd).decode("ascii").replace("\n","")
+    try:
+        output = subprocess.check_output(checkCmd).decode("ascii").replace("\n","")
+    except:
+        logging.info("conatiner {} not existed.".format(containerId))
+        return None, None
     response = output.split(' ')
     str2bool = {"false" : False, "true" : True}
     if len(response) == 2:
@@ -96,7 +100,14 @@ def containerStatus(containerId):
         logging.warning("Unexpected response when checking the container {} running status. Response: {}".format(containerId, output))
         return None, None
 
-def dockerTimer(project, netId):
+def rmContainer(containerId):
+    forceRmCmd = ["docker", "rm", "-f", containerId]
+    try:
+        subprocess.check_output(forceKillCmd)
+    except:
+        logging.info("rm cantainer failed. ID: {}".format(containerId))
+
+def dockerRun(project, netId):
     # create directory to mount inside a docker container
     curTestDir = TEST_DIR.format(netId=netId)
     if os.path.exists(curTestDir):
@@ -117,6 +128,7 @@ def dockerTimer(project, netId):
     image = 'python:3.7-stretch' # TODO: find/build some anaconda image
     cmd = ['docker', 'run',                           # start a container
            '-d',                                      # detach mode
+           '--rm',                                    # remove the container when exit
            '-v', os.path.abspath(curTestDir)+':/code',  # share the test dir inside
            '-w', '/code',                             # working dir is w/ code
            image,                                     # what docker image?
@@ -126,9 +138,6 @@ def dockerTimer(project, netId):
     logging.info("docker cmd:" + ' '.join(cmd))
     containerId = subprocess.check_output(cmd).decode("ascii").replace("\n","")
     logging.info("container id:" + containerId)
-    waitDockerCmd = ['docker', 'wait', containerId]
-
-    forceKillCmd = ["docker", "rm", "-f", containerId]
     time.sleep(3)
     exitCode, isRunning = containerStatus(containerId)
     if isRunning:
@@ -140,11 +149,11 @@ def dockerTimer(project, netId):
     else:
         uploadResult(project, netId)
         logging.info("project: {}, netid: {}, docker exit normally".format(project, netId))
-    subprocess.run(forceKillCmd)
+    rmContainer(containerId)
 
 def sendToDocker(project, netId):
-    timer = timerThread(project, netId)
-    timer.start()
+    dockerRun = dockerRunThread(project, netId)
+    dockerRun.start()
 
 @app.route('/')
 def index():
