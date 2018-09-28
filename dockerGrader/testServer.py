@@ -9,7 +9,6 @@ SUBMISSIONS = 'submissions'
 BUCKET = 'caraza-harter-cs301'
 session = boto3.Session(profile_name='cs301ta')
 s3 = session.client('s3')
-
 app = Flask(__name__)
 
 logging.basicConfig(
@@ -18,6 +17,16 @@ logging.basicConfig(
         logging.StreamHandler()
     ],
     level=logging.INFO)
+
+def getCurrentUID():
+    userName = os.environ.get("USER")
+    if not userName:
+        logging.warning("Invalid userName.")
+    r = int(subprocess.check_output(["id", "-u", userName]))
+    logging.info("Current user: {}, current uid: {}".format(userName, r))
+    return r
+
+currentUID = getCurrentUID()
 
 class timerThread(threading.Thread):
     def __init__(self, containerId, project, netId):
@@ -132,6 +141,7 @@ def sendToDocker(project, netId):
     cmd = ['docker', 'run',                           # start a container
            '-d',                                      # detach mode
            '-v', os.path.abspath(curTestDir)+':/code',  # share the test dir inside
+           '-u', str(currentUID),                     # run as local user (instead of root)
            '-w', '/code',                             # working dir is w/ code
            image,                                     # what docker image?
            'python3', 'test.py',
