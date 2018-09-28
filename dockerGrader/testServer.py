@@ -1,10 +1,9 @@
-import base64, boto3, botocore, logging, os, sys, json, subprocess, shutil, threading, time
+import base64, boto3, botocore, logging, os, sys, json, subprocess, shutil, threading, time, traceback
 from flask import Flask
 
 ACCESS_PATH = "projects/{project}/users/{googleId}/curr.json"
 CODE_DIR = "./submission"
 TEST_DIR = "/tmp/test/{netId}"
-
 SUBMISSIONS = 'submissions'
 BUCKET = 'caraza-harter-cs301'
 session = boto3.Session(profile_name='cs301ta')
@@ -28,14 +27,17 @@ def getCurrentUID():
 
 currentUID = getCurrentUID()
 
-class timerThread(threading.Thread):
-    def __init__(self, containerId, project, netId):
+class dockerRunThread(threading.Thread):
+    def __init__(self, project, netId):
         threading.Thread.__init__(self)
-        self.containerId = containerId
         self.project = project
         self.netId = netId
     def run(self):
-        dockerTimer(self.containerId, self.project, self.netId)
+        try:
+            dockerRun(self.project, self.netId)
+        except Exception as e:
+            logging.warning("Unexpcted exception {} in docker threads: {}".format(
+                str(e), traceback.format_exc()))
 
 def downloadSubmission(projectPath):
     # a project path will look something like this:
@@ -83,7 +85,7 @@ def lookupGoogleId(netId):
             # unexpected error
             logging.warning(
                 'Unexpected error when look up Googlg ID:' + e.response['Error']['Code'])
-        raise e
+            raise e
 
 def fetchFromS3(project, netId):
     googleId = lookupGoogleId(netId)
@@ -94,7 +96,11 @@ def fetchFromS3(project, netId):
 
 def containerStatus(containerId):
     checkCmd = ["docker", "inspect", "-f", "{{.State.ExitCode}} {{.State.Running}}", containerId]
-    output = subprocess.check_output(checkCmd).decode("ascii").replace("\n","")
+    try:
+        output = subprocess.check_output(checkCmd).decode("ascii").replace("\n","")
+    except:
+        logging.info("conatiner {} not existed.".format(containerId))
+        return None, None
     response = output.split(' ')
     str2bool = {"false" : False, "true" : True}
     if len(response) == 2:
@@ -103,22 +109,14 @@ def containerStatus(containerId):
         logging.warning("Unexpected response when checking the container {} running status. Response: {}".format(containerId, output))
         return None, None
 
-def dockerTimer(containerId, project, netId):
-    forceKillCmd = ["docker", "rm", "-f", containerId]
-    time.sleep(3)
-    exitCode, isRunning = containerStatus(containerId)
-    if isRunning:
-        subprocess.run(forceKillCmd)
-        uploadResult(project, netId, {"error":"Timeout"})
-        logging.info("project: {}, netid: {}, timeout".format(project, netId))
-    elif exitCode:
-        uploadResult(project, netId, {"error":"ExitCode:" + str(exitCode)})
-        logging.info("project: {}, netid: {}, exit with {}".format(project, netId, exitCode))
-    else:
-        uploadResult(project, netId)
-        logging.info("project: {}, netid: {}, docker exit normally".format(project, netId))
+def rmContainer(containerId):
+    forceRmCmd = ["docker", "rm", "-f", containerId]
+    try:
+        subprocess.check_output(forceKillCmd)
+    except:
+        logging.info("rm cantainer failed. ID: {}".format(containerId))
 
-def sendToDocker(project, netId):
+def dockerRun(project, netId):
     # create directory to mount inside a docker container
     curTestDir = TEST_DIR.format(netId=netId)
     if os.path.exists(curTestDir):
@@ -137,9 +135,9 @@ def sendToDocker(project, netId):
 
     # run tests inside a docker container
     image = 'python:3.7-stretch' # TODO: find/build some anaconda image
-
     cmd = ['docker', 'run',                           # start a container
            '-d',                                      # detach mode
+           '--rm',                                    # remove the container when exit
            '-v', os.path.abspath(curTestDir)+':/code',  # share the test dir inside
            '-u', str(currentUID),                     # run as local user (instead of root)
            '-w', '/code',                             # working dir is w/ code
@@ -150,10 +148,22 @@ def sendToDocker(project, netId):
     logging.info("docker cmd:" + ' '.join(cmd))
     containerId = subprocess.check_output(cmd).decode("ascii").replace("\n","")
     logging.info("container id:" + containerId)
-    waitDockerCmd = ['docker', 'wait', containerId]
-    timer = timerThread(containerId, project, netId)
-    timer.start()
-    subprocess.check_output(waitDockerCmd)
+    time.sleep(3)
+    exitCode, isRunning = containerStatus(containerId)
+    if isRunning:
+        uploadResult(project, netId, {"error":"Timeout"})
+        logging.info("project: {}, netid: {}, timeout".format(project, netId))
+    elif exitCode:
+        uploadResult(project, netId, {"error":"ExitCode:" + str(exitCode)})
+        logging.info("project: {}, netid: {}, exit with {}".format(project, netId, exitCode))
+    else:
+        uploadResult(project, netId)
+        logging.info("project: {}, netid: {}, docker exit normally".format(project, netId))
+    rmContainer(containerId)
+
+def sendToDocker(project, netId):
+    dockerRun = dockerRunThread(project, netId)
+    dockerRun.start()
 
 @app.route('/')
 def index():
@@ -165,5 +175,6 @@ def gradingJson(project, netId):
         fetchFromS3(project, netId)
         sendToDocker(project, netId)
     except Exception as e:
-        logging.warning("Unexpected Error: " + str(e))
+        logging.warning("Unexpcted exception {} in gradingJson:".format(
+            str(e), traceback.format_exc()))
     return "{}"
