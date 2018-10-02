@@ -58,7 +58,7 @@ def main(command1, command2):
 
     # Write an if block similar to the above for the command "lower"
 
-    # Let's get familiar with the IMBB dataset
+    # Let's get familiar with the IMDB dataset
     # Write an if block for the command "describe"
 
 

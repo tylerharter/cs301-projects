@@ -73,11 +73,6 @@ This function must be called `reverseString(original_string)` and it should retu
 
 Example outputs from the function when its run from python terminal are given below:
 
-For this function think about how you can use for loops and string indexing to reverse the string.
-
-The function should be called if the command1 equals the word "reverse" followed by the string you want to reverse. 
-Write an `if` block in `main(command1, command2)` to call `findPalindromeMovie()` when the first command line argument is "find_palin".
-
 ```python
 python main.py reverse "Apocalypse"
 espylacopA
@@ -87,6 +82,13 @@ espylacopA
 python main.py reverse "Python Programming"
 gnimmargorP nohtyP
 ```
+
+
+For this function think about how you can use for loops and string indexing to reverse the string.
+
+The function should be called if the command1 equals the word "reverse" followed by the string you want to reverse. 
+Write an `if` block in `main(command1, command2)` to call reverseString(original_string) function when the first command line argument is "reverse".
+
 
 
 
@@ -108,7 +110,7 @@ True
 python main.py palindrome "Programming"
 False
 ```
-Write an `if` block in `main(command1, command2)` to call `checkPalindromeM(original_string)` when the first command line argument is "palindrome".
+Write an `if` block in `main(command1, command2)` to call `checkPalindrome(original_string)` when the first command line argument is "palindrome".
 
 **Important to keep in mind:**
 1. Note that in output above, the case difference in the individual letters is to be ignored while deciding whether a string is Palindrome or not. For example, both "Elle" and "elle" are palindromes. For this,you might need to convert your original string to lowercase before checking for palindrome. You can use the convertCase function for this.
@@ -188,13 +190,13 @@ David Ayer
 Felicity Jones, Diego Luna, Alan Tudyk, Donnie Yen
 ``` 
 
-(Passing the movie name as an argument)
+(Passing the index as an argument)
 ```python
 >>> import project
 >>> print(project.getMovieData('Title',index=21))
 Manchester by the Sea
->>> print(project.getMovieData('Year',movie='Deadpool'))
-2016
+>>> print(project.getMovieData('Director',index=33))
+Tim Miller
 ```
 
 
@@ -277,7 +279,7 @@ This function is called `findHighestRevenue(year)`.
 The budgets given in the dataset are *dirty*, meaning that they are not all uniformly formatted. Open up the dataset and note that sometimes budget is just a number, while other data entries have a number followed by an 'M'. For example, 'Guardians of the Galaxy' has a budget of "333.13" while 'Prometheus' has a budget of "126.46M". 
 
 The `getMovieData` function will return the budget as a string. You will need to perform some *data cleanup* on your own for this task! 
-You need to check the budget is a number or whether it has an 'M' after it. If so, you will need to slice the string before converting to float. 
+You need to check whether the budget is a number or whether it has an 'M' after it. If so, you will need to slice the string before converting to float. 
 
 The function must be called when the main.py is run with the commandline arguments "highest_rev" followed by the year. 
 Write an `if` block in `main(command1, command2)` to call `findHighestRevenue(year)` when the first command line argument is "highest_rev".
