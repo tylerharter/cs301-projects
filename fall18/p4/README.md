@@ -285,8 +285,14 @@ Write an `if` block in `main(command1, command2)` to call `findHighestRevenue(ye
 Some sample outputs of the function:
 ```python
 python main.py highest_rev 2016
-FILL THIS IN
+Rogue One
 ```
+
+```python
+python main.py highest_rev 2014
+American Sniper
+```
+
 
 
 
