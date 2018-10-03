@@ -50,16 +50,18 @@ def convertCase(original_string, case):
 # Note: You shouldn't use print in this function
 
 
-def main(command1, command2):
+def processCommands(command1, command2):
     
     # Code for when the first command line argument is "upper"
     if command1=="upper":
-        print(convertCase(command2,"upper"))
+        output = convertCase(command2,"upper")
 
     # Write an if block similar to the above for the command "lower"
 
-    # Let's get familiar with the IMDB dataset
-    # Write an if block for the command "describe"
+    
+    # Write if blocks for the following commands: 
+    # "reverse", "palindrome", "find_palin", "encode", "count_by_director"
+    # "num_sequels", "main_actor", "count_by_actor", "highest_rev"
 
 
 
@@ -67,8 +69,13 @@ def main(command1, command2):
 
 
 
+    # DO NOT modify any of the code below this.
 
-# DO NOT modify any of the code below this.
+    # The processCommands() function returns 
+    return output
+
+
+
 if __name__ == "__main__":
     l = len(sys.argv)
     if l<=1:
@@ -78,13 +85,13 @@ if __name__ == "__main__":
     
         if command1 in ['find_palin','num_sequels']:
             if l==2:
-                main(command1,None)
+                print(processCommands(command1,None))
             else:
                 print("Need 1 command line argument, Found:%d"%(l-1))
         elif command1 in ['upper','lower','reverse','palindrome','find_palin','encode',
                     'count_by_director','num_sequels','main_actor','count_by_actor','highest_rev']:
             if l==3:
-                main(command1,sys.argv[2])
+                print(processCommands(command1,sys.argv[2]))
             else:
                 print("Need 2 command line arguments, Found:%d"%(l-1))
         else:
