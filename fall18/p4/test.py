@@ -48,11 +48,11 @@ if PYTHON_VERSION.lower().find('python 3') < 0:
 ##################################################
 
 def test_1():
-    error = check_has_function('reverseString')
+    error = check_has_function('convertCase')
     if error:
         return error
-    expected = "yrarbil"
-    actual = MAIN.reverseString("library")
+    expected = "LIBRARY"
+    actual = MAIN.main("upper","library")
     return check_answer(expected, actual)
 
 def test_2():
@@ -60,7 +60,7 @@ def test_2():
     if error:
         return error
     expected = "kcul drah"
-    actual = MAIN.reverseString("hard luck")
+    actual = MAIN.main("reverse","hard luck")
     return check_answer(expected, actual)
 
 def test_3():
@@ -68,7 +68,7 @@ def test_3():
     if error:
         return error
     expected = True
-    actual = MAIN.checkPalindrome("Malayalam")
+    actual = MAIN.main("palindrome,""Malayalam")
     return check_answer(expected, actual)
 
 def test_4():
@@ -76,55 +76,71 @@ def test_4():
     if error:
         return error
     expected = False
-    actual = MAIN.checkPalindrome("Palindrome")
+    actual = MAIN.main("palindrome","Palindrome")
     return check_answer(expected, actual)
 
 def test_5():
+    error = check_has_function('findPalindromeMovie()')
+    if error:
+        return error
+    expected = "Elle"
+    actual = MAIN.main("find_palin")
+    return check_answer(expected, actual)
+
+def test_6():
     error = check_has_function('encodeString')
     if error:
         return error
     expected = "b@ll00ns"
-    actual = MAIN.encodeString("balloons")
+    actual = MAIN.main("encode","balloons")
     return check_answer(expected, actual)
 
-def test_6():
+def test_7():
+    error = check_has_function('encodeString')
+    if error:
+        return error
+    expected = "!nt!m!d@t!0n"
+    actual = MAIN.main("encode","intimidation")
+    return check_answer(expected, actual)
+
+def test_8():
     error = check_has_function('countMoviesByDirector')
     if error:
         return error
     expected = 1
-    actual = MAIN.countMoviesByDirector("Adam Leon")
-    return check_answer(expected, actual)
-
-def test_7():
-    error = check_has_function('findKeyword')
-    if error:
-        return error
-    expected = 'Yes'
-    actual = MAIN.findKeyword("Maudie","Biography")
-    return check_answer(expected, actual)
-
-def test_8():
-    error = check_has_function('findHighestRevenue')
-    if error:
-        return error
-    expected = 195
-    actual = MAIN.findHighestRevenue("greater_than","7.6")
+    actual = MAIN.main("count_by_director","Adam Leon")
     return check_answer(expected, actual)
 
 def test_9():
-    error = check_has_function('processCommands')
+    error = check_has_function('findNumSequels')
     if error:
         return error
-    expected = "An arthritic Nova Scotia woman works as a housekeeper while she hones her skills as an artist and eventually becomes a beloved figure in the community."
-    actual = MAIN.processCommands("describe","Maudie")
+    expected = 8
+    actual = MAIN.main("num_sequels")
     return check_answer(expected, actual)
 
 def test_10():
-    error = check_has_function('processCommands')
+    error = check_has_function('mainActor')
     if error:
         return error
-    expected = 4
-    actual = MAIN.processCommands("count", "Steven Spielberg")
+    expected = "Noomi Rapace"
+    actual = MAIN.main("main_actor","Prometheus")
+    return check_answer(expected, actual)
+
+def test_11():
+    error = check_has_function('countMoviesByActor')
+    if error:
+        return error
+    expected = 5
+    actual = MAIN.main("count_by_actor","Noomi Rapace")
+    return check_answer(expected, actual)
+
+def test_12():
+    error = check_has_function('findHighestRevenue')
+    if error:
+        return error
+    expected = "The Avengers"
+    actual = MAIN.processCommands("highest_rev", 2012)
     return check_answer(expected, actual)
 
 
