@@ -56,7 +56,7 @@ python main.py upper "Steven Spielberg"
 STEVEN SPIELBERG
 ```
 
-Look at the `main(command1, command2)` in main.py. The `if` statement compares command1 with `upper` and calls `convertCase` function on command2 to get the output. 
+Look at the `processCommands(command1, command2)` in main.py. The `if` statement compares command1 with `upper` and calls `convertCase` function on command2 to get the output. 
 
 Now, write a similar `if` block for the `lower` command. Use the `convertCase` function we have provided, but be careful! You may need to change some of the arguments in the function call.
 Try running the below command and check if your code is working as expected. 
@@ -68,7 +68,7 @@ steven spielberg
 
 Make sure you understand how this works as you will need to code something similar for other functions in this project. 
 
-**For each of the functions you define below, you will need to write similar if statements in `main(command1, command2)`, corresponding to their command line arguments**
+**For each of the functions you define below, you will need to write similar if statements in `processCommands(command1, command2)`, corresponding to their command line arguments**
 
 
 ## Step 2:
@@ -92,7 +92,7 @@ gnimmargorP nohtyP
 For this function think about how you can use 'for' loops and string indexing to reverse the string.
 
 The function should be called if the command1 equals the word "reverse" followed by the string you want to reverse. 
-Write an `if` block in `main(command1, command2)` to call reverseString(original_string) function when the first command line argument is "reverse".
+Write an `if` block in `processCommands(command1, command2)` to call reverseString(original_string) function when the first command line argument is "reverse".
 
 
 
@@ -115,7 +115,7 @@ True
 python main.py palindrome "Programming"
 False
 ```
-Write an `if` block in `main(command1, command2)` to call `checkPalindrome(original_string)` when the first command line argument is "palindrome".
+Write an `if` block in `processCommands(command1, command2)` to call `checkPalindrome(original_string)` when the first command line argument is "palindrome".
 
 **Important to keep in mind:**
 1. Note that in output above, the case difference in the individual letters is to be ignored while deciding whether a string is Palindrome or not. For example, both "Elle" and "elle" are palindromes. For this,you might need to convert your original string to lowercase before checking for palindrome. You can use the convertCase function for this.
@@ -123,26 +123,6 @@ Write an `if` block in `main(command1, command2)` to call `checkPalindrome(origi
 
 
 ## Step 4:
-
-The next function is quite exciting as you get to create cool passwords from ordinary strings. This function is called `encodeString(original_String)` and it should replace all 'A' and a' with '@', all 'O' and 'o' with '0' and all 'I' and 'i' with '!' in the string and return the modified string.
-
-Remember that strings are immutable in python and you should not attempt to modify the passed in string in place.
-
-The function must be called when the main.py is run with the commandline arguments "encode" followed by the original string.
-Write an `if` block in `main(command1, command2)` to call `encodeString()` when the first command line argument is "encode".
-
-Some sample outputs of the function:
-```python
-python main.py encode "BALLOONS"
-B@LL00NS
-```
-
-```python
-python main.py encode "password incorrect"
-p@ssw0rd !nc0rrect
-```
-
-## Step 5:
 
 Let's explore our IMBD movies dataset! Open the `IMDB-Movie-Data.csv` file and have a look at the dataset.
 We have the following information about each movie: Title,Genre,Director,Cast,Year,Runtime,Rating,Revenue.
@@ -189,7 +169,7 @@ This function is called `countMoviesByDirector(director_name)` and it should ret
 **Hint:** Remember how you worked with the Hurricanes dataset and found the number of hurricanes in a given ocean!
 
 The function must be called when the main.py is run with the commandline arguments "count_by_director" followed by the name of the director.
-Write an `if` block in `main(command1, command2)` to call `countMoviesByDirector(director_name)` when the first command line argument is "count_by_director".
+Write an `if` block in `processCommands(command1, command2)` to call `countMoviesByDirector(director_name)` when the first command line argument is "count_by_director".
 
 Some sample outputs of the function:
 ```python
@@ -197,6 +177,28 @@ python main.py count_by_director "Christopher Nolan"
 5
 ```
 
+
+
+
+## Step 5:
+
+The next function is quite exciting as you get to create cool passwords from ordinary strings. This function is called `encodeString(original_String)` and it should replace all 'A' and a' with '@', all 'O' and 'o' with '0' and all 'I' and 'i' with '!' in the string and return the modified string.
+
+Remember that strings are immutable in python and you should not attempt to modify the passed in string in place.
+
+The function must be called when the main.py is run with the commandline arguments "encode" followed by the original string.
+Write an `if` block in `processCommands(command1, command2)` to call `encodeString()` when the first command line argument is "encode".
+
+Some sample outputs of the function:
+```python
+python main.py encode "BALLOONS"
+B@LL00NS
+```
+
+```python
+python main.py encode "password incorrect"
+p@ssw0rd !nc0rrect
+```
 
 
 ## Step 6:
@@ -210,7 +212,7 @@ For this function you need to search for a movie name that qualifies as a Palind
 It turns out that there is only one movie in the dataset that qualifies as a palindrome. **Hint:** Use the function you have defined above!
 
 The function should be called when the main.py is run with the commandline argument "find_palin".
-Write an `if` block in `main(command1, command2)` to call `findPalindromeMovie()` when the first command line argument is "find_palin".
+Write an `if` block in `processCommands(command1, command2)` to call `findPalindromeMovie()` when the first command line argument is "find_palin".
 
 For example:
 
@@ -232,7 +234,7 @@ Write the `findNumSequels()` function. Find all movies in dataset which have a s
 **Hint**: You may need to use nested loops for this task (loop inside a loop!).
 
 The function must be called when the main.py is run with the commandline arguments "num_sequels". 
-Write an `if` block in `main(command1, command2)` to call `findNumSequels()` when the first command line argument is "num_sequels". (Notice that command2 is not necessary here)
+Write an `if` block in `processCommands(command1, command2)` to call `findNumSequels()` when the first command line argument is "num_sequels". (Notice that command2 is not necessary here)
 
 ```python
 python main.py num_sequels
@@ -249,7 +251,7 @@ Write the `mainActor(movie)` function. Find the main actor in a given movie (The
 **Hint**: Find the index of the first comma in the cast and slice the string. 
 
 The function must be called when the main.py is run with the commandline arguments "main_actor". 
-Write an `if` block in `main(command1, command2)` to call `mainActor(movie)` when the first command line argument is "main_actor" followed by the name of the movie. 
+Write an `if` block in `processCommands(command1, command2)` to call `mainActor(movie)` when the first command line argument is "main_actor" followed by the name of the movie. 
 
 ```python
 python main.py main_actor "Guardians of the Galaxy"
@@ -267,7 +269,7 @@ This function is called `countMoviesByActor(actor_name)` and it should return a 
 **Hint:** Get the cast for each movie in the dataset and use the string `find()` function you have studied to check if the actor is listed among the cast, and increment a counter accordingly. 
 
 The function must be called when the main.py is run with the commandline arguments "count_by_actor" followed by the name of the actor. 
-Write an `if` block in `main(command1, command2)` to call `countMoviesByActor(actor_name)` when the first command line argument is "count_by_actor".
+Write an `if` block in `processCommands(command1, command2)` to call `countMoviesByActor(actor_name)` when the first command line argument is "count_by_actor".
 
 Some sample outputs of the function:
 ```python
@@ -289,7 +291,7 @@ The `getMovieData` function will return the budget as a string. You will need to
 You need to check whether the budget is a number or whether it has an 'M' after it. If so, you will need to slice the string before converting to float. 
 
 The function must be called when the main.py is run with the commandline arguments "highest_rev" followed by the year. 
-Write an `if` block in `main(command1, command2)` to call `findHighestRevenue(year)` when the first command line argument is "highest_rev".
+Write an `if` block in `processCommands(command1, command2)` to call `findHighestRevenue(year)` when the first command line argument is "highest_rev".
 
 Some sample outputs of the function:
 ```python
