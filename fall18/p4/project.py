@@ -39,9 +39,9 @@ def readData():
                 header=False
                 continue
             # key = rank
-            imdb_movie_data[int(row[0])] = {'Title':row[1],'Genres':row[2],'Director':row[3],'Cast':row[4],'Year':int(row[5]),'Runtime':int(row[6]),'Rating':float(row[7]),'Revenue':row[8]}
+            imdb_movie_data[int(row[0])] = {'Title':row[1],'Genres':row[2],'Director':row[3],'Cast':row[4],'Year':row[5],'Runtime':row[6],'Rating':row[7],'Revenue':row[8]}
             # key = title
-            imdb_movie_data[row[1]] = {'Index':int(row[0]),'Genres':row[2],'Director':row[3],'Cast':row[4],'Year':int(row[5]),'Runtime':int(row[6]),'Rating':float(row[7]),'Revenue':row[8]}
+            imdb_movie_data[row[1]] = {'Index':int(row[0]),'Genres':row[2],'Director':row[3],'Cast':row[4],'Year':row[5],'Runtime':row[6],'Rating':row[7],'Revenue':row[8]}
     return imdb_movie_data
 
 imdb_movie_data = readData()
