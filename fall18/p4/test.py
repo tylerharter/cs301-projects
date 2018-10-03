@@ -45,185 +45,206 @@ if PYTHON_VERSION.lower().find('python 3') < 0:
 ##################################################
 
 def test_1():
+    weight = 1
     error = check_has_function('convertCase')
     if error:
-        return error
+        return error, weight
     expected = "PYTHON"
     actual = MAIN.convertCase("Python","upper")
-    return check_answer(expected, actual)
+    return check_answer(expected, actual), weight
 
 def test_2():
+    weight = 3
     error = check_has_function('reverseString')
     if error:
-        return error
+        return error, weight
     expected = "kcul drah"
     actual = MAIN.reverseString("hard luck")
-    return check_answer(expected, actual)
+    return check_answer(expected, actual), weight
 
 def test_3():
+    weight = 2
     error = check_has_function('checkPalindrome')
     if error:
-        return error
+        return error, weight
     expected = True
     actual = MAIN.checkPalindrome("Spacecaps")
-    return check_answer(expected, actual)
+    return check_answer(expected, actual), weight
 
 def test_4():
-    error = check_has_function('findPalindromeMovie')
-    if error:
-        return error
-    expected = "Elle"
-    actual = MAIN.findPalindromeMovie()
-    return check_answer(expected, actual)
-
-def test_5():
+    weight = 5
     error = check_has_function('encodeString')
     if error:
-        return error
+        return error, weight
     expected = "b@ll00ns"
     actual = MAIN.encodeString("balloons")
-    return check_answer(expected, actual)
+    return check_answer(expected, actual), weight
 
-def test_6():
+def test_5():
+    weight = 5
     error = check_has_function('countMoviesByDirector')
     if error:
-        return error
+        return error, weight
     expected = 1
     actual = MAIN.countMoviesByDirector("Adam Leon")
-    return check_answer(expected, actual)
+    return check_answer(expected, actual), weight
+    
 
-def test_7():
-    error = check_has_function('findNumSequels')
-    if error:
-        return error
-    expected = 14
-    actual = MAIN.findNumSequels()
-    return check_answer(expected, actual)
-
-def test_8():
+def test_6():
+    weight = 5
     error = check_has_function('mainActor')
     if error:
-        return error
+        return error, weight
+    expected = "Vin Diesel"
+    actual = MAIN.mainActor("Furious Seven")
+    return check_answer(expected, actual), weight
+
+def test_7():
+    weight = 5
+    error = check_has_function('mainActor')
+    if error:
+        return error, weight
     expected = "Noomi Rapace"
     actual = MAIN.mainActor("Prometheus")
-    return check_answer(expected, actual)
+    return check_answer(expected, actual), weight
 
-def test_9():
+def test_8():
+    weight = 5
     error = check_has_function('countMoviesByActor')
     if error:
-        return error
+        return error, weight
+    expected = 10
+    actual = MAIN.countMoviesByActor("Will Smith")
+    return check_answer(expected, actual), weight
+
+def test_9():
+    weight = 5
+    error = check_has_function('countMoviesByActor')
+    if error:
+        return error, weight
     expected = 5
     actual = MAIN.countMoviesByActor("Noomi Rapace")
-    return check_answer(expected, actual)
+    return check_answer(expected, actual), weight
 
 def test_10():
+    weight = 7
     error = check_has_function('findHighestRevenue')
     if error:
-        return error
+        return error, weight
     expected = "The Avengers"
     actual = MAIN.findHighestRevenue("2012")
-    return check_answer(expected, actual)
-
-
+    return check_answer(expected, actual), weight
 ################################################################
 # Tests are based on calling student functions via commandline
 ################################################################
 
 def test_12():
+    weight = 1
     error = check_has_function('convertCase')
     if error:
-        return error
+        return error, weight
     expected = "LIBRARY"
     actual = MAIN.processCommands("upper","library")
-    return check_answer(expected, actual)
+    return check_answer(expected, actual), weight
 
 def test_13():
+    weight = 2
     error = check_has_function('reverseString')
     if error:
-        return error
+        return error, weight
     expected = "kcul drah"
     actual = MAIN.processCommands("reverse","hard luck")
-    return check_answer(expected, actual)
+    return check_answer(expected, actual), weight
 
 def test_14():
+    weight = 2
     error = check_has_function('checkPalindrome')
     if error:
-        return error
+        return error, weight
     expected = True
     actual = MAIN.processCommands("palindrome","Malayalam")
-    return check_answer(expected, actual)
+    return check_answer(expected, actual), weight
 
 def test_15():
+    weight = 1
     error = check_has_function('checkPalindrome')
     if error:
-        return error
+        return error, weight
     expected = False
     actual = MAIN.processCommands("palindrome","Palindrome")
-    return check_answer(expected, actual)
+    return check_answer(expected, actual), weight
 
 def test_16():
+    weight = 9
     error = check_has_function('findPalindromeMovie')
     if error:
-        return error
+        return error, weight
     expected = "Elle"
     actual = MAIN.processCommands("find_palin",None)
-    return check_answer(expected, actual)
+    return check_answer(expected, actual), weight
 
 def test_17():
+    weight = 2
     error = check_has_function('encodeString')
     if error:
-        return error
+        return error, weight
     expected = "b@ll00ns"
     actual = MAIN.processCommands("encode","balloons")
-    return check_answer(expected, actual)
+    return check_answer(expected, actual), weight
 
 def test_18():
+    weight = 2
     error = check_has_function('encodeString')
     if error:
-        return error
+        return error, weight
     expected = "!nt!m!d@t!0n"
     actual = MAIN.processCommands("encode","intimidation")
-    return check_answer(expected, actual)
+    return check_answer(expected, actual), weight
 
 def test_19():
+    weight = 5
     error = check_has_function('countMoviesByDirector')
     if error:
-        return error
+        return error, weight
     expected = 1
     actual = MAIN.processCommands("count_by_director","Adam Leon")
-    return check_answer(expected, actual)
+    return check_answer(expected, actual), weight
 
 def test_20():
+    weight = 12
     error = check_has_function('findNumSequels')
     if error:
-        return error
+        return error, weight
     expected = 14
     actual = MAIN.processCommands("num_sequels", None)
-    return check_answer(expected, actual)
+    return check_answer(expected, actual), weight
 
 def test_21():
+    weight = 7
     error = check_has_function('mainActor')
     if error:
-        return error
-    expected = "Noomi Rapace"
-    actual = MAIN.processCommands("main_actor","Prometheus")
-    return check_answer(expected, actual)
+        return error, weight
+    expected = "Owen Wilson"
+    actual = MAIN.processCommands("main_actor","Cars")
+    return check_answer(expected, actual), weight
 
 def test_22():
+    weight = 7
     error = check_has_function('countMoviesByActor')
     if error:
-        return error
-    expected = 5
-    actual = MAIN.processCommands("count_by_actor","Noomi Rapace")
-    return check_answer(expected, actual)
+        return error, weight
+    expected = 8
+    actual = MAIN.processCommands("count_by_actor","Tom Cruise")
+    return check_answer(expected, actual), weight
 
 def test_23():
+    weight = 7
     error = check_has_function('findHighestRevenue')
     if error:
-        return error
-    expected = "The Avengers"
-    actual = MAIN.processCommands("highest_rev", "2012")
-    return check_answer(expected, actual)
+        return error, weight
+    expected = "Toy Story 3"
+    actual = MAIN.processCommands("highest_rev", "2010")
+    return check_answer(expected, actual), weight
 
 
 
@@ -312,8 +333,8 @@ def runTests():
     fns.sort(key=lambda row: int(row[0].split('_')[-1]))
     for name, fn in fns:
         try:
-            result = fn()
-            tests.append({'test': name, 'result': result})
+            result, weight = fn()
+            tests.append({'test': name, 'result': result, 'weight':weight})
         except Exception as e:
             print('\nTip from 301 instructors: try running just %s() in interactive mode to debug this issue.\n\n' % name)
             raise e
@@ -340,15 +361,18 @@ def main():
     result['tests'] += runProblems()
 
     # final score
-    passing = [t for t in result['tests'] if t['result'] == PASS]
-    result['score'] = len(passing) * 100 // len(result['tests'])
+    score = sum([t['weight'] for t in result['tests'] if t['result'] == PASS])
+    total = sum([t['weight'] for t in result['tests']])
+    if total!=100:
+        print("Weights dont add up to 100, add up to",total)
+    result['score'] = score
 
     # save/display results
     with open('result.json', 'w') as f:
         f.write(json.dumps(result, indent=2))
     print('RESULTS:')
     for test in result['tests']:
-        print('  {}: {}'.format(test['test'], test['result']))
+        print('  {} ({}%): {}'.format(test['test'], test['weight'], test['result']))
     print('Score: %d%%' % result['score'])
 
 if __name__ == '__main__':
