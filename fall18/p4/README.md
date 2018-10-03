@@ -1,6 +1,6 @@
 # Project 4
 
-The project focuses on the IMDB movies dataset that contains a list of movies along with information like cast, director, rating, genre, plot description etc. You can open the IMDB-Movie-Data file in Excel or some other software to get an idea of what the dataset contains.
+This project is for all you movie enthusiasts out there! This week, we will be looking at data set about ~1,000 most popular movies on IMDB in the last 10 years. Each movie in the dataset has like cast, director, rating, genre, runtime, budget, etc.
 
 We will be working with **strings**, **loops**, **conditionals** and **command line arguments** in this project.
 
@@ -10,6 +10,8 @@ To start, download the 4 files given below into your project directory.
 * [project.py](https://raw.githubusercontent.com/tylerharter/cs301-projects/master/fall18/p4/project.py)
 * [test.py](https://raw.githubusercontent.com/tylerharter/cs301-projects/master/fall18/p4/test.py)
 * [IMDB-Movie-Data.csv](https://raw.githubusercontent.com/tylerharter/cs301-projects/master/fall18/p4/IMDB-Movie-Data.csv)
+
+Open up the IMDB-Movie-Data.csv file and get familiar with it! Notice how the movies are indexed starting from zero, how the 'genres' and 'cast' are listed as several actors separated by spaces. There's something strange about the column 'budget', can you tell what it is?
 
 **A reminder:** You should make your changes ONLY to the **main.py** file.
 DO NOT EDIT ANY OTHER FILES.
@@ -34,8 +36,11 @@ Important Note :  In this project we will be working on using commandline argume
 python main.py upper "Steven Spielberg"
 ``` 
 
-The above will pass the two arguments `upper` and `"Steven Spielberg"` to main.py via the command line and are called commandline arguments. We have written code inside the main.py file provided to you to read these arguments and provide to you for use in defining the functions for this project. The commandline arguments are called command1 and command2. There are a number of options that can be passed as command1 and command2 and they are described in the directions given below.
+The above will pass the two arguments upper and "Steven Spielberg" to main.py via the command line and are called commandline arguments. We have written code inside the main.py file provided to you to read these arguments and provide to you for use in defining the functions for this project.
+In the code provided to you, the command line arguments are called command1 and command2. In the above example, command1 contains the string "upper" and command2 contains the string "Steven Spielberg".
+You will be enabling functionality for these command line arguments, so that you can use the functions you write directly from the command line!
 
+There are a number of options that can be passed as command1 and command2 and they are described in the directions given below.
 
 # Directions
 
@@ -84,7 +89,7 @@ gnimmargorP nohtyP
 ```
 
 
-For this function think about how you can use for loops and string indexing to reverse the string.
+For this function think about how you can use 'for' loops and string indexing to reverse the string.
 
 The function should be called if the command1 equals the word "reverse" followed by the string you want to reverse. 
 Write an `if` block in `main(command1, command2)` to call reverseString(original_string) function when the first command line argument is "reverse".
@@ -96,7 +101,7 @@ Write an `if` block in `main(command1, command2)` to call reverseString(original
 
 Our next function checks whether a string is a Palindrome or not. 
 
-**A palindrome is a string which reads the same way even when its reversed**. For example 'SPACECAPS' and 'BOB' are palindromes. 
+**A palindrome is a string which reads the same way even when its reversed**. For example 'Spacecaps' and 'BOB' are palindromes.
 
 The function you are going to code is called `checkPalindrome(original_string)`. 
 The function should be called when the `main.py` is run with commandline arguments "palindrome" followed by a string. For example:
@@ -119,29 +124,6 @@ Write an `if` block in `main(command1, command2)` to call `checkPalindrome(origi
 
 ## Step 4:
 
-Now that you have a correctly working palindrome function, we can finally focus on our dataset. 
-
-Write a function called `findPalindromeMovie()`. 
-
-
-For this function you need to search for a movie name that qualifies as a Palindrome in the dataset. 
-It turns out that there is only one movie in the dataset that qualifies as a palindrome. **Hint:** Use the function you have defined above!
-
-The function should be called when the main.py is run with the commandline argument "find_palin".
-Write an `if` block in `main(command1, command2)` to call `findPalindromeMovie()` when the first command line argument is "find_palin".
-
-For example:
-
-```python
-python main.py find_palin
-```
-(We have not shown the expected output of the above command! You should get an output ) 
-
-**Here, note that there is only one command line argument necessary, as the function `findPalindromeMovie`does not have any input arguments**
-
-
-## Step 5:
-
 The next function is quite exciting as you get to create cool passwords from ordinary strings. This function is called `encodeString(original_String)` and it should replace all 'A' and a' with '@', all 'O' and 'o' with '0' and all 'I' and 'i' with '!' in the string and return the modified string.
 
 Remember that strings are immutable in python and you should not attempt to modify the passed in string in place.
@@ -160,24 +142,24 @@ python main.py encode "password incorrect"
 p@ssw0rd !nc0rrect
 ```
 
-## Step 6:
+## Step 5:
 
-Let's explore our IMBD movies dataset! Open the `IMDB-Movie-Data.csv` file and have a look at the dataset. 
-We have the following information about each movie: Title,Genre,Director,Cast,Year,Runtime,Rating,Revenue. 
-Note that each movie also has an index, starting from 0. 
+Let's explore our IMBD movies dataset! Open the `IMDB-Movie-Data.csv` file and have a look at the dataset.
+We have the following information about each movie: Title,Genre,Director,Cast,Year,Runtime,Rating,Revenue.
+Note that each movie also has an index, starting from 0.
 
-Like with previous projects, we have provided you with a function to help extract information from this dataset. 
+Like with previous projects, we have provided you with a function to help extract information from this dataset.
 
 Using the `getNumRecords()` function, you can get the total number of records in the dataset.
 ```python
 >>> import project
 >>> print(project.getNumRecords())
 998
-``` 
+```
 The `getMovieData(field, movie, index)` is a very versatile function, you can use it to get the following information about a movie: Index, Title, Genre, Director, Cast, Year, Runtime, Rating, Revenue. You should pass these as string arguments, corresponding to `field`.
 
 **You need to provide EITHER the movie name OR the index value to this function**
- 
+
 
 The use of these functions is shown below:
 
@@ -188,7 +170,7 @@ The use of these functions is shown below:
 David Ayer
 >>> print(project.getMovieData('Cast',movie='Rogue One'))
 Felicity Jones, Diego Luna, Alan Tudyk, Donnie Yen
-``` 
+```
 
 (Passing the index as an argument)
 ```python
@@ -206,7 +188,7 @@ This function is called `countMoviesByDirector(director_name)` and it should ret
 
 **Hint:** Remember how you worked with the Hurricanes dataset and found the number of hurricanes in a given ocean!
 
-The function must be called when the main.py is run with the commandline arguments "count_by_director" followed by the name of the director. 
+The function must be called when the main.py is run with the commandline arguments "count_by_director" followed by the name of the director.
 Write an `if` block in `main(command1, command2)` to call `countMoviesByDirector(director_name)` when the first command line argument is "count_by_director".
 
 Some sample outputs of the function:
@@ -214,6 +196,31 @@ Some sample outputs of the function:
 python main.py count_by_director "Christopher Nolan"
 5
 ```
+
+
+
+## Step 6:
+
+Now that you have a correctly working palindrome function, we can finally focus on our dataset.
+
+Write a function called `findPalindromeMovie()`.
+
+
+For this function you need to search for a movie name that qualifies as a Palindrome in the dataset.
+It turns out that there is only one movie in the dataset that qualifies as a palindrome. **Hint:** Use the function you have defined above!
+
+The function should be called when the main.py is run with the commandline argument "find_palin".
+Write an `if` block in `main(command1, command2)` to call `findPalindromeMovie()` when the first command line argument is "find_palin".
+
+For example:
+
+```python
+python main.py find_palin
+```
+(We have not shown the expected output of the above command! You should get an output )
+
+**Here, note that there is only one command line argument necessary, as the function `findPalindromeMovie`does not have any input arguments**
+
 
 
 ## Step 7:
@@ -255,7 +262,7 @@ Lets find how many movies in the dataset a given actor is in!
 
 Write a function to count the number of movies a given actor has acted in. 
 
-This function is called `countMoviesByActor(actor_name)` and it should return a number, equal to the number of movies in the dataset directed by `actor_name`.
+This function is called `countMoviesByActor(actor_name)` and it should return a number, equal to the number of movies in the dataset in which `actor_name` is among the cast.
 
 **Hint:** Get the cast for each movie in the dataset and use the string `find()` function you have studied to check if the actor is listed among the cast, and increment a counter accordingly. 
 
@@ -271,7 +278,7 @@ python main.py count_by_actor "Nicole Kidman"
 
 ## Step 10:
 
-Write a function to find the highest budget of all movies released in a given year in the dataset. 
+Write a function to find the movie with the highest budget released in a given year in the dataset.
 
 This function is called `findHighestRevenue(year)`. 
 
