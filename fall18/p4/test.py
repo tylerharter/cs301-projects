@@ -39,20 +39,17 @@ if PYTHON_VERSION.lower().find('python 3') < 0:
     print('Please check with us about this.')
     print()
 
-##################################################
-# Problems are based on output of student program
-##################################################
 
 ##################################################
-# Tests are based on calling student functions
+# Problems are based on output of student functions
 ##################################################
 
 def test_1():
     error = check_has_function('convertCase')
     if error:
         return error
-    expected = "LIBRARY"
-    actual = MAIN.main("upper","library")
+    expected = "PYTHON"
+    actual = MAIN.convertCase("Python","upper")
     return check_answer(expected, actual)
 
 def test_2():
@@ -60,7 +57,7 @@ def test_2():
     if error:
         return error
     expected = "kcul drah"
-    actual = MAIN.main("reverse","hard luck")
+    actual = MAIN.reverseString("hard luck")
     return check_answer(expected, actual)
 
 def test_3():
@@ -68,80 +65,166 @@ def test_3():
     if error:
         return error
     expected = True
-    actual = MAIN.main("palindrome,""Malayalam")
+    actual = MAIN.checkPalindrome("Spacecaps")
     return check_answer(expected, actual)
 
 def test_4():
-    error = check_has_function('checkPalindrome')
-    if error:
-        return error
-    expected = False
-    actual = MAIN.main("palindrome","Palindrome")
-    return check_answer(expected, actual)
-
-def test_5():
-    error = check_has_function('findPalindromeMovie()')
+    error = check_has_function('findPalindromeMovie')
     if error:
         return error
     expected = "Elle"
-    actual = MAIN.main("find_palin")
+    actual = MAIN.findPalindromeMovie()
     return check_answer(expected, actual)
 
-def test_6():
+def test_5():
     error = check_has_function('encodeString')
     if error:
         return error
     expected = "b@ll00ns"
-    actual = MAIN.main("encode","balloons")
+    actual = MAIN.encodeString("balloons")
     return check_answer(expected, actual)
 
-def test_7():
-    error = check_has_function('encodeString')
-    if error:
-        return error
-    expected = "!nt!m!d@t!0n"
-    actual = MAIN.main("encode","intimidation")
-    return check_answer(expected, actual)
-
-def test_8():
+def test_6():
     error = check_has_function('countMoviesByDirector')
     if error:
         return error
     expected = 1
-    actual = MAIN.main("count_by_director","Adam Leon")
+    actual = MAIN.countMoviesByDirector("Adam Leon")
     return check_answer(expected, actual)
 
-def test_9():
+def test_7():
     error = check_has_function('findNumSequels')
     if error:
         return error
-    expected = 8
-    actual = MAIN.main("num_sequels")
+    expected = 14
+    actual = MAIN.findNumSequels()
     return check_answer(expected, actual)
 
-def test_10():
+def test_8():
     error = check_has_function('mainActor')
     if error:
         return error
     expected = "Noomi Rapace"
-    actual = MAIN.main("main_actor","Prometheus")
+    actual = MAIN.mainActor("Prometheus")
     return check_answer(expected, actual)
 
-def test_11():
+def test_9():
     error = check_has_function('countMoviesByActor')
     if error:
         return error
     expected = 5
-    actual = MAIN.main("count_by_actor","Noomi Rapace")
+    actual = MAIN.countMoviesByActor("Noomi Rapace")
     return check_answer(expected, actual)
 
-def test_12():
+def test_10():
     error = check_has_function('findHighestRevenue')
     if error:
         return error
     expected = "The Avengers"
-    actual = MAIN.processCommands("highest_rev", 2012)
+    actual = MAIN.findHighestRevenue("2012")
     return check_answer(expected, actual)
+
+
+################################################################
+# Tests are based on calling student functions via commandline
+################################################################
+
+def test_12():
+    error = check_has_function('convertCase')
+    if error:
+        return error
+    expected = "LIBRARY"
+    actual = MAIN.processCommands("upper","library")
+    return check_answer(expected, actual)
+
+def test_13():
+    error = check_has_function('reverseString')
+    if error:
+        return error
+    expected = "kcul drah"
+    actual = MAIN.processCommands("reverse","hard luck")
+    return check_answer(expected, actual)
+
+def test_14():
+    error = check_has_function('checkPalindrome')
+    if error:
+        return error
+    expected = True
+    actual = MAIN.processCommands("palindrome","Malayalam")
+    return check_answer(expected, actual)
+
+def test_15():
+    error = check_has_function('checkPalindrome')
+    if error:
+        return error
+    expected = False
+    actual = MAIN.processCommands("palindrome","Palindrome")
+    return check_answer(expected, actual)
+
+def test_16():
+    error = check_has_function('findPalindromeMovie')
+    if error:
+        return error
+    expected = "Elle"
+    actual = MAIN.processCommands("find_palin",None)
+    return check_answer(expected, actual)
+
+def test_17():
+    error = check_has_function('encodeString')
+    if error:
+        return error
+    expected = "b@ll00ns"
+    actual = MAIN.processCommands("encode","balloons")
+    return check_answer(expected, actual)
+
+def test_18():
+    error = check_has_function('encodeString')
+    if error:
+        return error
+    expected = "!nt!m!d@t!0n"
+    actual = MAIN.processCommands("encode","intimidation")
+    return check_answer(expected, actual)
+
+def test_19():
+    error = check_has_function('countMoviesByDirector')
+    if error:
+        return error
+    expected = 1
+    actual = MAIN.processCommands("count_by_director","Adam Leon")
+    return check_answer(expected, actual)
+
+def test_20():
+    error = check_has_function('findNumSequels')
+    if error:
+        return error
+    expected = 14
+    actual = MAIN.processCommands("num_sequels", None)
+    return check_answer(expected, actual)
+
+def test_21():
+    error = check_has_function('mainActor')
+    if error:
+        return error
+    expected = "Noomi Rapace"
+    actual = MAIN.processCommands("main_actor","Prometheus")
+    return check_answer(expected, actual)
+
+def test_22():
+    error = check_has_function('countMoviesByActor')
+    if error:
+        return error
+    expected = 5
+    actual = MAIN.processCommands("count_by_actor","Noomi Rapace")
+    return check_answer(expected, actual)
+
+def test_23():
+    error = check_has_function('findHighestRevenue')
+    if error:
+        return error
+    expected = "The Avengers"
+    actual = MAIN.processCommands("highest_rev", "2012")
+    return check_answer(expected, actual)
+
 
 
 def check_has_function(function_name):
