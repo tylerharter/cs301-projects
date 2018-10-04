@@ -16,20 +16,20 @@ Your program will grade students and provide basic statistics when
 requested.  Hence, no data file is necessary, because all data is
 typed by the user.
 
-```bash
-enter 0 to 100, or a special command [q:quit, r:reset, c:count, a:average]: 90
+<pre>
+enter 0 to 100, or a special command [q:quit, r:reset, c:count, a:average]: <b>90</b>
 A
-enter 0 to 100, or a special command [q:quit, r:reset, c:count, a:average]: 80
+enter 0 to 100, or a special command [q:quit, r:reset, c:count, a:average]: <b>80</b>
 C
-enter 0 to 100, or a special command [q:quit, r:reset, c:count, a:average]: 70
+enter 0 to 100, or a special command [q:quit, r:reset, c:count, a:average]: <b>70</b>
 D
-enter 0 to 100, or a special command [q:quit, r:reset, c:count, a:average]: c
+enter 0 to 100, or a special command [q:quit, r:reset, c:count, a:average]: <b>c</b>
 3
-enter 0 to 100, or a special command [q:quit, r:reset, c:count, a:average]: a
+enter 0 to 100, or a special command [q:quit, r:reset, c:count, a:average]: <b>a</b>
 80.0
-enter 0 to 100, or a special command [q:quit, r:reset, c:count, a:average]: q
+enter 0 to 100, or a special command [q:quit, r:reset, c:count, a:average]: <b>q</b>
 done
-```
+<pre>
 
 
 # Important Note
