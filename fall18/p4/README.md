@@ -1,7 +1,9 @@
 # Project 4
 
+**Please read this whole document carefully before getting started!**
+
 This project will primarily focus on providing further practice with
-**conditional statments** and **loops**. You will also get some
+**conditional statements** and **loops**. You will also get some
 experience accepting user input, and checking whether such inputs are
 sane.  To start, download the test.py file to your project
 directory.
@@ -16,7 +18,7 @@ Your program will grade students and provide basic statistics when
 requested.  No data file is necessary, because all data is
 typed by the user.
 
-# Overview
+## Overview
 
 Below is an example of how a user might interact with your program
 (parts typed by the user are in bold).
@@ -52,7 +54,7 @@ The user may also enter tricky input, including (but not limited to)
 upper case commands (which should be accepted) and numbers over 100
 (which should be rejected).
 
-# Getting Started
+## Getting Started
 
 There are a lot of tests this time (200 of them!), and many of them
 are fairly complicated, so it's probably easier to start writing your
@@ -107,7 +109,7 @@ If not, working on passing that first test before continuing.
 We now describe how to handle each of the five kinds of valid input a
 user might type.
 
-## 1. An integer between 0 and 100
+### 1. An integer between 0 and 100
 
 In this case, you should print the letter grade corresponding to the
 score.  The grades should be assigned as follows:
@@ -145,7 +147,7 @@ F
 ...
 </pre>
 
-## 2. "q" command
+### 2. "q" command
 
 This stands for "quit".  Your program should print "done" and stop
 running.  It will look like this:
@@ -157,7 +159,7 @@ done
 ty-mac:p4$ 
 </pre>
 
-## 3. "c" command
+### 3. "c" command
 
 This stands for count.  This prints the number of scores that have
 been entered so far.  It works like this:
@@ -185,13 +187,13 @@ done
 ty-mac:p4$ 
 </pre>
 
-## 4. "a" command
+### 4. "a" command
 
 This stands for average.  It prints the average score entered so far,
 and looks like this:
 
 <pre>
-ty-mac:p4$ python <b>correct.py
+ty-mac:p4$ python <b>correct.py</b>
 enter 0 to 100, or a special command [q:quit, r:reset, c:count, a:average]: <b>80</b>
 C
 enter 0 to 100, or a special command [q:quit, r:reset, c:count, a:average]: <b>a</b>
@@ -209,7 +211,7 @@ done
 ty-mac:p4$
 </pre>
 
-## 4. "r" command
+### 5. "r" command
 
 This stands for reset.  It prints "reset" and clears the statistics,
 starting fresh.  It looks like this:
@@ -249,7 +251,7 @@ done
 ty-mac:p4$ 
 </pre>
 
-# Tricky Input
+## Tricky Input
 
 There are three error messages you should sometimes display for
 certain invalid inputs.  The messages and when you should display them
