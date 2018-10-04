@@ -3586,7 +3586,7 @@ def main():
 
     # final score
     passing = [t for t in result['tests'] if t['result'] == PASS]
-    result['score'] = len(passing) * 100 // len(result['tests'])
+    result['score'] = len(passing) * 100 / len(result['tests'])
 
     # save/display results
     with open('result.json', 'w') as f:
@@ -3594,7 +3594,7 @@ def main():
     print('RESULTS:')
     for test in result['tests']:
         print('  {}: {}'.format(test['test'], test['result']))
-    print('Score: %d%%' % result['score'])
+    print('Score: %.1f%%' % result['score'])
 
 if __name__ == '__main__':
     main()
