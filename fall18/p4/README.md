@@ -42,11 +42,11 @@ Your program should keep taking input until the user indicates they
 want to exit.  There are five valid things the user may type, and here
 is what your program should do in each case:
 
-* any number between 0 and 100: the program should treat the number as a percent, and print a corresponding letter grade (between A and F)
-* q: print "done" and quit running
-* c: print the number of scores entered so far
-* a: print the average score entered so far
-* r: clear the statistics so that the number of scores entered is considered 0 and the average is reset
+* **any number between 0 and 100**: the program should treat the number as a percent, and print a corresponding letter grade (between A and F)
+* **q**: print "done" and quit running
+* **c**: print the number of scores entered so far
+* **a**: print the average score entered so far
+* **r**: clear the statistics so that the number of scores entered is considered 0 and the average is reset
 
 The user may also enter tricky input, including (but not limited to)
 upper case commands (which should be accepted) and numbers over 100
@@ -72,20 +72,20 @@ while True:
 
 Try running it:
 
-```bash
+<pre>
 ty-mac:p4$ python main.py
-enter something: 3
+enter something: <b>3</b>
 3
-enter something: howdy
+enter something: <b>howdy</b>
 howdy
-enter something: how do i exit?
+enter something: <b>how do i exit?</b>
 how do i exit?
 enter something:   C-c C-cTraceback (most recent call last):
   File "main.py", line 2, in <module>
       val = input("enter something: ")
       KeyboardInterrupt
 ty-mac:p4$ 
-```
+</pre>
 
 The program contains an infinite loop, and the only way to stop it is
 to kill it, by hitting control-C on your keyboard.
