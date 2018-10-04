@@ -5,13 +5,9 @@ from inspect import getmembers, isfunction
 PASS = 'PASS'
 EPSILON = 0.0001
 
-# find student's code and import it as MAIN module
 PROGRAM = 'main.py'
-MODULE_NAME = 'main'
 if len(sys.argv) == 2:
     PROGRAM = sys.argv[1]
-    MODULE_NAME = PROGRAM.split('.')[0]
-MAIN = importlib.import_module(MODULE_NAME)
 
 PROMPT = 'enter 0 to 100, or a special command [q:quit, r:reset, c:count, a:average]: '
 
