@@ -1,4 +1,4 @@
-# Project 3
+# Project 4
 
 This project will primarily focus on providing further practice with
 **conditional statments** and **loops**. You will also get some
@@ -16,7 +16,13 @@ Your program will grade students and provide basic statistics when
 requested.  Hence, no data file is necessary, because all data is
 typed by the user.
 
+# Overview
+
+Below is an example of how a user might interact with your program
+(parts typed by the user are in bold).
+
 <pre>
+ty-mac:p4$ <b>python main.py</b>
 enter 0 to 100, or a special command [q:quit, r:reset, c:count, a:average]: <b>90</b>
 A
 enter 0 to 100, or a special command [q:quit, r:reset, c:count, a:average]: <b>80</b>
@@ -29,24 +35,60 @@ enter 0 to 100, or a special command [q:quit, r:reset, c:count, a:average]: <b>a
 80.0
 enter 0 to 100, or a special command [q:quit, r:reset, c:count, a:average]: <b>q</b>
 done
-<pre>
+ty-mac:p4$ 
+</pre>
 
+Your program should keep taking input until the user indicates they
+want to exit.  There are five valid things the user may type, and here
+is what your program should do in each case:
 
-# Important Note
-In Computer Science, indexing starts with the number 0 (zero).
-i.e., when you have a list of things, you'll start counting them
-from 0 (zero) instead of 1 (one). To understand this better, open
-the file hurricanes.csv and take a look at it. In this file, the
-first row is the header (like the column names in a table).
-The remaining rows in this file are the data we are interested in.
-It is important to note that: 
-* Hurricane 'HEIDI' is at index 0
-* Hurricane 'OLAF' is at index 1
-* Hurricane 'TINA' is at index 2
+* any number between 0 and 100: the program should treat the number as a percent, and print a corresponding letter grade (between A and F)
+* q: print "done" and quit running
+* c: print the number of scores entered so far
+* a: print the average score entered so far
+* r: clear the statistics so that the number of scores entered is considered 0 and the average is reset
 
-and so on.
+The user may also enter tricky input, including (but not limited to)
+upper case commands (which should be accepted) and numbers over 100
+(which should be rejected).
 
-Can you tell what is the hurricane at index 10 in this list of hurricanes? 
+# Getting Started
+
+There are a lot of tests this time (200 of them!), and many of them
+are fairly complicated, so it's probably easier to start writing your
+main.py directly and testing it yourself manually before you try
+running our tests.  If you focus on writing a correct program, you
+won't need to worry about looking at each of the 200 tests.
+
+Your program will need to keep asking the user for input in a loop.
+To get started, you could write a simple program that just echoes
+input by writting the following in your new main.py file:
+
+```python
+while True:
+    val = input("enter something: ")
+    print(val)
+```
+
+Try running it:
+
+```bash
+ty-mac:p4$ python main.py
+enter something: 3
+3
+enter something: howdy
+howdy
+enter something: how do i exit?
+how do i exit?
+enter something:   C-c C-cTraceback (most recent call last):
+  File "main.py", line 2, in <module>
+      val = input("enter something: ")
+      KeyboardInterrupt
+ty-mac:p4$ 
+```
+
+The program contains an infinite loop, and the only way to stop it is
+to kill it, by hitting control-C on your keyboard.
 
 # Directions
 
