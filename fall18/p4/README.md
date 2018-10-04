@@ -8,7 +8,7 @@ experience accepting user input, and checking whether such inputs are
 sane.  To start, download the test.py file to your project
 directory.
 
-* [test.py](https://raw.githubusercontent.com/tylerharter/cs301-projects/master/fall18/p3/test.py)
+* [test.py](https://raw.githubusercontent.com/tylerharter/cs301-projects/master/fall18/p4/test.py)
 
 **Note:** This project does not provide you a project.py (you won't be
 needing it) or a main.py to start from (you can start from
@@ -102,9 +102,9 @@ program in order to pass the first test in test.py:
 2. inside your loop, add a conditional that checks whether val is "q"; if it is, break out of the loop (review the "break" in chapter 7 of your textbook if you don't remember how to do this)
 
 Great, now run the tests.  You ought to be getting a score of 0.5%.
-If not, working on passing that first test before continuing.
+If not, work on passing that first test before continuing.
 
-# General Directions
+## General Directions
 
 We now describe how to handle each of the five kinds of valid input a
 user might type.
@@ -120,8 +120,8 @@ score.  The grades should be assigned as follows:
 * D: 50 to 79
 * F: 49 or less
 
-You write the code for this as you like, but we recommend creating a
-grading function that you can call from your main loop like this:
+You may write the code for this as you like, but we recommend creating
+a grading function that you can call from your main loop like this:
 
 ```python
 print(grade(score))
@@ -131,9 +131,9 @@ The grading function might contain a chain of if and elif's to handle
 each case.
 
 You'll also need to maintain some stats so you can print the average
-for when the user types "a" (another command).  For this, we recommend
+for when the user types "a" (described later).  For this, we recommend
 keeping track of the number of grades that have been entered in one
-variable and the sum of all the grades entered in a another variable
+variable and the sum of all the grades entered in another variable
 (please use descriptive names for the variables!).
 
 It should look like this as the user enters numbers:
@@ -257,9 +257,9 @@ There are three error messages you should sometimes display for
 certain invalid inputs.  The messages and when you should display them
 are as follows:
 
-* "no scores entered", when the user tries to compute an average, but no scores have been entered (e.g., right after a reset)
-* "out of range" if a user enters an integer larger than 100
-* "bad input" if the user types something that does not consist solely of digits and does not match one of the commands given (e.g., "help", "-3", or "HAHAHAHAHA!")
+* **"no scores entered"** when the user tries to compute an average, but no scores have been entered (e.g., right after a reset)
+* **"out of range"** if a user enters an integer larger than 100
+* **"bad input"** if the user types something that does not consist solely of digits and does not match one of the commands given (e.g., "help", "-3", or "HAHAHAHAHA!")
 
 Your program should be able to work properly under these scenarios:
 
@@ -297,3 +297,5 @@ l
 l
 o
 ```
+
+**Good luck, and have fun!**
