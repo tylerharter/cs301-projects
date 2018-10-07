@@ -1,0 +1,125 @@
+{
+  "score": 2,
+  "tests": [
+    {
+      "test": "test_1",
+      "result": "PASS",
+      "weight": 1
+    },
+    {
+      "test": "test_2",
+      "result": "missing function reverseString",
+      "weight": 3
+    },
+    {
+      "test": "test_3",
+      "result": "missing function checkPalindrome",
+      "weight": 2
+    },
+    {
+      "test": "test_4",
+      "result": "missing function encodeString",
+      "weight": 5
+    },
+    {
+      "test": "test_5",
+      "result": "missing function countMoviesByDirector",
+      "weight": 5
+    },
+    {
+      "test": "test_6",
+      "result": "missing function mainActor",
+      "weight": 5
+    },
+    {
+      "test": "test_7",
+      "result": "missing function mainActor",
+      "weight": 5
+    },
+    {
+      "test": "test_8",
+      "result": "missing function countMoviesByActor",
+      "weight": 5
+    },
+    {
+      "test": "test_9",
+      "result": "missing function countMoviesByActor",
+      "weight": 5
+    },
+    {
+      "test": "test_10",
+      "result": "missing function findHighestRevenue",
+      "weight": 7
+    },
+    {
+      "test": "test_12",
+      "result": "PASS",
+      "weight": 1
+    },
+    {
+      "test": "test_13",
+      "result": "missing function reverseString",
+      "weight": 2
+    },
+    {
+      "test": "test_14",
+      "result": "missing function checkPalindrome",
+      "weight": 2
+    },
+    {
+      "test": "test_15",
+      "result": "missing function checkPalindrome",
+      "weight": 1
+    },
+    {
+      "test": "test_16",
+      "result": "missing function findPalindromeMovie",
+      "weight": 9
+    },
+    {
+      "test": "test_17",
+      "result": "missing function encodeString",
+      "weight": 2
+    },
+    {
+      "test": "test_18",
+      "result": "missing function encodeString",
+      "weight": 2
+    },
+    {
+      "test": "test_19",
+      "result": "missing function countMoviesByDirector",
+      "weight": 5
+    },
+    {
+      "test": "test_20",
+      "result": "missing function findNumSequels",
+      "weight": 8
+    },
+    {
+      "test": "test_21",
+      "result": "missing function mainActor",
+      "weight": 7
+    },
+    {
+      "test": "test_22",
+      "result": "missing function findHighestRevenue",
+      "weight": 7
+    },
+    {
+      "test": "test_23",
+      "result": "missing function countMoviesByActor",
+      "weight": 7
+    },
+    {
+      "test": "test_24",
+      "result": "missing function countMoviesByActor",
+      "weight": 2
+    },
+    {
+      "test": "test_25",
+      "result": "missing function countMoviesByActor",
+      "weight": 2
+    }
+  ]
+}
