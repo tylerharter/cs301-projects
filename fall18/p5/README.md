@@ -1,6 +1,6 @@
 # Project 4
 
-This project is for all you movie enthusiasts out there! This week, we will be looking at data set about ~1,000 most popular movies on IMDB in the last 10 years. Each movie in the dataset has information like cast, director, rating, genre, runtime, budget, etc.
+This project is for all you movie enthusiasts out there! This week, we will be looking at data set about ~1,000 most popular movies on IMDB in the last 10 years. Each movie in the dataset has information like cast, director, rating, genre, runtime, revenue, etc.
 
 We will be working with **strings**, **loops**, **conditionals** and **command line arguments** in this project.
 
@@ -11,7 +11,7 @@ To start, download the 4 files given below into your project directory.
 * [test.py](https://raw.githubusercontent.com/tylerharter/cs301-projects/master/fall18/p5/test.py)
 * [IMDB-Movie-Data.csv](https://raw.githubusercontent.com/tylerharter/cs301-projects/master/fall18/p5/IMDB-Movie-Data.csv)
 
-Open up the IMDB-Movie-Data.csv file and get familiar with it! Notice how the movies are indexed starting from zero, how the 'genres' and 'cast' are listed as several actors separated by spaces. There's something strange about the column 'budget', can you tell what it is?
+Open up the IMDB-Movie-Data.csv file and get familiar with it! Notice how the movies are indexed starting from zero, how the 'genres' and 'cast' are listed as several actors separated by spaces. There's something strange about the column 'Revenue', can you tell what it is?
 
 **A reminder:** You should make your changes ONLY to the **main.py** file.
 DO NOT EDIT ANY OTHER FILES.
@@ -292,15 +292,15 @@ Chris Pratt
 
 ## Step 9:
 
-Write a function to find the movie with the highest budget released in a given year in the dataset.
+Write a function to find the movie with the highest revenue released in a given year in the dataset.
 
 This function is called `findHighestRevenue(year)`. 
 
 **IMPORTANT POINT TO NOTE:**
-The budgets given in the dataset are *dirty*, meaning that they are not all uniformly formatted. Open up the dataset and note that sometimes budget is just a number, while other data entries have a number followed by an 'M'. For example, 'Guardians of the Galaxy' has a budget of "333.13" while 'Prometheus' has a budget of "126.46M". 
+The revenues given in the dataset are *dirty*, meaning that they are not all uniformly formatted. Open up the dataset and note that sometimes revenue is just a number, while other data entries have a number followed by an 'M'. For example, 'Guardians of the Galaxy' has a revenue of "333.13" while 'Prometheus' has a revenue of "126.46M". 
 
-The `getMovieData` function will return the budget as a string. You will need to perform some *data cleanup* on your own for this task! 
-You need to check whether the budget is a number or whether it has an 'M' after it. If so, you will need to slice the string before converting to float. 
+The `getMovieData` function will return the revenue as a string. You will need to perform some *data cleanup* on your own for this task! 
+You need to check whether the revenue is a number or whether it has an 'M' after it. If so, you will need to slice the string before converting to float. 
 
 The function must be called when the main.py is run with the commandline arguments "highest_rev" followed by the year. 
 Write an `if` block in `processCommands(command1, command2)` to call `findHighestRevenue(year)` when the first command line argument is "highest_rev".
@@ -337,7 +337,7 @@ python main.py count_by_actor "Nicole Kidman"
 
 **NOTE:**
 You may find that the function you write above passes some of the tests we have provided, but fails some others. Can you find out why?
-Hint: Some of the string data is *dirty*, i.e. there may be some mismatch between uppercase and lowercase letters, some extra spaces here and there, etc. You will need to use one or more of the string functions you have learnt in class! 
+Hint: Some of the string data is *dirty*, i.e. there may be some mismatch between uppercase and lowercase letters and some extra spaces in the actors' names. You will need to use one or more of the string functions you have learnt in class! 
 Consider this a **challenge problem** to get full credit on this project! 
 
 ### Good luck and Have fun programming! :)
