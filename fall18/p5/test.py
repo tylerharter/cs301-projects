@@ -50,7 +50,7 @@ def test_1():
     if error:
         return error, weight
     expected = "PYTHON"
-    actual = MAIN.convertCase("Python","upper")
+    actual = MAIN.convertCase("Python","uppercase")
     return check_answer(expected, actual), weight
 
 def test_2():
@@ -211,7 +211,7 @@ def test_19():
     return check_answer(expected, actual), weight
 
 def test_20():
-    weight = 12
+    weight = 8
     error = check_has_function('findNumSequels')
     if error:
         return error, weight
@@ -230,6 +230,15 @@ def test_21():
 
 def test_22():
     weight = 7
+    error = check_has_function('findHighestRevenue')
+    if error:
+        return error, weight
+    expected = "Toy Story 3"
+    actual = MAIN.processCommands("highest_rev", "2010")
+    return check_answer(expected, actual), weight
+
+def test_23():
+    weight = 7
     error = check_has_function('countMoviesByActor')
     if error:
         return error, weight
@@ -237,13 +246,24 @@ def test_22():
     actual = MAIN.processCommands("count_by_actor","Tom Cruise")
     return check_answer(expected, actual), weight
 
-def test_23():
-    weight = 7
-    error = check_has_function('findHighestRevenue')
+
+def test_24():
+    weight = 2
+    error = check_has_function('countMoviesByActor')
     if error:
         return error, weight
-    expected = "Toy Story 3"
-    actual = MAIN.processCommands("highest_rev", "2010")
+    expected = 12
+    actual = MAIN.processCommands("count_by_actor","Michael Fassbender")
+    return check_answer(expected, actual), weight
+
+
+def test_25():
+    weight = 2
+    error = check_has_function('countMoviesByActor')
+    if error:
+        return error, weight
+    expected = 9
+    actual = MAIN.processCommands("count_by_actor","Denzel Washington")
     return check_answer(expected, actual), weight
 
 

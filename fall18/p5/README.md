@@ -1,17 +1,17 @@
 # Project 4
 
-This project is for all you movie enthusiasts out there! This week, we will be looking at data set about ~1,000 most popular movies on IMDB in the last 10 years. Each movie in the dataset has like cast, director, rating, genre, runtime, budget, etc.
+This project is for all you movie enthusiasts out there! This week, we will be looking at data set about ~1,000 most popular movies on IMDB in the last 10 years. Each movie in the dataset has information like cast, director, rating, genre, runtime, revenue, etc.
 
 We will be working with **strings**, **loops**, **conditionals** and **command line arguments** in this project.
 
 To start, download the 4 files given below into your project directory.
 
-* [main.py](https://raw.githubusercontent.com/tylerharter/cs301-projects/master/fall18/p4/main.py)
-* [project.py](https://raw.githubusercontent.com/tylerharter/cs301-projects/master/fall18/p4/project.py)
-* [test.py](https://raw.githubusercontent.com/tylerharter/cs301-projects/master/fall18/p4/test.py)
-* [IMDB-Movie-Data.csv](https://raw.githubusercontent.com/tylerharter/cs301-projects/master/fall18/p4/IMDB-Movie-Data.csv)
+* [main.py](https://raw.githubusercontent.com/tylerharter/cs301-projects/master/fall18/p5/main.py)
+* [project.py](https://raw.githubusercontent.com/tylerharter/cs301-projects/master/fall18/p5/project.py)
+* [test.py](https://raw.githubusercontent.com/tylerharter/cs301-projects/master/fall18/p5/test.py)
+* [IMDB-Movie-Data.csv](https://raw.githubusercontent.com/tylerharter/cs301-projects/master/fall18/p5/IMDB-Movie-Data.csv)
 
-Open up the IMDB-Movie-Data.csv file and get familiar with it! Notice how the movies are indexed starting from zero, how the 'genres' and 'cast' are listed as several actors separated by spaces. There's something strange about the column 'budget', can you tell what it is?
+Open up the IMDB-Movie-Data.csv file and get familiar with it! Notice how the movies are indexed starting from zero, how the 'genres' and 'cast' are listed as several actors separated by spaces. There's something strange about the column 'Revenue', can you tell what it is?
 
 **A reminder:** You should make your changes ONLY to the **main.py** file.
 DO NOT EDIT ANY OTHER FILES.
@@ -24,7 +24,37 @@ python test.py
 
 and you should see the following: 
 ```
-To be filled
+Your Python version: Python 3.6.5
+
+Running your program with this command: python3 main.py
+
+RESULTS:
+  test_1 (1%): PASS
+  test_2 (3%): missing function reverseString
+  test_3 (2%): missing function checkPalindrome
+  test_4 (5%): missing function encodeString
+  test_5 (5%): missing function countMoviesByDirector
+  test_6 (5%): missing function mainActor
+  test_7 (5%): missing function mainActor
+  test_8 (5%): missing function countMoviesByActor
+  test_9 (5%): missing function countMoviesByActor
+  test_10 (7%): missing function findHighestRevenue
+  test_12 (1%): PASS
+  test_13 (2%): missing function reverseString
+  test_14 (2%): missing function checkPalindrome
+  test_15 (1%): missing function checkPalindrome
+  test_16 (9%): missing function findPalindromeMovie
+  test_17 (2%): missing function encodeString
+  test_18 (2%): missing function encodeString
+  test_19 (5%): missing function countMoviesByDirector
+  test_20 (8%): missing function findNumSequels
+  test_21 (7%): missing function mainActor
+  test_22 (7%): missing function findHighestRevenue
+  test_23 (7%): missing function countMoviesByActor
+  test_24 (2%): missing function countMoviesByActor
+  test_25 (2%): missing function countMoviesByActor
+Score: 2%
+
 
 ```
 
@@ -179,8 +209,31 @@ python main.py count_by_director "Christopher Nolan"
 
 
 
-
 ## Step 5:
+
+Now that you have a correctly working palindrome function, let's apply it to our dataset!
+
+Write a function called `findPalindromeMovie()`.
+
+
+For this function you need to search for a movie name that qualifies as a Palindrome in the dataset.
+It turns out that there is only one movie in the dataset that qualifies as a palindrome. **Hint:** Use the function you have defined above!
+
+The function should be called when the main.py is run with the commandline argument "find_palin".
+Write an `if` block in `processCommands(command1, command2)` to call `findPalindromeMovie()` when the first command line argument is "find_palin".
+
+For example:
+
+```python
+python main.py find_palin
+```
+(We have not shown the expected output of the above command! You should get an output )
+
+**Here, note that there is only one command line argument necessary, as the function `findPalindromeMovie`does not have any input arguments**
+
+
+
+## Step 6:
 
 The next function is quite exciting as you get to create cool passwords from ordinary strings. This function is called `encodeString(original_String)` and it should replace all 'A' and a' with '@', all 'O' and 'o' with '0' and all 'I' and 'i' with '!' in the string and return the modified string.
 
@@ -200,28 +253,6 @@ python main.py encode "password incorrect"
 p@ssw0rd !nc0rrect
 ```
 
-
-## Step 6:
-
-Now that you have a correctly working palindrome function, we can finally focus on our dataset.
-
-Write a function called `findPalindromeMovie()`.
-
-
-For this function you need to search for a movie name that qualifies as a Palindrome in the dataset.
-It turns out that there is only one movie in the dataset that qualifies as a palindrome. **Hint:** Use the function you have defined above!
-
-The function should be called when the main.py is run with the commandline argument "find_palin".
-Write an `if` block in `processCommands(command1, command2)` to call `findPalindromeMovie()` when the first command line argument is "find_palin".
-
-For example:
-
-```python
-python main.py find_palin
-```
-(We have not shown the expected output of the above command! You should get an output )
-
-**Here, note that there is only one command line argument necessary, as the function `findPalindromeMovie`does not have any input arguments**
 
 
 
@@ -258,7 +289,34 @@ python main.py main_actor "Guardians of the Galaxy"
 Chris Pratt
 ```
 
+
 ## Step 9:
+
+Write a function to find the movie with the highest revenue released in a given year in the dataset.
+
+This function is called `findHighestRevenue(year)`. 
+
+**IMPORTANT POINT TO NOTE:**
+The revenues given in the dataset are *dirty*, meaning that they are not all uniformly formatted. Open up the dataset and note that sometimes revenue is just a number, while other data entries have a number followed by an 'M'. For example, 'Guardians of the Galaxy' has a revenue of "333.13" while 'Prometheus' has a revenue of "126.46M". 
+
+The `getMovieData` function will return the revenue as a string. You will need to perform some *data cleanup* on your own for this task! 
+You need to check whether the revenue is a number or whether it has an 'M' after it. If so, you will need to slice the string before converting to float. 
+
+The function must be called when the main.py is run with the commandline arguments "highest_rev" followed by the year. 
+Write an `if` block in `processCommands(command1, command2)` to call `findHighestRevenue(year)` when the first command line argument is "highest_rev".
+
+Some sample outputs of the function:
+```python
+python main.py highest_rev 2016
+Rogue One
+```
+
+```python
+python main.py highest_rev 2014
+American Sniper
+```
+
+## Step 10:
 
 Lets find how many movies in the dataset a given actor is in! 
 
@@ -277,34 +335,9 @@ python main.py count_by_actor "Nicole Kidman"
 6
 ```
 
+**NOTE:**
+You may find that the function you write above passes some of the tests we have provided, but fails some others. Can you find out why?
+Hint: Some of the string data is *dirty*, i.e. there may be some mismatch between uppercase and lowercase letters and some extra spaces in the actors' names. You will need to use one or more of the string functions you have learnt in class! 
+Consider this a **challenge problem** to get full credit on this project! 
 
-## Step 10:
-
-Write a function to find the movie with the highest budget released in a given year in the dataset.
-
-This function is called `findHighestRevenue(year)`. 
-
-**IMPORTANT POINT TO NOTE:**
-The budgets given in the dataset are *dirty*, meaning that they are not all uniformly formatted. Open up the dataset and note that sometimes budget is just a number, while other data entries have a number followed by an 'M'. For example, 'Guardians of the Galaxy' has a budget of "333.13" while 'Prometheus' has a budget of "126.46M". 
-
-The `getMovieData` function will return the budget as a string. You will need to perform some *data cleanup* on your own for this task! 
-You need to check whether the budget is a number or whether it has an 'M' after it. If so, you will need to slice the string before converting to float. 
-
-The function must be called when the main.py is run with the commandline arguments "highest_rev" followed by the year. 
-Write an `if` block in `processCommands(command1, command2)` to call `findHighestRevenue(year)` when the first command line argument is "highest_rev".
-
-Some sample outputs of the function:
-```python
-python main.py highest_rev 2016
-Rogue One
-```
-
-```python
-python main.py highest_rev 2014
-American Sniper
-```
-
-
-
-
-### Good luck! :)
+### Good luck and Have fun programming! :)
