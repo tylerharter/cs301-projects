@@ -52,7 +52,7 @@ def uploadResult(project, netId, errorLog = None):
             with open("{}/result.json".format(curTestDir), "r") as fr:
                 serializedResult = fr.read()
         except:
-            serializedResult = json.dumps({"error": "result not found"})
+            serializedResult = json.dumps({"score":0, "error": "result not found"})
     s3.put_object(
         Bucket=BUCKET,
         Key='ta/grading/{}/{}.json'.format(project, netId),
@@ -102,17 +102,17 @@ def rmContainer(containerId):
     except:
         logging.info("rm cantainer failed. ID: {}".format(containerId))
 
-def dockerLiveCheck(containerId, hardLimit = False):
+def dockerLiveCheck(project, netId, containerId, hardLimit = False):
     exitCode, isRunning = containerStatus(containerId)
     if isRunning:
         if hardLimit:
-            uploadResult(project, netId, {"error":"Timeout"})
+            uploadResult(project, netId, {"score":0, "error":"Timeout"})
             logging.info("project: {}, netid: {}, timeout".format(project, netId))
         else:
             logging.info("project: {}, netid: {}, soft limit check failed.".format(project, netId))
             return True
     elif exitCode:
-        uploadResult(project, netId, {"error":"ExitCode:" + str(exitCode)})
+        uploadResult(project, netId, {"score":0, "error":"ExitCode:" + str(exitCode)})
         logging.info("project: {}, netid: {}, exit with {}".format(project, netId, exitCode))
     else:
         uploadResult(project, netId)
@@ -124,7 +124,7 @@ def dockerRun(project, netId):
     curTestDir = TEST_DIR.format(netId=netId)
     if os.path.exists(curTestDir):
         shutil.rmtree(curTestDir)
-    os.mkdir(curTestDir)
+    os.makedirs(curTestDir)
     fetchFromS3(project, netId, curTestDir)
 
     # we can't use shutil.copytree here again because TEST_DIR exists
@@ -153,7 +153,7 @@ def dockerRun(project, netId):
     containerId = subprocess.check_output(cmd).decode("ascii").replace("\n","")
     logging.info("container id:" + containerId)
     time.sleep(1)
-    if dockerLiveCheck(containerId):
+    if dockerLiveCheck(project, netId, containerId):
         time.sleep(3)
-        dockerLiveCheck(containerId, hardLimit = True)
+        dockerLiveCheck(project, netId, containerId, hardLimit = True)
     rmContainer(containerId)
