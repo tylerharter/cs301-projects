@@ -1,4 +1,4 @@
-# Project 4
+# Project 5
 
 This project is for all you movie enthusiasts out there! This week, we will be looking at a data set of about ~1,000 most popular movies on IMDB in the last 10 years. Each movie in the dataset has information like cast, director, rating, genre, runtime, revenue, etc.
 
