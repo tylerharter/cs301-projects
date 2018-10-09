@@ -4,9 +4,9 @@ import sys
 
 # We have coded a function below that converts a string to uppercase or lowercase
 def convertCase(original_string, case):
-    if case == "upper":
+    if case == "uppercase":
         converted_string = original_string.upper()
-    elif case == "lower":
+    elif case == "lowercase":
         converted_string = original_string.lower()
     else:
         print("Unknown case, keeping string unchanged")
@@ -42,26 +42,29 @@ def convertCase(original_string, case):
 # Note: You shouldn't use print in this function.
 
 
-# Write the countMoviesByActor(actor_name) function here
-# Note: You shouldn't use print in this function. 
-
-
 # Write the findHighestRevenue(year) function here
 # Note: You shouldn't use print in this function
 
 
+# Write the countMoviesByActor(actor_name) function here
+# Note: You shouldn't use print in this function.
+
+
+# This function is incomplete, you need to write code to enable functionality for other command line arguments. 
+# Follow the instructions below...
+# Note: You shouldn't use print in this function.
 def processCommands(command1, command2):
     
     # Code for when the first command line argument is "upper"
     if command1=="upper":
-        output = convertCase(command2,"upper")
+        output = convertCase(command2,"uppercase")
 
     # Write an if block similar to the above for the command "lower"
 
     
     # Write if blocks for the following commands: 
     # "reverse", "palindrome", "find_palin", "encode", "count_by_director"
-    # "num_sequels", "main_actor", "count_by_actor", "highest_rev"
+    # "num_sequels", "main_actor", "highest_rev", "count_by_actor"
 
 
 
