@@ -1,6 +1,6 @@
 # Project 4
 
-This project is for all you movie enthusiasts out there! This week, we will be looking at data set about ~1,000 most popular movies on IMDB in the last 10 years. Each movie in the dataset has information like cast, director, rating, genre, runtime, revenue, etc.
+This project is for all you movie enthusiasts out there! This week, we will be looking at a data set of about ~1,000 most popular movies on IMDB in the last 10 years. Each movie in the dataset has information like cast, director, rating, genre, runtime, revenue, etc.
 
 We will be working with **strings**, **loops**, **conditionals** and **command line arguments** in this project.
 
@@ -60,13 +60,13 @@ Score: 2%
 
 # Introduction to Command Line inputs
 
-Important Note :  In this project we will be working on using commandline arguments to pass inputs to your program. Command-line arguments are specified while running the program file on the commandline. For example consider the following:
+**Important Note:** In this project, we will be working on using commandline arguments to pass inputs to your program. Command-line arguments are specified while running the program file on the commandline. For example consider the following:
 
 ```python
 python main.py upper "Steven Spielberg"
 ``` 
 
-The above will pass the two arguments upper and "Steven Spielberg" to main.py via the command line and are called commandline arguments. We have written code inside the main.py file provided to you to read these arguments and provide to you for use in defining the functions for this project.
+The above will pass the two arguments `upper` and `"Steven Spielberg"` to main.py via the command line and are called commandline arguments. We have written code inside the main.py file provided to you to read these arguments and provide to you for use in defining the functions for this project.
 In the code provided to you, the command line arguments are called command1 and command2. In the above example, command1 contains the string "upper" and command2 contains the string "Steven Spielberg".
 You will be enabling functionality for these command line arguments, so that you can use the functions you write directly from the command line!
 
@@ -103,8 +103,8 @@ Make sure you understand how this works as you will need to code something simil
 
 ## Step 2:
 
-Now its time to write your first function for the project. 
-This function must be called `reverseString(original_string)` and it should return the string that is obtained by reversing the input argument string original_string.
+Now, its time to write your first function for the project. 
+This function must be called `reverseString(original_string)` and it should return the string that is obtained by reversing the input argument string `original_string`.
 
 Example outputs from the function when its run from python terminal are given below:
 
@@ -122,7 +122,7 @@ gnimmargorP nohtyP
 For this function think about how you can use 'for' loops and string indexing to reverse the string.
 
 The function should be called if the command1 equals the word "reverse" followed by the string you want to reverse. 
-Write an `if` block in `processCommands(command1, command2)` to call reverseString(original_string) function when the first command line argument is "reverse".
+Write an `if` block in `processCommands(command1, command2)` to call `reverseString(original_string)` function when the first command line argument is "reverse".
 
 
 
@@ -239,7 +239,7 @@ The next function is quite exciting as you get to create cool passwords from ord
 
 Remember that strings are immutable in python and you should not attempt to modify the passed in string in place.
 
-The function must be called when the main.py is run with the commandline arguments "encode" followed by the original string.
+The function must be called when the main.py is run with the commandline arguments "encode" followed by the `original string`.
 Write an `if` block in `processCommands(command1, command2)` to call `encodeString()` when the first command line argument is "encode".
 
 Some sample outputs of the function:
@@ -296,7 +296,7 @@ Write a function to find the movie with the highest revenue released in a given 
 
 This function is called `findHighestRevenue(year)`. 
 
-**IMPORTANT POINT TO NOTE:**
+**IMPORTANT NOTE:**
 The revenues given in the dataset are *dirty*, meaning that they are not all uniformly formatted. Open up the dataset and note that sometimes revenue is just a number, while other data entries have a number followed by an 'M'. For example, 'Guardians of the Galaxy' has a revenue of "333.13" while 'Prometheus' has a revenue of "126.46M". 
 
 The `getMovieData` function will return the revenue as a string. You will need to perform some *data cleanup* on your own for this task! 
@@ -340,4 +340,4 @@ You may find that the function you write above passes some of the tests we have 
 Hint: Some of the string data is *dirty*, i.e. there may be some mismatch between uppercase and lowercase letters and some extra spaces in the actors' names. You will need to use one or more of the string functions you have learnt in class! 
 Consider this a **challenge problem** to get full credit on this project! 
 
-### Good luck and Have fun programming! :)
+### Good luck and have fun programming! :)
