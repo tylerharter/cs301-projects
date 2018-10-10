@@ -54,9 +54,9 @@ def convertCase(original_string, case):
 # Follow the instructions below...
 # Note: You shouldn't use print in this function.
 def processCommands(command1, command2):
-    
+    output = None
     # Code for when the first command line argument is "upper"
-    if command1=="upper":
+    if command1 == "upper":
         output = convertCase(command2,"uppercase")
 
     # Write an if block similar to the above for the command "lower"
