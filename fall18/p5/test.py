@@ -144,7 +144,7 @@ def test_12():
     if error:
         return error, weight
     expected = "LIBRARY"
-    actual = MAIN.processCommands("upper","library")
+    actual = MAIN.processCommands("uppercase","library")
     return check_answer(expected, actual), weight
 
 def test_13():
