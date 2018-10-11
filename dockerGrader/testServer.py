@@ -29,7 +29,6 @@ celery = make_celery(flask_app)
 
 @celery.task
 def runDocker(project, netId):
-    dockerUtil.fetchFromS3(project, netId)
     dockerUtil.dockerRun(project, netId)
 
 @flask_app.route('/')
