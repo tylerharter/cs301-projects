@@ -25,26 +25,23 @@ def getCurrentUID():
 
 currentUID = getCurrentUID()
 
-def downloadSubmission(projectPath):
+def downloadSubmission(projectPath, testDir):
     # a project path will look something like this:
     # projects/p0/users/115799594197844895033/curr.json
 
     userId = projectPath.split('/')[-2]
-
-    # create user dir for download
-    logging.info('download to {}'.format(CODE_DIR))
-    if os.path.exists(CODE_DIR):
-        shutil.rmtree(CODE_DIR)
-    os.mkdir(CODE_DIR)
+    logging.info('download to {}'.format(testDir))
 
     # download
     response = s3.get_object(Bucket=BUCKET, Key=projectPath)
     submission = json.loads(response['Body'].read().decode('utf-8'))
     fileContents = base64.b64decode(submission.pop('payload'))
-    with open(os.path.join(CODE_DIR, submission['filename']), 'wb') as f:
+    fileName = submission['filename']
+    # override the filename if it is a python source file
+    if len(fileName) >= 3 and fileName[-2:] == 'py':
+        fileName = "main.py"
+    with open(os.path.join(testDir, fileName), 'wb') as f:
         f.write(fileContents)
-    with open(os.path.join(CODE_DIR, 'meta.json'), 'w') as f:
-        f.write(json.dumps(submission, indent=2))
 
 def uploadResult(project, netId, errorLog = None):
     curTestDir = TEST_DIR.format(netId=netId)
@@ -55,7 +52,7 @@ def uploadResult(project, netId, errorLog = None):
             with open("{}/result.json".format(curTestDir), "r") as fr:
                 serializedResult = fr.read()
         except:
-            serializedResult = json.dumps({"error": "result not found"})
+            serializedResult = json.dumps({"score":0, "error": "result not found"})
     s3.put_object(
         Bucket=BUCKET,
         Key='ta/grading/{}/{}.json'.format(project, netId),
@@ -76,12 +73,12 @@ def lookupGoogleId(netId):
                 'Unexpected error when look up Googlg ID:' + e.response['Error']['Code'])
             raise e
 
-def fetchFromS3(project, netId):
+def fetchFromS3(project, netId, testDir):
     googleId = lookupGoogleId(netId)
     if not googleId:
         return None
     curPath = ACCESS_PATH.format(project=project, googleId=googleId)
-    downloadSubmission(curPath)
+    downloadSubmission(curPath, testDir)
 
 def containerStatus(containerId):
     checkCmd = ["docker", "inspect", "-f", "{{.State.ExitCode}} {{.State.Running}}", containerId]
@@ -105,13 +102,31 @@ def rmContainer(containerId):
     except:
         logging.info("rm cantainer failed. ID: {}".format(containerId))
 
+def dockerLiveCheck(project, netId, containerId, hardLimit = False):
+    exitCode, isRunning = containerStatus(containerId)
+    if isRunning:
+        if hardLimit:
+            uploadResult(project, netId, {"score":0, "error":"Timeout"})
+            logging.info("project: {}, netid: {}, timeout".format(project, netId))
+        else:
+            logging.info("project: {}, netid: {}, soft limit check failed.".format(project, netId))
+            return True
+    elif exitCode:
+        uploadResult(project, netId, {"score":0, "error":"ExitCode:" + str(exitCode)})
+        logging.info("project: {}, netid: {}, exit with {}".format(project, netId, exitCode))
+    else:
+        uploadResult(project, netId)
+        logging.info("project: {}, netid: {}, docker exit normally".format(project, netId))
+    return False
+
 def dockerRun(project, netId):
     # create directory to mount inside a docker container
     curTestDir = TEST_DIR.format(netId=netId)
     if os.path.exists(curTestDir):
         shutil.rmtree(curTestDir)
-    shutil.copytree(CODE_DIR, curTestDir)
-    shutil.copytree("./io", curTestDir + "/io")
+    os.makedirs(curTestDir)
+    fetchFromS3(project, netId, curTestDir)
+
     # we can't use shutil.copytree here again because TEST_DIR exists
     testCodePath = "./test/{}".format(project)
     for item in os.listdir(testCodePath):
@@ -137,15 +152,8 @@ def dockerRun(project, netId):
     logging.info("docker cmd:" + ' '.join(cmd))
     containerId = subprocess.check_output(cmd).decode("ascii").replace("\n","")
     logging.info("container id:" + containerId)
-    time.sleep(3)
-    exitCode, isRunning = containerStatus(containerId)
-    if isRunning:
-        uploadResult(project, netId, {"error":"Timeout"})
-        logging.info("project: {}, netid: {}, timeout".format(project, netId))
-    elif exitCode:
-        uploadResult(project, netId, {"error":"ExitCode:" + str(exitCode)})
-        logging.info("project: {}, netid: {}, exit with {}".format(project, netId, exitCode))
-    else:
-        uploadResult(project, netId)
-        logging.info("project: {}, netid: {}, docker exit normally".format(project, netId))
+    time.sleep(1)
+    if dockerLiveCheck(project, netId, containerId):
+        time.sleep(3)
+        dockerLiveCheck(project, netId, containerId, hardLimit = True)
     rmContainer(containerId)
