@@ -1,8 +1,9 @@
 
 from flask import Flask
-import dockerUtil
+import dockerUtil, logging
 from celery import Celery
 from celery.utils.log import get_task_logger
+from celery.signals import after_setup_task_logger
 
 def make_celery(app):
     celery = Celery(
@@ -25,13 +26,14 @@ flask_app.config.update(
     CELERY_BROKER_URL='redis://localhost:6379',
     CELERY_RESULT_BACKEND='redis://localhost:6379'
 )
-logger = get_task_logger(__name__)
 
 celery = make_celery(flask_app)
 
 @celery.task
 def runDocker(project, netId):
-    grader = dockerGrader(project, netId, logger)
+    logger = get_task_logger(__name__)
+    logger.setLevel(logging.INFO)
+    grader = dockerUtil.dockerGrader(project, netId, logger)
     grader.dockerRun()
 
 @flask_app.route('/')

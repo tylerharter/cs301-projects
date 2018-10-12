@@ -1,8 +1,8 @@
 import base64, boto3, botocore, os, sys, json, subprocess, shutil, time, traceback
 
-ACCESS_KEY = "projects/{project}/users/{googleid}/curr.json"
-GOOGLE_KEY = "users/net_id_to_google/{netid}.txt"
-UPLOAD_KEY = "ta/grading/{project}/{netid}.json"
+ACCESS_KEY = "projects/{project}/users/{googleId}/curr.json"
+GOOGLE_KEY = "users/net_id_to_google/{netId}.txt"
+UPLOAD_KEY = "ta/grading/{project}/{netId}.json"
 TEST_DIR = "/tmp/test/{netId}"
 SUBMISSIONS = 'submissions'
 BUCKET = 'caraza-harter-cs301'
@@ -10,34 +10,35 @@ session = boto3.Session(profile_name='cs301ta')
 s3 = session.client('s3')
 
 class dockerGrader:
-    def __init__(self, project, netid, logger):
+    def __init__(self, project, netId, logger):
         self.project = project
-        self.netid = netid
+        self.netId = netId
         self.containerid = None
+        self.logger = logger
+        self.googleKey = GOOGLE_KEY.format(netId=self.netId)
 
-        self.submissionKey = ACCESS_KEY.format(project=self.project, googleid=self.googleid)
-        self.googleKey = GOOGLE_KEY.format(netid=self.netid)
-        self.uploadKey = UPLOAD_KEY.format(project=self.project, netid=self.netid)
+        self.googleId = self.lookupGoogleId()
+        self.currentUID = self.getCurrentUid()
 
-        self.testDir = TEST_DIR.format(netid=netid)
+        self.submissionKey = ACCESS_KEY.format(project=self.project, googleId=self.googleId)
+        self.uploadKey = UPLOAD_KEY.format(project=self.project, netId=self.netId)
 
-        self.currentUID = getCurrentUID()
-        self.googleid = self.lookupGoogleId()
+        self.testDir = TEST_DIR.format(netId=netId)
 
     # Util Functions
-    def getCurrentUID(self):
+    def getCurrentUid(self):
         userName = os.environ.get("USER")
         if not userName:
             self.logger.warning("Invalid userName.")
         r = int(subprocess.check_output(["id", "-u", userName]))
-        logger.info("current user: {}, current uid: {}".format(userName, r))
+        self.logger.info("current user: {}, current uid: {}".format(userName, r))
         return r
 
     def lookupGoogleId(self):
         try:
             response = s3.get_object(Bucket=BUCKET, Key=self.googleKey)
-            netid = response['Body'].read().decode('utf-8')
-            return netid
+            netId = response['Body'].read().decode('utf-8')
+            return netId
         except botocore.exceptions.ClientError as e:
             if not e.response['Error']['Code'] == "NoSuchKey":
                 # unexpected error
@@ -97,46 +98,47 @@ class dockerGrader:
             return None, None
 
     def dockerLiveCheck(self, hardLimit = False):
-        exitCode, isRunning = self.containerStatus(self.containerId)
+        exitCode, isRunning = self.containerStatus()
         if isRunning:
             if hardLimit:
                 self.uploadResult({"score":0, "error":"Timeout"})
-                self.logger.info("project: {}, netid: {}, timeout".format(
+                self.logger.info("project: {}, netId: {}, timeout".format(
                     self.project, self.netId))
             else:
-                self.logger.info("project: {}, netid: {}, soft limit check failed.".format(
+                self.logger.info("project: {}, netId: {}, soft limit check failed.".format(
                     self.project, self.netId))
                 return True
         elif exitCode:
             self.uploadResult({"score":0, "error":"ExitCode:" + str(exitCode)})
-            self.logger.info("project: {}, netid: {}, exit with {}".format(
+            self.logger.info("project: {}, netId: {}, exit with {}".format(
             self.project, self.netId, exitCode))
         else:
             self.uploadResult()
-            self.logger.info("project: {}, netid: {}, docker exit normally".format(
+            self.logger.info("project: {}, netId: {}, docker exit normally".format(
                 self.project, self.netId))
         return False
 
     def rmContainer(self):
-        forceRmCmd = ["docker", "rm", "-f", self.containerId]
+        forceRmCmd = ["docker", "container", "rm", "-f", self.containerId]
+        self.logger.info("rm container with the following command: {}".format(" ".join(forceRmCmd)))
         try:
-            subprocess.check_output(forceKillCmd)
+            subprocess.check_output(forceRmCmd)
         except:
             self.logger.info("rm cantainer failed. ID: {}".format(self.containerId))
 
     # Main Functions
     def dockerRun(self):
         # create directory to mount inside a docker container
-        if os.path.exists(seld.testDir):
-            shutil.rmtree(seld.testDir)
-        os.makedirs(seld.testDir)
+        if os.path.exists(self.testDir):
+            shutil.rmtree(self.testDir)
+        os.makedirs(self.testDir)
         self.downloadSubmission()
 
         # we can't use shutil.copytree here again because TEST_DIR exists
         testCodePath = "./test/{}".format(self.project)
         for item in os.listdir(testCodePath):
             src = os.path.join(testCodePath, item)
-            dest = os.path.join(curTestDir, item)
+            dest = os.path.join(self.testDir, item)
             if os.path.isdir(src):
                 shutil.copytree(src, dest)
             else:
