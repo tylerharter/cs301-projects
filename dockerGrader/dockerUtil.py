@@ -155,8 +155,8 @@ class dockerGrader:
         self.containerId = subprocess.check_output(cmd).decode("ascii").replace("\n","")
         self.logger.info("docker cmd:" + ' '.join(cmd))
         self.logger.info("container id:" + self.containerId)
-        time.sleep(1)
+        time.sleep(2)
         if self.dockerLiveCheck():
-            time.sleep(3)
+            time.sleep(5)
             self.dockerLiveCheck(hardLimit = True)
         self.rmContainer()
