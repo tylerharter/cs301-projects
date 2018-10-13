@@ -1184,9 +1184,9 @@ def test_053():
 
     return error if error else PASS
 
-@group("test_get_column", fname='get_column', expected_num_params=2)
+@group("test_get_fastest", fname='get_fastest', expected_num_params=1)
 def test_054():
-    stdout, stderr, cmdstr = run_cmd('get_column', "hurricanes.csv", 0)
+    stdout, stderr, cmdstr = run_cmd('get_fastest', "hurricanes.csv", )
     if stderr != '':
         print("Program produced stderr:")
         print(stderr)
@@ -1205,7 +1205,7 @@ def test_054():
 
 @group("test_get_column", fname='get_column', expected_num_params=2)
 def test_055():
-    stdout, stderr, cmdstr = run_cmd('get_column', "hurricanes.csv", 1)
+    stdout, stderr, cmdstr = run_cmd('get_column', "hurricanes.csv", 0)
     if stderr != '':
         print("Program produced stderr:")
         print(stderr)
@@ -1224,7 +1224,7 @@ def test_055():
 
 @group("test_get_column", fname='get_column', expected_num_params=2)
 def test_056():
-    stdout, stderr, cmdstr = run_cmd('get_column', "hurricanes.csv", 2)
+    stdout, stderr, cmdstr = run_cmd('get_column', "hurricanes.csv", 1)
     if stderr != '':
         print("Program produced stderr:")
         print(stderr)
@@ -1243,7 +1243,7 @@ def test_056():
 
 @group("test_get_column", fname='get_column', expected_num_params=2)
 def test_057():
-    stdout, stderr, cmdstr = run_cmd('get_column', "hurricanes.csv", -1)
+    stdout, stderr, cmdstr = run_cmd('get_column', "hurricanes.csv", 2)
     if stderr != '':
         print("Program produced stderr:")
         print(stderr)
@@ -1262,7 +1262,7 @@ def test_057():
 
 @group("test_get_column", fname='get_column', expected_num_params=2)
 def test_058():
-    stdout, stderr, cmdstr = run_cmd('get_column', "hurricanes.csv", -2)
+    stdout, stderr, cmdstr = run_cmd('get_column', "hurricanes.csv", -1)
     if stderr != '':
         print("Program produced stderr:")
         print(stderr)
@@ -1281,7 +1281,7 @@ def test_058():
 
 @group("test_get_column", fname='get_column', expected_num_params=2)
 def test_059():
-    stdout, stderr, cmdstr = run_cmd('get_column', "hurricanes.csv", -3)
+    stdout, stderr, cmdstr = run_cmd('get_column', "hurricanes.csv", -2)
     if stderr != '':
         print("Program produced stderr:")
         print(stderr)
@@ -1298,9 +1298,9 @@ def test_059():
 
     return error if error else PASS
 
-@group("test_names_alphabetical", fname='names_alphabetical', expected_num_params=1)
+@group("test_get_column", fname='get_column', expected_num_params=2)
 def test_060():
-    stdout, stderr, cmdstr = run_cmd('names_alphabetical', "hurricanes.csv", )
+    stdout, stderr, cmdstr = run_cmd('get_column', "hurricanes.csv", -3)
     if stderr != '':
         print("Program produced stderr:")
         print(stderr)
@@ -1317,9 +1317,9 @@ def test_060():
 
     return error if error else PASS
 
-@group("test_get_fastest", fname='get_fastest', expected_num_params=1)
+@group("test_names_alphabetical", fname='names_alphabetical', expected_num_params=1)
 def test_061():
-    stdout, stderr, cmdstr = run_cmd('get_fastest', "hurricanes.csv", )
+    stdout, stderr, cmdstr = run_cmd('names_alphabetical', "hurricanes.csv", )
     if stderr != '':
         print("Program produced stderr:")
         print(stderr)
@@ -1757,7 +1757,10 @@ def main():
 
     print('RESULTS:')
     for test in result['tests']:
-        print('    {}: {}'.format(test['test'], str(test['result'])[:100]))
+        suffix = ""
+        if test['result'] != PASS and test['result'].startswith('expected'):
+            suffix = "... (please see above for more information)"
+        print('    {}: {} {}'.format(test['test'], str(test['result'])[:100], suffix))
 
     print("Score: {}%".format(result['score']))
 
