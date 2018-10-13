@@ -1,5 +1,14 @@
 # Project 6
 
+Downlaod the files using the links below **(please don't use the hurricanes.csv from P3 as we've made some changes to it)** : 
+
+#### TODO - Add Links to raw files once merged.
+
+* [main.py]()
+* [test.py]()
+* [expected.json]()
+* [hurricanes.csv]() 
+
 For this assignment, we're actually revisiting the hurricanes dataset, with one small catch. There's no `project.py`. You're going to be working directly with the CSV file, reading it into memory and saving it into a list of lists.
 
 There's two key concepts you need to be really comfortable with before you dive into this assignment.
