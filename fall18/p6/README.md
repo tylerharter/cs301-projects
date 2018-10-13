@@ -1,4 +1,4 @@
-# Project 5
+# Project 6
 
 For this assignment, we're actually revisiting the hurricanes dataset, with one small catch. There's no `project.py`. You're going to be working directly with the CSV file, reading it into memory and saving it into a list of lists.
 
