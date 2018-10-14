@@ -1,5 +1,8 @@
 #!/bin/sh
-export PATH="/home/vagrant/server/cs301-projects/dockerGrader:$PATH"
+cpwd=$(pwd)
+export LC_ALL=C.UTF-8
+export LANG=C.UTF-8
+export PATH="$pwd:$PATH"
 tmux new-session -d -s dockerGrader
 tmux send-keys 'run-redis.sh' 'C-m'
 tmux rename-window 'redis'

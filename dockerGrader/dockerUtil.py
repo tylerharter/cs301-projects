@@ -153,13 +153,13 @@ class dockerGrader:
                '-u', str(self.currentUID),                     # run as local user (instead of root)
                '-w', '/code',                             # working dir is w/ code
                image,                                     # what docker image?
-               'timeout', '10',
+               'timeout', '50',
                'python3', 'test.py']                      # command to run inside
         self.containerId = subprocess.check_output(cmd).decode("ascii").replace("\n","")
         self.logger.info("docker cmd:" + ' '.join(cmd))
         self.logger.info("container id:" + self.containerId)
-        time.sleep(8)
+        time.sleep(15)
         if self.dockerLiveCheck():
-            time.sleep(20)
+            time.sleep(35)
             self.dockerLiveCheck(hardLimit = True)
         # self.rmContainer()
