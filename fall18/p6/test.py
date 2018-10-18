@@ -12,6 +12,10 @@ PASS = 'PASS'
 EPSILON = 0.0001
 
 PROGRAM = 'main.py'
+MODULE = 'main'
+if len(sys.argv) == 2:
+    PROGRAM = sys.argv[1]
+    MODULE = PROGRAM.split('.')[0]
 if not os.path.exists(PROGRAM):
     print("Cannot find {}!".format(PROGRAM))
     sys.exit()
@@ -24,7 +28,7 @@ if not os.path.exists("expected.json"):
 with open("expected.json") as fp:
     expected = json.load(fp)
 
-STUDENT_MAIN = importlib.import_module("main")
+STUDENT_MAIN = importlib.import_module(MODULE)
 STUDENT_FUNCTIONS = {name: fn for name, fn in inspect.getmembers(STUDENT_MAIN, predicate=inspect.isfunction)}
 
 ##########################################################################
