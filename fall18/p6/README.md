@@ -1,22 +1,39 @@
 # Project 6
 
-Downlaod the files using the links below **(please don't use the hurricanes.csv from P3 as we've made some changes to it)** : 
+Downlaod the files using the links below **(please don't use the hurricanes.csv from P3 as we've made some changes to it)** :
 
-#### TODO - Add Links to raw files once merged.
-
-* [main.py]()
-* [test.py]()
-* [expected.json]()
-* [hurricanes.csv]() 
+* [main.py](https://raw.githubusercontent.com/tylerharter/cs301-projects/master/fall18/p6/main.py)
+* [test.py](https://raw.githubusercontent.com/tylerharter/cs301-projects/master/fall18/p6/test.py)
+* [expected.json](https://raw.githubusercontent.com/tylerharter/cs301-projects/master/fall18/p6/expected.json)
+* [hurricanes.csv](https://raw.githubusercontent.com/tylerharter/cs301-projects/master/fall18/p6/hurricanes.csv) 
 
 For this assignment, we're actually revisiting the hurricanes dataset, with one small catch. There's no `project.py`. You're going to be working directly with the CSV file, reading it into memory and saving it into a list of lists.
 
-There's two key concepts you need to be really comfortable with before you dive into this assignment.
+There are two key concepts you need to be really comfortable with before you dive into this assignment.
 
-* Representing a dataset as a list of lists, and working with that list of lists [[link to class slides](https://tyler.caraza-harter.com/cs301/fall18/materials/lec-15.pdf)]
-* Using `sys.argv` to read in and parse command line arguments [[link to class slides](https://tyler.caraza-harter.com/cs301/fall18/materials/lec-14.pdf)]
+* Representing a dataset as a list of lists, and working with that list of lists
+* Using `sys.argv` to read in and parse command line arguments
 
 So make sure you take a second to refresh your understanding of these two concepts before getting started.
+
+**NOTE:** The following python program `args.py` takes in two command line arguments from the user,
+converts them to integers and prints them to the console.
+```python
+import sys
+
+x = int(sys.argv[1])
+y = int(sys.argv[2])
+print(x, y)
+print(x+y)
+```
+
+The above program should be executed as shown below in the terminal.
+In the example below, we pass two command line arguments, i.e., 100 and 200.
+```python
+$ python args.py 100 200
+100 200
+300
+```
 
 ## 1. Implement the `read_csv` function.
 
@@ -27,7 +44,7 @@ Our first step, is to read in our CSV file and save it as a list of lists.
 
 Create a function called `read_csv` which takes a filename as the only parameter and returns all the rows in the csv file as a list of lists.
 
-This function should use the `csv.reader` function [[link to documentation]](https://docs.python.org/3/library/csv.html#csv.reader) to read the file.
+This function should use the `csv.reader` function [[link to documentation]](http://automatetheboringstuff.com/chapter14/) that we discussed in the class to read the file.
 
 A really important point here is that you have to convert the values in `read_csv` to the right data types! The `read_csv` function gives you all strings by default.
 
@@ -37,7 +54,7 @@ The CSV file has 3 columns, and this is what their data types should end up as i
 > Column 2 : Windspeed  : `int`     
 > Column 3 : Name of Ocean : `string`       
 
-Please keep in mind that this function is the **only place** you will ever work directly with the CSV file. All functions from this point on should work on the list of lists the `read_csv` function returns (which is going to be called `dataset` from here on out.)
+Please keep in mind that this function is the **only place** you will ever work directly with the CSV file. All functions from this point on should work on the list of lists the `read_csv` function returns (which is going to be called `dataset` from here on.)
 
 *If your `read_csv` function is implemented correctly, you can run `test.py` and you should be getting a score of `15%`.*
 
@@ -48,7 +65,7 @@ Please keep in mind that this function is the **only place** you will ever work 
 #### 2.1.1 : Implement the function :
 
 > ##### input(s) to this function :
-> * `dataset` : the list of lists from `read_csv`,
+> * `dataset` : the list of lists from `read_csv`
 > * `num_rows` : an integer
 > * `start_or_end` : a string
 
@@ -77,12 +94,13 @@ In the `process_args` function :
 * Use `sys.argv` to pass the command line arguments to your function    
 * Run the sample command from the command line as follows :
 
-```
-python main.py sample hurricanes.csv 10 start
+Each line below shows one sample of the program main.py with different command line arguments. 
+```bash
+$ python main.py sample hurricanes.csv 10 start
 
-python main.py sample hurricanes.csv 10 end
+$ python main.py sample hurricanes.csv 10 end
 
-python main.py sample hurricanes.csv 10 abcd
+$ python main.py sample hurricanes.csv 10 abcd
 ```
 
 Don't forget to convert the command line parameters to whatever type your function expects. A lot of the functions will require integer inputs.
@@ -94,7 +112,7 @@ Make sure you have this working before proceeding! We're going to repeat this fl
 ### 2.2 The `get_cell` function :
 
 > ##### input(s) to this function :
-> * `dataset` : the list of lists from `read_csv`,
+> * `dataset` : the list of lists from `read_csv`
 > * `row_idx` : an integer
 > * `col_idx` : an integer
 
@@ -102,17 +120,17 @@ This function returns a **single value** at a given row (`row_idx`) and column (
 
 Don't forget to add it to the list of commands once you implement it. _(see Section 2.1.2 of this readme)_
 
-Here's how you should be able to run it once implemented and added to the list of commands :
+Here's how you should be able to run it, once you have implemented this function and added it to the list of commands :
 
 ```bash
-python main.py get_cell hurricanes.csv 20 2
+$ python main.py get_cell hurricanes.csv 20 2
 ```
 
 *If everything until here is correct, your score from test.py should be `30%`.*
 
 ### 2.3 : The `get_fastest` function :
 > ##### input(s) to this function :
-> * `dataset` : the list of lists from `read_csv`,
+> * `dataset` : the list of lists from `read_csv`
 
 This function is very similar to the one we had in the earlier assignment. All you have to do is find the name of the fastest hurricane in the list.
 
@@ -123,7 +141,7 @@ Go ahead and add it into the list of commands once done.
 You should be able to run it as follows : 
 
 ```bash
-python main.py get_fastest hurricanes.csv 
+$ python main.py get_fastest hurricanes.csv 
 ```
 
 *If everything until here is correct, your score from test.py should be `40%`.*
@@ -131,7 +149,7 @@ python main.py get_fastest hurricanes.csv
 ### 2.4 : The `get_column` function :
 
 > ##### input(s) to this function :
-> * `dataset` : the list of lists from `read_csv`,
+> * `dataset` : the list of lists from `read_csv`
 > * `col_idx` : an integer
 
 We are going to create a function that returns an entire column from the dataset.
@@ -166,7 +184,7 @@ This one goes into the list of commands as well, so go ahead and add it in.
 Once you do that, you should be able to run it as follows : 
 
 ```bash
-python main.py get_column hurricanes.csv 1
+$ python main.py get_column hurricanes.csv 1
 ```
 *If everything until here is correct, your score from test.py should be `55%`.*
 
@@ -184,7 +202,7 @@ Don't forget to add this to the list of commands.
 Once done, you should be able to run it as follows : 
 
 ```bash
-python main.py names_alphabetical hurricanes.csv
+$ python main.py names_alphabetical hurricanes.csv
 ```
 
 *If everything until here is correct, your score from test.py should be `60%`.*
@@ -201,7 +219,7 @@ This function, as well as the one above, are examples of more complex things you
 Add this into the list of commands once done. You should be able to run it as :
 
 ```bash
-python main.py avg_windspeed hurricanes.csv
+$ python main.py avg_windspeed hurricanes.csv
 ```
 
 For this function, please return the result **rounded to 4 decimal places**. You can accomplish this using the round function. [[Link to Documentation]](https://docs.python.org/3/library/functions.html#round)  
@@ -211,7 +229,7 @@ For this function, please return the result **rounded to 4 decimal places**. You
 ### 2.7 : The `filter_on_col` function :
 
 > ##### input(s) to this function :
-> * `dataset` : the list of lists from `read_csv`,
+> * `dataset` : the list of lists from `read_csv`
 > * `col_idx` : an integer
 > * `filter_condition` : a string
 
@@ -259,23 +277,23 @@ We would get back :
 ]
 ```
 
-Note that even though this returns just 1 row (since there's only 1 row where the 2nd column is `Anne`), it's _still returning a list of lists._ Just like you can have a list with only 1 item inside it (for instance, `[5,]`), you can have a list of lists with only 1 element inside it.
+Note that even though this returns just 1 row (since there's only 1 row where the 2nd column is `Anne`), it's _still returning a list of lists._ Just like you can have a list with only 1 item inside it (for instance, `[5]`), you can have a list of lists with only 1 element inside it.
 
 Once you're done, add it to the list of commands as before.
 
 You should be able to run it as follows once you add it to the list of commands: 
 
 ```bash
-python main.py filter_on_col hurricanes.csv 0 DOG
+$ python main.py filter_on_col hurricanes.csv 0 DOG
 
-python main.py filter_on_col hurricanes.csv 2 Atlantic
+$ python main.py filter_on_col hurricanes.csv 2 Atlantic
 ```
 *If everything until here is correct, your score from test.py should be `75%`.*
 
 ### 2.8 : The `num_in_ocean` function :
 
 > ##### input(s) to this function :
-> * `dataset` : the list of lists from `read_csv`,
+> * `dataset` : the list of lists from `read_csv`
 > * `ocean_name` : a string
 
 This one is going to look familiar as well, but try using one of the functions you've already written to implement this.
