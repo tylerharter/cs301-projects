@@ -1762,7 +1762,9 @@ def main():
     print('RESULTS:')
     for test in result['tests']:
         suffix = ""
-        if test['result'] != PASS and test['result'].startswith('expected'):
+        if test['result'] is False:
+            suffix = "... (your program may have an error, please see above for more information)"
+        elif test['result'] != PASS and isinstance(test['result'], str) and test['result'].startswith('expected'):
             suffix = "... (please see above for more information)"
         print('    {}: {} {}'.format(test['test'], str(test['result'])[:100], suffix))
 
