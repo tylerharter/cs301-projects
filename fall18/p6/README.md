@@ -1,6 +1,6 @@
 # Project 6
 
-Downlaod the files using the links below **(please don't use the hurricanes.csv from P3 as we've made some changes to it)** :
+Download the files using the links below **(please don't use the hurricanes.csv from P3 as we've made some changes to it)** :
 
 * [main.py](https://raw.githubusercontent.com/tylerharter/cs301-projects/master/fall18/p6/main.py)
 * [test.py](https://raw.githubusercontent.com/tylerharter/cs301-projects/master/fall18/p6/test.py)
@@ -343,7 +343,7 @@ python main.py cmp_avg_windspeed_by_ocean hurricanes.csv Pacific Atlantic
 ```
 It would return a value of 1 instead. The order of the arguments plays an important role here as we're comparing the speeds of the first against the second ocean!
 
-This function might seem complex, but if you use the right combination of functions you've already written, you'll be able to do it with just a few lines of code. Try to break the problem down into it's smaller parts, and see if you already have a function that does each part.
+This function might seem complex, but if you use the right combination of functions you've already written, you'll be able to do it with just a few lines of code. Try to break the problem down into it's smaller parts, and see if you already have a function that does each part.  Note that you don't need to pass the main dataset as an argument to a function in every case.  You can pass a list of lists as the dataset that may have been returned from another function.
 
 Last one! Add it into the list of commands. You should be able to run it as shown above.
 
