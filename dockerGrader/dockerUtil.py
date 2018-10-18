@@ -146,20 +146,15 @@ class dockerGrader:
 
         # run tests inside a docker container
         image = 'python:3.7-stretch' # TODO: find/build some anaconda image
-        cmd = ['docker', 'run',                           # start a container
-               '-d',                                      # detach mode
+        cmd = ['timeout', '60',                           # set a timeout
+               'docker', 'run',                           # start a container
                '--rm',                                    # remove the container when exit
                '-v', os.path.abspath(self.testDir)+':/code',  # share the test dir inside
                '-u', str(self.currentUID),                     # run as local user (instead of root)
                '-w', '/code',                             # working dir is w/ code
                image,                                     # what docker image?
-               'timeout', '50',
+               'timeout', '40',
                'python3', 'test.py']                      # command to run inside
-        self.containerId = subprocess.check_output(cmd).decode("ascii").replace("\n","")
-        self.logger.info("docker cmd:" + ' '.join(cmd))
-        self.logger.info("container id:" + self.containerId)
-        time.sleep(15)
-        if self.dockerLiveCheck():
-            time.sleep(35)
-            self.dockerLiveCheck(hardLimit = True)
+        subprocess.check_output(cmd).decode("ascii").replace("\n","")
+        self.uploadResult()
         # self.rmContainer()
