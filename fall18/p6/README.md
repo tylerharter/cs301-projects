@@ -29,7 +29,7 @@ print(x+y)
 
 The above program should be executed as shown below in the terminal.
 In the example below, we pass two command line arguments, i.e., 100 and 200.
-```python
+```bash
 $ python args.py 100 200
 100 200
 300
@@ -157,9 +157,7 @@ We are going to create a function that returns an entire column from the dataset
 For example, if the dataset is
 
 ```
-
 [
-
     ["a", "b", "c"],
 
     ["d", "e", "f"],
@@ -167,7 +165,6 @@ For example, if the dataset is
     ["g", "h", "i"]
 
 ]
-
 ```
 
 
