@@ -1751,8 +1751,8 @@ def main():
     result = {'score': 0, 'tests': []}
     result['tests'] += runTests()
 
-    score = round(sum([t['weight'] for t in result['tests'] if t['result'] == PASS]))
-    total = round(sum([t['weight'] for t in result['tests']]))
+    score = round(sum([t['weight'] for t in result['tests'] if t['result'] == PASS]), 2)
+    total = round(sum([t['weight'] for t in result['tests']]), 2)
     assert total == 100, "Total should add up to 100, not {}".format(total)
     result['score'] = score
 
