@@ -1,0 +1,24 @@
+# Require the AWS provider plugin
+require 'vagrant-aws'
+
+# Create and configure the AWS instance(s)
+Vagrant.configure('2') do |config|
+  # Use dummy AWS box
+  config.vm.box = 'aws-dummy'
+  config.vm.provision :shell, path: "bootstrap.sh"
+
+  # Specify AWS provider configuration
+  config.vm.provider 'aws' do |aws, override|
+    aws.region = 'us-east-2'
+    aws.ami = 'ami-67142d02'
+    aws.instance_type = 't2.micro'
+    aws.access_key_id = ENV['AWS_ACCESS_KEY_ID']
+    aws.secret_access_key = ENV['AWS_SECRET_ACCESS_KEY']
+    aws.keypair_name = 'id_rsa'
+    aws.security_groups = ['default']
+
+    override.ssh.username = 'ubuntu'
+    override.ssh.private_key_path = '~/.ssh/id_rsa'
+    override.nfs.functional = false
+  end
+end
