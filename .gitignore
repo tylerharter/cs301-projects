@@ -105,3 +105,6 @@ venv.bak/
 
 # MacOS file
 .DS_Store
+
+# redis server temp file
+.rdb

@@ -24,12 +24,12 @@ TESTS_FUNC = [
 ]
 
 TESTS_PRINT = [
-    ["The area of Wisconsin is ", 65496.38], #1
-    ["The population of Wisconsin in 2010 is ", 5686986.0], #2
-    ["Maximum land area among Wisconsin, Iowa, Minnesota is ", 86935.83], #3
-    ["Minimum population density among Wisconsin, Iowa, Minnesota in 2000 is ", 52.002450206414075], #4
-    ["The predicted population for Wisconsin in year 2010 is (assume start yearA is 2000, growth rate is 0.5) ", 796039951.1495125], #5
-    ["The growth rate for Wisconsin between year 2000 and 2010 is ", 0.005853103209551789] #6
+    [None, 65496.38], #1
+    [None, 5686986.0], #2
+    [None, 86935.83], #3
+    [None, 52.002450206414075], #4
+    [None, 796039951.1495125], #5
+    [None, 0.005853103209551789] #6
 ]
 
 TESTS_FUNC_NUM = len(TESTS_FUNC)
@@ -39,9 +39,10 @@ PROBLEMS = TESTS_FUNC_NUM + TESTS_PRINT_NUM
 def clean_lines(lines):
     result = []
     for l in lines:
-        if type(l) is str and l.strip() != '':
-            result.append(l.strip())
-        elif type(l) is int or type(l) is float:
+        if type(l) is str:
+            if l.strip() != '':
+                result.append(l.strip())
+        else:
             result.append(l)
     return result
 
@@ -49,11 +50,14 @@ def clean_lines(lines):
 def areLinesExpected(actual_lines, expected_lines):
     actual_lines = clean_lines(actual_lines)
     expected_lines = clean_lines(expected_lines)
+    print(actual_lines, expected_lines)
     if len(actual_lines) < len(expected_lines):
         return 'fewer output lines than expected'
     if len(actual_lines) > len(expected_lines):
         return 'more output lines than expected'
     for a, e in zip(actual_lines, expected_lines):
+        if not e: 
+            continue
         if type(e) is float or type(e) is int:
             try:
                 answer = float(a)
