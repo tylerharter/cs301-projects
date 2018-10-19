@@ -215,27 +215,30 @@ def main():
     for project_id in projects:
         for net_id in net_ids:
             logger.info('========================================')
-            logger.info('PROJCT={}, NETID={}'.format(project_id, net_id))
-            grader = dockerGrader(project_id, net_id, logger)
-            resultOld = grader.getRemoteResult()
-            scoreOld = grader.tryExtractResultScore(resultOld)
+            logger.info('PROJECT={}, NETID={}'.format(project_id, net_id))
+            try:
+                grader = dockerGrader(project_id, net_id, logger)
+                resultOld = grader.getRemoteResult()
+                scoreOld = grader.tryExtractResultScore(resultOld)
 
-            if scoreOld == 100:
-                logger.info('skip because old score was 100')
-                continue
-            
-            grader.dockerRun(upload=False)
-            resultNew = grader.getLocalResult()
-            scoreNew = grader.tryExtractResultScore(resultNew)
+                if scoreOld == 100:
+                    logger.info('skip because old score was 100')
+                    continue
 
-            # only upload if new score is better
-            logger.info("old score: {}, new score: {}".format(scoreOld, scoreNew))
-            if scoreNew > scoreOld:
-                logger.info('Uploading new score')
-                grader.uploadResult()
-            logger.debug("new test results:")
-            logger.debug(resultNew)
+                grader.dockerRun(upload=False)
+                resultNew = grader.getLocalResult()
+                scoreNew = grader.tryExtractResultScore(resultNew)
 
+                # only upload if new score is better
+                logger.info("old score: {}, new score: {}".format(scoreOld, scoreNew))
+                if scoreNew > scoreOld:
+                    logger.info('Uploading new score')
+                    #grader.uploadResult()
+                logger.debug("new test results:")
+                logger.debug(resultNew)
+            except Exception as e:
+                logger.error("Fatal error in dockerRun", exc_info=True)
 
+                
 if __name__ == '__main__':
     main()
