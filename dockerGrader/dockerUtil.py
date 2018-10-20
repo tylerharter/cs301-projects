@@ -233,7 +233,7 @@ def main():
                 logger.info("old score: {}, new score: {}".format(scoreOld, scoreNew))
                 if scoreNew > scoreOld:
                     logger.info('Uploading new score')
-                    #grader.uploadResult()
+                    grader.uploadResult()
                 logger.debug("new test results:")
                 logger.debug(resultNew)
             except Exception as e:
