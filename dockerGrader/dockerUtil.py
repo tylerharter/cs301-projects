@@ -1,8 +1,9 @@
-import base64, boto3, botocore, os, sys, json, subprocess, shutil, time, traceback
+import base64, boto3, botocore, os, sys, json, subprocess, shutil, time, traceback, logging
 
 ACCESS_KEY = "projects/{project}/users/{googleId}/curr.json"
 GOOGLE_KEY = "users/net_id_to_google/{netId}.txt"
 UPLOAD_KEY = "ta/grading/{project}/{netId}.json"
+ROSTER_KEY = "users/roster.json"
 TEST_DIR = "/tmp/test/{netId}"
 SUBMISSIONS = 'submissions'
 BUCKET = 'caraza-harter-cs301'
@@ -46,15 +47,31 @@ class dockerGrader:
                     'Unexpected error when look up Googlg ID:' + e.response['Error']['Code'])
                 raise e
 
+    def tryExtractResultScore(self, blob):
+        try:
+            return json.loads(blob).get('score', 0)
+        except:
+            return 0
+
     # Download Functions
     def downloadSubmission(self):
         if not self.googleId:
             return
         # a project path will look something like this:
         # projects/p0/users/115799594197844895033/curr.json
-        self.logger.info('downloading to {}'.format(self.testDir))
+        self.logger.info('downloading {} to {}'.format(self.submissionKey, self.testDir))
         # download
-        response = s3.get_object(Bucket=BUCKET, Key=self.submissionKey)
+        try:
+            response = s3.get_object(Bucket=BUCKET, Key=self.submissionKey)
+        except botocore.exceptions.ClientError as e:
+            if e.response['Error']['Code'] == "NoSuchKey":
+                self.logger.warning('no submission found')
+                return False
+            # unexpected error
+            self.logger.warning(
+                'Unexpected error when look up Googlg ID:' + e.response['Error']['Code'])
+            raise e
+
         submission = json.loads(response['Body'].read().decode('utf-8'))
         fileContents = base64.b64decode(submission.pop('payload'))
         fileName = submission['filename']
@@ -63,9 +80,16 @@ class dockerGrader:
             fileName = "main.py"
         with open(os.path.join(self.testDir, fileName), 'wb') as f:
             f.write(fileContents)
+        return True
 
-    # Upload Functions
-    def uploadResult(self, errorLog = None):
+    def getRemoteResult(self):
+        try:
+            response = s3.get_object(Bucket=BUCKET, Key=self.uploadKey)
+            return response['Body'].read().decode('utf-8')
+        except:
+            return json.dumps({"score":0, "error": "result not found"})
+
+    def getLocalResult(self, errorLog = None):
         if errorLog:
             serializedResult = json.dumps(errorLog)
         else:
@@ -74,6 +98,11 @@ class dockerGrader:
                     serializedResult = fr.read()
             except:
                 serializedResult = json.dumps({"score":0, "error": "result not found"})
+        return serializedResult
+
+    # Upload Functions   
+    def uploadResult(self, errorLog = None):
+        serializedResult = self.getLocalResult(errorLog)
         s3.put_object(
             Bucket=BUCKET,
             Key=self.uploadKey,
@@ -127,12 +156,14 @@ class dockerGrader:
             self.logger.info("rm cantainer failed. ID: {}".format(self.containerId))
 
     # Main Functions
-    def dockerRun(self):
+    def dockerRun(self, upload=True):
         # create directory to mount inside a docker container
         if os.path.exists(self.testDir):
             shutil.rmtree(self.testDir)
         os.makedirs(self.testDir)
-        self.downloadSubmission()
+        res = self.downloadSubmission()
+        if not res:
+            return
 
         # we can't use shutil.copytree here again because TEST_DIR exists
         testCodePath = "./test/{}".format(self.project)
@@ -156,5 +187,58 @@ class dockerGrader:
                'timeout', '40',
                'python3', 'test.py']                      # command to run inside
         subprocess.check_output(cmd).decode("ascii").replace("\n","")
-        self.uploadResult()
-        # self.rmContainer()
+
+        if upload:
+            self.uploadResult()
+
+
+def fetchNetIds():
+    response = s3.get_object(Bucket=BUCKET, Key=ROSTER_KEY)
+    rows = json.loads(response['Body'].read().decode('utf-8'))
+    return [row['net_id'] for row in rows]
+
+
+def main():
+    logger = logging.getLogger()
+    logger.setLevel(logging.INFO)
+    logger.addHandler(logging.StreamHandler(sys.stdout))
+
+    if len(sys.argv) != 3:
+        print("Usage: python dockerUtil.py pX[pY,...] (<netId>|?)")
+
+    projects = sys.argv[1].split(',')
+    if sys.argv[2] == '?':
+        net_ids = fetchNetIds()
+    else:
+        net_ids = [sys.argv[2]]
+
+    for project_id in projects:
+        for net_id in net_ids:
+            logger.info('========================================')
+            logger.info('PROJECT={}, NETID={}'.format(project_id, net_id))
+            try:
+                grader = dockerGrader(project_id, net_id, logger)
+                resultOld = grader.getRemoteResult()
+                scoreOld = grader.tryExtractResultScore(resultOld)
+
+                if scoreOld == 100:
+                    logger.info('skip because old score was 100')
+                    continue
+
+                grader.dockerRun(upload=False)
+                resultNew = grader.getLocalResult()
+                scoreNew = grader.tryExtractResultScore(resultNew)
+
+                # only upload if new score is better
+                logger.info("old score: {}, new score: {}".format(scoreOld, scoreNew))
+                if scoreNew > scoreOld:
+                    logger.info('Uploading new score')
+                    #grader.uploadResult()
+                logger.debug("new test results:")
+                logger.debug(resultNew)
+            except Exception as e:
+                logger.error("Fatal error in dockerRun", exc_info=True)
+
+                
+if __name__ == '__main__':
+    main()
