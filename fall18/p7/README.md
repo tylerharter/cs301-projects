@@ -17,7 +17,7 @@ The small\_movies.csv and small\_mapping.csv have been provieded to help you deb
 
 `small_movies.csv` and `movies.csv` have 6 columns -   
 
-`movie_id`, `release_year`, `rating`, `directors`, `actors`, `genres`
+`movie_id`, `year`, `rating`, `directors`, `actors`, `genres`
 
 Here are a few rows from `movies.csv`
 
