@@ -230,7 +230,7 @@ Notice that the actors, directors and the title all have names now!
 ## Step 2: the `stats` function
 
 > input(s) to this function:
-> * movies : the list of dictionaries (the output of read\_data("movies.csv"))
+> * movies : the list of dictionaries (the output of read\_data("movies.csv", "mapping.csv"))
 
 This function should return a single dictionary that contains the following information in it.
 
@@ -257,7 +257,7 @@ Remember, when printing the output, use `json.dumps`!
 ## Step 3: The `top_n_actors` function
 
 > input(s) to this function:
-> * movies : the list of dictionaries (the output of read\_data("movies.csv"))
+> * movies : the list of dictionaries (the output of read\_data("movies.csv", "mapping.csv"))
 > * n : the length of the list to be returned
 
 This function should calculate a "score" for every actor, sort the actors in descending order of their scores and return the first `n` entries.
@@ -284,7 +284,7 @@ python main.py top_n_actors 3
 Instead of scoring actors based on the number of movies they've acted in, we are going to score them based on the different types of genres they've acted in!
 
 > input(s) to this function:
-> * movies : the list of dictionaries (the output of read\_data("movies.csv"))
+> * movies : the list of dictionaries (the output of read\_data("movies.csv", "mapping.csv"))
 > * n : the length of the list to be returned
 
 This function is similar to `top_n_actors` except the score is going to be calculated based on the number of genres of movies they've acted in.
@@ -319,7 +319,7 @@ python main.py top_n_versatile_actors 10
 ## Step 5: the `top_n_directors` function
 
 > input(s) to this function:
-> * movies : the list of dictionaries (the output of read\_data("movies.csv"))
+> * movies : the list of dictionaries (the output of read\_data("movies.csv", "mapping.csv"))
 > * n : the length of the list to be returned
 
 This function should calculate a "score" for every director **who has directed 5 or more movies**, sort the directors in descending order of their scores and return the first `n` entries.
