@@ -88,6 +88,12 @@ class BadFunctionException(Exception):
     def __init__(self, msg):
         self.msg = msg
 
+class JsonException(Exception):
+    def __init__(self, cmd, msg, e):
+        self.cmd = cmd
+        self.msg = msg
+        self.json_exc = e
+
 def run_cmd(subcmd, *args, timeout=2):
     cmd = [
         get_python_binary_name(), '-u', PROGRAM, subcmd,
@@ -102,7 +108,12 @@ def run_cmd(subcmd, *args, timeout=2):
         if stderr != '':
             raise StderrException(cmdstr, stderr)
 
-        return stdout, cmdstr
+        try:
+            parsed_json = json.loads(stdout)
+        except json.decoder.JSONDecodeError as e:
+            raise JsonException(cmdstr, stdout, e)
+
+        return parsed_json, cmdstr
 
     except subprocess.TimeoutExpired:
         p.kill()
@@ -259,8 +270,7 @@ def test_006():
 
 @group("test_stats", fname='stats', expected_num_params=1)
 def test_007():
-    stdout, cmdstr = run_cmd('stats')
-    stats = json.loads(stdout)
+    stats, cmdstr = run_cmd('stats')
     result = compare_dicts(stats, expected['test_007'])
     if result != PASS:
         raise MismatchException(cmdstr, result)
@@ -270,8 +280,7 @@ def test_007():
 
 @group("test_top_n_actors", fname='top_n_actors', expected_num_params=2)
 def test_008():
-    stdout, cmdstr = run_cmd('top_n_actors', 0)
-    top_n_actors = json.loads(stdout)
+    top_n_actors, cmdstr = run_cmd('top_n_actors', 0)
     result = compare_list_of_dicts(top_n_actors, expected['test_008'])
     if result != PASS:
         raise MismatchException(cmdstr, result)
@@ -280,8 +289,7 @@ def test_008():
 
 @group("test_top_n_actors", fname='top_n_actors', expected_num_params=2)
 def test_009():
-    stdout, cmdstr = run_cmd('top_n_actors', 6)
-    top_n_actors = json.loads(stdout)
+    top_n_actors, cmdstr = run_cmd('top_n_actors', 6)
     result = compare_list_of_dicts(top_n_actors, expected['test_009'])
     if result != PASS:
         raise MismatchException(cmdstr, result)
@@ -292,8 +300,7 @@ def test_009():
 def test_010():
     # TODO depends on 8 passing first
     # TODO obfuscate this
-    stdout, cmdstr = run_cmd('top_n_actors', 10)
-    top_n_actors = json.loads(stdout)
+    top_n_actors, cmdstr = run_cmd('top_n_actors', 10)
     # sorting to make sure ties are always printed in sorted order of name?
     __fix_order(top_n_actors, "actor", "score")
     result = compare_list_of_dicts(top_n_actors, expected['test_010'])
@@ -304,8 +311,7 @@ def test_010():
 
 @group("test_top_n_actors", fname='top_n_actors', expected_num_params=2)
 def test_011():
-    stdout, cmdstr = run_cmd('top_n_actors', 20)
-    top_n_actors = json.loads(stdout)
+    top_n_actors, cmdstr = run_cmd('top_n_actors', 20)
     __fix_order(top_n_actors, "actor", "score")
     result = compare_list_of_dicts(top_n_actors, expected['test_011'])
     if result != PASS:
@@ -315,8 +321,7 @@ def test_011():
 
 @group("test_top_n_versatile_actors", fname='top_n_versatile_actors', expected_num_params=2)
 def test_012():
-    stdout, stderr = run_cmd('top_n_versatile_actors', 0)
-    top_n_actors = json.loads(stdout)
+    top_n_actors, stderr = run_cmd('top_n_versatile_actors', 0)
     result = compare_list_of_dicts(top_n_actors, expected['test_012'])
     if result != PASS:
         raise MismatchException(cmdstr, result)
@@ -325,8 +330,7 @@ def test_012():
 
 @group("test_top_n_versatile_actors", fname='top_n_versatile_actors', expected_num_params=2)
 def test_013():
-    stdout, stderr = run_cmd('top_n_versatile_actors', 3)
-    top_n_actors = json.loads(stdout)
+    top_n_actors, stderr = run_cmd('top_n_versatile_actors', 3)
     __fix_order(top_n_actors, "actor", "score")
     result = compare_list_of_dicts(top_n_actors, expected['test_013'])
     if result != PASS:
@@ -336,8 +340,7 @@ def test_013():
 
 @group("test_top_n_versatile_actors", fname='top_n_versatile_actors', expected_num_params=2)
 def test_014():
-    stdout, stderr = run_cmd('top_n_versatile_actors', 15)
-    top_n_actors = json.loads(stdout)
+    top_n_actors, stderr = run_cmd('top_n_versatile_actors', 15)
     __fix_order(top_n_actors, "actor", "score")
     result = compare_list_of_dicts(top_n_actors, expected['test_014'])
     if result != PASS:
@@ -347,8 +350,7 @@ def test_014():
 
 @group("test_top_n_directors", fname='top_n_directors', expected_num_params=2)
 def test_015():
-    stdout, cmdstr = run_cmd('top_n_directors', 0)
-    top_n_directors = json.loads(stdout)
+    top_n_directors, cmdstr = run_cmd('top_n_directors', 0)
     result = compare_list_of_dicts(top_n_directors, expected['test_015'])
     if result != PASS:
         raise MismatchException(cmdstr, result)
@@ -357,8 +359,7 @@ def test_015():
 
 @group("test_top_n_directors", fname='top_n_directors', expected_num_params=2)
 def test_016():
-    stdout, cmdstr = run_cmd('top_n_directors', 4)
-    top_n_directors = json.loads(stdout)
+    top_n_directors, cmdstr = run_cmd('top_n_directors', 4)
     __fix_order(top_n_directors, "director", "score")
     result = compare_list_of_dicts(top_n_directors, expected['test_016'])
     if result != PASS:
@@ -368,8 +369,7 @@ def test_016():
 
 @group("test_top_n_directors", fname='top_n_directors', expected_num_params=2)
 def test_017():
-    stdout, cmdstr = run_cmd('top_n_directors', 12)
-    top_n_directors = json.loads(stdout)
+    top_n_directors, cmdstr = run_cmd('top_n_directors', 12)
     __fix_order(top_n_directors, "director", "score")
     result = compare_list_of_dicts(top_n_directors, expected['test_017'])
     if result != PASS:
@@ -379,8 +379,7 @@ def test_017():
 
 @group("test_top_n_actors_extra", fname='top_n_actors', expected_num_params=2)
 def test_018():
-    stdout, cmdstr = run_cmd('top_n_actors', 20)
-    top_n_actors = json.loads(stdout)
+    top_n_actors, cmdstr = run_cmd('top_n_actors', 20)
     result = compare_list_of_dicts(top_n_actors, expected['test_018'])
     if result != PASS:
         raise MismatchException(cmdstr, result)
@@ -389,8 +388,7 @@ def test_018():
 
 @group("test_top_n_versatile_actors_extra", fname='top_n_versatile_actors', expected_num_params=2)
 def test_019():
-    stdout, cmdstr = run_cmd('top_n_versatile_actors', 15)
-    top_n_actors = json.loads(stdout)
+    top_n_actors, cmdstr = run_cmd('top_n_versatile_actors', 15)
     result = compare_list_of_dicts(top_n_actors, expected['test_019'])
     if result != PASS:
         raise MismatchException(cmdstr, result)
@@ -399,8 +397,7 @@ def test_019():
 
 @group("test_top_n_directors_extra", fname='top_n_directors', expected_num_params=2)
 def test_020():
-    stdout, cmdstr = run_cmd('top_n_directors', 10)
-    top_n_directors = json.loads(stdout)
+    top_n_directors, cmdstr = run_cmd('top_n_directors', 10)
     result = compare_list_of_dicts(top_n_directors, expected['test_020'])
     if result != PASS:
         raise MismatchException(cmdstr, result)
@@ -443,11 +440,12 @@ def runTests():
             result = fn()
             test_summary['result'] = result
             # TODO barriers in tests
-        except json.decoder.JSONDecodeError:
+        except JsonException as e:
             test_summary['result'] = FAIL_JSON
             print("Test {}".format(name))
             print("Ran cmd: {}".format(e.cmd))
-            print("Got non json output")
+            print("Got non json output - {}".format(e.msg))
+            print(e.json_exc)
             print()
         except StderrException as e:
             test_summary['result'] = FAIL_STDERR
