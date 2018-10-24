@@ -132,14 +132,21 @@ def compare_dicts(dict_a, expected_dict):
     if len(dict_a) != len(expected_dict):
         return "Expected dictionary with {} keys but got dictionary with {} keys!".format(len(expected_dict), len(dict_a))
 
-    dict_a_kv_list = sorted(dict_a.items())
-    expected_dict_kv_list = sorted(expected_dict.items())
-    for (k,v), (ek, ev) in zip(dict_a_kv_list, expected_dict_kv_list):
-        if k != ek:
-            return "Key {} is missing from dictionary!".format(ek)
+    dict_a_keys = set(dict_a.keys())
+    expected_keys = set(expected_dict.keys())
+    extra_keys = dict_a_keys - expected_keys
+    missing_keys = expected_keys - dict_a_keys
 
-        if v != ev:
-            return "Expected key {} to have value {} but found value {} instead!".format(k, ev, v)
+    if len(missing_keys) > 0:
+        return "Key {} is missing from dictionary!".format(missing_keys.pop())
+
+    if len(extra_keys) > 0:
+        return "Your dictionary has an extra key {}".format(extra_keys.pop())
+
+    # They have the same keys
+    for k,v in expected_dict.items():
+        if v != dict_a[k]:
+            return "Expected key {} to have value {!r} but found value {!r} instead!".format(k, v, dict_a[k])
 
     return "Expected dictionary {} but found dictionary {} instead!".format(expected_dict_kv_list, dict_a)
 
