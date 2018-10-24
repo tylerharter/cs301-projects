@@ -2,17 +2,24 @@
 
 For this assignment, we will be using the IMDB Movie dataset again.
 
-This time there are 4 csv files
+> TODO: update links to files once merged.
 
-- small\_movies.csv
-- small\_mapping.csv
-- movies.csv
-- mapping.csv
+Download the files using the links below
+
+* [main.py](https://raw.githubusercontent.com/tylerharter/cs301-projects/master/fall18/p7/main.py)
+* [test.py](https://raw.githubusercontent.com/tylerharter/cs301-projects/master/fall18/p7/test.py)
+* [expected.json](https://raw.githubusercontent.com/tylerharter/cs301-projects/master/fall18/p7/expected.json)
+* [small\_mapping.csv](https://raw.githubusercontent.com/tylerharter/cs301-projects/master/fall18/p7/small_mapping.csv)
+* [small\_movies.csv](https://raw.githubusercontent.com/tylerharter/cs301-projects/master/fall18/p7/small_movies.csv)
+* [movies.csv](https://raw.githubusercontent.com/tylerharter/cs301-projects/master/fall18/p7/movies.csv)
+* [mapping.csv](https://raw.githubusercontent.com/tylerharter/cs301-projects/master/fall18/p7/mapping.csv)
 
 You will be working mainly with movies.csv and mapping.csv.  
 The small\_movies.csv and small\_mapping.csv have been provieded to help you debug any errors you may face while implementing Step 1.
 
-`small_movies.csv` and `movies.csv` have 6 columns - `movie_id`, `release_year`, `rating`, `directors`, `actors`, `genres`
+`small_movies.csv` and `movies.csv` have 6 columns -   
+
+`movie_id`, `release_year`, `rating`, `directors`, `actors`, `genres`
 
 Here are a few rows from `movies.csv`
 
@@ -25,7 +32,7 @@ tt0224120,2000,4.9,nm0943044,nm0001299,"Drama,Mystery,Thriller"
 tt0040724,1948,7.8,"nm0744504,nm0001328","nm0000078,nm0001050,nm0000974","Action,Adventure,Romance"
 ```
 
-As seen above, this file has no names for movies, directors and actors. Those mappings are present in `mapping.csv`.
+As seen above, this file has no names for movies, directors and actors. Those mappings are present in `mapping.csv`.  
 
 `small_mapping.csv` and `mapping.csv` have 2 columns - `id`, `name`
 
@@ -151,8 +158,8 @@ You can test your `get_movies` function in the python console as follows:
 ### 1.3 The `read_data` function:
 
 > input(s) to this function
-> *movie\_filename : a string representing the name of the movie file.
-> *mapping\_filename : a string representing the name of the mapping file.
+> * movie\_filename : a string representing the name of the movie file.
+> * mapping\_filename : a string representing the name of the mapping file.
 
 If you've noticed, the output of `get_movies` is a list of dictionaries, but the title, directors and actors have IDs instead of names. This function should convert those IDs into names.
 
@@ -335,7 +342,7 @@ python main.py top_n_directors 10
 
 *If everything until here is correct, your score from test.py should be atleast `97%`.*
 
-## Step 5: Getting to `100%` from `97%`
+## Step 5: Getting from `97%` to `100%`
 
 The `top_n_actors`, `top_n_versatile_actors` and `top_n_directors` functions sort based on scores. But what if two actors or two directors have the same score? How do you break such ties?
 In order to get these last few points, you'll have to ensure that if two people get the same score, then they are ordered alphabetically.
@@ -367,7 +374,7 @@ For example, if we've computed scores for actors as
 ]
 ```
 
-Then all the 18's should be sorted alphabetically, and so should the 17's, to get the following
+Then all the names for the 18's should be sorted alphabetically, and so should the 17's, to get the following
 
 ```
 [
