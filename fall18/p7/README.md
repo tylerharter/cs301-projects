@@ -343,7 +343,7 @@ python main.py top_n_directors 10
 
 *If everything until here is correct, your score from test.py should be atleast `97%`.*
 
-## Step 5: Getting from `97%` to `100%`
+## Step 6: Getting from `97%` to `100%`
 
 The `top_n_actors`, `top_n_versatile_actors` and `top_n_directors` functions sort based on scores. But what if two actors or two directors have the same score? How do you break such ties?
 In order to get these last few points, you'll have to ensure that if two people get the same score, then they are ordered alphabetically.
