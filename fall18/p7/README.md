@@ -12,10 +12,10 @@ Download the files using the links below
 * [movies.csv](https://raw.githubusercontent.com/tylerharter/cs301-projects/master/fall18/p7/movies.csv)
 * [mapping.csv](https://raw.githubusercontent.com/tylerharter/cs301-projects/master/fall18/p7/mapping.csv)
 
-You will be working mainly with movies.csv and mapping.csv.  
-The small\_movies.csv and small\_mapping.csv have been provieded to help you debug any errors you may face while implementing Step 1.
+You will be working mainly with *movies.csv* and *mapping.csv*.  
+The *small_movies.csv* and *small_mapping.csv* have been provided to help you debug any errors you may face while implementing Step 1.
 
-`small_movies.csv` and `movies.csv` have 6 columns -   
+*small_movies.csv* and *movies.csv* have 6 columns -
 
 `movie_id`, `release_year`, `rating`, `directors`, `actors`, `genres`
 
@@ -224,11 +224,12 @@ You can test your `read_data` function in the python console as follows:
 ]
 ```
 
-Notice that the actors, directors and the title all have names now!
+Notice that the **actors**, **directors** and the **title** all have names now!
 *If everything until here is correct, your score from test.py should be `54%`.*
 
 > NOTE: You do not have to modify the `process_args` function for this step.
-> NOTE: Make sure that your score is at `54%` before proceeding. The `read_data` function needs to be correct before you can start any of the steps below.
+
+Make sure that your score is at `54%` before proceeding. **The `read_data` function needs to be correct before you can start any of the steps below.**
 
 ## Step 2: the `stats` function
 
@@ -245,7 +246,6 @@ This function should return a single dictionary that contains the following info
 |num\_genres|The total number of distinct genres in the dataset|
 
 NOTE: All the values should be integers!
-HINT: use sets!
 
 In the `process_args` function, just like in P6, add a command for the `stats` function so that your main.py can run the following command.
 
@@ -266,7 +266,7 @@ python main.py stats
 This function should calculate a "score" for every actor, sort the actors in descending order of their scores and return the first `n` entries.
 The "score" is calculated as the number of movies the actor has acted in.
 
-This function should return a *list of dictionaries* of length `n` where each dictionary contains the following information in it.
+This function should return a **list of dictionaries** of **length n** where each dictionary contains the following information in it.
 
 |key|value|
 |---|-----|
