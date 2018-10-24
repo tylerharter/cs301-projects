@@ -93,10 +93,10 @@ This function should return a **list of dictionaries** where each dictionary rep
 
 ```
 { 
-    "title": "<the movie id>",
+    "title": "movie-id",
     "year": <the year as an integer>,
     "rating": <the rating as a float>,
-    "directors": [<director-id1>, <director-id2>, ...],
+    "directors": ["director-id1", "director-id2", ...],
     "actors": ["actor-id1", "actor-id2", ....], 
     "genres": ["genre1", "genre2", ...]
 }
@@ -167,11 +167,11 @@ This function should return a **list of dictionaries** where each dictionary rep
 
 ```
 { 
-    "title": "<the movie name>",
+    "title": "the movie name",
     "year": <the year as an integer>,
     "rating": <the rating as a float>,
-    "directors": [<director-name1>, <director-name2>, ...],
-    "actors": ["actor-name11", "actor-name2", ....], 
+    "directors": ["director-name1", "director-name2", ...],
+    "actors": ["actor-name1", "actor-name2", ....], 
     "genres": ["genre1", "genre2", ...]
 }
 ```
