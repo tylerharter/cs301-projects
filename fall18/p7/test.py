@@ -96,7 +96,7 @@ class JsonException(Exception):
 
 def run_cmd(subcmd, *args, timeout=2):
     cmd = [
-        get_python_binary_name(), '-u', PROGRAM, subcmd,
+        get_python_binary_name(), '-u', PROGRAM, subcmd, "movies.csv", "mapping.csv",
     ]
     cmd.extend(map(str, args))
     cmdstr = ' '.join(cmd)

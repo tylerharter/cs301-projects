@@ -102,6 +102,9 @@ This function should return a **list of dictionaries** where each dictionary rep
 }
 ```
 
+> NOTE: The directors, actors and genres should be a list of strings even if there is only one actor/genre/director.
+> The csv file has them as a single string with commas so you will have to split that string.
+
 You can test your `get_movies` function in the python console as follows:
 ```
 >>> from main import get_movies
@@ -250,7 +253,7 @@ HINT: use sets!
 In the `process_args` function, just like in P6, add a command for the `stats` function so that your main.py can run the following command.
 
 ```
-python main.py stats
+python main.py stats movies.csv mapping.csv
 ```
 
 > NOTE: When printing the output, use the `json.dumps` function as shown in step 1!
@@ -276,8 +279,8 @@ This function should return a *list of dictionaries* of length `n` where each di
 In the `process_args` function, add a command for the `top_n_actors` function so that your main.py can run the following commands.
 
 ```
-python main.py top_n_actors 0
-python main.py top_n_actors 3
+python main.py top_n_actors movies.csv mapping.csv 0
+python main.py top_n_actors movies.csv mapping.csv 3
 ```
 
 *If everything until here is correct, your score from test.py should be atleast `80%`.*
@@ -314,7 +317,7 @@ This function should return a *list of dictionaries* of maximum length `n` where
 In the `process_args` function, add a command for the `top_n_versatile_actors` function so that your main.py can run commands like the following.
 
 ```
-python main.py top_n_versatile_actors 10
+python main.py top_n_versatile_actors movies.csv mapping.csv 10
 ```
 
 *If everything until here is correct, your score from test.py should be atleast `89%`.*
@@ -338,7 +341,7 @@ This function should return a *list of dictionaries* of maximum length `n` where
 In the `process_args` function, add a command for the `top_n_directors` function so that your main.py can run commands like the following.
 
 ```
-python main.py top_n_directors 10
+python main.py top_n_directors movies.csv mapping.csv 10
 ```
 
 *If everything until here is correct, your score from test.py should be atleast `97%`.*
