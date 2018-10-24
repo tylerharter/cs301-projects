@@ -79,7 +79,7 @@ You can test your `get_mapping` function in the python console as follows:
 
 > There's some new code here that you may not have seen before - `json.dumps`. The [json module](http://json.org/) allows you to
 > export and import data in a format that is easy to read.
-> NOTE: For this assignment, make sure to only print your results using json.dumps as shown above.
+> NOTE: You do not have to modify the `process_args` function for this step.
 
 
 *If everything until here is correct, your score from test.py should be `18%`.*
@@ -150,6 +150,8 @@ You can test your `get_movies` function in the python console as follows:
 ]
 >>>
 ```
+
+> NOTE: You do not have to modify the `process_args` function for this step.
 
 *If everything until here is correct, your score from test.py should be `36%`.*
 
@@ -225,6 +227,7 @@ You can test your `read_data` function in the python console as follows:
 Notice that the actors, directors and the title all have names now!
 *If everything until here is correct, your score from test.py should be `54%`.*
 
+> NOTE: You do not have to modify the `process_args` function for this step.
 > NOTE: Make sure that your score is at `54%` before proceeding. The `read_data` function needs to be correct before you can start any of the steps below.
 
 ## Step 2: the `stats` function
@@ -250,7 +253,7 @@ In the `process_args` function, just like in P6, add a command for the `stats` f
 python main.py stats
 ```
 
-Remember, when printing the output, use `json.dumps`!
+> NOTE: When printing the output, use the `json.dumps` function as shown in step 1!
 
 *If everything until here is correct, your score from test.py should be `70%`.*
 
