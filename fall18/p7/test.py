@@ -6,9 +6,13 @@ import subprocess
 import sys
 import importlib
 import inspect
+import traceback
 from functools import wraps
 
 PASS = 'PASS'
+FAIL_STDERR = 'Program produced stderr - please scroll up for more details.'
+FAIL_JSON = 'Expected program to print in json format. Make sure the only print statement is a print(json.dumps...)!'
+FAIL_TIMEOUT = 'Program took too long - please scroll above to see the exact command.'
 EPSILON = 0.0001
 
 PROGRAM = 'main.py'
@@ -23,11 +27,11 @@ if not os.path.exists(PROGRAM):
 
 if not os.path.exists("expected.json"):
     print("Cannot find expected.json, please copy it into the project directory")
-    #sys.exit()
+    sys.exit()
 
-#with open("expected.json") as fp:
-#    expected = json.load(fp)
-expected = { 'test_00%d' % i : [] for i in range(6) }
+with open("expected.json") as fp:
+    expected = json.load(fp)
+
 STUDENT_MAIN = importlib.import_module(MODULE)
 STUDENT_FUNCTIONS = {name: fn for name, fn in inspect.getmembers(STUDENT_MAIN, predicate=inspect.isfunction)}
 
@@ -52,6 +56,10 @@ def get_python_version(python_binary):
         return 'unknown'
     return output
 
+def __fix_order(l, *keys):
+    for k in keys:
+        l.sort(key=lambda x: x[k])
+
 def ensure_correct_python_version():
     python_binary = get_python_binary_name()
     python_version = get_python_version(python_binary)
@@ -62,42 +70,23 @@ def ensure_correct_python_version():
         print('Please check with us about this.')
         print()
 
-def clean_lines(lines):
-    result = []
-    for l in lines:
-        if type(l) is str and l.strip() != '':
-            result.append(l.strip())
-        elif type(l) is int or type(l) is float:
-            result.append(l)
-    return result
+class StderrException(Exception):
+    def __init__(self, cmd, stderr):
+        self.cmd = cmd
+        self.stderr = stderr
 
-# ignore whitespace and case
-def areLinesExpected(actual_lines, expected_lines):
-    actual_lines = clean_lines(actual_lines)
-    expected_lines = clean_lines(expected_lines)
+class TimeoutException(Exception):
+    def __init__(self, cmd):
+        self.cmd = cmd
 
-    if len(actual_lines) < len(expected_lines):
-        return 'fewer output lines than expected'
-    if len(actual_lines) > len(expected_lines):
-        return 'more output lines than expected'
-    for a, e in zip(actual_lines, expected_lines):
-        if type(e) is float or type(e) is int:
-            try:
-                answer = float(a)
-                if abs(answer - e) < EPSILON:
-                    continue
-                else:
-                    return 'expected ({}) but found ({})'.format(e, a)
-            except:
-                return 'expected ({}) but found ({})'.format(e, a)
-        elif a.lower() != e.lower():
-            return 'expected ({}) but found ({})'.format(e, a)
-    return None
+class MismatchException(Exception):
+    def __init__(self, cmd, mismatch_str):
+        self.cmd = cmd
+        self.mismatch_str = mismatch_str
 
-def check_equal_stdout(expected_stdout, actual_stdout):
-    expected = [line.strip() for line in expected_stdout.split('\n') if line.strip()]
-    actual = [line.strip() for line in actual_stdout.split('\n') if line.strip()]
-    return areLinesExpected(actual, expected)
+class BadFunctionException(Exception):
+    def __init__(self, msg):
+        self.msg = msg
 
 def run_cmd(subcmd, *args, timeout=2):
     cmd = [
@@ -110,23 +99,72 @@ def run_cmd(subcmd, *args, timeout=2):
         stdout, stderr = p.communicate(timeout=timeout)
         stdout = str(stdout, 'utf-8')
         stderr = str(stderr, 'utf-8')
-        return stdout, stderr, cmdstr
+        if stderr != '':
+            raise StderrException(cmdstr, stderr)
+
+        return stdout, cmdstr
 
     except subprocess.TimeoutExpired:
         p.kill()
-        print("Program took too long to run the following command: {}".format(cmdstr))
-        return '', '', cmdstr
+        raise TimeoutException(cmdstr)
+
+def compare_dicts(dict_a, expected_dict):
+    assert isinstance(expected_dict, dict), "This shouldn't have happened. Please contact a TA!"
+
+    if not isinstance(dict_a, dict):
+        return "Expected dictionary but found {}".format(type(dict_a))
+
+    if dict_a == expected_dict:
+        return PASS
+
+    # try to return a sane error.
+    if len(dict_a) != len(expected_dict):
+        return "Expected dictionary with {} keys but got dictionary with {} keys!".format(len(expected_dict), len(dict_a))
+
+    dict_a_kv_list = sorted(dict_a.items())
+    expected_dict_kv_list = sorted(expected_dict.items())
+    for (k,v), (ek, ev) in zip(dict_a_kv_list, expected_dict_kv_list):
+        if k != ek:
+            return "Key {} is missing from dictionary!".format(ek)
+
+        if v != ev:
+            return "Expected key {} to have value {} but found value {} instead!".format(k, ev, v)
+
+    return "Expected dictionary {} but found dictionary {} instead!".format(expected_dict_kv_list, dict_a)
+
+def compare_list_of_dicts(list_of_dicts, expected_list_of_dicts):
+    assert isinstance(expected_list_of_dicts, list), "This shouldn't have happened. Please contact a TA!"
+
+    if not isinstance(list_of_dicts, list):
+        return "Expected list but found {}".format(type(list_of_dicts))
+
+    if list_of_dicts == expected_list_of_dicts:
+        return PASS
+
+    if len(list_of_dicts) != len(expected_list_of_dicts):
+        return "Expected {} entries but found {} entries instead!".format(len(expected_list_of_dicts), len(list_of_dicts))
+
+    for i, (dict_a, expected_dict) in enumerate(zip(list_of_dicts, expected_list_of_dicts)):
+        ret = compare_dicts(dict_a, expected_dict)
+        if ret != PASS:
+            return "Mismatch at index {}: {}".format(i, ret)
+
+    return "Expected list {} but found list {} instead!".format(expected_list_of_dicts, list_of_dicts)
+
 
 ###########################################################################
 #                         COMMAND LINE TESTS                              #
 ###########################################################################
 
 group_weights = {
-    "test_read_csv": 60,
-    "test_stats": 20,
-    "test_top_n_actors": 8,
-    "test_top_n_versatile_actors": 7,
-    "test_top_n_directors": 5,
+    "test_read_data": 54,
+    "test_stats": 16,
+    "test_top_n_actors": 10,
+    "test_top_n_versatile_actors": 9,
+    "test_top_n_directors": 8,
+    "test_top_n_actors_extra": 1,
+    "test_top_n_versatile_actors_extra": 1,
+    "test_top_n_directors_extra": 1,
 }
 
 fns_by_group = {k:set() for k in group_weights}
@@ -143,11 +181,11 @@ def group(name, fname=None, expected_num_params=0):
             # fname is not None, check if that function exists
             student_fn = STUDENT_FUNCTIONS.get(fname)
             if student_fn is None:
-                return "Cannot find function {}".format(fname)
+                raise BadFunctionException("Cannot find function {}".format(fname))
 
             num_parameters = len(inspect.signature(student_fn).parameters)
             if num_parameters != expected_num_params:
-                return "Function {} should take {} parameters instead of {}".format(fname, expected_num_params, num_parameters)
+                raise BadFunctionException("Function {} should take {} parameters instead of {}".format(fname, expected_num_params, num_parameters))
 
             return fn()
 
@@ -156,70 +194,219 @@ def group(name, fname=None, expected_num_params=0):
         new_fn.get_weight = lambda : group_weights[name] / len(fns_by_group[name])
         test_functions.append((new_fn.__name__, new_fn))
         return new_fn
+
     return deco
 
-@group("test_read_csv", fname='read_csv', expected_num_params=0)
+@group("test_read_data", fname="get_mapping", expected_num_params=1)
 def test_001():
-    read_csv = STUDENT_FUNCTIONS.get("read_csv")
-    dataset = read_csv()
-    expected_dataset = expected["test_001"]
-    if expected_dataset == dataset:
-        return PASS
+    get_mapping = STUDENT_FUNCTIONS.get('get_mapping')
+    small_map = get_mapping('small_mapping.csv')
+    result = compare_dicts(small_map, expected['test_001'])
+    if result != PASS:
+        raise MismatchException(None, result)
 
     return PASS
-    # print some more useful info to help debug
-    if dataset is None:
-        return "Function read_csv returned None instead of the dataset list!"
 
-    # try and return the first error which will most likely solve the rest (if it is a parsing error)
-    if len(dataset) != len(expected_dataset):
-        return "Expected {} rows in dataset but got {} rows instead".format(
-            len(expected_dataset), len(dataset),
-        )
-    for i in range(len(dataset)):
-        di = dataset[i]
-        edi = expected_dataset[i]
+@group("test_read_data", fname="get_mapping", expected_num_params=1)
+def test_002():
+    get_mapping = STUDENT_FUNCTIONS.get('get_mapping')
+    big_map = get_mapping('mapping.csv')
+    result = compare_dicts(big_map, expected['test_002'])
+    if result != PASS:
+        raise MismatchException(None, result)
 
-        if di == edi:
-            continue
+    return PASS
 
-        if type(di) != type(edi):
-            return "Expected rows of type {}, but got type {}".format(di, edi)
+@group("test_read_data", fname="get_movies", expected_num_params=1)
+def test_003():
+    get_movies = STUDENT_FUNCTIONS.get('get_movies')
+    small_list_of_movies = get_movies('small_movies.csv')
+    result = compare_list_of_dicts(small_list_of_movies, expected['test_003'])
+    if result != PASS:
+        raise MismatchException(None, result)
 
-        if dataset[i] != expected_dataset[i]:
-            return "Expected {} for row {} of dataset but got {}".format(
-                expected_dataset[i], i, dataset[i],
-            )
+    return PASS
 
-    # Worst case - dump everything!
-    return "Expected {} but got {}".format(expected_dataset, dataset)
+@group("test_read_data", fname="get_movies", expected_num_params=1)
+def test_004():
+    get_movies = STUDENT_FUNCTIONS.get("get_movies")
+    big_list_of_movies = get_movies("movies.csv")
+    result = compare_list_of_dicts(big_list_of_movies, expected['test_004'])
+    if result != PASS:
+        raise MismatchException(None, result)
+
+    return PASS
+
+@group("test_read_data", fname="read_data", expected_num_params=2)
+def test_005():
+    read_data = STUDENT_FUNCTIONS.get("read_data")
+    small_list_of_movies = read_data("small_movies.csv", "small_mapping.csv")
+    result = compare_list_of_dicts(small_list_of_movies, expected['test_005'])
+    if result != PASS:
+        raise MismatchException(None, result)
+
+    return PASS
+
+@group("test_read_data", fname="read_data", expected_num_params=2)
+def test_006():
+    read_data = STUDENT_FUNCTIONS.get("read_data")
+    big_list_of_movies = read_data("movies.csv", "mapping.csv")
+    result = compare_list_of_dicts(big_list_of_movies, expected['test_006'])
+    if result != PASS:
+        raise MismatchException(None, result)
+
+    return PASS
 
 @group("test_stats", fname='stats', expected_num_params=1)
-def test_002():
-    stdout, stderr, cmdstr = run_cmd('stats')
-    if stderr != '':
-        print("Program produced stderr:")
-        print(stderr)
-        return False
+def test_007():
+    stdout, cmdstr = run_cmd('stats')
+    stats = json.loads(stdout)
+    result = compare_dicts(stats, expected['test_007'])
+    if result != PASS:
+        raise MismatchException(cmdstr, result)
 
     # TODO check json stdout with expected
     return PASS
 
 @group("test_top_n_actors", fname='top_n_actors', expected_num_params=2)
-def test_003():
-    stdout, stderr, cmdstr = run_cmd('top_n_actors', 10)
+def test_008():
+    stdout, cmdstr = run_cmd('top_n_actors', 0)
+    top_n_actors = json.loads(stdout)
+    result = compare_list_of_dicts(top_n_actors, expected['test_008'])
+    if result != PASS:
+        raise MismatchException(cmdstr, result)
+
+    return PASS
+
+@group("test_top_n_actors", fname='top_n_actors', expected_num_params=2)
+def test_009():
+    stdout, cmdstr = run_cmd('top_n_actors', 6)
+    top_n_actors = json.loads(stdout)
+    result = compare_list_of_dicts(top_n_actors, expected['test_009'])
+    if result != PASS:
+        raise MismatchException(cmdstr, result)
+
+    return PASS
+
+@group("test_top_n_actors", fname='top_n_actors', expected_num_params=2)
+def test_010():
+    # TODO depends on 8 passing first
+    # TODO obfuscate this
+    stdout, cmdstr = run_cmd('top_n_actors', 10)
+    top_n_actors = json.loads(stdout)
+    # sorting to make sure ties are always printed in sorted order of name?
+    __fix_order(top_n_actors, "actor", "score")
+    result = compare_list_of_dicts(top_n_actors, expected['test_010'])
+    if result != PASS:
+        raise MismatchException(cmdstr, result)
+
+    return PASS
+
+@group("test_top_n_actors", fname='top_n_actors', expected_num_params=2)
+def test_011():
+    stdout, cmdstr = run_cmd('top_n_actors', 20)
+    top_n_actors = json.loads(stdout)
+    __fix_order(top_n_actors, "actor", "score")
+    result = compare_list_of_dicts(top_n_actors, expected['test_011'])
+    if result != PASS:
+        raise MismatchException(cmdstr, result)
+
     return PASS
 
 @group("test_top_n_versatile_actors", fname='top_n_versatile_actors', expected_num_params=2)
-def test_004():
-    stdout, stderr, cmdstr = run_cmd('top_n_versatile_actors', 10)
+def test_012():
+    stdout, stderr = run_cmd('top_n_versatile_actors', 0)
+    top_n_actors = json.loads(stdout)
+    result = compare_list_of_dicts(top_n_actors, expected['test_012'])
+    if result != PASS:
+        raise MismatchException(cmdstr, result)
+
     return PASS
 
+@group("test_top_n_versatile_actors", fname='top_n_versatile_actors', expected_num_params=2)
+def test_013():
+    stdout, stderr = run_cmd('top_n_versatile_actors', 3)
+    top_n_actors = json.loads(stdout)
+    __fix_order(top_n_actors, "actor", "score")
+    result = compare_list_of_dicts(top_n_actors, expected['test_013'])
+    if result != PASS:
+        raise MismatchException(cmdstr, result)
+
+    return PASS
+
+@group("test_top_n_versatile_actors", fname='top_n_versatile_actors', expected_num_params=2)
+def test_014():
+    stdout, stderr = run_cmd('top_n_versatile_actors', 15)
+    top_n_actors = json.loads(stdout)
+    __fix_order(top_n_actors, "actor", "score")
+    result = compare_list_of_dicts(top_n_actors, expected['test_014'])
+    if result != PASS:
+        raise MismatchException(cmdstr, result)
+
+    return PASS
 
 @group("test_top_n_directors", fname='top_n_directors', expected_num_params=2)
-def test_005():
-    stdout, stderr, cmdstr = run_cmd('top_n_directors', 10)
+def test_015():
+    stdout, cmdstr = run_cmd('top_n_directors', 0)
+    top_n_directors = json.loads(stdout)
+    result = compare_list_of_dicts(top_n_directors, expected['test_015'])
+    if result != PASS:
+        raise MismatchException(cmdstr, result)
+
     return PASS
+
+@group("test_top_n_directors", fname='top_n_directors', expected_num_params=2)
+def test_016():
+    stdout, cmdstr = run_cmd('top_n_directors', 4)
+    top_n_directors = json.loads(stdout)
+    __fix_order(top_n_directors, "director", "score")
+    result = compare_list_of_dicts(top_n_directors, expected['test_016'])
+    if result != PASS:
+        raise MismatchException(cmdstr, result)
+
+    return PASS
+
+@group("test_top_n_directors", fname='top_n_directors', expected_num_params=2)
+def test_017():
+    stdout, cmdstr = run_cmd('top_n_directors', 12)
+    top_n_directors = json.loads(stdout)
+    __fix_order(top_n_directors, "director", "score")
+    result = compare_list_of_dicts(top_n_directors, expected['test_017'])
+    if result != PASS:
+        raise MismatchException(cmdstr, result)
+
+    return PASS
+
+@group("test_top_n_actors_extra", fname='top_n_actors', expected_num_params=2)
+def test_018():
+    stdout, cmdstr = run_cmd('top_n_actors', 20)
+    top_n_actors = json.loads(stdout)
+    result = compare_list_of_dicts(top_n_actors, expected['test_018'])
+    if result != PASS:
+        raise MismatchException(cmdstr, result)
+
+    return PASS
+
+@group("test_top_n_versatile_actors_extra", fname='top_n_versatile_actors', expected_num_params=2)
+def test_019():
+    stdout, cmdstr = run_cmd('top_n_versatile_actors', 15)
+    top_n_actors = json.loads(stdout)
+    result = compare_list_of_dicts(top_n_actors, expected['test_019'])
+    if result != PASS:
+        raise MismatchException(cmdstr, result)
+
+    return PASS
+
+@group("test_top_n_directors_extra", fname='top_n_directors', expected_num_params=2)
+def test_020():
+    stdout, cmdstr = run_cmd('top_n_directors', 10)
+    top_n_directors = json.loads(stdout)
+    result = compare_list_of_dicts(top_n_directors, expected['test_020'])
+    if result != PASS:
+        raise MismatchException(cmdstr, result)
+
+    return PASS
+
 
 ###########################################################################
 #                              RUN TESTS                                  #
@@ -230,21 +417,68 @@ def runTests():
     results = []
     test_functions = sorted(test_functions, key=lambda x: x[0])
 
-    skip_tests = False
+    read_data_test_names = { 'test_%03d' % i for i in range(1, 7) }
+    test_to_result = {}
+
     for name, fn in test_functions:
+        test_summary = {
+            'test': name, 'result': None, 'weight': fn.get_weight(), 'group': fn.group_name,
+        }
+
+        test_to_result[name] = test_summary
+        results.append(test_summary)
+
+        if name not in read_data_test_names:
+            # ensure that all read_data tests have passed before any other tests
+            all_tests_passed = True
+            for i in read_data_test_names:
+                if test_to_result[i]['result'] != PASS:
+                    all_tests_passed = False
+                    test_summary['result'] = 'Please pass tests 1 to 6 first'
+
+            if not all_tests_passed:
+                continue
+
         try:
-            result = "Please fix test_001 first"
-            if not skip_tests:
-                result = fn()
+            result = fn()
+            test_summary['result'] = result
+            # TODO barriers in tests
+        except json.decoder.JSONDecodeError:
+            test_summary['result'] = FAIL_JSON
+            print("Test {}".format(name))
+            print("Ran cmd: {}".format(e.cmd))
+            print("Got non json output")
+            print()
+        except StderrException as e:
+            test_summary['result'] = FAIL_STDERR
+            print("Test {}".format(name))
+            print("Ran cmd: {}".format(e.cmd))
+            print("Got stderr: {}".format(e.stderr))
+            print()
+        except TimeoutException as e:
+            test_summary['result'] = FAIL_TIMEOUT
+            print("Test {}".format(name))
+            print("Ran cmd: {}".format(e.cmd))
+            print("Program took too long!")
+            print()
+        except BadFunctionException as e:
+            test_summary['result'] = e.msg
+            print("Test {}".format(name))
+            print(e.msg)
+            print()
+        except MismatchException as e:
+            test_summary['result'] = "Output mismatch. Please scroll above to see the exact command"
+            print("Test {}".format(name))
+            if e.cmd is not None:
+                print("Ran cmd: {}".format(e.cmd))
 
-            results.append({'test': name, 'result': result, 'weight': fn.get_weight(), 'group': fn.group_name})
-            if name == 'test_001' and result != PASS:
-                print("Please solve test_001 before moving on to all the other tests!")
-                skip_tests = True
-
+            print(e.mismatch_str)
+            print()
         except Exception as e:
-            print("\nTip from 301 instructors: try running just {}() in interactive mode to debug this issue.\n\n".format(name))
-            raise e
+            test_summary['result'] = "ERROR. Please scroll above to see what caused this"
+            print("Test {}".format(name))
+            traceback.print_exc()
+            print()
 
     return results
 
@@ -262,15 +496,9 @@ def main():
 
     print('RESULTS:')
     for test in result['tests']:
-        suffix = ""
-        if test['result'] is False:
-            suffix = "... (your program may have an error, please see above for more information)"
-        elif test['result'] != PASS and isinstance(test['result'], str) and test['result'].startswith('expected'):
-            suffix = "... (please see above for more information)"
-        print('    {}: {} {}'.format(test['test'], str(test['result'])[:100], suffix))
+        print('    {}: {}'.format(test['test'], str(test['result'])))
 
     print("Score: {}%".format(result['score']))
-
 if __name__ == '__main__':
     ensure_correct_python_version()
     main()
