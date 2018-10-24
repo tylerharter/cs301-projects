@@ -1,11 +1,21 @@
 # Project 7
 
 For this assignment, we will be using the IMDB Movie dataset again.
-However, this time you are given two files - `movies.csv` and `mapping.csv`.
 
-`movies.csv` has 6 columns - `movie_id`, `release_year`, `rating`, `directors`, `actors`, `genres`
+This time there are 4 csv files
 
-The contents look something like this
+- small\_movies.csv
+- small\_mapping.csv
+- movies.csv
+- mapping.csv
+
+You will be working mainly with movies.csv and mapping.csv.  
+The small\_movies.csv and small\_mapping.csv have been provieded to help you debug any errors you may face while implementing Step 1.
+
+`small_movies.csv` and `movies.csv` have 6 columns - `movie_id`, `release_year`, `rating`, `directors`, `actors`, `genres`
+
+Here are a few rows from `movies.csv`
+
 ```
 tt1931435,2013,5.6,nm0951698,nm0000134,"Comedy,Drama,Romance"
 tt0242252,2001,6.1,nm0796124,"nm0048932,nm0000596,nm0004778","Drama,History,Romance"
@@ -17,9 +27,10 @@ tt0040724,1948,7.8,"nm0744504,nm0001328","nm0000078,nm0001050,nm0000974","Action
 
 As seen above, this file has no names for movies, directors and actors. Those mappings are present in `mapping.csv`.
 
-`mapping.csv` has 2 columns - `id`, `name`
+`small_mapping.csv` and `mapping.csv` have 2 columns - `id`, `name`
 
-The contents look something like this
+Here are a few rows from `mapping.csv`
+
 ```
 nm0000001,Fred Astaire
 nm0000004,John Belushi
@@ -28,27 +39,194 @@ tt0110997,The River Wild
 tt0122151,Lethal Weapon 4
 ```
 
-## Step 1: the `read_csv` function
+## 1: Creating the list of movies
 
-Create a function `read_csv` that returns a *list of dictionaries* where each dictionary represents a movie as follows:
+### 1.1 The `get_mapping` function:
+
+> input(s) to this function:
+> * mapping\_filename : a string representing the name of the mapping file.
+
+This function should return a dictionary where the keys are the IDs from the file and the values are the names.
+
+
+You can test your `get_mapping` function in the python console as follows:
+
+```
+>>> from main import get_mapping
+>>> my_mapping = get_mapping("small_mapping.csv")
+>>> 
+>>> import json
+>>> print(json.dumps(my_mapping, indent=2, sort_keys=True))
+{
+  "nm0000131": "John Cusack",
+  "nm0000154": "Mel Gibson",
+  "nm0000163": "Dustin Hoffman",
+  "nm0000418": "Danny Glover",
+  "nm0000432": "Gene Hackman",
+  "nm0000997": "Gary Busey",
+  "nm0001149": "Richard Donner",
+  "nm0001219": "Gary Fleder",
+  "nm0752751": "Mitchell Ryan",
+  "tt0093409": "Lethal Weapon",
+  "tt0313542": "Runaway Jury"
+}
+```
+
+> There's some new code here that you may not have seen before - `json.dumps`. The [json module](http://json.org/) allows you to
+> export and import data in a format that is easy to read.
+> NOTE: For this assignment, make sure to only print your results using json.dumps as shown above.
+
+
+*If everything until here is correct, your score from test.py should be `18%`.*
+
+### 1.2 The `get_movies` function:
+
+> input(s) to this function
+> * movie\_filename : a string representing the name of the movie file.
+
+This function should return a **list of dictionaries** where each dictionary represents a movie as follows:
 
 ```
 { 
-    "title": "<the movie title instead of the id>",
+    "title": "<the movie id>",
     "year": <the year as an integer>,
     "rating": <the rating as a float>,
-    "directors": ["directorname1", "directorname2", ....],
-    "actors": ["actorname1", "actorname2", ....], 
+    "directors": [<director-id1>, <director-id2>, ...],
+    "actors": ["actor-id1", "actor-id2", ....], 
     "genres": ["genre1", "genre2", ...]
 }
 ```
 
-Since `movies.csv` doesn't have any of the names, first read `mapping.csv` and created a dictionary where the keys are ids and the values are names.
-Then, when reading `movies.csv`, use the id's as keys and look for the values in the dictionary you previously created.
+You can test your `get_movies` function in the python console as follows:
+```
+>>> from main import get_movies
+>>> mymovies = get_movies("small_movies.csv")
+>>>
+>>> import json
+>>> print(json.dumps(mymovies, indent=2, sort_keys=True))
+[
+  {
+    "actors": [
+      "nm0000131",
+      "nm0000432",
+      "nm0000163"
+    ],
+    "directors": [
+      "nm0001219"
+    ],
+    "genres": [
+      "Crime",
+      "Drama",
+      "Thriller"
+    ],
+    "rating": 7.1,
+    "title": "tt0313542",
+    "year": 2003
+  },
+  {
+    "actors": [
+      "nm0000154",
+      "nm0000418",
+      "nm0000997",
+      "nm0752751"
+    ],
+    "directors": [
+      "nm0001149"
+    ],
+    "genres": [
+      "Action",
+      "Crime",
+      "Thriller"
+    ],
+    "rating": 7.6,
+    "title": "tt0093409",
+    "year": 1987
+  }
+]
+>>>
+```
+
+*If everything until here is correct, your score from test.py should be `36%`.*
+
+### 1.3 The `read_data` function:
+
+> input(s) to this function
+> *movie\_filename : a string representing the name of the movie file.
+> *mapping\_filename : a string representing the name of the mapping file.
+
+If you've noticed, the output of `get_movies` is a list of dictionaries, but the title, directors and actors have IDs instead of names. This function should convert those IDs into names.
+
+This function should return a **list of dictionaries** where each dictionary represents a movie as follows:
+
+```
+{ 
+    "title": "<the movie name>",
+    "year": <the year as an integer>,
+    "rating": <the rating as a float>,
+    "directors": [<director-name1>, <director-name2>, ...],
+    "actors": ["actor-name11", "actor-name2", ....], 
+    "genres": ["genre1", "genre2", ...]
+}
+```
+
+You can test your `read_data` function in the python console as follows:
+
+```
+>>> from main import read_data
+>>> movies = read_data("small_movies.csv", "small_mapping.csv")
+>>> import json
+>>> print(json.dumps(movies, indent=2, sort_keys=True))
+[
+  {
+    "actors": [
+      "John Cusack",
+      "Gene Hackman",
+      "Dustin Hoffman"
+    ],
+    "directors": [
+      "Gary Fleder"
+    ],
+    "genres": [
+      "Crime",
+      "Drama",
+      "Thriller"
+    ],
+    "rating": 7.1,
+    "title": "Runaway Jury",
+    "year": 2003
+  },
+  {
+    "actors": [
+      "Mel Gibson",
+      "Danny Glover",
+      "Gary Busey",
+      "Mitchell Ryan"
+    ],
+    "directors": [
+      "Richard Donner"
+    ],
+    "genres": [
+      "Action",
+      "Crime",
+      "Thriller"
+    ],
+    "rating": 7.6,
+    "title": "Lethal Weapon",
+    "year": 1987
+  }
+]
+```
+
+Notice that the actors, directors and the title all have names now!
+*If everything until here is correct, your score from test.py should be `54%`.*
+
+> NOTE: Make sure that your score is at `54%` before proceeding. The `read_data` function needs to be correct before you can start any of the steps below.
 
 ## Step 2: the `stats` function
 
-Create a function called `stats` that takes the dataset (the list of dictionaries) as an argument.
+> input(s) to this function:
+> * movies : the list of dictionaries (the output of read\_data("movies.csv"))
+
 This function should return a single dictionary that contains the following information in it.
 
 |key|value|
@@ -59,40 +237,52 @@ This function should return a single dictionary that contains the following info
 |num\_genres|The total number of distinct genres in the dataset|
 
 NOTE: All the values should be integers!
+HINT: use sets!
 
-In the `process_args` function, add a command for the `stats` function so that your main.py can run the following command.
-
+In the `process_args` function, just like in P6, add a command for the `stats` function so that your main.py can run the following command.
 
 ```
 python main.py stats
 ```
-HINT: use sets!
+
+Remember, when printing the output, use `json.dumps`!
+
+*If everything until here is correct, your score from test.py should be `70%`.*
 
 ## Step 3: The `top_n_actors` function
 
-Create a function called `top_n_actors` that takes the dataset and an integer `n` as arguments.
+> input(s) to this function:
+> * movies : the list of dictionaries (the output of read\_data("movies.csv"))
+> * n : the length of the list to be returned
 
 This function should calculate a "score" for every actor, sort the actors in descending order of their scores and return the first `n` entries.
 The "score" is calculated as the number of movies the actor has acted in.
 
-This function should return a *list of dictionaries* of maximum length `n` where each dictionary contains the following information in it.
+This function should return a *list of dictionaries* of length `n` where each dictionary contains the following information in it.
 
 |key|value|
 |---|-----|
 |actor|The name of the actor|
 |score|The score for the actor|
 
-In the `process_args` function, add a command for the `top_n_actors` function so that your main.py can run the following command.
+In the `process_args` function, add a command for the `top_n_actors` function so that your main.py can run the following commands.
 
 ```
-python main.py top_n_actors 10
+python main.py top_n_actors 0
+python main.py top_n_actors 3
 ```
+
+*If everything until here is correct, your score from test.py should be atleast `80%`.*
 
 ## Step 4: the `top_n_versatile_actors` function
 
-Create a function called `top_n_versatile_actors` that takes the dataset and an integer `n` as arguments.
+Instead of scoring actors based on the number of movies they've acted in, we are going to score them based on the different types of genres they've acted in!
 
-This function is similar to top_n_actors except the score is going to be calculated based on the number of genres of movies they've acted in.
+> input(s) to this function:
+> * movies : the list of dictionaries (the output of read\_data("movies.csv"))
+> * n : the length of the list to be returned
+
+This function is similar to `top_n_actors` except the score is going to be calculated based on the number of genres of movies they've acted in.
 
 For example, lets look at the movies "Kevin Bacon" has acted in (his actor id is nm0000102)
 
@@ -113,18 +303,22 @@ This function should return a *list of dictionaries* of maximum length `n` where
 |actor|The name of the actor|
 |score|The score for the actor|
 
-In the `process_args` function, add a command for the `top_n_versatile_actors` function so that your main.py can run the following command.
+In the `process_args` function, add a command for the `top_n_versatile_actors` function so that your main.py can run commands like the following.
 
 ```
 python main.py top_n_versatile_actors 10
 ```
 
+*If everything until here is correct, your score from test.py should be atleast `89%`.*
+
 ## Step 5: the `top_n_directors` function
 
-Create a function called `top_n_directors` that takes the dataset and an integer `n` as arguments.
+> input(s) to this function:
+> * movies : the list of dictionaries (the output of read\_data("movies.csv"))
+> * n : the length of the list to be returned
 
-This function should calculate a "score" for every director who has directed 5 or more movies, sort the directors in descending order of their scores and return the first `n` entries.
-The "score" is calculated by using the [median](https://www.mathsisfun.com/definitions/median.html) of the reviews of movies by that director.
+This function should calculate a "score" for every director **who has directed 5 or more movies**, sort the directors in descending order of their scores and return the first `n` entries.
+The "score" is calculated by using the [median](https://www.mathsisfun.com/definitions/median.html) of the reviews of movies by that director. Make sure to round this score down to 2 decimal places using the `round()` function.
 
 This function should return a *list of dictionaries* of maximum length `n` where each dictionary contains the following information in it.
 
@@ -133,8 +327,69 @@ This function should return a *list of dictionaries* of maximum length `n` where
 |director|The name of the director|
 |score|The score for the director|
 
-In the `process_args` function, add a command for the `top_n_directors` function so that your main.py can run the following command.
+In the `process_args` function, add a command for the `top_n_directors` function so that your main.py can run commands like the following.
 
 ```
 python main.py top_n_directors 10
+```
+
+*If everything until here is correct, your score from test.py should be atleast `97%`.*
+
+## Step 5: Getting to `100%` from `97%`
+
+The `top_n_actors`, `top_n_versatile_actors` and `top_n_directors` functions sort based on scores. But what if two actors or two directors have the same score? How do you break such ties?
+In order to get these last few points, you'll have to ensure that if two people get the same score, then they are ordered alphabetically.
+
+For example, if we've computed scores for actors as
+
+```
+[
+    {
+      "actor": "John Cusack",
+      "score": 18
+    },
+    {
+      "actor": "Jeff Bridges",
+      "score": 18
+    },
+    {
+      "actor": "Kurt Russell",
+      "score": 18
+    },
+    {
+      "actor": "Brian Donlevy",
+      "score": 17
+    },
+    {
+      "actor": "Armand Assante",
+      "score": 17
+    },
+]
+```
+
+Then all the 18's should be sorted alphabetically, and so should the 17's, to get the following
+
+```
+[
+    {
+      "actor": "Jeff Bridges",
+      "score": 18
+    },
+    {
+      "actor": "John Cusack",
+      "score": 18
+    },
+    {
+      "actor": "Kurt Russell",
+      "score": 18
+    },
+    {
+      "actor": "Armand Assante",
+      "score": 17
+    },
+    {
+      "actor": "Brian Donlevy",
+      "score": 17
+    },
+]
 ```
