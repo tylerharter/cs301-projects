@@ -2,8 +2,6 @@
 
 For this assignment, we will be using the IMDB Movie dataset again.
 
-> TODO: update links to files once merged.
-
 Download the files using the links below
 
 * [main.py](https://raw.githubusercontent.com/tylerharter/cs301-projects/master/fall18/p7/main.py)
