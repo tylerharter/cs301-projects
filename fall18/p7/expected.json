@@ -69434,10 +69434,10 @@
     }
   ],
   "test_007": {
-    "num_actors": 0,
-    "num_directors": 0,
-    "num_genres": 0,
-    "num_movies": 0
+      "num_actors": 2605,
+      "num_directors": 1247,
+      "num_genres": 18,
+      "num_movies": 1855
   },
   "test_008": [],
   "test_009": [
