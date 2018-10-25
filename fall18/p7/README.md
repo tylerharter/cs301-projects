@@ -53,6 +53,8 @@ tt0122151,Lethal Weapon 4
 
 This function should return a dictionary where the keys are the IDs from the file and the values are the names.
 
+> NOTE: Instead of using open(mapping\_filename) inside the get\_mapping function, use open(mapping\_filename, encoding="utf-8") instead.
+
 
 You can test your `get_mapping` function in the python console as follows:
 
@@ -90,6 +92,8 @@ You can test your `get_mapping` function in the python console as follows:
 > * movie\_filename : a string representing the name of the movie file.
 
 This function should return a **list of dictionaries** where each dictionary represents a movie as follows:
+
+> NOTE: Instead of using open(movie\_filename) inside the get\_movies function, use open(movie\_filename, encoding="utf-8") instead.
 
 ```
 { 
