@@ -56,7 +56,7 @@ This function should return a dictionary where the keys are the IDs from the fil
 
 You can test your `get_mapping` function in the python console as follows:
 
-```
+```python
 >>> from main import get_mapping
 >>> my_mapping = get_mapping("small_mapping.csv")
 >>> 
@@ -106,7 +106,7 @@ This function should return a **list of dictionaries** where each dictionary rep
 > The csv file has them as a single string with commas so you will have to split that string.
 
 You can test your `get_movies` function in the python console as follows:
-```
+```python
 >>> from main import get_movies
 >>> mymovies = get_movies("small_movies.csv")
 >>>
