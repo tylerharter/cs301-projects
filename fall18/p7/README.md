@@ -181,7 +181,7 @@ This function should return a **list of dictionaries** where each dictionary rep
 
 You can test your `read_data` function in the python console as follows:
 
-```
+```python
 >>> from main import read_data
 >>> movies = read_data("small_movies.csv", "small_mapping.csv")
 >>> import json
@@ -276,6 +276,26 @@ This function should return a **list of dictionaries** of **length n** where eac
 |actor|The name of the actor|
 |score|The score for the actor|
 
+In order to sort a list of dictionaries by a given key in the
+dictionaries, you may wish to copy the following function into your main.py file:
+
+```python
+def sort_list_of_dicts(items, dict_key, reverse=False):
+    """
+    items: a list of dicts to be sorted
+    dict_key: what key use in the dicts to determine the order
+    reverse: False means smallest first, True means biggest first
+
+    For example:
+    rows = [{"name": "Alice", "score": 10}, {"name": "Bob", "score": 9}]
+    sort_list_of_dicts(rows, "score")
+    # rows will be: [{"name": "Bob", "score": 9}, {"name": "Alice", "score": 10}]
+    sort_list_of_dicts(rows, "name")
+    # rows will be: [{"name": "Alice", "score": 10}, {"name": "Bob", "score": 9}]
+    """
+    items.sort(key=lambda item: item[dict_key], reverse=reverse)
+```
+
 In the `process_args` function, add a command for the `top_n_actors` function so that your main.py can run the following commands.
 
 ```
@@ -329,7 +349,7 @@ python main.py top_n_versatile_actors movies.csv mapping.csv 10
 > * n : the length of the list to be returned
 
 This function should calculate a "score" for every director **who has directed 5 or more movies**, sort the directors in descending order of their scores and return the first `n` entries.
-The "score" is calculated by using the [median](https://www.mathsisfun.com/definitions/median.html) of the reviews of movies by that director. Make sure to round this score down to 2 decimal places using the `round()` function.
+The "score" is calculated by using the [median](https://www.mathsisfun.com/definitions/median.html) of the reviews of movies by that director. Make sure to round this score to 2 decimal places using the `round()` function.
 
 This function should return a *list of dictionaries* of maximum length `n` where each dictionary contains the following information in it.
 
