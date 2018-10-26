@@ -177,16 +177,20 @@ class dockerGrader:
 
         # run tests inside a docker container
         image = 'python:3.7-stretch' # TODO: find/build some anaconda image
-        cmd = ['timeout', '60',                           # set a timeout
+        cmd = ['timeout', '45',                           # set a timeout
                'docker', 'run',                           # start a container
                '--rm',                                    # remove the container when exit
                '-v', os.path.abspath(self.testDir)+':/code',  # share the test dir inside
                '-u', str(self.currentUID),                     # run as local user (instead of root)
                '-w', '/code',                             # working dir is w/ code
                image,                                     # what docker image?
-               'timeout', '40',
+               'timeout', '30',
                'python3', 'test.py']                      # command to run inside
-        subprocess.check_output(cmd).decode("ascii").replace("\n","")
+        
+        try:
+            subprocess.check_output(cmd).decode("ascii").replace("\n","")
+        except Exception as e:
+            self.logger.warning("docker run returns non-zero error code")
 
         if upload:
             self.uploadResult()

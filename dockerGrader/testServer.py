@@ -52,6 +52,6 @@ def gradingJson(project, netId):
     return "Done"
 
 @flask_app.route('/sync/<project>/<netId>')
-def gradingJson(project, netId):
+def gradingJsonSync(project, netId):
     result = runSyncDocker(project, netId)
     return "Done"
