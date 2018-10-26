@@ -1,2 +1,2 @@
 . venv/bin/activate
-flower -A testServer --port=5555
+flower -A testServer --port=6000
