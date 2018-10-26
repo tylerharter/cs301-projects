@@ -36,6 +36,12 @@ def runDocker(project, netId):
     grader = dockerUtil.dockerGrader(project, netId, logger)
     grader.dockerRun()
 
+def runSyncDocker(project, netId):
+    logger = logging.getLogger(__name__)
+    logger.setLevel(logging.INFO)
+    grader = dockerUtil.dockerGrader(project, netId, logger)
+    grader.dockerRun()
+
 @flask_app.route('/')
 def index():
     return "index"
@@ -43,4 +49,9 @@ def index():
 @flask_app.route('/json/<project>/<netId>')
 def gradingJson(project, netId):
     result = runDocker.delay(project, netId)
+    return "Done"
+
+@flask_app.route('/sync/<project>/<netId>')
+def gradingJsonSync(project, netId):
+    result = runSyncDocker(project, netId)
     return "Done"
