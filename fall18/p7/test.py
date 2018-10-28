@@ -328,7 +328,7 @@ def test_011():
 
 @group("test_top_n_versatile_actors", fname='top_n_versatile_actors', expected_num_params=2)
 def test_012():
-    top_n_actors, stderr = run_cmd('top_n_versatile_actors', 0)
+    top_n_actors, cmdstr = run_cmd('top_n_versatile_actors', 0)
     result = compare_list_of_dicts(top_n_actors, expected['test_012'])
     if result != PASS:
         raise MismatchException(cmdstr, result)
@@ -337,7 +337,7 @@ def test_012():
 
 @group("test_top_n_versatile_actors", fname='top_n_versatile_actors', expected_num_params=2)
 def test_013():
-    top_n_actors, stderr = run_cmd('top_n_versatile_actors', 3)
+    top_n_actors, cmdstr = run_cmd('top_n_versatile_actors', 3)
     __fix_order(top_n_actors, "actor", "score")
     result = compare_list_of_dicts(top_n_actors, expected['test_013'])
     if result != PASS:
@@ -347,7 +347,7 @@ def test_013():
 
 @group("test_top_n_versatile_actors", fname='top_n_versatile_actors', expected_num_params=2)
 def test_014():
-    top_n_actors, stderr = run_cmd('top_n_versatile_actors', 15)
+    top_n_actors, cmdstr = run_cmd('top_n_versatile_actors', 15)
     __fix_order(top_n_actors, "actor", "score")
     result = compare_list_of_dicts(top_n_actors, expected['test_014'])
     if result != PASS:
