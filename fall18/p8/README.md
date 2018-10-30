@@ -140,7 +140,7 @@ Write a `recursive` function that would find the value for a given key in the js
 
 We will now learn to quickly load json data as namedtuple objects.
 
-###2.1 The `make_namedtuple_list` function: 
+### 2.1 The `make_namedtuple_list` function: 
 
 Now we write a function that would create a list of namedtuple objects for all the cars in the json file. Here we will go through all car entries in the dictionary, create an object for each of them(using the existing `make_object` function.
 
@@ -154,7 +154,7 @@ This function will return a list of namedtuple objects for all cars.
 
 *If everything until here is correct, your score from test.py should be x%.*
 
-###2.2 The `create_filter` function: 
+### 2.2 The `create_filter` function: 
 
 This function will help us extract data from the namedtuple list of objects. Data is extracted based on some filtering condition.
 
