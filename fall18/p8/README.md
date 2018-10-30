@@ -12,14 +12,15 @@ Download the files using the links below
 
 * [main.py](https://raw.githubusercontent.com/tylerharter/cs301-projects/master/fall18/p8/main.py)
 * [test.py](https://raw.githubusercontent.com/tylerharter/cs301-projects/master/fall18/p8/test.py)
-* [cars_sample.json](https://raw.githubusercontent.com/tylerharter/cs301-projects/master/fall18/p8/cars.json)
+* [carssample.json](https://raw.githubusercontent.com/tylerharter/cs301-projects/master/fall18/p8/cars.json)
 * [cars.json](https://raw.githubusercontent.com/tylerharter/cs301-projects/master/fall18/p8/carssmaple.json)
+* [test.txt](https://raw.githubusercontent.com/tylerharter/cs301-projects/master/fall18/p8/test.txt)
 
 
 
 # Files involved:
 
-The cars_sample.json only contains data of 3 cars. It is useful to use this file to develop your code.
+The carssample.json only contains data of 3 cars. It is useful to use this file to develop your code.
 
 The file “cars.json” has the actual data. This should be used to test your code.
 
@@ -56,6 +57,7 @@ Here is a sample structure of a single car data from the json file:
   }
 }
 
+The file test.txt contains data for the test.py file to grade your submission. Download this file in the same project folder.
 ```
 
 ## 1: Reading the json data
