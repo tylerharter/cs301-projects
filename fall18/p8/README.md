@@ -148,11 +148,12 @@ Now we write a function that would create a list of namedtuple objects for all t
 
 >json_data: The dictionary containing the data of all the cars
 
-This function will return a list of namedtuple objects for all cars.
+This function will return a list of namedtuple objects for all cars.To run this function use:
 
->Note: You do not have to modify the process_args function for this step.
+>python main.py cars.json makelist
 
 *If everything until here is correct, your score from test.py should be x%.*
+
 
 ### 2.2 The `create_filter` function: 
 
@@ -166,8 +167,17 @@ This function will help us extract data from the namedtuple list of objects. Dat
 
 The function will go through the list of all json data and select the ones that match all of the given criteria and add that into a list. The new list with the filtered objects is returned.
 
->Note: You do not have to modify the process_args function for this step.
+Here is a sample:
+>python main.py  cars.json filter {\"Make\":\"Acura\"}
 
+```python
+Output:
+[Car(Make=u'Acura', Model=u'Acura TL', Year=u'2012', Transmission={u'Type': u'Automatic', u'Classification': u'6 Speed Automatic Select Shift', u'Driveline': u'
+2012'}),
+Car(Make=u'Acura', Model=u'Acura TL', Year=u'2012', Transmission={u'Type': u'Automatic', u'Classification': u'6 Speed Automatic Select Shift', u'Drivel
+ine': u'2012'})]
+
+```
 *If everything until here is correct, your score from test.py should be x%.*
 
 
