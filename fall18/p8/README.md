@@ -116,7 +116,7 @@ Note: The process args function has been pre-written. Hence for this assignment 
 
 >python main.py cars.json read_json
 
-*If everything until here is correct, your score from test.py should be x%.*
+*If everything until here is correct, your score from test.py should be 10%.*
 
 ### 1.2: The `get_value` function: 
 In the next step we need to create car objects. In order to do so  we need to first have a mechanism to retrieve specific information from the json data.Let us write a function that will help us find the value for the given field in the json_data. We will use **recursion** for this function. 
@@ -131,9 +131,9 @@ Write a `recursive` function that would find the value for a given key in the js
 
 >Note: There are multiple ways of coding this function that will cause the test to pass, however you should ONLY implement a RECURSIVE solution.
 
->You do not have to modify the process_args function for this step.
+>python main.py cars.json read_json
 
-*If everything until here is correct, your score from test.py should be x%.*
+*If everything until here is correct, your score from test.py should be 35%.*
 
 
 ## 2: namedtuples
@@ -152,7 +152,7 @@ This function will return a list of namedtuple objects for all cars.To run this 
 
 >python main.py cars.json makelist
 
-*If everything until here is correct, your score from test.py should be x%.*
+*If everything until here is correct, your score from test.py should be 55%.*
 
 
 ### 2.2 The `create_filter` function: 
@@ -170,14 +170,14 @@ The function will go through the list of all json data and select the ones that 
 Here is a sample:
 >python main.py  cars.json filter {\"Make\":\"Acura\"}
 
+>Note:When passing a dictionary as a command line argument please take care to escape quotes with backslashes.
+
 ```python
 Output:
-[Car(Make=u'Acura', Model=u'Acura TL', Year=u'2012', Transmission={u'Type': u'Automatic', u'Classification': u'6 Speed Automatic Select Shift', u'Driveline': u'
-2012'}),
-Car(Make=u'Acura', Model=u'Acura TL', Year=u'2012', Transmission={u'Type': u'Automatic', u'Classification': u'6 Speed Automatic Select Shift', u'Drivel
-ine': u'2012'})]
+[Car(Make=u'Acura', Model=u'Acura TL', Year=u'2012', Transmission={u'Type': u'Automatic', u'Classification': u'6 Speed Automatic Select Shift', u'Driveline': u'2012'}),
+Car(Make=u'Acura', Model=u'Acura TL', Year=u'2012', Transmission={u'Type': u'Automatic', u'Classification': u'6 Speed Automatic Select Shift', u'Driveline': u'2012'})]
 
 ```
-*If everything until here is correct, your score from test.py should be x%.*
+*If everything until here is correct, your score from test.py should be 100%.*
 
 
