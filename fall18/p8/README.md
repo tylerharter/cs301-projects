@@ -65,7 +65,7 @@ The first step of the assignment is to read the json file and load it into our p
 ### 1.1 The `read_json` function:
 >inputs to this function: 
 
->*json_filename* : a string which represents the name of the json file
+> * *json_filename* : a string which represents the name of the json file
 
 To load a json data you will use json.loads.
 This function should return a dictionary that you obtain when you load the json data.
@@ -123,9 +123,9 @@ In the next step we need to create car objects. In order to do so  we need to fi
 
 >inputs to this function: 
 
->car\_data : a dictionary containing information of  a particular car.
+> * car\_data : a dictionary containing information of  a particular car.
 
-> field: The key that we are searching for.
+> * field: The key that we are searching for.
 
 Write a `recursive` function that would find the value for a given key in the json data and return that value.
 
@@ -146,7 +146,7 @@ Now we write a function that would create a list of namedtuple objects for all t
 
 >inputs to this function: 
 
->json_data: The dictionary containing the data of all the cars
+> * json_data: The dictionary containing the data of all the cars
 
 This function will return a list of namedtuple objects for all cars.To run this function use:
 
@@ -161,9 +161,9 @@ This function will help us extract data from the namedtuple list of objects. Dat
 
 >inputs to this function: 
 
->car_list: list of namedtuple objects
+> * car_list: list of namedtuple objects
 
->filtering_criteria: a dictionary with conditions based on which filtering needs to be done.
+> * filtering_criteria: a dictionary with conditions based on which filtering needs to be done.
 
 The function will go through the list of all json data and select the ones that match all of the given criteria and add that into a list. The new list with the filtered objects is returned.
 
