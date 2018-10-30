@@ -116,7 +116,7 @@ Output:
    'Mileage': {'City mpg': '21', 'Highway_mpg': '30'}}}}
 ```
 
-Note: The process args function has been pre-written. Hence for this assignment no modification of process_args() is necessary.
+Note: The process args function has been coded for you in the provided main.py. The function handles commandline arguments and calls the functions based on the commands. For this assignment no major modification of process_args() is necessary, except to connect the output of the functions you code to the respective variables.
 
 >python main.py cars.json read_json
 
