@@ -57,8 +57,10 @@ Here is a sample structure of a single car data from the json file:
   }
 }
 
-The file test.txt contains data for the test.py file to grade your submission. Download this file in the same project folder.
 ```
+
+The file test.txt contains data for the test.py file to grade your submission. Download this file in the same project folder.
+
 
 ## 1: Reading the json data
 
