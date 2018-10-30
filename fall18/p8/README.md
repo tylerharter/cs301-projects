@@ -3,8 +3,8 @@
 In this assignment we are going to learn:
 
 * How to read json files and parse them using recursion.
-* How to create objects
-* Shallow copy vs deep copy
+* How to create and use namedtuples
+
 
 We are going to work with json data on cars for this assignment.
 
@@ -67,10 +67,7 @@ The first step of the assignment is to read the json file and load it into our p
 
 >*json_filename* : a string which represents the name of the json file
 
-
-
-
-
+To load a json data you will use json.loads.
 This function should return a dictionary that you obtain when you load the json data.
 
 You can test your code from your console:
@@ -115,9 +112,9 @@ Output:
    'Mileage': {'City mpg': '21', 'Highway_mpg': '30'}}}}
 ```
 
-In the process_args function, just like in P7, add a command for `read_json` function so that your main.py can run the following command.
+Note: The process args function has been pre-written. Hence for this assignment no modification of process_args() is necessary.
 
->python main.py read_file cars.json
+>python main.py cars.json read_json
 
 *If everything until here is correct, your score from test.py should be x%.*
 
@@ -143,22 +140,6 @@ Write a `recursive` function that would find the value for a given key in the js
 
 We will now learn to quickly load json data as namedtuple objects.
 
-###2.1 The `make_object` function: 
-
-This function is going to convert the existing json data of a particular car into a namedtuple/recordclass object.
-
->inputs to this function: 
-
->classname : class name.( This can either be of type namedtuple or of recordclass)
-
->car_data: a dictionary containing information of a particular car.
-
-Write a function that would create an object of type *classname* from given data and return it. 
-
->Note: You do not have to modify the process_args function for this step.
-
-*If everything until here is correct, your score from test.py should be x%.*
-
 ###2.1 The `make_namedtuple_list` function: 
 
 Now we write a function that would create a list of namedtuple objects for all the cars in the json file. Here we will go through all car entries in the dictionary, create an object for each of them(using the existing `make_object` function.
@@ -173,7 +154,7 @@ This function will return a list of namedtuple objects for all cars.
 
 *If everything until here is correct, your score from test.py should be x%.*
 
-###2.1 The `create_filter` function: 
+###2.2 The `create_filter` function: 
 
 This function will help us extract data from the namedtuple list of objects. Data is extracted based on some filtering condition.
 
@@ -189,72 +170,4 @@ The function will go through the list of all json data and select the ones that 
 
 *If everything until here is correct, your score from test.py should be x%.*
 
-## 3: recordclass
 
-Now we will work on recordclasses and see how it compares to namedtuples.
-
-###3.1 The `make_recordclass_list` function: 
-
-Here, we create a list of recordclass objects for all the cars in the json file in a manner similar to `make_namedtuple_list` function. We loop through all car entries in the dictionary, create a recordclass object for each of them(using the existing make_object function.)
-
->inputs to this function: 
-
->json\_data : The dictionary containing the data of all the cars
-
-
->Note: You do not have to modify the process_args function for this step.
-
-*If everything until here is correct, your score from test.py should be x%.*
-
-
-
-
-## 4: Shallow copy vs Deep copy
-
-In this section we will write two functions that exemplify the difference between shallow copy and deep copy and show its usage.
-
-### 3.1 The `update_car` function:
-
-We will write a function to update/modify the value of a given car object. 
-
-> input(s) to this function:
-
-> *car_object* : a single car object. 
-(Hint:Think about whether you want to use a namedtuple object or a recordclass object for this function. Only one works!)
-
-> *fields* : a dictionary with the list of attributes and values that needs to be changed in the given car object.
-
-This function should update the value of the original car object that was passed and return that same object. 
-Please take care to not create a new object but to modify the existing object.
-
-You can test your `update_car` function in the python console as follows:
-
->.
-
-
-*If everything until here is correct, your score from test.py should be x%.*
-
-
-### 3.1 The `create_hybrid_car` function:
-
-We will now write a function that creates new car object based on an existing car and some attributes. 
-Here we do not want the original car object value to be modified. The hybrid car created by this function will have all of the values specified by the car object and then its values will be updated as per the *attributes*.
-
-> input(s) to this function:
-
-> *car* : a car object. (Hint:Think about whether you want to use a namedtuple object or a recordclass object for this function. Only one works!)
-
-> *attributes* : a dictionary of the attributes  
-
-
-This function should create a new car object object and change the values of the said attributes in the newly created object and returns it.
-
-
-
-
-
-You can test your `create_hybrid_car` function in the python console as follows:
-
->.
-
-*If everything until here is correct, your score from test.py should be x%.*
