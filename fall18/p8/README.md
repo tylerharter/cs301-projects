@@ -20,7 +20,7 @@ Download the files using the links below
 
 # Files involved:
 
-The carssample.json only contains data of 3 cars. It is useful to use this file to develop your code.
+The carssample.json only contains data of 3 cars. We recommend you use this file to develop your code.
 
 The file “cars.json” has the actual data. This should be used to test your code.
 
