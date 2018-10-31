@@ -63,7 +63,7 @@ def process_args(args):
             return None
         carlist = create_filter(cars_list, arg)
         if carlist==None:
-            print("Function make_namedtuple_list() not coded properly")
+            print("Function create_filter() not coded properly")
             return None
         flist = sorted(carlist, key=operator.attrgetter("Id"))  #This code lets us sort your output by car id. Do not change this
         return str(flist)
