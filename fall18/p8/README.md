@@ -78,9 +78,8 @@ Note: The process args function has been coded for you in the provided main.py. 
 
 You can test your code from terminal:
 >python main.py carssample.json read_json
-
 ```
-output
+python
 [(u'1', {u'Performance': {u'Horsepower': u'250', u'Mileage': {u'Highway_mpg': u'25', u'City mpg': u'18'}}, u'Config': {u'Transmission': {u'Type': u'Automatic',
 u'Classification': u'6 Speed Automatic Select Shift', u'Driveline': u'2009'}, u'Dimensions': {u'Length': u'143'}, u'Engine_Type': u'Audi 3.2L 6 cylinder 250hp 2
 36ft-lbs', u'Height': u'140'}, u'Build': {u'Make': u'Audi', u'Model': u'Audi A3', u'Year': u'2009'}, u'Hybrid': u'False'}), (u'2', {u'Performance': {u'Horsepowe
