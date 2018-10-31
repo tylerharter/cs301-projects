@@ -44,17 +44,65 @@ if PYTHON_VERSION.lower().find('python 3') < 0:
 # Problems are based on output of student functions
 ##################################################
 def test_1():
-    weight = 10
+    weight = 5
     error = check_has_function('read_json')
     if error:
         return error, weight
     f = open('test.txt')
     jdata = f.read().split('@')[0].strip()
     expected = jdata
+    actual = MAIN.process_args(["main.py","carssample.json","read_json"])
+    return check_answer(expected, actual), weight
+
+def test_2():
+    weight = 5
+    error = check_has_function('read_json')
+    if error:
+        return error, weight
+    f = open('test.txt')
+    jdata = f.read().split('@')[1].strip()
+    expected = jdata
     actual = MAIN.process_args(["main.py","cars.json","read_json"])
     return check_answer(expected, actual), weight
-def test_2():
-    weight = 25
+
+def test_3():
+    weight = 8
+    error = check_has_function('get_value')
+    if error:
+        return error, weight
+    expected = "False"
+    actual = MAIN.process_args(["main.py", "cars.json", "get_value", "5", "Hybrid"])
+    return check_answer(expected, actual), weight
+
+def test_4():
+    weight = 8
+    error = check_has_function('get_value')
+    if error:
+        return error, weight
+    expected = "168"
+    actual = MAIN.process_args(["main.py", "cars.json", "get_value", "76", "Horsepower"])
+    return check_answer(expected, actual), weight
+
+def test_5():
+    weight = 8
+    error = check_has_function('get_value')
+    if error:
+        return error, weight
+    expected = "2011"
+    actual = MAIN.process_args(["main.py", "cars.json", "get_value", "16", "Year"])
+    return check_answer(expected, actual), weight
+
+def test_6():
+    weight = 8
+    error = check_has_function('get_value')
+    if error:
+        return error, weight
+    expected = "21"
+    actual = MAIN.process_args(["main.py", "cars.json", "get_value", "3", "City mpg"])
+    return check_answer(expected, actual), weight
+
+def test_7():
+    weight = 8
     error = check_has_function('get_value')
     if error:
         return error, weight
@@ -62,49 +110,48 @@ def test_2():
     actual = MAIN.process_args(["main.py", "cars.json", "get_value", "40", "Make"])
     return check_answer(expected, actual), weight
 
-def test_3():
+def test_8():
     weight = 20
     error = check_has_function('make_namedtuple_list')
     f = open('test.txt')
-    jdata = f.read().split('@')[1].strip()
+    jdata = f.read().split('@')[2].strip()
     if error:
         return error, weight
     expected = jdata
     actual = MAIN.process_args(['main.py','cars.json','makelist'])
     return check_answer(expected, actual), weight
 
-def test_4():
-    weight = 15
-    error = check_has_function('create_filter')
-    f = open('test.txt')
-    if error:
-        return error, weight
-    jdata = f.read().split('@')[2].strip()
-    expected = jdata
-    actual = MAIN.process_args(['main.py','cars.json','filter', '{\"Make\":\"Audi\"}'])
-    return check_answer(expected, actual), weight
-
-def test_5():
-    weight = 15
+def test_9():
+    weight = 10
     error = check_has_function('create_filter')
     f = open('test.txt')
     if error:
         return error, weight
     jdata = f.read().split('@')[3].strip()
     expected = jdata
-    actual = MAIN.process_args(['main.py', 'cars.json', 'filter', '{\"Year\":\"2010\"}'])
+    actual = MAIN.process_args(['main.py','cars.json','filter', '{\"Make\":\"Audi\"}'])
     return check_answer(expected, actual), weight
 
-def test_6():
-    weight = 15
+def test_10():
+    weight = 10
     error = check_has_function('create_filter')
     f = open('test.txt')
     if error:
         return error, weight
     jdata = f.read().split('@')[4].strip()
     expected = jdata
+    actual = MAIN.process_args(['main.py', 'cars.json', 'filter', '{\"Year\":\"2010\"}'])
+    return check_answer(expected, actual), weight
+
+def test_11():
+    weight = 10
+    error = check_has_function('create_filter')
+    f = open('test.txt')
+    if error:
+        return error, weight
+    jdata = f.read().split('@')[5].strip()
+    expected = jdata
     actual = MAIN.process_args(['main.py', 'cars.json', 'filter', '{\"Year\":\"2010\",\"Make\":\"Chevrolet\"}'])
-    print(actual)
     return check_answer(expected, actual), weight
 
 
