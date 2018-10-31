@@ -74,52 +74,24 @@ The first step of the assignment is to read the json file and load it into our p
 To load a json data you will use json.loads.
 This function should return a dictionary that you obtain when you load the json data.
 
-You can test your code from your console:
-
-
-```python 
-
->>import main
->> main.read_json("cars_sample.json")
-
-Output:
-
-{'1': {'Build': {'Make': 'Audi', 'Model': 'Audi A3', 'Year': '2009'},
-  'Config': {'Dimensions': {'Length': '143'},
-   'Engine_Type': 'Audi 3.2L 6 cylinder 250hp 236ft-lbs',
-   'Height': '140',
-   'Transmission': {'Classification': '6 Speed Automatic Select Shift',
-    'Driveline': '2009',
-    'Type': 'Automatic'}},
-  'Hybrid': 'False',
-  'Performance': {'Horsepower': '250',
-   'Mileage': {'City mpg': '18', 'Highway_mpg': '25'}}},
- '2': {'Build': {'Make': 'Audi', 'Model': 'Audi A3', 'Year': '2009'},
-  'Config': {'Dimensions': {'Length': '143'},
-   'Engine_Type': 'Audi 2.0L 4 cylinder 200 hp 207 ft-lbs Turbo',
-   'Height': '140',
-   'Transmission': {'Classification': '6 Speed Automatic Select Shift',
-    'Driveline': '2009',
-    'Type': 'Automatic'}},
-  'Hybrid': 'False',
-  'Performance': {'Horsepower': '200',
-   'Mileage': {'City mpg': '22', 'Highway_mpg': '28'}}},
- '3': {'Build': {'Make': 'Audi', 'Model': 'Audi A3', 'Year': '2009'},
-  'Config': {'Dimensions': {'Length': '143'},
-   'Engine_Type': 'Audi 2.0L 4 cylinder 200 hp 207 ft-lbs Turbo',
-   'Height': '140',
-   'Transmission': {'Classification': '6 Speed Manual',
-    'Driveline': '2009',
-    'Type': 'Manual'}},
-  'Hybrid': 'False',
-  'Performance': {'Horsepower': '200',
-   'Mileage': {'City mpg': '21', 'Highway_mpg': '30'}}}}
-```
-
 Note: The process args function has been coded for you in the provided main.py. The function handles commandline arguments and calls the functions based on the commands. For this assignment no major modification of process_args() is necessary, except to connect the output of the functions you code to the respective variables.
 
->python main.py cars.json read_json
+You can test your code from terminal:
+>python main.py carssample.json read_json
 
+```
+output
+[(u'1', {u'Performance': {u'Horsepower': u'250', u'Mileage': {u'Highway_mpg': u'25', u'City mpg': u'18'}}, u'Config': {u'Transmission': {u'Type': u'Automatic',
+u'Classification': u'6 Speed Automatic Select Shift', u'Driveline': u'2009'}, u'Dimensions': {u'Length': u'143'}, u'Engine_Type': u'Audi 3.2L 6 cylinder 250hp 2
+36ft-lbs', u'Height': u'140'}, u'Build': {u'Make': u'Audi', u'Model': u'Audi A3', u'Year': u'2009'}, u'Hybrid': u'False'}), (u'2', {u'Performance': {u'Horsepowe
+r': u'200', u'Mileage': {u'Highway_mpg': u'28', u'City mpg': u'22'}}, u'Config': {u'Transmission': {u'Type': u'Automatic', u'Classification': u'6 Speed Automati
+c Select Shift', u'Driveline': u'2009'}, u'Dimensions': {u'Length': u'143'}, u'Engine_Type': u'Audi 2.0L 4 cylinder 200 hp 207 ft-lbs Turbo', u'Height': u'140'}
+, u'Build': {u'Make': u'Audi', u'Model': u'Audi A3', u'Year': u'2009'}, u'Hybrid': u'False'}), (u'3', {u'Performance': {u'Horsepower': u'200', u'Mileage': {u'Hi
+ghway_mpg': u'30', u'City mpg': u'21'}}, u'Config': {u'Transmission': {u'Type': u'Manual', u'Classification': u'6 Speed Manual', u'Driveline': u'2009'}, u'Dimen
+sions': {u'Length': u'143'}, u'Engine_Type': u'Audi 2.0L 4 cylinder 200 hp 207 ft-lbs Turbo', u'Height': u'140'}, u'Build': {u'Make': u'Audi', u'Model': u'Audi
+A3', u'Year': u'2009'}, u'Hybrid': u'False'})]
+
+```
 *If everything until here is correct, your score from test.py should be 10%.*
 
 ### 1.2: The `get_value` function: 
@@ -137,7 +109,7 @@ Write a `recursive` function that would find the value for a given key in the js
 >
 >python main.py cars.json read_json
 
-*If everything until here is correct, your score from test.py should be 35%.*
+*If everything until here is correct, your score from test.py should be 50%.*
 
 
 ## 2: namedtuples
@@ -159,7 +131,7 @@ This function will return a list of namedtuple objects for all cars.To run this 
 
 >python main.py cars.json makelist
 
-*If everything until here is correct, your score from test.py should be 55%.*
+*If everything until here is correct, your score from test.py should be 70%.*
 
 
 ### 2.2 The `create_filter` function: 
