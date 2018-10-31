@@ -79,7 +79,7 @@ Note: The process args function has been coded for you in the provided main.py. 
 You can test your code from terminal:
 >python main.py carssample.json read_json
 
-```
+```python
 [('1', {'Performance': {'Mileage': {'City mpg': '18', 'Highway_mpg': '25'}, 'Horsepower': '250'}, 'Build': {'Make': 'Audi', 'Model': 'Audi A3', 'Year': '2009'}, 'Config': {'Transmission':
 {'Type': 'Automatic', 'Driveline': '2009', 'Classification': '6 Speed Automatic Select Shift'}, 'Engine_Type': 'Audi 3.2L 6 cylinder 250hp 236ft-lbs', 'Dimensions': {'Length': '143'}, 'Hei
 ght': '140'}, 'Hybrid': 'False'}), ('2', {'Performance': {'Mileage': {'City mpg': '22', 'Highway_mpg': '28'}, 'Horsepower': '200'}, 'Build': {'Make': 'Audi', 'Model': 'Audi A3', 'Year': '2
@@ -143,14 +143,14 @@ This function will help us extract data from the namedtuple list of objects. Dat
 The function will go through the list of all json data and select the ones that match all of the given criteria and add that into a list. The new list with the filtered objects is returned.
 
 Here is a sample:
->python main.py  cars.json filter {\"Make\":\"Acura\"}
+>python main.py  cars.json filter {\\\"Make\\\":\\\"Acura\\\"}
 >
 >Note:When passing a dictionary as a command line argument please take care to escape quotes with backslashes.
 
 ```python
 Output:
-[Car(Make=u'Acura', Model=u'Acura TL', Year=u'2012', Transmission={u'Type': u'Automatic', u'Classification': u'6 Speed Automatic Select Shift', u'Driveline': u'2012'}),
-Car(Make=u'Acura', Model=u'Acura TL', Year=u'2012', Transmission={u'Type': u'Automatic', u'Classification': u'6 Speed Automatic Select Shift', u'Driveline': u'2012'})]
+[Car(Id='13', Make='Acura', Model='Acura TL', Year='2012', Transmission={'Type': 'Automatic', 'Driveline': '2012', 'Classification': '6 Speed Automatic Select Shift'}), Car(Id='14', Make='Acura', Model='Acura TL', Year='2012', Transmission={'Type': 'Automatic', 'Driveline': '2012', 'Classification': '6 Speed Automatic Select Shift'})]
+
 
 ```
 *If everything until here is correct, your score from test.py should be 100%.*
