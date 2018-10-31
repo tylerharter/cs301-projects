@@ -146,7 +146,10 @@ We will now learn to quickly load json data as namedtuple objects.
 
 ### 2.1 The `make_namedtuple_list` function: 
 
-Now we write a function that would create a list of namedtuple objects for all the cars in the json file. Here we will go through all car entries in the dictionary, create a namedtuple object for each of them. For this you can consider the following fields as your class members: 'Make', 'Model', 'Year', 'Transmission'. You can pull out the values for these fields from the json data by calling the getValue function you coded earlier.
+Now we write a function that would create a list of namedtuple objects for all the cars in the json file. Here we will go through all car entries in the dictionary, create a namedtuple object for each of them. For this you can should have the following fields as your class members:'Id', 'Make', 'Model', 'Year', 'Transmission'.
+> Note: They keys of the dictionary will now become the *Id* field in your namedtuple. The values of Make,Model,Year and Transmission can be obtained by calling the `get_value` function.
+
+You can pull out the values for these fields from the json data by calling the getValue function you coded earlier.
 
 >inputs to this function: 
 >
