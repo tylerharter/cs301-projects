@@ -78,18 +78,15 @@ Note: The process args function has been coded for you in the provided main.py. 
 
 You can test your code from terminal:
 >python main.py carssample.json read_json
-```
-python
-[(u'1', {u'Performance': {u'Horsepower': u'250', u'Mileage': {u'Highway_mpg': u'25', u'City mpg': u'18'}}, u'Config': {u'Transmission': {u'Type': u'Automatic',
-u'Classification': u'6 Speed Automatic Select Shift', u'Driveline': u'2009'}, u'Dimensions': {u'Length': u'143'}, u'Engine_Type': u'Audi 3.2L 6 cylinder 250hp 2
-36ft-lbs', u'Height': u'140'}, u'Build': {u'Make': u'Audi', u'Model': u'Audi A3', u'Year': u'2009'}, u'Hybrid': u'False'}), (u'2', {u'Performance': {u'Horsepowe
-r': u'200', u'Mileage': {u'Highway_mpg': u'28', u'City mpg': u'22'}}, u'Config': {u'Transmission': {u'Type': u'Automatic', u'Classification': u'6 Speed Automati
-c Select Shift', u'Driveline': u'2009'}, u'Dimensions': {u'Length': u'143'}, u'Engine_Type': u'Audi 2.0L 4 cylinder 200 hp 207 ft-lbs Turbo', u'Height': u'140'}
-, u'Build': {u'Make': u'Audi', u'Model': u'Audi A3', u'Year': u'2009'}, u'Hybrid': u'False'}), (u'3', {u'Performance': {u'Horsepower': u'200', u'Mileage': {u'Hi
-ghway_mpg': u'30', u'City mpg': u'21'}}, u'Config': {u'Transmission': {u'Type': u'Manual', u'Classification': u'6 Speed Manual', u'Driveline': u'2009'}, u'Dimen
-sions': {u'Length': u'143'}, u'Engine_Type': u'Audi 2.0L 4 cylinder 200 hp 207 ft-lbs Turbo', u'Height': u'140'}, u'Build': {u'Make': u'Audi', u'Model': u'Audi
-A3', u'Year': u'2009'}, u'Hybrid': u'False'})]
 
+```
+[('1', {'Performance': {'Mileage': {'City mpg': '18', 'Highway_mpg': '25'}, 'Horsepower': '250'}, 'Build': {'Make': 'Audi', 'Model': 'Audi A3', 'Year': '2009'}, 'Config': {'Transmission':
+{'Type': 'Automatic', 'Driveline': '2009', 'Classification': '6 Speed Automatic Select Shift'}, 'Engine_Type': 'Audi 3.2L 6 cylinder 250hp 236ft-lbs', 'Dimensions': {'Length': '143'}, 'Hei
+ght': '140'}, 'Hybrid': 'False'}), ('2', {'Performance': {'Mileage': {'City mpg': '22', 'Highway_mpg': '28'}, 'Horsepower': '200'}, 'Build': {'Make': 'Audi', 'Model': 'Audi A3', 'Year': '2
+009'}, 'Config': {'Transmission': {'Type': 'Automatic', 'Driveline': '2009', 'Classification': '6 Speed Automatic Select Shift'}, 'Engine_Type': 'Audi 2.0L 4 cylinder 200 hp 207 ft-lbs Tur
+bo', 'Dimensions': {'Length': '143'}, 'Height': '140'}, 'Hybrid': 'False'}), ('3', {'Performance': {'Mileage': {'City mpg': '21', 'Highway_mpg': '30'}, 'Horsepower': '200'}, 'Build': {'Mak
+e': 'Audi', 'Model': 'Audi A3', 'Year': '2009'}, 'Config': {'Transmission': {'Type': 'Manual', 'Driveline': '2009', 'Classification': '6 Speed Manual'}, 'Engine_Type': 'Audi 2.0L 4 cylinde
+r 200 hp 207 ft-lbs Turbo', 'Dimensions': {'Length': '143'}, 'Height': '140'}, 'Hybrid': 'False'})]
 ```
 *If everything until here is correct, your score from test.py should be 10%.*
 
