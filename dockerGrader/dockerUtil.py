@@ -176,7 +176,7 @@ class dockerGrader:
                 shutil.copy2(src, dest)
 
         # run tests inside a docker container
-        image = 'python:3.7-stretch' # TODO: find/build some anaconda image
+        image = 'shenghaozou/301testenv:v1'
         cmd = ['timeout', '45',                           # set a timeout
                'docker', 'run',                           # start a container
                '--rm',                                    # remove the container when exit
