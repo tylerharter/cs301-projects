@@ -1,7 +1,7 @@
 import json, sys
 from collections import namedtuple
 
-# Function that reads in json file and returns a list of dictionaries
+# Function that reads in json file and returns a dictionary
 # of the cars
 def read_json(json_filename):
     return None # TODO
@@ -14,24 +14,26 @@ def get_value(car, field):
     return None # TODO
 
 
-# This function uses takes in the jdata returned by read_json function
-# and makes namedtuple objects from each of the car dictionaries. Use
-# the get_value function to get values of the different fields
+# This function takes in the jdata returned by read_json function
+# and makes namedtuple objects from each of the car dictionaries.
+# This function should return a list of namedtuple objects corresponding
+# to each car in jdata. Use the get_value function to get values of the
+# different fields
 def make_namedtuple_list(jdata):
     return None # TODO
 
 
-# This function uses takes in the list of namedtuple cars returned by
+# This function takes in the list of namedtuple cars returned by
 # make_namedtuple_list function and then filters them based on the
-# fields specified in the attributes dictionary
+# fields specified in the filters dictionary
 def filter_cars(cars, filters):
     return None # TODO
 
 
 # This function takes in the commandline arguments and calls the
-# respective functions above. The fucntion has been coded to take in
+# respective functions above. The function has been coded to take in
 # the arguments and call the function stubs. As you complete the
-# functions above this funciton will call them and you can see your
+# functions above this function will call them and you can see your
 # grade change
 def process_args(args):
     # parse commandline inputs
