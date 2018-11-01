@@ -12,17 +12,17 @@ Download the files using the links below
 
 * [main.py](https://raw.githubusercontent.com/tylerharter/cs301-projects/master/fall18/p8/main.py)
 * [test.py](https://raw.githubusercontent.com/tylerharter/cs301-projects/master/fall18/p8/test.py)
-* [carssample.json](https://raw.githubusercontent.com/tylerharter/cs301-projects/master/fall18/p8/cars.json)
-* [cars.json](https://raw.githubusercontent.com/tylerharter/cs301-projects/master/fall18/p8/carssmaple.json)
 * [test.txt](https://raw.githubusercontent.com/tylerharter/cs301-projects/master/fall18/p8/test.txt)
+* [small_cars.json](https://raw.githubusercontent.com/tylerharter/cs301-projects/master/fall18/p8/small_cars.json)
+* [cars.json](https://raw.githubusercontent.com/tylerharter/cs301-projects/master/fall18/p8/cars.json)
 
+# JSON Files:
 
+The small_cars.json only contains data of 3 cars. We recommend you use
+this file to manually test your code by running main.py.
 
-# Files involved:
-
-The carssample.json only contains data of 3 cars. We recommend you use this file to develop your code.
-
-The file “cars.json” has the actual data. This should be used to test your code.
+Our test.py will run some tests using small_cars.json and some tests
+using the much larger cars.json file.
 
 Here is a sample structure of a single car data from the json file:
 
@@ -57,41 +57,174 @@ Here is a sample structure of a single car data from the json file:
   }
 }
 
+Notice that the data consists of nested dictionaries, and that all
+values are strings.
+
 ```
-
-The file test.txt contains data for the test.py file to grade your submission. Download this file in the same project folder.
-
 
 ## 1: Reading the json data
 
-The first step of the assignment is to read the json file and load it into our program. Let us write a function to do this.
+The first step of the assignment is to read the json file and load it
+into our program. Let us write a function to do this.
 
 ### 1.1 The `read_json` function:
 >inputs to this function: 
 >
 > *json_filename* : a string which represents the name of the json file
 
-To load a json data you will use json.loads.
-This function should return a dictionary that you obtain when you load the json data.
+The function should return a Python dictionary correpsonding to the
+data in the JSON file named `json_filename`.  To load json data you
+can read about how to use the `json.loads` function.  The `json.loads`
+function returns Python data structures corresponding to JSON,
+represented as a string (which may have been read from a file).  We
+have created a skeleton of the `read_json` function for you to
+complete.
 
-Note: The process args function has been coded for you in the provided main.py. The function handles commandline arguments and calls the functions based on the commands. For this assignment no major modification of process_args() is necessary, except to connect the output of the functions you code to the respective variables.
+Note: The `process_args` function has been provided for you in initial
+main.py. This function handles commandline arguments and calls the
+functions based on the commands. For this assignment, no major
+modification to `process_args` is necessary.
 
 You can test your code from terminal:
->python main.py carssample.json read_json
+>python main.py small_cars.json read_json
 
+```json
+{
+  "1": {
+    "Build": {
+      "Make": "Audi",
+      "Model": "Audi A3",
+      "Year": "2009"
+    },
+    "Config": {
+      "Dimensions": {
+        "Length": "143"
+      },
+      "Engine_Type": "Audi 3.2L 6 cylinder 250hp 236ft-lbs",
+      "Height": "140",
+      "Transmission": {
+        "Classification": "6 Speed Automatic Select Shift",
+        "Driveline": "2009",
+        "Type": "Automatic"
+      }
+    },
+    "Hybrid": "False",
+    "Performance": {
+      "Horsepower": "250",
+      "Mileage": {
+        "City mpg": "18",
+        "Highway_mpg": "25"
+      }
+    }
+  },
+  "2": {
+    "Build": {
+      "Make": "Chevrolet",
+      "Model": "Chevrolet Express",
+      "Year": "2011"
+    },
+    "Config": {
+      "Dimensions": {
+        "Length": "60"
+      },
+      "Engine_Type": "Chevrolet 5.3L 8 Cylinder 310 hp 334 ft-lbs FFV",
+      "Height": "77",
+      "Transmission": {
+        "Classification": "4 Speed Automatic",
+        "Driveline": "2011",
+        "Type": "Automatic"
+      }
+    },
+    "Hybrid": "False",
+    "Performance": {
+      "Horsepower": "310",
+      "Mileage": {
+        "City mpg": "13",
+        "Highway_mpg": "17"
+      }
+    }
+  },
+  "3": {
+    "Build": {
+      "Make": "Nissan",
+      "Model": "Nissan 370Z Coupe",
+      "Year": "2009"
+    },
+    "Config": {
+      "Dimensions": {
+        "Length": "75"
+      },
+      "Engine_Type": "Nissan 3.7L 6 Cylinder 350hp 276 ft-lbs",
+      "Height": "35",
+      "Transmission": {
+        "Classification": "6 Speed Manual",
+        "Driveline": "2009",
+        "Type": "Manual"
+      }
+    },
+    "Hybrid": "False",
+    "Performance": {
+      "Horsepower": "350",
+      "Mileage": {
+        "City mpg": "18",
+        "Highway_mpg": "26"
+      }
+    }
+  }
+}
 ```
-[('1', {'Performance': {'Mileage': {'City mpg': '18', 'Highway_mpg': '25'}, 'Horsepower': '250'}, 'Build': {'Make': 'Audi', 'Model': 'Audi A3', 'Year': '2009'}, 'Config': {'Transmission':
-{'Type': 'Automatic', 'Driveline': '2009', 'Classification': '6 Speed Automatic Select Shift'}, 'Engine_Type': 'Audi 3.2L 6 cylinder 250hp 236ft-lbs', 'Dimensions': {'Length': '143'}, 'Hei
-ght': '140'}, 'Hybrid': 'False'}), ('2', {'Performance': {'Mileage': {'City mpg': '22', 'Highway_mpg': '28'}, 'Horsepower': '200'}, 'Build': {'Make': 'Audi', 'Model': 'Audi A3', 'Year': '2
-009'}, 'Config': {'Transmission': {'Type': 'Automatic', 'Driveline': '2009', 'Classification': '6 Speed Automatic Select Shift'}, 'Engine_Type': 'Audi 2.0L 4 cylinder 200 hp 207 ft-lbs Tur
-bo', 'Dimensions': {'Length': '143'}, 'Height': '140'}, 'Hybrid': 'False'}), ('3', {'Performance': {'Mileage': {'City mpg': '21', 'Highway_mpg': '30'}, 'Horsepower': '200'}, 'Build': {'Mak
-e': 'Audi', 'Model': 'Audi A3', 'Year': '2009'}, 'Config': {'Transmission': {'Type': 'Manual', 'Driveline': '2009', 'Classification': '6 Speed Manual'}, 'Engine_Type': 'Audi 2.0L 4 cylinde
-r 200 hp 207 ft-lbs Turbo', 'Dimensions': {'Length': '143'}, 'Height': '140'}, 'Hybrid': 'False'})]
-```
-*If everything until here is correct, your score from test.py should be 10%.*
 
-### 1.2: The `get_value` function: 
-In the next step we need to create car objects. In order to do so  we need to first have a mechanism to retrieve specific information from the json data.Let us write a function that will help us find the value for the given field in the json_data. We will use **recursion** for this function. 
+In the above example, there are three cars, with IDs "1", "2", and
+"3", as indicated by the keys in the top-level dictionary.  Each maps
+to a dictionary with information about a car.  For example, the last
+car dictionary is as follows:
+
+```json
+{
+    "Build": {
+      "Make": "Nissan",
+      "Model": "Nissan 370Z Coupe",
+      "Year": "2009"
+    },
+    "Config": {
+      "Dimensions": {
+        "Length": "75"
+      },
+      "Engine_Type": "Nissan 3.7L 6 Cylinder 350hp 276 ft-lbs",
+      "Height": "35",
+      "Transmission": {
+        "Classification": "6 Speed Manual",
+        "Driveline": "2009",
+        "Type": "Manual"
+      }
+    },
+    "Hybrid": "False",
+    "Performance": {
+      "Horsepower": "350",
+      "Mileage": {
+        "City mpg": "18",
+        "Highway_mpg": "26"
+      }
+    }
+  }
+```
+
+*If your read_json function is correct, your score from test.py should
+ be 10% before you proceed.*
+
+### 1.2: The `get_value` function:
+
+As you can see in the above example, data about a car is nested in
+dictionaries at varying levels.  For example, if `car` is a
+dictionary, one might determine whether the car is hybrid by
+evaluating `car["Hybrid"]` or lookup the make with
+`car["Build"]["Make"]`.
+
+You must now write a recursive function called `get_value` that
+searches through the nested dictionaries for a given key, and returns
+the associated values.  For example, `get_value(car, "Hybrid")` would
+find the value at `car["Hybrid"]`, and `get_value(car, "Length")`
+would find the value at `car["Config"]["Dimensions"]["Length"]`.
 
 >inputs to this function: 
 >
@@ -101,9 +234,22 @@ In the next step we need to create car objects. In order to do so  we need to fi
 
 Write a `recursive` function that would find the value for a given key in the json data and return that value.
 
->Note: There are multiple ways of coding this function that will cause the test to pass, however you should ONLY implement a RECURSIVE solution.
->
->python main.py cars.json read_json
+Note: There are multiple ways of coding this function that will cause
+the test to pass, however you should ONLY implement a RECURSIVE
+solution.  If you write a function that is not recursive, or a
+function that would not work on data from JSON data unrelated to cars,
+you will lose points during code review.
+
+You can test your program by running main.py and giving a car ID and a key to lookup, as in this example:
+
+```
+prompt> python correct.py small_cars.json get_value 1 Year
+"2009"
+prompt> python correct.py small_cars.json get_value 2 Year
+"2011"
+prompt> python correct.py small_cars.json get_value 2 Horsepower
+"310"
+```
 
 *If everything until here is correct, your score from test.py should be 50%.*
 
