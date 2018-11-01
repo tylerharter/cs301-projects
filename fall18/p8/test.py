@@ -113,7 +113,8 @@ def test_8():
     tuples = MAIN.make_namedtuple_list(jdata)
     if jdata == None:
         return "read_json not working", weight
-
+    elif tuples==None:
+        return "make_namedtuple_list not working", weight
     # is it a list of car tuples?
     if type(tuples) != list:
         return "make_namedtuple_list did not return a list"
@@ -132,7 +133,8 @@ def test_9():
     tuples = MAIN.make_namedtuple_list(jdata)
     if jdata == None:
         return "read_json not working", weight
-
+    elif tuples==None:
+        return "make_namedtuple_list not working", weight
     # are there three objects of the same type with correct IDs?
     if len(tuples) == 0 or len(tuples) != len(jdata):
         return 'expected %d tuples'%len(jdata), weight
@@ -154,7 +156,8 @@ def test_10():
     tuples = MAIN.make_namedtuple_list(jdata)
     if jdata == None:
         return "read_json not working", weight
-
+    elif tuples==None:
+        return "make_namedtuple_list not working", weight
     # do the cars have the correct data?
     if len(tuples) == 0 or len(tuples) != len(jdata):
         return 'expected %d tuples'%len(jdata), weight
@@ -181,7 +184,8 @@ def test_11():
     tuples = MAIN.make_namedtuple_list(jdata)
     if jdata == None:
         return "read_json not working", weight
-
+    elif tuples==None:
+        return "make_namedtuple_list not working", weight
     # do the cars have the correct data?
     if len(tuples) == 0 or len(tuples) != len(jdata):
         return 'expected %d tuples'%len(jdata), weight
