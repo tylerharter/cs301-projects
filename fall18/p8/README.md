@@ -243,6 +243,12 @@ you will lose points during code review.
 You can test your program by running main.py and giving a car ID and a key to lookup, as in this example:
 
 ```
+prompt> python correct.py small_cars.json get_value 1 Build
+{
+  "Make": "Audi",
+  "Model": "Audi A3",
+  "Year": "2009"
+}
 prompt> python correct.py small_cars.json get_value 1 Year
 "2009"
 prompt> python correct.py small_cars.json get_value 2 Year
