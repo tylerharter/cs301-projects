@@ -43,69 +43,238 @@ if PYTHON_VERSION.lower().find('python 3') < 0:
 ##################################################
 # Problems are based on output of student functions
 ##################################################
+
+def json_pretty(objects):
+    return json.dumps(objects, indent=2, sort_keys=True)
+
+def apply_car_filters(path, filters):
+    jdata = MAIN.read_json(path)
+    if jdata == None:
+        return []
+    tuples = MAIN.make_namedtuple_list(jdata)
+    if jdata == None:
+        return []
+    tuples = MAIN.filter_cars(tuples, filters)
+    if tuples == None:
+        return []
+    return [str(car) for car in tuples]
+
 def test_1():
-    weight = 10
-    error = check_has_function('read_json')
-    if error:
-        return error, weight
-    f = open('test.txt')
-    jdata = f.read().split('@')[0].strip()
-    expected = jdata
-    actual = MAIN.process_args(["main.py","cars.json","read_json"])
-    return check_answer(expected, actual), weight
+    weight = 5
+    with open('test.txt') as f:
+        expected = json.loads(f.read().split('@')[0])
+    actual = MAIN.process_args(["main.py", "small_cars.json", "read_json"])
+    return check_answer(json_pretty(expected), json_pretty(actual)), weight
+
 def test_2():
-    weight = 25
-    error = check_has_function('get_value')
-    if error:
-        return error, weight
+    weight = 5
+    with open('test.txt') as f:
+        expected = json.loads(f.read().split('@')[1])
+    actual = MAIN.process_args(["main.py", "cars.json", "read_json"])
+    return check_answer(json_pretty(expected), json_pretty(actual)), weight
+
+def test_3():
+    weight = 8
+    expected = "False"
+    actual = MAIN.process_args(["main.py", "small_cars.json", "get_value", "2", "Hybrid"])
+    return check_answer(expected, actual), weight
+
+def test_4():
+    weight = 8
+    expected = "200"
+    actual = MAIN.process_args(["main.py", "cars.json", "get_value", "3", "Horsepower"])
+    return check_answer(expected, actual), weight
+
+def test_5():
+    weight = 8
+    expected = "2011"
+    actual = MAIN.process_args(["main.py", "cars.json", "get_value", "16", "Year"])
+    return check_answer(expected, actual), weight
+
+def test_6():
+    weight = 8
+    expected = "21"
+    actual = MAIN.process_args(["main.py", "cars.json", "get_value", "3", "City mpg"])
+    return check_answer(expected, actual), weight
+
+def test_7():
+    weight = 8
     expected = "Chevrolet"
     actual = MAIN.process_args(["main.py", "cars.json", "get_value", "40", "Make"])
     return check_answer(expected, actual), weight
 
-def test_3():
-    weight = 20
-    error = check_has_function('make_namedtuple_list')
-    f = open('test.txt')
-    jdata = f.read().split('@')[1].strip()
-    if error:
-        return error, weight
-    expected = jdata
-    actual = MAIN.process_args(['main.py','cars.json','makelist'])
-    return check_answer(expected, actual), weight
+def test_8():
+    weight = 5
 
-def test_4():
-    weight = 15
-    error = check_has_function('create_filter')
-    f = open('test.txt')
-    if error:
-        return error, weight
-    jdata = f.read().split('@')[2].strip()
-    expected = jdata
-    actual = MAIN.process_args(['main.py','cars.json','filter', '{\"Make\":\"Audi\"}'])
-    return check_answer(expected, actual), weight
+    # grab data as JSON and list of tuples
+    jdata = MAIN.read_json("small_cars.json")
+    if jdata == None:
+        return "read_json not working", weight
+    tuples = MAIN.make_namedtuple_list(jdata)
+    if jdata == None:
+        return "read_json not working", weight
 
-def test_5():
-    weight = 15
-    error = check_has_function('create_filter')
-    f = open('test.txt')
-    if error:
-        return error, weight
-    jdata = f.read().split('@')[3].strip()
-    expected = jdata
-    actual = MAIN.process_args(['main.py', 'cars.json', 'filter', '{\"Year\":\"2010\"}'])
-    return check_answer(expected, actual), weight
+    # is it a list of car tuples?
+    if type(tuples) != list:
+        return "make_namedtuple_list did not return a list"
+    if type(tuples[0]).__name__ != 'Car':
+        return "tuples not of a type named 'Car'"
 
-def test_6():
-    weight = 15
-    error = check_has_function('create_filter')
-    f = open('test.txt')
-    if error:
-        return error, weight
-    jdata = f.read().split('@')[4].strip()
-    expected = jdata
-    actual = MAIN.process_args(['main.py', 'cars.json', 'filter', '{\"Year\":\"2010\",\"Make\":\"Chevrolet\"}'])
-    print(actual)
-    return check_answer(expected, actual), weight
+    return PASS, weight
+
+def test_9():
+    weight = 5
+
+    # grab data as JSON and list of tuples
+    jdata = MAIN.read_json("small_cars.json")
+    if jdata == None:
+        return "read_json not working", weight
+    tuples = MAIN.make_namedtuple_list(jdata)
+    if jdata == None:
+        return "read_json not working", weight
+
+    # are there three objects of the same type with correct IDs?
+    if len(tuples) == 0 or len(tuples) != len(jdata):
+        return 'expected %d tuples'%len(jdata), weight
+    for car in tuples:
+        if type(car) != type(tuples[0]):
+            return 'not all cars were of the same type (are you creating the Car type more than once?)', weight
+        if not car.id in jdata:
+            return 'car did not have a correct ID: '+str(car), weight
+
+    return PASS, weight
+
+def test_10():
+    weight = 5
+
+    # grab data as JSON and list of tuples
+    jdata = MAIN.read_json("small_cars.json")
+    if jdata == None:
+        return "read_json not working", weight
+    tuples = MAIN.make_namedtuple_list(jdata)
+    if jdata == None:
+        return "read_json not working", weight
+
+    # do the cars have the correct data?
+    if len(tuples) == 0 or len(tuples) != len(jdata):
+        return 'expected %d tuples'%len(jdata), weight
+    for car in tuples:
+        car_dict = jdata[car.id]
+        if (car.make != car_dict['Build']['Make'] or
+            car.model != car_dict['Build']['Model'] or
+            car.year != car_dict['Build']['Year'] or
+            json_pretty(car.transmission) != json_pretty(car_dict['Config']['Transmission'])):
+            
+            return 'bad car: '+str(car), weight
+
+    return PASS, weight
+
+def test_11():
+    weight = 5
+
+    # same as previous test, but with whole dataset
+    
+    # grab data as JSON and list of tuples
+    jdata = MAIN.read_json("cars.json")
+    if jdata == None:
+        return "read_json not working", weight
+    tuples = MAIN.make_namedtuple_list(jdata)
+    if jdata == None:
+        return "read_json not working", weight
+
+    # do the cars have the correct data?
+    if len(tuples) == 0 or len(tuples) != len(jdata):
+        return 'expected %d tuples'%len(jdata), weight
+    for car in tuples:
+        car_dict = jdata[car.id]
+        if (car.make != car_dict['Build']['Make'] or
+            car.model != car_dict['Build']['Model'] or
+            car.year != car_dict['Build']['Year'] or
+            json_pretty(car.transmission) != json_pretty(car_dict['Config']['Transmission'])):
+            
+            return 'bad car: '+str(car), weight
+
+    return PASS, weight
+
+def test_12():
+    weight = 5
+    with open('test.txt') as f:
+        expected = f.read().split('@')[6].strip().split('\n')
+    actual = apply_car_filters('small_cars.json', {'year': '2011'})
+    if len(actual) > len(expected):
+        return 'found more cars than expected', weight
+    elif len(actual) < len(expected):
+        return 'found fewer cars than expected', weight
+
+    for a,e in zip(sorted(actual), sorted(expected)):
+        if a.split('transmission')[0] != e.split('transmission')[0]:
+            return ('found %s but expected %s' % (str(a), str(e))), weight
+    
+    return PASS, weight
+
+def test_13():
+    weight = 5
+    with open('test.txt') as f:
+        expected = f.read().split('@')[7].strip().split('\n')
+    actual = apply_car_filters('small_cars.json', {'year': '2009'})
+    if len(actual) > len(expected):
+        return 'found more cars than expected', weight
+    elif len(actual) < len(expected):
+        return 'found fewer cars than expected', weight
+
+    for a,e in zip(sorted(actual), sorted(expected)):
+        if a.split('transmission')[0] != e.split('transmission')[0]:
+            return ('found %s but expected %s' % (str(a), str(e))), weight
+    
+    return PASS, weight
+
+def test_14():
+    weight = 5
+    with open('test.txt') as f:
+        expected = f.read().split('@')[3].strip().split('\n')
+    actual = apply_car_filters('cars.json', {'make': 'Audi'})
+    if len(actual) > len(expected):
+        return 'found more cars than expected', weight
+    elif len(actual) < len(expected):
+        return 'found fewer cars than expected', weight
+
+    for a,e in zip(sorted(actual), sorted(expected)):
+        if a.split('transmission')[0] != e.split('transmission')[0]:
+            return ('found %s but expected %s' % (str(a), str(e))), weight
+    
+    return PASS, weight
+
+def test_15():
+    weight = 5
+    with open('test.txt') as f:
+        expected = f.read().split('@')[4].strip().split('\n')
+    actual = apply_car_filters('cars.json', {'year': '2010'})
+    if len(actual) > len(expected):
+        return 'found more cars than expected', weight
+    elif len(actual) < len(expected):
+        return 'found fewer cars than expected', weight
+
+    for a,e in zip(sorted(actual), sorted(expected)):
+        if a.split('transmission')[0] != e.split('transmission')[0]:
+            return ('found %s but expected %s' % (str(a), str(e))), weight
+    
+    return PASS, weight
+
+def test_16():
+    weight = 10   
+    with open('test.txt') as f:
+        expected = f.read().split('@')[5].strip().split('\n')
+    actual = apply_car_filters('cars.json', {'year': '2010', 'make': 'Chevrolet'})
+    if len(actual) > len(expected):
+        return 'found more cars than expected', weight
+    elif len(actual) < len(expected):
+        return 'found fewer cars than expected', weight
+
+    for a,e in zip(sorted(actual), sorted(expected)):
+        if a.split('transmission')[0] != e.split('transmission')[0]:
+            return ('found %s but expected %s' % (str(a), str(e))), weight
+    
+    return PASS, weight
 
 
 def check_has_function(function_name):
@@ -192,12 +361,10 @@ def runTests():
     fns = [row for row in getmembers(sys.modules[__name__], predicate = predicate) if row[0].startswith('test_')]
     fns.sort(key=lambda row: int(row[0].split('_')[-1]))
     for name, fn in fns:
-        try:
-            result, weight = fn()
-            tests.append({'test': name, 'result': result, 'weight':weight})
-        except Exception as e:
-            print('\nTip from 301 instructors: try running just %s() in interactive mode to debug this issue.\n\n' % name)
-            raise e
+        result, weight = fn()
+        if len(result) > 200:
+            result = result[:190] + '...'
+        tests.append({'test': name, 'result': result, 'weight':weight})
     return tests
 
 # these check output from running student program
@@ -223,8 +390,8 @@ def main():
     # final score
     score = sum([t['weight'] for t in result['tests'] if t['result'] == PASS])
     total = sum([t['weight'] for t in result['tests']])
-    if total!=100:
-        print("Weights dont add up to 100, add up to",total)
+    if total != 100:
+        print("Weights dont add up to 100, add up to", total)
     result['score'] = score
 
     # save/display results
