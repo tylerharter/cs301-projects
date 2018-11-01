@@ -289,11 +289,21 @@ nesting of dictionaries containing information about the car).
 Therefore, you may use the keys in jdata to populate the `id` field of
 a new Car object and the `get_value` function to extract Make, Model,
 Year and Transmission values for your `make`, `model`, `year`, and
-`transmission` fields.
+`transmission` fields respectively.
 
 To debug your function, you may use:
 
 >python main.py small_cars.json make_list
+
+You can test your function as shown in this example below:
+
+```
+prompt> python main.py small_cars.json make_list
+Car(id='1', make='Audi', model='Audi A3', year='2009', transmission={'Classification': '6 Speed Automatic Select Shift', 'Driveline': '2009', 'Type': 'Automatic'})
+Car(id='2', make='Chevrolet', model='Chevrolet Express', year='2011', transmission={'Classification': '4 Speed Automatic', 'Driveline': '2011', 'Type': 'Automatic'})
+Car(id='3', make='Nissan', model='Nissan 370Z Coupe', year='2009', transmission={'Classification': '6 Speed Manual', 'Driveline': '2009', 'Type': 'Manual'})
+```
+
 
 *If everything until here is correct, your score from test.py should be 70%.*
 
@@ -318,9 +328,11 @@ For example, if `cars` is a list of Car objects, one could find all Audis from 2
 filter_cars(cars, {"year": "2011", "make": "Audi"})
 ```
 
-For your convenience, we have already provided a function for
-constructing filters based on command line arguments.  Here is an
-example:
+For your convenience, we have already provided the code for
+constructing filters based on command line arguments within
+the `process_args` function.
+
+Here is an example of what you should expect when you run this `filter_cars` function:
 
 ```
 prompt> python main.py cars.json filter year=2009,make=Audi
@@ -338,7 +350,9 @@ Car(id='8', make='Audi', model='Audi Q7', year='2009', transmission={'Classifica
 Car(id='9', make='Audi', model='Audi Q7', year='2009', transmission={'Classification': '6 Speed Automatic Select Shift', 'Driveline': '2009', 'Type': 'Automatic'})
 ```
 
-Your `filter_cars` function may ignore all dictionary keys besides the
+NOTE: Your `filter_cars` function may ignore all dictionary keys besides the
 following: "make", "model", and "year".
 
 *If everything until here is correct, your score from test.py should be 100%.*
+
+####Good luck with this project! :) 
