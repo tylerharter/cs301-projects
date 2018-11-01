@@ -74,52 +74,20 @@ The first step of the assignment is to read the json file and load it into our p
 To load a json data you will use json.loads.
 This function should return a dictionary that you obtain when you load the json data.
 
-You can test your code from your console:
-
-
-```python 
-
->>import main
->> main.read_json("cars_sample.json")
-
-Output:
-
-{'1': {'Build': {'Make': 'Audi', 'Model': 'Audi A3', 'Year': '2009'},
-  'Config': {'Dimensions': {'Length': '143'},
-   'Engine_Type': 'Audi 3.2L 6 cylinder 250hp 236ft-lbs',
-   'Height': '140',
-   'Transmission': {'Classification': '6 Speed Automatic Select Shift',
-    'Driveline': '2009',
-    'Type': 'Automatic'}},
-  'Hybrid': 'False',
-  'Performance': {'Horsepower': '250',
-   'Mileage': {'City mpg': '18', 'Highway_mpg': '25'}}},
- '2': {'Build': {'Make': 'Audi', 'Model': 'Audi A3', 'Year': '2009'},
-  'Config': {'Dimensions': {'Length': '143'},
-   'Engine_Type': 'Audi 2.0L 4 cylinder 200 hp 207 ft-lbs Turbo',
-   'Height': '140',
-   'Transmission': {'Classification': '6 Speed Automatic Select Shift',
-    'Driveline': '2009',
-    'Type': 'Automatic'}},
-  'Hybrid': 'False',
-  'Performance': {'Horsepower': '200',
-   'Mileage': {'City mpg': '22', 'Highway_mpg': '28'}}},
- '3': {'Build': {'Make': 'Audi', 'Model': 'Audi A3', 'Year': '2009'},
-  'Config': {'Dimensions': {'Length': '143'},
-   'Engine_Type': 'Audi 2.0L 4 cylinder 200 hp 207 ft-lbs Turbo',
-   'Height': '140',
-   'Transmission': {'Classification': '6 Speed Manual',
-    'Driveline': '2009',
-    'Type': 'Manual'}},
-  'Hybrid': 'False',
-  'Performance': {'Horsepower': '200',
-   'Mileage': {'City mpg': '21', 'Highway_mpg': '30'}}}}
-```
-
 Note: The process args function has been coded for you in the provided main.py. The function handles commandline arguments and calls the functions based on the commands. For this assignment no major modification of process_args() is necessary, except to connect the output of the functions you code to the respective variables.
 
->python main.py cars.json read_json
+You can test your code from terminal:
+>python main.py carssample.json read_json
 
+```
+[('1', {'Performance': {'Mileage': {'City mpg': '18', 'Highway_mpg': '25'}, 'Horsepower': '250'}, 'Build': {'Make': 'Audi', 'Model': 'Audi A3', 'Year': '2009'}, 'Config': {'Transmission':
+{'Type': 'Automatic', 'Driveline': '2009', 'Classification': '6 Speed Automatic Select Shift'}, 'Engine_Type': 'Audi 3.2L 6 cylinder 250hp 236ft-lbs', 'Dimensions': {'Length': '143'}, 'Hei
+ght': '140'}, 'Hybrid': 'False'}), ('2', {'Performance': {'Mileage': {'City mpg': '22', 'Highway_mpg': '28'}, 'Horsepower': '200'}, 'Build': {'Make': 'Audi', 'Model': 'Audi A3', 'Year': '2
+009'}, 'Config': {'Transmission': {'Type': 'Automatic', 'Driveline': '2009', 'Classification': '6 Speed Automatic Select Shift'}, 'Engine_Type': 'Audi 2.0L 4 cylinder 200 hp 207 ft-lbs Tur
+bo', 'Dimensions': {'Length': '143'}, 'Height': '140'}, 'Hybrid': 'False'}), ('3', {'Performance': {'Mileage': {'City mpg': '21', 'Highway_mpg': '30'}, 'Horsepower': '200'}, 'Build': {'Mak
+e': 'Audi', 'Model': 'Audi A3', 'Year': '2009'}, 'Config': {'Transmission': {'Type': 'Manual', 'Driveline': '2009', 'Classification': '6 Speed Manual'}, 'Engine_Type': 'Audi 2.0L 4 cylinde
+r 200 hp 207 ft-lbs Turbo', 'Dimensions': {'Length': '143'}, 'Height': '140'}, 'Hybrid': 'False'})]
+```
 *If everything until here is correct, your score from test.py should be 10%.*
 
 ### 1.2: The `get_value` function: 
@@ -137,7 +105,7 @@ Write a `recursive` function that would find the value for a given key in the js
 >
 >python main.py cars.json read_json
 
-*If everything until here is correct, your score from test.py should be 35%.*
+*If everything until here is correct, your score from test.py should be 50%.*
 
 
 ## 2: namedtuples
@@ -146,7 +114,10 @@ We will now learn to quickly load json data as namedtuple objects.
 
 ### 2.1 The `make_namedtuple_list` function: 
 
-Now we write a function that would create a list of namedtuple objects for all the cars in the json file. Here we will go through all car entries in the dictionary, create an object for each of them(using the existing `make_object` function.
+Now we write a function that would create a list of namedtuple objects for all the cars in the json file. Here we will go through all car entries in the dictionary, create a namedtuple object for each of them. For this you can should have the following fields as your class members:'Id', 'Make', 'Model', 'Year', 'Transmission'.
+> Note: They keys of the dictionary will now become the *Id* field in your namedtuple. The values of Make,Model,Year and Transmission can be obtained by calling the `get_value` function.
+
+You can pull out the values for these fields from the json data by calling the getValue function you coded earlier.
 
 >inputs to this function: 
 >
@@ -156,7 +127,7 @@ This function will return a list of namedtuple objects for all cars.To run this 
 
 >python main.py cars.json makelist
 
-*If everything until here is correct, your score from test.py should be 55%.*
+*If everything until here is correct, your score from test.py should be 70%.*
 
 
 ### 2.2 The `create_filter` function: 
@@ -172,14 +143,14 @@ This function will help us extract data from the namedtuple list of objects. Dat
 The function will go through the list of all json data and select the ones that match all of the given criteria and add that into a list. The new list with the filtered objects is returned.
 
 Here is a sample:
->python main.py  cars.json filter {\"Make\":\"Acura\"}
+>python main.py  cars.json filter {\\\"Make\\\":\\\"Acura\\\"}
 >
 >Note:When passing a dictionary as a command line argument please take care to escape quotes with backslashes.
 
 ```python
 Output:
-[Car(Make=u'Acura', Model=u'Acura TL', Year=u'2012', Transmission={u'Type': u'Automatic', u'Classification': u'6 Speed Automatic Select Shift', u'Driveline': u'2012'}),
-Car(Make=u'Acura', Model=u'Acura TL', Year=u'2012', Transmission={u'Type': u'Automatic', u'Classification': u'6 Speed Automatic Select Shift', u'Driveline': u'2012'})]
+[Car(Id='13', Make='Acura', Model='Acura TL', Year='2012', Transmission={'Type': 'Automatic', 'Driveline': '2012', 'Classification': '6 Speed Automatic Select Shift'}), Car(Id='14', Make='Acura', Model='Acura TL', Year='2012', Transmission={'Type': 'Automatic', 'Driveline': '2012', 'Classification': '6 Speed Automatic Select Shift'})]
+
 
 ```
 *If everything until here is correct, your score from test.py should be 100%.*
