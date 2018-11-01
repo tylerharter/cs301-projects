@@ -2,11 +2,11 @@
 
 In this assignment we are going to learn:
 
-* How to read json files and parse them using recursion.
+* How to read JSON files and parse them using recursion.
 * How to create and use namedtuples
 
 
-We are going to work with json data on cars for this assignment.
+We are going to work with JSON data on cars for this assignment.
 
 Download the files using the links below
 
@@ -24,7 +24,7 @@ this file to manually test your code by running main.py.
 Our test.py will run some tests using small_cars.json and some tests
 using the much larger cars.json file.
 
-Here is a sample structure of a single car data from the json file:
+Here is a sample structure of a single car data from the JSON file:
 
 ```json
 {
@@ -62,18 +62,18 @@ values are strings.
 
 ```
 
-## 1: Reading the json data
+## 1: Reading the JSON data
 
-The first step of the assignment is to read the json file and load it
+The first step of the assignment is to read the JSON file and load it
 into our program. Let us write a function to do this.
 
 ### 1.1 The `read_json` function:
 >inputs to this function: 
 >
-> *json_filename* : a string which represents the name of the json file
+> *json_filename* : a string which represents the name of the JSON file
 
 The function should return a Python dictionary correpsonding to the
-data in the JSON file named `json_filename`.  To load json data you
+data in the JSON file named `json_filename`.  To load JSON data you
 can read about how to use the `json.loads` function.  The `json.loads`
 function returns Python data structures corresponding to JSON,
 represented as a string (which may have been read from a file).  We
@@ -232,7 +232,7 @@ would find the value at `car["Config"]["Dimensions"]["Length"]`.
 >
 >field: The key that we are searching for.
 
-Write a `recursive` function that would find the value for a given key in the json data and return that value.
+Write a `recursive` function that would find the value for a given key in the JSON data and return that value.
 
 Note: There are multiple ways of coding this function that will cause
 the test to pass, however you should ONLY implement a RECURSIVE
@@ -243,17 +243,17 @@ you will lose points during code review.
 You can test your program by running main.py and giving a car ID and a key to lookup, as in this example:
 
 ```
-prompt> python correct.py small_cars.json get_value 1 Build
+prompt> python main.py small_cars.json get_value 1 Build
 {
   "Make": "Audi",
   "Model": "Audi A3",
   "Year": "2009"
 }
-prompt> python correct.py small_cars.json get_value 1 Year
+prompt> python main.py small_cars.json get_value 1 Year
 "2009"
-prompt> python correct.py small_cars.json get_value 2 Year
+prompt> python main.py small_cars.json get_value 2 Year
 "2011"
-prompt> python correct.py small_cars.json get_value 2 Horsepower
+prompt> python main.py small_cars.json get_value 2 Horsepower
 "310"
 ```
 
@@ -262,27 +262,43 @@ prompt> python correct.py small_cars.json get_value 2 Horsepower
 
 ## 2: namedtuples
 
-We will now learn to quickly load json data as namedtuple objects.
+We will now learn to load JSON data as namedtuple objects.
 
 ### 2.1 The `make_namedtuple_list` function: 
 
-Now we write a function that would create a list of namedtuple objects for all the cars in the json file. Here we will go through all car entries in the dictionary, create a namedtuple object for each of them. For this you can should have the following fields as your class members:'Id', 'Make', 'Model', 'Year', 'Transmission'.
-> Note: They keys of the dictionary will now become the *Id* field in your namedtuple. The values of Make,Model,Year and Transmission can be obtained by calling the `get_value` function.
+We will now write a function to create a namedtuple object for each
+car in the JSON file.
 
-You can pull out the values for these fields from the json data by calling the getValue function you coded earlier.
+For this, you should first define a new namedtuple type, named "Car".
+A Car should have the following fields: `id`, `make`, `model`, `year`,
+and `transmission`.  Make sure you use the same Car type to create all
+your car objects.
+
+The `make_namedtuple_list` function will be as follows:
 
 >inputs to this function: 
 >
-> json_data: The dictionary containing the data of all the cars
+> jdata: The dictionary containing the data of all the cars
 
-This function will return a list of namedtuple objects for all cars.To run this function use:
+This function will return a list of namedtuple objects corresponding
+to each car in jdata.  The jdata dictionary will be the one returned
+by `read_json`.
 
->python main.py cars.json makelist
+Recall that each car has an ID (the key in jdata) and a value (a
+nesting of dictionaries containing information about the car).
+Therefore, you may use the keys in jdata to populate the `id` field of
+a new Car object and the `get_value` function to extract Make, Model,
+Year and Transmission values for your `make`, `model`, `year`, and
+`transmission` fields.
+
+To debug your function, you may use:
+
+>python main.py small_cars.json make_list
 
 *If everything until here is correct, your score from test.py should be 70%.*
 
 
-### 2.2 The `create_filter` function: 
+### 2.2 The `filter_cars` function: 
 
 This function will help us extract data from the namedtuple list of objects. Data is extracted based on some filtering condition.
 
@@ -290,21 +306,39 @@ This function will help us extract data from the namedtuple list of objects. Dat
 >
 >car_list: list of namedtuple objects
 >
->filtering_criteria: a dictionary with conditions based on which filtering needs to be done.
+>filters: a dictionary with conditions based on which filtering needs to be done.
 
-The function will go through the list of all json data and select the ones that match all of the given criteria and add that into a list. The new list with the filtered objects is returned.
+The function will go through the list of all JSON data and select the
+ones that match all of the given criteria and add that into a
+list. The new list with the filtered objects is returned.
 
-Here is a sample:
->python main.py  cars.json filter {\\\"Make\\\":\\\"Acura\\\"}
->
->Note:When passing a dictionary as a command line argument please take care to escape quotes with backslashes.
+For example, if `cars` is a list of Car objects, one could find all Audis from 2011 my making the following call:
 
 ```python
-Output:
-[Car(Id='13', Make='Acura', Model='Acura TL', Year='2012', Transmission={'Type': 'Automatic', 'Driveline': '2012', 'Classification': '6 Speed Automatic Select Shift'}), Car(Id='14', Make='Acura', Model='Acura TL', Year='2012', Transmission={'Type': 'Automatic', 'Driveline': '2012', 'Classification': '6 Speed Automatic Select Shift'})]
+filter_cars(cars, {"year": "2011", "make": "Audi"})
+```
 
+For your convenience, we have already provided a function for
+constructing filters based on command line arguments.  Here is an
+example:
 
 ```
+prompt> python main.py cars.json filter year=2009,make=Audi
+Car(id='1', make='Audi', model='Audi A3', year='2009', transmission={'Classification': '6 Speed Automatic Select Shift', 'Driveline': '2009', 'Type': 'Automatic'})
+Car(id='10', make='Audi', model='Audi A4 Sedan', year='2009', transmission={'Classification': '6 Speed Manual', 'Driveline': '2009', 'Type': 'Manual'})
+Car(id='11', make='Audi', model='Audi A4 Sedan', year='2009', transmission={'Classification': '6 Speed Automatic Select Shift', 'Driveline': '2009', 'Type': 'Automatic'})
+Car(id='12', make='Audi', model='Audi A4 Sedan', year='2009', transmission={'Classification': '6 Speed Automatic Select Shift', 'Driveline': '2009', 'Type': 'Automatic'})
+Car(id='2', make='Audi', model='Audi A3', year='2009', transmission={'Classification': '6 Speed Automatic Select Shift', 'Driveline': '2009', 'Type': 'Automatic'})
+Car(id='3', make='Audi', model='Audi A3', year='2009', transmission={'Classification': '6 Speed Manual', 'Driveline': '2009', 'Type': 'Manual'})
+Car(id='4', make='Audi', model='Audi A3', year='2009', transmission={'Classification': '6 Speed Automatic Select Shift', 'Driveline': '2009', 'Type': 'Automatic'})
+Car(id='5', make='Audi', model='Audi A3', year='2009', transmission={'Classification': '6 Speed Automatic Select Shift', 'Driveline': '2009', 'Type': 'Automatic'})
+Car(id='6', make='Audi', model='Audi A5', year='2009', transmission={'Classification': '6 Speed Manual', 'Driveline': '2009', 'Type': 'Manual'})
+Car(id='7', make='Audi', model='Audi A5', year='2009', transmission={'Classification': '6 Speed Automatic Select Shift', 'Driveline': '2009', 'Type': 'Automatic'})
+Car(id='8', make='Audi', model='Audi Q7', year='2009', transmission={'Classification': '6 Speed Automatic Select Shift', 'Driveline': '2009', 'Type': 'Automatic'})
+Car(id='9', make='Audi', model='Audi Q7', year='2009', transmission={'Classification': '6 Speed Automatic Select Shift', 'Driveline': '2009', 'Type': 'Automatic'})
+```
+
+Your `filter_cars` function may ignore all dictionary keys besides the
+following: "make", "model", and "year".
+
 *If everything until here is correct, your score from test.py should be 100%.*
-
-
