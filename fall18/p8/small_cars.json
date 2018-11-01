@@ -1,0 +1,83 @@
+{
+ "1": {
+  "Build": {
+   "Make": "Audi",
+   "Model": "Audi A3",
+   "Year": "2009"
+  },
+  "Config": {
+   "Dimensions": {
+    "Length": "143"
+   },
+   "Engine_Type": "Audi 3.2L 6 cylinder 250hp 236ft-lbs",
+   "Height": "140",
+   "Transmission": {
+    "Classification": "6 Speed Automatic Select Shift",
+    "Driveline": "2009",
+    "Type": "Automatic"
+   }
+  },
+  "Hybrid": "False",
+  "Performance": {
+   "Horsepower": "250",
+   "Mileage": {
+    "City mpg": "18",
+    "Highway_mpg": "25"
+   }
+  }
+ },
+ "2": {
+  "Build": {
+   "Make": "Chevrolet",
+   "Model": "Chevrolet Express",
+   "Year": "2011"
+  },
+  "Config": {
+   "Dimensions": {
+    "Length": "60"
+   },
+   "Engine_Type": "Chevrolet 5.3L 8 Cylinder 310 hp 334 ft-lbs FFV",
+   "Height": "77",
+   "Transmission": {
+    "Classification": "4 Speed Automatic",
+    "Driveline": "2011",
+    "Type": "Automatic"
+   }
+  },
+  "Hybrid": "False",
+  "Performance": {
+   "Horsepower": "310",
+   "Mileage": {
+    "City mpg": "13",
+    "Highway_mpg": "17"
+   }
+  }
+ },
+ "3": {
+  "Build": {
+   "Make": "Nissan",
+   "Model": "Nissan 370Z Coupe",
+   "Year": "2009"
+  },
+  "Config": {
+   "Dimensions": {
+    "Length": "75"
+   },
+   "Engine_Type": "Nissan 3.7L 6 Cylinder 350hp 276 ft-lbs",
+   "Height": "35",
+   "Transmission": {
+    "Classification": "6 Speed Manual",
+    "Driveline": "2009",
+    "Type": "Manual"
+   }
+  },
+  "Hybrid": "False",
+  "Performance": {
+   "Horsepower": "350",
+   "Mileage": {
+    "City mpg": "18",
+    "Highway_mpg": "26"
+   }
+  }
+ }
+}

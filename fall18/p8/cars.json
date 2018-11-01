@@ -1,1 +1,2054 @@
-{"1": {"Performance": {"Mileage": {"City mpg": "18", "Highway_mpg": "25"}, "Horsepower": "250"}, "Build": {"Make": "Audi", "Model": "Audi A3", "Year": "2009"}, "Config": {"Transmission": {"Type": "Automatic", "Driveline": "2009", "Classification": "6 Speed Automatic Select Shift"}, "Engine_Type": "Audi 3.2L 6 cylinder 250hp 236ft-lbs", "Dimensions": {"Length": "143"}, "Height": "140"}, "Hybrid": "False"}, "2": {"Performance": {"Mileage": {"City mpg": "22", "Highway_mpg": "28"}, "Horsepower": "200"}, "Build": {"Make": "Audi", "Model": "Audi A3", "Year": "2009"}, "Config": {"Transmission": {"Type": "Automatic", "Driveline": "2009", "Classification": "6 Speed Automatic Select Shift"}, "Engine_Type": "Audi 2.0L 4 cylinder 200 hp 207 ft-lbs Turbo", "Dimensions": {"Length": "143"}, "Height": "140"}, "Hybrid": "False"}, "3": {"Performance": {"Mileage": {"City mpg": "21", "Highway_mpg": "30"}, "Horsepower": "200"}, "Build": {"Make": "Audi", "Model": "Audi A3", "Year": "2009"}, "Config": {"Transmission": {"Type": "Manual", "Driveline": "2009", "Classification": "6 Speed Manual"}, "Engine_Type": "Audi 2.0L 4 cylinder 200 hp 207 ft-lbs Turbo", "Dimensions": {"Length": "143"}, "Height": "140"}, "Hybrid": "False"}, "4": {"Performance": {"Mileage": {"City mpg": "21", "Highway_mpg": "28"}, "Horsepower": "200"}, "Build": {"Make": "Audi", "Model": "Audi A3", "Year": "2009"}, "Config": {"Transmission": {"Type": "Automatic", "Driveline": "2009", "Classification": "6 Speed Automatic Select Shift"}, "Engine_Type": "Audi 2.0L 4 cylinder 200 hp 207 ft-lbs Turbo", "Dimensions": {"Length": "143"}, "Height": "140"}, "Hybrid": "False"}, "5": {"Performance": {"Mileage": {"City mpg": "21", "Highway_mpg": "28"}, "Horsepower": "200"}, "Build": {"Make": "Audi", "Model": "Audi A3", "Year": "2009"}, "Config": {"Transmission": {"Type": "Automatic", "Driveline": "2009", "Classification": "6 Speed Automatic Select Shift"}, "Engine_Type": "Audi 2.0L 4 cylinder 200 hp 207 ft-lbs Turbo", "Dimensions": {"Length": "143"}, "Height": "140"}, "Hybrid": "False"}, "6": {"Performance": {"Mileage": {"City mpg": "16", "Highway_mpg": "27"}, "Horsepower": "265"}, "Build": {"Make": "Audi", "Model": "Audi A5", "Year": "2009"}, "Config": {"Transmission": {"Type": "Manual", "Driveline": "2009", "Classification": "6 Speed Manual"}, "Engine_Type": "Audi 3.2L 6 cylinder 265hp 243 ft-lbs", "Dimensions": {"Length": "17"}, "Height": "91"}, "Hybrid": "False"}, "7": {"Performance": {"Mileage": {"City mpg": "17", "Highway_mpg": "26"}, "Horsepower": "265"}, "Build": {"Make": "Audi", "Model": "Audi A5", "Year": "2009"}, "Config": {"Transmission": {"Type": "Automatic", "Driveline": "2009", "Classification": "6 Speed Automatic Select Shift"}, "Engine_Type": "Audi 3.2L 6 cylinder 265hp 243 ft-lbs", "Dimensions": {"Length": "17"}, "Height": "91"}, "Hybrid": "False"}, "8": {"Performance": {"Mileage": {"City mpg": "13", "Highway_mpg": "18"}, "Horsepower": "350"}, "Build": {"Make": "Audi", "Model": "Audi Q7", "Year": "2009"}, "Config": {"Transmission": {"Type": "Automatic", "Driveline": "2009", "Classification": "6 Speed Automatic Select Shift"}, "Engine_Type": "Audi 4.2L 8 cylinder 350 hp 325 ft-lbs", "Dimensions": {"Length": "221"}, "Height": "201"}, "Hybrid": "False"}, "9": {"Performance": {"Mileage": {"City mpg": "14", "Highway_mpg": "20"}, "Horsepower": "280"}, "Build": {"Make": "Audi", "Model": "Audi Q7", "Year": "2009"}, "Config": {"Transmission": {"Type": "Automatic", "Driveline": "2009", "Classification": "6 Speed Automatic Select Shift"}, "Engine_Type": "Audi 3.6L 6 cylinder 280hp 266 ft-lbs", "Dimensions": {"Length": "221"}, "Height": "201"}, "Hybrid": "False"}, "10": {"Performance": {"Mileage": {"City mpg": "22", "Highway_mpg": "30"}, "Horsepower": "211"}, "Build": {"Make": "Audi", "Model": "Audi A4 Sedan", "Year": "2009"}, "Config": {"Transmission": {"Type": "Manual", "Driveline": "2009", "Classification": "6 Speed Manual"}, "Engine_Type": "Audi 2.0L 4 cylinder 211 hp 258 ft-lbs Turbo", "Dimensions": {"Length": "96"}, "Height": "147"}, "Hybrid": "False"}, "11": {"Performance": {"Mileage": {"City mpg": "21", "Highway_mpg": "27"}, "Horsepower": "211"}, "Build": {"Make": "Audi", "Model": "Audi A4 Sedan", "Year": "2009"}, "Config": {"Transmission": {"Type": "Automatic", "Driveline": "2009", "Classification": "6 Speed Automatic Select Shift"}, "Engine_Type": "Audi 2.0L 4 cylinder 211 hp 258 ft-lbs Turbo", "Dimensions": {"Length": "96"}, "Height": "147"}, "Hybrid": "False"}, "12": {"Performance": {"Mileage": {"City mpg": "17", "Highway_mpg": "26"}, "Horsepower": "265"}, "Build": {"Make": "Audi", "Model": "Audi A4 Sedan", "Year": "2009"}, "Config": {"Transmission": {"Type": "Automatic", "Driveline": "2009", "Classification": "6 Speed Automatic Select Shift"}, "Engine_Type": "Audi 3.2L 6 cylinder 265hp 243 ft-lbs", "Dimensions": {"Length": "96"}, "Height": "147"}, "Hybrid": "False"}, "13": {"Performance": {"Mileage": {"City mpg": "20", "Highway_mpg": "29"}, "Horsepower": "280"}, "Build": {"Make": "Acura", "Model": "Acura TL", "Year": "2012"}, "Config": {"Transmission": {"Type": "Automatic", "Driveline": "2012", "Classification": "6 Speed Automatic Select Shift"}, "Engine_Type": "Acura 3.5L 6 Cylinder 280 hp 254 ft-lbs", "Dimensions": {"Length": "63"}, "Height": "172"}, "Hybrid": "False"}, "14": {"Performance": {"Mileage": {"City mpg": "18", "Highway_mpg": "26"}, "Horsepower": "305"}, "Build": {"Make": "Acura", "Model": "Acura TL", "Year": "2012"}, "Config": {"Transmission": {"Type": "Automatic", "Driveline": "2012", "Classification": "6 Speed Automatic Select Shift"}, "Engine_Type": "Acura 3.7L 6 Cylinder 305 hp 273 ft-lbs", "Dimensions": {"Length": "63"}, "Height": "172"}, "Hybrid": "False"}, "15": {"Performance": {"Mileage": {"City mpg": "12", "Highway_mpg": "17"}, "Horsepower": "555"}, "Build": {"Make": "BMW", "Model": "BMW X5", "Year": "2010"}, "Config": {"Transmission": {"Type": "Automatic", "Driveline": "2010", "Classification": "6 Speed Automatic Select Shift"}, "Engine_Type": "BMW 4.4L 8 cylinder 555hp 500 ft-lbs Turbo", "Dimensions": {"Length": "243"}, "Height": "226"}, "Hybrid": "False"}, "16": {"Performance": {"Mileage": {"City mpg": "12", "Highway_mpg": "17"}, "Horsepower": "555"}, "Build": {"Make": "BMW", "Model": "BMW X5", "Year": "2011"}, "Config": {"Transmission": {"Type": "Automatic", "Driveline": "2011", "Classification": "6 Speed Automatic Select Shift"}, "Engine_Type": "BMW 4.4L 8 cylinder 555hp 500 ft-lbs Turbo", "Dimensions": {"Length": "243"}, "Height": "226"}, "Hybrid": "False"}, "17": {"Performance": {"Mileage": {"City mpg": "12", "Highway_mpg": "17"}, "Horsepower": "555"}, "Build": {"Make": "BMW", "Model": "BMW X6", "Year": "2010"}, "Config": {"Transmission": {"Type": "Automatic", "Driveline": "2010", "Classification": "6 Speed Automatic Select Shift"}, "Engine_Type": "BMW 4.4L 8 cylinder 555hp 500 ft-lbs Turbo", "Dimensions": {"Length": "12"}, "Height": "148"}, "Hybrid": "False"}, "18": {"Performance": {"Mileage": {"City mpg": "12", "Highway_mpg": "17"}, "Horsepower": "555"}, "Build": {"Make": "BMW", "Model": "BMW X6", "Year": "2011"}, "Config": {"Transmission": {"Type": "Automatic", "Driveline": "2011", "Classification": "6 Speed Automatic Select Shift"}, "Engine_Type": "BMW 4.4L 8 cylinder 555hp 500 ft-lbs Turbo", "Dimensions": {"Length": "12"}, "Height": "148"}, "Hybrid": "False"}, "19": {"Performance": {"Mileage": {"City mpg": "18", "Highway_mpg": "25"}, "Horsepower": "185"}, "Build": {"Make": "Chevrolet", "Model": "Chevrolet Colorado", "Year": "2012"}, "Config": {"Transmission": {"Type": "Manual", "Driveline": "2012", "Classification": "5 Speed Manual"}, "Engine_Type": "Chevrolet 2.9L 4 Cylinder 185 hp 190 ft-lbs", "Dimensions": {"Length": "22"}, "Height": "112"}, "Hybrid": "False"}, "20": {"Performance": {"Mileage": {"City mpg": "18", "Highway_mpg": "25"}, "Horsepower": "185"}, "Build": {"Make": "Chevrolet", "Model": "Chevrolet Colorado", "Year": "2012"}, "Config": {"Transmission": {"Type": "Manual", "Driveline": "2012", "Classification": "5 Speed Manual"}, "Engine_Type": "Chevrolet 2.9L 4 Cylinder 185 hp 190 ft-lbs", "Dimensions": {"Length": "140"}, "Height": "112"}, "Hybrid": "False"}, "21": {"Performance": {"Mileage": {"City mpg": "18", "Highway_mpg": "25"}, "Horsepower": "185"}, "Build": {"Make": "Chevrolet", "Model": "Chevrolet Colorado", "Year": "2012"}, "Config": {"Transmission": {"Type": "Automatic", "Driveline": "2012", "Classification": "4 Speed Automatic"}, "Engine_Type": "Chevrolet 2.9L 4 Cylinder 185 hp 190 ft-lbs", "Dimensions": {"Length": "140"}, "Height": "120"}, "Hybrid": "False"}, "22": {"Performance": {"Mileage": {"City mpg": "18", "Highway_mpg": "25"}, "Horsepower": "185"}, "Build": {"Make": "Chevrolet", "Model": "Chevrolet Colorado", "Year": "2011"}, "Config": {"Transmission": {"Type": "Manual", "Driveline": "2011", "Classification": "5 Speed Manual"}, "Engine_Type": "Chevrolet 2.9L 4 Cylinder 185 hp 190 ft-lbs", "Dimensions": {"Length": "22"}, "Height": "112"}, "Hybrid": "False"}, "23": {"Performance": {"Mileage": {"City mpg": "18", "Highway_mpg": "25"}, "Horsepower": "185"}, "Build": {"Make": "Chevrolet", "Model": "Chevrolet Colorado", "Year": "2011"}, "Config": {"Transmission": {"Type": "Manual", "Driveline": "2011", "Classification": "5 Speed Manual"}, "Engine_Type": "Chevrolet 2.9L 4 Cylinder 185 hp 190 ft-lbs", "Dimensions": {"Length": "140"}, "Height": "112"}, "Hybrid": "False"}, "24": {"Performance": {"Mileage": {"City mpg": "18", "Highway_mpg": "25"}, "Horsepower": "185"}, "Build": {"Make": "Chevrolet", "Model": "Chevrolet Colorado", "Year": "2011"}, "Config": {"Transmission": {"Type": "Automatic", "Driveline": "2011", "Classification": "4 Speed Automatic"}, "Engine_Type": "Chevrolet 2.9L 4 Cylinder 185 hp 190 ft-lbs", "Dimensions": {"Length": "140"}, "Height": "120"}, "Hybrid": "False"}, "25": {"Performance": {"Mileage": {"City mpg": "18", "Highway_mpg": "25"}, "Horsepower": "185"}, "Build": {"Make": "Chevrolet", "Model": "Chevrolet Colorado", "Year": "2010"}, "Config": {"Transmission": {"Type": "Manual", "Driveline": "2010", "Classification": "5 Speed Manual"}, "Engine_Type": "Chevrolet 2.9L 4 Cylinder 185 hp 190 ft-lbs", "Dimensions": {"Length": "22"}, "Height": "112"}, "Hybrid": "False"}, "26": {"Performance": {"Mileage": {"City mpg": "20", "Highway_mpg": "26"}, "Horsepower": "185"}, "Build": {"Make": "Chevrolet", "Model": "Chevrolet Colorado", "Year": "2010"}, "Config": {"Transmission": {"Type": "Manual", "Driveline": "2010", "Classification": "5 Speed Manual"}, "Engine_Type": "Chevrolet 2.9L 4 Cylinder 185 hp 190 ft-lbs", "Dimensions": {"Length": "140"}, "Height": "112"}, "Hybrid": "False"}, "27": {"Performance": {"Mileage": {"City mpg": "18", "Highway_mpg": "25"}, "Horsepower": "185"}, "Build": {"Make": "Chevrolet", "Model": "Chevrolet Colorado", "Year": "2010"}, "Config": {"Transmission": {"Type": "Automatic", "Driveline": "2010", "Classification": "4 Speed Automatic"}, "Engine_Type": "Chevrolet 2.9L 4 Cylinder 185 hp 190 ft-lbs", "Dimensions": {"Length": "140"}, "Height": "120"}, "Hybrid": "False"}, "28": {"Performance": {"Mileage": {"City mpg": "13", "Highway_mpg": "18"}, "Horsepower": "310"}, "Build": {"Make": "Chevrolet", "Model": "Chevrolet Express", "Year": "2012"}, "Config": {"Transmission": {"Type": "Automatic", "Driveline": "2012", "Classification": "4 Speed Automatic"}, "Engine_Type": "Chevrolet 5.3L 8 Cylinder 310 hp 334 ft-lbs FFV", "Dimensions": {"Length": "60"}, "Height": "77"}, "Hybrid": "False"}, "29": {"Performance": {"Mileage": {"City mpg": "9", "Highway_mpg": "12"}, "Horsepower": "310"}, "Build": {"Make": "Chevrolet", "Model": "Chevrolet Express", "Year": "2012"}, "Config": {"Transmission": {"Type": "Automatic", "Driveline": "2012", "Classification": "4 Speed Automatic"}, "Engine_Type": "Chevrolet 5.3L 8 Cylinder 310 hp 334 ft-lbs FFV", "Dimensions": {"Length": "60"}, "Height": "77"}, "Hybrid": "False"}, "30": {"Performance": {"Mileage": {"City mpg": "13", "Highway_mpg": "17"}, "Horsepower": "310"}, "Build": {"Make": "Chevrolet", "Model": "Chevrolet Express", "Year": "2011"}, "Config": {"Transmission": {"Type": "Automatic", "Driveline": "2011", "Classification": "4 Speed Automatic"}, "Engine_Type": "Chevrolet 5.3L 8 Cylinder 310 hp 334 ft-lbs FFV", "Dimensions": {"Length": "60"}, "Height": "77"}, "Hybrid": "False"}, "31": {"Performance": {"Mileage": {"City mpg": "13", "Highway_mpg": "17"}, "Horsepower": "310"}, "Build": {"Make": "Chevrolet", "Model": "Chevrolet Express", "Year": "2011"}, "Config": {"Transmission": {"Type": "Automatic", "Driveline": "2011", "Classification": "4 Speed Automatic"}, "Engine_Type": "Chevrolet 5.3L 8 Cylinder 310 hp 334 ft-lbs FFV", "Dimensions": {"Length": "60"}, "Height": "77"}, "Hybrid": "False"}, "32": {"Performance": {"Mileage": {"City mpg": "8", "Highway_mpg": "12"}, "Horsepower": "280"}, "Build": {"Make": "Chevrolet", "Model": "Chevrolet Express", "Year": "2011"}, "Config": {"Transmission": {"Type": "Automatic", "Driveline": "2011", "Classification": "6 Speed Automatic"}, "Engine_Type": "Chevrolet 4.8L 8 Cylinder 280 hp 295 ft-lbs FFV", "Dimensions": {"Length": "60"}, "Height": "22"}, "Hybrid": "False"}, "33": {"Performance": {"Mileage": {"City mpg": "8", "Highway_mpg": "12"}, "Horsepower": "324"}, "Build": {"Make": "Chevrolet", "Model": "Chevrolet Express", "Year": "2011"}, "Config": {"Transmission": {"Type": "Automatic", "Driveline": "2011", "Classification": "6 Speed Automatic"}, "Engine_Type": "Chevrolet 6.0L 8 Cylinder 324 hp 373 ft-lbs FFV", "Dimensions": {"Length": "60"}, "Height": "22"}, "Hybrid": "False"}, "34": {"Performance": {"Mileage": {"City mpg": "10", "Highway_mpg": "13"}, "Horsepower": "310"}, "Build": {"Make": "Chevrolet", "Model": "Chevrolet Express", "Year": "2010"}, "Config": {"Transmission": {"Type": "Automatic", "Driveline": "2010", "Classification": "4 Speed Automatic"}, "Engine_Type": "Chevrolet 5.3L 8 Cylinder 310 hp 334 ft-lbs FFV", "Dimensions": {"Length": "60"}, "Height": "24"}, "Hybrid": "False"}, "35": {"Performance": {"Mileage": {"City mpg": "13", "Highway_mpg": "17"}, "Horsepower": "310"}, "Build": {"Make": "Chevrolet", "Model": "Chevrolet Express", "Year": "2010"}, "Config": {"Transmission": {"Type": "Automatic", "Driveline": "2010", "Classification": "4 Speed Automatic"}, "Engine_Type": "Chevrolet 5.3L 8 Cylinder 310 hp 334 ft-lbs FFV", "Dimensions": {"Length": "60"}, "Height": "24"}, "Hybrid": "False"}, "36": {"Performance": {"Mileage": {"City mpg": "15", "Highway_mpg": "20"}, "Horsepower": "195"}, "Build": {"Make": "Chevrolet", "Model": "Chevrolet Silverado 1500", "Year": "2011"}, "Config": {"Transmission": {"Type": "Automatic", "Driveline": "2011", "Classification": "4 Speed Automatic"}, "Engine_Type": "Chevrolet 4.3L 6 Cylinder 195 hp 260 ft-lbs", "Dimensions": {"Length": "102"}, "Height": "77"}, "Hybrid": "False"}, "37": {"Performance": {"Mileage": {"City mpg": "14", "Highway_mpg": "19"}, "Horsepower": "302"}, "Build": {"Make": "Chevrolet", "Model": "Chevrolet Silverado 1500", "Year": "2011"}, "Config": {"Transmission": {"Type": "Automatic", "Driveline": "2011", "Classification": "4 Speed Automatic"}, "Engine_Type": "Chevrolet 4.8L 8 Cylinder 302 hp 305 ft-lbs FFV", "Dimensions": {"Length": "215"}, "Height": "82"}, "Hybrid": "False"}, "38": {"Performance": {"Mileage": {"City mpg": "15", "Highway_mpg": "20"}, "Horsepower": "195"}, "Build": {"Make": "Chevrolet", "Model": "Chevrolet Silverado 1500", "Year": "2011"}, "Config": {"Transmission": {"Type": "Automatic", "Driveline": "2011", "Classification": "4 Speed Automatic"}, "Engine_Type": "Chevrolet 4.3L 6 Cylinder 195 hp 260 ft-lbs", "Dimensions": {"Length": "215"}, "Height": "85"}, "Hybrid": "False"}, "39": {"Performance": {"Mileage": {"City mpg": "15", "Highway_mpg": "20"}, "Horsepower": "195"}, "Build": {"Make": "Chevrolet", "Model": "Chevrolet Silverado 1500", "Year": "2010"}, "Config": {"Transmission": {"Type": "Automatic", "Driveline": "2010", "Classification": "4 Speed Automatic"}, "Engine_Type": "Chevrolet 4.3L 6 Cylinder 195 hp 260 ft-lbs", "Dimensions": {"Length": "215"}, "Height": "85"}, "Hybrid": "False"}, "40": {"Performance": {"Mileage": {"City mpg": "15", "Highway_mpg": "20"}, "Horsepower": "195"}, "Build": {"Make": "Chevrolet", "Model": "Chevrolet Silverado 1500", "Year": "2010"}, "Config": {"Transmission": {"Type": "Automatic", "Driveline": "2010", "Classification": "4 Speed Automatic"}, "Engine_Type": "Chevrolet 4.3L 6 Cylinder 195 hp 260 ft-lbs", "Dimensions": {"Length": "102"}, "Height": "77"}, "Hybrid": "False"}, "41": {"Performance": {"Mileage": {"City mpg": "14", "Highway_mpg": "19"}, "Horsepower": "302"}, "Build": {"Make": "Chevrolet", "Model": "Chevrolet Silverado 1500", "Year": "2010"}, "Config": {"Transmission": {"Type": "Automatic", "Driveline": "2010", "Classification": "4 Speed Automatic"}, "Engine_Type": "Chevrolet 4.8L 8 Cylinder 302 hp 305 ft-lbs FFV", "Dimensions": {"Length": "215"}, "Height": "82"}, "Hybrid": "False"}, "42": {"Performance": {"Mileage": {"City mpg": "18", "Highway_mpg": "26"}, "Horsepower": "350"}, "Build": {"Make": "Nissan", "Model": "Nissan 370Z Coupe", "Year": "2011"}, "Config": {"Transmission": {"Type": "Manual", "Driveline": "2011", "Classification": "6 Speed Manual"}, "Engine_Type": "Nissan 3.7L 6 Cylinder 350hp 276 ft-lbs", "Dimensions": {"Length": "52"}, "Height": "43"}, "Hybrid": "False"}, "43": {"Performance": {"Mileage": {"City mpg": "18", "Highway_mpg": "26"}, "Horsepower": "350"}, "Build": {"Make": "Nissan", "Model": "Nissan 370Z Coupe", "Year": "2010"}, "Config": {"Transmission": {"Type": "Manual", "Driveline": "2010", "Classification": "6 Speed Manual"}, "Engine_Type": "Nissan 3.7L 6 Cylinder 350hp 276 ft-lbs", "Dimensions": {"Length": "75"}, "Height": "35"}, "Hybrid": "False"}, "44": {"Performance": {"Mileage": {"City mpg": "18", "Highway_mpg": "26"}, "Horsepower": "350"}, "Build": {"Make": "Nissan", "Model": "Nissan 370Z Coupe", "Year": "2009"}, "Config": {"Transmission": {"Type": "Manual", "Driveline": "2009", "Classification": "6 Speed Manual"}, "Engine_Type": "Nissan 3.7L 6 Cylinder 350hp 276 ft-lbs", "Dimensions": {"Length": "75"}, "Height": "35"}, "Hybrid": "False"}, "45": {"Performance": {"Mileage": {"City mpg": "21", "Highway_mpg": "29"}, "Horsepower": "227"}, "Build": {"Make": "Volvo", "Model": "Volvo C30", "Year": "2011"}, "Config": {"Transmission": {"Type": "Manual", "Driveline": "2011", "Classification": "6 Speed Manual"}, "Engine_Type": "Volvo 2.5L 5 Cylinder 227 hp 236 ft-lbs Turbo", "Dimensions": {"Length": "168"}, "Height": "167"}, "Hybrid": "False"}, "46": {"Performance": {"Mileage": {"City mpg": "21", "Highway_mpg": "30"}, "Horsepower": "227"}, "Build": {"Make": "Volvo", "Model": "Volvo C30", "Year": "2011"}, "Config": {"Transmission": {"Type": "Automatic", "Driveline": "2011", "Classification": "5 Speed Automatic"}, "Engine_Type": "Volvo 2.5L 5 Cylinder 227 hp 236 ft-lbs Turbo", "Dimensions": {"Length": "168"}, "Height": "167"}, "Hybrid": "False"}, "47": {"Performance": {"Mileage": {"City mpg": "21", "Highway_mpg": "30"}, "Horsepower": "227"}, "Build": {"Make": "Volvo", "Model": "Volvo C30", "Year": "2010"}, "Config": {"Transmission": {"Type": "Automatic", "Driveline": "2010", "Classification": "5 Speed Automatic"}, "Engine_Type": "Volvo 2.5L 5 Cylinder 227 hp 236 ft-lbs Turbo", "Dimensions": {"Length": "155"}, "Height": "167"}, "Hybrid": "False"}, "48": {"Performance": {"Mileage": {"City mpg": "21", "Highway_mpg": "29"}, "Horsepower": "227"}, "Build": {"Make": "Volvo", "Model": "Volvo C30", "Year": "2010"}, "Config": {"Transmission": {"Type": "Manual", "Driveline": "2010", "Classification": "6 Speed Manual"}, "Engine_Type": "Volvo 2.5L 5 Cylinder 227 hp 236 ft-lbs Turbo", "Dimensions": {"Length": "155"}, "Height": "167"}, "Hybrid": "False"}, "49": {"Performance": {"Mileage": {"City mpg": "9", "Highway_mpg": "15"}, "Horsepower": "530"}, "Build": {"Make": "Bentley", "Model": "Bentley Brooklands", "Year": "2010"}, "Config": {"Transmission": {"Type": "Automatic", "Driveline": "2010", "Classification": "6 Speed Automatic"}, "Engine_Type": "Bentley 6.8L 8 cylinder 530hp 774 ft-lbs Turbo", "Dimensions": {"Length": "34"}, "Height": "193"}, "Hybrid": "False"}, "50": {"Performance": {"Mileage": {"City mpg": "8", "Highway_mpg": "14"}, "Horsepower": "621"}, "Build": {"Make": "Bentley", "Model": "Bentley Continental Supersports Convertible", "Year": "2012"}, "Config": {"Transmission": {"Type": "Automatic", "Driveline": "2012", "Classification": "6 Speed Automatic"}, "Engine_Type": "Bentley 6.0L 12 Cylinder 621 hp 590 ft-lbs FFV Turbo", "Dimensions": {"Length": "195"}, "Height": "99"}, "Hybrid": "False"}, "51": {"Performance": {"Mileage": {"City mpg": "8", "Highway_mpg": "14"}, "Horsepower": "621"}, "Build": {"Make": "Bentley", "Model": "Bentley Continental Supersports Coupe", "Year": "2012"}, "Config": {"Transmission": {"Type": "Automatic", "Driveline": "2012", "Classification": "6 Speed Automatic Select Shift"}, "Engine_Type": "Bentley 6.0L 12 Cylinder 621 hp 590 ft-lbs FFV Turbo", "Dimensions": {"Length": "199"}, "Height": "110"}, "Hybrid": "False"}, "52": {"Performance": {"Mileage": {"City mpg": "8", "Highway_mpg": "14"}, "Horsepower": "621"}, "Build": {"Make": "Bentley", "Model": "Bentley Continental Supersports Convertible", "Year": "2011"}, "Config": {"Transmission": {"Type": "Automatic", "Driveline": "2011", "Classification": "6 Speed Automatic"}, "Engine_Type": "Bentley 6.0L 12 Cylinder 621 hp 590 ft-lbs FFV Turbo", "Dimensions": {"Length": "195"}, "Height": "99"}, "Hybrid": "False"}, "53": {"Performance": {"Mileage": {"City mpg": "12", "Highway_mpg": "19"}, "Horsepower": "621"}, "Build": {"Make": "Bentley", "Model": "Bentley Continental Supersports", "Year": "2010"}, "Config": {"Transmission": {"Type": "Automatic", "Driveline": "2010", "Classification": "6 Speed Automatic"}, "Engine_Type": "Bentley 6.0L 12 Cylinder 621 hp 590 ft-lbs FFV Turbo", "Dimensions": {"Length": "195"}, "Height": "99"}, "Hybrid": "False"}, "54": {"Performance": {"Mileage": {"City mpg": "8", "Highway_mpg": "13"}, "Horsepower": "552"}, "Build": {"Make": "Bentley", "Model": "Bentley Continental Flying Spur", "Year": "2012"}, "Config": {"Transmission": {"Type": "Automatic", "Driveline": "2012", "Classification": "6 Speed Automatic"}, "Engine_Type": "Bentley 6.0L 12 Cylinder 552 hp 479 ft-lbs FFV Turbo", "Dimensions": {"Length": "170"}, "Height": "118"}, "Hybrid": "False"}, "55": {"Performance": {"Mileage": {"City mpg": "11", "Highway_mpg": "19"}, "Horsepower": "600"}, "Build": {"Make": "Bentley", "Model": "Bentley Continental Flying Spur", "Year": "2012"}, "Config": {"Transmission": {"Type": "Automatic", "Driveline": "2012", "Classification": "6 Speed Automatic"}, "Engine_Type": "Bentley 6.0L 12 Cylinder 600 hp 553 ft-lbs FFV Turbo", "Dimensions": {"Length": "170"}, "Height": "108"}, "Hybrid": "False"}, "56": {"Performance": {"Mileage": {"City mpg": "10", "Highway_mpg": "17"}, "Horsepower": "600"}, "Build": {"Make": "Bentley", "Model": "Bentley Continental Flying Spur", "Year": "2011"}, "Config": {"Transmission": {"Type": "Automatic", "Driveline": "2011", "Classification": "6 Speed Automatic"}, "Engine_Type": "Bentley 6.0L 12 Cylinder 600 hp 553 ft-lbs FFV Turbo", "Dimensions": {"Length": "170"}, "Height": "185"}, "Hybrid": "False"}, "57": {"Performance": {"Mileage": {"City mpg": "10", "Highway_mpg": "17"}, "Horsepower": "600"}, "Build": {"Make": "Bentley", "Model": "Bentley Continental Flying Spur", "Year": "2010"}, "Config": {"Transmission": {"Type": "Automatic", "Driveline": "2010", "Classification": "6 Speed Automatic"}, "Engine_Type": "Bentley 6.0L 12 cylinder 600hp 553 ft-lbs Turbo", "Dimensions": {"Length": "170"}, "Height": "185"}, "Hybrid": "False"}, "58": {"Performance": {"Mileage": {"City mpg": "10", "Highway_mpg": "17"}, "Horsepower": "552"}, "Build": {"Make": "Bentley", "Model": "Bentley Continental Flying Spur", "Year": "2010"}, "Config": {"Transmission": {"Type": "Automatic", "Driveline": "2010", "Classification": "6 Speed Automatic"}, "Engine_Type": "Bentley 6.0L 12 cylinder 552 hp 479 ft-lbs Turbo", "Dimensions": {"Length": "170"}, "Height": "195"}, "Hybrid": "False"}, "59": {"Performance": {"Mileage": {"City mpg": "19", "Highway_mpg": "28"}, "Horsepower": "227"}, "Build": {"Make": "Volvo", "Model": "Volvo C70", "Year": "2011"}, "Config": {"Transmission": {"Type": "Automatic", "Driveline": "2011", "Classification": "5 Speed Automatic"}, "Engine_Type": "Volvo 2.5L 5 Cylinder 227 hp 236 ft-lbs Turbo", "Dimensions": {"Length": "7"}, "Height": "120"}, "Hybrid": "False"}, "60": {"Performance": {"Mileage": {"City mpg": "20", "Highway_mpg": "28"}, "Horsepower": "227"}, "Build": {"Make": "Volvo", "Model": "Volvo C70", "Year": "2010"}, "Config": {"Transmission": {"Type": "Manual", "Driveline": "2010", "Classification": "6 Speed Manual"}, "Engine_Type": "Volvo 2.5L 5 Cylinder 227 hp 236 ft-lbs Turbo", "Dimensions": {"Length": "230"}, "Height": "119"}, "Hybrid": "False"}, "61": {"Performance": {"Mileage": {"City mpg": "19", "Highway_mpg": "28"}, "Horsepower": "227"}, "Build": {"Make": "Volvo", "Model": "Volvo C70", "Year": "2010"}, "Config": {"Transmission": {"Type": "Automatic", "Driveline": "2010", "Classification": "5 Speed Automatic"}, "Engine_Type": "Volvo 2.5L 5 Cylinder 227 hp 236 ft-lbs Turbo", "Dimensions": {"Length": "230"}, "Height": "119"}, "Hybrid": "False"}, "62": {"Performance": {"Mileage": {"City mpg": "21", "Highway_mpg": "29"}, "Horsepower": "168"}, "Build": {"Make": "Volvo", "Model": "Volvo S40", "Year": "2010"}, "Config": {"Transmission": {"Type": "Manual", "Driveline": "2010", "Classification": "5 Speed Manual"}, "Engine_Type": "Volvo 2.4L 5 Cylinder 168 hp 166 ft-lbs", "Dimensions": {"Length": "123"}, "Height": "172"}, "Hybrid": "False"}, "63": {"Performance": {"Mileage": {"City mpg": "21", "Highway_mpg": "30"}, "Horsepower": "227"}, "Build": {"Make": "Volvo", "Model": "Volvo S40", "Year": "2010"}, "Config": {"Transmission": {"Type": "Automatic", "Driveline": "2010", "Classification": "5 Speed Automatic"}, "Engine_Type": "Volvo 2.5L 5 Cylinder 227 hp 236 ft-lbs Turbo", "Dimensions": {"Length": "123"}, "Height": "172"}, "Hybrid": "False"}, "64": {"Performance": {"Mileage": {"City mpg": "21", "Highway_mpg": "30"}, "Horsepower": "227"}, "Build": {"Make": "Volvo", "Model": "Volvo S40", "Year": "2011"}, "Config": {"Transmission": {"Type": "Automatic", "Driveline": "2011", "Classification": "5 Speed Automatic"}, "Engine_Type": "Volvo 2.5L 5 Cylinder 227 hp 236 ft-lbs Turbo", "Dimensions": {"Length": "123"}, "Height": "172"}, "Hybrid": "False"}, "65": {"Performance": {"Mileage": {"City mpg": "20", "Highway_mpg": "27"}, "Horsepower": "227"}, "Build": {"Make": "Volvo", "Model": "Volvo S40", "Year": "2010"}, "Config": {"Transmission": {"Type": "Manual", "Driveline": "2010", "Classification": "6 Speed Manual"}, "Engine_Type": "Volvo 2.5L 5 Cylinder 227 hp 236 ft-lbs Turbo", "Dimensions": {"Length": "123"}, "Height": "190"}, "Hybrid": "False"}, "66": {"Performance": {"Mileage": {"City mpg": "20", "Highway_mpg": "30"}, "Horsepower": "250"}, "Build": {"Make": "Volvo", "Model": "Volvo S60", "Year": "2012"}, "Config": {"Transmission": {"Type": "Automatic", "Driveline": "2012", "Classification": "6 Speed Automatic Select Shift"}, "Engine_Type": "Volvo 2.5L 5 Cylinder 250 hp 266 ft-lbs Turbo", "Dimensions": {"Length": "19"}, "Height": "203"}, "Hybrid": "False"}, "67": {"Performance": {"Mileage": {"City mpg": "18", "Highway_mpg": "26"}, "Horsepower": "300"}, "Build": {"Make": "Volvo", "Model": "Volvo S60", "Year": "2012"}, "Config": {"Transmission": {"Type": "Automatic", "Driveline": "2012", "Classification": "6 Speed Automatic Select Shift"}, "Engine_Type": "Volvo 3.0 L 6 Cylinder 300 HP 325 ft-lbs Turbo", "Dimensions": {"Length": "19"}, "Height": "203"}, "Hybrid": "False"}, "68": {"Performance": {"Mileage": {"City mpg": "18", "Highway_mpg": "26"}, "Horsepower": "325"}, "Build": {"Make": "Volvo", "Model": "Volvo S60", "Year": "2012"}, "Config": {"Transmission": {"Type": "Automatic", "Driveline": "2012", "Classification": "6 Speed Automatic Select Shift"}, "Engine_Type": "Volvo 3.0 L 6 Cylinder 325 HP 354 ft-lbs Turbo", "Dimensions": {"Length": "19"}, "Height": "203"}, "Hybrid": "False"}, "69": {"Performance": {"Mileage": {"City mpg": "18", "Highway_mpg": "26"}, "Horsepower": "300"}, "Build": {"Make": "Volvo", "Model": "Volvo S60", "Year": "2011"}, "Config": {"Transmission": {"Type": "Automatic", "Driveline": "2011", "Classification": "6 Speed Automatic"}, "Engine_Type": "Volvo 3.0 L 6 Cylinder 300 HP 325 ft-lbs Turbo", "Dimensions": {"Length": "14"}, "Height": "203"}, "Hybrid": "False"}, "70": {"Performance": {"Mileage": {"City mpg": "19", "Highway_mpg": "27"}, "Horsepower": "240"}, "Build": {"Make": "Volvo", "Model": "Volvo S80", "Year": "2011"}, "Config": {"Transmission": {"Type": "Automatic", "Driveline": "2011", "Classification": "6 Speed Automatic Select Shift"}, "Engine_Type": "Volvo 3.2 L 6 cylinder 240 hp 236 ft-lbs", "Dimensions": {"Length": "243"}, "Height": "213"}, "Hybrid": "False"}, "71": {"Performance": {"Mileage": {"City mpg": "15", "Highway_mpg": "22"}, "Horsepower": "311"}, "Build": {"Make": "Volvo", "Model": "Volvo S80", "Year": "2010"}, "Config": {"Transmission": {"Type": "Automatic", "Driveline": "2010", "Classification": "6 Speed Automatic"}, "Engine_Type": "Volvo 4.4L 8 Cylinder 311 hp 325 ft-lbs", "Dimensions": {"Length": "243"}, "Height": "213"}, "Hybrid": "False"}, "72": {"Performance": {"Mileage": {"City mpg": "16", "Highway_mpg": "24"}, "Horsepower": "281"}, "Build": {"Make": "Volvo", "Model": "Volvo S80", "Year": "2010"}, "Config": {"Transmission": {"Type": "Automatic", "Driveline": "2010", "Classification": "6 Speed Automatic Select Shift"}, "Engine_Type": "Volvo 3.0L 6 Cylinder 281 hp 295 ft-lbs Turbo", "Dimensions": {"Length": "243"}, "Height": "213"}, "Hybrid": "False"}, "73": {"Performance": {"Mileage": {"City mpg": "18", "Highway_mpg": "27"}, "Horsepower": "235"}, "Build": {"Make": "Volvo", "Model": "Volvo S80", "Year": "2010"}, "Config": {"Transmission": {"Type": "Automatic", "Driveline": "2010", "Classification": "6 Speed Automatic"}, "Engine_Type": "Volvo 3.2L 6 Cylinder 235 hp 236 ft-lbs", "Dimensions": {"Length": "243"}, "Height": "213"}, "Hybrid": "False"}, "74": {"Performance": {"Mileage": {"City mpg": "21", "Highway_mpg": "30"}, "Horsepower": "227"}, "Build": {"Make": "Volvo", "Model": "Volvo V50", "Year": "2011"}, "Config": {"Transmission": {"Type": "Automatic", "Driveline": "2011", "Classification": "5 Speed Automatic"}, "Engine_Type": "Volvo 2.5L 5 Cylinder 227 hp 236 ft-lbs Turbo", "Dimensions": {"Length": "169"}, "Height": "177"}, "Hybrid": "False"}, "75": {"Performance": {"Mileage": {"City mpg": "20", "Highway_mpg": "26"}, "Horsepower": "227"}, "Build": {"Make": "Volvo", "Model": "Volvo V50", "Year": "2010"}, "Config": {"Transmission": {"Type": "Manual", "Driveline": "2010", "Classification": "6 Speed Manual"}, "Engine_Type": "Volvo 2.5L 5 Cylinder 227 hp 236 ft-lbs Turbo", "Dimensions": {"Length": "169"}, "Height": "193"}, "Hybrid": "False"}, "76": {"Performance": {"Mileage": {"City mpg": "20", "Highway_mpg": "31"}, "Horsepower": "168"}, "Build": {"Make": "Volvo", "Model": "Volvo V50", "Year": "2010"}, "Config": {"Transmission": {"Type": "Automatic", "Driveline": "2010", "Classification": "5 Speed Automatic Select Shift"}, "Engine_Type": "Volvo 2.4L 5 Cylinder 168 hp 166 ft-lbs", "Dimensions": {"Length": "169"}, "Height": "177"}, "Hybrid": "False"}}
+{
+ "1": {
+  "Build": {
+   "Make": "Audi",
+   "Model": "Audi A3",
+   "Year": "2009"
+  },
+  "Config": {
+   "Dimensions": {
+    "Length": "143"
+   },
+   "Engine_Type": "Audi 3.2L 6 cylinder 250hp 236ft-lbs",
+   "Height": "140",
+   "Transmission": {
+    "Classification": "6 Speed Automatic Select Shift",
+    "Driveline": "2009",
+    "Type": "Automatic"
+   }
+  },
+  "Hybrid": "False",
+  "Performance": {
+   "Horsepower": "250",
+   "Mileage": {
+    "City mpg": "18",
+    "Highway_mpg": "25"
+   }
+  }
+ },
+ "10": {
+  "Build": {
+   "Make": "Audi",
+   "Model": "Audi A4 Sedan",
+   "Year": "2009"
+  },
+  "Config": {
+   "Dimensions": {
+    "Length": "96"
+   },
+   "Engine_Type": "Audi 2.0L 4 cylinder 211 hp 258 ft-lbs Turbo",
+   "Height": "147",
+   "Transmission": {
+    "Classification": "6 Speed Manual",
+    "Driveline": "2009",
+    "Type": "Manual"
+   }
+  },
+  "Hybrid": "False",
+  "Performance": {
+   "Horsepower": "211",
+   "Mileage": {
+    "City mpg": "22",
+    "Highway_mpg": "30"
+   }
+  }
+ },
+ "11": {
+  "Build": {
+   "Make": "Audi",
+   "Model": "Audi A4 Sedan",
+   "Year": "2009"
+  },
+  "Config": {
+   "Dimensions": {
+    "Length": "96"
+   },
+   "Engine_Type": "Audi 2.0L 4 cylinder 211 hp 258 ft-lbs Turbo",
+   "Height": "147",
+   "Transmission": {
+    "Classification": "6 Speed Automatic Select Shift",
+    "Driveline": "2009",
+    "Type": "Automatic"
+   }
+  },
+  "Hybrid": "False",
+  "Performance": {
+   "Horsepower": "211",
+   "Mileage": {
+    "City mpg": "21",
+    "Highway_mpg": "27"
+   }
+  }
+ },
+ "12": {
+  "Build": {
+   "Make": "Audi",
+   "Model": "Audi A4 Sedan",
+   "Year": "2009"
+  },
+  "Config": {
+   "Dimensions": {
+    "Length": "96"
+   },
+   "Engine_Type": "Audi 3.2L 6 cylinder 265hp 243 ft-lbs",
+   "Height": "147",
+   "Transmission": {
+    "Classification": "6 Speed Automatic Select Shift",
+    "Driveline": "2009",
+    "Type": "Automatic"
+   }
+  },
+  "Hybrid": "False",
+  "Performance": {
+   "Horsepower": "265",
+   "Mileage": {
+    "City mpg": "17",
+    "Highway_mpg": "26"
+   }
+  }
+ },
+ "13": {
+  "Build": {
+   "Make": "Acura",
+   "Model": "Acura TL",
+   "Year": "2012"
+  },
+  "Config": {
+   "Dimensions": {
+    "Length": "63"
+   },
+   "Engine_Type": "Acura 3.5L 6 Cylinder 280 hp 254 ft-lbs",
+   "Height": "172",
+   "Transmission": {
+    "Classification": "6 Speed Automatic Select Shift",
+    "Driveline": "2012",
+    "Type": "Automatic"
+   }
+  },
+  "Hybrid": "False",
+  "Performance": {
+   "Horsepower": "280",
+   "Mileage": {
+    "City mpg": "20",
+    "Highway_mpg": "29"
+   }
+  }
+ },
+ "14": {
+  "Build": {
+   "Make": "Acura",
+   "Model": "Acura TL",
+   "Year": "2012"
+  },
+  "Config": {
+   "Dimensions": {
+    "Length": "63"
+   },
+   "Engine_Type": "Acura 3.7L 6 Cylinder 305 hp 273 ft-lbs",
+   "Height": "172",
+   "Transmission": {
+    "Classification": "6 Speed Automatic Select Shift",
+    "Driveline": "2012",
+    "Type": "Automatic"
+   }
+  },
+  "Hybrid": "False",
+  "Performance": {
+   "Horsepower": "305",
+   "Mileage": {
+    "City mpg": "18",
+    "Highway_mpg": "26"
+   }
+  }
+ },
+ "15": {
+  "Build": {
+   "Make": "BMW",
+   "Model": "BMW X5",
+   "Year": "2010"
+  },
+  "Config": {
+   "Dimensions": {
+    "Length": "243"
+   },
+   "Engine_Type": "BMW 4.4L 8 cylinder 555hp 500 ft-lbs Turbo",
+   "Height": "226",
+   "Transmission": {
+    "Classification": "6 Speed Automatic Select Shift",
+    "Driveline": "2010",
+    "Type": "Automatic"
+   }
+  },
+  "Hybrid": "False",
+  "Performance": {
+   "Horsepower": "555",
+   "Mileage": {
+    "City mpg": "12",
+    "Highway_mpg": "17"
+   }
+  }
+ },
+ "16": {
+  "Build": {
+   "Make": "BMW",
+   "Model": "BMW X5",
+   "Year": "2011"
+  },
+  "Config": {
+   "Dimensions": {
+    "Length": "243"
+   },
+   "Engine_Type": "BMW 4.4L 8 cylinder 555hp 500 ft-lbs Turbo",
+   "Height": "226",
+   "Transmission": {
+    "Classification": "6 Speed Automatic Select Shift",
+    "Driveline": "2011",
+    "Type": "Automatic"
+   }
+  },
+  "Hybrid": "False",
+  "Performance": {
+   "Horsepower": "555",
+   "Mileage": {
+    "City mpg": "12",
+    "Highway_mpg": "17"
+   }
+  }
+ },
+ "17": {
+  "Build": {
+   "Make": "BMW",
+   "Model": "BMW X6",
+   "Year": "2010"
+  },
+  "Config": {
+   "Dimensions": {
+    "Length": "12"
+   },
+   "Engine_Type": "BMW 4.4L 8 cylinder 555hp 500 ft-lbs Turbo",
+   "Height": "148",
+   "Transmission": {
+    "Classification": "6 Speed Automatic Select Shift",
+    "Driveline": "2010",
+    "Type": "Automatic"
+   }
+  },
+  "Hybrid": "False",
+  "Performance": {
+   "Horsepower": "555",
+   "Mileage": {
+    "City mpg": "12",
+    "Highway_mpg": "17"
+   }
+  }
+ },
+ "18": {
+  "Build": {
+   "Make": "BMW",
+   "Model": "BMW X6",
+   "Year": "2011"
+  },
+  "Config": {
+   "Dimensions": {
+    "Length": "12"
+   },
+   "Engine_Type": "BMW 4.4L 8 cylinder 555hp 500 ft-lbs Turbo",
+   "Height": "148",
+   "Transmission": {
+    "Classification": "6 Speed Automatic Select Shift",
+    "Driveline": "2011",
+    "Type": "Automatic"
+   }
+  },
+  "Hybrid": "False",
+  "Performance": {
+   "Horsepower": "555",
+   "Mileage": {
+    "City mpg": "12",
+    "Highway_mpg": "17"
+   }
+  }
+ },
+ "19": {
+  "Build": {
+   "Make": "Chevrolet",
+   "Model": "Chevrolet Colorado",
+   "Year": "2012"
+  },
+  "Config": {
+   "Dimensions": {
+    "Length": "22"
+   },
+   "Engine_Type": "Chevrolet 2.9L 4 Cylinder 185 hp 190 ft-lbs",
+   "Height": "112",
+   "Transmission": {
+    "Classification": "5 Speed Manual",
+    "Driveline": "2012",
+    "Type": "Manual"
+   }
+  },
+  "Hybrid": "False",
+  "Performance": {
+   "Horsepower": "185",
+   "Mileage": {
+    "City mpg": "18",
+    "Highway_mpg": "25"
+   }
+  }
+ },
+ "2": {
+  "Build": {
+   "Make": "Audi",
+   "Model": "Audi A3",
+   "Year": "2009"
+  },
+  "Config": {
+   "Dimensions": {
+    "Length": "143"
+   },
+   "Engine_Type": "Audi 2.0L 4 cylinder 200 hp 207 ft-lbs Turbo",
+   "Height": "140",
+   "Transmission": {
+    "Classification": "6 Speed Automatic Select Shift",
+    "Driveline": "2009",
+    "Type": "Automatic"
+   }
+  },
+  "Hybrid": "False",
+  "Performance": {
+   "Horsepower": "200",
+   "Mileage": {
+    "City mpg": "22",
+    "Highway_mpg": "28"
+   }
+  }
+ },
+ "20": {
+  "Build": {
+   "Make": "Chevrolet",
+   "Model": "Chevrolet Colorado",
+   "Year": "2012"
+  },
+  "Config": {
+   "Dimensions": {
+    "Length": "140"
+   },
+   "Engine_Type": "Chevrolet 2.9L 4 Cylinder 185 hp 190 ft-lbs",
+   "Height": "112",
+   "Transmission": {
+    "Classification": "5 Speed Manual",
+    "Driveline": "2012",
+    "Type": "Manual"
+   }
+  },
+  "Hybrid": "False",
+  "Performance": {
+   "Horsepower": "185",
+   "Mileage": {
+    "City mpg": "18",
+    "Highway_mpg": "25"
+   }
+  }
+ },
+ "21": {
+  "Build": {
+   "Make": "Chevrolet",
+   "Model": "Chevrolet Colorado",
+   "Year": "2012"
+  },
+  "Config": {
+   "Dimensions": {
+    "Length": "140"
+   },
+   "Engine_Type": "Chevrolet 2.9L 4 Cylinder 185 hp 190 ft-lbs",
+   "Height": "120",
+   "Transmission": {
+    "Classification": "4 Speed Automatic",
+    "Driveline": "2012",
+    "Type": "Automatic"
+   }
+  },
+  "Hybrid": "False",
+  "Performance": {
+   "Horsepower": "185",
+   "Mileage": {
+    "City mpg": "18",
+    "Highway_mpg": "25"
+   }
+  }
+ },
+ "22": {
+  "Build": {
+   "Make": "Chevrolet",
+   "Model": "Chevrolet Colorado",
+   "Year": "2011"
+  },
+  "Config": {
+   "Dimensions": {
+    "Length": "22"
+   },
+   "Engine_Type": "Chevrolet 2.9L 4 Cylinder 185 hp 190 ft-lbs",
+   "Height": "112",
+   "Transmission": {
+    "Classification": "5 Speed Manual",
+    "Driveline": "2011",
+    "Type": "Manual"
+   }
+  },
+  "Hybrid": "False",
+  "Performance": {
+   "Horsepower": "185",
+   "Mileage": {
+    "City mpg": "18",
+    "Highway_mpg": "25"
+   }
+  }
+ },
+ "23": {
+  "Build": {
+   "Make": "Chevrolet",
+   "Model": "Chevrolet Colorado",
+   "Year": "2011"
+  },
+  "Config": {
+   "Dimensions": {
+    "Length": "140"
+   },
+   "Engine_Type": "Chevrolet 2.9L 4 Cylinder 185 hp 190 ft-lbs",
+   "Height": "112",
+   "Transmission": {
+    "Classification": "5 Speed Manual",
+    "Driveline": "2011",
+    "Type": "Manual"
+   }
+  },
+  "Hybrid": "False",
+  "Performance": {
+   "Horsepower": "185",
+   "Mileage": {
+    "City mpg": "18",
+    "Highway_mpg": "25"
+   }
+  }
+ },
+ "24": {
+  "Build": {
+   "Make": "Chevrolet",
+   "Model": "Chevrolet Colorado",
+   "Year": "2011"
+  },
+  "Config": {
+   "Dimensions": {
+    "Length": "140"
+   },
+   "Engine_Type": "Chevrolet 2.9L 4 Cylinder 185 hp 190 ft-lbs",
+   "Height": "120",
+   "Transmission": {
+    "Classification": "4 Speed Automatic",
+    "Driveline": "2011",
+    "Type": "Automatic"
+   }
+  },
+  "Hybrid": "False",
+  "Performance": {
+   "Horsepower": "185",
+   "Mileage": {
+    "City mpg": "18",
+    "Highway_mpg": "25"
+   }
+  }
+ },
+ "25": {
+  "Build": {
+   "Make": "Chevrolet",
+   "Model": "Chevrolet Colorado",
+   "Year": "2010"
+  },
+  "Config": {
+   "Dimensions": {
+    "Length": "22"
+   },
+   "Engine_Type": "Chevrolet 2.9L 4 Cylinder 185 hp 190 ft-lbs",
+   "Height": "112",
+   "Transmission": {
+    "Classification": "5 Speed Manual",
+    "Driveline": "2010",
+    "Type": "Manual"
+   }
+  },
+  "Hybrid": "False",
+  "Performance": {
+   "Horsepower": "185",
+   "Mileage": {
+    "City mpg": "18",
+    "Highway_mpg": "25"
+   }
+  }
+ },
+ "26": {
+  "Build": {
+   "Make": "Chevrolet",
+   "Model": "Chevrolet Colorado",
+   "Year": "2010"
+  },
+  "Config": {
+   "Dimensions": {
+    "Length": "140"
+   },
+   "Engine_Type": "Chevrolet 2.9L 4 Cylinder 185 hp 190 ft-lbs",
+   "Height": "112",
+   "Transmission": {
+    "Classification": "5 Speed Manual",
+    "Driveline": "2010",
+    "Type": "Manual"
+   }
+  },
+  "Hybrid": "False",
+  "Performance": {
+   "Horsepower": "185",
+   "Mileage": {
+    "City mpg": "20",
+    "Highway_mpg": "26"
+   }
+  }
+ },
+ "27": {
+  "Build": {
+   "Make": "Chevrolet",
+   "Model": "Chevrolet Colorado",
+   "Year": "2010"
+  },
+  "Config": {
+   "Dimensions": {
+    "Length": "140"
+   },
+   "Engine_Type": "Chevrolet 2.9L 4 Cylinder 185 hp 190 ft-lbs",
+   "Height": "120",
+   "Transmission": {
+    "Classification": "4 Speed Automatic",
+    "Driveline": "2010",
+    "Type": "Automatic"
+   }
+  },
+  "Hybrid": "False",
+  "Performance": {
+   "Horsepower": "185",
+   "Mileage": {
+    "City mpg": "18",
+    "Highway_mpg": "25"
+   }
+  }
+ },
+ "28": {
+  "Build": {
+   "Make": "Chevrolet",
+   "Model": "Chevrolet Express",
+   "Year": "2012"
+  },
+  "Config": {
+   "Dimensions": {
+    "Length": "60"
+   },
+   "Engine_Type": "Chevrolet 5.3L 8 Cylinder 310 hp 334 ft-lbs FFV",
+   "Height": "77",
+   "Transmission": {
+    "Classification": "4 Speed Automatic",
+    "Driveline": "2012",
+    "Type": "Automatic"
+   }
+  },
+  "Hybrid": "False",
+  "Performance": {
+   "Horsepower": "310",
+   "Mileage": {
+    "City mpg": "13",
+    "Highway_mpg": "18"
+   }
+  }
+ },
+ "29": {
+  "Build": {
+   "Make": "Chevrolet",
+   "Model": "Chevrolet Express",
+   "Year": "2012"
+  },
+  "Config": {
+   "Dimensions": {
+    "Length": "60"
+   },
+   "Engine_Type": "Chevrolet 5.3L 8 Cylinder 310 hp 334 ft-lbs FFV",
+   "Height": "77",
+   "Transmission": {
+    "Classification": "4 Speed Automatic",
+    "Driveline": "2012",
+    "Type": "Automatic"
+   }
+  },
+  "Hybrid": "False",
+  "Performance": {
+   "Horsepower": "310",
+   "Mileage": {
+    "City mpg": "9",
+    "Highway_mpg": "12"
+   }
+  }
+ },
+ "3": {
+  "Build": {
+   "Make": "Audi",
+   "Model": "Audi A3",
+   "Year": "2009"
+  },
+  "Config": {
+   "Dimensions": {
+    "Length": "143"
+   },
+   "Engine_Type": "Audi 2.0L 4 cylinder 200 hp 207 ft-lbs Turbo",
+   "Height": "140",
+   "Transmission": {
+    "Classification": "6 Speed Manual",
+    "Driveline": "2009",
+    "Type": "Manual"
+   }
+  },
+  "Hybrid": "False",
+  "Performance": {
+   "Horsepower": "200",
+   "Mileage": {
+    "City mpg": "21",
+    "Highway_mpg": "30"
+   }
+  }
+ },
+ "30": {
+  "Build": {
+   "Make": "Chevrolet",
+   "Model": "Chevrolet Express",
+   "Year": "2011"
+  },
+  "Config": {
+   "Dimensions": {
+    "Length": "60"
+   },
+   "Engine_Type": "Chevrolet 5.3L 8 Cylinder 310 hp 334 ft-lbs FFV",
+   "Height": "77",
+   "Transmission": {
+    "Classification": "4 Speed Automatic",
+    "Driveline": "2011",
+    "Type": "Automatic"
+   }
+  },
+  "Hybrid": "False",
+  "Performance": {
+   "Horsepower": "310",
+   "Mileage": {
+    "City mpg": "13",
+    "Highway_mpg": "17"
+   }
+  }
+ },
+ "31": {
+  "Build": {
+   "Make": "Chevrolet",
+   "Model": "Chevrolet Express",
+   "Year": "2011"
+  },
+  "Config": {
+   "Dimensions": {
+    "Length": "60"
+   },
+   "Engine_Type": "Chevrolet 5.3L 8 Cylinder 310 hp 334 ft-lbs FFV",
+   "Height": "77",
+   "Transmission": {
+    "Classification": "4 Speed Automatic",
+    "Driveline": "2011",
+    "Type": "Automatic"
+   }
+  },
+  "Hybrid": "False",
+  "Performance": {
+   "Horsepower": "310",
+   "Mileage": {
+    "City mpg": "13",
+    "Highway_mpg": "17"
+   }
+  }
+ },
+ "32": {
+  "Build": {
+   "Make": "Chevrolet",
+   "Model": "Chevrolet Express",
+   "Year": "2011"
+  },
+  "Config": {
+   "Dimensions": {
+    "Length": "60"
+   },
+   "Engine_Type": "Chevrolet 4.8L 8 Cylinder 280 hp 295 ft-lbs FFV",
+   "Height": "22",
+   "Transmission": {
+    "Classification": "6 Speed Automatic",
+    "Driveline": "2011",
+    "Type": "Automatic"
+   }
+  },
+  "Hybrid": "False",
+  "Performance": {
+   "Horsepower": "280",
+   "Mileage": {
+    "City mpg": "8",
+    "Highway_mpg": "12"
+   }
+  }
+ },
+ "33": {
+  "Build": {
+   "Make": "Chevrolet",
+   "Model": "Chevrolet Express",
+   "Year": "2011"
+  },
+  "Config": {
+   "Dimensions": {
+    "Length": "60"
+   },
+   "Engine_Type": "Chevrolet 6.0L 8 Cylinder 324 hp 373 ft-lbs FFV",
+   "Height": "22",
+   "Transmission": {
+    "Classification": "6 Speed Automatic",
+    "Driveline": "2011",
+    "Type": "Automatic"
+   }
+  },
+  "Hybrid": "False",
+  "Performance": {
+   "Horsepower": "324",
+   "Mileage": {
+    "City mpg": "8",
+    "Highway_mpg": "12"
+   }
+  }
+ },
+ "34": {
+  "Build": {
+   "Make": "Chevrolet",
+   "Model": "Chevrolet Express",
+   "Year": "2010"
+  },
+  "Config": {
+   "Dimensions": {
+    "Length": "60"
+   },
+   "Engine_Type": "Chevrolet 5.3L 8 Cylinder 310 hp 334 ft-lbs FFV",
+   "Height": "24",
+   "Transmission": {
+    "Classification": "4 Speed Automatic",
+    "Driveline": "2010",
+    "Type": "Automatic"
+   }
+  },
+  "Hybrid": "False",
+  "Performance": {
+   "Horsepower": "310",
+   "Mileage": {
+    "City mpg": "10",
+    "Highway_mpg": "13"
+   }
+  }
+ },
+ "35": {
+  "Build": {
+   "Make": "Chevrolet",
+   "Model": "Chevrolet Express",
+   "Year": "2010"
+  },
+  "Config": {
+   "Dimensions": {
+    "Length": "60"
+   },
+   "Engine_Type": "Chevrolet 5.3L 8 Cylinder 310 hp 334 ft-lbs FFV",
+   "Height": "24",
+   "Transmission": {
+    "Classification": "4 Speed Automatic",
+    "Driveline": "2010",
+    "Type": "Automatic"
+   }
+  },
+  "Hybrid": "False",
+  "Performance": {
+   "Horsepower": "310",
+   "Mileage": {
+    "City mpg": "13",
+    "Highway_mpg": "17"
+   }
+  }
+ },
+ "36": {
+  "Build": {
+   "Make": "Chevrolet",
+   "Model": "Chevrolet Silverado 1500",
+   "Year": "2011"
+  },
+  "Config": {
+   "Dimensions": {
+    "Length": "102"
+   },
+   "Engine_Type": "Chevrolet 4.3L 6 Cylinder 195 hp 260 ft-lbs",
+   "Height": "77",
+   "Transmission": {
+    "Classification": "4 Speed Automatic",
+    "Driveline": "2011",
+    "Type": "Automatic"
+   }
+  },
+  "Hybrid": "False",
+  "Performance": {
+   "Horsepower": "195",
+   "Mileage": {
+    "City mpg": "15",
+    "Highway_mpg": "20"
+   }
+  }
+ },
+ "37": {
+  "Build": {
+   "Make": "Chevrolet",
+   "Model": "Chevrolet Silverado 1500",
+   "Year": "2011"
+  },
+  "Config": {
+   "Dimensions": {
+    "Length": "215"
+   },
+   "Engine_Type": "Chevrolet 4.8L 8 Cylinder 302 hp 305 ft-lbs FFV",
+   "Height": "82",
+   "Transmission": {
+    "Classification": "4 Speed Automatic",
+    "Driveline": "2011",
+    "Type": "Automatic"
+   }
+  },
+  "Hybrid": "False",
+  "Performance": {
+   "Horsepower": "302",
+   "Mileage": {
+    "City mpg": "14",
+    "Highway_mpg": "19"
+   }
+  }
+ },
+ "38": {
+  "Build": {
+   "Make": "Chevrolet",
+   "Model": "Chevrolet Silverado 1500",
+   "Year": "2011"
+  },
+  "Config": {
+   "Dimensions": {
+    "Length": "215"
+   },
+   "Engine_Type": "Chevrolet 4.3L 6 Cylinder 195 hp 260 ft-lbs",
+   "Height": "85",
+   "Transmission": {
+    "Classification": "4 Speed Automatic",
+    "Driveline": "2011",
+    "Type": "Automatic"
+   }
+  },
+  "Hybrid": "False",
+  "Performance": {
+   "Horsepower": "195",
+   "Mileage": {
+    "City mpg": "15",
+    "Highway_mpg": "20"
+   }
+  }
+ },
+ "39": {
+  "Build": {
+   "Make": "Chevrolet",
+   "Model": "Chevrolet Silverado 1500",
+   "Year": "2010"
+  },
+  "Config": {
+   "Dimensions": {
+    "Length": "215"
+   },
+   "Engine_Type": "Chevrolet 4.3L 6 Cylinder 195 hp 260 ft-lbs",
+   "Height": "85",
+   "Transmission": {
+    "Classification": "4 Speed Automatic",
+    "Driveline": "2010",
+    "Type": "Automatic"
+   }
+  },
+  "Hybrid": "False",
+  "Performance": {
+   "Horsepower": "195",
+   "Mileage": {
+    "City mpg": "15",
+    "Highway_mpg": "20"
+   }
+  }
+ },
+ "4": {
+  "Build": {
+   "Make": "Audi",
+   "Model": "Audi A3",
+   "Year": "2009"
+  },
+  "Config": {
+   "Dimensions": {
+    "Length": "143"
+   },
+   "Engine_Type": "Audi 2.0L 4 cylinder 200 hp 207 ft-lbs Turbo",
+   "Height": "140",
+   "Transmission": {
+    "Classification": "6 Speed Automatic Select Shift",
+    "Driveline": "2009",
+    "Type": "Automatic"
+   }
+  },
+  "Hybrid": "False",
+  "Performance": {
+   "Horsepower": "200",
+   "Mileage": {
+    "City mpg": "21",
+    "Highway_mpg": "28"
+   }
+  }
+ },
+ "40": {
+  "Build": {
+   "Make": "Chevrolet",
+   "Model": "Chevrolet Silverado 1500",
+   "Year": "2010"
+  },
+  "Config": {
+   "Dimensions": {
+    "Length": "102"
+   },
+   "Engine_Type": "Chevrolet 4.3L 6 Cylinder 195 hp 260 ft-lbs",
+   "Height": "77",
+   "Transmission": {
+    "Classification": "4 Speed Automatic",
+    "Driveline": "2010",
+    "Type": "Automatic"
+   }
+  },
+  "Hybrid": "False",
+  "Performance": {
+   "Horsepower": "195",
+   "Mileage": {
+    "City mpg": "15",
+    "Highway_mpg": "20"
+   }
+  }
+ },
+ "41": {
+  "Build": {
+   "Make": "Chevrolet",
+   "Model": "Chevrolet Silverado 1500",
+   "Year": "2010"
+  },
+  "Config": {
+   "Dimensions": {
+    "Length": "215"
+   },
+   "Engine_Type": "Chevrolet 4.8L 8 Cylinder 302 hp 305 ft-lbs FFV",
+   "Height": "82",
+   "Transmission": {
+    "Classification": "4 Speed Automatic",
+    "Driveline": "2010",
+    "Type": "Automatic"
+   }
+  },
+  "Hybrid": "False",
+  "Performance": {
+   "Horsepower": "302",
+   "Mileage": {
+    "City mpg": "14",
+    "Highway_mpg": "19"
+   }
+  }
+ },
+ "42": {
+  "Build": {
+   "Make": "Nissan",
+   "Model": "Nissan 370Z Coupe",
+   "Year": "2011"
+  },
+  "Config": {
+   "Dimensions": {
+    "Length": "52"
+   },
+   "Engine_Type": "Nissan 3.7L 6 Cylinder 350hp 276 ft-lbs",
+   "Height": "43",
+   "Transmission": {
+    "Classification": "6 Speed Manual",
+    "Driveline": "2011",
+    "Type": "Manual"
+   }
+  },
+  "Hybrid": "False",
+  "Performance": {
+   "Horsepower": "350",
+   "Mileage": {
+    "City mpg": "18",
+    "Highway_mpg": "26"
+   }
+  }
+ },
+ "43": {
+  "Build": {
+   "Make": "Nissan",
+   "Model": "Nissan 370Z Coupe",
+   "Year": "2010"
+  },
+  "Config": {
+   "Dimensions": {
+    "Length": "75"
+   },
+   "Engine_Type": "Nissan 3.7L 6 Cylinder 350hp 276 ft-lbs",
+   "Height": "35",
+   "Transmission": {
+    "Classification": "6 Speed Manual",
+    "Driveline": "2010",
+    "Type": "Manual"
+   }
+  },
+  "Hybrid": "False",
+  "Performance": {
+   "Horsepower": "350",
+   "Mileage": {
+    "City mpg": "18",
+    "Highway_mpg": "26"
+   }
+  }
+ },
+ "44": {
+  "Build": {
+   "Make": "Nissan",
+   "Model": "Nissan 370Z Coupe",
+   "Year": "2009"
+  },
+  "Config": {
+   "Dimensions": {
+    "Length": "75"
+   },
+   "Engine_Type": "Nissan 3.7L 6 Cylinder 350hp 276 ft-lbs",
+   "Height": "35",
+   "Transmission": {
+    "Classification": "6 Speed Manual",
+    "Driveline": "2009",
+    "Type": "Manual"
+   }
+  },
+  "Hybrid": "False",
+  "Performance": {
+   "Horsepower": "350",
+   "Mileage": {
+    "City mpg": "18",
+    "Highway_mpg": "26"
+   }
+  }
+ },
+ "45": {
+  "Build": {
+   "Make": "Volvo",
+   "Model": "Volvo C30",
+   "Year": "2011"
+  },
+  "Config": {
+   "Dimensions": {
+    "Length": "168"
+   },
+   "Engine_Type": "Volvo 2.5L 5 Cylinder 227 hp 236 ft-lbs Turbo",
+   "Height": "167",
+   "Transmission": {
+    "Classification": "6 Speed Manual",
+    "Driveline": "2011",
+    "Type": "Manual"
+   }
+  },
+  "Hybrid": "False",
+  "Performance": {
+   "Horsepower": "227",
+   "Mileage": {
+    "City mpg": "21",
+    "Highway_mpg": "29"
+   }
+  }
+ },
+ "46": {
+  "Build": {
+   "Make": "Volvo",
+   "Model": "Volvo C30",
+   "Year": "2011"
+  },
+  "Config": {
+   "Dimensions": {
+    "Length": "168"
+   },
+   "Engine_Type": "Volvo 2.5L 5 Cylinder 227 hp 236 ft-lbs Turbo",
+   "Height": "167",
+   "Transmission": {
+    "Classification": "5 Speed Automatic",
+    "Driveline": "2011",
+    "Type": "Automatic"
+   }
+  },
+  "Hybrid": "False",
+  "Performance": {
+   "Horsepower": "227",
+   "Mileage": {
+    "City mpg": "21",
+    "Highway_mpg": "30"
+   }
+  }
+ },
+ "47": {
+  "Build": {
+   "Make": "Volvo",
+   "Model": "Volvo C30",
+   "Year": "2010"
+  },
+  "Config": {
+   "Dimensions": {
+    "Length": "155"
+   },
+   "Engine_Type": "Volvo 2.5L 5 Cylinder 227 hp 236 ft-lbs Turbo",
+   "Height": "167",
+   "Transmission": {
+    "Classification": "5 Speed Automatic",
+    "Driveline": "2010",
+    "Type": "Automatic"
+   }
+  },
+  "Hybrid": "False",
+  "Performance": {
+   "Horsepower": "227",
+   "Mileage": {
+    "City mpg": "21",
+    "Highway_mpg": "30"
+   }
+  }
+ },
+ "48": {
+  "Build": {
+   "Make": "Volvo",
+   "Model": "Volvo C30",
+   "Year": "2010"
+  },
+  "Config": {
+   "Dimensions": {
+    "Length": "155"
+   },
+   "Engine_Type": "Volvo 2.5L 5 Cylinder 227 hp 236 ft-lbs Turbo",
+   "Height": "167",
+   "Transmission": {
+    "Classification": "6 Speed Manual",
+    "Driveline": "2010",
+    "Type": "Manual"
+   }
+  },
+  "Hybrid": "False",
+  "Performance": {
+   "Horsepower": "227",
+   "Mileage": {
+    "City mpg": "21",
+    "Highway_mpg": "29"
+   }
+  }
+ },
+ "49": {
+  "Build": {
+   "Make": "Bentley",
+   "Model": "Bentley Brooklands",
+   "Year": "2010"
+  },
+  "Config": {
+   "Dimensions": {
+    "Length": "34"
+   },
+   "Engine_Type": "Bentley 6.8L 8 cylinder 530hp 774 ft-lbs Turbo",
+   "Height": "193",
+   "Transmission": {
+    "Classification": "6 Speed Automatic",
+    "Driveline": "2010",
+    "Type": "Automatic"
+   }
+  },
+  "Hybrid": "False",
+  "Performance": {
+   "Horsepower": "530",
+   "Mileage": {
+    "City mpg": "9",
+    "Highway_mpg": "15"
+   }
+  }
+ },
+ "5": {
+  "Build": {
+   "Make": "Audi",
+   "Model": "Audi A3",
+   "Year": "2009"
+  },
+  "Config": {
+   "Dimensions": {
+    "Length": "143"
+   },
+   "Engine_Type": "Audi 2.0L 4 cylinder 200 hp 207 ft-lbs Turbo",
+   "Height": "140",
+   "Transmission": {
+    "Classification": "6 Speed Automatic Select Shift",
+    "Driveline": "2009",
+    "Type": "Automatic"
+   }
+  },
+  "Hybrid": "False",
+  "Performance": {
+   "Horsepower": "200",
+   "Mileage": {
+    "City mpg": "21",
+    "Highway_mpg": "28"
+   }
+  }
+ },
+ "50": {
+  "Build": {
+   "Make": "Bentley",
+   "Model": "Bentley Continental Supersports Convertible",
+   "Year": "2012"
+  },
+  "Config": {
+   "Dimensions": {
+    "Length": "195"
+   },
+   "Engine_Type": "Bentley 6.0L 12 Cylinder 621 hp 590 ft-lbs FFV Turbo",
+   "Height": "99",
+   "Transmission": {
+    "Classification": "6 Speed Automatic",
+    "Driveline": "2012",
+    "Type": "Automatic"
+   }
+  },
+  "Hybrid": "False",
+  "Performance": {
+   "Horsepower": "621",
+   "Mileage": {
+    "City mpg": "8",
+    "Highway_mpg": "14"
+   }
+  }
+ },
+ "51": {
+  "Build": {
+   "Make": "Bentley",
+   "Model": "Bentley Continental Supersports Coupe",
+   "Year": "2012"
+  },
+  "Config": {
+   "Dimensions": {
+    "Length": "199"
+   },
+   "Engine_Type": "Bentley 6.0L 12 Cylinder 621 hp 590 ft-lbs FFV Turbo",
+   "Height": "110",
+   "Transmission": {
+    "Classification": "6 Speed Automatic Select Shift",
+    "Driveline": "2012",
+    "Type": "Automatic"
+   }
+  },
+  "Hybrid": "False",
+  "Performance": {
+   "Horsepower": "621",
+   "Mileage": {
+    "City mpg": "8",
+    "Highway_mpg": "14"
+   }
+  }
+ },
+ "52": {
+  "Build": {
+   "Make": "Bentley",
+   "Model": "Bentley Continental Supersports Convertible",
+   "Year": "2011"
+  },
+  "Config": {
+   "Dimensions": {
+    "Length": "195"
+   },
+   "Engine_Type": "Bentley 6.0L 12 Cylinder 621 hp 590 ft-lbs FFV Turbo",
+   "Height": "99",
+   "Transmission": {
+    "Classification": "6 Speed Automatic",
+    "Driveline": "2011",
+    "Type": "Automatic"
+   }
+  },
+  "Hybrid": "False",
+  "Performance": {
+   "Horsepower": "621",
+   "Mileage": {
+    "City mpg": "8",
+    "Highway_mpg": "14"
+   }
+  }
+ },
+ "53": {
+  "Build": {
+   "Make": "Bentley",
+   "Model": "Bentley Continental Supersports",
+   "Year": "2010"
+  },
+  "Config": {
+   "Dimensions": {
+    "Length": "195"
+   },
+   "Engine_Type": "Bentley 6.0L 12 Cylinder 621 hp 590 ft-lbs FFV Turbo",
+   "Height": "99",
+   "Transmission": {
+    "Classification": "6 Speed Automatic",
+    "Driveline": "2010",
+    "Type": "Automatic"
+   }
+  },
+  "Hybrid": "False",
+  "Performance": {
+   "Horsepower": "621",
+   "Mileage": {
+    "City mpg": "12",
+    "Highway_mpg": "19"
+   }
+  }
+ },
+ "54": {
+  "Build": {
+   "Make": "Bentley",
+   "Model": "Bentley Continental Flying Spur",
+   "Year": "2012"
+  },
+  "Config": {
+   "Dimensions": {
+    "Length": "170"
+   },
+   "Engine_Type": "Bentley 6.0L 12 Cylinder 552 hp 479 ft-lbs FFV Turbo",
+   "Height": "118",
+   "Transmission": {
+    "Classification": "6 Speed Automatic",
+    "Driveline": "2012",
+    "Type": "Automatic"
+   }
+  },
+  "Hybrid": "False",
+  "Performance": {
+   "Horsepower": "552",
+   "Mileage": {
+    "City mpg": "8",
+    "Highway_mpg": "13"
+   }
+  }
+ },
+ "55": {
+  "Build": {
+   "Make": "Bentley",
+   "Model": "Bentley Continental Flying Spur",
+   "Year": "2012"
+  },
+  "Config": {
+   "Dimensions": {
+    "Length": "170"
+   },
+   "Engine_Type": "Bentley 6.0L 12 Cylinder 600 hp 553 ft-lbs FFV Turbo",
+   "Height": "108",
+   "Transmission": {
+    "Classification": "6 Speed Automatic",
+    "Driveline": "2012",
+    "Type": "Automatic"
+   }
+  },
+  "Hybrid": "False",
+  "Performance": {
+   "Horsepower": "600",
+   "Mileage": {
+    "City mpg": "11",
+    "Highway_mpg": "19"
+   }
+  }
+ },
+ "56": {
+  "Build": {
+   "Make": "Bentley",
+   "Model": "Bentley Continental Flying Spur",
+   "Year": "2011"
+  },
+  "Config": {
+   "Dimensions": {
+    "Length": "170"
+   },
+   "Engine_Type": "Bentley 6.0L 12 Cylinder 600 hp 553 ft-lbs FFV Turbo",
+   "Height": "185",
+   "Transmission": {
+    "Classification": "6 Speed Automatic",
+    "Driveline": "2011",
+    "Type": "Automatic"
+   }
+  },
+  "Hybrid": "False",
+  "Performance": {
+   "Horsepower": "600",
+   "Mileage": {
+    "City mpg": "10",
+    "Highway_mpg": "17"
+   }
+  }
+ },
+ "57": {
+  "Build": {
+   "Make": "Bentley",
+   "Model": "Bentley Continental Flying Spur",
+   "Year": "2010"
+  },
+  "Config": {
+   "Dimensions": {
+    "Length": "170"
+   },
+   "Engine_Type": "Bentley 6.0L 12 cylinder 600hp 553 ft-lbs Turbo",
+   "Height": "185",
+   "Transmission": {
+    "Classification": "6 Speed Automatic",
+    "Driveline": "2010",
+    "Type": "Automatic"
+   }
+  },
+  "Hybrid": "False",
+  "Performance": {
+   "Horsepower": "600",
+   "Mileage": {
+    "City mpg": "10",
+    "Highway_mpg": "17"
+   }
+  }
+ },
+ "58": {
+  "Build": {
+   "Make": "Bentley",
+   "Model": "Bentley Continental Flying Spur",
+   "Year": "2010"
+  },
+  "Config": {
+   "Dimensions": {
+    "Length": "170"
+   },
+   "Engine_Type": "Bentley 6.0L 12 cylinder 552 hp 479 ft-lbs Turbo",
+   "Height": "195",
+   "Transmission": {
+    "Classification": "6 Speed Automatic",
+    "Driveline": "2010",
+    "Type": "Automatic"
+   }
+  },
+  "Hybrid": "False",
+  "Performance": {
+   "Horsepower": "552",
+   "Mileage": {
+    "City mpg": "10",
+    "Highway_mpg": "17"
+   }
+  }
+ },
+ "59": {
+  "Build": {
+   "Make": "Volvo",
+   "Model": "Volvo C70",
+   "Year": "2011"
+  },
+  "Config": {
+   "Dimensions": {
+    "Length": "7"
+   },
+   "Engine_Type": "Volvo 2.5L 5 Cylinder 227 hp 236 ft-lbs Turbo",
+   "Height": "120",
+   "Transmission": {
+    "Classification": "5 Speed Automatic",
+    "Driveline": "2011",
+    "Type": "Automatic"
+   }
+  },
+  "Hybrid": "False",
+  "Performance": {
+   "Horsepower": "227",
+   "Mileage": {
+    "City mpg": "19",
+    "Highway_mpg": "28"
+   }
+  }
+ },
+ "6": {
+  "Build": {
+   "Make": "Audi",
+   "Model": "Audi A5",
+   "Year": "2009"
+  },
+  "Config": {
+   "Dimensions": {
+    "Length": "17"
+   },
+   "Engine_Type": "Audi 3.2L 6 cylinder 265hp 243 ft-lbs",
+   "Height": "91",
+   "Transmission": {
+    "Classification": "6 Speed Manual",
+    "Driveline": "2009",
+    "Type": "Manual"
+   }
+  },
+  "Hybrid": "False",
+  "Performance": {
+   "Horsepower": "265",
+   "Mileage": {
+    "City mpg": "16",
+    "Highway_mpg": "27"
+   }
+  }
+ },
+ "60": {
+  "Build": {
+   "Make": "Volvo",
+   "Model": "Volvo C70",
+   "Year": "2010"
+  },
+  "Config": {
+   "Dimensions": {
+    "Length": "230"
+   },
+   "Engine_Type": "Volvo 2.5L 5 Cylinder 227 hp 236 ft-lbs Turbo",
+   "Height": "119",
+   "Transmission": {
+    "Classification": "6 Speed Manual",
+    "Driveline": "2010",
+    "Type": "Manual"
+   }
+  },
+  "Hybrid": "False",
+  "Performance": {
+   "Horsepower": "227",
+   "Mileage": {
+    "City mpg": "20",
+    "Highway_mpg": "28"
+   }
+  }
+ },
+ "61": {
+  "Build": {
+   "Make": "Volvo",
+   "Model": "Volvo C70",
+   "Year": "2010"
+  },
+  "Config": {
+   "Dimensions": {
+    "Length": "230"
+   },
+   "Engine_Type": "Volvo 2.5L 5 Cylinder 227 hp 236 ft-lbs Turbo",
+   "Height": "119",
+   "Transmission": {
+    "Classification": "5 Speed Automatic",
+    "Driveline": "2010",
+    "Type": "Automatic"
+   }
+  },
+  "Hybrid": "False",
+  "Performance": {
+   "Horsepower": "227",
+   "Mileage": {
+    "City mpg": "19",
+    "Highway_mpg": "28"
+   }
+  }
+ },
+ "62": {
+  "Build": {
+   "Make": "Volvo",
+   "Model": "Volvo S40",
+   "Year": "2010"
+  },
+  "Config": {
+   "Dimensions": {
+    "Length": "123"
+   },
+   "Engine_Type": "Volvo 2.4L 5 Cylinder 168 hp 166 ft-lbs",
+   "Height": "172",
+   "Transmission": {
+    "Classification": "5 Speed Manual",
+    "Driveline": "2010",
+    "Type": "Manual"
+   }
+  },
+  "Hybrid": "False",
+  "Performance": {
+   "Horsepower": "168",
+   "Mileage": {
+    "City mpg": "21",
+    "Highway_mpg": "29"
+   }
+  }
+ },
+ "63": {
+  "Build": {
+   "Make": "Volvo",
+   "Model": "Volvo S40",
+   "Year": "2010"
+  },
+  "Config": {
+   "Dimensions": {
+    "Length": "123"
+   },
+   "Engine_Type": "Volvo 2.5L 5 Cylinder 227 hp 236 ft-lbs Turbo",
+   "Height": "172",
+   "Transmission": {
+    "Classification": "5 Speed Automatic",
+    "Driveline": "2010",
+    "Type": "Automatic"
+   }
+  },
+  "Hybrid": "False",
+  "Performance": {
+   "Horsepower": "227",
+   "Mileage": {
+    "City mpg": "21",
+    "Highway_mpg": "30"
+   }
+  }
+ },
+ "64": {
+  "Build": {
+   "Make": "Volvo",
+   "Model": "Volvo S40",
+   "Year": "2011"
+  },
+  "Config": {
+   "Dimensions": {
+    "Length": "123"
+   },
+   "Engine_Type": "Volvo 2.5L 5 Cylinder 227 hp 236 ft-lbs Turbo",
+   "Height": "172",
+   "Transmission": {
+    "Classification": "5 Speed Automatic",
+    "Driveline": "2011",
+    "Type": "Automatic"
+   }
+  },
+  "Hybrid": "False",
+  "Performance": {
+   "Horsepower": "227",
+   "Mileage": {
+    "City mpg": "21",
+    "Highway_mpg": "30"
+   }
+  }
+ },
+ "65": {
+  "Build": {
+   "Make": "Volvo",
+   "Model": "Volvo S40",
+   "Year": "2010"
+  },
+  "Config": {
+   "Dimensions": {
+    "Length": "123"
+   },
+   "Engine_Type": "Volvo 2.5L 5 Cylinder 227 hp 236 ft-lbs Turbo",
+   "Height": "190",
+   "Transmission": {
+    "Classification": "6 Speed Manual",
+    "Driveline": "2010",
+    "Type": "Manual"
+   }
+  },
+  "Hybrid": "False",
+  "Performance": {
+   "Horsepower": "227",
+   "Mileage": {
+    "City mpg": "20",
+    "Highway_mpg": "27"
+   }
+  }
+ },
+ "66": {
+  "Build": {
+   "Make": "Volvo",
+   "Model": "Volvo S60",
+   "Year": "2012"
+  },
+  "Config": {
+   "Dimensions": {
+    "Length": "19"
+   },
+   "Engine_Type": "Volvo 2.5L 5 Cylinder 250 hp 266 ft-lbs Turbo",
+   "Height": "203",
+   "Transmission": {
+    "Classification": "6 Speed Automatic Select Shift",
+    "Driveline": "2012",
+    "Type": "Automatic"
+   }
+  },
+  "Hybrid": "False",
+  "Performance": {
+   "Horsepower": "250",
+   "Mileage": {
+    "City mpg": "20",
+    "Highway_mpg": "30"
+   }
+  }
+ },
+ "67": {
+  "Build": {
+   "Make": "Volvo",
+   "Model": "Volvo S60",
+   "Year": "2012"
+  },
+  "Config": {
+   "Dimensions": {
+    "Length": "19"
+   },
+   "Engine_Type": "Volvo 3.0 L 6 Cylinder 300 HP 325 ft-lbs Turbo",
+   "Height": "203",
+   "Transmission": {
+    "Classification": "6 Speed Automatic Select Shift",
+    "Driveline": "2012",
+    "Type": "Automatic"
+   }
+  },
+  "Hybrid": "False",
+  "Performance": {
+   "Horsepower": "300",
+   "Mileage": {
+    "City mpg": "18",
+    "Highway_mpg": "26"
+   }
+  }
+ },
+ "68": {
+  "Build": {
+   "Make": "Volvo",
+   "Model": "Volvo S60",
+   "Year": "2012"
+  },
+  "Config": {
+   "Dimensions": {
+    "Length": "19"
+   },
+   "Engine_Type": "Volvo 3.0 L 6 Cylinder 325 HP 354 ft-lbs Turbo",
+   "Height": "203",
+   "Transmission": {
+    "Classification": "6 Speed Automatic Select Shift",
+    "Driveline": "2012",
+    "Type": "Automatic"
+   }
+  },
+  "Hybrid": "False",
+  "Performance": {
+   "Horsepower": "325",
+   "Mileage": {
+    "City mpg": "18",
+    "Highway_mpg": "26"
+   }
+  }
+ },
+ "69": {
+  "Build": {
+   "Make": "Volvo",
+   "Model": "Volvo S60",
+   "Year": "2011"
+  },
+  "Config": {
+   "Dimensions": {
+    "Length": "14"
+   },
+   "Engine_Type": "Volvo 3.0 L 6 Cylinder 300 HP 325 ft-lbs Turbo",
+   "Height": "203",
+   "Transmission": {
+    "Classification": "6 Speed Automatic",
+    "Driveline": "2011",
+    "Type": "Automatic"
+   }
+  },
+  "Hybrid": "False",
+  "Performance": {
+   "Horsepower": "300",
+   "Mileage": {
+    "City mpg": "18",
+    "Highway_mpg": "26"
+   }
+  }
+ },
+ "7": {
+  "Build": {
+   "Make": "Audi",
+   "Model": "Audi A5",
+   "Year": "2009"
+  },
+  "Config": {
+   "Dimensions": {
+    "Length": "17"
+   },
+   "Engine_Type": "Audi 3.2L 6 cylinder 265hp 243 ft-lbs",
+   "Height": "91",
+   "Transmission": {
+    "Classification": "6 Speed Automatic Select Shift",
+    "Driveline": "2009",
+    "Type": "Automatic"
+   }
+  },
+  "Hybrid": "False",
+  "Performance": {
+   "Horsepower": "265",
+   "Mileage": {
+    "City mpg": "17",
+    "Highway_mpg": "26"
+   }
+  }
+ },
+ "70": {
+  "Build": {
+   "Make": "Volvo",
+   "Model": "Volvo S80",
+   "Year": "2011"
+  },
+  "Config": {
+   "Dimensions": {
+    "Length": "243"
+   },
+   "Engine_Type": "Volvo 3.2 L 6 cylinder 240 hp 236 ft-lbs",
+   "Height": "213",
+   "Transmission": {
+    "Classification": "6 Speed Automatic Select Shift",
+    "Driveline": "2011",
+    "Type": "Automatic"
+   }
+  },
+  "Hybrid": "False",
+  "Performance": {
+   "Horsepower": "240",
+   "Mileage": {
+    "City mpg": "19",
+    "Highway_mpg": "27"
+   }
+  }
+ },
+ "71": {
+  "Build": {
+   "Make": "Volvo",
+   "Model": "Volvo S80",
+   "Year": "2010"
+  },
+  "Config": {
+   "Dimensions": {
+    "Length": "243"
+   },
+   "Engine_Type": "Volvo 4.4L 8 Cylinder 311 hp 325 ft-lbs",
+   "Height": "213",
+   "Transmission": {
+    "Classification": "6 Speed Automatic",
+    "Driveline": "2010",
+    "Type": "Automatic"
+   }
+  },
+  "Hybrid": "False",
+  "Performance": {
+   "Horsepower": "311",
+   "Mileage": {
+    "City mpg": "15",
+    "Highway_mpg": "22"
+   }
+  }
+ },
+ "72": {
+  "Build": {
+   "Make": "Volvo",
+   "Model": "Volvo S80",
+   "Year": "2010"
+  },
+  "Config": {
+   "Dimensions": {
+    "Length": "243"
+   },
+   "Engine_Type": "Volvo 3.0L 6 Cylinder 281 hp 295 ft-lbs Turbo",
+   "Height": "213",
+   "Transmission": {
+    "Classification": "6 Speed Automatic Select Shift",
+    "Driveline": "2010",
+    "Type": "Automatic"
+   }
+  },
+  "Hybrid": "False",
+  "Performance": {
+   "Horsepower": "281",
+   "Mileage": {
+    "City mpg": "16",
+    "Highway_mpg": "24"
+   }
+  }
+ },
+ "73": {
+  "Build": {
+   "Make": "Volvo",
+   "Model": "Volvo S80",
+   "Year": "2010"
+  },
+  "Config": {
+   "Dimensions": {
+    "Length": "243"
+   },
+   "Engine_Type": "Volvo 3.2L 6 Cylinder 235 hp 236 ft-lbs",
+   "Height": "213",
+   "Transmission": {
+    "Classification": "6 Speed Automatic",
+    "Driveline": "2010",
+    "Type": "Automatic"
+   }
+  },
+  "Hybrid": "False",
+  "Performance": {
+   "Horsepower": "235",
+   "Mileage": {
+    "City mpg": "18",
+    "Highway_mpg": "27"
+   }
+  }
+ },
+ "74": {
+  "Build": {
+   "Make": "Volvo",
+   "Model": "Volvo V50",
+   "Year": "2011"
+  },
+  "Config": {
+   "Dimensions": {
+    "Length": "169"
+   },
+   "Engine_Type": "Volvo 2.5L 5 Cylinder 227 hp 236 ft-lbs Turbo",
+   "Height": "177",
+   "Transmission": {
+    "Classification": "5 Speed Automatic",
+    "Driveline": "2011",
+    "Type": "Automatic"
+   }
+  },
+  "Hybrid": "False",
+  "Performance": {
+   "Horsepower": "227",
+   "Mileage": {
+    "City mpg": "21",
+    "Highway_mpg": "30"
+   }
+  }
+ },
+ "75": {
+  "Build": {
+   "Make": "Volvo",
+   "Model": "Volvo V50",
+   "Year": "2010"
+  },
+  "Config": {
+   "Dimensions": {
+    "Length": "169"
+   },
+   "Engine_Type": "Volvo 2.5L 5 Cylinder 227 hp 236 ft-lbs Turbo",
+   "Height": "193",
+   "Transmission": {
+    "Classification": "6 Speed Manual",
+    "Driveline": "2010",
+    "Type": "Manual"
+   }
+  },
+  "Hybrid": "False",
+  "Performance": {
+   "Horsepower": "227",
+   "Mileage": {
+    "City mpg": "20",
+    "Highway_mpg": "26"
+   }
+  }
+ },
+ "76": {
+  "Build": {
+   "Make": "Volvo",
+   "Model": "Volvo V50",
+   "Year": "2010"
+  },
+  "Config": {
+   "Dimensions": {
+    "Length": "169"
+   },
+   "Engine_Type": "Volvo 2.4L 5 Cylinder 168 hp 166 ft-lbs",
+   "Height": "177",
+   "Transmission": {
+    "Classification": "5 Speed Automatic Select Shift",
+    "Driveline": "2010",
+    "Type": "Automatic"
+   }
+  },
+  "Hybrid": "False",
+  "Performance": {
+   "Horsepower": "168",
+   "Mileage": {
+    "City mpg": "20",
+    "Highway_mpg": "31"
+   }
+  }
+ },
+ "8": {
+  "Build": {
+   "Make": "Audi",
+   "Model": "Audi Q7",
+   "Year": "2009"
+  },
+  "Config": {
+   "Dimensions": {
+    "Length": "221"
+   },
+   "Engine_Type": "Audi 4.2L 8 cylinder 350 hp 325 ft-lbs",
+   "Height": "201",
+   "Transmission": {
+    "Classification": "6 Speed Automatic Select Shift",
+    "Driveline": "2009",
+    "Type": "Automatic"
+   }
+  },
+  "Hybrid": "False",
+  "Performance": {
+   "Horsepower": "350",
+   "Mileage": {
+    "City mpg": "13",
+    "Highway_mpg": "18"
+   }
+  }
+ },
+ "9": {
+  "Build": {
+   "Make": "Audi",
+   "Model": "Audi Q7",
+   "Year": "2009"
+  },
+  "Config": {
+   "Dimensions": {
+    "Length": "221"
+   },
+   "Engine_Type": "Audi 3.6L 6 cylinder 280hp 266 ft-lbs",
+   "Height": "201",
+   "Transmission": {
+    "Classification": "6 Speed Automatic Select Shift",
+    "Driveline": "2009",
+    "Type": "Automatic"
+   }
+  },
+  "Hybrid": "False",
+  "Performance": {
+   "Horsepower": "280",
+   "Mileage": {
+    "City mpg": "14",
+    "Highway_mpg": "20"
+   }
+  }
+ }
+}
