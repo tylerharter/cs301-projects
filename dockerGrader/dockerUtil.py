@@ -213,7 +213,7 @@ class dockerGrader:
             scoreNew = self.tryExtractResultScore(resultNew)
             # only upload if new score is better
             self.logger.info("old score: {}, new score: {}".format(scoreOld, scoreNew))
-            if scoreNew > scoreOld:
+            if scoreNew > scoreOld or scoreNew == scoreOld == 0:
                 self.logger.info('Uploading new score')
                 self.uploadResult()
             self.logger.debug("new test results:")
@@ -239,9 +239,8 @@ def main():
         for net_id in net_ids:
             logger.info('========================================')
             logger.info('PROJECT={}, NETID={}'.format(project_id, net_id))
-            try:
-                grader = dockerGrader(project_id, net_id, logger)
-                grader.dockerRunSafe()
+            grader = dockerGrader(project_id, net_id, logger)
+            grader.dockerRunSafe()
 
 if __name__ == '__main__':
     main()
