@@ -10,6 +10,11 @@ BUCKET = 'caraza-harter-cs301'
 session = boto3.Session(profile_name='cs301ta')
 s3 = session.client('s3')
 
+def fetchNetIds():
+    response = s3.get_object(Bucket=BUCKET, Key=ROSTER_KEY)
+    rows = json.loads(response['Body'].read().decode('utf-8'))
+    return [row['net_id'] for row in rows]
+
 class dockerGrader:
     def __init__(self, project, netId, logger):
         self.project = project
@@ -100,7 +105,7 @@ class dockerGrader:
                 serializedResult = json.dumps({"score":0, "error": "result not found"})
         return serializedResult
 
-    # Upload Functions   
+    # Upload Functions
     def uploadResult(self, errorLog = None):
         serializedResult = self.getLocalResult(errorLog)
         s3.put_object(
@@ -186,7 +191,7 @@ class dockerGrader:
                image,                                     # what docker image?
                'timeout', '30',
                'python3', 'test.py']                      # command to run inside
-        
+
         try:
             subprocess.check_output(cmd).decode("ascii").replace("\n","")
         except Exception as e:
@@ -195,12 +200,26 @@ class dockerGrader:
         if upload:
             self.uploadResult()
 
-
-def fetchNetIds():
-    response = s3.get_object(Bucket=BUCKET, Key=ROSTER_KEY)
-    rows = json.loads(response['Body'].read().decode('utf-8'))
-    return [row['net_id'] for row in rows]
-
+    # dockerRunSafe will check the existing grade first to avoid incorrect grade override
+    def dockerRunSafe(self):
+        try:
+            resultOld = self.getRemoteResult()
+            scoreOld = self.tryExtractResultScore(resultOld)
+            if scoreOld == 100:
+                self.logger.info('skip because old score was 100')
+                return
+            self.dockerRun(upload=False)
+            resultNew = self.getLocalResult()
+            scoreNew = self.tryExtractResultScore(resultNew)
+            # only upload if new score is better
+            self.logger.info("old score: {}, new score: {}".format(scoreOld, scoreNew))
+            if scoreNew > scoreOld or scoreNew == scoreOld == 0:
+                self.logger.info('Uploading new score')
+                self.uploadResult()
+            self.logger.debug("new test results:")
+            self.logger.debug(resultNew)
+        except Exception as e:
+            self.logger.error("Fatal error in dockerRun", exc_info=True)
 
 def main():
     logger = logging.getLogger()
@@ -220,29 +239,8 @@ def main():
         for net_id in net_ids:
             logger.info('========================================')
             logger.info('PROJECT={}, NETID={}'.format(project_id, net_id))
-            try:
-                grader = dockerGrader(project_id, net_id, logger)
-                resultOld = grader.getRemoteResult()
-                scoreOld = grader.tryExtractResultScore(resultOld)
+            grader = dockerGrader(project_id, net_id, logger)
+            grader.dockerRunSafe()
 
-                if scoreOld == 100:
-                    logger.info('skip because old score was 100')
-                    continue
-
-                grader.dockerRun(upload=False)
-                resultNew = grader.getLocalResult()
-                scoreNew = grader.tryExtractResultScore(resultNew)
-
-                # only upload if new score is better
-                logger.info("old score: {}, new score: {}".format(scoreOld, scoreNew))
-                if scoreNew > scoreOld:
-                    logger.info('Uploading new score')
-                    grader.uploadResult()
-                logger.debug("new test results:")
-                logger.debug(resultNew)
-            except Exception as e:
-                logger.error("Fatal error in dockerRun", exc_info=True)
-
-                
 if __name__ == '__main__':
     main()
