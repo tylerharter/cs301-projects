@@ -34,13 +34,13 @@ def runDocker(project, netId):
     logger = get_task_logger(__name__)
     logger.setLevel(logging.INFO)
     grader = dockerUtil.dockerGrader(project, netId, logger)
-    grader.dockerRun()
+    grader.dockerRunSafe()
 
 def runSyncDocker(project, netId):
     logger = logging.getLogger(__name__)
     logger.setLevel(logging.INFO)
     grader = dockerUtil.dockerGrader(project, netId, logger)
-    grader.dockerRun()
+    grader.dockerRunSafe()
 
 @flask_app.route('/')
 def index():
