@@ -117,9 +117,9 @@ def test_8():
         return "make_namedtuple_list not working", weight
     # is it a list of car tuples?
     if type(tuples) != list:
-        return "make_namedtuple_list did not return a list"
+        return "make_namedtuple_list did not return a list", weight
     if type(tuples[0]).__name__ != 'Car':
-        return "tuples not of a type named 'Car'"
+        return "tuples not of a type named 'Car'", weight
 
     return PASS, weight
 
