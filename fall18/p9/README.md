@@ -563,7 +563,7 @@ example of output from this function
 > * data_dir : a string representation of the directory to be searched.
 > * output_filename : the name of the file to be written to
 
-This function calls the read_and_clean_all() function on the data_dir given to it, **sorts the resulting list of dictionaries based on the username in ascending order** and then write to the file specified by the "output_filename" parameter. We've provided the same sort_list_of_dicts() function from P7 to help you do this. 
+This function calls the read_and_clean_all() function on the data_dir given to it, **sorts the resulting list of dictionaries based on the username in ascending order** and then writes the resulting list of dictionaries as a **JSON File** to the filename specified by the "output_filename" parameter. We've provided the sort_list_of_dicts() function from P7 to help you do this. 
 
 You should be able to test out this specific function by typing in the following at the command line : 
 
