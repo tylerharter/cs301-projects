@@ -1,0 +1,9 @@
+Included Fields : 
+- tweet_text
+- username (obfuscated) 
+- is_retweet
+- num_liked
+- date
+- tweet ID 
+
+Tweet IDs are unique across tweets.
