@@ -129,8 +129,6 @@ def compare_file_lists(list_a, expected_list):
         
 
 def compare_dicts(dict_a, expected_dict):
-    assert isinstance(expected_dict, dict), "This shouldn't have happened. Please contact a TA!"
-
     if not isinstance(dict_a, dict):
         return "Expected dictionary but found {}".format(type(dict_a))
 
@@ -163,7 +161,10 @@ def compare_list_of_dicts(list_of_dicts, expected_list_of_dicts):
     if list_of_dicts == expected_list_of_dicts:
         return PASS
 
-    assert isinstance(expected_list_of_dicts, list), "This shouldn't have happened. Please contact a TA!"
+    #special case test 8 
+    if expected_list_of_dicts == "":
+        if list_of_dicts != "":
+            return "Expected to find no output, but got an output of type {}".format(type(list_of_dicts))
 
     if list_of_dicts == "":
         return "No output generated!" 
@@ -296,6 +297,7 @@ def run_all():
             elif t.function_name == 'get_list_of_files':
                 result = compare_file_lists(out, expected_out)
             else: 
+                print(test_number, type(out), type(expected_out))
                 result = compare_list_of_dicts(out, expected_out)
             test_details['result'] = result
 

@@ -590,408 +590,7 @@
     "full_data/5.csv",
     "full_data/5.json"
   ],
-  "test8": [
-    {
-      "date": "Mon Apr 06 22:26:33 PDT 2009",
-      "username": "USERID_6",
-      "tweet_text": " Body Of Missing Northern Calif. Girl Found: Police have found the remains of a missing Northern California girl .. http://tr.im/imji",
-      "is_retweet": true,
-      "num_liked": 6749,
-      "tweet_id": "1467836873"
-    },
-    {
-      "date": "Mon Apr 06 22:26:38 PDT 2009",
-      "username": "USERID_7",
-      "tweet_text": "@mangaaa I hope they will increase the capacity fast, yesterday was such a pain. Got the fail whale +15 times in 2 hours.... ",
-      "is_retweet": true,
-      "num_liked": 4338,
-      "tweet_id": "1467837189"
-    },
-    {
-      "date": "Mon Apr 06 22:26:42 PDT 2009",
-      "username": "USERID_8",
-      "tweet_text": "Behind on my classes for work ",
-      "is_retweet": false,
-      "num_liked": 5108,
-      "tweet_id": "1467837384"
-    },
-    {
-      "date": "Mon Apr 06 22:26:43 PDT 2009",
-      "username": "USERID_4",
-      "tweet_text": "watching &quot;House&quot; ",
-      "is_retweet": true,
-      "num_liked": 1585,
-      "tweet_id": "1467837470"
-    },
-    {
-      "date": "Mon Apr 06 22:26:45 PDT 2009",
-      "username": "USERID_9",
-      "tweet_text": "@kpreyes Remember my bum leg? Strikes back this time its serious ",
-      "is_retweet": false,
-      "num_liked": 2168,
-      "tweet_id": "1467837579"
-    },
-    {
-      "date": "Mon Apr 06 22:26:45 PDT 2009",
-      "username": "USERID_6",
-      "tweet_text": "@paradisej cool, i will. their are all kinds of complaints about this laptop online about overheating, but no recalls ",
-      "is_retweet": true,
-      "num_liked": 5934,
-      "tweet_id": "1467837602"
-    },
-    {
-      "date": "Mon Apr 06 22:26:48 PDT 2009",
-      "username": "USERID_4",
-      "tweet_text": "Emily will be glad when Mommy is done training at her new job. She misses her.  http://apps.facebook.com/dogbook/profile/view/6176014",
-      "is_retweet": false,
-      "num_liked": 2452,
-      "tweet_id": "1467837762"
-    },
-    {
-      "date": "Mon Apr 06 22:26:49 PDT 2009",
-      "username": "USERID_8",
-      "tweet_text": "would rather the first party send bad messages than the 3rd party send mixed ones  Sophmore year all over again?",
-      "is_retweet": false,
-      "num_liked": 3628,
-      "tweet_id": "1467837819"
-    },
-    {
-      "date": "Mon Apr 06 22:26:52 PDT 2009",
-      "username": "USERID_9",
-      "tweet_text": "@Henkuyinepu it's overrated ",
-      "is_retweet": true,
-      "num_liked": 5888,
-      "tweet_id": "1467837888"
-    },
-    {
-      "date": "Mon Apr 06 22:26:54 PDT 2009",
-      "username": "USERID_9",
-      "tweet_text": "@marykatherine_q i know! I heard it this afternoon and wondered the same thing. Moscow is so behind the times ",
-      "is_retweet": false,
-      "num_liked": 5756,
-      "tweet_id": "1467838188"
-    },
-    {
-      "date": "Mon Apr 06 22:26:54 PDT 2009",
-      "username": "USERID_9",
-      "tweet_text": "laying in bed with no voice.. ",
-      "is_retweet": true,
-      "num_liked": 7056,
-      "tweet_id": "1467838189"
-    },
-    {
-      "date": "Mon Apr 06 22:26:57 PDT 2009",
-      "username": "USERID_6",
-      "tweet_text": "I'm sooo sad!!! they killed off Kutner on House  whyyyyyyyy",
-      "is_retweet": false,
-      "num_liked": 7454,
-      "tweet_id": "1467838362"
-    },
-    {
-      "date": "Mon Apr 06 22:27:00 PDT 2009",
-      "username": "USERID_7",
-      "tweet_text": "@jacobsummers Sorry  tell them mea culpa from me and that I really am sorry.",
-      "is_retweet": false,
-      "num_liked": 3237,
-      "tweet_id": "1467838419"
-    },
-    {
-      "date": "Mon Apr 06 22:26:58 PDT 2009",
-      "username": "USERID_10",
-      "tweet_text": "@Alliana07 it didn't make any sense to me, the suicide thing. I refuse to believe that that is actually what happened. ",
-      "is_retweet": false,
-      "num_liked": 4174,
-      "tweet_id": "1467838433"
-    },
-    {
-      "date": "Mon Apr 06 22:27:02 PDT 2009",
-      "username": "USERID_8",
-      "tweet_text": "@salancaster  hope your ok.",
-      "is_retweet": true,
-      "num_liked": 4012,
-      "tweet_id": "1467838630"
-    },
-    {
-      "date": "Mon Apr 06 22:27:08 PDT 2009",
-      "username": "USERID_7",
-      "tweet_text": "@mercedesashley Damn! The grind is inspirational and saddening at the same time.  Don't want you to stop cuz I like what u do! Much love",
-      "is_retweet": true,
-      "num_liked": 373,
-      "tweet_id": "1467839007"
-    },
-    {
-      "date": "Mon Apr 06 22:27:15 PDT 2009",
-      "username": "USERID_2",
-      "tweet_text": "@HibaNick yeah aw but i know i wudnt stand a chance ",
-      "is_retweet": true,
-      "num_liked": 253,
-      "tweet_id": "1467839405"
-    },
-    {
-      "date": "Mon Apr 06 22:27:16 PDT 2009",
-      "username": "USERID_7",
-      "tweet_text": "ugh. cant sleep. its 1:30am. ",
-      "is_retweet": true,
-      "num_liked": 1500,
-      "tweet_id": "1467839450"
-    },
-    {
-      "date": "Mon Apr 06 22:27:16 PDT 2009",
-      "username": "USERID_9",
-      "tweet_text": "Hanging in Crooners. Wanna sing. Can't. Sucks. ",
-      "is_retweet": false,
-      "num_liked": 5472,
-      "tweet_id": "1467839477"
-    },
-    {
-      "date": "Mon Apr 06 22:27:18 PDT 2009",
-      "username": "USERID_1",
-      "tweet_text": "@eRRe_sC aaw i miss ya all too.. im leaving to BH tomorrow &quot;morning&quot; i think.. aww i wanna go to the beach w u girls!! ",
-      "is_retweet": false,
-      "num_liked": 3986,
-      "tweet_id": "1467839586"
-    },
-    {
-      "date": "Mon Apr 06 22:27:22 PDT 2009",
-      "username": "USERID_4",
-      "tweet_text": "wednesday my b-day n don't know what 2 do!  ",
-      "is_retweet": true,
-      "num_liked": 4115,
-      "tweet_id": "1467839816"
-    },
-    {
-      "date": "Mon Apr 06 22:27:25 PDT 2009",
-      "username": "USERID_6",
-      "tweet_text": "I know my life has been flipped upside down when I just thought in my head that some Ramen sounds good. ",
-      "is_retweet": true,
-      "num_liked": 6349,
-      "tweet_id": "1467840016"
-    },
-    {
-      "date": "Mon Apr 06 22:27:31 PDT 2009",
-      "username": "USERID_5",
-      "tweet_text": "I am in pain. My back and sides hurt. Not to mention crying is made of fail. ",
-      "is_retweet": true,
-      "num_liked": 4469,
-      "tweet_id": "1467840386"
-    },
-    {
-      "date": "Mon Apr 06 22:27:34 PDT 2009",
-      "username": "USERID_2",
-      "tweet_text": "Late night snack, glass of OJ b/c I'm &quot;down with the sickness&quot;, then back to sleep...ugh I hate getting sick... ",
-      "is_retweet": false,
-      "num_liked": 1667,
-      "tweet_id": "1467840552"
-    },
-    {
-      "date": "Mon Apr 06 22:27:35 PDT 2009",
-      "username": "USERID_5",
-      "tweet_text": "@allyheman but.. but.. but.. I'm not a big fan on camilla belle ",
-      "is_retweet": true,
-      "num_liked": 9927,
-      "tweet_id": "1467840629"
-    },
-    {
-      "date": "Mon Apr 06 22:27:45 PDT 2009",
-      "username": "USERID_2",
-      "tweet_text": "@grum WAH I can't see clip, must be el-stupido work filters. Can't wait 'till I get a 'puter. Something else 2 blame ex 4. He broke mine ",
-      "is_retweet": true,
-      "num_liked": 5012,
-      "tweet_id": "1467841189"
-    },
-    {
-      "date": "Mon Apr 06 22:27:45 PDT 2009",
-      "username": "USERID_9",
-      "tweet_text": "This week just seems to get longer and longer in terms of how much I need to do.. and how much I'm actually going to get done ",
-      "is_retweet": true,
-      "num_liked": 9236,
-      "tweet_id": "1467841204"
-    },
-    {
-      "date": "Mon Apr 06 22:27:55 PDT 2009",
-      "username": "USERID_7",
-      "tweet_text": "I'm so cold ",
-      "is_retweet": true,
-      "num_liked": 8179,
-      "tweet_id": "1467841832"
-    },
-    {
-      "date": "Mon Apr 06 22:27:56 PDT 2009",
-      "username": "USERID_9",
-      "tweet_text": "@thecoolestout Ehhh don't. Weather's gonna take a turn for the ugly tomorrow ",
-      "is_retweet": true,
-      "num_liked": 2020,
-      "tweet_id": "1467841885"
-    },
-    {
-      "date": "Mon Apr 06 22:27:56 PDT 2009",
-      "username": "USERID_7",
-      "tweet_text": "@chelserlynn haha its so cooooold in the d! and no  but you should still go to the show. they do some incredible stuff",
-      "is_retweet": true,
-      "num_liked": 6202,
-      "tweet_id": "1467841897"
-    },
-    {
-      "date": "Mon Apr 06 22:27:57 PDT 2009",
-      "username": "USERID_8",
-      "tweet_text": "Hoping the tummy rumbles go away soon ",
-      "is_retweet": true,
-      "num_liked": 9258,
-      "tweet_id": "1467841969"
-    },
-    {
-      "date": "Mon Apr 06 22:28:02 PDT 2009",
-      "username": "USERID_8",
-      "tweet_text": "@Knights_ No, no notice. They told me I'd be working tomorrow, and then I called the agency to follow up and they said it was over. ",
-      "is_retweet": false,
-      "num_liked": 8468,
-      "tweet_id": "1467842107"
-    },
-    {
-      "date": "Mon Apr 06 22:28:03 PDT 2009",
-      "username": "USERID_1",
-      "tweet_text": "almost bedtime ",
-      "is_retweet": false,
-      "num_liked": 4502,
-      "tweet_id": "1467842299"
-    },
-    {
-      "date": "Mon Apr 06 22:28:04 PDT 2009",
-      "username": "USERID_5",
-      "tweet_text": "I'm missing you babe..  but as long as your alive I'm happy.. Yawwwnn.. I'm tired my love imma try to sleep hopefully you had a headstart",
-      "is_retweet": false,
-      "num_liked": 5560,
-      "tweet_id": "1467842377"
-    },
-    {
-      "date": "Mon Apr 06 22:28:05 PDT 2009",
-      "username": "USERID_10",
-      "tweet_text": "Agh...snow!!! ",
-      "is_retweet": true,
-      "num_liked": 8310,
-      "tweet_id": "1467842448"
-    },
-    {
-      "date": "Mon Apr 06 22:28:07 PDT 2009",
-      "username": "USERID_5",
-      "tweet_text": "i miss kenny powers ",
-      "is_retweet": true,
-      "num_liked": 3816,
-      "tweet_id": "1467842568"
-    },
-    {
-      "date": "Mon Apr 06 22:28:09 PDT 2009",
-      "username": "USERID_8",
-      "tweet_text": "@BridgetsBeaches Thank you for letting people know, but now I'm sad that the direct message I got wasn't actually from Bridget ",
-      "is_retweet": false,
-      "num_liked": 1124,
-      "tweet_id": "1467842607"
-    },
-    {
-      "date": "Mon Apr 06 22:28:11 PDT 2009",
-      "username": "USERID_9",
-      "tweet_text": "...and, India missed out its 100th Test victory n 10th consecutive win without a loss. ",
-      "is_retweet": true,
-      "num_liked": 8768,
-      "tweet_id": "1467842832"
-    },
-    {
-      "date": "Mon Apr 06 22:28:11 PDT 2009",
-      "username": "USERID_2",
-      "tweet_text": "@JonathanRKnight I guess that's a no then. ",
-      "is_retweet": true,
-      "num_liked": 5590,
-      "tweet_id": "1467842837"
-    },
-    {
-      "date": "Mon Apr 06 22:28:15 PDT 2009",
-      "username": "USERID_2",
-      "tweet_text": "sadly is going to bed. ",
-      "is_retweet": true,
-      "num_liked": 8152,
-      "tweet_id": "1467843075"
-    },
-    {
-      "date": "Mon Apr 06 22:28:18 PDT 2009",
-      "username": "USERID_1",
-      "tweet_text": "@ozesteph1992 Shame to hear this Stephan ",
-      "is_retweet": false,
-      "num_liked": 5841,
-      "tweet_id": "1467843215"
-    },
-    {
-      "date": "Mon Apr 06 22:28:21 PDT 2009",
-      "username": "USERID_3",
-      "tweet_text": "@mrsaintnick hey! i'm leavin in the morning... ",
-      "is_retweet": false,
-      "num_liked": 6837,
-      "tweet_id": "1467843470"
-    },
-    {
-      "date": "Mon Apr 06 22:28:24 PDT 2009",
-      "username": "USERID_5",
-      "tweet_text": "laid around too much today... now my head hurts ",
-      "is_retweet": true,
-      "num_liked": 7881,
-      "tweet_id": "1467843624"
-    },
-    {
-      "date": "Mon Apr 06 22:28:24 PDT 2009",
-      "username": "USERID_3",
-      "tweet_text": "@twista202 I still haven't read the 9th&amp;10th Princess diaries  Saving Francesca made me cry at the end. Hmm those are easy books.",
-      "is_retweet": true,
-      "num_liked": 8138,
-      "tweet_id": "1467843647"
-    },
-    {
-      "date": "Mon Apr 06 22:28:26 PDT 2009",
-      "username": "USERID_6",
-      "tweet_text": "my nokia 1110 died..  ",
-      "is_retweet": false,
-      "num_liked": 2803,
-      "tweet_id": "1467843734"
-    },
-    {
-      "date": "Mon Apr 06 22:28:26 PDT 2009",
-      "username": "USERID_3",
-      "tweet_text": "My mom might have breast cancer won't find out anything for. Like a week I'm so worried! ",
-      "is_retweet": true,
-      "num_liked": 4380,
-      "tweet_id": "1467843740"
-    },
-    {
-      "date": "Mon Apr 06 22:28:33 PDT 2009",
-      "username": "USERID_4",
-      "tweet_text": "Going to sleep. Hoping tomorrow is a better day. ",
-      "is_retweet": true,
-      "num_liked": 8248,
-      "tweet_id": "1467844097"
-    },
-    {
-      "date": "Mon Apr 06 22:28:32 PDT 2009",
-      "username": "USERID_9",
-      "tweet_text": "@rumblepurr lol.. wish they understood daylight savings has ended though and breakfast is an hour later  They keep waking the kids up too",
-      "is_retweet": true,
-      "num_liked": 6837,
-      "tweet_id": "1467844140"
-    },
-    {
-      "date": "Mon Apr 06 22:28:32 PDT 2009",
-      "username": "USERID_4",
-      "tweet_text": "@onemoreproject that is lame ",
-      "is_retweet": true,
-      "num_liked": 1934,
-      "tweet_id": "1467844157"
-    },
-    {
-      "date": "Mon Apr 06 22:28:38 PDT 2009",
-      "username": "USERID_3",
-      "tweet_text": "I don't understand... I really don't ",
-      "is_retweet": false,
-      "num_liked": 1787,
-      "tweet_id": "1467844505"
-    }
-  ],
+  "test8": "",
   "test9": [
     {
       "tweet_id": "1467876711",
@@ -1050,14 +649,6 @@
       "is_retweet": "True"
     },
     {
-      "tweet_id": "1467878929",
-      "date": "Mon Apr 06 22:37:40 PDT 2009",
-      "username": "USERID_5",
-      "num_liked": "1058",
-      "tweet_text": "@chriscantore congrats! I'm totally jealous! only wish my XM was working ",
-      "is_retweet": "True"
-    },
-    {
       "tweet_id": "1467878971",
       "date": "Mon Apr 06 22:37:41 PDT 2009",
       "username": "USERID_2",
@@ -1071,14 +662,6 @@
       "username": "USERID_8",
       "num_liked": "4860",
       "tweet_text": "poor socks  luvvvvv the golden retriever!! I want one sighhhh",
-      "is_retweet": "False"
-    },
-    {
-      "tweet_id": "1467879314",
-      "date": "Mon Apr 06 22:37:46 PDT 2009",
-      "username": "USERID_4",
-      "num_liked": "8242",
-      "tweet_text": "Aaaaand the nausea is back. ",
       "is_retweet": "False"
     },
     {
@@ -1168,14 +751,6 @@
       "num_liked": "119",
       "tweet_text": "sooo sick of the snow  ughh",
       "is_retweet": "True"
-    },
-    {
-      "tweet_id": "1467881474",
-      "date": "Mon Apr 06 22:38:20 PDT 2009",
-      "username": "USERID_6",
-      "num_liked": "3606",
-      "tweet_text": "@ITS_NEMESIS ------- ",
-      "is_retweet": "False"
     },
     {
       "tweet_id": "1467881686",
@@ -1274,14 +849,6 @@
       "is_retweet": "False"
     },
     {
-      "tweet_id": "1467889251",
-      "date": "Mon Apr 06 22:40:24 PDT 2009",
-      "username": "USERID_8",
-      "num_liked": "2492",
-      "tweet_text": "@aaronrva is in the bathroom and i have to pee!    ",
-      "is_retweet": "False"
-    },
-    {
       "tweet_id": "1467889334",
       "date": "Mon Apr 06 22:40:26 PDT 2009",
       "username": "USERID_5",
@@ -1360,14 +927,6 @@
       "num_liked": "2816",
       "tweet_text": "@austinhill I wish I was!  Sold out   If you have some time let me know, I would love to hear more about what you are up to!",
       "is_retweet": "False"
-    },
-    {
-      "tweet_id": "1467892419",
-      "date": "Mon Apr 06 22:41:15 PDT 2009",
-      "username": "USERID_8",
-      "num_liked": "5754",
-      "tweet_text": "Just watched tropic thunder. Dreading tomorrow ",
-      "is_retweet": "True"
     },
     {
       "tweet_id": "1467892515",
@@ -1796,406 +1355,6 @@
       "is_retweet": "True"
     },
     {
-      "date": "Mon Apr 06 22:26:33 PDT 2009",
-      "username": "USERID_6",
-      "tweet_text": " Body Of Missing Northern Calif. Girl Found: Police have found the remains of a missing Northern California girl .. http://tr.im/imji",
-      "is_retweet": true,
-      "num_liked": 6749,
-      "tweet_id": "1467836873"
-    },
-    {
-      "date": "Mon Apr 06 22:26:38 PDT 2009",
-      "username": "USERID_7",
-      "tweet_text": "@mangaaa I hope they will increase the capacity fast, yesterday was such a pain. Got the fail whale +15 times in 2 hours.... ",
-      "is_retweet": true,
-      "num_liked": 4338,
-      "tweet_id": "1467837189"
-    },
-    {
-      "date": "Mon Apr 06 22:26:42 PDT 2009",
-      "username": "USERID_8",
-      "tweet_text": "Behind on my classes for work ",
-      "is_retweet": false,
-      "num_liked": 5108,
-      "tweet_id": "1467837384"
-    },
-    {
-      "date": "Mon Apr 06 22:26:43 PDT 2009",
-      "username": "USERID_4",
-      "tweet_text": "watching &quot;House&quot; ",
-      "is_retweet": true,
-      "num_liked": 1585,
-      "tweet_id": "1467837470"
-    },
-    {
-      "date": "Mon Apr 06 22:26:45 PDT 2009",
-      "username": "USERID_9",
-      "tweet_text": "@kpreyes Remember my bum leg? Strikes back this time its serious ",
-      "is_retweet": false,
-      "num_liked": 2168,
-      "tweet_id": "1467837579"
-    },
-    {
-      "date": "Mon Apr 06 22:26:45 PDT 2009",
-      "username": "USERID_6",
-      "tweet_text": "@paradisej cool, i will. their are all kinds of complaints about this laptop online about overheating, but no recalls ",
-      "is_retweet": true,
-      "num_liked": 5934,
-      "tweet_id": "1467837602"
-    },
-    {
-      "date": "Mon Apr 06 22:26:48 PDT 2009",
-      "username": "USERID_4",
-      "tweet_text": "Emily will be glad when Mommy is done training at her new job. She misses her.  http://apps.facebook.com/dogbook/profile/view/6176014",
-      "is_retweet": false,
-      "num_liked": 2452,
-      "tweet_id": "1467837762"
-    },
-    {
-      "date": "Mon Apr 06 22:26:49 PDT 2009",
-      "username": "USERID_8",
-      "tweet_text": "would rather the first party send bad messages than the 3rd party send mixed ones  Sophmore year all over again?",
-      "is_retweet": false,
-      "num_liked": 3628,
-      "tweet_id": "1467837819"
-    },
-    {
-      "date": "Mon Apr 06 22:26:52 PDT 2009",
-      "username": "USERID_9",
-      "tweet_text": "@Henkuyinepu it's overrated ",
-      "is_retweet": true,
-      "num_liked": 5888,
-      "tweet_id": "1467837888"
-    },
-    {
-      "date": "Mon Apr 06 22:26:54 PDT 2009",
-      "username": "USERID_9",
-      "tweet_text": "@marykatherine_q i know! I heard it this afternoon and wondered the same thing. Moscow is so behind the times ",
-      "is_retweet": false,
-      "num_liked": 5756,
-      "tweet_id": "1467838188"
-    },
-    {
-      "date": "Mon Apr 06 22:26:54 PDT 2009",
-      "username": "USERID_9",
-      "tweet_text": "laying in bed with no voice.. ",
-      "is_retweet": true,
-      "num_liked": 7056,
-      "tweet_id": "1467838189"
-    },
-    {
-      "date": "Mon Apr 06 22:26:57 PDT 2009",
-      "username": "USERID_6",
-      "tweet_text": "I'm sooo sad!!! they killed off Kutner on House  whyyyyyyyy",
-      "is_retweet": false,
-      "num_liked": 7454,
-      "tweet_id": "1467838362"
-    },
-    {
-      "date": "Mon Apr 06 22:27:00 PDT 2009",
-      "username": "USERID_7",
-      "tweet_text": "@jacobsummers Sorry  tell them mea culpa from me and that I really am sorry.",
-      "is_retweet": false,
-      "num_liked": 3237,
-      "tweet_id": "1467838419"
-    },
-    {
-      "date": "Mon Apr 06 22:26:58 PDT 2009",
-      "username": "USERID_10",
-      "tweet_text": "@Alliana07 it didn't make any sense to me, the suicide thing. I refuse to believe that that is actually what happened. ",
-      "is_retweet": false,
-      "num_liked": 4174,
-      "tweet_id": "1467838433"
-    },
-    {
-      "date": "Mon Apr 06 22:27:02 PDT 2009",
-      "username": "USERID_8",
-      "tweet_text": "@salancaster  hope your ok.",
-      "is_retweet": true,
-      "num_liked": 4012,
-      "tweet_id": "1467838630"
-    },
-    {
-      "date": "Mon Apr 06 22:27:08 PDT 2009",
-      "username": "USERID_7",
-      "tweet_text": "@mercedesashley Damn! The grind is inspirational and saddening at the same time.  Don't want you to stop cuz I like what u do! Much love",
-      "is_retweet": true,
-      "num_liked": 373,
-      "tweet_id": "1467839007"
-    },
-    {
-      "date": "Mon Apr 06 22:27:15 PDT 2009",
-      "username": "USERID_2",
-      "tweet_text": "@HibaNick yeah aw but i know i wudnt stand a chance ",
-      "is_retweet": true,
-      "num_liked": 253,
-      "tweet_id": "1467839405"
-    },
-    {
-      "date": "Mon Apr 06 22:27:16 PDT 2009",
-      "username": "USERID_7",
-      "tweet_text": "ugh. cant sleep. its 1:30am. ",
-      "is_retweet": true,
-      "num_liked": 1500,
-      "tweet_id": "1467839450"
-    },
-    {
-      "date": "Mon Apr 06 22:27:16 PDT 2009",
-      "username": "USERID_9",
-      "tweet_text": "Hanging in Crooners. Wanna sing. Can't. Sucks. ",
-      "is_retweet": false,
-      "num_liked": 5472,
-      "tweet_id": "1467839477"
-    },
-    {
-      "date": "Mon Apr 06 22:27:18 PDT 2009",
-      "username": "USERID_1",
-      "tweet_text": "@eRRe_sC aaw i miss ya all too.. im leaving to BH tomorrow &quot;morning&quot; i think.. aww i wanna go to the beach w u girls!! ",
-      "is_retweet": false,
-      "num_liked": 3986,
-      "tweet_id": "1467839586"
-    },
-    {
-      "date": "Mon Apr 06 22:27:22 PDT 2009",
-      "username": "USERID_4",
-      "tweet_text": "wednesday my b-day n don't know what 2 do!  ",
-      "is_retweet": true,
-      "num_liked": 4115,
-      "tweet_id": "1467839816"
-    },
-    {
-      "date": "Mon Apr 06 22:27:25 PDT 2009",
-      "username": "USERID_6",
-      "tweet_text": "I know my life has been flipped upside down when I just thought in my head that some Ramen sounds good. ",
-      "is_retweet": true,
-      "num_liked": 6349,
-      "tweet_id": "1467840016"
-    },
-    {
-      "date": "Mon Apr 06 22:27:31 PDT 2009",
-      "username": "USERID_5",
-      "tweet_text": "I am in pain. My back and sides hurt. Not to mention crying is made of fail. ",
-      "is_retweet": true,
-      "num_liked": 4469,
-      "tweet_id": "1467840386"
-    },
-    {
-      "date": "Mon Apr 06 22:27:34 PDT 2009",
-      "username": "USERID_2",
-      "tweet_text": "Late night snack, glass of OJ b/c I'm &quot;down with the sickness&quot;, then back to sleep...ugh I hate getting sick... ",
-      "is_retweet": false,
-      "num_liked": 1667,
-      "tweet_id": "1467840552"
-    },
-    {
-      "date": "Mon Apr 06 22:27:35 PDT 2009",
-      "username": "USERID_5",
-      "tweet_text": "@allyheman but.. but.. but.. I'm not a big fan on camilla belle ",
-      "is_retweet": true,
-      "num_liked": 9927,
-      "tweet_id": "1467840629"
-    },
-    {
-      "date": "Mon Apr 06 22:27:45 PDT 2009",
-      "username": "USERID_2",
-      "tweet_text": "@grum WAH I can't see clip, must be el-stupido work filters. Can't wait 'till I get a 'puter. Something else 2 blame ex 4. He broke mine ",
-      "is_retweet": true,
-      "num_liked": 5012,
-      "tweet_id": "1467841189"
-    },
-    {
-      "date": "Mon Apr 06 22:27:45 PDT 2009",
-      "username": "USERID_9",
-      "tweet_text": "This week just seems to get longer and longer in terms of how much I need to do.. and how much I'm actually going to get done ",
-      "is_retweet": true,
-      "num_liked": 9236,
-      "tweet_id": "1467841204"
-    },
-    {
-      "date": "Mon Apr 06 22:27:55 PDT 2009",
-      "username": "USERID_7",
-      "tweet_text": "I'm so cold ",
-      "is_retweet": true,
-      "num_liked": 8179,
-      "tweet_id": "1467841832"
-    },
-    {
-      "date": "Mon Apr 06 22:27:56 PDT 2009",
-      "username": "USERID_9",
-      "tweet_text": "@thecoolestout Ehhh don't. Weather's gonna take a turn for the ugly tomorrow ",
-      "is_retweet": true,
-      "num_liked": 2020,
-      "tweet_id": "1467841885"
-    },
-    {
-      "date": "Mon Apr 06 22:27:56 PDT 2009",
-      "username": "USERID_7",
-      "tweet_text": "@chelserlynn haha its so cooooold in the d! and no  but you should still go to the show. they do some incredible stuff",
-      "is_retweet": true,
-      "num_liked": 6202,
-      "tweet_id": "1467841897"
-    },
-    {
-      "date": "Mon Apr 06 22:27:57 PDT 2009",
-      "username": "USERID_8",
-      "tweet_text": "Hoping the tummy rumbles go away soon ",
-      "is_retweet": true,
-      "num_liked": 9258,
-      "tweet_id": "1467841969"
-    },
-    {
-      "date": "Mon Apr 06 22:28:02 PDT 2009",
-      "username": "USERID_8",
-      "tweet_text": "@Knights_ No, no notice. They told me I'd be working tomorrow, and then I called the agency to follow up and they said it was over. ",
-      "is_retweet": false,
-      "num_liked": 8468,
-      "tweet_id": "1467842107"
-    },
-    {
-      "date": "Mon Apr 06 22:28:03 PDT 2009",
-      "username": "USERID_1",
-      "tweet_text": "almost bedtime ",
-      "is_retweet": false,
-      "num_liked": 4502,
-      "tweet_id": "1467842299"
-    },
-    {
-      "date": "Mon Apr 06 22:28:04 PDT 2009",
-      "username": "USERID_5",
-      "tweet_text": "I'm missing you babe..  but as long as your alive I'm happy.. Yawwwnn.. I'm tired my love imma try to sleep hopefully you had a headstart",
-      "is_retweet": false,
-      "num_liked": 5560,
-      "tweet_id": "1467842377"
-    },
-    {
-      "date": "Mon Apr 06 22:28:05 PDT 2009",
-      "username": "USERID_10",
-      "tweet_text": "Agh...snow!!! ",
-      "is_retweet": true,
-      "num_liked": 8310,
-      "tweet_id": "1467842448"
-    },
-    {
-      "date": "Mon Apr 06 22:28:07 PDT 2009",
-      "username": "USERID_5",
-      "tweet_text": "i miss kenny powers ",
-      "is_retweet": true,
-      "num_liked": 3816,
-      "tweet_id": "1467842568"
-    },
-    {
-      "date": "Mon Apr 06 22:28:09 PDT 2009",
-      "username": "USERID_8",
-      "tweet_text": "@BridgetsBeaches Thank you for letting people know, but now I'm sad that the direct message I got wasn't actually from Bridget ",
-      "is_retweet": false,
-      "num_liked": 1124,
-      "tweet_id": "1467842607"
-    },
-    {
-      "date": "Mon Apr 06 22:28:11 PDT 2009",
-      "username": "USERID_9",
-      "tweet_text": "...and, India missed out its 100th Test victory n 10th consecutive win without a loss. ",
-      "is_retweet": true,
-      "num_liked": 8768,
-      "tweet_id": "1467842832"
-    },
-    {
-      "date": "Mon Apr 06 22:28:11 PDT 2009",
-      "username": "USERID_2",
-      "tweet_text": "@JonathanRKnight I guess that's a no then. ",
-      "is_retweet": true,
-      "num_liked": 5590,
-      "tweet_id": "1467842837"
-    },
-    {
-      "date": "Mon Apr 06 22:28:15 PDT 2009",
-      "username": "USERID_2",
-      "tweet_text": "sadly is going to bed. ",
-      "is_retweet": true,
-      "num_liked": 8152,
-      "tweet_id": "1467843075"
-    },
-    {
-      "date": "Mon Apr 06 22:28:18 PDT 2009",
-      "username": "USERID_1",
-      "tweet_text": "@ozesteph1992 Shame to hear this Stephan ",
-      "is_retweet": false,
-      "num_liked": 5841,
-      "tweet_id": "1467843215"
-    },
-    {
-      "date": "Mon Apr 06 22:28:21 PDT 2009",
-      "username": "USERID_3",
-      "tweet_text": "@mrsaintnick hey! i'm leavin in the morning... ",
-      "is_retweet": false,
-      "num_liked": 6837,
-      "tweet_id": "1467843470"
-    },
-    {
-      "date": "Mon Apr 06 22:28:24 PDT 2009",
-      "username": "USERID_5",
-      "tweet_text": "laid around too much today... now my head hurts ",
-      "is_retweet": true,
-      "num_liked": 7881,
-      "tweet_id": "1467843624"
-    },
-    {
-      "date": "Mon Apr 06 22:28:24 PDT 2009",
-      "username": "USERID_3",
-      "tweet_text": "@twista202 I still haven't read the 9th&amp;10th Princess diaries  Saving Francesca made me cry at the end. Hmm those are easy books.",
-      "is_retweet": true,
-      "num_liked": 8138,
-      "tweet_id": "1467843647"
-    },
-    {
-      "date": "Mon Apr 06 22:28:26 PDT 2009",
-      "username": "USERID_6",
-      "tweet_text": "my nokia 1110 died..  ",
-      "is_retweet": false,
-      "num_liked": 2803,
-      "tweet_id": "1467843734"
-    },
-    {
-      "date": "Mon Apr 06 22:28:26 PDT 2009",
-      "username": "USERID_3",
-      "tweet_text": "My mom might have breast cancer won't find out anything for. Like a week I'm so worried! ",
-      "is_retweet": true,
-      "num_liked": 4380,
-      "tweet_id": "1467843740"
-    },
-    {
-      "date": "Mon Apr 06 22:28:33 PDT 2009",
-      "username": "USERID_4",
-      "tweet_text": "Going to sleep. Hoping tomorrow is a better day. ",
-      "is_retweet": true,
-      "num_liked": 8248,
-      "tweet_id": "1467844097"
-    },
-    {
-      "date": "Mon Apr 06 22:28:32 PDT 2009",
-      "username": "USERID_9",
-      "tweet_text": "@rumblepurr lol.. wish they understood daylight savings has ended though and breakfast is an hour later  They keep waking the kids up too",
-      "is_retweet": true,
-      "num_liked": 6837,
-      "tweet_id": "1467844140"
-    },
-    {
-      "date": "Mon Apr 06 22:28:32 PDT 2009",
-      "username": "USERID_4",
-      "tweet_text": "@onemoreproject that is lame ",
-      "is_retweet": true,
-      "num_liked": 1934,
-      "tweet_id": "1467844157"
-    },
-    {
-      "date": "Mon Apr 06 22:28:38 PDT 2009",
-      "username": "USERID_3",
-      "tweet_text": "I don't understand... I really don't ",
-      "is_retweet": false,
-      "num_liked": 1787,
-      "tweet_id": "1467844505"
-    },
-    {
       "tweet_id": "1467876711",
       "date": "Mon Apr 06 22:37:04 PDT 2009",
       "username": "USERID_10",
@@ -2252,14 +1411,6 @@
       "is_retweet": "True"
     },
     {
-      "tweet_id": "1467878929",
-      "date": "Mon Apr 06 22:37:40 PDT 2009",
-      "username": "USERID_5",
-      "num_liked": "1058",
-      "tweet_text": "@chriscantore congrats! I'm totally jealous! only wish my XM was working ",
-      "is_retweet": "True"
-    },
-    {
       "tweet_id": "1467878971",
       "date": "Mon Apr 06 22:37:41 PDT 2009",
       "username": "USERID_2",
@@ -2273,14 +1424,6 @@
       "username": "USERID_8",
       "num_liked": "4860",
       "tweet_text": "poor socks  luvvvvv the golden retriever!! I want one sighhhh",
-      "is_retweet": "False"
-    },
-    {
-      "tweet_id": "1467879314",
-      "date": "Mon Apr 06 22:37:46 PDT 2009",
-      "username": "USERID_4",
-      "num_liked": "8242",
-      "tweet_text": "Aaaaand the nausea is back. ",
       "is_retweet": "False"
     },
     {
@@ -2370,14 +1513,6 @@
       "num_liked": "119",
       "tweet_text": "sooo sick of the snow  ughh",
       "is_retweet": "True"
-    },
-    {
-      "tweet_id": "1467881474",
-      "date": "Mon Apr 06 22:38:20 PDT 2009",
-      "username": "USERID_6",
-      "num_liked": "3606",
-      "tweet_text": "@ITS_NEMESIS ------- ",
-      "is_retweet": "False"
     },
     {
       "tweet_id": "1467881686",
@@ -2476,14 +1611,6 @@
       "is_retweet": "False"
     },
     {
-      "tweet_id": "1467889251",
-      "date": "Mon Apr 06 22:40:24 PDT 2009",
-      "username": "USERID_8",
-      "num_liked": "2492",
-      "tweet_text": "@aaronrva is in the bathroom and i have to pee!    ",
-      "is_retweet": "False"
-    },
-    {
       "tweet_id": "1467889334",
       "date": "Mon Apr 06 22:40:26 PDT 2009",
       "username": "USERID_5",
@@ -2562,14 +1689,6 @@
       "num_liked": "2816",
       "tweet_text": "@austinhill I wish I was!  Sold out   If you have some time let me know, I would love to hear more about what you are up to!",
       "is_retweet": "False"
-    },
-    {
-      "tweet_id": "1467892419",
-      "date": "Mon Apr 06 22:41:15 PDT 2009",
-      "username": "USERID_8",
-      "num_liked": "5754",
-      "tweet_text": "Just watched tropic thunder. Dreading tomorrow ",
-      "is_retweet": "True"
     },
     {
       "tweet_id": "1467892515",
@@ -3464,7 +2583,7 @@
       "username": "USERID_2",
       "tweet_text": "@JonathanRKnight Oh! Did I mention it? &quot;Gooooood Moooorniiiiiiing&quot;  from Germany! Im back in my cage....or better...my office ",
       "is_retweet": false,
-      "num_liked": 869,
+      "num_liked": "869M",
       "tweet_id": "1467894593"
     },
     {
@@ -3472,7 +2591,7 @@
       "username": "USERID_8",
       "tweet_text": "throat is closing up and i had some string cheese. not a good idea ",
       "is_retweet": true,
-      "num_liked": 915,
+      "num_liked": "915k",
       "tweet_id": "1467894600"
     },
     {
@@ -3600,7 +2719,7 @@
       "username": "USERID_10",
       "tweet_text": "@MizzChievouz Hey girl. The site is back.  Girlyvue is back and they have even more videos. ",
       "is_retweet": false,
-      "num_liked": 8767,
+      "num_liked": "unkown",
       "tweet_id": "1467896777"
     },
     {
@@ -5798,406 +4917,6 @@
       "is_retweet": "True"
     },
     {
-      "date": "04-06-2009",
-      "username": "USERID_6",
-      "tweet_text": " Body Of Missing Northern Calif. Girl Found: Police have found the remains of a missing Northern California girl .. http://tr.im/imji",
-      "is_retweet": true,
-      "num_liked": 6749,
-      "tweet_id": "1467836873"
-    },
-    {
-      "date": "04-06-2009",
-      "username": "USERID_7",
-      "tweet_text": "@mangaaa I hope they will increase the capacity fast, yesterday was such a pain. Got the fail whale +15 times in 2 hours.... ",
-      "is_retweet": true,
-      "num_liked": 4338,
-      "tweet_id": "1467837189"
-    },
-    {
-      "date": "04-06-2009",
-      "username": "USERID_8",
-      "tweet_text": "Behind on my classes for work ",
-      "is_retweet": false,
-      "num_liked": 5108,
-      "tweet_id": "1467837384"
-    },
-    {
-      "date": "04-06-2009",
-      "username": "USERID_4",
-      "tweet_text": "watching &quot;House&quot; ",
-      "is_retweet": true,
-      "num_liked": 1585,
-      "tweet_id": "1467837470"
-    },
-    {
-      "date": "04-06-2009",
-      "username": "USERID_9",
-      "tweet_text": "@kpreyes Remember my bum leg? Strikes back this time its serious ",
-      "is_retweet": false,
-      "num_liked": 2168,
-      "tweet_id": "1467837579"
-    },
-    {
-      "date": "04-06-2009",
-      "username": "USERID_6",
-      "tweet_text": "@paradisej cool, i will. their are all kinds of complaints about this laptop online about overheating, but no recalls ",
-      "is_retweet": true,
-      "num_liked": 5934,
-      "tweet_id": "1467837602"
-    },
-    {
-      "date": "04-06-2009",
-      "username": "USERID_4",
-      "tweet_text": "Emily will be glad when Mommy is done training at her new job. She misses her.  http://apps.facebook.com/dogbook/profile/view/6176014",
-      "is_retweet": false,
-      "num_liked": 2452,
-      "tweet_id": "1467837762"
-    },
-    {
-      "date": "04-06-2009",
-      "username": "USERID_8",
-      "tweet_text": "would rather the first party send bad messages than the 3rd party send mixed ones  Sophmore year all over again?",
-      "is_retweet": false,
-      "num_liked": 3628,
-      "tweet_id": "1467837819"
-    },
-    {
-      "date": "04-06-2009",
-      "username": "USERID_9",
-      "tweet_text": "@Henkuyinepu it's overrated ",
-      "is_retweet": true,
-      "num_liked": 5888,
-      "tweet_id": "1467837888"
-    },
-    {
-      "date": "04-06-2009",
-      "username": "USERID_9",
-      "tweet_text": "@marykatherine_q i know! I heard it this afternoon and wondered the same thing. Moscow is so behind the times ",
-      "is_retweet": false,
-      "num_liked": 5756,
-      "tweet_id": "1467838188"
-    },
-    {
-      "date": "04-06-2009",
-      "username": "USERID_9",
-      "tweet_text": "laying in bed with no voice.. ",
-      "is_retweet": true,
-      "num_liked": 7056,
-      "tweet_id": "1467838189"
-    },
-    {
-      "date": "04-06-2009",
-      "username": "USERID_6",
-      "tweet_text": "I'm sooo sad!!! they killed off Kutner on House  whyyyyyyyy",
-      "is_retweet": false,
-      "num_liked": 7454,
-      "tweet_id": "1467838362"
-    },
-    {
-      "date": "04-06-2009",
-      "username": "USERID_7",
-      "tweet_text": "@jacobsummers Sorry  tell them mea culpa from me and that I really am sorry.",
-      "is_retweet": false,
-      "num_liked": 3237,
-      "tweet_id": "1467838419"
-    },
-    {
-      "date": "04-06-2009",
-      "username": "USERID_10",
-      "tweet_text": "@Alliana07 it didn't make any sense to me, the suicide thing. I refuse to believe that that is actually what happened. ",
-      "is_retweet": false,
-      "num_liked": 4174,
-      "tweet_id": "1467838433"
-    },
-    {
-      "date": "04-06-2009",
-      "username": "USERID_8",
-      "tweet_text": "@salancaster  hope your ok.",
-      "is_retweet": true,
-      "num_liked": 4012,
-      "tweet_id": "1467838630"
-    },
-    {
-      "date": "04-06-2009",
-      "username": "USERID_7",
-      "tweet_text": "@mercedesashley Damn! The grind is inspirational and saddening at the same time.  Don't want you to stop cuz I like what u do! Much love",
-      "is_retweet": true,
-      "num_liked": 373,
-      "tweet_id": "1467839007"
-    },
-    {
-      "date": "04-06-2009",
-      "username": "USERID_2",
-      "tweet_text": "@HibaNick yeah aw but i know i wudnt stand a chance ",
-      "is_retweet": true,
-      "num_liked": 253,
-      "tweet_id": "1467839405"
-    },
-    {
-      "date": "04-06-2009",
-      "username": "USERID_7",
-      "tweet_text": "ugh. cant sleep. its 1:30am. ",
-      "is_retweet": true,
-      "num_liked": 1500,
-      "tweet_id": "1467839450"
-    },
-    {
-      "date": "04-06-2009",
-      "username": "USERID_9",
-      "tweet_text": "Hanging in Crooners. Wanna sing. Can't. Sucks. ",
-      "is_retweet": false,
-      "num_liked": 5472,
-      "tweet_id": "1467839477"
-    },
-    {
-      "date": "04-06-2009",
-      "username": "USERID_1",
-      "tweet_text": "@eRRe_sC aaw i miss ya all too.. im leaving to BH tomorrow &quot;morning&quot; i think.. aww i wanna go to the beach w u girls!! ",
-      "is_retweet": false,
-      "num_liked": 3986,
-      "tweet_id": "1467839586"
-    },
-    {
-      "date": "04-06-2009",
-      "username": "USERID_4",
-      "tweet_text": "wednesday my b-day n don't know what 2 do!  ",
-      "is_retweet": true,
-      "num_liked": 4115,
-      "tweet_id": "1467839816"
-    },
-    {
-      "date": "04-06-2009",
-      "username": "USERID_6",
-      "tweet_text": "I know my life has been flipped upside down when I just thought in my head that some Ramen sounds good. ",
-      "is_retweet": true,
-      "num_liked": 6349,
-      "tweet_id": "1467840016"
-    },
-    {
-      "date": "04-06-2009",
-      "username": "USERID_5",
-      "tweet_text": "I am in pain. My back and sides hurt. Not to mention crying is made of fail. ",
-      "is_retweet": true,
-      "num_liked": 4469,
-      "tweet_id": "1467840386"
-    },
-    {
-      "date": "04-06-2009",
-      "username": "USERID_2",
-      "tweet_text": "Late night snack, glass of OJ b/c I'm &quot;down with the sickness&quot;, then back to sleep...ugh I hate getting sick... ",
-      "is_retweet": false,
-      "num_liked": 1667,
-      "tweet_id": "1467840552"
-    },
-    {
-      "date": "04-06-2009",
-      "username": "USERID_5",
-      "tweet_text": "@allyheman but.. but.. but.. I'm not a big fan on camilla belle ",
-      "is_retweet": true,
-      "num_liked": 9927,
-      "tweet_id": "1467840629"
-    },
-    {
-      "date": "04-06-2009",
-      "username": "USERID_2",
-      "tweet_text": "@grum WAH I can't see clip, must be el-stupido work filters. Can't wait 'till I get a 'puter. Something else 2 blame ex 4. He broke mine ",
-      "is_retweet": true,
-      "num_liked": 5012,
-      "tweet_id": "1467841189"
-    },
-    {
-      "date": "04-06-2009",
-      "username": "USERID_9",
-      "tweet_text": "This week just seems to get longer and longer in terms of how much I need to do.. and how much I'm actually going to get done ",
-      "is_retweet": true,
-      "num_liked": 9236,
-      "tweet_id": "1467841204"
-    },
-    {
-      "date": "04-06-2009",
-      "username": "USERID_7",
-      "tweet_text": "I'm so cold ",
-      "is_retweet": true,
-      "num_liked": 8179,
-      "tweet_id": "1467841832"
-    },
-    {
-      "date": "04-06-2009",
-      "username": "USERID_9",
-      "tweet_text": "@thecoolestout Ehhh don't. Weather's gonna take a turn for the ugly tomorrow ",
-      "is_retweet": true,
-      "num_liked": 2020,
-      "tweet_id": "1467841885"
-    },
-    {
-      "date": "04-06-2009",
-      "username": "USERID_7",
-      "tweet_text": "@chelserlynn haha its so cooooold in the d! and no  but you should still go to the show. they do some incredible stuff",
-      "is_retweet": true,
-      "num_liked": 6202,
-      "tweet_id": "1467841897"
-    },
-    {
-      "date": "04-06-2009",
-      "username": "USERID_8",
-      "tweet_text": "Hoping the tummy rumbles go away soon ",
-      "is_retweet": true,
-      "num_liked": 9258,
-      "tweet_id": "1467841969"
-    },
-    {
-      "date": "04-06-2009",
-      "username": "USERID_8",
-      "tweet_text": "@Knights_ No, no notice. They told me I'd be working tomorrow, and then I called the agency to follow up and they said it was over. ",
-      "is_retweet": false,
-      "num_liked": 8468,
-      "tweet_id": "1467842107"
-    },
-    {
-      "date": "04-06-2009",
-      "username": "USERID_1",
-      "tweet_text": "almost bedtime ",
-      "is_retweet": false,
-      "num_liked": 4502,
-      "tweet_id": "1467842299"
-    },
-    {
-      "date": "04-06-2009",
-      "username": "USERID_5",
-      "tweet_text": "I'm missing you babe..  but as long as your alive I'm happy.. Yawwwnn.. I'm tired my love imma try to sleep hopefully you had a headstart",
-      "is_retweet": false,
-      "num_liked": 5560,
-      "tweet_id": "1467842377"
-    },
-    {
-      "date": "04-06-2009",
-      "username": "USERID_10",
-      "tweet_text": "Agh...snow!!! ",
-      "is_retweet": true,
-      "num_liked": 8310,
-      "tweet_id": "1467842448"
-    },
-    {
-      "date": "04-06-2009",
-      "username": "USERID_5",
-      "tweet_text": "i miss kenny powers ",
-      "is_retweet": true,
-      "num_liked": 3816,
-      "tweet_id": "1467842568"
-    },
-    {
-      "date": "04-06-2009",
-      "username": "USERID_8",
-      "tweet_text": "@BridgetsBeaches Thank you for letting people know, but now I'm sad that the direct message I got wasn't actually from Bridget ",
-      "is_retweet": false,
-      "num_liked": 1124,
-      "tweet_id": "1467842607"
-    },
-    {
-      "date": "04-06-2009",
-      "username": "USERID_9",
-      "tweet_text": "...and, India missed out its 100th Test victory n 10th consecutive win without a loss. ",
-      "is_retweet": true,
-      "num_liked": 8768,
-      "tweet_id": "1467842832"
-    },
-    {
-      "date": "04-06-2009",
-      "username": "USERID_2",
-      "tweet_text": "@JonathanRKnight I guess that's a no then. ",
-      "is_retweet": true,
-      "num_liked": 5590,
-      "tweet_id": "1467842837"
-    },
-    {
-      "date": "04-06-2009",
-      "username": "USERID_2",
-      "tweet_text": "sadly is going to bed. ",
-      "is_retweet": true,
-      "num_liked": 8152,
-      "tweet_id": "1467843075"
-    },
-    {
-      "date": "04-06-2009",
-      "username": "USERID_1",
-      "tweet_text": "@ozesteph1992 Shame to hear this Stephan ",
-      "is_retweet": false,
-      "num_liked": 5841,
-      "tweet_id": "1467843215"
-    },
-    {
-      "date": "04-06-2009",
-      "username": "USERID_3",
-      "tweet_text": "@mrsaintnick hey! i'm leavin in the morning... ",
-      "is_retweet": false,
-      "num_liked": 6837,
-      "tweet_id": "1467843470"
-    },
-    {
-      "date": "04-06-2009",
-      "username": "USERID_5",
-      "tweet_text": "laid around too much today... now my head hurts ",
-      "is_retweet": true,
-      "num_liked": 7881,
-      "tweet_id": "1467843624"
-    },
-    {
-      "date": "04-06-2009",
-      "username": "USERID_3",
-      "tweet_text": "@twista202 I still haven't read the 9th&amp;10th Princess diaries  Saving Francesca made me cry at the end. Hmm those are easy books.",
-      "is_retweet": true,
-      "num_liked": 8138,
-      "tweet_id": "1467843647"
-    },
-    {
-      "date": "04-06-2009",
-      "username": "USERID_6",
-      "tweet_text": "my nokia 1110 died..  ",
-      "is_retweet": false,
-      "num_liked": 2803,
-      "tweet_id": "1467843734"
-    },
-    {
-      "date": "04-06-2009",
-      "username": "USERID_3",
-      "tweet_text": "My mom might have breast cancer won't find out anything for. Like a week I'm so worried! ",
-      "is_retweet": true,
-      "num_liked": 4380,
-      "tweet_id": "1467843740"
-    },
-    {
-      "date": "04-06-2009",
-      "username": "USERID_4",
-      "tweet_text": "Going to sleep. Hoping tomorrow is a better day. ",
-      "is_retweet": true,
-      "num_liked": 8248,
-      "tweet_id": "1467844097"
-    },
-    {
-      "date": "04-06-2009",
-      "username": "USERID_9",
-      "tweet_text": "@rumblepurr lol.. wish they understood daylight savings has ended though and breakfast is an hour later  They keep waking the kids up too",
-      "is_retweet": true,
-      "num_liked": 6837,
-      "tweet_id": "1467844140"
-    },
-    {
-      "date": "04-06-2009",
-      "username": "USERID_4",
-      "tweet_text": "@onemoreproject that is lame ",
-      "is_retweet": true,
-      "num_liked": 1934,
-      "tweet_id": "1467844157"
-    },
-    {
-      "date": "04-06-2009",
-      "username": "USERID_3",
-      "tweet_text": "I don't understand... I really don't ",
-      "is_retweet": false,
-      "num_liked": 1787,
-      "tweet_id": "1467844505"
-    },
-    {
       "tweet_id": "1467876711",
       "date": "04-06-2009",
       "username": "USERID_10",
@@ -6254,14 +4973,6 @@
       "is_retweet": "True"
     },
     {
-      "tweet_id": "1467878929",
-      "date": "04-06-2009",
-      "username": "USERID_5",
-      "num_liked": 1058,
-      "tweet_text": "@chriscantore congrats! I'm totally jealous! only wish my XM was working ",
-      "is_retweet": "True"
-    },
-    {
       "tweet_id": "1467878971",
       "date": "04-06-2009",
       "username": "USERID_2",
@@ -6275,14 +4986,6 @@
       "username": "USERID_8",
       "num_liked": 4860,
       "tweet_text": "poor socks  luvvvvv the golden retriever!! I want one sighhhh",
-      "is_retweet": "False"
-    },
-    {
-      "tweet_id": "1467879314",
-      "date": "04-06-2009",
-      "username": "USERID_4",
-      "num_liked": 8242,
-      "tweet_text": "Aaaaand the nausea is back. ",
       "is_retweet": "False"
     },
     {
@@ -6372,14 +5075,6 @@
       "num_liked": 119,
       "tweet_text": "sooo sick of the snow  ughh",
       "is_retweet": "True"
-    },
-    {
-      "tweet_id": "1467881474",
-      "date": "04-06-2009",
-      "username": "USERID_6",
-      "num_liked": 3606,
-      "tweet_text": "@ITS_NEMESIS ------- ",
-      "is_retweet": "False"
     },
     {
       "tweet_id": "1467881686",
@@ -6478,14 +5173,6 @@
       "is_retweet": "False"
     },
     {
-      "tweet_id": "1467889251",
-      "date": "04-06-2009",
-      "username": "USERID_8",
-      "num_liked": 2492,
-      "tweet_text": "@aaronrva is in the bathroom and i have to pee!    ",
-      "is_retweet": "False"
-    },
-    {
       "tweet_id": "1467889334",
       "date": "04-06-2009",
       "username": "USERID_5",
@@ -6564,14 +5251,6 @@
       "num_liked": 2816,
       "tweet_text": "@austinhill I wish I was!  Sold out   If you have some time let me know, I would love to hear more about what you are up to!",
       "is_retweet": "False"
-    },
-    {
-      "tweet_id": "1467892419",
-      "date": "04-06-2009",
-      "username": "USERID_8",
-      "num_liked": 5754,
-      "tweet_text": "Just watched tropic thunder. Dreading tomorrow ",
-      "is_retweet": "True"
     },
     {
       "tweet_id": "1467892515",
@@ -7463,22 +6142,6 @@
     },
     {
       "date": "04-06-2009",
-      "username": "USERID_2",
-      "tweet_text": "@JonathanRKnight Oh! Did I mention it? &quot;Gooooood Moooorniiiiiiing&quot;  from Germany! Im back in my cage....or better...my office ",
-      "is_retweet": false,
-      "num_liked": 869,
-      "tweet_id": "1467894593"
-    },
-    {
-      "date": "04-06-2009",
-      "username": "USERID_8",
-      "tweet_text": "throat is closing up and i had some string cheese. not a good idea ",
-      "is_retweet": true,
-      "num_liked": 915,
-      "tweet_id": "1467894600"
-    },
-    {
-      "date": "04-06-2009",
       "username": "USERID_4",
       "tweet_text": "Aww, Sandra Cantu is found dead in a suitcase  Missing children stories never seem to go good. Poor family.",
       "is_retweet": false,
@@ -7596,14 +6259,6 @@
       "is_retweet": true,
       "num_liked": 1728,
       "tweet_id": "1467896463"
-    },
-    {
-      "date": "04-06-2009",
-      "username": "USERID_10",
-      "tweet_text": "@MizzChievouz Hey girl. The site is back.  Girlyvue is back and they have even more videos. ",
-      "is_retweet": false,
-      "num_liked": 8767,
-      "tweet_id": "1467896777"
     },
     {
       "date": "04-06-2009",
@@ -9466,30 +8121,6 @@
         "is_retweet": "False"
       },
       {
-        "date": "04-06-2009",
-        "username": "USERID_1",
-        "tweet_text": "@eRRe_sC aaw i miss ya all too.. im leaving to BH tomorrow &quot;morning&quot; i think.. aww i wanna go to the beach w u girls!! ",
-        "is_retweet": false,
-        "num_liked": 3986,
-        "tweet_id": "1467839586"
-      },
-      {
-        "date": "04-06-2009",
-        "username": "USERID_1",
-        "tweet_text": "almost bedtime ",
-        "is_retweet": false,
-        "num_liked": 4502,
-        "tweet_id": "1467842299"
-      },
-      {
-        "date": "04-06-2009",
-        "username": "USERID_1",
-        "tweet_text": "@ozesteph1992 Shame to hear this Stephan ",
-        "is_retweet": false,
-        "num_liked": 5841,
-        "tweet_id": "1467843215"
-      },
-      {
         "tweet_id": "1467877496",
         "date": "04-06-2009",
         "username": "USERID_1",
@@ -9914,22 +8545,6 @@
         "is_retweet": "False"
       },
       {
-        "date": "04-06-2009",
-        "username": "USERID_10",
-        "tweet_text": "@Alliana07 it didn't make any sense to me, the suicide thing. I refuse to believe that that is actually what happened. ",
-        "is_retweet": false,
-        "num_liked": 4174,
-        "tweet_id": "1467838433"
-      },
-      {
-        "date": "04-06-2009",
-        "username": "USERID_10",
-        "tweet_text": "Agh...snow!!! ",
-        "is_retweet": true,
-        "num_liked": 8310,
-        "tweet_id": "1467842448"
-      },
-      {
         "tweet_id": "1467876711",
         "date": "04-06-2009",
         "username": "USERID_10",
@@ -10048,14 +8663,6 @@
         "is_retweet": true,
         "num_liked": 3423,
         "tweet_id": "1467895424"
-      },
-      {
-        "date": "04-06-2009",
-        "username": "USERID_10",
-        "tweet_text": "@MizzChievouz Hey girl. The site is back.  Girlyvue is back and they have even more videos. ",
-        "is_retweet": false,
-        "num_liked": 8767,
-        "tweet_id": "1467896777"
       },
       {
         "date": "04-06-2009",
@@ -10258,46 +8865,6 @@
         "is_retweet": "True"
       },
       {
-        "date": "04-06-2009",
-        "username": "USERID_2",
-        "tweet_text": "@HibaNick yeah aw but i know i wudnt stand a chance ",
-        "is_retweet": true,
-        "num_liked": 253,
-        "tweet_id": "1467839405"
-      },
-      {
-        "date": "04-06-2009",
-        "username": "USERID_2",
-        "tweet_text": "Late night snack, glass of OJ b/c I'm &quot;down with the sickness&quot;, then back to sleep...ugh I hate getting sick... ",
-        "is_retweet": false,
-        "num_liked": 1667,
-        "tweet_id": "1467840552"
-      },
-      {
-        "date": "04-06-2009",
-        "username": "USERID_2",
-        "tweet_text": "@grum WAH I can't see clip, must be el-stupido work filters. Can't wait 'till I get a 'puter. Something else 2 blame ex 4. He broke mine ",
-        "is_retweet": true,
-        "num_liked": 5012,
-        "tweet_id": "1467841189"
-      },
-      {
-        "date": "04-06-2009",
-        "username": "USERID_2",
-        "tweet_text": "@JonathanRKnight I guess that's a no then. ",
-        "is_retweet": true,
-        "num_liked": 5590,
-        "tweet_id": "1467842837"
-      },
-      {
-        "date": "04-06-2009",
-        "username": "USERID_2",
-        "tweet_text": "sadly is going to bed. ",
-        "is_retweet": true,
-        "num_liked": 8152,
-        "tweet_id": "1467843075"
-      },
-      {
         "tweet_id": "1467877833",
         "date": "04-06-2009",
         "username": "USERID_2",
@@ -10448,14 +9015,6 @@
         "num_liked": 5287,
         "tweet_text": "why to we, the only school in the world, be in this week.My school is silly  anyway... look on the bright side. When i'm off, u will be in",
         "is_retweet": "False"
-      },
-      {
-        "date": "04-06-2009",
-        "username": "USERID_2",
-        "tweet_text": "@JonathanRKnight Oh! Did I mention it? &quot;Gooooood Moooorniiiiiiing&quot;  from Germany! Im back in my cage....or better...my office ",
-        "is_retweet": false,
-        "num_liked": 869,
-        "tweet_id": "1467894593"
       },
       {
         "date": "04-06-2009",
@@ -10664,38 +9223,6 @@
         "num_liked": 4110,
         "tweet_text": "@cheechbud i think ur right!! hahaha!! 4.5 hrs now!! ",
         "is_retweet": "True"
-      },
-      {
-        "date": "04-06-2009",
-        "username": "USERID_3",
-        "tweet_text": "@mrsaintnick hey! i'm leavin in the morning... ",
-        "is_retweet": false,
-        "num_liked": 6837,
-        "tweet_id": "1467843470"
-      },
-      {
-        "date": "04-06-2009",
-        "username": "USERID_3",
-        "tweet_text": "@twista202 I still haven't read the 9th&amp;10th Princess diaries  Saving Francesca made me cry at the end. Hmm those are easy books.",
-        "is_retweet": true,
-        "num_liked": 8138,
-        "tweet_id": "1467843647"
-      },
-      {
-        "date": "04-06-2009",
-        "username": "USERID_3",
-        "tweet_text": "My mom might have breast cancer won't find out anything for. Like a week I'm so worried! ",
-        "is_retweet": true,
-        "num_liked": 4380,
-        "tweet_id": "1467843740"
-      },
-      {
-        "date": "04-06-2009",
-        "username": "USERID_3",
-        "tweet_text": "I don't understand... I really don't ",
-        "is_retweet": false,
-        "num_liked": 1787,
-        "tweet_id": "1467844505"
       },
       {
         "tweet_id": "1467880431",
@@ -11018,54 +9545,6 @@
         "is_retweet": "True"
       },
       {
-        "date": "04-06-2009",
-        "username": "USERID_4",
-        "tweet_text": "watching &quot;House&quot; ",
-        "is_retweet": true,
-        "num_liked": 1585,
-        "tweet_id": "1467837470"
-      },
-      {
-        "date": "04-06-2009",
-        "username": "USERID_4",
-        "tweet_text": "Emily will be glad when Mommy is done training at her new job. She misses her.  http://apps.facebook.com/dogbook/profile/view/6176014",
-        "is_retweet": false,
-        "num_liked": 2452,
-        "tweet_id": "1467837762"
-      },
-      {
-        "date": "04-06-2009",
-        "username": "USERID_4",
-        "tweet_text": "wednesday my b-day n don't know what 2 do!  ",
-        "is_retweet": true,
-        "num_liked": 4115,
-        "tweet_id": "1467839816"
-      },
-      {
-        "date": "04-06-2009",
-        "username": "USERID_4",
-        "tweet_text": "Going to sleep. Hoping tomorrow is a better day. ",
-        "is_retweet": true,
-        "num_liked": 8248,
-        "tweet_id": "1467844097"
-      },
-      {
-        "date": "04-06-2009",
-        "username": "USERID_4",
-        "tweet_text": "@onemoreproject that is lame ",
-        "is_retweet": true,
-        "num_liked": 1934,
-        "tweet_id": "1467844157"
-      },
-      {
-        "tweet_id": "1467879314",
-        "date": "04-06-2009",
-        "username": "USERID_4",
-        "num_liked": 8242,
-        "tweet_text": "Aaaaand the nausea is back. ",
-        "is_retweet": "False"
-      },
-      {
         "tweet_id": "1467879480",
         "date": "04-06-2009",
         "username": "USERID_4",
@@ -11320,54 +9799,6 @@
         "num_liked": 2878,
         "tweet_text": "@robluketic  love the french. I tell people here in the south i'm qtr. french and they snarl at me.  french are beautiful people",
         "is_retweet": "False"
-      },
-      {
-        "date": "04-06-2009",
-        "username": "USERID_5",
-        "tweet_text": "I am in pain. My back and sides hurt. Not to mention crying is made of fail. ",
-        "is_retweet": true,
-        "num_liked": 4469,
-        "tweet_id": "1467840386"
-      },
-      {
-        "date": "04-06-2009",
-        "username": "USERID_5",
-        "tweet_text": "@allyheman but.. but.. but.. I'm not a big fan on camilla belle ",
-        "is_retweet": true,
-        "num_liked": 9927,
-        "tweet_id": "1467840629"
-      },
-      {
-        "date": "04-06-2009",
-        "username": "USERID_5",
-        "tweet_text": "I'm missing you babe..  but as long as your alive I'm happy.. Yawwwnn.. I'm tired my love imma try to sleep hopefully you had a headstart",
-        "is_retweet": false,
-        "num_liked": 5560,
-        "tweet_id": "1467842377"
-      },
-      {
-        "date": "04-06-2009",
-        "username": "USERID_5",
-        "tweet_text": "i miss kenny powers ",
-        "is_retweet": true,
-        "num_liked": 3816,
-        "tweet_id": "1467842568"
-      },
-      {
-        "date": "04-06-2009",
-        "username": "USERID_5",
-        "tweet_text": "laid around too much today... now my head hurts ",
-        "is_retweet": true,
-        "num_liked": 7881,
-        "tweet_id": "1467843624"
-      },
-      {
-        "tweet_id": "1467878929",
-        "date": "04-06-2009",
-        "username": "USERID_5",
-        "num_liked": 1058,
-        "tweet_text": "@chriscantore congrats! I'm totally jealous! only wish my XM was working ",
-        "is_retweet": "True"
       },
       {
         "tweet_id": "1467881686",
@@ -11746,46 +10177,6 @@
         "is_retweet": "True"
       },
       {
-        "date": "04-06-2009",
-        "username": "USERID_6",
-        "tweet_text": " Body Of Missing Northern Calif. Girl Found: Police have found the remains of a missing Northern California girl .. http://tr.im/imji",
-        "is_retweet": true,
-        "num_liked": 6749,
-        "tweet_id": "1467836873"
-      },
-      {
-        "date": "04-06-2009",
-        "username": "USERID_6",
-        "tweet_text": "@paradisej cool, i will. their are all kinds of complaints about this laptop online about overheating, but no recalls ",
-        "is_retweet": true,
-        "num_liked": 5934,
-        "tweet_id": "1467837602"
-      },
-      {
-        "date": "04-06-2009",
-        "username": "USERID_6",
-        "tweet_text": "I'm sooo sad!!! they killed off Kutner on House  whyyyyyyyy",
-        "is_retweet": false,
-        "num_liked": 7454,
-        "tweet_id": "1467838362"
-      },
-      {
-        "date": "04-06-2009",
-        "username": "USERID_6",
-        "tweet_text": "I know my life has been flipped upside down when I just thought in my head that some Ramen sounds good. ",
-        "is_retweet": true,
-        "num_liked": 6349,
-        "tweet_id": "1467840016"
-      },
-      {
-        "date": "04-06-2009",
-        "username": "USERID_6",
-        "tweet_text": "my nokia 1110 died..  ",
-        "is_retweet": false,
-        "num_liked": 2803,
-        "tweet_id": "1467843734"
-      },
-      {
         "tweet_id": "1467878057",
         "date": "04-06-2009",
         "username": "USERID_6",
@@ -11816,14 +10207,6 @@
         "num_liked": 8615,
         "tweet_text": "Whinging. My client&amp;boss don't understand English well. Rewrote some text unreadable. It's written by v. good writer&amp;reviewed correctly. ",
         "is_retweet": "True"
-      },
-      {
-        "tweet_id": "1467881474",
-        "date": "04-06-2009",
-        "username": "USERID_6",
-        "num_liked": 3606,
-        "tweet_text": "@ITS_NEMESIS ------- ",
-        "is_retweet": "False"
       },
       {
         "tweet_id": "1467892075",
@@ -12216,54 +10599,6 @@
         "num_liked": 9851,
         "tweet_text": "Is not going to sleep tonite. ",
         "is_retweet": "False"
-      },
-      {
-        "date": "04-06-2009",
-        "username": "USERID_7",
-        "tweet_text": "@mangaaa I hope they will increase the capacity fast, yesterday was such a pain. Got the fail whale +15 times in 2 hours.... ",
-        "is_retweet": true,
-        "num_liked": 4338,
-        "tweet_id": "1467837189"
-      },
-      {
-        "date": "04-06-2009",
-        "username": "USERID_7",
-        "tweet_text": "@jacobsummers Sorry  tell them mea culpa from me and that I really am sorry.",
-        "is_retweet": false,
-        "num_liked": 3237,
-        "tweet_id": "1467838419"
-      },
-      {
-        "date": "04-06-2009",
-        "username": "USERID_7",
-        "tweet_text": "@mercedesashley Damn! The grind is inspirational and saddening at the same time.  Don't want you to stop cuz I like what u do! Much love",
-        "is_retweet": true,
-        "num_liked": 373,
-        "tweet_id": "1467839007"
-      },
-      {
-        "date": "04-06-2009",
-        "username": "USERID_7",
-        "tweet_text": "ugh. cant sleep. its 1:30am. ",
-        "is_retweet": true,
-        "num_liked": 1500,
-        "tweet_id": "1467839450"
-      },
-      {
-        "date": "04-06-2009",
-        "username": "USERID_7",
-        "tweet_text": "I'm so cold ",
-        "is_retweet": true,
-        "num_liked": 8179,
-        "tweet_id": "1467841832"
-      },
-      {
-        "date": "04-06-2009",
-        "username": "USERID_7",
-        "tweet_text": "@chelserlynn haha its so cooooold in the d! and no  but you should still go to the show. they do some incredible stuff",
-        "is_retweet": true,
-        "num_liked": 6202,
-        "tweet_id": "1467841897"
       },
       {
         "tweet_id": "1467881457",
@@ -12682,54 +11017,6 @@
         "is_retweet": "True"
       },
       {
-        "date": "04-06-2009",
-        "username": "USERID_8",
-        "tweet_text": "Behind on my classes for work ",
-        "is_retweet": false,
-        "num_liked": 5108,
-        "tweet_id": "1467837384"
-      },
-      {
-        "date": "04-06-2009",
-        "username": "USERID_8",
-        "tweet_text": "would rather the first party send bad messages than the 3rd party send mixed ones  Sophmore year all over again?",
-        "is_retweet": false,
-        "num_liked": 3628,
-        "tweet_id": "1467837819"
-      },
-      {
-        "date": "04-06-2009",
-        "username": "USERID_8",
-        "tweet_text": "@salancaster  hope your ok.",
-        "is_retweet": true,
-        "num_liked": 4012,
-        "tweet_id": "1467838630"
-      },
-      {
-        "date": "04-06-2009",
-        "username": "USERID_8",
-        "tweet_text": "Hoping the tummy rumbles go away soon ",
-        "is_retweet": true,
-        "num_liked": 9258,
-        "tweet_id": "1467841969"
-      },
-      {
-        "date": "04-06-2009",
-        "username": "USERID_8",
-        "tweet_text": "@Knights_ No, no notice. They told me I'd be working tomorrow, and then I called the agency to follow up and they said it was over. ",
-        "is_retweet": false,
-        "num_liked": 8468,
-        "tweet_id": "1467842107"
-      },
-      {
-        "date": "04-06-2009",
-        "username": "USERID_8",
-        "tweet_text": "@BridgetsBeaches Thank you for letting people know, but now I'm sad that the direct message I got wasn't actually from Bridget ",
-        "is_retweet": false,
-        "num_liked": 1124,
-        "tweet_id": "1467842607"
-      },
-      {
         "tweet_id": "1467878983",
         "date": "04-06-2009",
         "username": "USERID_8",
@@ -12754,28 +11041,12 @@
         "is_retweet": "True"
       },
       {
-        "tweet_id": "1467889251",
-        "date": "04-06-2009",
-        "username": "USERID_8",
-        "num_liked": 2492,
-        "tweet_text": "@aaronrva is in the bathroom and i have to pee!    ",
-        "is_retweet": "False"
-      },
-      {
         "tweet_id": "1467890079",
         "date": "04-06-2009",
         "username": "USERID_8",
         "num_liked": 2556,
         "tweet_text": "@jokerrrr It stillllll hasn't arrived ",
         "is_retweet": "False"
-      },
-      {
-        "tweet_id": "1467892419",
-        "date": "04-06-2009",
-        "username": "USERID_8",
-        "num_liked": 5754,
-        "tweet_text": "Just watched tropic thunder. Dreading tomorrow ",
-        "is_retweet": "True"
       },
       {
         "date": "04-06-2009",
@@ -12848,14 +11119,6 @@
         "num_liked": 8150,
         "tweet_text": "omg i've an economics test. and i dont know all the things i have to know and omg im gonna fail ",
         "is_retweet": "False"
-      },
-      {
-        "date": "04-06-2009",
-        "username": "USERID_8",
-        "tweet_text": "throat is closing up and i had some string cheese. not a good idea ",
-        "is_retweet": true,
-        "num_liked": 915,
-        "tweet_id": "1467894600"
       },
       {
         "date": "04-06-2009",
@@ -13032,78 +11295,6 @@
         "num_liked": 9158,
         "tweet_text": "@HillyDoP  oH NO",
         "is_retweet": "True"
-      },
-      {
-        "date": "04-06-2009",
-        "username": "USERID_9",
-        "tweet_text": "@kpreyes Remember my bum leg? Strikes back this time its serious ",
-        "is_retweet": false,
-        "num_liked": 2168,
-        "tweet_id": "1467837579"
-      },
-      {
-        "date": "04-06-2009",
-        "username": "USERID_9",
-        "tweet_text": "@Henkuyinepu it's overrated ",
-        "is_retweet": true,
-        "num_liked": 5888,
-        "tweet_id": "1467837888"
-      },
-      {
-        "date": "04-06-2009",
-        "username": "USERID_9",
-        "tweet_text": "@marykatherine_q i know! I heard it this afternoon and wondered the same thing. Moscow is so behind the times ",
-        "is_retweet": false,
-        "num_liked": 5756,
-        "tweet_id": "1467838188"
-      },
-      {
-        "date": "04-06-2009",
-        "username": "USERID_9",
-        "tweet_text": "laying in bed with no voice.. ",
-        "is_retweet": true,
-        "num_liked": 7056,
-        "tweet_id": "1467838189"
-      },
-      {
-        "date": "04-06-2009",
-        "username": "USERID_9",
-        "tweet_text": "Hanging in Crooners. Wanna sing. Can't. Sucks. ",
-        "is_retweet": false,
-        "num_liked": 5472,
-        "tweet_id": "1467839477"
-      },
-      {
-        "date": "04-06-2009",
-        "username": "USERID_9",
-        "tweet_text": "This week just seems to get longer and longer in terms of how much I need to do.. and how much I'm actually going to get done ",
-        "is_retweet": true,
-        "num_liked": 9236,
-        "tweet_id": "1467841204"
-      },
-      {
-        "date": "04-06-2009",
-        "username": "USERID_9",
-        "tweet_text": "@thecoolestout Ehhh don't. Weather's gonna take a turn for the ugly tomorrow ",
-        "is_retweet": true,
-        "num_liked": 2020,
-        "tweet_id": "1467841885"
-      },
-      {
-        "date": "04-06-2009",
-        "username": "USERID_9",
-        "tweet_text": "...and, India missed out its 100th Test victory n 10th consecutive win without a loss. ",
-        "is_retweet": true,
-        "num_liked": 8768,
-        "tweet_id": "1467842832"
-      },
-      {
-        "date": "04-06-2009",
-        "username": "USERID_9",
-        "tweet_text": "@rumblepurr lol.. wish they understood daylight savings has ended though and breakfast is an hour later  They keep waking the kids up too",
-        "is_retweet": true,
-        "num_liked": 6837,
-        "tweet_id": "1467844140"
       },
       {
         "tweet_id": "1467880463",
