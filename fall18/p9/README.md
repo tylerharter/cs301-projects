@@ -8,7 +8,7 @@ In this assignment we are going to learn
 
 Download the zip file from the link below, and unarchive it. You should be able to do this just by double clicking on it once downloaded, and it will create a new folder containing everything you need for this assignment. Please do all your coding within this folder. 
 
-* TBD (Zip File) 
+* [cs301_p9.zip](https://raw.githubusercontent.com/tylerharter/cs301-projects/master/fall18/p9/cs301_p9.zip)
 
 # Task
 Your Boss, music prodigy turned data analyst extraordinaire, Nick Jonas, has asked you to create a program that takes in a bunch of tweet data, and to combine it into one single file for analysis.
@@ -22,34 +22,59 @@ In this first pass, we will work **only** with the files in the folder "sample_d
 ## 1. `get_list_of_files` function
 
 > input(s) to this function:
+<<<<<<< HEAD
 > * data_dir : a string representation of the directory to be searched
 
 This function will be taking in a directory as a parameter, and returning a list of files that were located in that directory.
 
 The list of files needs to be **sorted in ascending alphabetical order**. You don't have to worry about how python's sort treats numbers and so forth, just sort() the list and you should be okay, as long as it's contents are accurate. 
+=======
+> * data_dir: a string representation of the directory to be searched
+
+This function will be taking in a directory as a parameter and returning a list of files that were located in that directory.
+
+The list of files needs to be **sorted in ascending alphabetical order**. You don't have to worry about how Python's sort treats numbers and so forth; just sort() the list and you should be okay.
+>>>>>>> 960914c66acb5e108bdef7498886c31b6d97c7e4
 
 > The `os.listdir` function will be helpful in achieving this task    
 > for more information on os.listdir
 > * [os.listdir official documentation](https://docs.python.org/2/library/os.html)
 > * [Tyler's Slides](https://tyler.caraza-harter.com/cs301/fall18/materials/lec-25.pdf)
 
+<<<<<<< HEAD
 The files should have the path as well as the file name.  For example If I had the file `test.csv` and the file was located in the `sample` directory your result should look like : 
 
 > *If you're using linux/Mac : *
 > sample/test.csv
 
 > *If you're using Windows : * 
+=======
+The files should have the path as well as the file name.  For example, you have a file `test.csv` located in the `sample` directory, your result should look like this: 
+
+> *If you're using linux/Mac: *
+> sample/test.csv
+
+> *If you're using Windows: * 
+>>>>>>> 960914c66acb5e108bdef7498886c31b6d97c7e4
 > sample\\test.csv
 
 In order to achieve this, you need to use the os.path.join() function. **Please do not hardcode "/" or "\\"** because doing so will cause your function to fail on a computer that's not using the same operating system as yours.
 
+<<<<<<< HEAD
 You should be able to test out this specific function by typing in the following at the command line : 
+=======
+You should be able to test out this specific function by typing in the following at the command line: 
+>>>>>>> 960914c66acb5e108bdef7498886c31b6d97c7e4
 
 ```(bash)
 python main.py get_list_of_files sample_data
 ```
 
+<<<<<<< HEAD
 an example of output on a windows machine
+=======
+An example of output on a windows machine:
+>>>>>>> 960914c66acb5e108bdef7498886c31b6d97c7e4
 
 ```
 [
@@ -64,24 +89,40 @@ an example of output on a windows machine
 
 ## 2: Reading Files
 
+<<<<<<< HEAD
 The next three functions will focus on reading in the different types of files, and combining them together into a single data structure.  Some of these will look similar to past functions we've designed in this course.
+=======
+The next three functions will focus on reading in the different types of files and combining them together into a single data structure.  Some of these will look similar to past functions we've designed in this course.
+>>>>>>> 960914c66acb5e108bdef7498886c31b6d97c7e4
 
 ### 2.1 `read_json_file` function
 
 > input(s) to this function:
+<<<<<<< HEAD
 > * filepath : a string representation of the **full path** to a json file
+=======
+> * filepath: a string representation of the **full path** to a json file
+>>>>>>> 960914c66acb5e108bdef7498886c31b6d97c7e4
 
 This function will be taking in a filepath and returning a list of dictionaries that correspond to the tweet data that was in the .json file.
 
 Take note here that the key of the dictionaries in the original JSON files is the tweet_id, which becomes a new field in the output JSON (see example below). 
 
+<<<<<<< HEAD
 You should be able to test out this specific function by typing in the following at the command line : 
+=======
+You should be able to test out this specific function by typing in the following at the command line: 
+>>>>>>> 960914c66acb5e108bdef7498886c31b6d97c7e4
 
 ```(bash)
 python main.py read_json_file sample_data/1.json
 ```
 
+<<<<<<< HEAD
 an example of output from this call
+=======
+An example of output from this call:
+>>>>>>> 960914c66acb5e108bdef7498886c31b6d97c7e4
 ```
 [
   {
@@ -131,16 +172,28 @@ an example of output from this call
 ### 2.2 `read_csv_file` function
 
 > input(s) to this function:
+<<<<<<< HEAD
 > * filepath : a string representation of the **full path** to a CSV file
 
 This function will be taking in a file_name and returning a list of dictionaries that correspond to the tweet data that was in the .csv file.
 
 You should be able to test out this specific function by typing in the following at the command line : 
+=======
+> * filepath: a string representation of the **full path** to a CSV file
+
+This function will be taking in a file_name and returning a list of dictionaries that correspond to the tweet data that was in the .csv file.
+
+You should be able to test out this specific function by typing in the following at the command line: 
+>>>>>>> 960914c66acb5e108bdef7498886c31b6d97c7e4
 
 ```(bash)
 python main.py read_csv_file sample_data/1.csv
 ```
+<<<<<<< HEAD
 an example of output for this code
+=======
+An example of output for this code:
+>>>>>>> 960914c66acb5e108bdef7498886c31b6d97c7e4
 ```
 [
   {
@@ -190,7 +243,11 @@ an example of output for this code
 ### 2.3 `read_all` function
 
 > input(s) to this function:
+<<<<<<< HEAD
 > * data_dir : a string representation of the directory to be searched.
+=======
+> * data_dir: a string representation of the directory to be searched.
+>>>>>>> 960914c66acb5e108bdef7498886c31b6d97c7e4
 
 This step of the assignment will require you calling your past functions in order to combine all the different files into one single data structure.  This means that you will start with the directory name, and using this you will:
 
@@ -200,13 +257,21 @@ This step of the assignment will require you calling your past functions in orde
 
 At the end of this function you should have one single list that contains all the data that was in the separate files.
 
+<<<<<<< HEAD
 You should be able to test out this specific function by typing in the following at the command line : 
+=======
+You should be able to test out this specific function by typing in the following at the command line: 
+>>>>>>> 960914c66acb5e108bdef7498886c31b6d97c7e4
 
 ```(bash)
 python main.py read_all sample_data
 ```
 
+<<<<<<< HEAD
 example of this code being run
+=======
+Example of this code being run:
+>>>>>>> 960914c66acb5e108bdef7498886c31b6d97c7e4
 
 ```
 [
@@ -378,6 +443,7 @@ example of this code being run
 ## 3 `read_and_clean_all` function
 
 > input(s) to this function:
+<<<<<<< HEAD
 > * data_dir : a string representation of the directory to be searched.
 
 This function will be calling the `clean_dict` function that we have provided in order to format the data properly.    
@@ -387,12 +453,27 @@ The `clean_dict` function takes in a dictionary, and returns a dictionary that h
 <INSERT EXAMPLE HERE for CLEAN_DICT OUTPUT> 
 
 You should be able to test out this specific function by typing in the following at the command line : 
+=======
+> * data_dir: a string representation of the directory to be searched.
+
+This function will be calling the `clean_dict` function that we have provided in order to format the data properly.    
+
+The `clean_dict` function takes in a dictionary and returns a dictionary that has been reformatted.
+
+<INSERT EXAMPLE HERE for CLEAN_DICT OUTPUT> 
+
+You should be able to test out this specific function by typing in the following at the command line: 
+>>>>>>> 960914c66acb5e108bdef7498886c31b6d97c7e4
 
 ```(bash)
 python main.py read_and_clean_all sample_data
 ```
 
+<<<<<<< HEAD
 example of output from this function
+=======
+Example of output from this function:
+>>>>>>> 960914c66acb5e108bdef7498886c31b6d97c7e4
  ```
  [
   {
@@ -562,25 +643,42 @@ example of output from this function
 ## 4 `write_json` function
 
 > input(s) to this function:
+<<<<<<< HEAD
 > * data_dir : a string representation of the directory to be searched.
 > * output_filename : the name of the file to be written to
 
 This function calls the read_and_clean_all() function on the data_dir given to it, **sorts the resulting list of dictionaries based on the username in ascending order** and then writes the resulting list of dictionaries as a **JSON File** to the filename specified by the "output_filename" parameter. We've provided the sort_list_of_dicts() function from P7 to help you do this. 
 
 You should be able to test out this specific function by typing in the following at the command line : 
+=======
+> * data_dir: a string representation of the directory to be searched.
+> * output_filename: the name of the file to be written to
+
+This function calls the read_and_clean_all() function on the data_dir given to it, **sorts the resulting list of dictionaries based on the username in ascending order** and then writes the resulting list of dictionaries as a **JSON File** to the filename specified by the "output_filename" parameter. We've provided the sort_list_of_dicts() function from P7 to help you do this. 
+
+You should be able to test out this specific function by typing in the following at the command line: 
+>>>>>>> 960914c66acb5e108bdef7498886c31b6d97c7e4
 
 ```(bash)
 python main.py write_json sample_data out.json
 ```
 
+<<<<<<< HEAD
 This will not output anything. You should however have a new file called out.json, which you can open up to look at the contents of. 
+=======
+This will not output anything. You should, however, have a new file called out.json, which you can open up to look at the contents of. 
+>>>>>>> 960914c66acb5e108bdef7498886c31b6d97c7e4
 
 *If everything until here is correct, your score from test.py should be `70%`.*
 
 
 # Pass 2
 
+<<<<<<< HEAD
 After your program was finished your Boss, Nick Jonas, was quite excited to finally know why he is unable to find work as a musician.  However the data that was given by his sourcing agent caused your code to crash in multiple different locations.  Upon taking a closer look at the data, it is clear why this occurred.  The sample dataset that was given to you had already been cleaned, and so it worked nicely with your code.  However the real dataset has inconsistencies that cause crashes within your code.  We will now return to your previous functions and modify them to work better with a more realistic dataset.  The final `30%` of this assignment will be focused on error handling, and debugging in order to fit a more robust dataset. 
+=======
+After your program was finished your Boss, Nick Jonas, was quite excited to finally know why he is unable to find work as a musician.  However, the data that was given by his sourcing agent caused your code to crash in multiple different locations.  Upon taking a closer look at the data, it is clear why this occurred.  The sample dataset that was given to you had already been cleaned, and so it worked nicely with your code.  However, the real dataset has inconsistencies that cause crashes within your code.  We will now return to your previous functions and modify them to work better with a more realistic dataset.  The final `30%` of this assignment will be focused on error handling and debugging in order to fit a more robust dataset.
+>>>>>>> 960914c66acb5e108bdef7498886c31b6d97c7e4
 
 
 ## 5 Exception handling
@@ -603,16 +701,30 @@ The problem with this function is that there are some .json files that have been
 
 ### 5.3 `read_csv_file`
 
+<<<<<<< HEAD
 the problem with this function is that some of the .csv files do not have the appropriate number of columns.  Instead of crashing your code should skip rows in the .csv that do not have the appropriate number of elements.
 
 Take note that if you've used DictReader from the csv module to accomplish this task, DictReader replaces values it can't find with None, so you'd still end up with the right number of elements, one of them would just be a None. 
+=======
+The problem with this function is that some of the .csv files do not have the appropriate number of columns.  Instead of crashing, your code should skip rows in the .csv that do not have the appropriate number of elements.
+
+Take note that if you've used DictReader from the csv module to accomplish this task, DictReader replaces values it can't find with None (instead of crashing), so you'll still end up with the right number of elements, one of them would just be a None.  You will still need to skip these rows containing None values.
+>>>>>>> 960914c66acb5e108bdef7498886c31b6d97c7e4
 
 *If everything until here is correct, your score from test.py should be `90%`.*
 
 ### 5.4 `read_and_clean_all`
 
+<<<<<<< HEAD
 the problem with this function is that some of the data is not in the correct format in order to be converted.  If this occurs you should ignore the row (it should not be included in your parsed dictionary) and your function should continue running.
 
 *If everything until here is correct, your score from test.py should be `100%`.*
 
 Hurray, now your program works and Nick Jonas can analyze the tweet data.  We don't quite understand how tweet data will relate to a dying music career but we're sure Nick Jonas will find a way.
+=======
+The problem with this function is that some of the data is not in the correct format in order to be converted.  If this occurs, you should ignore the row (it should not be included in your parsed dictionary) and your function should continue running.
+
+*If everything until here is correct, your score from test.py should be `100%`.*
+
+Hurray, now your program works and Nick Jonas can analyze the tweet data.  We don't quite understand how tweet data will relate to a dying music career, but we're sure Nick Jonas will find a way.
+>>>>>>> 960914c66acb5e108bdef7498886c31b6d97c7e4
