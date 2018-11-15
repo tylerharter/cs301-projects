@@ -1,37 +1,37 @@
 {
   "1467812416": {
     "date": "Mon Apr 06 22:20:16 PDT 2009",
-    "username": "USERID_2",
+    "username": "USERID_9",
     "tweet_text": "spring break in plain city... it's snowing ",
-    "is_retweet": true,
-    "num_liked": 9215
+    "is_retweet": false,
+    "num_liked": 5278
   },
   "1467812579": {
     "date": "Mon Apr 06 22:20:17 PDT 2009",
-    "username": "USERID_9",
+    "username": "USERID_1",
     "tweet_text": "I just re-pierced my ears ",
-    "is_retweet": true,
-    "num_liked": 9393
+    "is_retweet": false,
+    "num_liked": 9700
   },
   "1467812723": {
     "date": "Mon Apr 06 22:20:19 PDT 2009",
-    "username": "USERID_9",
+    "username": "USERID_3",
     "tweet_text": "@caregiving I couldn't bear to watch it.  And I thought the UA loss was embarrassing . . . . .",
-    "is_retweet": false,
-    "num_liked": 7345
+    "is_retweet": true,
+    "num_liked": 5414
   },
   "1467812771": {
     "date": "Mon Apr 06 22:20:19 PDT 2009",
-    "username": "USERID_3",
+    "username": "USERID_8",
     "tweet_text": "@octolinz16 It it counts, idk why I did either. you never talk to me anymore ",
-    "is_retweet": true,
-    "num_liked": 1879
+    "is_retweet": false,
+    "num_liked": 2190
   },
   "1467812784": {
     "date": "Mon Apr 06 22:20:20 PDT 2009",
-    "username": "USERID_9",
+    "username": "USERID_10",
     "tweet_text": "@smarrison i would've been the first, but i didn't have a gun.    not really though, zac snyder's just a doucheclown.",
     "is_retweet": true,
-    "num_liked": 6476
+    "num_liked": 2667
   }
 }
