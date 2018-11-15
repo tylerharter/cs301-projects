@@ -297,7 +297,6 @@ def run_all():
             elif t.function_name == 'get_list_of_files':
                 result = compare_file_lists(out, expected_out)
             else: 
-                print(test_number, type(out), type(expected_out))
                 result = compare_list_of_dicts(out, expected_out)
             test_details['result'] = result
 
