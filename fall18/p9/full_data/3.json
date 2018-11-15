@@ -60,14 +60,14 @@
     "username": "USERID_2",
     "tweet_text": "@JonathanRKnight Oh! Did I mention it? &quot;Gooooood Moooorniiiiiiing&quot;  from Germany! Im back in my cage....or better...my office ",
     "is_retweet": false,
-    "num_liked": 869
+    "num_liked": "869M"
   },
   "1467894600": {
     "date": "Mon Apr 06 22:41:51 PDT 2009",
     "username": "USERID_8",
     "tweet_text": "throat is closing up and i had some string cheese. not a good idea ",
     "is_retweet": true,
-    "num_liked": 915
+    "num_liked": "915k"
   },
   "1467894746": {
     "date": "Mon Apr 06 22:41:54 PDT 2009",
@@ -179,7 +179,7 @@
     "username": "USERID_10",
     "tweet_text": "@MizzChievouz Hey girl. The site is back.  Girlyvue is back and they have even more videos. ",
     "is_retweet": false,
-    "num_liked": 8767
+    "num_liked": "unkown"
   },
   "1467896778": {
     "date": "Mon Apr 06 22:42:28 PDT 2009",
