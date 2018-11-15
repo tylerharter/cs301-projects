@@ -355,7 +355,7 @@ def main():
             print('    {} : {}'.format(test['name'], str(test['result'])))
         else:
             fail_string = "FAILED" if test['result'] != TEST_GATE_MSG else "NOT RUN"
-            print('    {} : {} : [-{}%] : {}'.format(test['name'], fail_string, test['weight'], str(test['result'])))
+            print('    {} : {} : [-{}%]\t [Command tested: {}] \t: {}'.format(test['name'], fail_string, test['weight'], test['command'], str(test['result'])))
             
         
     print("\nScore: {}%".format(results['score']))
