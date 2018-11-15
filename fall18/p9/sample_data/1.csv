@@ -1,6 +1,6 @@
 tweet_id,date,username,num_liked,tweet_text,is_retweet
-1467811372,Mon Apr 06 22:20:00 PDT 2009,USERID_3,699,@Kwesidei not the whole crew ,False
-1467811592,Mon Apr 06 22:20:03 PDT 2009,USERID_6,9526,Need a hug ,False
-1467811594,Mon Apr 06 22:20:03 PDT 2009,USERID_7,4816,"@LOLTrish hey  long time no see! Yes.. Rains a bit ,only a bit  LOL , I'm fine thanks , how's you ?",False
-1467811795,Mon Apr 06 22:20:05 PDT 2009,USERID_4,5782,@Tatiana_K nope they didn't have it ,True
-1467812025,Mon Apr 06 22:20:09 PDT 2009,USERID_3,2010,@twittera que me muera ? ,False
+1467811372,Mon Apr 06 22:20:00 PDT 2009,USERID_6,5882,@Kwesidei not the whole crew ,True
+1467811592,Mon Apr 06 22:20:03 PDT 2009,USERID_8,2676,Need a hug ,True
+1467811594,Mon Apr 06 22:20:03 PDT 2009,USERID_9,2182,"@LOLTrish hey  long time no see! Yes.. Rains a bit ,only a bit  LOL , I'm fine thanks , how's you ?",True
+1467811795,Mon Apr 06 22:20:05 PDT 2009,USERID_1,7791,@Tatiana_K nope they didn't have it ,False
+1467812025,Mon Apr 06 22:20:09 PDT 2009,USERID_1,8149,@twittera que me muera ? ,False

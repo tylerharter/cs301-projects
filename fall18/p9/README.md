@@ -73,6 +73,8 @@ The next three functions will focus on reading in the different types of files, 
 
 This function will be taking in a filepath and returning a list of dictionaries that correspond to the tweet data that was in the .json file.
 
+Take note here that the key of the dictionaries in the original JSON files is the tweet_id, which becomes a new field in the output JSON (see example below). 
+
 You should be able to test out this specific function by typing in the following at the command line : 
 
 ```(bash)
@@ -602,6 +604,8 @@ The problem with this function is that there are some .json files that have been
 ### 5.3 `read_csv_file`
 
 the problem with this function is that some of the .csv files do not have the appropriate number of columns.  Instead of crashing your code should skip rows in the .csv that do not have the appropriate number of elements.
+
+Take note that if you've used DictReader from the csv module to accomplish this task, DictReader replaces values it can't find with None, so you'd still end up with the right number of elements, one of them would just be a None. 
 
 *If everything until here is correct, your score from test.py should be `90%`.*
 
