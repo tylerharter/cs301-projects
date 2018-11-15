@@ -206,7 +206,7 @@ You should be able to test out this specific function by typing in the following
 python main.py read_all sample_data
 ```
 
-example of this code being run
+Example of this code being run:
 
 ```
 [
@@ -382,7 +382,7 @@ example of this code being run
 
 This function will be calling the `clean_dict` function that we have provided in order to format the data properly.    
 
-The `clean_dict` function takes in a dictionary, and returns a dictionary that has been reformatted.
+The `clean_dict` function takes in a dictionary and returns a dictionary that has been reformatted.
 
 <INSERT EXAMPLE HERE for CLEAN_DICT OUTPUT> 
 
@@ -392,7 +392,7 @@ You should be able to test out this specific function by typing in the following
 python main.py read_and_clean_all sample_data
 ```
 
-example of output from this function
+Example of output from this function:
  ```
  [
   {
@@ -573,14 +573,14 @@ You should be able to test out this specific function by typing in the following
 python main.py write_json sample_data out.json
 ```
 
-This will not output anything. You should however have a new file called out.json, which you can open up to look at the contents of. 
+This will not output anything. You should, however, have a new file called out.json, which you can open up to look at the contents of. 
 
 *If everything until here is correct, your score from test.py should be `70%`.*
 
 
 # Pass 2
 
-After your program was finished your Boss, Nick Jonas, was quite excited to finally know why he is unable to find work as a musician.  However the data that was given by his sourcing agent caused your code to crash in multiple different locations.  Upon taking a closer look at the data, it is clear why this occurred.  The sample dataset that was given to you had already been cleaned, and so it worked nicely with your code.  However the real dataset has inconsistencies that cause crashes within your code.  We will now return to your previous functions and modify them to work better with a more realistic dataset.  The final `30%` of this assignment will be focused on error handling, and debugging in order to fit a more robust dataset. 
+After your program was finished your Boss, Nick Jonas, was quite excited to finally know why he is unable to find work as a musician.  However, the data that was given by his sourcing agent caused your code to crash in multiple different locations.  Upon taking a closer look at the data, it is clear why this occurred.  The sample dataset that was given to you had already been cleaned, and so it worked nicely with your code.  However, the real dataset has inconsistencies that cause crashes within your code.  We will now return to your previous functions and modify them to work better with a more realistic dataset.  The final `30%` of this assignment will be focused on error handling and debugging in order to fit a more robust dataset.
 
 
 ## 5 Exception handling
@@ -603,16 +603,16 @@ The problem with this function is that there are some .json files that have been
 
 ### 5.3 `read_csv_file`
 
-the problem with this function is that some of the .csv files do not have the appropriate number of columns.  Instead of crashing your code should skip rows in the .csv that do not have the appropriate number of elements.
+The problem with this function is that some of the .csv files do not have the appropriate number of columns.  Instead of crashing, your code should skip rows in the .csv that do not have the appropriate number of elements.
 
-Take note that if you've used DictReader from the csv module to accomplish this task, DictReader replaces values it can't find with None, so you'd still end up with the right number of elements, one of them would just be a None. 
+Take note that if you've used DictReader from the csv module to accomplish this task, DictReader replaces values it can't find with None (instead of crashing), so you'll still end up with the right number of elements, one of them would just be a None.  You will still need to skip these rows containing None values.
 
 *If everything until here is correct, your score from test.py should be `90%`.*
 
 ### 5.4 `read_and_clean_all`
 
-the problem with this function is that some of the data is not in the correct format in order to be converted.  If this occurs you should ignore the row (it should not be included in your parsed dictionary) and your function should continue running.
+The problem with this function is that some of the data is not in the correct format in order to be converted.  If this occurs, you should ignore the row (it should not be included in your parsed dictionary) and your function should continue running.
 
 *If everything until here is correct, your score from test.py should be `100%`.*
 
-Hurray, now your program works and Nick Jonas can analyze the tweet data.  We don't quite understand how tweet data will relate to a dying music career but we're sure Nick Jonas will find a way.
+Hurray, now your program works and Nick Jonas can analyze the tweet data.  We don't quite understand how tweet data will relate to a dying music career, but we're sure Nick Jonas will find a way.
