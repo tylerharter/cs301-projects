@@ -8,7 +8,7 @@ In this assignment we are going to learn
 
 Download the zip file from the link below, and unarchive it. You should be able to do this just by double clicking on it once downloaded, and it will create a new folder containing everything you need for this assignment. Please do all your coding within this folder. 
 
-* TBD (Zip File) 
+* [cs301_p9.zip](https://raw.githubusercontent.com/tylerharter/cs301-projects/master/fall18/p9/cs301_p9.zip)
 
 # Task
 Your Boss, music prodigy turned data analyst extraordinaire, Nick Jonas, has asked you to create a program that takes in a bunch of tweet data, and to combine it into one single file for analysis.
