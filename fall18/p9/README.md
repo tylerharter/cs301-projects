@@ -22,34 +22,34 @@ In this first pass, we will work **only** with the files in the folder "sample_d
 ## 1. `get_list_of_files` function
 
 > input(s) to this function:
-> * data_dir : a string representation of the directory to be searched
+> * data_dir: a string representation of the directory to be searched
 
-This function will be taking in a directory as a parameter, and returning a list of files that were located in that directory.
+This function will be taking in a directory as a parameter and returning a list of files that were located in that directory.
 
-The list of files needs to be **sorted in ascending alphabetical order**. You don't have to worry about how python's sort treats numbers and so forth, just sort() the list and you should be okay, as long as it's contents are accurate. 
+The list of files needs to be **sorted in ascending alphabetical order**. You don't have to worry about how Python's sort treats numbers and so forth; just sort() the list and you should be okay.
 
 > The `os.listdir` function will be helpful in achieving this task    
 > for more information on os.listdir
 > * [os.listdir official documentation](https://docs.python.org/2/library/os.html)
 > * [Tyler's Slides](https://tyler.caraza-harter.com/cs301/fall18/materials/lec-25.pdf)
 
-The files should have the path as well as the file name.  For example If I had the file `test.csv` and the file was located in the `sample` directory your result should look like : 
+The files should have the path as well as the file name.  For example, you have a file `test.csv` located in the `sample` directory, your result should look like this: 
 
-> *If you're using linux/Mac : *
+> *If you're using linux/Mac: *
 > sample/test.csv
 
-> *If you're using Windows : * 
+> *If you're using Windows: * 
 > sample\\test.csv
 
 In order to achieve this, you need to use the os.path.join() function. **Please do not hardcode "/" or "\\"** because doing so will cause your function to fail on a computer that's not using the same operating system as yours.
 
-You should be able to test out this specific function by typing in the following at the command line : 
+You should be able to test out this specific function by typing in the following at the command line: 
 
 ```(bash)
 python main.py get_list_of_files sample_data
 ```
 
-an example of output on a windows machine
+An example of output on a windows machine:
 
 ```
 [
@@ -64,24 +64,24 @@ an example of output on a windows machine
 
 ## 2: Reading Files
 
-The next three functions will focus on reading in the different types of files, and combining them together into a single data structure.  Some of these will look similar to past functions we've designed in this course.
+The next three functions will focus on reading in the different types of files and combining them together into a single data structure.  Some of these will look similar to past functions we've designed in this course.
 
 ### 2.1 `read_json_file` function
 
 > input(s) to this function:
-> * filepath : a string representation of the **full path** to a json file
+> * filepath: a string representation of the **full path** to a json file
 
 This function will be taking in a filepath and returning a list of dictionaries that correspond to the tweet data that was in the .json file.
 
 Take note here that the key of the dictionaries in the original JSON files is the tweet_id, which becomes a new field in the output JSON (see example below). 
 
-You should be able to test out this specific function by typing in the following at the command line : 
+You should be able to test out this specific function by typing in the following at the command line: 
 
 ```(bash)
 python main.py read_json_file sample_data/1.json
 ```
 
-an example of output from this call
+An example of output from this call:
 ```
 [
   {
@@ -131,16 +131,16 @@ an example of output from this call
 ### 2.2 `read_csv_file` function
 
 > input(s) to this function:
-> * filepath : a string representation of the **full path** to a CSV file
+> * filepath: a string representation of the **full path** to a CSV file
 
 This function will be taking in a file_name and returning a list of dictionaries that correspond to the tweet data that was in the .csv file.
 
-You should be able to test out this specific function by typing in the following at the command line : 
+You should be able to test out this specific function by typing in the following at the command line: 
 
 ```(bash)
 python main.py read_csv_file sample_data/1.csv
 ```
-an example of output for this code
+An example of output for this code:
 ```
 [
   {
@@ -190,7 +190,7 @@ an example of output for this code
 ### 2.3 `read_all` function
 
 > input(s) to this function:
-> * data_dir : a string representation of the directory to be searched.
+> * data_dir: a string representation of the directory to be searched.
 
 This step of the assignment will require you calling your past functions in order to combine all the different files into one single data structure.  This means that you will start with the directory name, and using this you will:
 
@@ -200,7 +200,7 @@ This step of the assignment will require you calling your past functions in orde
 
 At the end of this function you should have one single list that contains all the data that was in the separate files.
 
-You should be able to test out this specific function by typing in the following at the command line : 
+You should be able to test out this specific function by typing in the following at the command line: 
 
 ```(bash)
 python main.py read_all sample_data
@@ -378,7 +378,7 @@ example of this code being run
 ## 3 `read_and_clean_all` function
 
 > input(s) to this function:
-> * data_dir : a string representation of the directory to be searched.
+> * data_dir: a string representation of the directory to be searched.
 
 This function will be calling the `clean_dict` function that we have provided in order to format the data properly.    
 
@@ -386,7 +386,7 @@ The `clean_dict` function takes in a dictionary, and returns a dictionary that h
 
 <INSERT EXAMPLE HERE for CLEAN_DICT OUTPUT> 
 
-You should be able to test out this specific function by typing in the following at the command line : 
+You should be able to test out this specific function by typing in the following at the command line: 
 
 ```(bash)
 python main.py read_and_clean_all sample_data
@@ -562,12 +562,12 @@ example of output from this function
 ## 4 `write_json` function
 
 > input(s) to this function:
-> * data_dir : a string representation of the directory to be searched.
-> * output_filename : the name of the file to be written to
+> * data_dir: a string representation of the directory to be searched.
+> * output_filename: the name of the file to be written to
 
 This function calls the read_and_clean_all() function on the data_dir given to it, **sorts the resulting list of dictionaries based on the username in ascending order** and then writes the resulting list of dictionaries as a **JSON File** to the filename specified by the "output_filename" parameter. We've provided the sort_list_of_dicts() function from P7 to help you do this. 
 
-You should be able to test out this specific function by typing in the following at the command line : 
+You should be able to test out this specific function by typing in the following at the command line: 
 
 ```(bash)
 python main.py write_json sample_data out.json
