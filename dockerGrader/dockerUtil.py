@@ -54,7 +54,10 @@ class dockerGrader:
 
     def tryExtractResultScore(self, blob):
         try:
-            return json.loads(blob).get('score', 0)
+            result = json.loads(blob)
+            if result and "upload" in result and not result["upload"]:
+                return None
+            return result.get('score', 0)
         except:
             return 0
 
@@ -92,7 +95,7 @@ class dockerGrader:
             response = s3.get_object(Bucket=BUCKET, Key=self.uploadKey)
             return response['Body'].read().decode('utf-8')
         except:
-            return json.dumps({"score":0, "error": "result not found"})
+            return json.dumps({"score":0, "error": "s3 fetching failed", "upload": False})
 
     def getLocalResult(self, errorLog = None):
         if errorLog:
@@ -168,7 +171,7 @@ class dockerGrader:
         os.makedirs(self.testDir)
         res = self.downloadSubmission()
         if not res:
-            return
+            return False
 
         # we can't use shutil.copytree here again because TEST_DIR exists
         testCodePath = "./test/{}".format(self.project)
@@ -200,6 +203,8 @@ class dockerGrader:
         if upload:
             self.uploadResult()
 
+        return True
+
     # dockerRunSafe will check the existing grade first to avoid incorrect grade override
     def dockerRunSafe(self):
         try:
@@ -208,12 +213,14 @@ class dockerGrader:
             if scoreOld == 100:
                 self.logger.info('skip because old score was 100')
                 return
-            self.dockerRun(upload=False)
+            if not self.dockerRun(upload=False):
+                self.logger.info('skip because submission not found')
+                return
             resultNew = self.getLocalResult()
             scoreNew = self.tryExtractResultScore(resultNew)
             # only upload if new score is better
             self.logger.info("old score: {}, new score: {}".format(scoreOld, scoreNew))
-            if scoreNew > scoreOld or scoreNew == scoreOld == 0:
+            if scoreOld == None or scoreNew > scoreOld:
                 self.logger.info('Uploading new score')
                 self.uploadResult()
             self.logger.debug("new test results:")
