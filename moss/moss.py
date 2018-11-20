@@ -10,7 +10,6 @@ if __name__ == "__main__":
     userid = sys.argv[1]
     print("Moss ID:", userid, "Submissions:", SUBMISSIONS)
     print("Moss is running. Please be patient. It may take around 5 mintues to generate the result.")
-    sys.exit(0)
     m = mosspy.Moss(userid, "python")
     m.addFilesByWildcard(SUBMISSIONS)
 
