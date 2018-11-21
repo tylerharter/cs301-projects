@@ -17,7 +17,10 @@ recommend trying to complete one stage each week so you don't leave
 too much work until the end.
 
 You'll be doing all your work in a notebook, and when you're done,
-you'll turn in a `main.ipynb` file.
+you'll turn in a `main.ipynb` file.  We recommend you start by
+reviewing the
+[reading](https://tyler.caraza-harter.com/cs301/fall18/materials/readings/lec-26/pandas-intro.html)
+where we first introduced notebooks.
 
 As usual, you can work with one partner.  Please include the usual
 comments
@@ -36,10 +39,12 @@ These two pages list the 238 country files and 175 capital files respectively:
 * [https://tyler.caraza-harter.com/cs301/fall18/data/countries/file_list.txt](https://tyler.caraza-harter.com/cs301/fall18/data/countries/file_list.txt)
 * [https://tyler.caraza-harter.com/cs301/fall18/data/capitals/file_list.txt](https://tyler.caraza-harter.com/cs301/fall18/data/capitals/file_list.txt)
 
+# Testing
+
+
+
 # Stages
 
 * [Stage 1](stage1.md)
-* Stage 2
-* Stage 3
-
-You can find 
+* Stage 2 (not posted yet)
+* Stage 3 (not posted yet)
