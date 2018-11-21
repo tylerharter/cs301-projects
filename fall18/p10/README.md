@@ -3,7 +3,7 @@
 For your final CS 301 project, you're going to analyze the whole
 world!
 
-Specifically, you're going to study various statistics for 238
+Specifically, you're going to study various statistics for 175
 countries, answering questions such as: what is the correlation
 between a country's literacy rate and GDP?
 
@@ -29,22 +29,30 @@ in the first cell of your notebook.
 
 # Data
 
-For this project, you'll be using 238 data files describing countries
+For this project, you'll be using large JSON file with statistics
+about 175 countries, and 175 small JSON files, each with details about
+one country's capital.
+
+238 data files describing countries
 and 175 data files describing capitals.  The data was adapted from
 [here](http://techslides.com/list-of-countries-and-capitals) and
 [here](https://www.kaggle.com/fernandol/countries-of-the-world).
 
-These two pages list the 238 country files and 175 capital files respectively:
+You should start by looking at these two web resources:
 
-* [https://tyler.caraza-harter.com/cs301/fall18/data/countries/file_list.txt](https://tyler.caraza-harter.com/cs301/fall18/data/countries/file_list.txt)
-* [https://tyler.caraza-harter.com/cs301/fall18/data/capitals/file_list.txt](https://tyler.caraza-harter.com/cs301/fall18/data/capitals/file_list.txt)
+* [https://tyler.caraza-harter.com/cs301/fall18/data/countries.json](https://tyler.caraza-harter.com/cs301/fall18/data/countries.json)
+* [https://tyler.caraza-harter.com/cs301/fall18/data/capitals.txt](https://tyler.caraza-harter.com/cs301/fall18/data/capitals.txt)
 
 # Testing
 
-
+If your notebook is named main, run the following to test your
+notebook (be sure to save it first, or you might test an old version
+of your code): `python test.py main.ipynb`.  Tests will run everything
+in order, if you get a different result, you may want to try clicking
+"Restart and Run All" from the "Kernel" menu before running the tests.
 
 # Stages
 
-* [Stage 1](stage1.md)
-* Stage 2 (not posted yet)
-* Stage 3 (not posted yet)
+* [Stage 1: Web Scraping](stage1.md)
+* Stage 2: Database Querying (not posted yet)
+* Stage 3: Plotting (not posted yet)
