@@ -1,9 +1,13 @@
 import os, sys, subprocess, json, re, collections
 
-Question = collections.namedtuple("Question", ["number", "weight"])
+Question = collections.namedtuple("Question", ["number", "weight", "format"])
+# FORMATS:
+JSON_FORMAT = "json"
+TEXT_FORMAT = "text"
 
 questions = [
-    Question(number=1, weight=1),
+    Question(number=1, weight=1, format=TEXT_FORMAT),
+    Question(number=2, weight=1, format=JSON_FORMAT),
 ]
 question_nums = set([q.number for q in questions])
 
@@ -40,6 +44,14 @@ def normalize_json(orig):
     except:
         return 'not JSON'
 
+def check_cell_text(qnum, cell):
+    actual_lines = cell.get('outputs', [])[0].get('data', {}).get('text/plain', [])
+    actual = ''.join(actual_lines).strip()
+    expected = expected_json[str(qnum)].strip()
+    if actual == expected:
+        return 'PASS'
+    return 'found {} but expected {}'.format(actual, expected)
+
 def check_cell_json(qnum, cell):
     actual_lines = cell.get('outputs', [])[0].get('data', {}).get('text/plain', [])
     actual = normalize_json(''.join(actual_lines))
@@ -48,9 +60,11 @@ def check_cell_json(qnum, cell):
         return 'PASS'
     return 'mismatch'
 
-def check_cell(qnum, cell):
-    if str(qnum) in expected_json:
-        return check_cell_json(qnum, cell)
+def check_cell(question, cell):
+    if question.format == TEXT_FORMAT:
+        return check_cell_text(question.number, cell)
+    elif question.format == JSON_FORMAT:
+        return check_cell_json(question.number, cell)
 
     return "PASS"
 
@@ -62,7 +76,7 @@ def grade_answers(cells):
         status = "not found"
 
         if question.number in cells:
-            status = check_cell(question.number, cells[question.number])
+            status = check_cell(question, cells[question.number])
 
         row = {"test": question.number, "result": status, "weight": question.weight}
         results['tests'].append(row)
