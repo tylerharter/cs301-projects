@@ -43,6 +43,15 @@ You should start by looking at these two web resources:
 * [https://tyler.caraza-harter.com/cs301/fall18/data/countries.json](https://tyler.caraza-harter.com/cs301/fall18/data/countries.json)
 * [https://tyler.caraza-harter.com/cs301/fall18/data/capitals.txt](https://tyler.caraza-harter.com/cs301/fall18/data/capitals.txt)
 
+Some of the columns require a little extra explanation:
+* area: measured in square miles
+* coastline: ration of coast to area
+* birth-rate: births per 1000 people per year
+* death-rate: deaths per 1000 people per year
+* infant-mortality: per 1000 births
+* literacy: (out of 100%)
+* phones: number of phone per 1000 people
+
 # Testing
 
 If your notebook is named main, run the following to test your
