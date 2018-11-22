@@ -31,10 +31,7 @@ in the first cell of your notebook.
 
 For this project, you'll be using one large JSON file with statistics
 about 175 countries, and 175 small JSON files, each with details about
-one country's capital.
-
-238 data files describing countries
-and 175 data files describing capitals.  The data was adapted from
+one country's capital.  The data was adapted from
 [here](http://techslides.com/list-of-countries-and-capitals) and
 [here](https://www.kaggle.com/fernandol/countries-of-the-world).
 
@@ -42,6 +39,9 @@ You should start by looking at these two web resources:
 
 * [https://tyler.caraza-harter.com/cs301/fall18/data/countries.json](https://tyler.caraza-harter.com/cs301/fall18/data/countries.json)
 * [https://tyler.caraza-harter.com/cs301/fall18/data/capitals.txt](https://tyler.caraza-harter.com/cs301/fall18/data/capitals.txt)
+
+The second file contains links to smaller files that you will need to
+automatically download for your analysis.
 
 Some of the columns require a little extra explanation:
 * area: measured in square miles
@@ -57,8 +57,9 @@ Some of the columns require a little extra explanation:
 If your notebook is named main, run the following to test your
 notebook (be sure to save it first, or you might test an old version
 of your code): `python test.py main.ipynb`.  Tests will run everything
-in order, if you get a different result, you may want to try clicking
-"Restart and Run All" from the "Kernel" menu before running the tests.
+in order, so if you get a different result, you may want to try
+clicking "Restart and Run All" from the "Kernel" menu before running
+the tests.
 
 # Stages
 
