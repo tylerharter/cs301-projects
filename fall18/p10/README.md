@@ -4,8 +4,8 @@ For your final CS 301 project, you're going to analyze the whole
 world!
 
 Specifically, you're going to study various statistics for 175
-countries, answering questions such as: what is the correlation
-between a country's literacy rate and GDP?
+countries, answering questions such as: *what is the correlation
+between a country's literacy rate and GDP?*
 
 # General Directions
 
@@ -45,7 +45,7 @@ automatically download for your analysis.
 
 Some of the columns require a little extra explanation:
 * area: measured in square miles
-* coastline: ration of coast to area
+* coastline: ratio of coast to area
 * birth-rate: births per 1000 people per year
 * death-rate: deaths per 1000 people per year
 * infant-mortality: per 1000 births
@@ -55,11 +55,15 @@ Some of the columns require a little extra explanation:
 # Testing
 
 If your notebook is named main, run the following to test your
-notebook (be sure to save it first, or you might test an old version
-of your code): `python test.py main.ipynb`.  Tests will run everything
-in order, so if you get a different result, you may want to try
-clicking "Restart and Run All" from the "Kernel" menu before running
-the tests.
+notebook (be sure to save it first, or you might accidentally test an
+old version of your code): `python test.py main.ipynb`.
+
+Tests will run everything in order, so if you get a different result,
+you may want to try clicking "Restart and Run All" from the "Kernel"
+menu in your notebook before running the tests.
+
+You will need to download test.py, expected.json, and expected.html in
+order to run the tests.
 
 # Stages
 
