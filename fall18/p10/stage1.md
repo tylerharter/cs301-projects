@@ -51,6 +51,57 @@ a DataFrame.
  [Series.item()](https://pandas.pydata.org/pandas-docs/stable/generated/pandas.Series.item.html)
  function.
 
-## Q4: which country has the farthest North capital?
+## Q4: which 5 countries have the southern-most capitals?
 
-https://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.sort_values.html
+*Format*: produce your answer as a JSON formatted list of five
+ countries.  The list should be sorted so that the countries with
+ capitals farther south are first.
+
+*Hint 1*: look at the documentation examples of how to sort a
+ DataFrame with the
+ [sort_values](https://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.sort_values.html)
+ function.
+
+* Hint 2*: look at examples that used the
+  [head](https://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.head.html)
+  function.
+
+## Q5: which 3 countries have the northern-most capitals?
+
+*Format*: produce your answer as a JSON formatted list of three
+ countries.  The list should be sorted so that the countries with
+ capitals farther north are first.
+
+## Q6: for "birth-rate" and "death-rate", what are various summary
+   statistics (e.g., mean, max, standard deviation, etc)?
+
+*Format*: use the
+ [describe](https://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.describe.html)
+ function on a DataFrame containing `birth-rate` and `death-rate`
+ columns.  You may include summary statistics for other columns in
+ your output, as long as your summary table has stats for birth and
+ death.
+
+## Q7: for "literacy" and "phone", what are various summary
+   statistics (e.g., mean, max, standard deviation, etc)?
+
+In [some
+ countries](https://en.wikipedia.org/wiki/Decimal_separator#Arabic_numerals),
+ it is standard to use commas instead of periods to indicate decimals.
+ The `literacy` and `phone` data is formatted this way (decimal
+ numbers represented as strings, with commas for decimals).  You'll
+ need to normalize this
+
+*Hint*: learn how to use the
+ [astype](https://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.astype.html)
+ and
+ [replace](https://pandas.pydata.org/pandas-docs/stable/generated/pandas.Series.str.replace.html)
+ Pandas functions.
+
+## Q8: what is the largest land-locked country in Europe?
+
+A "land-locked" country is one that has zero coastline.  Largest is in terms of population.
+
+## Q9: what is the largest land-locked country in Africa?
+
+## Q10: what is the largest land-locked country in South America?
