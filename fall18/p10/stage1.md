@@ -17,7 +17,7 @@ comment that says `#q1`.
 
 
 
-# Q1: what is the total population across all the countries in the dataset?
+## Q1: what is the total population across all the countries in the dataset?
 
 *Hint 1*: `pd.read_json(URL)` will return a DataFrame by downloading the
  JSON file from online at URL.  If the downloaded JSON contains a list
@@ -27,23 +27,30 @@ comment that says `#q1`.
  DataFrame.  You can add all the values in a Series with the `.sum()`
  method.
 
-# Q2: what is the first URL in the https://tyler.caraza-harter.com/cs301/fall18/data/capitals.txt page?
+## Q2: what is the first URL in the capitals.txt page?
 
-*Hint*: use requests.get to download the capitals.txt, then split it into a list.
+*Hint*: use requests.get to download the
+ [capitals.txt](https://tyler.caraza-harter.com/cs301/fall18/data/capitals.txt),
+ then split it into a list.
 
-# Q3: what is the capital of China?
+## Q3: what is the capital of China?
 
-To get credit for this one, make sure you extract the data from the files referenced in capitals.txt.
+To solve this problem (and subsequent problems), use `requests.get` to
+download every file listed in capitals.txt and combine all the data in
+a DataFrame.
 
 *Hint 1*: construct a DataFrame where every row is from one of the
  files listed in capitals.txt.  This will be useful for answering
- other questions as well.
+ other questions as well.  If `rows` is a list of dictionaries (each
+ representing a row), you can easily construct a DataFrame with this
+ snippet: `DataFrame(rows)`.
 
 *Hint 2*: you can use fancy indexing to extract the row where the
- Country equals "China".  Then, extract the Capital Series, from which
- you can grab the only values with
+ `Country` equals "China".  Then, extract the `Capital` Series, from
+ which you can grab the only value with
  [Series.item()](https://pandas.pydata.org/pandas-docs/stable/generated/pandas.Series.item.html)
  function.
 
+## Q4: which country has the farthest North capital?
 
 https://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.sort_values.html
