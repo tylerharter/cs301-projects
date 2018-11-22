@@ -29,7 +29,7 @@ in the first cell of your notebook.
 
 # Data
 
-For this project, you'll be using large JSON file with statistics
+For this project, you'll be using one large JSON file with statistics
 about 175 countries, and 175 small JSON files, each with details about
 one country's capital.
 

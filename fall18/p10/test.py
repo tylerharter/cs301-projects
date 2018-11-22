@@ -9,18 +9,19 @@ HTML_FORMAT = "html"
 Question = collections.namedtuple("Question", ["number", "weight", "format"])
 
 questions = [
-    Question(number=1, weight=3, format=TEXT_FORMAT),
-    Question(number=2, weight=3, format=TEXT_FORMAT),
-    Question(number=3, weight=3, format=TEXT_FORMAT),
-    
+    Question(number=1, weight=4, format=TEXT_FORMAT),
+    Question(number=2, weight=4, format=TEXT_FORMAT),
+    Question(number=3, weight=4, format=TEXT_FORMAT),
+
     Question(number=4, weight=3, format=JSON_FORMAT),
     Question(number=5, weight=3, format=JSON_FORMAT),
-    
+
     Question(number=6, weight=3, format=HTML_FORMAT),
-    
-    Question(number=8, weight=3, format=TEXT_FORMAT),
-    Question(number=9, weight=3, format=TEXT_FORMAT),
-    Question(number=10, weight=3, format=TEXT_FORMAT),
+    Question(number=7, weight=3, format=HTML_FORMAT),
+
+    Question(number=8, weight=2, format=TEXT_FORMAT),
+    Question(number=9, weight=2, format=TEXT_FORMAT),
+    Question(number=10, weight=2, format=TEXT_FORMAT),
 ]
 question_nums = set([q.number for q in questions])
 
@@ -185,7 +186,11 @@ def main():
             continue
         answer_cells[q] = cell
 
+    # do grading on extracted answers and produce results.json
     results = grade_answers(answer_cells)
+    passing = sum(t['weight'] for t in results['tests'] if t['result'] == PASS)
+    total = sum(t['weight'] for t in results['tests'])
+    results['score'] = 100.0 * passing / total
     print(json.dumps(results, indent=2))
 
 if __name__ == '__main__':
