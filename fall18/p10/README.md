@@ -7,6 +7,14 @@ Specifically, you're going to study various statistics for 175
 countries, answering questions such as: *what is the correlation
 between a country's literacy rate and GDP?*
 
+To start, download the 4 files given below into your project directory.
+
+* [expected.json](https://raw.githubusercontent.com/tylerharter/cs301-projects/master/fall18/p10/expected.json)
+* [expected.html](https://raw.githubusercontent.com/tylerharter/cs301-projects/master/fall18/p10/expected.html)
+* [test.py](https://raw.githubusercontent.com/tylerharter/cs301-projects/master/fall18/p10/test.py)
+
+
+
 # General Directions
 
 The final project is due on December 12, but we're breaking it into
