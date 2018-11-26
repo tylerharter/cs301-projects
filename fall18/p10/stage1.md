@@ -107,7 +107,7 @@ In [some
 
 ## Q8: what is the largest land-locked country in Europe?
 
-A "land-locked" country is one that has zero coastline.  Largest is in terms of population.
+A "land-locked" country is one that has zero coastline.  Largest is in terms of **area**.
 
 ## Q9: what is the largest land-locked country in Africa?
 
