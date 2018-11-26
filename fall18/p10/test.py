@@ -192,6 +192,8 @@ def main():
     total = sum(t['weight'] for t in results['tests'])
     results['score'] = 100.0 * passing / total
     print(json.dumps(results, indent=2))
+    with open('result.json', 'w') as f:
+        f.write(json.dumps(result, indent=2))
 
 if __name__ == '__main__':
     main()
