@@ -30,7 +30,7 @@ expected_json = None
 with open('expected.json') as f:
     expected_json = json.load(f)
 
-    
+
 # returns a dictionary
 # key: (row index, column name)
 # val: cell values
@@ -76,7 +76,7 @@ def rerun_notebook(orig_notebook):
     new_notebook = 'cs-301-test.ipynb'
 
     # re-execute it from the beginning
-    cmd = 'jupyter nbconvert --execute {orig} --to notebook --output={new}'
+    cmd = 'jupyter nbconvert --execute {orig} --to notebook --output={new} --ExecutePreprocessor.timeout=120'
     cmd = cmd.format(orig=orig_notebook, new=new_notebook)
     subprocess.check_output(cmd, shell=True)
 
@@ -92,7 +92,7 @@ def normalize_json(orig):
     except:
         return 'not JSON'
 
-    
+
 def check_cell_text(qnum, cell):
     actual_lines = cell.get('outputs', [])[0].get('data', {}).get('text/plain', [])
     actual = ''.join(actual_lines).strip().strip("'")
