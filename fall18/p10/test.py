@@ -22,6 +22,8 @@ questions = [
     Question(number=8, weight=2, format=TEXT_FORMAT),
     Question(number=9, weight=2, format=TEXT_FORMAT),
     Question(number=10, weight=2, format=TEXT_FORMAT),
+
+    Question(number=11, weight=2, format=TEXT_FORMAT),
 ]
 question_nums = set([q.number for q in questions])
 
@@ -97,9 +99,15 @@ def check_cell_text(qnum, cell):
     actual_lines = cell.get('outputs', [])[0].get('data', {}).get('text/plain', [])
     actual = ''.join(actual_lines).strip().strip("'")
     expected = expected_json[str(qnum)].strip().strip("'")
-    if actual == expected:
-        return PASS
-    return 'found {} but expected {}'.format(actual, expected)
+    try:
+        actual_float = float(actual)
+        expected_float = float(expected)
+        if not math.isclose(actual_float, expected_float, rel_tol=1e-06, abs_tol=1e-06):
+            return "found {} in {} but expected {}".format(actual, location_name, expected)
+    except Exception as e:
+        if actual != expected:
+            return 'found {} but expected {}'.format(actual, expected)
+    return PASS
 
 
 def check_cell_json(qnum, cell):
