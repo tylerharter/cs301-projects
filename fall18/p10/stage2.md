@@ -3,7 +3,7 @@
 In this section, you're going to be further analyze the dataset.
 Some of your answers can be answered by loading your data into a
 SQLite database and sending queries to the database. The questions
-11 - 15 should be answered by writing python code and questions 
+11 - 15 should be answered by writing Python code and questions 
 16 - 20 should be answered by using SQL queries.
 
 ## Q11: what is the distance between Camp Randall Stadium and the Wisconsin State Capital?
@@ -82,13 +82,13 @@ columns: `nearest` will contain the name of the nearest country and
 ## NOTE: The following questions need to be answered using SQL queries.
 You should create a database table before you are able to answer the
 following questions using SQL queries. For creating a table, you may use
-the below code snippet. This code snippet create and connects to a database
+the below code snippet. This code snippet creates and connects to a database
 named *countries.db* and the `to_sql()` function creates a database table
-named `countries_table` from the `countries` dataframe
+named `countries_table` from the `countries` DataFrame
 (note this name may be different in your code) that was created using the
-countries.json file (in step 1).
+*countries.json* file (in step 1).
 
-```python
+```Python
 import sqlite3
 conn = sqlite3.connect('countries.db')
 countries.to_sql("countries_table", conn, if_exists="replace", index=False)
@@ -99,7 +99,7 @@ You should display the `country` name and `population` of the countries that mat
 the above criteria. The countries should be listed in the *ascending* order of population.
 
 *Hint*: `pd.read_sql(query, conn)` executes a SQL query on the database connection
-object conn and returns the result as a pandas dataframe. You may use this function
+object conn and returns the result as a pandas DataFrame. You may use this function
 to write and execute the SQL queries by replacing the `query` with the appropriate
 SQL query.
 
