@@ -25,6 +25,11 @@ questions = [
     Question(number=13, weight=3, format=HTML_FORMAT),
     Question(number=14, weight=3, format=TEXT_FORMAT),
     Question(number=15, weight=3, format=HTML_FORMAT),
+    Question(number=16, weight=3, format=HTML_FORMAT),
+    Question(number=17, weight=3, format=HTML_FORMAT),
+    Question(number=18, weight=3, format=HTML_FORMAT),
+    Question(number=19, weight=3, format=HTML_FORMAT),
+    Question(number=20, weight=3, format=HTML_FORMAT),
 ]
 question_nums = set([q.number for q in questions])
 
@@ -79,7 +84,7 @@ def rerun_notebook(orig_notebook):
     new_notebook = 'cs-301-test.ipynb'
 
     # re-execute it from the beginning
-    cmd = 'jupyter nbconvert --execute {orig} --to notebook --output={new}'
+    cmd = 'jupyter nbconvert --execute {orig} --to notebook --output={new} --ExecutePreprocessor.timeout=120'
     cmd = cmd.format(orig=orig_notebook, new=new_notebook)
     subprocess.check_output(cmd, shell=True)
 

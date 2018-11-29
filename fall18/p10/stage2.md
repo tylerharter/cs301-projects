@@ -1,10 +1,10 @@
 # Stage 2: Database Queries
 
-In this section, you're going to be further analyzing the dataset.
+In this section, you're going to be further analyze the dataset.
 Some of your answers can be answered by loading your data into a
-SQLite database and sending queries to the database.  You need to
-decide which questions to answer with SQL queries and which to answer
-by writing Python code (some are not easily answerable with a query).
+SQLite database and sending queries to the database. The questions
+11 - 15 should be answered by writing python code and questions 
+16 - 20 should be answered by using SQL queries.
 
 ## Q11: what is the distance between Camp Randall Stadium and the Wisconsin State Capital?
 
@@ -19,7 +19,7 @@ Assumptions:
 * answer in miles
 
 If you find code online that computes the Haversine distance for you,
-great!  You can use it as long as you (1) it works and (2) you cite
+great!  You can use it as long as (1) it works and (2) you cite
 the source with a comment.
 
 If you decide to implement it yourself (it's fun!), here are some tips:
@@ -46,7 +46,7 @@ expected.html file you downloaded.  When displaying the distance
 between a country and itself, the table should should NaN (instead of
 0).
 
-## Q14: what is the most central South America country?
+## Q14: what is the most central South American country?
 
 This is the country that has the shortest average distance to other
 South American countries.
@@ -79,3 +79,56 @@ columns: `nearest` will contain the name of the nearest country and
  minimum values.  If you run `df.idxmin()` on a DataFrame, the
  returned values contain indexes from the DataFrame.
  
+## NOTE: The following questions need to be answered using SQL queries.
+You should create a database table before you are able to answer the
+following questions using SQL queries. For creating a table, you may use
+the below code snippet. This code snippet create and connects to a database
+named *countries.db* and the `to_sql()` function creates a database table
+named `countries_table` from the `countries` dataframe
+(note this name may be different in your code) that was created using the
+countries.json file (in step 1).
+
+```python
+import sqlite3
+conn = sqlite3.connect('countries.db')
+countries.to_sql("countries_table", conn, if_exists="replace", index=False)
+```
+
+## Q16: which countries in North America have a population less than 100000?
+You should display the `country` name and `population` of the countries that match
+the above criteria. The countries should be listed in the *ascending* order of population.
+
+*Hint*: `pd.read_sql(query, conn)` executes a SQL query on the database connection
+object conn and returns the result as a pandas dataframe. You may use this function
+to write and execute the SQL queries by replacing the `query` with the appropriate
+SQL query.
+
+## Q17: what are the top 3 countries in Europe that have the largest population?
+You should display the `country` name and `population` of the top three countries
+in Europe that have the largest population. These top three countries should be
+displayed in *descending* order of population.
+
+## Q18: what is the average population of every continent?
+For this question, you should calculate the average population of every continent
+and display the `continent` name and average population of the continent (using a 
+column named `avg_pop`). The results should be displayed in *descending* order of the
+column `avg_pop`.
+
+*Hint*: You can rename a column using the `AS` keyword in SQL.
+
+## Q19: what is the number of countries within each continent?
+For this question, you should calculate the number of countries within every continent
+and display the `continent` name and number of countries within that continent (using a 
+column named `num_countries`). The results should be displayed in *ascending* order of the
+column `num_countries`. If two continents have the same number of countries, then those
+continents should be displayed in alphabetical order (e.g., if Australia and South America
+have the same number of countries, then Australia should be displayed before South America).
+
+## Q20: which continents have an average death-rate greater than 10?
+For this question, you should calculate the average death-rate of every continent
+and display the `continent` name and average death-rate of the continents (using a 
+column named `avg_death_rate`) that have an average death rate greater than 10. 
+The results should be displayed in *descending* order of the column `avg_death_rate`.
+
+*Hint*: For filtering based on an aggregated column (e.g., avg_death_rate), you should
+use `HAVING` instead of `WHERE`.
