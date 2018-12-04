@@ -84,8 +84,10 @@ class dockerGrader:
         fileContents = base64.b64decode(submission.pop('payload'))
         fileName = submission['filename']
         # override the filename if it is a python source file
-        if len(fileName) >= 3 and fileName[-2:] == 'py':
+        if len(fileName) >= 3 and fileName.endswith('.py'):
             fileName = "main.py"
+        elif len(fileName) >= 6 and fileName.endswith('.ipynb'):
+            fileName = "main.ipynb"
         with open(os.path.join(self.testDir, fileName), 'wb') as f:
             f.write(fileContents)
         return True
