@@ -94,7 +94,7 @@ X values tend to coincide with small Y values and vice versa.
 
 **Expected output:**
 
-<img src="q25.png">
+<img src="q25.png" width="600">
 
 ## Q26: what is the relationship between literacy and phones?
 
@@ -121,9 +121,10 @@ literacy is greater?
 ## Q28: what is the relationship between literacy and area?
 
 Create a **scatter plot** with literacy on the x-axis and area on the
-y-axis.  The Pearson correlation between these two numbers was close
-to zero (-0.108139).  Is the relationship in this scatter plot less
-striking than those for phones and birth-rate?
+y-axis.  Use a **log scale** for the y-axis by passing `logy=True` to
+`scatter`.  The Pearson correlation between these two numbers was
+close to zero (-0.108139).  Is the relationship in this scatter plot
+less striking than those for phones and birth-rate?
 
 **Expected output:**
 
@@ -133,8 +134,8 @@ striking than those for phones and birth-rate?
 
 Create a **scatter plot** with literacy on the x-axis and area on the
 y-axis.  Imagine we wanted to fit a straight line to this data.  Even
-though the two metrics, a straight fit line will not work well here,
-unless we find another way of looking at the data.
+though the two metrics are clearly related, a straight fit line will
+not work well here, unless we find another way of looking at the data.
 
 **Expected output:**
 
