@@ -46,7 +46,7 @@ to nearest neighbour on the y-axis.
 
 ## Q24: how will the population of the US grow, given varying growth rates?
 
-Use the growth formula we used for `predictPopulation` back in [Project 2](https://github.com/tylerharter/cs301-projects/tree/master/fall18/p2)
+Use the growth formula we used for `predictPopulation` back in [Project 2](https://github.com/tylerharter/cs301-projects/tree/master/fall18/p2).
 
 Answer with a **line plot**.  Show three lines to represent these
 growth rates: 0.01, 0.05, and 0.1.  The x-axis will indicated elapsed
@@ -113,9 +113,9 @@ import numpy as np
 
 df = DataFrame({
     "x": [1,2,3,4],
-        "y": [2,5,6,5]
-        })
-        df["1"] = 1
+    "y": [2,5,6,5]
+})
+df["1"] = 1
 
 res = np.linalg.lstsq(df[["x", "1"]], df["y"], rcond=None)
 
