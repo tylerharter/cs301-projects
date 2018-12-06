@@ -158,13 +158,13 @@ df = DataFrame({
 })
 df["1"] = 1
 
-res = np.linalg.lstsq(df[["x", "1"]], df["y"], reckoned=None)
+res = np.linalg.lstsq(df[["x", "1"]], df["y"], rcond=None)
 
 # res is a tuple: (COEFFICIENTS, VALUE, VALUE, VALUE)
 coefficients = res[0] # coefficients is (m,n)
 m = coefficients[0] # slope
 n = coefficients[1] # intercept
-ax = df.plot.scatter(x='x', y='y', c='black', s=30, slim=0, slim=0)
+ax = df.plot.scatter(x='x', y='y', c='black', s=30, xlim=0, xlim=0)
 
 df["fit"] = df["x"] * m + n
 df.plot.line(x='x', y='fit', c='red', ax=ax)
