@@ -5,6 +5,7 @@ PASS = "PASS"
 JSON_FORMAT = "json"
 TEXT_FORMAT = "text"
 HTML_FORMAT = "html"
+PNG_FORMAT = "PNG"
 
 Question = collections.namedtuple("Question", ["number", "weight", "format"])
 
@@ -30,6 +31,17 @@ questions = [
     Question(number=18, weight=3, format=HTML_FORMAT),
     Question(number=19, weight=3, format=HTML_FORMAT),
     Question(number=20, weight=3, format=HTML_FORMAT),
+
+    Question(number=21, weight=4, format=PNG_FORMAT),
+    Question(number=22, weight=4, format=PNG_FORMAT),
+    Question(number=23, weight=4, format=PNG_FORMAT),
+    Question(number=24, weight=4, format=PNG_FORMAT),
+    Question(number=25, weight=4, format=HTML_FORMAT),
+    Question(number=26, weight=3, format=PNG_FORMAT),
+    Question(number=27, weight=3, format=PNG_FORMAT),
+    Question(number=28, weight=3, format=PNG_FORMAT),
+    Question(number=29, weight=3, format=PNG_FORMAT),
+    Question(number=30, weight=8, format=PNG_FORMAT),
 ]
 question_nums = set([q.number for q in questions])
 
@@ -156,12 +168,27 @@ def check_cell_html(qnum, cell):
     if len(outputs) == 0:
         return 'no outputs in an Out[N] cell'
     actual_lines = outputs[0].get('data', {}).get('text/html', [])
-    actual_cells = parse_df_html_table(''.join(actual_lines))
+    try:
+        actual_cells = parse_df_html_table(''.join(actual_lines))
+    except Exception as e:
+        print("ERROR!  Could not find table in notebook")
+        raise e
 
-    with open('expected.html') as f:
-        expected_cells = parse_df_html_table(f.read(), qnum)
+    try:
+        with open('expected.html') as f:
+            expected_cells = parse_df_html_table(f.read(), qnum)
+    except Exception as e:
+        print("ERROR!  Could not find table in expected.html")
+        raise e
 
     return diff_df_cells(actual_cells, expected_cells)
+
+
+def check_cell_png(qnum, cell):
+    for output in cell.get('outputs', []):
+        if 'image/png' in output.get('data', {}):
+            return PASS
+    return 'no plot found'
 
 
 def check_cell(question, cell):
@@ -172,7 +199,9 @@ def check_cell(question, cell):
         return check_cell_json(question.number, cell)
     elif question.format == HTML_FORMAT:
         return check_cell_html(question.number, cell)
-
+    elif question.format == PNG_FORMAT:
+        return check_cell_png(question.number, cell)
+    
     return PASS
 
 

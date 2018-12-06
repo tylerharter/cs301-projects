@@ -77,4 +77,4 @@ order to run the tests.
 
 * [Stage 1: Web Scraping](stage1.md)
 * [Stage 2: Database Querying](stage2.md)
-* Stage 3: Plotting (not posted yet)
+* [Stage 3: Plotting](stage3.md)
