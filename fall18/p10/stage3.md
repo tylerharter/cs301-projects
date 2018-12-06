@@ -13,9 +13,10 @@ tests can only detect whether you produced a plot; they cannot
 evaluate the contents of the plot.  TAs will evaluate the plots
 manually, deducting points for plots not matching the specifications.
 For each plot, we give an example of what a solution might look like.
-Consider these examples minimal acceptable answers.  You are free to
-improve the aesthetic aspects of the plots (e.g., colors, size,
-labels, ticks, legend, etc).
+Consider these examples minimal acceptable answers (they are
+sufficient to receive full credit).  You are free to improve the
+aesthetic aspects of the plots (e.g., colors, size, labels, ticks,
+legend, etc) if you like.
 
 Before you start, make sure you re-download the latest test.py,
 expected.json, and expected.html files.  Remember to download the RAW
@@ -24,7 +25,7 @@ versions (not the preview pages from GitHub).  For example:
 <img src="raw.png" width="200">
 
 Some questions may be nearly identical to ones we've already asked
-you, but now you must answer with a plot (instead of a table).
+you, but now you must answer with a plot instead of with a table.
 
 
 ## Q21: what is the average country population by continent?
@@ -62,7 +63,7 @@ along the x-axis alphabetically by name, ascending.
 Use the growth formula we used for `predictPopulation` back in [Project 2](https://github.com/tylerharter/cs301-projects/tree/master/fall18/p2).
 
 Answer with a **line plot**.  Show three lines to represent these
-growth rates: 0.01, 0.05, and 0.1.  The x-axis will indicated elapsed
+growth rates: 0.01, 0.05, and 0.1.  The x-axis will indicate elapsed
 years (relative to the time when the data in countries.json was
 collected).  The projection should be over 10 years.  The y-axis will
 indicate the anticipated population.
@@ -80,16 +81,20 @@ table showing the Pearson correlation between every pair of columns in
 df, so this should be a very easy question (more details
 [here](https://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.corr.html)).
 
-We want talk about the math behind the Pearson correlation, but spend
+We won't talk about the math behind the Pearson correlation, but spend
 some time looking at the numbers to gain an intuition for this metric.
-A correlation of 1 is the max (so, for example, every column
+A correlation of 1 is the max (so, for example, every column is
 correlated perfectly with itself).
 
 A high correlation between columns X and Y means that large X values
 tend to coincide with large Y values and small X values tend to
 coincide with small Y values.  In some of the cells, you'll observe
 negative correlations (-1 being the smallest).  This means that large
-X values tended to coincide with small Y values and vice versa.
+X values tend to coincide with small Y values and vice versa.
+
+**Expected output:**
+
+<img src="q25.png">
 
 ## Q26: what is the relationship between literacy and phones?
 
