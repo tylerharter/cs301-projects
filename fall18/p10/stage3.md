@@ -27,7 +27,7 @@ Some questions may be nearly identical to ones we've already asked
 you, but now you must answer with a plot (instead of a table).
 
 
-## Q21: what is the average population of every continent?
+## Q21: what is the average country population by continent?
 
 Answer with a **bar plot**.  Put continents on the x-axis and average
 populations on the y-axis.  The continents should be sorted along the
@@ -37,7 +37,7 @@ x-axis alphabetically by name, ascending.
 
 <img src="q21.png">
 
-## Q22: what is the number of countries within each continent?
+## Q22: how many countries are there within each continent?
 
 Answer with a **bar plot**.  Put continents on the x-axis and number
 of countries on the y-axis.  The continents should be sorted along the
@@ -47,7 +47,7 @@ x-axis alphabetically by name, ascending.
 
 <img src="q22.png">
 
-## Q23: how close is each country in South America to its nearest neighbor?
+## Q23: how close is each country's capital in South America to its nearest neighbor?
 
 Answer with a **bar plot**.  Put countries on the x-axis and distance
 to nearest neighbor on the y-axis.  The coutries should be sorted
@@ -66,6 +66,10 @@ growth rates: 0.01, 0.05, and 0.1.  The x-axis will indicated elapsed
 years (relative to the time when the data in countries.json was
 collected).  The projection should be over 10 years.  The y-axis will
 indicate the anticipated population.
+
+**Expected output:**
+
+<img src="q24.png">
 
 ## Q25: what is the correlation between every pair of statistics in the DataFrame about countries?
 
@@ -94,12 +98,20 @@ y-axis.  The Pearson correlation between these two numbers was
 positive (0.594322).  Do you observe a pattern of more phones when
 literacy is greater?
 
+**Expected output:**
+
+<img src="q26.png">
+
 ## Q27: what is the relationship between literacy and the birth rate?
 
 Create a **scatter plot** with literacy on the x-axis and birth-rate on
 the y-axis.  The Pearson correlation between these two numbers was
 negative (-0.792272).  Do you observe a pattern of fewer babies when
 literacy is greater?
+
+**Expected output:**
+
+<img src="q27.png">
 
 ## Q28: what is the relationship between literacy and area?
 
@@ -108,12 +120,20 @@ y-axis.  The Pearson correlation between these two numbers was close
 to zero (-0.108139).  Is the relationship in this scatter plot less
 striking than those for phones and birth-rate?
 
+**Expected output:**
+
+<img src="q28.png">
+
 ## Q29: what is the relationship between GDP-per-capita and infant mortality in Europe?
 
 Create a **scatter plot** with literacy on the x-axis and area on the
 y-axis.  Imagine we wanted to fit a straight line to this data.  Even
 though the two metrics, a straight fit line will not work well here,
 unless we find another way of looking at the data.
+
+**Expected output:**
+
+<img src="q29.png">
 
 ## Q30: what is the relationship between GDP-per-capita and the inverse of infant mortality in Europe?
 
@@ -147,3 +167,7 @@ df.plot.line(x='x', y='fit', c='red', ax=ax)
 Then adapt the above code so that it uses your DataFrame (instead of
 df) and replaces "x" with GDP-per-capita and "y" with the inverse of
 infant mortality.
+
+**Expected output:**
+
+<img src="q30.png">

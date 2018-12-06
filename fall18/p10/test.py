@@ -32,9 +32,9 @@ questions = [
     Question(number=19, weight=3, format=HTML_FORMAT),
     Question(number=20, weight=3, format=HTML_FORMAT),
 
-    Question(number=21, weight=3, format=PNG_FORMAT),
-    Question(number=22, weight=3, format=PNG_FORMAT),
-    Question(number=23, weight=3, format=PNG_FORMAT),
+    Question(number=21, weight=4, format=PNG_FORMAT),
+    Question(number=22, weight=4, format=PNG_FORMAT),
+    Question(number=23, weight=4, format=PNG_FORMAT),
     Question(number=24, weight=3, format=PNG_FORMAT),
     Question(number=25, weight=3, format=HTML_FORMAT),
     Question(number=26, weight=3, format=PNG_FORMAT),
