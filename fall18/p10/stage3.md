@@ -7,6 +7,6 @@ Before you start, make sure you re-download the latest test.py,
 expected.json, and expected.html files.  Remember to download the RAW
 versions (not the preview pages from GitHub).  For example:
 
-<img src="raw.png" width="150">
+<img src="raw.png" width="300">
 
 ## Q21: 
