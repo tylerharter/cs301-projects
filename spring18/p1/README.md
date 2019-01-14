@@ -32,7 +32,10 @@ Inside the new "cs301" folder you created under "Documents", we
 recommend you create a sub-folder called "p1" and use it for all your
 files related to this project.  This way, you can keep files for
 different projects separate (you'll create a "p2" sub-folder for the
-next project and so on).
+next project and so on).  Of course, computers crash and files get
+accidentally deleted, so you should make sure you backup your work
+regularly (at a minimum, consider emailing yourself relevant files on
+occasion).
 
 Next, you will need to download the files we specify to your project
 folder.  In this case, you will just download "test.py" to your "p1"
@@ -105,6 +108,8 @@ you think you installed Anaconda, please bring your laptop to
 someone's office hours for help -- there are probably some tricky
 configuration issues remaining.
 
+**Note:** aoeu
+
 If everything works properly, you'll see something like this (notice
 you can still see the test.py file in Jupyter):
 
@@ -114,7 +119,62 @@ Click "New", then "Python 3".  A new tab like this should open:
 
 <img src="nb.png" width="600">
 
+Notice how it says "Untitled" at the top?  Click that word, type a new
+name for the notebook, then click "Rename".  We recommend you name
+your notebook "main".  Now, if you go back to File Explorer or Finder
+and open the "p1" folder, you should see a file named "main.ipynb"
+(though the extension of ".ipynb" may be hidden depending on your
+computer).  This is the file you'll hand in at the end.
+
 ## Step 3: Copy/Paste Code
+
+Now you're going to run some Python code.  We don't expect you to
+write your own code for this project yet, so you'll just copy/paste
+what we provide.
+
+In the box adjacent `In [ ]`, paste the following:
+
+```
+#q1
+name = "World"
+"Hello " + name
+```
+
+Then hit SHIFT-ENTER on the keyboard (this means you should first
+press and hold down the SHIFT key, then press the ENTER key at the
+same time).  There should now be an `Out [1]` area saying this:
+
+```
+'Hello World'
+```
+
+A new input box (called a "cell") will also have been created
+automatically for you.  Let's paste this in that cell:
+
+```
+#q2
+6*7
+```
+
+Hit SHIFT-ENTER again to run it, and you'll see an output of `42`.
+
+At this point, your notebook should look like this:
+
+<img src="p1.png" width="600">
+
+Let's paste and run one more cell:
+
+```
+"oops"
+```
+
+What if you want to delete that last cell?  Try clicking in the cell
+where you typed "oops".  Then hit the ESCAPE key on your keyboard.
+Notice how the cell border changes from green to blue?  That means the
+notebook is in command mode, so whatever you type will trigger
+commands (instead of adding text to the box).  Hit the "d" key twice,
+and see how the cell gets deleted.  This will be handy whenever you
+make a mistake or want to delete your scratch work.
 
 ## Step 4: Run the Tests
 
