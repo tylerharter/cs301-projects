@@ -108,7 +108,9 @@ you think you installed Anaconda, please bring your laptop to
 someone's office hours for help -- there are probably some tricky
 configuration issues remaining.
 
-**Note:** aoeu
+**Note:** even though we'll be working in the web browser now, NEVER
+  close the terminal window where you typed "jupyter notebook" until
+  your done -- if you do, you'll probably lose any unsaved work.
 
 If everything works properly, you'll see something like this (notice
 you can still see the test.py file in Jupyter):
@@ -178,4 +180,78 @@ make a mistake or want to delete your scratch work.
 
 ## Step 4: Run the Tests
 
+Remember the test.py file we asked you to download?  That file is a
+Python program that you can run to check whether your notebook looks
+correct before you turn it in.  Here are the steps to use it:
+
+1. in your notebook, click "Kernel" from the menu, then click "Restart & Run All"
+2. confirm "Restart & Run All Cells"
+3. click "File" from the menu (beneath the Jupyter logo), then click "Save and Checkpoint"
+4. open a new terminal window, as you did in step 2 of this document
+5. type the same `cd "P1-PATH"` command in the terminal as before, again replacing `P1-PATH` with the pathname of "p1" in your notes, and hit ENTER
+6. type `python test.py` and hit ENTER; if that doesn't work, try `python3 test.py`; if that still doesn't work, please get help during office hours.
+
+If everything is setup properly and your notebook is correct, you'll see something like this:
+
+```
+[NbConvertApp] Converting notebook main.ipynb to notebook
+[NbConvertApp] Executing notebook with kernel: python3
+[NbConvertApp] Writing 1211 bytes to cs-301-test.ipynb
+Checking 1
+Checking 2
+{
+  "score": 100.0,
+  "tests": [
+    {
+      "test": 1,
+      "result": "PASS",
+      "weight": 1
+    },
+    {
+      "test": 2,
+      "result": "PASS",
+      "weight": 1
+    }
+  ]
+}
+TOTAL SCORE: 100.00
+```
+
+The only thing you need to care about for now is that last line:
+`100.00` means you're passing 100% of the tests.
+
+In general, for tests to be helpful, make sure you alway do the
+"Restart & Run All Cells" and "Save and Checkpoint" steps described
+above.
+
 ## Step 5: Hand in the Project
+
+Before you can hand in the project, you need to add a few more
+details.  Paste the following in a new cell:
+
+```python
+# project: p1
+# submitter-netid: NETID1
+# partner-netid: NETID2
+```
+
+Replace `NETID1` with your Net ID (the part before "@wisc.edu" in your
+student email address).  If you worked with a partner, replace
+`NETID2` with your partner's Net ID; otherwise, replace NETID2 with
+"none".
+
+If you worked with with a partner, there should only be one submission
+between you (please don't both submit), and make sure that
+`submitter-netid` refers to the one actually submitting the code (not
+the other partner).
+
+To hand in the notebook, complete the following steps:
+
+1. run through the tests one last time (after you added your Net ID info)
+2. go to [https://tyler.caraza-harter.com/cs301/spring18/submission.html](https://tyler.caraza-harter.com/cs301/spring18/submission.html)
+3. select "Project 1"
+4. click "Choose File" and find your main.ipynb file
+5. click "Submit"
+6. click "Check Code Review" to make sure your submission looks correct
+
+Congrats on finishing your first CS 301 project!
