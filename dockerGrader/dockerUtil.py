@@ -84,8 +84,10 @@ class dockerGrader:
         fileContents = base64.b64decode(submission.pop('payload'))
         fileName = submission['filename']
         # override the filename if it is a python source file
-        if len(fileName) >= 3 and fileName[-2:] == 'py':
+        if len(fileName) >= 3 and fileName.endswith('.py'):
             fileName = "main.py"
+        elif len(fileName) >= 6 and fileName.endswith('.ipynb'):
+            fileName = "main.ipynb"
         with open(os.path.join(self.testDir, fileName), 'wb') as f:
             f.write(fileContents)
         return True
@@ -185,14 +187,14 @@ class dockerGrader:
 
         # run tests inside a docker container
         image = 'shenghaozou/301testenv:v1'
-        cmd = ['timeout', '70',                           # set a timeout
+        cmd = ['timeout', '300',                           # set a timeout
                'docker', 'run',                           # start a container
                '--rm',                                    # remove the container when exit
                '-v', os.path.abspath(self.testDir)+':/code',  # share the test dir inside
                '-u', str(self.currentUID),                     # run as local user (instead of root)
                '-w', '/code',                             # working dir is w/ code
                image,                                     # what docker image?
-               'timeout', '60',
+               'timeout', '280',
                'python3', 'test.py']                      # command to run inside
 
         try:
