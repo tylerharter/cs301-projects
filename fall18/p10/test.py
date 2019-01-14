@@ -98,7 +98,7 @@ def rerun_notebook(orig_notebook):
     # re-execute it from the beginning
     cmd = 'jupyter nbconvert --execute {orig} --to notebook --output={new} --ExecutePreprocessor.timeout=120'
     cmd = cmd.format(orig=orig_notebook, new=new_notebook)
-    subprocess.check_output(cmd, shell=True)
+    #subprocess.check_output(cmd, shell=True)
 
     # parse notebook
     with open(new_notebook) as f:
@@ -185,7 +185,12 @@ def check_cell_html(qnum, cell):
 
 
 def check_cell_png(qnum, cell):
+    if qnum == 21:
+        print('here')
+        print(cell)
     for output in cell.get('outputs', []):
+        if qnum == 21:
+            print(output.get('data', {}).keys())
         if 'image/png' in output.get('data', {}):
             return PASS
     return 'no plot found'

@@ -22,7 +22,7 @@ recommend creating a folder named "cs301" under "Documents".  How to
 find the Documents folder may vary from computer to computer.  On a
 Windows machine, you might find it like this in File Explorer:
 
-<img src="windows-documents.png" width="200">
+<img src="windows-documents.png" width="400">
 
 On a Mac, you might find it in Finder here:
 
@@ -33,6 +33,28 @@ recommend you create a sub-folder called "p1" and use it for all your
 files related to this project.  This way, you can keep files for
 different projects separate (you'll create a "p2" sub-folder for the
 next project and so on).
+
+Next, you will need to download the files we specify to your project
+folder.  In this case, you will just download "test.py" to your "p1"
+folder.  First, locate the file you want (test.py) at the top of the
+project document.  You'll see a list of files, something like this:
+
+<img src="github.png" width="600">
+
+Downloading files from GitHub (the site hosting this document) is a
+little tricky for those new to it.  Follow these steps carefull:
+
+1. LEFT-CLICK on "test.py"
+2. RIGHT-CLICK on the "Raw" button
+3. Choose "Save Link As..." (or similar)
+4. Save the file in your "p1" folder
+
+We recommend you use the Chrome browser (other browsers will work too,
+but sometimes we've seen Safari automatically renaming files when
+downloaded, which is usually problematic).  In Chrome, right-clicking
+the "Raw" button looks like this:
+
+<img src="raw.png" width="400">
 
 ## Step 2: Create a Python Notebook
 
