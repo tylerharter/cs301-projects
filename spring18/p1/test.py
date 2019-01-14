@@ -12,9 +12,7 @@ questions = [
 question_nums = set([q.number for q in questions])
 
 # JSON and plaintext values
-expected_json = None
-with open('expected.json') as f:
-    expected_json = json.load(f)
+expected_json = {"1": "'Hello World'", "2": "42"}
 
 
 # find a comment something like this: #q10
