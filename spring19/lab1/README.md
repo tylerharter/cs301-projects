@@ -13,6 +13,9 @@ This semester, you're going to learn how to write your own Python
 code.  But for this lab, you're just going to practice running six
 Python programs we give you (including a game!).
 
+Before you begin, you'll need to activate your CS login
+[here](https://csl.cs.wisc.edu/account_management/computer-sciences-account-activation).
+
 ## Download Your First Program
 
 The first thing you're going to need to decide is where to keep your
