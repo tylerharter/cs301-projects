@@ -6,7 +6,7 @@ If you've already installed [Python on your
 computer](https://tyler.caraza-harter.com/cs301/spring19/videos.html),
 you may still learn more by choosing to work with somebody.  This
 document is meant to be self guiding, and you may leave when you're
-finished.  Be sure to ask a neighbour or flag down a TA if you have
+finished.  Be sure to ask a neighbor or flag down a TA if you have
 any questions, though (don't be shy!).
 
 This semester, you're going to learn how to write your own Python
@@ -157,7 +157,7 @@ ValueError: could not convert string to float: 'five'
 When you see the word "Traceback", it means the program crashed.  The
 double.py program can only take numbers as digits (so "5" but not
 "five"), so it crashed when you typed something else.  Eventually,
-we'll learn how to understand what gets printed when a program crash
+we'll learn how to understand what gets printed when a program crashes
 to identify the root of the problem, but for now we won't worry about
 it any further.
 
@@ -177,7 +177,7 @@ the same time we run our program.
 
 **Discussion**: do you prefer using double.py or double-v2.py?
   Discuss with the person you are doing this lab with (or your
-  neighbour).
+  neighbor).
 
 Before continuing to the next program, try running it a couple more
 times to note what happens:
