@@ -10,16 +10,16 @@ finished.  Be sure to ask a neighbour or flag down a TA if you have
 any questions, though (don't be shy!).
 
 This semester, you're going to learn how to write your own Python
-code.  But for this lab, you're just going to practice running some
-Python programs we give you.
+code.  But for this lab, you're just going to practice running six
+Python programs we give you (including a game!).
 
-# Download Your First Program
+## Download Your First Program
 
 The first thing you're going to need to decide is where to keep your
-project work this semester.  If you don't have a preference, we
-recommend creating a folder named "cs301" under "Documents".  How to
-find the Documents folder may vary from computer to computer.  On a
-Windows machine, you might find it like this in File Explorer:
+work this semester.  If you don't have a preference, we recommend
+creating a folder named "cs301" under "Documents".  How to find the
+Documents folder may vary from computer to computer.  On a Windows
+machine, you might find it like this in File Explorer:
 
 <img src="windows-documents.png" width="400">
 
@@ -75,12 +75,12 @@ Now, you'll need to open something called a "terminal emulator".
 4. double-click Terminal.app
 
 Ok, now the directions are the same for Mac and Windows again.  Type
-this in the terminal (replace P1-PATH with the pathname of "p1", as
+this in the terminal (replace LAB1-PATH with the pathname of "lab1", as
 you determined above; keep the quotes around the pathname, though) and
 hit enter:
 
 ```
-cd "P1-PATH"
+cd "LAB1-PATH"
 ```
 
 Type `ls` and hit enter.  If you've done everything correctly so far,
@@ -101,7 +101,7 @@ students near you who are struggling to get this far, please take a
 minute and show them what you did (this helps if the TAs are swamped
 with questions).
 
-# Reading Code
+## Reading Code
 
 Before we move onto the next program, type `cat hello.py` and hit
 ENTER.  You should see the following:
@@ -114,7 +114,7 @@ What you're looking at is the code for the hello.py program.  Just one
 line!  You don't need to understand that one line yet, but hopefully
 this shows you that many programs can be quite simple and short.
 
-# Program 2: Double
+## Program 2: Double
 
 Repeat the steps above that you took to download "hello.py", but this
 time download the "double.py" file instead.  Make sure that:
@@ -132,7 +132,7 @@ Type the following and hit ENTER:
 python double.py
 ```
 
-The program will say `please enter a number: `.  This is known as a
+The program will say `please enter a number:`.  This is known as a
 "prompt" (a fancy way to say a program is asking you a question).
 
 Type `5` and hit ENTER.  Make sure that the programs tells you the
@@ -161,4 +161,99 @@ we'll learn how to understand what gets printed when a program crash
 to identify the root of the problem, but for now we won't worry about
 it any further.
 
-# Program 3: Double (Version 2)
+## Program 3: Double (Version 2)
+
+Ok, now download the program named "double-v2.py" and run it like
+this:
+
+```
+python double-v2.py 5
+```
+
+Notice that `double-v2.py` does the same thing as the `double.py`
+program, but it gets the original number in a different way.  Before,
+we typed "5" in answer to a prompt, but now we are specifying "5" at
+the same time we run our program.
+
+**Discussion**: do you prefer using double.py or double-v2.py?
+  Discuss with the person you are doing this lab with (or your
+  neighbour).
+
+Before continuing to the next program, try running it a couple more
+times to note what happens:
+
+```
+python double-v2.py 50
+```
+
+And this, noting the space between "5" and "0":
+
+```
+python double-v2.py 5 0
+```
+
+Finally, try running it without specifying any number:
+
+```
+python double-v2.py
+```
+
+## Program 4: Fruit Chooser
+
+Download "fruit.py" and run it:
+
+```python fruit.py```
+
+Keep running it, trying different numbers until it prints the following:
+
+```You chose mango```
+
+Other interesting things you should try: what happens if you enter a
+large number, such as 100?  What if you enter a negative number, such
+as -1?
+
+## Program 5: Echo
+
+Download "echo.py" and run it like this:
+
+```
+python echo.py 2 hello world
+```
+
+Can you find another way to run echo.py that makes it print the following?
+
+```
+ha
+ha
+ha
+ha
+ha
+```
+
+Here are three other interesting ways to run echo.py that you should
+try:
+
+```
+python echo.py    2    hello    world
+```
+
+```
+python echo.py 5
+```
+
+```
+python echo.py
+```
+
+## Program 6: Take-Away Game
+
+Download "take.py" and run it like this a few times:
+
+```
+python take.py
+```
+
+Here are a few things to ponder/try about this program:
+1. can you beat the program?
+2. what happens if you try to cheat?
+3. can you exit before losing by typing "q"?  What about a capital "Q"?
