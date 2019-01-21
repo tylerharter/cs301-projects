@@ -38,7 +38,7 @@ something like this:
 <img src="github.png" width="800">
 
 Downloading files from GitHub (the site hosting this document) is a
-little tricky for those new to it.  Follow these steps carefull:
+little tricky for those new to it.  Follow these steps careful:
 
 1. left-click on "hello.py"
 2. right-click on the "Raw" button
@@ -100,3 +100,65 @@ Congrats!  The above is the trickiest part of the lab.  If there other
 students near you who are struggling to get this far, please take a
 minute and show them what you did (this helps if the TAs are swamped
 with questions).
+
+# Reading Code
+
+Before we move onto the next program, type `cat hello.py` and hit
+ENTER.  You should see the following:
+
+```python
+print("Hello, World!")
+```
+
+What you're looking at is the code for the hello.py program.  Just one
+line!  You don't need to understand that one line yet, but hopefully
+this shows you that many programs can be quite simple and short.
+
+# Program 2: Double
+
+Repeat the steps above that you took to download "hello.py", but this
+time download the "double.py" file instead.  Make sure that:
+
+1. you download it to the same "lab1" folder as before
+2. you still have the terminal window open where you typed `python hello.py` before
+
+Type `ls` and hit enter.  If you did everything correctly, you should
+see "double.py" listed along with "hello.py".  If you don't, try again
+(carefully following the instructions) or ask a TA for help.
+
+Type the following and hit ENTER:
+
+```
+python double.py
+```
+
+The program will say `please enter a number: `.  This is known as a
+"prompt" (a fancy way to say a program is asking you a question).
+
+Type `5` and hit ENTER.  Make sure that the programs tells you the
+answer is `10.0`.
+
+Find the up arrow key on your keyboard and hit it.  What you last
+typed (i.e., the command to run double.py) should show up again.  Hit
+ENTER again to run it a second time, and this time try typing a
+negative number.
+
+Ok, let's run double.py one last time, but now when you're prompted
+for a number, type the word "five" and hit ENTER.  Woah, a bunch of
+weird stuff is printed!  Something like this:
+
+```
+Traceback (most recent call last):
+  File "double.py", line 2, in <module>
+    print("2 times your number is " + str(2*float(x)))
+ValueError: could not convert string to float: 'five'
+```
+
+When you see the word "Traceback", it means the program crashed.  The
+double.py program can only take numbers as digits (so "5" but not
+"five"), so it crashed when you typed something else.  Eventually,
+we'll learn how to understand what gets printed when a program crash
+to identify the root of the problem, but for now we won't worry about
+it any further.
+
+# Program 3: Double (Version 2)
