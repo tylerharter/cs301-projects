@@ -5,8 +5,8 @@ properly and learning how to use various tools.  This project (worth
 1% of your course grade) is designed to walk you through how to
 download project files, create a Python notebook, run tests, and turn
 in your project.  We assume you're either using a lab machine, or
-you've downloaded [Anaconda 3.7](https://www.anaconda.com/download) on
-your personal computer.
+you've followed our instructions for [setting up your own
+computer](https://tyler.caraza-harter.com/cs301/spring19/videos.html).
 
 In subsequent projects, you'll need to very carefully follow [course
 policy](https://tyler.caraza-harter.com/cs301/spring19/syllabus.html)
@@ -102,11 +102,10 @@ you should see the "test.py" file that you downloaded in step 1
 listed.
 
 Now, type "jupyter notebook" and hit enter.  This should open up
-Jupyter as a web page in your web browser.  If this doesn't work,
-Anaconda probably wasn't installed properly.  If have this problem but
-you think you installed Anaconda, please bring your laptop to
-someone's office hours for help -- there are probably some tricky
-configuration issues remaining.
+Jupyter as a web page in your web browser.  If this doesn't work, your
+computer probably wasn't setup properly.  If you have already tried
+[our directions](https://tyler.caraza-harter.com/cs301/spring19/videos.html), please bring your laptop to someone's office hours for
+help -- there are probably some tricky configuration issues remaining.
 
 **Note:** even though we'll be working in the web browser now, NEVER
   close the terminal window where you typed "jupyter notebook" until
