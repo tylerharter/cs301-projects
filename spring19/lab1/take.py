@@ -2,7 +2,7 @@ n = 13
 print("This game is called Take-Away!")
 print("There are {} dollars and one exclamation mark.".format(n-1))
 print("The goal is to take dollars but not take the '!'.")
-print("You and the computer will take turns taking between 1 and 3 dollars")
+print("You and the computer will take turns taking between 1 and 3 dollars.")
 print("If there are no dollars left and you take the '!', you lose.")
 print("You start:")
 

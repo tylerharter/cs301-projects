@@ -46,7 +46,7 @@ little tricky for those new to it.  Follow these steps careful:
 1. left-click on "hello.py"
 2. right-click on the "Raw" button
 3. Choose "Save Link As..." (or similar)
-4. Save the file in your "lab" folder
+4. Save the file in your "lab1" folder
 
 We recommend you use the Chrome browser (other browsers will work too,
 but sometimes we've seen Safari automatically renaming files when
@@ -58,7 +58,7 @@ the "Raw" button looks like this:
 ## Run Your First Program
 
 Now it gets a little tricky.  You need to figure out the path of your
-"lab1" folder.  You can think of a "path" is just a more complete name
+"lab1" folder.  You can think of a "path" as just a more complete name
 for a file or folder.
 
 1. open your "Documents" in either File Explorer or Finder
@@ -69,7 +69,8 @@ Now, you'll need to open something called a "terminal emulator".
 
 **Windows**:
 1. hit the Windows logo key on your keyboard
-2. click "Windows PowerShell" (be careful, DO NOT choose the ones that say "ISE" or "x86")
+2. type "powershell"
+3. open "Windows PowerShell" (be careful, DO NOT choose the ones that say "ISE" or "x86")
 
 **Mac**:
 1. open Finder
@@ -117,7 +118,8 @@ What you're looking at is the code for the hello.py program.  Just one
 line!  The line is telling Python to print something to the screen,
 specifically whatever is inside the parentheses.  In this case, we
 want to print some text, and text must be enclosed in quotes.
-Printing a different message would be as simple as
+Printing a different message would be as simple as putting that
+message between the quotes.
 
 Feel free to use `cat` in the following steps to view the code of
 other programs.  For example, after downloading the second program,
@@ -270,3 +272,5 @@ Here are a few things to ponder/try about this program:
 1. can you beat the program?
 2. what happens if you try to cheat?
 3. can you exit before losing by typing "q"?  What about a capital "Q"?
+
+Congrats on finishing your first CS 301 lab!
