@@ -248,7 +248,7 @@ the other partner).
 To hand in the notebook, complete the following steps:
 
 1. run through the tests one last time (after you added your Net ID info)
-2. go to [https://tyler.caraza-harter.com/cs301/spring18/submission.html](https://tyler.caraza-harter.com/cs301/spring18/submission.html)
+2. go to [https://tyler.caraza-harter.com/cs301/spring19/submission.html](https://tyler.caraza-harter.com/cs301/spring19/submission.html)
 3. select "Project 1"
 4. click "Choose File" and find your main.ipynb file
 5. click "Submit"
