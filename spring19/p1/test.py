@@ -30,8 +30,8 @@ def rerun_notebook(orig_notebook):
     new_notebook = 'cs-301-test.ipynb'
 
     # re-execute it from the beginning
-    cmd = 'jupyter nbconvert --execute {orig} --to notebook --output={new} --ExecutePreprocessor.timeout=120'
-    cmd = cmd.format(orig=orig_notebook, new=new_notebook)
+    cmd = 'jupyter nbconvert --execute "{orig}" --to notebook --output="{new}" --ExecutePreprocessor.timeout=120'
+    cmd = cmd.format(orig=os.path.abspath(orig_notebook), new=os.path.abspath(new_notebook))
     subprocess.check_output(cmd, shell=True)
 
     # parse notebook

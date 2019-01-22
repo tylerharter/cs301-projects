@@ -86,7 +86,8 @@ emulator".
 
 **Windows**:
 1. hit the Windows logo key on your keyboard
-2. click "Windows PowerShell" (be careful, DO NOT choose the ones that say "ISE" or "x86")
+2. type "powershell"
+3. open "Windows PowerShell" (be careful, DO NOT choose the ones that say "ISE" or "x86")
 
 Ok, now the directions are the same for Mac and Windows again.  Type
 this in the terminal (replace P1-PATH with the pathname of "p1", as
@@ -133,7 +134,7 @@ Now you're going to run some Python code.  We don't expect you to
 write your own code for this project yet, so you'll just copy/paste
 what we provide.
 
-In the box adjacent `In [ ]`, paste the following:
+In the box adjacent to `In [ ]`, paste the following:
 
 ```
 #q1
@@ -186,7 +187,7 @@ correct before you turn it in.  Here are the steps to use it:
 1. in your notebook, click "Kernel" from the menu, then click "Restart & Run All"
 2. confirm "Restart & Run All Cells"
 3. click "File" from the menu (beneath the Jupyter logo), then click "Save and Checkpoint"
-4. open a new terminal window, as you did in step 2 of this document
+4. open a new terminal window, as you did in step 2 of this document (leave the previously opened one undisturbed)
 5. type the same `cd "P1-PATH"` command in the terminal as before, again replacing `P1-PATH` with the pathname of "p1" in your notes, and hit ENTER
 6. type `python test.py` and hit ENTER; if that doesn't work, try `python3 test.py`; if that still doesn't work, please get help during office hours.
 
