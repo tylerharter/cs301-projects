@@ -114,8 +114,18 @@ print("Hello, World!")
 ```
 
 What you're looking at is the code for the hello.py program.  Just one
-line!  You don't need to understand that one line yet, but hopefully
-this shows you that many programs can be quite simple and short.
+line!  The line is telling Python to print something to the screen,
+specifically whatever is inside the parentheses.  In this case, we
+want to print some text, and text must be enclosed in quotes.
+Printing a different message would be as simple as
+
+Feel free to use `cat` in the following steps to view the code of
+other programs.  For example, after downloading the second program,
+you can view it by typing `cat double.py` and hitting ENTER.  You
+aren't expected to understand what the code you view in this lab
+means, yet, but it's helpful to get some early exposure to what Python
+programs look like.
+
 
 ## Program 2: Double
 
