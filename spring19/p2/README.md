@@ -1,4 +1,4 @@
-# Project 1
+# Project 2
 
 In this project, you'll learn about types, operators, and boolean
 logic.  To start, create a `p2` directory, and download `main.ipynb`
