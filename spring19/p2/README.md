@@ -6,12 +6,12 @@ and `test.py` to that directory (IMPORTANT: use the same process to
 download that you used for P1, which involves left-clicking the files
 and then right-clicking the "Raw" button).
 
-You will change main.ipynb and hand it in.  You should not change
-test.py, and you should not hand it in.
+You will change `main.ipynb` and hand it in.  You should not change
+`test.py`, and you should not hand it in.
 
 After you've downloaded both files to `p2`, open a terminal window and
 use `cd` to navigate to that directory.  You will likely need to
-review the steps you did to cd to `p1` for the previous project, and
+review the steps you used to cd to `p1` for the previous project, then
 adapt those steps for `p2`.  To make sure you're in the correct
 directory in terminal, type `ls` and make sure you see `main.ipynb`
 and `test.py` listed.
@@ -56,7 +56,7 @@ Pretty good for having done nothing yet, no?
 You would get 10% because there are 20 problems, each worth 5%, and we
 have done problems 1 and 3 for you.  You can see this because the
 output above says "PASS" by them.  Your goal is to get more points by
-getting test.py to print "PASS" by more problems.  In other cases, you
+getting test.py to print "PASS" by more problems.  In some cases, you
 can see there is no answer in the original notebook (when it says `no
 outputs in an Out[N] cell`), and in other cases you need to make a
 change to correct a wrong answer (e.g., when it says `found 34 but
