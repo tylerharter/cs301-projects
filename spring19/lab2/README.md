@@ -1,10 +1,11 @@
 # Lab 2: Python: Modes and Programming
 
-In lecture, we learned about three ways to run Python: interactive
-mode, script mode, and notebook "mode" (people outside of 301 won't
-won't use that vocabulary for notebooks, hence the quotes).  In this
-lecture, you'll practice those three modes.  You'll also get practice
-with operators, types, and boolean logic.
+In Wed lecture (the one where we posted a video due to the weather),
+we learned about three ways to run Python: interactive mode, script
+mode, and notebook "mode" (people outside of 301 won't won't use that
+vocabulary for notebooks, hence the quotes).  In this lecture, you'll
+practice those three modes.  You'll also get practice with operators,
+modular arithmatic, and boolean logic.
 
 To get started, please create a `lab2` directory inside your
 previously created course directory (named `cs301` or similar).  Then,
@@ -123,18 +124,31 @@ Let's try to create a second program:
 The program computes the area of a circle.  *Can you figure out what
 the radius of that circle is by reading the code?*
 
-The program computes
-
 ### Notebook Mode
 
+You have already seen how to create a new notebook and turn it in.
+Now, you'll get practice downloading and running existing notebooks.
+For this part, download the `bool.ipynb`, `ops.ipynb`, and `mod.ipynb`
+files to your `lab2` folder.  IMPORTANT: remember from before how you
+need to follow the download procedure where you right-click on the
+`Raw` button.
 
-## Operators
+In the terminal (which should still have `lab2` as the current working
+directory), run `jupyter notebook`.  You should see something like the
+following:
 
+<img src="notebooks.png" width="400">
 
-## Types
-
+You can now click on any of the three notebooks you've downloaded to
+view the contents.  The first thing you'll want to do after opening it
+is click `Kernel` > `Restart & Run All` so you can see the outputs.
+The exercises you should do with each notebook are described below.
 
 ## Boolean Logic
 
 
+## Order of Operations
+
+
 ## Modular Arithmatic
+
