@@ -129,9 +129,9 @@ the radius of that circle is by reading the code?*
 You have already seen how to create a new notebook and turn it in.
 Now, you'll get practice downloading and running existing notebooks.
 For this part, download the `bool.ipynb`, `ops.ipynb`, and `mod.ipynb`
-files to your `lab2` folder.  IMPORTANT: remember from before how you
-need to follow the download procedure where you right-click on the
-`Raw` button.
+files to your `lab2` folder.  IMPORTANT: use the GitHub download
+procedure we've shown you involving right-clicking on the `Raw`
+button.
 
 In the terminal (which should still have `lab2` as the current working
 directory), run `jupyter notebook`.  You should see something like the
@@ -173,7 +173,7 @@ didn't change the result.  For example, that last cell was originally
 
 ## Order of Operations
 
-Open and run the `bool.ipynb` notebook.  There will be six cells, each
+Open and run the `ops.ipynb` notebook.  There will be six cells, each
 containing a simple Python expression involving two operators.  Python
 has operator-precedence rules to determine which of the two operators
 to execute first.
@@ -198,7 +198,7 @@ we count from 0, so if we were to have a **CS clock**, it would go
 from 0 o'clock to 11 o'clock (instead of from 1 o'clock to 12
 o'clock).
 
-Open and run the `bool.ipynb` notebook.  You'll see many cells of the
+Open and run the `mod.ipynb` notebook.  You'll see many cells of the
 form `X % 12`.  This computation is answering the question: *if we
 start at 0 o'clock and wait `X` hours, what time is it?* The `% 12`
 part means time wraps around at 12 o'clock, meaning that there is no
