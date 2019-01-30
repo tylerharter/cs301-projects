@@ -5,7 +5,7 @@ we learned about three ways to run Python: interactive mode, script
 mode, and notebook "mode" (people outside of 301 won't use that
 vocabulary for notebooks, hence the quotes).  In this lecture, you'll
 practice those three modes.  You'll also get practice with operators,
-modular arithmatic, and boolean logic.
+modular arithmetic, and Boolean logic.
 
 To get started, please create a `lab2` directory inside your
 previously created course directory (named `cs301` or similar).  Then,
@@ -149,20 +149,22 @@ The exercises you should do with each notebook are described below.
 Open and run the `bool.ipynb` notebook.  There will be six cells, with
 outputs `True`, `False`, `False`, `True`, `False`, and `True`.  Take
 moment to review each cell and think about why the output is either
-True or False.  Review the lecture slides or ask your TA if of these
-are surprising.
+True or False.  Review the lecture slides or ask your TA if any of
+these are surprising to you.
 
 There are different ways to get `True` or `False` in Python.  One way
 is to directly type those words explicitly, as we already have.
 
 The more common way is to use comparison operators to make claims that
-are either True or False.  For examle `1+1 == 2` is True, whereas `-2
-> 1` is False.
+are either True or False.  For example `1+1 == 2` is True, whereas
+`-2 > 1` is False.
 
 Your job is to edit the notebook and replace each True or False with a
 Python expression (of your own choosing) that has the same truth
 value.  For example, the last expression says `True or False`, so I
-might edit that to instead be `1+1 == 2 or -2 > 1`.
+might edit that to instead be `1+1 == 2 or -2 > 1`.  You should get
+creative, but try to use each of the following comparison examples at
+least once: `==`, `!=`, `<`, `<=`, `>`, and `>=`.
 
 After each change, rerun the cell and make sure that your modification
 didn't change the result.  For example, that last cell was originally
@@ -182,5 +184,34 @@ result.  Your job is to add parentheses in each case to get desired
 result.  For example, in the first cell, `3 ** 4 - 1` evaluates to 80,
 but you should change it to be `3 ** (4 - 1)`, thereby getting 27.
 
-## Modular Arithmatic
+## Modular Arithmetic
 
+What time does a clock show one hour after twelve o'clock?  Not 13
+o'clock (that doesn't exist) -- instead, it wraps back around to 1
+o'clock.  This is a weird kind of arithmetic, where adding doesn't
+always make a number larger.
+
+This alternative arithmetic is called **modular arithmetic**, and we
+can use the modulo operator (`%`) in Python to perform modular
+addition.  However, there's a twist with respect to the clock: in CS,
+we count from 0, so if we were to have a **CS clock**, it would go
+from 0 o'clock to 11 o'clock (instead of from 1 o'clock to 12
+o'clock).
+
+Open and run the `bool.ipynb` notebook.  You'll see many cells of the
+form `X % 12`.  This computation is answering the question: *if we
+start at 0 o'clock and wait `X` hours, what time is it?* The `% 12`
+part means time wraps around at 12 o'clock, meaning that there is no
+12 o'clock, just 0 o'clock again (remember we have a CS clock that
+goes from 0 to 11 o'clock).
+
+Try writing some expressions to answer the following questions
+regarding a CS clock:
+
+* what time will it be 6 hours after 9 o'clock? (run `(9 + 6) % 12` in a cell to find the answer, which is 3 o'clock)
+* what time was 2 hours before 1 o'clock? (run `(1 - 2) % 12` in a cell to find the answer, which is 11 o'clock)
+* what time was 4 hours before 2 o'clock?
+* what will it be 12 hours after 6 o'clock?
+* what will it be 13 hours after 6 o'clock?
+* what will it be 24 hours after 6 o'clock?
+* what will it be 25 hours after 6 o'clock?
