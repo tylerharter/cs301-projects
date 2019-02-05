@@ -63,16 +63,16 @@ you did it produced the correct answer.
 
 ## Questions and Functions
 
-###Q1: What is the agency ID of the library agency?
+### Q1: What is the agency ID of the library agency?
 
 How: use `project.get_id("library")`
 
-###Q2: How much did the agency with ID 44 spend in 2018?
+### Q2: How much did the agency with ID 44 spend in 2018?
 
 It is OK to hardcode `44` in this case since we asked directly about
 agency 44 (instead of about "parks").
 
-###Q3: How much did "streets" spend in 2017?
+### Q3: How much did "streets" spend in 2017?
 
 Hint: instead of repeatedly calling `project.get_id("streets")` (or
 similar) for each function, you may wish to make these calls once at
@@ -86,7 +86,7 @@ fire_id = project.get_id("fire")
 ...
 ```
 
-###Function 1: `year_max(year)`
+### Function 1: `year_max(year)`
 
 This function will compute the maximum spending of any one agency in a
 given year.  We'll give this one to you directly (you'll have to do
@@ -106,13 +106,13 @@ def year_max(year):
     return max(police_spending, fire_spending, library_spending, parks_spending, streets_spending)
 ```
 
-###Q4: What was the most spent by a single agency in 2015?
+### Q4: What was the most spent by a single agency in 2015?
 
 Use `year_max` to answer this.
 
-###Q5: What was the most spent by a single agency in 2018?
+### Q5: What was the most spent by a single agency in 2018?
 
-###Function 2: `agency_min(agency)`
+### Function 2: `agency_min(agency)`
 
 We'll help you start this one, but you need to fill in the rest
 yourself.
@@ -132,13 +132,13 @@ def agency_min(agency):
 This function will compute the minimum the given agency ever spent
 over the course of a year.
 
-###Q4: What was the least the police ever spent in a year?
+### Q4: What was the least the police ever spent in a year?
 
 Use your `agency_min` function.
 
-###Q5: What was the least that fire ever spent in a year?
+### Q5: What was the least that fire ever spent in a year?
 
-###Q6: What was the least that library ever spent in a year?
+### Q6: What was the least that library ever spent in a year?
 
 function 3: average spent by agency?
 function 4: change_per_year?
