@@ -79,7 +79,7 @@ similar) for each function, you may wish to make these calls once at
 the beginning of your notebook and save the results in variables,
 something like this:
 
-```
+```python
 streets_id = project.get_id("streets")
 police_id = project.get_id("police")
 fire_id = project.get_id("fire")
@@ -93,7 +93,7 @@ given year.  We'll give this one to you directly (you'll have to do
 the subsequent functions yourself).  Copy/paste this into a cell in
 your notebook:
 
-```
+```python
 def year_max(year):
     # grab the spending by each agency in the given year
     police_spending = project.get_spending(project.get_id("police"), year)
@@ -117,7 +117,7 @@ Use `year_max` to answer this.
 We'll help you start this one, but you need to fill in the rest
 yourself.
 
-```
+```python
 def agency_min(agency):
     agency_id = project.get_id(agency)
     y15 = project.get_spending(agency_id, 2015)
@@ -132,15 +132,35 @@ def agency_min(agency):
 This function will compute the minimum the given agency ever spent
 over the course of a year.
 
-### Q4: What was the least the police ever spent in a year?
+### Q6: What was the least the police ever spent in a year?
 
 Use your `agency_min` function.
 
-### Q5: What was the least that fire ever spent in a year?
+### Q7: What was the least that fire ever spent in a year?
 
-### Q6: What was the least that library ever spent in a year?
+### Q8: What was the least that library ever spent in a year?
 
-function 3: average spent by agency?
+### Function 2: `agency_avg(agency)`
+
+This function will compute the average (over the four datapoints) that
+the given agency spends per year.
+
+Hint: start by copy/pasting `agency_avg` and renaming your copy to
+`agency_avg`.  Instead of computing the minimum of `y15`, `y16`, etc.,
+compute the average of these by adding, then dividing by 4.
+
+### Q9: How much is spent per year on streets, on average?
+
+Use your `agency_avg` function.
+
+### Q10: How much is spent per year on parks, on average?
+
+### Q11: How much did the police spend above their average in 2018?
+
+You should answer by giving a percent between 0 and 100, with no
+percent sign.  In this case, your code should produce a number close
+to `7.2249619343519145`.
+
 function 4: change_per_year?
 function 5: extrapolate
 function 6: extrapolate_error
