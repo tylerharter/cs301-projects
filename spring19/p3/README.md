@@ -140,7 +140,7 @@ Use your `agency_min` function.
 
 ### Q8: What was the least that library ever spent in a year?
 
-### Function 2: `agency_avg(agency)`
+### Function 3: `agency_avg(agency)`
 
 This function will compute the average (over the four datapoints) that
 the given agency spends per year.
@@ -161,6 +161,76 @@ You should answer by giving a percent between 0 and 100, with no
 percent sign.  In this case, your code should produce a number close
 to `7.2249619343519145`.
 
-function 4: change_per_year?
-function 5: extrapolate
-function 6: extrapolate_error
+### Function 4: `change_per_year(agency, start_year, end_year)`
+
+This function returns the average increase in spending (could be
+negative if there's a decrease) over the period from `start_year` to
+`end_year` for the specified `agency`.
+
+You can start from the following code:
+
+```python
+def change_per_year(agency, start_year=2015, end_year=2018):
+     pass # TODO: replace this line with your code
+```
+
+Python requires all functions to have at least one line of code.  When
+you don't have some code, yet, it's common for that line to be `pass`,
+which does nothing.  Note the default arguments above.
+
+### Q12: how much has spending increased per year (on average) for police from 2015 to 2018?
+
+Use the default arguments (your call to `change_per_year` should only
+pass one argument explicitly).
+
+### Q13: how much has spending increased per year (on average) for police from 2017 to 2018?
+
+Use the default argument for the `end_year` parameter (your call to
+`change_per_year` should only pass two arguments explicitly).
+
+### Q14: how much has spending increased per year (on average) for streets from 2016 to 2018?
+
+Note that a negative answer is expected (a negative increase represents a decrease).
+
+### Function 5: `extrapolate(agency, year1, year2, year3)`
+
+This function computes the average change per year from the data from
+`year1` to `year2` for `agency`.  It then returns the predicted
+spending in `year3`, assuming spending continues changing at that same
+consant rate each year.  We don't have anything for you to copy for
+this one (you need to write it from scratch).
+
+### Q15: how much will library spend in 2019?
+
+Extrapolate to 2019 from the data between 2015 and 2018.
+
+### Q16: how much will library spend in 2100?
+
+Extrapolate from the data between 2015 and 2018.
+
+### Q17: how much will library spend in 2100?
+
+Extrapolate from the data between 2017 and 2018.
+
+### Function 6: `extrapolate_error`
+
+We can't know how well our simple extrapolations will perform in the
+future (unless we wait 80 years), but we can do shorter extrapolations
+to years for which we DO know the result.  For example, we can
+extrapolate to 2018 from the 2015-to-2017 data, then compare our
+extrapolation to the actual spending in 2018.
+
+Write a function named `extrapolate_error` that does an extrapolation
+using the `extrapolate` function and compares the extrapolation to the
+actual result, returning the error (i.e., how much `extrapolate`
+overestimated).  For example, if the extrapolation is 105 and the
+actual is 110, then the function should return -5.
+
+What parameters should `extrapolate_error` have?  That's your
+decision!
+
+### Q18: what is the error if we extrapolate 2018 for the 2015-to-2017 data for police?
+
+### Q19: what is the error if we extrapolate 2018 for the 2015-to-2016 data for streets?
+
+### Q20: what is the error if we extrapolate 2018 for the 2015-to-2017 data for streets?
