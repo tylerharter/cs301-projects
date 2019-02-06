@@ -1,5 +1,11 @@
 # Project 3
 
+## Corrections
+
+* Feb 6: fixed tests for q20 (please re-download test.py)
+
+## Description
+
 The City of Madison has many [different
 agencies](https://www.cityofmadison.com/agencies) providing a variety
 of services.  In this project, you'll analyze real spending data from
@@ -229,8 +235,8 @@ actual is 110, then the function should return -5.
 What parameters should `extrapolate_error` have?  That's your
 decision!
 
-### Q18: what is the error if we extrapolate 2018 for the 2015-to-2017 data for police?
+### Q18: what is the error if we extrapolate to 2018 from the 2015-to-2017 data for police?
 
-### Q19: what is the error if we extrapolate 2018 for the 2015-to-2016 data for streets?
+### Q19: what is the error if we extrapolate to 2018 from the 2015-to-2016 data for streets?
 
-### Q20: what is the error if we extrapolate 2018 for the 2015-to-2017 data for streets?
+### Q20: what is the error if we extrapolate to 2018 from the 2015-to-2017 data for streets?
