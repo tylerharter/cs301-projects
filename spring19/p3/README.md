@@ -12,7 +12,7 @@ Start by downloading `project.py`, `test.py` and `madison.csv`.
 Double check that these files don't get renamed by your browser (by
 running `ls` in the terminal from your `p3` project directory).
 You'll do all your work in a new `main.ipynb` notebook that you'll
-create and handin when you're done.  You'll test as usual by running
+create and hand in when you're done.  You'll test as usual by running
 `python test.py`.
 
 We won't explain how to use the `project` module here (the code in the
@@ -42,7 +42,7 @@ The dataset is in the `madison.csv` file.  We'll learn about CSV files
 later in the semester.  For now, you should know this about them:
 * it's easy to create them by exporting from Excel
 * it's easy to use them in Python programs
-* we'll give you a `project` module to help you access them until we teach you more
+* we'll give you a `project` module to help you extract data from CSV files until we teach you to do it directly yourself
 
 All the numbers in the dataset are in millions of dollars.  Answer
 questions in millions of dollars unless we specify otherwise.
@@ -65,7 +65,7 @@ you did it produced the correct answer.
 
 ### Q1: What is the agency ID of the library agency?
 
-How: use `project.get_id("library")`
+Hint: use `project.get_id("library")`
 
 ### Q2: How much did the agency with ID 44 spend in 2018?
 
@@ -89,9 +89,9 @@ fire_id = project.get_id("fire")
 ### Function 1: `year_max(year)`
 
 This function will compute the maximum spending of any one agency in a
-given year.  We'll give this one to you directly (you'll have to do
-the subsequent functions yourself).  Copy/paste this into a cell in
-your notebook:
+given year.  We'll give this one to you directly (you'll have to wriet
+the code for the subsequent functions yourself).  Copy/paste this into
+a cell in your notebook:
 
 ```python
 def year_max(year):
@@ -197,7 +197,7 @@ Note that a negative answer is expected (a negative increase represents a decrea
 This function computes the average change per year from the data from
 `year1` to `year2` for `agency`.  It then returns the predicted
 spending in `year3`, assuming spending continues changing at that same
-consant rate each year.  We don't have anything for you to copy for
+constant rate each year.  We don't have anything for you to copy for
 this one (you need to write it from scratch).
 
 ### Q15: how much will library spend in 2019?
