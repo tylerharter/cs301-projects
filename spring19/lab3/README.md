@@ -1,4 +1,4 @@
-# Lab 3: Intro and Vocabulary
+# Lab 3: Learning an API
 
 For many projects this semester, we'll provide you with a *module* (a
 collection of functions) named `project`, in a file named
@@ -6,18 +6,18 @@ collection of functions) named `project`, in a file named
 complete the project.  Today, we'll introduce the `project.py` file
 you'll use for P3.
 
-When using a module for the first time, the first thing you should do
-is study the module's *API*.  API stands for "Application Programming
+When using an unfamiliar module, the first thing you should do is
+study the module's *API*.  API stands for "Application Programming
 Interface", and refers to a collection of related functions (e.g.,
 those in a module).  Understanding the API will involve learning about
-each function and the parameters it takes.  You might need to learn
-new *protocols* for using the function; protocols often specify the
+each function and the parameters it takes.  You might also need to
+learn new *protocols* for using the function; protocols specify the
 order in which you may call functions.
 
 There are two ways you can learn about an API.  First, the person who
 created the API may have provided written directions, called
-`documentation`.  Second, there are ways to can write code to learn
-about a collection of functions; this approach is called `inspection`.
+*documentation*.  Second, there are ways to can write code to learn
+about a collection of functions; this approach is called *inspection*.
 
 Summary of new terms:
 * module
@@ -30,10 +30,12 @@ Summary of new terms:
 
 You may do these lab exercises with anybody you like.  But be careful!
 It's very natural to start working on P3 immediately after completing
-the lab.  If you start working with somebody on P3, that person must
-be your project partner until the next project; you not allowed to
-start working on P3 with one person during lab, then finish working
-with your actual partner.  Now may be a good time to review [our course policies](https://tyler.caraza-harter.com/cs301/spring19/syllabus.html).
+the lab.  If you start working with somebody on P3 (after the lab),
+that person must be your project partner until the next project; you
+are not allowed to start working on P3 with one person during lab,
+then finish the project with a different partner.  Now may be a good
+time to review [our course
+policies](https://tyler.caraza-harter.com/cs301/spring19/syllabus.html).
 
 ## Setup
 
