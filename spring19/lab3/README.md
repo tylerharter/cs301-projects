@@ -129,6 +129,12 @@ for you.  For example, in this case, the last line tells you
 everything you need to know: *"With two or more arguments, return the
 largest argument."*
 
+Let's give it a try:
+
+```python
+max(-1000, 99, 50, 60)
+```
+
 Let's see what's in the math module now:
 
 ```python
@@ -136,7 +142,7 @@ Let's see what's in the math module now:
 >>> dir(math)
 ```
 
-Let's see what the log function does:
+Let's see what the `log` function does:
 
 ```python
 >>> print(math.log.__doc__)
@@ -144,7 +150,7 @@ Let's see what the log function does:
 
 As a convention, documentation that displays parameters in brackets
 (like `[base=math.e]`) mean that the parameter is optional.  Let's try
-calling the log function different ways:
+calling the `log` function different ways:
 
 1. `math.log(10000, 10)` (positional arguments)
 2. `math.log(math.e ** 3)` (positional argument and default argument)
@@ -161,7 +167,7 @@ What happens if you run this?
 ```
 
 It doesn't work because we've imported math with `import math`.  Try
-this style instead, the repeat that call:
+this style instead, then repeat that call:
 
 ```python
 >>> from math import log
@@ -223,10 +229,10 @@ Let's figure out what init is, then:
 >>> print(project.init.__doc__)
 ```
 
-Looks like it wants us to this:
+Looks like it wants us to do this:
 
 ```python
-init("madison.csv")
+project.init("madison.csv")
 ```
 
 After calling init, let's try calling `project.dump()` again.  It
@@ -264,16 +270,16 @@ streets [ID 55]
   2018: $27.798934 MILLION
 ```
 
-This is actual spending data for large agencies in the City of Madison
-over the last four years.
+This is actual spending data for five large agencies in the City of
+Madison over the last four years.
 
 Why do we need to call `init` before `dump` and other functions?
 Because `init` loads data from a CSV file (CSV files are like simple
 spreadsheets), and you might want to also use other CSV files.  For
-example, try this to see some other agencies that we saved in
+example, try this to see some smaller agencies that we saved in
 `lab.csv`:
 
-```python
+```
 >>> project.init("lab.csv")
 WARNING!  Opening a path other than madison.csv.  That's fine for testing your code yourself, but madison.csv will be the only file around when we test your code for grading.
 >>> project.dump()
