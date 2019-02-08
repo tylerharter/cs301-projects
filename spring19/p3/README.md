@@ -3,6 +3,7 @@
 ## Corrections
 
 * Feb 6: fixed tests for q20 (please re-download test.py)
+* Feb 8: clarify that extrapolation is linear (see new example in function 5 description)
 
 ## Description
 
@@ -202,9 +203,14 @@ Note that a negative answer is expected (a negative increase represents a decrea
 
 This function computes the average change per year from the data from
 `year1` to `year2` for `agency`.  It then returns the predicted
-spending in `year3`, assuming spending continues changing at that same
-constant rate each year.  We don't have anything for you to copy for
+spending in `year3`, assuming spending continues changing by the same
+constant amount each year.  We don't have anything for you to copy for
 this one (you need to write it from scratch).
+
+As an example, suppose spending in 2016 (year1) is 100 and spending in
+2018 (year2) is 120.  The average increase is 10 per year.  So we
+would extrapolate to 130 for 2019, 140 for 2020, etc.  This kind of
+prediction is a simple *linear extrapolation*.
 
 ### Q15: how much will library spend in 2019?
 
