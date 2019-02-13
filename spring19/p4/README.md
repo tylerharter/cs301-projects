@@ -1,255 +1,120 @@
 # Project 4
 
+## Corrections
 
-**Please read this whole document carefully before getting started!**
+## Description
 
-This project will primarily focus on providing plentiful practice with
-**conditional statements**. You will also get some
-experience accepting user input, and checking whether such inputs are
-sane.  To start, download the test.py file to your project
-directory.
+The CS 301 midterm is coming up, so now is a good time to begin to study. A great resource for preparing is to look at the old midterm exam which is available [here](https://github.com/tylerharter/caraza-harter-com/tree/master/tyler/cs301/spring19/materials/old-exams). Since we've been learning about conditionals this week, for this project we'll build an automated study tool program to quiz you on the questions. You'll get practice with conditionals and while loops.
 
-* [test.py](https://raw.githubusercontent.com/tylerharter/cs301-projects/master/spring19/p4/test.py)
+Start by downloading `test.py`. Double check that these files don't get renamed by your browser (by running `ls` in the terminal from your `p4` project directory). You'll do all your work in a new `main.ipynb` notebook that you'll create and hand in when you're done.  You'll test as usual by running `python test.py`.
 
-**Note:** This project does not provide you a project.py (you won't be
-needing it) or a main.py to start from (you can start from
-scratch). You should hand in **main.py** file when you are done.
+The lab this week is designed to give you practice with conditionals and while loops, so be sure to do the lab from home (if you missed it) before starting the project.
 
-You'll be working in idle in script mode. Alternatively, you could create this in Python tutor and then copy and paste it into a .py file to run the tests and submit. If you choose to use Python tutor be sure to frequently save your work as you go!
+The project consists of writing code to create an interactive quiz program. We've broken the program down into 10 features you can add one at a time.
 
-Your program will grade students and provide basic statistics when
-requested.  No data file is necessary, because all data is
-typed by the user.
+Note: This project does not provide you a project.py (you won't be needing it) or a main.py to start from (you can start from scratch). You should hand in main.py file when you are done.
 
-## Overview
 
-Below is an example of how a user might interact with your program
-(parts typed by the user are in bold).
+## Requirements
 
-<pre>
-ty-mac:p4$ <b>python main.py</b>
-enter 0 to 100, or a special command [ r:reset, c:count, a:average]: <b>90</b>
-A
-enter 0 to 100, or a special command [ r:reset, c:count, a:average]: <b>80</b>
-C
-enter 0 to 100, or a special command [ r:reset, c:count, a:average]: <b>70</b>
-D
-enter 0 to 100, or a special command [ r:reset, c:count, a:average]: <b>c</b>
-3
+## Questions and Functions
 
-done
+### Feature 1: Ask a question, get an answer
 
-ty-mac:p4$
-</pre>
+Ask the user:
 
-Most of the code will be inside a grade_calculator function, which will take no arguments and won't return anything, but will change the global variables total and count. In your global frame, you'll run this 4 times in a row.
+```
+What is the type of the following? 1.0 + 2.0
+a) int
+b) float
+c) str
+d) bool
+e) NoneType
+```
+For all questions, print the question and then use
 
-There are five valid things the user may type, and here
-is what your program should do in each case:
+```
+input("Your answer:")
+```
+to have the user type in an answer.
 
-* **any number between 0 and 100**: the program should treat the number as a percent, and print a corresponding letter grade (between A and F)
-* **c**: print the number of scores entered so far
-* **a**: print the average score entered so far
-* **r**: clear the statistics so that the number of scores entered is considered 0 and the average is reset
+After they have entered input, print out this line:
+```
+You answered 'a'. The correct answer is 'b'.
+```
+Where 'a' is whatever the user typed in and 'b' is whatever letter is the right answer.
 
-The user may also enter tricky input, including (but not limited to)
-upper case commands (which should be accepted) and numbers over 100
-(which should be rejected).
+Be sure the spaces and capitalization is an exact match to pass this test.
 
-You will run the grade_calculator function 4 times, three times to enter grades and the last time to calculate the average. To help understand the screen input, use some print statements like this:
-
-```python
-print('first')
-grade_calculator()
-print('second')
-grade_calculator()
-print('third')
-grade_calculator()
-print('average')
-grade_calculator()
-
-print('done')
+### Feature 2: Check the answer for correctness
+Use an 'If' statement to check to see if the answer is correct. If it is, print:
+```
+Congratulations! You got it right.
 ```
 
-## Getting Started
+### Feature 3: Clean the input on text
+You may have noticed that if the user inputs a correct answer, but it's capitalization isn't right or it has extra spaces, then Feature 2 will think it's a wrong answer.
 
-There are a lot of tests this time (200 of them!), and many of them
-are fairly complicated, so it's probably easier to start writing your
-main.py directly and testing it yourself manually before you try
-running our tests.  If you focus on writing a correct program, you
-won't need to worry about looking at each of the 200 tests.
+Take the user's input and remove any spaces or capitalization using the str.strip() and str.lower() built in functions.
 
-Your program will need to keep asking the user for input in a loop.
-To get started, you could write a simple program that just echoes
-input by typing the following in your new main.py file:
+### Feature 4: Tell user when answer is wrong
 
-```python
+Use an 'ELSE' statement to tell a user that their answer is wrong:
 
-val = input("enter something: ")
-print(val)
-
-print('done')
 ```
-
-Try running it:
-
-<pre>
-ty-mac:p4$ python main.py
-enter something: <b>3</b>
-3
-done
-</pre>
-
-To get started, you only need to make one small changes to the above
-program in order to pass the first test in test.py:
-
-1. change the prompt from "enter something: " to "enter 0 to 100, or a special command [r:reset, c:count, a:average]: " (make sure to get this EXACTLY right)
-
-
-Great, now run the tests.  You ought to be getting a score of 0.5%.
-If not, work on passing that first test before continuing.
-
-## General Directions
-
-We now describe how to handle each of the five kinds of valid input a
-user might type.
-
-### 1. An integer between 0 and 100
-
-In this case, you should print the letter grade corresponding to the
-score.  The grades should be assigned as follows:
-
-* A: 90 to 100
-* B: 85 to 89
-* C: 80 to 84
-* D: 50 to 79
-* F: 49 or less
-
-The grade_calculator function should contain a chain of if and elif's to handle
-each case.
-
-You'll also need to maintain some stats so you can print the average
-for when the user types "a" (described later).  For this, we recommend
-keeping track of the number of grades that have been entered in one
-variable and the sum of all the grades entered in another variable
-(please use descriptive names for the variables!).
-
-It should look like this as the user enters numbers:
-
-<pre>
-ty-mac:p4$ python <b>main.py</b>
-enter 0 to 100, or a special command [r:reset, c:count, a:average]: <b>90</b>
-A
-enter 0 to 100, or a special command [r:reset, c:count, a:average]: <b>30</b>
-F
-...
-</pre>
-
-
-### 2. "c" command
-
-This stands for count.  This prints the number of scores that have
-been entered so far.  It works like this:
-
-<pre>
-ty-mac:p4$ python <b>main.py</b>
-enter 0 to 100, or a special command [r:reset, c:count, a:average]: <b>c</b>
-0
-enter 0 to 100, or a special command [r:reset, c:count, a:average]: <b>90</b>
-A
-enter 0 to 100, or a special command [q:reset, c:count, a:average]: <b>c</b>
-1
-enter 0 to 100, or a special command [r:reset, c:count, a:average]: <b>c</b>
-1
-done
-ty-mac:p4$
-</pre>
-
-### 3. "a" command
-
-This stands for average.  It prints the average score entered so far,
-and looks like this:
-
-<pre>
-ty-mac:p4$ python <b>correct.py</b>
-enter 0 to 100, or a special command [r:reset, c:count, a:average]: <b>80</b>
-C
-enter 0 to 100, or a special command [r:reset, c:count, a:average]: <b>a</b>
-80.0
-enter 0 to 100, or a special command [r:reset, c:count, a:average]: <b>90</b>
-A
-enter 0 to 100, or a special command [r:reset, c:count, a:average]: <b>a</b>
-85.0
-
-done
-ty-mac:p4$
-</pre>
-
-### 4. "r" command
-
-This stands for reset.  It prints "reset" and clears the statistics,
-starting fresh.  It looks like this:
-
-<pre>
-ty-mac:p4$ python correct.py
-enter 0 to 100, or a special command [q:quit, r:reset, c:count, a:average]: <b>50</b>
-D
-enter 0 to 100, or a special command [q:quit, r:reset, c:count, a:average]: <b>c</b>
-1
-enter 0 to 100, or a special command [q:quit, r:reset, c:count, a:average]: <b>51</b>
-D
-enter 0 to 100, or a special command [q:quit, r:reset, c:count, a:average]: <b>r</b>
-reset
-
-done
-ty-mac:p4$
-</pre>
-
-## Tricky Input
-
-There are three error messages you should sometimes display for
-certain invalid inputs.  The messages and when you should display them
-are as follows:
-
-* **"no scores entered"** when the user tries to compute an average, but no scores have been entered (e.g., right after a reset)
-* **"out of range"** if a user enters an integer larger than 100
-* **"bad input"** if the user types something that does not consist solely of digits and does not match one of the commands given (e.g., "help", "-3", or "HAHAHAHAHA!")
-
-Your program should be able to work properly under these scenarios:
-
-* user uses capitals: you should treat "Q" the same as "q" and similar
-* user types extra spaces before or after a command/number: your program should ignore those spaces
-* user hints ENTER without typing anything (just ignore it)
-
-Here are some example functions and code snippets from an interactive
-Python session that might inspire your handling of the tricky input:
-
-```python
->>> msg = '    hello   '
->>> print('message: ' + msg + '.')
-message:     hello   .
->>> msg = msg.strip()
->>> print('message: ' + msg + '.')
-message: hello.
->>> spaces = '    '
->>> spaces == ''
-False
->>> spaces.strip() == ''
-True
->>> x = '3'
->>> y = 'b'
->>> '0' <= x <= '9'
-True
->>> '0' <= y <= '9'
-False
->>> for letter in 'hello':
-...   print(letter)
-...
-h
-e
-l
-l
-o
+Sorry your answer was incorrect.
 ```
+This should be printed on the line before the text from Feature 2.
 
-**Good luck, and have fun!**
+### Feature 5: Ask a fill in the blank question
+Add this as question 2:
+
+```
+What is the type of the following?
+"1" * 2
+```
+Notice there are no multiple choices here!
+
+### Feature 6: Make a function to ask the Questions
+
+Notice how you have had to repeat code to ask question 1 and 2. Let's consolidate this into a function named askQuestion which has 2 parameters, one for the question and one for the answer. Use this function to ask both question 1 and question 2 from the global block.
+
+### Feature 7: Add another question
+
+Add this as question 3:
+
+```
+What does this expression evaluate to?
+TRUE != (3 < 2)
+```
+All three questions should use the askQuestion function which is called from the global block.
+
+### Feature 8: Give three tries
+
+Use a 'while' loop to give the user three tries to get the answer right.
+
+If they get it right, they should still see the Feature 2 ("Congratulations!") text.
+
+If they get it wrong, they should see the Feature 4 ("Sorry your answer was incorrect") text, and then on a new line
+```
+Try again! You have 2 more tries
+```
+Where the number is the correct number of tries left. They should see the Feature 1 text once they either get it right or use up all 3 tries.
+
+### Feature 9: Give a Hint
+
+Use an Elif to check to see if they are on their last try. If so, give them a hint. You can write the hint text. The hint text will have to be added as another parameter for the AskQuestion function.
+
+Set the default value of the hint parameter to be "Check the textbook".
+
+Add hint text for each of the three questions.
+
+### Feature 10: Keep Score
+
+Use global variables to track the number of questions they have gotten right and how many they have gotten wrong.
+
+After all questions have been asked, print out:
+```
+You tried 3 questions and got 2 right.
+```
+Display the correct numbers of right and wrong.
