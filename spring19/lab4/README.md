@@ -48,3 +48,49 @@ Let's try it out!
 1. Complete text book exercise 7-2.
 
 This exercise was chosen because it gives you practice with skills critical for the next project. You'll be glad you did this quick exercise and had a chance to ask the TAs questions before tackling the larger assignment!
+
+### New skills for the project
+
+Finally, the project asks you to use two things we've not talked about in lecture or in the slides. They're pretty easy, but we want to give you a chance to try them out in lab first.
+
+In the project, you will be asked to read input from the user and check it against another string for a match. As you have noticed, however,
+
+```
+"answer" != "Answer"
+
+```
+capitalization counts in string comparison! So, a quick way to solve this problem is to just change both strings to lower case. You can do this with a built in fuction called str.lower() :
+
+```
+"answer" == str.lower("Answer")
+
+```
+
+Since we're taking user input, they may also sometimes add spaces before or after their input, but that also will mess up the string comparision:
+
+```
+"answer" != "answer "
+"answer" != " answer"
+
+```
+
+Use the str.strip() to strip off any spaces before or after the letters:
+
+```
+"answer" == str.strip("answer ")
+"answer" == str.strip(" answer")
+
+```
+
+Both of these you can use with variables too:
+
+```
+case_answer = "AnSwER"
+"answer" == str.lower(case_answer)
+
+spaces_answer = " answer     "
+"answer" == str.strip(spaces_answer)
+
+```
+
+And that's it! You're done with this lab. Go ahead and start the project, and good luck!
