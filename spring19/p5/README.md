@@ -110,4 +110,4 @@ After all questions have been asked, print out:
 ```
 You tried 3 questions and got 2 right.
 ```
-(with the correct numbers of right and wrong).
+Display the correct numbers of right and wrong.
