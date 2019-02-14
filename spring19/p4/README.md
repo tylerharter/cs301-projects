@@ -89,9 +89,13 @@ True != (3 < 2)
 ```
 All three questions should use the askQuestion function which is called from the global block. Note that we are changing all user input to lower case so all answer variables should all be in all lower case.
 
-### Feature 8: Give three tries
+### Feature 8: Let them try again
 
-Use a 'while' loop to give the user three tries to get the answer right.
+Before asking any of the quiz questions, first ask the user
+```
+"How many tries do you want for each question: "
+```
+and save that in a variable. Use that variable in a `while` loop to give the user that many tries to get the answer right.
 
 If they get it right, they should still see the Feature 2 ("Congratulations!") text.
 
@@ -99,15 +103,13 @@ If they get it wrong, they should see the Feature 4 ("Sorry your answer was inco
 ```
 Try again! You have 2 more tries
 ```
-Where the number is the correct number of tries left. They should see the Feature 1 text once they either get it right or use up all 3 tries.
+Where the number is the correct number of tries left. They should see the Feature 1 text once they either get it right or use up all their tries.
 
 ### Feature 9: Give a Hint
 
 Use an `elif` to check to see if they are on their last try. If so, give them a hint. You can write the hint text. The hint text will have to be added as another parameter for the AskQuestion function.
 
 Set the default value of the hint parameter to be "Check the textbook".
-
-Add hint text for each of the three questions.
 
 ### Feature 10: Keep Score
 
@@ -117,4 +119,38 @@ After all questions have been asked, print out:
 ```
 You tried 3 questions and got 2 right.
 ```
-Display the correct numbers of right and wrong.
+to display their score. Be sure the formatting and spaces are exactly the same to pass the tests.
+
+### Final result
+
+If you've implmented all 10 features correctly, your code should look like this when it runs:
+```
+How many tries do you want for each question: 1
+
+What is the type of the following? 1.0 == 2.0
+ a) int
+ b) float
+ c) str
+ d) bool
+ e) NoneType
+
+Your answer: d
+
+Congratulations! You got it right.
+The correct answer is d
+
+What is the type of the following? "1" * 2
+Your answer: str
+
+Congratulations! You got it right.
+The correct answer is str
+
+What does this expression evaluate to?
+ True != (3 < 2)
+Your answer: True
+
+Congratulations! You got it right.
+The correct answer is True
+You tried 3 questions and got 3 right.
+```
+Congratulations! You built a cool midterm study program! 
