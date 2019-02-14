@@ -24,7 +24,7 @@ Note: This project does not provide you a project.py (you won't be needing it) o
 Ask the user:
 
 ```
-What is the type of the following? "1.0" + 2.0
+What is the type of the following? "1.0" + "2.0"
 a) int
 b) float
 c) str
@@ -40,11 +40,9 @@ to have the user type in an answer.
 
 After they have entered input, print out this line:
 ```
-The correct answer is b.
+You answered 'a'. The correct answer is 'b
 ```
-Where 'b' is whatever letter is the right answer.
-
-Be sure the spaces and capitalization is an exact match to pass this test.
+Where 'a' is what they entered and 'b' is whatever letter is the right answer.
 
 ### Feature 2: Check the answer for correctness
 Use an `if` statement to check to see if the answer is correct. If it is, print:
@@ -127,30 +125,28 @@ If you've implmented all 10 features correctly, your code should look like this 
 ```
 How many tries do you want for each question: 1
 
-What is the type of the following? 1.0 == 2.0
+What is the type of the following? "1.0" + "2.0"
  a) int
  b) float
  c) str
  d) bool
  e) NoneType
 
-Your answer: d
+Your answer: c
+
 
 Congratulations! You got it right.
-The correct answer is d
 
 What is the type of the following? "1" * 2
 Your answer: str
 
 Congratulations! You got it right.
-The correct answer is str
 
 What does this expression evaluate to?
  True != (3 < 2)
 Your answer: True
 
 Congratulations! You got it right.
-The correct answer is True
 You tried 3 questions and got 3 right.
 ```
-Congratulations! You built a cool midterm study program! 
+Congratulations! You built a cool midterm study program!
