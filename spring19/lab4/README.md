@@ -1,4 +1,4 @@
-# Lab 4: Working outside of Jupyter Notebook
+# Lab 4: Working Outside of Jupyter Notebook
 
 This week we'll review some of the different places we can run our Python code and review some of the resources for practicing code.
 
@@ -8,9 +8,9 @@ So far we've been doing most of our projects inside Jupyter Notebook. You may re
 We've done most of the class projects here. Great for interacting with data sets where you want to crunch some data, see the result, and then decide what to do next.
 
 ### Interactive mode
-We've not used this much outside lab 2 yet. It's very useful for quickly checking some lines of Python when you don't want to fire up a whole Jupyter notebook, you're working on a computer with Python but not Jupyter notebooks, or you don't have internet for using Python Tutor.
+We've not used this much outside lab 2 yet. It's very useful for quickly checking some lines of Python when you don't want to fire up a whole Jupyter notebook, you're working on a computer with Python but not Jupyter notebooks, or you don't have Internet for using Python Tutor.
 
-### Script modes
+### Script mode
 This mode allows us to type many lines of code into a single file and run it all at once anywhere where python is installed. It also makes it easy to include the code as a module in another project.
 
 This week we're going to do the project in Script Mode! To make sure you don't have any snags when you're doing your project work, let's practice with some of the refactoring exercises covered in Wednesday's lecture.
@@ -19,7 +19,7 @@ This week we're going to do the project in Script Mode! To make sure you don't h
 
 1. Make a refactor-3-original.py file and enter in the original version of **Refactor Exercise 3** from Wednesday's lecture.
 
-2. Run refactor-3-original.py and see if the result is what you expect. Fix any bugs.
+2. Run refactor-3-original.py and see if the result is what you expect. Look for any semantic bugs and fix those.
 
 (If you have trouble remembering how to do steps 1 or 2, review Lab 2.)
 
