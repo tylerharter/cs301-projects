@@ -34,7 +34,7 @@ e) NoneType
 For all questions, print the question and then use
 
 ```
-input("Your answer:")
+input("Your answer: ")
 ```
 to have the user type in an answer.
 
@@ -85,7 +85,7 @@ Add this as question 3:
 
 ```
 What does this expression evaluate to?
-TRUE != (3 < 2)
+True != (3 < 2)
 ```
 All three questions should use the askQuestion function which is called from the global block. Note that we are changing all user input to lower case so all answer variables should all be in all lower case.
 
