@@ -6,7 +6,7 @@
 
 The CS 301 midterm is coming up, so now is a good time to begin to study. A great resource for preparing is to look at the old midterm exam which is available [here](https://github.com/tylerharter/caraza-harter-com/tree/master/tyler/cs301/spring19/materials/old-exams). Since we've been learning about conditionals this week, for this project we'll build an automated study tool program to quiz you on the questions. You'll get practice with conditionals and while loops.
 
-Start by downloading `test.py`. Double check that these files don't get renamed by your browser (by running `ls` in the terminal from your `p4` project directory). You'll do all your work in a new `main.ipynb` notebook that you'll create and hand in when you're done.  You'll test as usual by running `python test.py`.
+Start by downloading `test.py`. Double check that these files don't get renamed by your browser (by running `ls` in the terminal from your `p4` project directory). You'll do all your work in a new `main.py` file that you'll create and hand in when you're done.  You'll test as usual by running `python test.py`.
 
 The lab this week is designed to give you practice with conditionals and while loops, so be sure to do the lab from home (if you missed it) before starting the project.
 
@@ -24,7 +24,7 @@ Note: This project does not provide you a project.py (you won't be needing it) o
 Ask the user:
 
 ```
-What is the type of the following? 1.0 + 2.0
+What is the type of the following? "1.0" + 2.0
 a) int
 b) float
 c) str
@@ -40,14 +40,14 @@ to have the user type in an answer.
 
 After they have entered input, print out this line:
 ```
-You answered 'a'. The correct answer is 'b'.
+The correct answer is b.
 ```
-Where 'a' is whatever the user typed in and 'b' is whatever letter is the right answer.
+Where 'b' is whatever letter is the right answer.
 
 Be sure the spaces and capitalization is an exact match to pass this test.
 
 ### Feature 2: Check the answer for correctness
-Use an 'If' statement to check to see if the answer is correct. If it is, print:
+Use an `if` statement to check to see if the answer is correct. If it is, print:
 ```
 Congratulations! You got it right.
 ```
@@ -59,7 +59,7 @@ Take the user's input and remove any spaces or capitalization using the str.stri
 
 ### Feature 4: Tell user when answer is wrong
 
-Use an 'ELSE' statement to tell a user that their answer is wrong:
+Use an `else` statement to tell a user that their answer is wrong:
 
 ```
 Sorry your answer was incorrect.
@@ -77,7 +77,7 @@ Notice there are no multiple choices here!
 
 ### Feature 6: Make a function to ask the Questions
 
-Notice how you have had to repeat code to ask question 1 and 2. Let's consolidate this into a function named askQuestion which has 2 parameters, one for the question and one for the answer. Use this function to ask both question 1 and question 2 from the global block.
+Notice how you have had to repeat code to ask question 1 and 2. Let's consolidate this into a function named askQuestion which has 2 parameters, one for the question and one for the answer. Call this function to ask both question 1 and question 2.
 
 ### Feature 7: Add another question
 
@@ -103,7 +103,7 @@ Where the number is the correct number of tries left. They should see the Featur
 
 ### Feature 9: Give a Hint
 
-Use an Elif to check to see if they are on their last try. If so, give them a hint. You can write the hint text. The hint text will have to be added as another parameter for the AskQuestion function.
+Use an `elif` to check to see if they are on their last try. If so, give them a hint. You can write the hint text. The hint text will have to be added as another parameter for the AskQuestion function.
 
 Set the default value of the hint parameter to be "Check the textbook".
 
