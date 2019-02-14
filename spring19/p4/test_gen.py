@@ -60,7 +60,7 @@ class TestGen:
 
     def gen_test(self, tries, has_mistakes, f_apply):
         in_lines = [str(tries)]
-        correct = ["d", "str", "True"]
+        correct = ["c", "str", "True"]
         wrong = [["a", "b", "c", "e"],
                  ["float", "int", "bool"],
                  ["False", "1", "0", "None"]]
