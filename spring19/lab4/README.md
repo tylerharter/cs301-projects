@@ -35,7 +35,7 @@ Python tutor not only has great features that let you visualize your code step b
 
 Let's try it out!
 
-1. Find ** Refactor Exercise 5 - Refactor A ** and click 'Edit this code' to open it in Python Tutor.
+1. Find **Refactor Exercise 5 - Refactor A** and click 'Edit this code' to open it in Python Tutor.
 2. Click 'Start Private Chat' in the upper left hand corner.
 3. Copy and paste the URL and email it to one of the people sitting near you in the lab (or, if you or your partner have a laptop in the room, to one of your laptops).
 4. Use the chat window to discuss how to fix this refactor to match the behavior of the 'Refactor Exercise 5 - Original Version'
@@ -47,13 +47,15 @@ Let's try it out!
 
 1. Complete text book exercise 7-2.
 
+(note: don't run `eval` on input you don't 100% trust! Details of what could go wrong can be read about here (https://nedbatchelder.com/blog/201206/eval_really_is_dangerous.html))
+
 This exercise was chosen because it gives you practice with skills critical for the next project. You'll be glad you did this quick exercise and had a chance to ask the TAs questions before tackling the larger assignment!
 
 ### New skills for the project
 
 Finally, the project asks you to use two things we've not talked about in lecture or in the slides. They're pretty easy, but we want to give you a chance to try them out in lab first.
 
-In the project, you will be asked to read input from the user and check it against another string for a match. As you have noticed, however,
+In the project, you will be asked to read input from the user and check it against another string for a match. As you have noticed, however.
 
 ```
 "answer" != "Answer"
