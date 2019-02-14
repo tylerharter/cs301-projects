@@ -87,32 +87,3809 @@ def generic_test(expected):
     error = check_equal_stdout(stdout, actual_stdout)
     return error if error else PASS
 
+
 def test_1():
     print('TEST 1')
     return generic_test('''
 How many tries do you want for each question: 1
+
 What is the type of the following? 1.0 == 2.0
  a) int 
  b) float 
  c) str 
- d) bool 
- e) NoneType 
+ d) bool
+ e) NoneType
 
 Your answer: d
+
 Congratulations! You got it right.
 The correct answer is d
+
 What is the type of the following? "1" * 2
 Your answer: str
+
 Congratulations! You got it right.
 The correct answer is str
+
 What does this expression evaluate to? 
  True != (3 < 2)
 Your answer: True
+
+Congratulations! You got it right.
+The correct answer is True
+You tried 3 questions and got 3 right.
+'''.strip())
+
+
+def test_2():
+    print('TEST 2')
+    return generic_test('''
+How many tries do you want for each question: 1
+
+What is the type of the following? 1.0 == 2.0
+ a) int 
+ b) float 
+ c) str 
+ d) bool
+ e) NoneType
+
+Your answer: d
+
+Congratulations! You got it right.
+The correct answer is d
+
+What is the type of the following? "1" * 2
+Your answer: str
+
+Congratulations! You got it right.
+The correct answer is str
+
+What does this expression evaluate to? 
+ True != (3 < 2)
+Your answer: true
+
+Congratulations! You got it right.
+The correct answer is True
+You tried 3 questions and got 3 right.
+'''.strip())
+
+
+def test_3():
+    print('TEST 3')
+    return generic_test('''
+How many tries do you want for each question: 1
+
+What is the type of the following? 1.0 == 2.0
+ a) int 
+ b) float 
+ c) str 
+ d) bool
+ e) NoneType
+
+Your answer: D
+
+Congratulations! You got it right.
+The correct answer is d
+
+What is the type of the following? "1" * 2
+Your answer: STR
+
+Congratulations! You got it right.
+The correct answer is str
+
+What does this expression evaluate to? 
+ True != (3 < 2)
+Your answer: TRUE
+
+Congratulations! You got it right.
+The correct answer is True
+You tried 3 questions and got 3 right.
+'''.strip())
+
+
+def test_4():
+    print('TEST 4')
+    return generic_test('''
+How many tries do you want for each question:       1      
+
+What is the type of the following? 1.0 == 2.0
+ a) int 
+ b) float 
+ c) str 
+ d) bool
+ e) NoneType
+
+Your answer:       d      
+
+Congratulations! You got it right.
+The correct answer is d
+
+What is the type of the following? "1" * 2
+Your answer:     str    
+
+Congratulations! You got it right.
+The correct answer is str
+
+What does this expression evaluate to? 
+ True != (3 < 2)
+Your answer:   True  
+
+Congratulations! You got it right.
+The correct answer is True
+You tried 3 questions and got 3 right.
+'''.strip())
+
+
+def test_5():
+    print('TEST 5')
+    return generic_test('''
+How many tries do you want for each question: 1
+
+What is the type of the following? 1.0 == 2.0
+ a) int 
+ b) float 
+ c) str 
+ d) bool
+ e) NoneType
+
+Your answer: e
+
+Sorry your answer was incorrect.
+You have this many remaining tries: 0
+The correct answer is d
+
+What is the type of the following? "1" * 2
+Your answer: bool
+
+Sorry your answer was incorrect.
+You have this many remaining tries: 0
+The correct answer is str
+
+What does this expression evaluate to? 
+ True != (3 < 2)
+Your answer: True
+
+Congratulations! You got it right.
+The correct answer is True
+You tried 3 questions and got 1 right.
+'''.strip())
+
+
+def test_6():
+    print('TEST 6')
+    return generic_test('''
+How many tries do you want for each question: 1
+
+What is the type of the following? 1.0 == 2.0
+ a) int 
+ b) float 
+ c) str 
+ d) bool
+ e) NoneType
+
+Your answer: a
+
+Sorry your answer was incorrect.
+You have this many remaining tries: 0
+The correct answer is d
+
+What is the type of the following? "1" * 2
+Your answer: str
+
+Congratulations! You got it right.
+The correct answer is str
+
+What does this expression evaluate to? 
+ True != (3 < 2)
+Your answer: True
+
+Congratulations! You got it right.
+The correct answer is True
+You tried 3 questions and got 2 right.
+'''.strip())
+
+
+def test_7():
+    print('TEST 7')
+    return generic_test('''
+How many tries do you want for each question: 1
+
+What is the type of the following? 1.0 == 2.0
+ a) int 
+ b) float 
+ c) str 
+ d) bool
+ e) NoneType
+
+Your answer: d
+
+Congratulations! You got it right.
+The correct answer is d
+
+What is the type of the following? "1" * 2
+Your answer: bool
+
+Sorry your answer was incorrect.
+You have this many remaining tries: 0
+The correct answer is str
+
+What does this expression evaluate to? 
+ True != (3 < 2)
+Your answer: False
+
+Sorry your answer was incorrect.
+You have this many remaining tries: 0
+The correct answer is True
+You tried 3 questions and got 1 right.
+'''.strip())
+
+
+def test_8():
+    print('TEST 8')
+    return generic_test('''
+How many tries do you want for each question: 1
+
+What is the type of the following? 1.0 == 2.0
+ a) int 
+ b) float 
+ c) str 
+ d) bool
+ e) NoneType
+
+Your answer: d
+
+Congratulations! You got it right.
+The correct answer is d
+
+What is the type of the following? "1" * 2
+Your answer: bool
+
+Sorry your answer was incorrect.
+You have this many remaining tries: 0
+The correct answer is str
+
+What does this expression evaluate to? 
+ True != (3 < 2)
+Your answer: None
+
+Sorry your answer was incorrect.
+You have this many remaining tries: 0
+The correct answer is True
+You tried 3 questions and got 1 right.
+'''.strip())
+
+
+def test_9():
+    print('TEST 9')
+    return generic_test('''
+How many tries do you want for each question: 1
+
+What is the type of the following? 1.0 == 2.0
+ a) int 
+ b) float 
+ c) str 
+ d) bool
+ e) NoneType
+
+Your answer: d
+
+Congratulations! You got it right.
+The correct answer is d
+
+What is the type of the following? "1" * 2
+Your answer: float
+
+Sorry your answer was incorrect.
+You have this many remaining tries: 0
+The correct answer is str
+
+What does this expression evaluate to? 
+ True != (3 < 2)
+Your answer: True
+
+Congratulations! You got it right.
+The correct answer is True
+You tried 3 questions and got 2 right.
+'''.strip())
+
+
+def test_10():
+    print('TEST 10')
+    return generic_test('''
+How many tries do you want for each question: 1
+
+What is the type of the following? 1.0 == 2.0
+ a) int 
+ b) float 
+ c) str 
+ d) bool
+ e) NoneType
+
+Your answer: d
+
+Congratulations! You got it right.
+The correct answer is d
+
+What is the type of the following? "1" * 2
+Your answer: int
+
+Sorry your answer was incorrect.
+You have this many remaining tries: 0
+The correct answer is str
+
+What does this expression evaluate to? 
+ True != (3 < 2)
+Your answer: True
+
+Congratulations! You got it right.
+The correct answer is True
+You tried 3 questions and got 2 right.
+'''.strip())
+
+
+def test_11():
+    print('TEST 11')
+    return generic_test('''
+How many tries do you want for each question: 1
+
+What is the type of the following? 1.0 == 2.0
+ a) int 
+ b) float 
+ c) str 
+ d) bool
+ e) NoneType
+
+Your answer: b
+
+Sorry your answer was incorrect.
+You have this many remaining tries: 0
+The correct answer is d
+
+What is the type of the following? "1" * 2
+Your answer: str
+
+Congratulations! You got it right.
+The correct answer is str
+
+What does this expression evaluate to? 
+ True != (3 < 2)
+Your answer: False
+
+Sorry your answer was incorrect.
+You have this many remaining tries: 0
+The correct answer is True
+You tried 3 questions and got 1 right.
+'''.strip())
+
+
+def test_12():
+    print('TEST 12')
+    return generic_test('''
+How many tries do you want for each question: 1
+
+What is the type of the following? 1.0 == 2.0
+ a) int 
+ b) float 
+ c) str 
+ d) bool
+ e) NoneType
+
+Your answer: d
+
+Congratulations! You got it right.
+The correct answer is d
+
+What is the type of the following? "1" * 2
+Your answer: float
+
+Sorry your answer was incorrect.
+You have this many remaining tries: 0
+The correct answer is str
+
+What does this expression evaluate to? 
+ True != (3 < 2)
+Your answer: False
+
+Sorry your answer was incorrect.
+You have this many remaining tries: 0
+The correct answer is True
+You tried 3 questions and got 1 right.
+'''.strip())
+
+
+def test_13():
+    print('TEST 13')
+    return generic_test('''
+How many tries do you want for each question: 1
+
+What is the type of the following? 1.0 == 2.0
+ a) int 
+ b) float 
+ c) str 
+ d) bool
+ e) NoneType
+
+Your answer: d
+
+Congratulations! You got it right.
+The correct answer is d
+
+What is the type of the following? "1" * 2
+Your answer: bool
+
+Sorry your answer was incorrect.
+You have this many remaining tries: 0
+The correct answer is str
+
+What does this expression evaluate to? 
+ True != (3 < 2)
+Your answer: None
+
+Sorry your answer was incorrect.
+You have this many remaining tries: 0
+The correct answer is True
+You tried 3 questions and got 1 right.
+'''.strip())
+
+
+def test_14():
+    print('TEST 14')
+    return generic_test('''
+How many tries do you want for each question: 1
+
+What is the type of the following? 1.0 == 2.0
+ a) int 
+ b) float 
+ c) str 
+ d) bool
+ e) NoneType
+
+Your answer: d
+
+Congratulations! You got it right.
+The correct answer is d
+
+What is the type of the following? "1" * 2
+Your answer: str
+
+Congratulations! You got it right.
+The correct answer is str
+
+What does this expression evaluate to? 
+ True != (3 < 2)
+Your answer: True
+
+Congratulations! You got it right.
+The correct answer is True
+You tried 3 questions and got 3 right.
+'''.strip())
+
+
+def test_15():
+    print('TEST 15')
+    return generic_test('''
+How many tries do you want for each question: 1
+
+What is the type of the following? 1.0 == 2.0
+ a) int 
+ b) float 
+ c) str 
+ d) bool
+ e) NoneType
+
+Your answer: e
+
+Sorry your answer was incorrect.
+You have this many remaining tries: 0
+The correct answer is d
+
+What is the type of the following? "1" * 2
+Your answer: str
+
+Congratulations! You got it right.
+The correct answer is str
+
+What does this expression evaluate to? 
+ True != (3 < 2)
+Your answer: 1
+
+Sorry your answer was incorrect.
+You have this many remaining tries: 0
+The correct answer is True
+You tried 3 questions and got 1 right.
+'''.strip())
+
+
+def test_16():
+    print('TEST 16')
+    return generic_test('''
+How many tries do you want for each question: 1
+
+What is the type of the following? 1.0 == 2.0
+ a) int 
+ b) float 
+ c) str 
+ d) bool
+ e) NoneType
+
+Your answer: e
+
+Sorry your answer was incorrect.
+You have this many remaining tries: 0
+The correct answer is d
+
+What is the type of the following? "1" * 2
+Your answer: bool
+
+Sorry your answer was incorrect.
+You have this many remaining tries: 0
+The correct answer is str
+
+What does this expression evaluate to? 
+ True != (3 < 2)
+Your answer: True
+
+Congratulations! You got it right.
+The correct answer is True
+You tried 3 questions and got 1 right.
+'''.strip())
+
+
+def test_17():
+    print('TEST 17')
+    return generic_test('''
+How many tries do you want for each question: 1
+
+What is the type of the following? 1.0 == 2.0
+ a) int 
+ b) float 
+ c) str 
+ d) bool
+ e) NoneType
+
+Your answer: d
+
+Congratulations! You got it right.
+The correct answer is d
+
+What is the type of the following? "1" * 2
+Your answer: int
+
+Sorry your answer was incorrect.
+You have this many remaining tries: 0
+The correct answer is str
+
+What does this expression evaluate to? 
+ True != (3 < 2)
+Your answer: True
+
+Congratulations! You got it right.
+The correct answer is True
+You tried 3 questions and got 2 right.
+'''.strip())
+
+
+def test_18():
+    print('TEST 18')
+    return generic_test('''
+How many tries do you want for each question: 1
+
+What is the type of the following? 1.0 == 2.0
+ a) int 
+ b) float 
+ c) str 
+ d) bool
+ e) NoneType
+
+Your answer: d
+
+Congratulations! You got it right.
+The correct answer is d
+
+What is the type of the following? "1" * 2
+Your answer: float
+
+Sorry your answer was incorrect.
+You have this many remaining tries: 0
+The correct answer is str
+
+What does this expression evaluate to? 
+ True != (3 < 2)
+Your answer: True
+
+Congratulations! You got it right.
+The correct answer is True
+You tried 3 questions and got 2 right.
+'''.strip())
+
+
+def test_19():
+    print('TEST 19')
+    return generic_test('''
+How many tries do you want for each question: 1
+
+What is the type of the following? 1.0 == 2.0
+ a) int 
+ b) float 
+ c) str 
+ d) bool
+ e) NoneType
+
+Your answer: d
+
+Congratulations! You got it right.
+The correct answer is d
+
+What is the type of the following? "1" * 2
+Your answer: str
+
+Congratulations! You got it right.
+The correct answer is str
+
+What does this expression evaluate to? 
+ True != (3 < 2)
+Your answer: 0
+
 Sorry your answer was incorrect.
 You have this many remaining tries: 0
 The correct answer is True
 You tried 3 questions and got 2 right.
 '''.strip())
+
+
+def test_20():
+    print('TEST 20')
+    return generic_test('''
+How many tries do you want for each question: 1
+
+What is the type of the following? 1.0 == 2.0
+ a) int 
+ b) float 
+ c) str 
+ d) bool
+ e) NoneType
+
+Your answer: c
+
+Sorry your answer was incorrect.
+You have this many remaining tries: 0
+The correct answer is d
+
+What is the type of the following? "1" * 2
+Your answer: str
+
+Congratulations! You got it right.
+The correct answer is str
+
+What does this expression evaluate to? 
+ True != (3 < 2)
+Your answer: 0
+
+Sorry your answer was incorrect.
+You have this many remaining tries: 0
+The correct answer is True
+You tried 3 questions and got 1 right.
+'''.strip())
+
+
+def test_21():
+    print('TEST 21')
+    return generic_test('''
+How many tries do you want for each question: 1
+
+What is the type of the following? 1.0 == 2.0
+ a) int 
+ b) float 
+ c) str 
+ d) bool
+ e) NoneType
+
+Your answer: b
+
+Sorry your answer was incorrect.
+You have this many remaining tries: 0
+The correct answer is d
+
+What is the type of the following? "1" * 2
+Your answer: int
+
+Sorry your answer was incorrect.
+You have this many remaining tries: 0
+The correct answer is str
+
+What does this expression evaluate to? 
+ True != (3 < 2)
+Your answer: True
+
+Congratulations! You got it right.
+The correct answer is True
+You tried 3 questions and got 1 right.
+'''.strip())
+
+
+def test_22():
+    print('TEST 22')
+    return generic_test('''
+How many tries do you want for each question: 1
+
+What is the type of the following? 1.0 == 2.0
+ a) int 
+ b) float 
+ c) str 
+ d) bool
+ e) NoneType
+
+Your answer: c
+
+Sorry your answer was incorrect.
+You have this many remaining tries: 0
+The correct answer is d
+
+What is the type of the following? "1" * 2
+Your answer: str
+
+Congratulations! You got it right.
+The correct answer is str
+
+What does this expression evaluate to? 
+ True != (3 < 2)
+Your answer: None
+
+Sorry your answer was incorrect.
+You have this many remaining tries: 0
+The correct answer is True
+You tried 3 questions and got 1 right.
+'''.strip())
+
+
+def test_23():
+    print('TEST 23')
+    return generic_test('''
+How many tries do you want for each question: 1
+
+What is the type of the following? 1.0 == 2.0
+ a) int 
+ b) float 
+ c) str 
+ d) bool
+ e) NoneType
+
+Your answer: d
+
+Congratulations! You got it right.
+The correct answer is d
+
+What is the type of the following? "1" * 2
+Your answer: float
+
+Sorry your answer was incorrect.
+You have this many remaining tries: 0
+The correct answer is str
+
+What does this expression evaluate to? 
+ True != (3 < 2)
+Your answer: True
+
+Congratulations! You got it right.
+The correct answer is True
+You tried 3 questions and got 2 right.
+'''.strip())
+
+
+def test_24():
+    print('TEST 24')
+    return generic_test('''
+How many tries do you want for each question: 1
+
+What is the type of the following? 1.0 == 2.0
+ a) int 
+ b) float 
+ c) str 
+ d) bool
+ e) NoneType
+
+Your answer: a
+
+Sorry your answer was incorrect.
+You have this many remaining tries: 0
+The correct answer is d
+
+What is the type of the following? "1" * 2
+Your answer: str
+
+Congratulations! You got it right.
+The correct answer is str
+
+What does this expression evaluate to? 
+ True != (3 < 2)
+Your answer: True
+
+Congratulations! You got it right.
+The correct answer is True
+You tried 3 questions and got 2 right.
+'''.strip())
+
+
+def test_25():
+    print('TEST 25')
+    return generic_test('''
+How many tries do you want for each question: 1
+
+What is the type of the following? 1.0 == 2.0
+ a) int 
+ b) float 
+ c) str 
+ d) bool
+ e) NoneType
+
+Your answer: d
+
+Congratulations! You got it right.
+The correct answer is d
+
+What is the type of the following? "1" * 2
+Your answer: bool
+
+Sorry your answer was incorrect.
+You have this many remaining tries: 0
+The correct answer is str
+
+What does this expression evaluate to? 
+ True != (3 < 2)
+Your answer: True
+
+Congratulations! You got it right.
+The correct answer is True
+You tried 3 questions and got 2 right.
+'''.strip())
+
+
+def test_26():
+    print('TEST 26')
+    return generic_test('''
+How many tries do you want for each question: 1
+
+What is the type of the following? 1.0 == 2.0
+ a) int 
+ b) float 
+ c) str 
+ d) bool
+ e) NoneType
+
+Your answer: e
+
+Sorry your answer was incorrect.
+You have this many remaining tries: 0
+The correct answer is d
+
+What is the type of the following? "1" * 2
+Your answer: int
+
+Sorry your answer was incorrect.
+You have this many remaining tries: 0
+The correct answer is str
+
+What does this expression evaluate to? 
+ True != (3 < 2)
+Your answer: True
+
+Congratulations! You got it right.
+The correct answer is True
+You tried 3 questions and got 1 right.
+'''.strip())
+
+
+def test_27():
+    print('TEST 27')
+    return generic_test('''
+How many tries do you want for each question: 1
+
+What is the type of the following? 1.0 == 2.0
+ a) int 
+ b) float 
+ c) str 
+ d) bool
+ e) NoneType
+
+Your answer: b
+
+Sorry your answer was incorrect.
+You have this many remaining tries: 0
+The correct answer is d
+
+What is the type of the following? "1" * 2
+Your answer: int
+
+Sorry your answer was incorrect.
+You have this many remaining tries: 0
+The correct answer is str
+
+What does this expression evaluate to? 
+ True != (3 < 2)
+Your answer: False
+
+Sorry your answer was incorrect.
+You have this many remaining tries: 0
+The correct answer is True
+You tried 3 questions and got 0 right.
+'''.strip())
+
+
+def test_28():
+    print('TEST 28')
+    return generic_test('''
+How many tries do you want for each question: 1
+
+What is the type of the following? 1.0 == 2.0
+ a) int 
+ b) float 
+ c) str 
+ d) bool
+ e) NoneType
+
+Your answer: e
+
+Sorry your answer was incorrect.
+You have this many remaining tries: 0
+The correct answer is d
+
+What is the type of the following? "1" * 2
+Your answer: str
+
+Congratulations! You got it right.
+The correct answer is str
+
+What does this expression evaluate to? 
+ True != (3 < 2)
+Your answer: True
+
+Congratulations! You got it right.
+The correct answer is True
+You tried 3 questions and got 2 right.
+'''.strip())
+
+
+def test_29():
+    print('TEST 29')
+    return generic_test('''
+How many tries do you want for each question: 1
+
+What is the type of the following? 1.0 == 2.0
+ a) int 
+ b) float 
+ c) str 
+ d) bool
+ e) NoneType
+
+Your answer: c
+
+Sorry your answer was incorrect.
+You have this many remaining tries: 0
+The correct answer is d
+
+What is the type of the following? "1" * 2
+Your answer: str
+
+Congratulations! You got it right.
+The correct answer is str
+
+What does this expression evaluate to? 
+ True != (3 < 2)
+Your answer: True
+
+Congratulations! You got it right.
+The correct answer is True
+You tried 3 questions and got 2 right.
+'''.strip())
+
+
+def test_30():
+    print('TEST 30')
+    return generic_test('''
+How many tries do you want for each question: 1
+
+What is the type of the following? 1.0 == 2.0
+ a) int 
+ b) float 
+ c) str 
+ d) bool
+ e) NoneType
+
+Your answer: d
+
+Congratulations! You got it right.
+The correct answer is d
+
+What is the type of the following? "1" * 2
+Your answer: float
+
+Sorry your answer was incorrect.
+You have this many remaining tries: 0
+The correct answer is str
+
+What does this expression evaluate to? 
+ True != (3 < 2)
+Your answer: None
+
+Sorry your answer was incorrect.
+You have this many remaining tries: 0
+The correct answer is True
+You tried 3 questions and got 1 right.
+'''.strip())
+
+
+def test_31():
+    print('TEST 31')
+    return generic_test('''
+How many tries do you want for each question: 1
+
+What is the type of the following? 1.0 == 2.0
+ a) int 
+ b) float 
+ c) str 
+ d) bool
+ e) NoneType
+
+Your answer: c
+
+Sorry your answer was incorrect.
+You have this many remaining tries: 0
+The correct answer is d
+
+What is the type of the following? "1" * 2
+Your answer: str
+
+Congratulations! You got it right.
+The correct answer is str
+
+What does this expression evaluate to? 
+ True != (3 < 2)
+Your answer: False
+
+Sorry your answer was incorrect.
+You have this many remaining tries: 0
+The correct answer is True
+You tried 3 questions and got 1 right.
+'''.strip())
+
+
+def test_32():
+    print('TEST 32')
+    return generic_test('''
+How many tries do you want for each question: 1
+
+What is the type of the following? 1.0 == 2.0
+ a) int 
+ b) float 
+ c) str 
+ d) bool
+ e) NoneType
+
+Your answer: d
+
+Congratulations! You got it right.
+The correct answer is d
+
+What is the type of the following? "1" * 2
+Your answer: str
+
+Congratulations! You got it right.
+The correct answer is str
+
+What does this expression evaluate to? 
+ True != (3 < 2)
+Your answer: 1
+
+Sorry your answer was incorrect.
+You have this many remaining tries: 0
+The correct answer is True
+You tried 3 questions and got 2 right.
+'''.strip())
+
+
+def test_33():
+    print('TEST 33')
+    return generic_test('''
+How many tries do you want for each question: 1
+
+What is the type of the following? 1.0 == 2.0
+ a) int 
+ b) float 
+ c) str 
+ d) bool
+ e) NoneType
+
+Your answer: b
+
+Sorry your answer was incorrect.
+You have this many remaining tries: 0
+The correct answer is d
+
+What is the type of the following? "1" * 2
+Your answer: str
+
+Congratulations! You got it right.
+The correct answer is str
+
+What does this expression evaluate to? 
+ True != (3 < 2)
+Your answer: False
+
+Sorry your answer was incorrect.
+You have this many remaining tries: 0
+The correct answer is True
+You tried 3 questions and got 1 right.
+'''.strip())
+
+
+def test_34():
+    print('TEST 34')
+    return generic_test('''
+How many tries do you want for each question: 1
+
+What is the type of the following? 1.0 == 2.0
+ a) int 
+ b) float 
+ c) str 
+ d) bool
+ e) NoneType
+
+Your answer: b
+
+Sorry your answer was incorrect.
+You have this many remaining tries: 0
+The correct answer is d
+
+What is the type of the following? "1" * 2
+Your answer: int
+
+Sorry your answer was incorrect.
+You have this many remaining tries: 0
+The correct answer is str
+
+What does this expression evaluate to? 
+ True != (3 < 2)
+Your answer: True
+
+Congratulations! You got it right.
+The correct answer is True
+You tried 3 questions and got 1 right.
+'''.strip())
+
+
+def test_35():
+    print('TEST 35')
+    return generic_test('''
+How many tries do you want for each question: 1
+
+What is the type of the following? 1.0 == 2.0
+ a) int 
+ b) float 
+ c) str 
+ d) bool
+ e) NoneType
+
+Your answer: d
+
+Congratulations! You got it right.
+The correct answer is d
+
+What is the type of the following? "1" * 2
+Your answer: str
+
+Congratulations! You got it right.
+The correct answer is str
+
+What does this expression evaluate to? 
+ True != (3 < 2)
+Your answer: False
+
+Sorry your answer was incorrect.
+You have this many remaining tries: 0
+The correct answer is True
+You tried 3 questions and got 2 right.
+'''.strip())
+
+
+def test_36():
+    print('TEST 36')
+    return generic_test('''
+How many tries do you want for each question: 1
+
+What is the type of the following? 1.0 == 2.0
+ a) int 
+ b) float 
+ c) str 
+ d) bool
+ e) NoneType
+
+Your answer: a
+
+Sorry your answer was incorrect.
+You have this many remaining tries: 0
+The correct answer is d
+
+What is the type of the following? "1" * 2
+Your answer: bool
+
+Sorry your answer was incorrect.
+You have this many remaining tries: 0
+The correct answer is str
+
+What does this expression evaluate to? 
+ True != (3 < 2)
+Your answer: True
+
+Congratulations! You got it right.
+The correct answer is True
+You tried 3 questions and got 1 right.
+'''.strip())
+
+
+def test_37():
+    print('TEST 37')
+    return generic_test('''
+How many tries do you want for each question: 1
+
+What is the type of the following? 1.0 == 2.0
+ a) int 
+ b) float 
+ c) str 
+ d) bool
+ e) NoneType
+
+Your answer: e
+
+Sorry your answer was incorrect.
+You have this many remaining tries: 0
+The correct answer is d
+
+What is the type of the following? "1" * 2
+Your answer: str
+
+Congratulations! You got it right.
+The correct answer is str
+
+What does this expression evaluate to? 
+ True != (3 < 2)
+Your answer: True
+
+Congratulations! You got it right.
+The correct answer is True
+You tried 3 questions and got 2 right.
+'''.strip())
+
+
+def test_38():
+    print('TEST 38')
+    return generic_test('''
+How many tries do you want for each question: 1
+
+What is the type of the following? 1.0 == 2.0
+ a) int 
+ b) float 
+ c) str 
+ d) bool
+ e) NoneType
+
+Your answer: d
+
+Congratulations! You got it right.
+The correct answer is d
+
+What is the type of the following? "1" * 2
+Your answer: str
+
+Congratulations! You got it right.
+The correct answer is str
+
+What does this expression evaluate to? 
+ True != (3 < 2)
+Your answer: 1
+
+Sorry your answer was incorrect.
+You have this many remaining tries: 0
+The correct answer is True
+You tried 3 questions and got 2 right.
+'''.strip())
+
+
+def test_39():
+    print('TEST 39')
+    return generic_test('''
+How many tries do you want for each question: 1
+
+What is the type of the following? 1.0 == 2.0
+ a) int 
+ b) float 
+ c) str 
+ d) bool
+ e) NoneType
+
+Your answer: a
+
+Sorry your answer was incorrect.
+You have this many remaining tries: 0
+The correct answer is d
+
+What is the type of the following? "1" * 2
+Your answer: bool
+
+Sorry your answer was incorrect.
+You have this many remaining tries: 0
+The correct answer is str
+
+What does this expression evaluate to? 
+ True != (3 < 2)
+Your answer: True
+
+Congratulations! You got it right.
+The correct answer is True
+You tried 3 questions and got 1 right.
+'''.strip())
+
+
+def test_40():
+    print('TEST 40')
+    return generic_test('''
+How many tries do you want for each question: 1
+
+What is the type of the following? 1.0 == 2.0
+ a) int 
+ b) float 
+ c) str 
+ d) bool
+ e) NoneType
+
+Your answer: d
+
+Congratulations! You got it right.
+The correct answer is d
+
+What is the type of the following? "1" * 2
+Your answer: str
+
+Congratulations! You got it right.
+The correct answer is str
+
+What does this expression evaluate to? 
+ True != (3 < 2)
+Your answer: 0
+
+Sorry your answer was incorrect.
+You have this many remaining tries: 0
+The correct answer is True
+You tried 3 questions and got 2 right.
+'''.strip())
+
+
+def test_41():
+    print('TEST 41')
+    return generic_test('''
+How many tries do you want for each question: 1
+
+What is the type of the following? 1.0 == 2.0
+ a) int 
+ b) float 
+ c) str 
+ d) bool
+ e) NoneType
+
+Your answer: d
+
+Congratulations! You got it right.
+The correct answer is d
+
+What is the type of the following? "1" * 2
+Your answer: int
+
+Sorry your answer was incorrect.
+You have this many remaining tries: 0
+The correct answer is str
+
+What does this expression evaluate to? 
+ True != (3 < 2)
+Your answer: 0
+
+Sorry your answer was incorrect.
+You have this many remaining tries: 0
+The correct answer is True
+You tried 3 questions and got 1 right.
+'''.strip())
+
+
+def test_42():
+    print('TEST 42')
+    return generic_test('''
+How many tries do you want for each question: 1
+
+What is the type of the following? 1.0 == 2.0
+ a) int 
+ b) float 
+ c) str 
+ d) bool
+ e) NoneType
+
+Your answer: a
+
+Sorry your answer was incorrect.
+You have this many remaining tries: 0
+The correct answer is d
+
+What is the type of the following? "1" * 2
+Your answer: str
+
+Congratulations! You got it right.
+The correct answer is str
+
+What does this expression evaluate to? 
+ True != (3 < 2)
+Your answer: True
+
+Congratulations! You got it right.
+The correct answer is True
+You tried 3 questions and got 2 right.
+'''.strip())
+
+
+def test_43():
+    print('TEST 43')
+    return generic_test('''
+How many tries do you want for each question: 1
+
+What is the type of the following? 1.0 == 2.0
+ a) int 
+ b) float 
+ c) str 
+ d) bool
+ e) NoneType
+
+Your answer: c
+
+Sorry your answer was incorrect.
+You have this many remaining tries: 0
+The correct answer is d
+
+What is the type of the following? "1" * 2
+Your answer: int
+
+Sorry your answer was incorrect.
+You have this many remaining tries: 0
+The correct answer is str
+
+What does this expression evaluate to? 
+ True != (3 < 2)
+Your answer: False
+
+Sorry your answer was incorrect.
+You have this many remaining tries: 0
+The correct answer is True
+You tried 3 questions and got 0 right.
+'''.strip())
+
+
+def test_44():
+    print('TEST 44')
+    return generic_test('''
+How many tries do you want for each question: 1
+
+What is the type of the following? 1.0 == 2.0
+ a) int 
+ b) float 
+ c) str 
+ d) bool
+ e) NoneType
+
+Your answer: a
+
+Sorry your answer was incorrect.
+You have this many remaining tries: 0
+The correct answer is d
+
+What is the type of the following? "1" * 2
+Your answer: str
+
+Congratulations! You got it right.
+The correct answer is str
+
+What does this expression evaluate to? 
+ True != (3 < 2)
+Your answer: True
+
+Congratulations! You got it right.
+The correct answer is True
+You tried 3 questions and got 2 right.
+'''.strip())
+
+
+def test_45():
+    print('TEST 45')
+    return generic_test('''
+How many tries do you want for each question: 1
+
+What is the type of the following? 1.0 == 2.0
+ a) int 
+ b) float 
+ c) str 
+ d) bool
+ e) NoneType
+
+Your answer: e
+
+Sorry your answer was incorrect.
+You have this many remaining tries: 0
+The correct answer is d
+
+What is the type of the following? "1" * 2
+Your answer: str
+
+Congratulations! You got it right.
+The correct answer is str
+
+What does this expression evaluate to? 
+ True != (3 < 2)
+Your answer: True
+
+Congratulations! You got it right.
+The correct answer is True
+You tried 3 questions and got 2 right.
+'''.strip())
+
+
+def test_46():
+    print('TEST 46')
+    return generic_test('''
+How many tries do you want for each question: 1
+
+What is the type of the following? 1.0 == 2.0
+ a) int 
+ b) float 
+ c) str 
+ d) bool
+ e) NoneType
+
+Your answer: d
+
+Congratulations! You got it right.
+The correct answer is d
+
+What is the type of the following? "1" * 2
+Your answer: bool
+
+Sorry your answer was incorrect.
+You have this many remaining tries: 0
+The correct answer is str
+
+What does this expression evaluate to? 
+ True != (3 < 2)
+Your answer: True
+
+Congratulations! You got it right.
+The correct answer is True
+You tried 3 questions and got 2 right.
+'''.strip())
+
+
+def test_47():
+    print('TEST 47')
+    return generic_test('''
+How many tries do you want for each question: 1
+
+What is the type of the following? 1.0 == 2.0
+ a) int 
+ b) float 
+ c) str 
+ d) bool
+ e) NoneType
+
+Your answer: d
+
+Congratulations! You got it right.
+The correct answer is d
+
+What is the type of the following? "1" * 2
+Your answer: str
+
+Congratulations! You got it right.
+The correct answer is str
+
+What does this expression evaluate to? 
+ True != (3 < 2)
+Your answer: None
+
+Sorry your answer was incorrect.
+You have this many remaining tries: 0
+The correct answer is True
+You tried 3 questions and got 2 right.
+'''.strip())
+
+
+def test_48():
+    print('TEST 48')
+    return generic_test('''
+How many tries do you want for each question: 1
+
+What is the type of the following? 1.0 == 2.0
+ a) int 
+ b) float 
+ c) str 
+ d) bool
+ e) NoneType
+
+Your answer: b
+
+Sorry your answer was incorrect.
+You have this many remaining tries: 0
+The correct answer is d
+
+What is the type of the following? "1" * 2
+Your answer: float
+
+Sorry your answer was incorrect.
+You have this many remaining tries: 0
+The correct answer is str
+
+What does this expression evaluate to? 
+ True != (3 < 2)
+Your answer: 0
+
+Sorry your answer was incorrect.
+You have this many remaining tries: 0
+The correct answer is True
+You tried 3 questions and got 0 right.
+'''.strip())
+
+
+def test_49():
+    print('TEST 49')
+    return generic_test('''
+How many tries do you want for each question: 1
+
+What is the type of the following? 1.0 == 2.0
+ a) int 
+ b) float 
+ c) str 
+ d) bool
+ e) NoneType
+
+Your answer: b
+
+Sorry your answer was incorrect.
+You have this many remaining tries: 0
+The correct answer is d
+
+What is the type of the following? "1" * 2
+Your answer: int
+
+Sorry your answer was incorrect.
+You have this many remaining tries: 0
+The correct answer is str
+
+What does this expression evaluate to? 
+ True != (3 < 2)
+Your answer: True
+
+Congratulations! You got it right.
+The correct answer is True
+You tried 3 questions and got 1 right.
+'''.strip())
+
+
+def test_50():
+    print('TEST 50')
+    return generic_test('''
+How many tries do you want for each question: 1
+
+What is the type of the following? 1.0 == 2.0
+ a) int 
+ b) float 
+ c) str 
+ d) bool
+ e) NoneType
+
+Your answer: b
+
+Sorry your answer was incorrect.
+You have this many remaining tries: 0
+The correct answer is d
+
+What is the type of the following? "1" * 2
+Your answer: str
+
+Congratulations! You got it right.
+The correct answer is str
+
+What does this expression evaluate to? 
+ True != (3 < 2)
+Your answer: 0
+
+Sorry your answer was incorrect.
+You have this many remaining tries: 0
+The correct answer is True
+You tried 3 questions and got 1 right.
+'''.strip())
+
+
+def test_51():
+    print('TEST 51')
+    return generic_test('''
+How many tries do you want for each question: 1
+
+What is the type of the following? 1.0 == 2.0
+ a) int 
+ b) float 
+ c) str 
+ d) bool
+ e) NoneType
+
+Your answer: b
+
+Sorry your answer was incorrect.
+You have this many remaining tries: 0
+The correct answer is d
+
+What is the type of the following? "1" * 2
+Your answer: int
+
+Sorry your answer was incorrect.
+You have this many remaining tries: 0
+The correct answer is str
+
+What does this expression evaluate to? 
+ True != (3 < 2)
+Your answer: True
+
+Congratulations! You got it right.
+The correct answer is True
+You tried 3 questions and got 1 right.
+'''.strip())
+
+
+def test_52():
+    print('TEST 52')
+    return generic_test('''
+How many tries do you want for each question: 1
+
+What is the type of the following? 1.0 == 2.0
+ a) int 
+ b) float 
+ c) str 
+ d) bool
+ e) NoneType
+
+Your answer: d
+
+Congratulations! You got it right.
+The correct answer is d
+
+What is the type of the following? "1" * 2
+Your answer: str
+
+Congratulations! You got it right.
+The correct answer is str
+
+What does this expression evaluate to? 
+ True != (3 < 2)
+Your answer: 0
+
+Sorry your answer was incorrect.
+You have this many remaining tries: 0
+The correct answer is True
+You tried 3 questions and got 2 right.
+'''.strip())
+
+
+def test_53():
+    print('TEST 53')
+    return generic_test('''
+How many tries do you want for each question: 1
+
+What is the type of the following? 1.0 == 2.0
+ a) int 
+ b) float 
+ c) str 
+ d) bool
+ e) NoneType
+
+Your answer: c
+
+Sorry your answer was incorrect.
+You have this many remaining tries: 0
+The correct answer is d
+
+What is the type of the following? "1" * 2
+Your answer: str
+
+Congratulations! You got it right.
+The correct answer is str
+
+What does this expression evaluate to? 
+ True != (3 < 2)
+Your answer: True
+
+Congratulations! You got it right.
+The correct answer is True
+You tried 3 questions and got 2 right.
+'''.strip())
+
+
+def test_54():
+    print('TEST 54')
+    return generic_test('''
+How many tries do you want for each question: 1
+
+What is the type of the following? 1.0 == 2.0
+ a) int 
+ b) float 
+ c) str 
+ d) bool
+ e) NoneType
+
+Your answer: d
+
+Congratulations! You got it right.
+The correct answer is d
+
+What is the type of the following? "1" * 2
+Your answer: str
+
+Congratulations! You got it right.
+The correct answer is str
+
+What does this expression evaluate to? 
+ True != (3 < 2)
+Your answer: true
+
+Congratulations! You got it right.
+The correct answer is True
+You tried 3 questions and got 3 right.
+'''.strip())
+
+
+def test_55():
+    print('TEST 55')
+    return generic_test('''
+How many tries do you want for each question: 1
+
+What is the type of the following? 1.0 == 2.0
+ a) int 
+ b) float 
+ c) str 
+ d) bool
+ e) NoneType
+
+Your answer: b
+
+Sorry your answer was incorrect.
+You have this many remaining tries: 0
+The correct answer is d
+
+What is the type of the following? "1" * 2
+Your answer: str
+
+Congratulations! You got it right.
+The correct answer is str
+
+What does this expression evaluate to? 
+ True != (3 < 2)
+Your answer: true
+
+Congratulations! You got it right.
+The correct answer is True
+You tried 3 questions and got 2 right.
+'''.strip())
+
+
+def test_56():
+    print('TEST 56')
+    return generic_test('''
+How many tries do you want for each question: 1
+
+What is the type of the following? 1.0 == 2.0
+ a) int 
+ b) float 
+ c) str 
+ d) bool
+ e) NoneType
+
+Your answer: e
+
+Sorry your answer was incorrect.
+You have this many remaining tries: 0
+The correct answer is d
+
+What is the type of the following? "1" * 2
+Your answer: str
+
+Congratulations! You got it right.
+The correct answer is str
+
+What does this expression evaluate to? 
+ True != (3 < 2)
+Your answer: true
+
+Congratulations! You got it right.
+The correct answer is True
+You tried 3 questions and got 2 right.
+'''.strip())
+
+
+def test_57():
+    print('TEST 57')
+    return generic_test('''
+How many tries do you want for each question: 1
+
+What is the type of the following? 1.0 == 2.0
+ a) int 
+ b) float 
+ c) str 
+ d) bool
+ e) NoneType
+
+Your answer: b
+
+Sorry your answer was incorrect.
+You have this many remaining tries: 0
+The correct answer is d
+
+What is the type of the following? "1" * 2
+Your answer: int
+
+Sorry your answer was incorrect.
+You have this many remaining tries: 0
+The correct answer is str
+
+What does this expression evaluate to? 
+ True != (3 < 2)
+Your answer: none
+
+Sorry your answer was incorrect.
+You have this many remaining tries: 0
+The correct answer is True
+You tried 3 questions and got 0 right.
+'''.strip())
+
+
+def test_58():
+    print('TEST 58')
+    return generic_test('''
+How many tries do you want for each question: 1
+
+What is the type of the following? 1.0 == 2.0
+ a) int 
+ b) float 
+ c) str 
+ d) bool
+ e) NoneType
+
+Your answer: d
+
+Congratulations! You got it right.
+The correct answer is d
+
+What is the type of the following? "1" * 2
+Your answer: str
+
+Congratulations! You got it right.
+The correct answer is str
+
+What does this expression evaluate to? 
+ True != (3 < 2)
+Your answer: 0
+
+Sorry your answer was incorrect.
+You have this many remaining tries: 0
+The correct answer is True
+You tried 3 questions and got 2 right.
+'''.strip())
+
+
+def test_59():
+    print('TEST 59')
+    return generic_test('''
+How many tries do you want for each question: 1
+
+What is the type of the following? 1.0 == 2.0
+ a) int 
+ b) float 
+ c) str 
+ d) bool
+ e) NoneType
+
+Your answer: d
+
+Congratulations! You got it right.
+The correct answer is d
+
+What is the type of the following? "1" * 2
+Your answer: float
+
+Sorry your answer was incorrect.
+You have this many remaining tries: 0
+The correct answer is str
+
+What does this expression evaluate to? 
+ True != (3 < 2)
+Your answer: 1
+
+Sorry your answer was incorrect.
+You have this many remaining tries: 0
+The correct answer is True
+You tried 3 questions and got 1 right.
+'''.strip())
+
+
+def test_60():
+    print('TEST 60')
+    return generic_test('''
+How many tries do you want for each question: 1
+
+What is the type of the following? 1.0 == 2.0
+ a) int 
+ b) float 
+ c) str 
+ d) bool
+ e) NoneType
+
+Your answer: d
+
+Congratulations! You got it right.
+The correct answer is d
+
+What is the type of the following? "1" * 2
+Your answer: int
+
+Sorry your answer was incorrect.
+You have this many remaining tries: 0
+The correct answer is str
+
+What does this expression evaluate to? 
+ True != (3 < 2)
+Your answer: true
+
+Congratulations! You got it right.
+The correct answer is True
+You tried 3 questions and got 2 right.
+'''.strip())
+
+
+def test_61():
+    print('TEST 61')
+    return generic_test('''
+How many tries do you want for each question: 1
+
+What is the type of the following? 1.0 == 2.0
+ a) int 
+ b) float 
+ c) str 
+ d) bool
+ e) NoneType
+
+Your answer: d
+
+Congratulations! You got it right.
+The correct answer is d
+
+What is the type of the following? "1" * 2
+Your answer: float
+
+Sorry your answer was incorrect.
+You have this many remaining tries: 0
+The correct answer is str
+
+What does this expression evaluate to? 
+ True != (3 < 2)
+Your answer: 0
+
+Sorry your answer was incorrect.
+You have this many remaining tries: 0
+The correct answer is True
+You tried 3 questions and got 1 right.
+'''.strip())
+
+
+def test_62():
+    print('TEST 62')
+    return generic_test('''
+How many tries do you want for each question: 1
+
+What is the type of the following? 1.0 == 2.0
+ a) int 
+ b) float 
+ c) str 
+ d) bool
+ e) NoneType
+
+Your answer: d
+
+Congratulations! You got it right.
+The correct answer is d
+
+What is the type of the following? "1" * 2
+Your answer: str
+
+Congratulations! You got it right.
+The correct answer is str
+
+What does this expression evaluate to? 
+ True != (3 < 2)
+Your answer: true
+
+Congratulations! You got it right.
+The correct answer is True
+You tried 3 questions and got 3 right.
+'''.strip())
+
+
+def test_63():
+    print('TEST 63')
+    return generic_test('''
+How many tries do you want for each question: 1
+
+What is the type of the following? 1.0 == 2.0
+ a) int 
+ b) float 
+ c) str 
+ d) bool
+ e) NoneType
+
+Your answer: D
+
+Congratulations! You got it right.
+The correct answer is d
+
+What is the type of the following? "1" * 2
+Your answer: FLOAT
+
+Sorry your answer was incorrect.
+You have this many remaining tries: 0
+The correct answer is str
+
+What does this expression evaluate to? 
+ True != (3 < 2)
+Your answer: 1
+
+Sorry your answer was incorrect.
+You have this many remaining tries: 0
+The correct answer is True
+You tried 3 questions and got 1 right.
+'''.strip())
+
+
+def test_64():
+    print('TEST 64')
+    return generic_test('''
+How many tries do you want for each question: 1
+
+What is the type of the following? 1.0 == 2.0
+ a) int 
+ b) float 
+ c) str 
+ d) bool
+ e) NoneType
+
+Your answer: D
+
+Congratulations! You got it right.
+The correct answer is d
+
+What is the type of the following? "1" * 2
+Your answer: STR
+
+Congratulations! You got it right.
+The correct answer is str
+
+What does this expression evaluate to? 
+ True != (3 < 2)
+Your answer: 1
+
+Sorry your answer was incorrect.
+You have this many remaining tries: 0
+The correct answer is True
+You tried 3 questions and got 2 right.
+'''.strip())
+
+
+def test_65():
+    print('TEST 65')
+    return generic_test('''
+How many tries do you want for each question: 1
+
+What is the type of the following? 1.0 == 2.0
+ a) int 
+ b) float 
+ c) str 
+ d) bool
+ e) NoneType
+
+Your answer: C
+
+Sorry your answer was incorrect.
+You have this many remaining tries: 0
+The correct answer is d
+
+What is the type of the following? "1" * 2
+Your answer: STR
+
+Congratulations! You got it right.
+The correct answer is str
+
+What does this expression evaluate to? 
+ True != (3 < 2)
+Your answer: TRUE
+
+Congratulations! You got it right.
+The correct answer is True
+You tried 3 questions and got 2 right.
+'''.strip())
+
+
+def test_66():
+    print('TEST 66')
+    return generic_test('''
+How many tries do you want for each question: 1
+
+What is the type of the following? 1.0 == 2.0
+ a) int 
+ b) float 
+ c) str 
+ d) bool
+ e) NoneType
+
+Your answer: B
+
+Sorry your answer was incorrect.
+You have this many remaining tries: 0
+The correct answer is d
+
+What is the type of the following? "1" * 2
+Your answer: STR
+
+Congratulations! You got it right.
+The correct answer is str
+
+What does this expression evaluate to? 
+ True != (3 < 2)
+Your answer: TRUE
+
+Congratulations! You got it right.
+The correct answer is True
+You tried 3 questions and got 2 right.
+'''.strip())
+
+
+def test_67():
+    print('TEST 67')
+    return generic_test('''
+How many tries do you want for each question: 1
+
+What is the type of the following? 1.0 == 2.0
+ a) int 
+ b) float 
+ c) str 
+ d) bool
+ e) NoneType
+
+Your answer: D
+
+Congratulations! You got it right.
+The correct answer is d
+
+What is the type of the following? "1" * 2
+Your answer: FLOAT
+
+Sorry your answer was incorrect.
+You have this many remaining tries: 0
+The correct answer is str
+
+What does this expression evaluate to? 
+ True != (3 < 2)
+Your answer: TRUE
+
+Congratulations! You got it right.
+The correct answer is True
+You tried 3 questions and got 2 right.
+'''.strip())
+
+
+def test_68():
+    print('TEST 68')
+    return generic_test('''
+How many tries do you want for each question: 1
+
+What is the type of the following? 1.0 == 2.0
+ a) int 
+ b) float 
+ c) str 
+ d) bool
+ e) NoneType
+
+Your answer: B
+
+Sorry your answer was incorrect.
+You have this many remaining tries: 0
+The correct answer is d
+
+What is the type of the following? "1" * 2
+Your answer: STR
+
+Congratulations! You got it right.
+The correct answer is str
+
+What does this expression evaluate to? 
+ True != (3 < 2)
+Your answer: TRUE
+
+Congratulations! You got it right.
+The correct answer is True
+You tried 3 questions and got 2 right.
+'''.strip())
+
+
+def test_69():
+    print('TEST 69')
+    return generic_test('''
+How many tries do you want for each question: 1
+
+What is the type of the following? 1.0 == 2.0
+ a) int 
+ b) float 
+ c) str 
+ d) bool
+ e) NoneType
+
+Your answer: B
+
+Sorry your answer was incorrect.
+You have this many remaining tries: 0
+The correct answer is d
+
+What is the type of the following? "1" * 2
+Your answer: STR
+
+Congratulations! You got it right.
+The correct answer is str
+
+What does this expression evaluate to? 
+ True != (3 < 2)
+Your answer: TRUE
+
+Congratulations! You got it right.
+The correct answer is True
+You tried 3 questions and got 2 right.
+'''.strip())
+
+
+def test_70():
+    print('TEST 70')
+    return generic_test('''
+How many tries do you want for each question: 1
+
+What is the type of the following? 1.0 == 2.0
+ a) int 
+ b) float 
+ c) str 
+ d) bool
+ e) NoneType
+
+Your answer: D
+
+Congratulations! You got it right.
+The correct answer is d
+
+What is the type of the following? "1" * 2
+Your answer: BOOL
+
+Sorry your answer was incorrect.
+You have this many remaining tries: 0
+The correct answer is str
+
+What does this expression evaluate to? 
+ True != (3 < 2)
+Your answer: TRUE
+
+Congratulations! You got it right.
+The correct answer is True
+You tried 3 questions and got 2 right.
+'''.strip())
+
+
+def test_71():
+    print('TEST 71')
+    return generic_test('''
+How many tries do you want for each question: 1
+
+What is the type of the following? 1.0 == 2.0
+ a) int 
+ b) float 
+ c) str 
+ d) bool
+ e) NoneType
+
+Your answer: C
+
+Sorry your answer was incorrect.
+You have this many remaining tries: 0
+The correct answer is d
+
+What is the type of the following? "1" * 2
+Your answer: STR
+
+Congratulations! You got it right.
+The correct answer is str
+
+What does this expression evaluate to? 
+ True != (3 < 2)
+Your answer: TRUE
+
+Congratulations! You got it right.
+The correct answer is True
+You tried 3 questions and got 2 right.
+'''.strip())
+
+
+def test_72():
+    print('TEST 72')
+    return generic_test('''
+How many tries do you want for each question:       1      
+
+What is the type of the following? 1.0 == 2.0
+ a) int 
+ b) float 
+ c) str 
+ d) bool
+ e) NoneType
+
+Your answer:       d      
+
+Congratulations! You got it right.
+The correct answer is d
+
+What is the type of the following? "1" * 2
+Your answer:     str    
+
+Congratulations! You got it right.
+The correct answer is str
+
+What does this expression evaluate to? 
+ True != (3 < 2)
+Your answer:   0  
+
+Sorry your answer was incorrect.
+You have this many remaining tries: 0
+The correct answer is True
+You tried 3 questions and got 2 right.
+'''.strip())
+
+
+def test_73():
+    print('TEST 73')
+    return generic_test('''
+How many tries do you want for each question:       1      
+
+What is the type of the following? 1.0 == 2.0
+ a) int 
+ b) float 
+ c) str 
+ d) bool
+ e) NoneType
+
+Your answer:       c      
+
+Sorry your answer was incorrect.
+You have this many remaining tries: 0
+The correct answer is d
+
+What is the type of the following? "1" * 2
+Your answer:     str    
+
+Congratulations! You got it right.
+The correct answer is str
+
+What does this expression evaluate to? 
+ True != (3 < 2)
+Your answer:   True  
+
+Congratulations! You got it right.
+The correct answer is True
+You tried 3 questions and got 2 right.
+'''.strip())
+
+
+def test_74():
+    print('TEST 74')
+    return generic_test('''
+How many tries do you want for each question:       1      
+
+What is the type of the following? 1.0 == 2.0
+ a) int 
+ b) float 
+ c) str 
+ d) bool
+ e) NoneType
+
+Your answer:       d      
+
+Congratulations! You got it right.
+The correct answer is d
+
+What is the type of the following? "1" * 2
+Your answer:     str    
+
+Congratulations! You got it right.
+The correct answer is str
+
+What does this expression evaluate to? 
+ True != (3 < 2)
+Your answer:   True  
+
+Congratulations! You got it right.
+The correct answer is True
+You tried 3 questions and got 3 right.
+'''.strip())
+
+
+def test_75():
+    print('TEST 75')
+    return generic_test('''
+How many tries do you want for each question:       1      
+
+What is the type of the following? 1.0 == 2.0
+ a) int 
+ b) float 
+ c) str 
+ d) bool
+ e) NoneType
+
+Your answer:       d      
+
+Congratulations! You got it right.
+The correct answer is d
+
+What is the type of the following? "1" * 2
+Your answer:     float    
+
+Sorry your answer was incorrect.
+You have this many remaining tries: 0
+The correct answer is str
+
+What does this expression evaluate to? 
+ True != (3 < 2)
+Your answer:   False  
+
+Sorry your answer was incorrect.
+You have this many remaining tries: 0
+The correct answer is True
+You tried 3 questions and got 1 right.
+'''.strip())
+
+
+def test_76():
+    print('TEST 76')
+    return generic_test('''
+How many tries do you want for each question:       1      
+
+What is the type of the following? 1.0 == 2.0
+ a) int 
+ b) float 
+ c) str 
+ d) bool
+ e) NoneType
+
+Your answer:       a      
+
+Sorry your answer was incorrect.
+You have this many remaining tries: 0
+The correct answer is d
+
+What is the type of the following? "1" * 2
+Your answer:     str    
+
+Congratulations! You got it right.
+The correct answer is str
+
+What does this expression evaluate to? 
+ True != (3 < 2)
+Your answer:   False  
+
+Sorry your answer was incorrect.
+You have this many remaining tries: 0
+The correct answer is True
+You tried 3 questions and got 1 right.
+'''.strip())
+
+
+def test_77():
+    print('TEST 77')
+    return generic_test('''
+How many tries do you want for each question:       1      
+
+What is the type of the following? 1.0 == 2.0
+ a) int 
+ b) float 
+ c) str 
+ d) bool
+ e) NoneType
+
+Your answer:       d      
+
+Congratulations! You got it right.
+The correct answer is d
+
+What is the type of the following? "1" * 2
+Your answer:     int    
+
+Sorry your answer was incorrect.
+You have this many remaining tries: 0
+The correct answer is str
+
+What does this expression evaluate to? 
+ True != (3 < 2)
+Your answer:   True  
+
+Congratulations! You got it right.
+The correct answer is True
+You tried 3 questions and got 2 right.
+'''.strip())
+
+
+def test_78():
+    print('TEST 78')
+    return generic_test('''
+How many tries do you want for each question:       1      
+
+What is the type of the following? 1.0 == 2.0
+ a) int 
+ b) float 
+ c) str 
+ d) bool
+ e) NoneType
+
+Your answer:       c      
+
+Sorry your answer was incorrect.
+You have this many remaining tries: 0
+The correct answer is d
+
+What is the type of the following? "1" * 2
+Your answer:     bool    
+
+Sorry your answer was incorrect.
+You have this many remaining tries: 0
+The correct answer is str
+
+What does this expression evaluate to? 
+ True != (3 < 2)
+Your answer:   0  
+
+Sorry your answer was incorrect.
+You have this many remaining tries: 0
+The correct answer is True
+You tried 3 questions and got 0 right.
+'''.strip())
+
+
+def test_79():
+    print('TEST 79')
+    return generic_test('''
+How many tries do you want for each question:       1      
+
+What is the type of the following? 1.0 == 2.0
+ a) int 
+ b) float 
+ c) str 
+ d) bool
+ e) NoneType
+
+Your answer:       d      
+
+Congratulations! You got it right.
+The correct answer is d
+
+What is the type of the following? "1" * 2
+Your answer:     int    
+
+Sorry your answer was incorrect.
+You have this many remaining tries: 0
+The correct answer is str
+
+What does this expression evaluate to? 
+ True != (3 < 2)
+Your answer:   None  
+
+Sorry your answer was incorrect.
+You have this many remaining tries: 0
+The correct answer is True
+You tried 3 questions and got 1 right.
+'''.strip())
+
+
+def test_80():
+    print('TEST 80')
+    return generic_test('''
+How many tries do you want for each question:       1      
+
+What is the type of the following? 1.0 == 2.0
+ a) int 
+ b) float 
+ c) str 
+ d) bool
+ e) NoneType
+
+Your answer:       d      
+
+Congratulations! You got it right.
+The correct answer is d
+
+What is the type of the following? "1" * 2
+Your answer:     float    
+
+Sorry your answer was incorrect.
+You have this many remaining tries: 0
+The correct answer is str
+
+What does this expression evaluate to? 
+ True != (3 < 2)
+Your answer:   None  
+
+Sorry your answer was incorrect.
+You have this many remaining tries: 0
+The correct answer is True
+You tried 3 questions and got 1 right.
+'''.strip())
+
+
+def test_81():
+    print('TEST 81')
+    return generic_test('''
+How many tries do you want for each question: 1
+
+What is the type of the following? 1.0 == 2.0
+ a) int 
+ b) float 
+ c) str 
+ d) bool
+ e) NoneType
+
+Your answer: d
+
+Congratulations! You got it right.
+The correct answer is d
+
+What is the type of the following? "1" * 2
+Your answer: str
+
+Congratulations! You got it right.
+The correct answer is str
+
+What does this expression evaluate to? 
+ True != (3 < 2)
+Your answer: True
+
+Congratulations! You got it right.
+The correct answer is True
+You tried 3 questions and got 3 right.
+'''.strip())
+
+
+def test_82():
+    print('TEST 82')
+    return generic_test('''
+How many tries do you want for each question: 2
+
+What is the type of the following? 1.0 == 2.0
+ a) int 
+ b) float 
+ c) str 
+ d) bool
+ e) NoneType
+
+Your answer: d
+
+Congratulations! You got it right.
+The correct answer is d
+
+What is the type of the following? "1" * 2
+Your answer: str
+
+Congratulations! You got it right.
+The correct answer is str
+
+What does this expression evaluate to? 
+ True != (3 < 2)
+Your answer: True
+
+Congratulations! You got it right.
+The correct answer is True
+You tried 3 questions and got 3 right.
+'''.strip())
+
+
+def test_83():
+    print('TEST 83')
+    return generic_test('''
+How many tries do you want for each question: 3
+
+What is the type of the following? 1.0 == 2.0
+ a) int 
+ b) float 
+ c) str 
+ d) bool
+ e) NoneType
+
+Your answer: d
+
+Congratulations! You got it right.
+The correct answer is d
+
+What is the type of the following? "1" * 2
+Your answer: str
+
+Congratulations! You got it right.
+The correct answer is str
+
+What does this expression evaluate to? 
+ True != (3 < 2)
+Your answer: True
+
+Congratulations! You got it right.
+The correct answer is True
+You tried 3 questions and got 3 right.
+'''.strip())
+
+
+def test_84():
+    print('TEST 84')
+    return generic_test('''
+How many tries do you want for each question: 4
+
+What is the type of the following? 1.0 == 2.0
+ a) int 
+ b) float 
+ c) str 
+ d) bool
+ e) NoneType
+
+Your answer: d
+
+Congratulations! You got it right.
+The correct answer is d
+
+What is the type of the following? "1" * 2
+Your answer: str
+
+Congratulations! You got it right.
+The correct answer is str
+
+What does this expression evaluate to? 
+ True != (3 < 2)
+Your answer: True
+
+Congratulations! You got it right.
+The correct answer is True
+You tried 3 questions and got 3 right.
+'''.strip())
+
+
+def test_85():
+    print('TEST 85')
+    return generic_test('''
+How many tries do you want for each question: 5
+
+What is the type of the following? 1.0 == 2.0
+ a) int 
+ b) float 
+ c) str 
+ d) bool
+ e) NoneType
+
+Your answer: d
+
+Congratulations! You got it right.
+The correct answer is d
+
+What is the type of the following? "1" * 2
+Your answer: str
+
+Congratulations! You got it right.
+The correct answer is str
+
+What does this expression evaluate to? 
+ True != (3 < 2)
+Your answer: True
+
+Congratulations! You got it right.
+The correct answer is True
+You tried 3 questions and got 3 right.
+'''.strip())
+
+
+def test_86():
+    print('TEST 86')
+    return generic_test('''
+How many tries do you want for each question: 6
+
+What is the type of the following? 1.0 == 2.0
+ a) int 
+ b) float 
+ c) str 
+ d) bool
+ e) NoneType
+
+Your answer: d
+
+Congratulations! You got it right.
+The correct answer is d
+
+What is the type of the following? "1" * 2
+Your answer: str
+
+Congratulations! You got it right.
+The correct answer is str
+
+What does this expression evaluate to? 
+ True != (3 < 2)
+Your answer: True
+
+Congratulations! You got it right.
+The correct answer is True
+You tried 3 questions and got 3 right.
+'''.strip())
+
+
+def test_87():
+    print('TEST 87')
+    return generic_test('''
+How many tries do you want for each question: 7
+
+What is the type of the following? 1.0 == 2.0
+ a) int 
+ b) float 
+ c) str 
+ d) bool
+ e) NoneType
+
+Your answer: d
+
+Congratulations! You got it right.
+The correct answer is d
+
+What is the type of the following? "1" * 2
+Your answer: str
+
+Congratulations! You got it right.
+The correct answer is str
+
+What does this expression evaluate to? 
+ True != (3 < 2)
+Your answer: True
+
+Congratulations! You got it right.
+The correct answer is True
+You tried 3 questions and got 3 right.
+'''.strip())
+
+
+def test_88():
+    print('TEST 88')
+    return generic_test('''
+How many tries do you want for each question: 8
+
+What is the type of the following? 1.0 == 2.0
+ a) int 
+ b) float 
+ c) str 
+ d) bool
+ e) NoneType
+
+Your answer: d
+
+Congratulations! You got it right.
+The correct answer is d
+
+What is the type of the following? "1" * 2
+Your answer: str
+
+Congratulations! You got it right.
+The correct answer is str
+
+What does this expression evaluate to? 
+ True != (3 < 2)
+Your answer: True
+
+Congratulations! You got it right.
+The correct answer is True
+You tried 3 questions and got 3 right.
+'''.strip())
+
+
+def test_89():
+    print('TEST 89')
+    return generic_test('''
+How many tries do you want for each question: 9
+
+What is the type of the following? 1.0 == 2.0
+ a) int 
+ b) float 
+ c) str 
+ d) bool
+ e) NoneType
+
+Your answer: d
+
+Congratulations! You got it right.
+The correct answer is d
+
+What is the type of the following? "1" * 2
+Your answer: str
+
+Congratulations! You got it right.
+The correct answer is str
+
+What does this expression evaluate to? 
+ True != (3 < 2)
+Your answer: True
+
+Congratulations! You got it right.
+The correct answer is True
+You tried 3 questions and got 3 right.
+'''.strip())
+
+
+def test_90():
+    print('TEST 90')
+    return generic_test('''
+How many tries do you want for each question: 10
+
+What is the type of the following? 1.0 == 2.0
+ a) int 
+ b) float 
+ c) str 
+ d) bool
+ e) NoneType
+
+Your answer: d
+
+Congratulations! You got it right.
+The correct answer is d
+
+What is the type of the following? "1" * 2
+Your answer: str
+
+Congratulations! You got it right.
+The correct answer is str
+
+What does this expression evaluate to? 
+ True != (3 < 2)
+Your answer: True
+
+Congratulations! You got it right.
+The correct answer is True
+You tried 3 questions and got 3 right.
+'''.strip())
+
+
+def test_91():
+    print('TEST 91')
+    return generic_test('''
+How many tries do you want for each question: 2
+
+What is the type of the following? 1.0 == 2.0
+ a) int 
+ b) float 
+ c) str 
+ d) bool
+ e) NoneType
+
+Your answer: c
+
+Check the textbook
+You have this many remaining tries: 1
+Your answer: c
+
+Sorry your answer was incorrect.
+You have this many remaining tries: 0
+The correct answer is d
+
+What is the type of the following? "1" * 2
+Your answer: bool
+
+notice the quotes!
+You have this many remaining tries: 1
+Your answer: float
+
+Sorry your answer was incorrect.
+You have this many remaining tries: 0
+The correct answer is str
+
+What does this expression evaluate to? 
+ True != (3 < 2)
+Your answer: None
+
+Calcuate the right side first. Don't forget != means not equal to.
+You have this many remaining tries: 1
+Your answer: True
+
+Congratulations! You got it right.
+The correct answer is True
+You tried 3 questions and got 1 right.
+'''.strip())
+
+
+def test_92():
+    print('TEST 92')
+    return generic_test('''
+How many tries do you want for each question: 2
+
+What is the type of the following? 1.0 == 2.0
+ a) int 
+ b) float 
+ c) str 
+ d) bool
+ e) NoneType
+
+Your answer: d
+
+Congratulations! You got it right.
+The correct answer is d
+
+What is the type of the following? "1" * 2
+Your answer: float
+
+notice the quotes!
+You have this many remaining tries: 1
+Your answer: bool
+
+Sorry your answer was incorrect.
+You have this many remaining tries: 0
+The correct answer is str
+
+What does this expression evaluate to? 
+ True != (3 < 2)
+Your answer: None
+
+Calcuate the right side first. Don't forget != means not equal to.
+You have this many remaining tries: 1
+Your answer: True
+
+Congratulations! You got it right.
+The correct answer is True
+You tried 3 questions and got 2 right.
+'''.strip())
+
+
+def test_93():
+    print('TEST 93')
+    return generic_test('''
+How many tries do you want for each question: 2
+
+What is the type of the following? 1.0 == 2.0
+ a) int 
+ b) float 
+ c) str 
+ d) bool
+ e) NoneType
+
+Your answer: e
+
+Check the textbook
+You have this many remaining tries: 1
+Your answer: d
+
+Congratulations! You got it right.
+The correct answer is d
+
+What is the type of the following? "1" * 2
+Your answer: str
+
+Congratulations! You got it right.
+The correct answer is str
+
+What does this expression evaluate to? 
+ True != (3 < 2)
+Your answer: 1
+
+Calcuate the right side first. Don't forget != means not equal to.
+You have this many remaining tries: 1
+Your answer: False
+
+Sorry your answer was incorrect.
+You have this many remaining tries: 0
+The correct answer is True
+You tried 3 questions and got 2 right.
+'''.strip())
+
+
+def test_94():
+    print('TEST 94')
+    return generic_test('''
+How many tries do you want for each question: 3
+
+What is the type of the following? 1.0 == 2.0
+ a) int 
+ b) float 
+ c) str 
+ d) bool
+ e) NoneType
+
+Your answer: d
+
+Congratulations! You got it right.
+The correct answer is d
+
+What is the type of the following? "1" * 2
+Your answer: float
+
+Sorry your answer was incorrect.
+You have this many remaining tries: 2
+Your answer: float
+
+notice the quotes!
+You have this many remaining tries: 1
+Your answer: str
+
+Congratulations! You got it right.
+The correct answer is str
+
+What does this expression evaluate to? 
+ True != (3 < 2)
+Your answer: 1
+
+Sorry your answer was incorrect.
+You have this many remaining tries: 2
+Your answer: 0
+
+Calcuate the right side first. Don't forget != means not equal to.
+You have this many remaining tries: 1
+Your answer: True
+
+Congratulations! You got it right.
+The correct answer is True
+You tried 3 questions and got 3 right.
+'''.strip())
+
+
+def test_95():
+    print('TEST 95')
+    return generic_test('''
+How many tries do you want for each question: 3
+
+What is the type of the following? 1.0 == 2.0
+ a) int 
+ b) float 
+ c) str 
+ d) bool
+ e) NoneType
+
+Your answer: d
+
+Congratulations! You got it right.
+The correct answer is d
+
+What is the type of the following? "1" * 2
+Your answer: int
+
+Sorry your answer was incorrect.
+You have this many remaining tries: 2
+Your answer: str
+
+Congratulations! You got it right.
+The correct answer is str
+
+What does this expression evaluate to? 
+ True != (3 < 2)
+Your answer: True
+
+Congratulations! You got it right.
+The correct answer is True
+You tried 3 questions and got 3 right.
+'''.strip())
+
+
+def test_96():
+    print('TEST 96')
+    return generic_test('''
+How many tries do you want for each question: 3
+
+What is the type of the following? 1.0 == 2.0
+ a) int 
+ b) float 
+ c) str 
+ d) bool
+ e) NoneType
+
+Your answer: d
+
+Congratulations! You got it right.
+The correct answer is d
+
+What is the type of the following? "1" * 2
+Your answer: bool
+
+Sorry your answer was incorrect.
+You have this many remaining tries: 2
+Your answer: bool
+
+notice the quotes!
+You have this many remaining tries: 1
+Your answer: int
+
+Sorry your answer was incorrect.
+You have this many remaining tries: 0
+The correct answer is str
+
+What does this expression evaluate to? 
+ True != (3 < 2)
+Your answer: None
+
+Sorry your answer was incorrect.
+You have this many remaining tries: 2
+Your answer: True
+
+Congratulations! You got it right.
+The correct answer is True
+You tried 3 questions and got 2 right.
+'''.strip())
+
+
+def test_97():
+    print('TEST 97')
+    return generic_test('''
+How many tries do you want for each question: 10
+
+What is the type of the following? 1.0 == 2.0
+ a) int 
+ b) float 
+ c) str 
+ d) bool
+ e) NoneType
+
+Your answer: b
+
+Sorry your answer was incorrect.
+You have this many remaining tries: 9
+Your answer: c
+
+Sorry your answer was incorrect.
+You have this many remaining tries: 8
+Your answer: c
+
+Sorry your answer was incorrect.
+You have this many remaining tries: 7
+Your answer: c
+
+Sorry your answer was incorrect.
+You have this many remaining tries: 6
+Your answer: e
+
+Sorry your answer was incorrect.
+You have this many remaining tries: 5
+Your answer: d
+
+Congratulations! You got it right.
+The correct answer is d
+
+What is the type of the following? "1" * 2
+Your answer: bool
+
+Sorry your answer was incorrect.
+You have this many remaining tries: 9
+Your answer: float
+
+Sorry your answer was incorrect.
+You have this many remaining tries: 8
+Your answer: float
+
+Sorry your answer was incorrect.
+You have this many remaining tries: 7
+Your answer: float
+
+Sorry your answer was incorrect.
+You have this many remaining tries: 6
+Your answer: int
+
+Sorry your answer was incorrect.
+You have this many remaining tries: 5
+Your answer: int
+
+Sorry your answer was incorrect.
+You have this many remaining tries: 4
+Your answer: int
+
+Sorry your answer was incorrect.
+You have this many remaining tries: 3
+Your answer: bool
+
+Sorry your answer was incorrect.
+You have this many remaining tries: 2
+Your answer: str
+
+Congratulations! You got it right.
+The correct answer is str
+
+What does this expression evaluate to? 
+ True != (3 < 2)
+Your answer: 1
+
+Sorry your answer was incorrect.
+You have this many remaining tries: 9
+Your answer: 1
+
+Sorry your answer was incorrect.
+You have this many remaining tries: 8
+Your answer: False
+
+Sorry your answer was incorrect.
+You have this many remaining tries: 7
+Your answer: 1
+
+Sorry your answer was incorrect.
+You have this many remaining tries: 6
+Your answer: True
+
+Congratulations! You got it right.
+The correct answer is True
+You tried 3 questions and got 3 right.
+'''.strip())
+
+
+def test_98():
+    print('TEST 98')
+    return generic_test('''
+How many tries do you want for each question: 10
+
+What is the type of the following? 1.0 == 2.0
+ a) int 
+ b) float 
+ c) str 
+ d) bool
+ e) NoneType
+
+Your answer: e
+
+Sorry your answer was incorrect.
+You have this many remaining tries: 9
+Your answer: e
+
+Sorry your answer was incorrect.
+You have this many remaining tries: 8
+Your answer: e
+
+Sorry your answer was incorrect.
+You have this many remaining tries: 7
+Your answer: b
+
+Sorry your answer was incorrect.
+You have this many remaining tries: 6
+Your answer: e
+
+Sorry your answer was incorrect.
+You have this many remaining tries: 5
+Your answer: b
+
+Sorry your answer was incorrect.
+You have this many remaining tries: 4
+Your answer: b
+
+Sorry your answer was incorrect.
+You have this many remaining tries: 3
+Your answer: d
+
+Congratulations! You got it right.
+The correct answer is d
+
+What is the type of the following? "1" * 2
+Your answer: bool
+
+Sorry your answer was incorrect.
+You have this many remaining tries: 9
+Your answer: int
+
+Sorry your answer was incorrect.
+You have this many remaining tries: 8
+Your answer: float
+
+Sorry your answer was incorrect.
+You have this many remaining tries: 7
+Your answer: float
+
+Sorry your answer was incorrect.
+You have this many remaining tries: 6
+Your answer: bool
+
+Sorry your answer was incorrect.
+You have this many remaining tries: 5
+Your answer: str
+
+Congratulations! You got it right.
+The correct answer is str
+
+What does this expression evaluate to? 
+ True != (3 < 2)
+Your answer: 0
+
+Sorry your answer was incorrect.
+You have this many remaining tries: 9
+Your answer: False
+
+Sorry your answer was incorrect.
+You have this many remaining tries: 8
+Your answer: True
+
+Congratulations! You got it right.
+The correct answer is True
+You tried 3 questions and got 3 right.
+'''.strip())
+
+
+def test_99():
+    print('TEST 99')
+    return generic_test('''
+How many tries do you want for each question: 10
+
+What is the type of the following? 1.0 == 2.0
+ a) int 
+ b) float 
+ c) str 
+ d) bool
+ e) NoneType
+
+Your answer: e
+
+Sorry your answer was incorrect.
+You have this many remaining tries: 9
+Your answer: a
+
+Sorry your answer was incorrect.
+You have this many remaining tries: 8
+Your answer: a
+
+Sorry your answer was incorrect.
+You have this many remaining tries: 7
+Your answer: b
+
+Sorry your answer was incorrect.
+You have this many remaining tries: 6
+Your answer: b
+
+Sorry your answer was incorrect.
+You have this many remaining tries: 5
+Your answer: e
+
+Sorry your answer was incorrect.
+You have this many remaining tries: 4
+Your answer: b
+
+Sorry your answer was incorrect.
+You have this many remaining tries: 3
+Your answer: a
+
+Sorry your answer was incorrect.
+You have this many remaining tries: 2
+Your answer: e
+
+Check the textbook
+You have this many remaining tries: 1
+Your answer: d
+
+Congratulations! You got it right.
+The correct answer is d
+
+What is the type of the following? "1" * 2
+Your answer: bool
+
+Sorry your answer was incorrect.
+You have this many remaining tries: 9
+Your answer: float
+
+Sorry your answer was incorrect.
+You have this many remaining tries: 8
+Your answer: bool
+
+Sorry your answer was incorrect.
+You have this many remaining tries: 7
+Your answer: int
+
+Sorry your answer was incorrect.
+You have this many remaining tries: 6
+Your answer: float
+
+Sorry your answer was incorrect.
+You have this many remaining tries: 5
+Your answer: int
+
+Sorry your answer was incorrect.
+You have this many remaining tries: 4
+Your answer: int
+
+Sorry your answer was incorrect.
+You have this many remaining tries: 3
+Your answer: float
+
+Sorry your answer was incorrect.
+You have this many remaining tries: 2
+Your answer: bool
+
+notice the quotes!
+You have this many remaining tries: 1
+Your answer: bool
+
+Sorry your answer was incorrect.
+You have this many remaining tries: 0
+The correct answer is str
+
+What does this expression evaluate to? 
+ True != (3 < 2)
+Your answer: 1
+
+Sorry your answer was incorrect.
+You have this many remaining tries: 9
+Your answer: None
+
+Sorry your answer was incorrect.
+You have this many remaining tries: 8
+Your answer: False
+
+Sorry your answer was incorrect.
+You have this many remaining tries: 7
+Your answer: False
+
+Sorry your answer was incorrect.
+You have this many remaining tries: 6
+Your answer: None
+
+Sorry your answer was incorrect.
+You have this many remaining tries: 5
+Your answer: 1
+
+Sorry your answer was incorrect.
+You have this many remaining tries: 4
+Your answer: 1
+
+Sorry your answer was incorrect.
+You have this many remaining tries: 3
+Your answer: 0
+
+Sorry your answer was incorrect.
+You have this many remaining tries: 2
+Your answer: 0
+
+Calcuate the right side first. Don't forget != means not equal to.
+You have this many remaining tries: 1
+Your answer: None
+
+Sorry your answer was incorrect.
+You have this many remaining tries: 0
+The correct answer is True
+You tried 3 questions and got 1 right.
+'''.strip())
+
+
+def test_100():
+    print('TEST 100')
+    return generic_test('''
+How many tries do you want for each question: 10
+
+What is the type of the following? 1.0 == 2.0
+ a) int 
+ b) float 
+ c) str 
+ d) bool
+ e) NoneType
+
+Your answer: a
+
+Sorry your answer was incorrect.
+You have this many remaining tries: 9
+Your answer: e
+
+Sorry your answer was incorrect.
+You have this many remaining tries: 8
+Your answer: a
+
+Sorry your answer was incorrect.
+You have this many remaining tries: 7
+Your answer: a
+
+Sorry your answer was incorrect.
+You have this many remaining tries: 6
+Your answer: e
+
+Sorry your answer was incorrect.
+You have this many remaining tries: 5
+Your answer: a
+
+Sorry your answer was incorrect.
+You have this many remaining tries: 4
+Your answer: b
+
+Sorry your answer was incorrect.
+You have this many remaining tries: 3
+Your answer: b
+
+Sorry your answer was incorrect.
+You have this many remaining tries: 2
+Your answer: e
+
+Check the textbook
+You have this many remaining tries: 1
+Your answer: b
+
+Sorry your answer was incorrect.
+You have this many remaining tries: 0
+The correct answer is d
+
+What is the type of the following? "1" * 2
+Your answer: float
+
+Sorry your answer was incorrect.
+You have this many remaining tries: 9
+Your answer: float
+
+Sorry your answer was incorrect.
+You have this many remaining tries: 8
+Your answer: float
+
+Sorry your answer was incorrect.
+You have this many remaining tries: 7
+Your answer: bool
+
+Sorry your answer was incorrect.
+You have this many remaining tries: 6
+Your answer: bool
+
+Sorry your answer was incorrect.
+You have this many remaining tries: 5
+Your answer: bool
+
+Sorry your answer was incorrect.
+You have this many remaining tries: 4
+Your answer: bool
+
+Sorry your answer was incorrect.
+You have this many remaining tries: 3
+Your answer: float
+
+Sorry your answer was incorrect.
+You have this many remaining tries: 2
+Your answer: str
+
+Congratulations! You got it right.
+The correct answer is str
+
+What does this expression evaluate to? 
+ True != (3 < 2)
+Your answer: 0
+
+Sorry your answer was incorrect.
+You have this many remaining tries: 9
+Your answer: None
+
+Sorry your answer was incorrect.
+You have this many remaining tries: 8
+Your answer: False
+
+Sorry your answer was incorrect.
+You have this many remaining tries: 7
+Your answer: 1
+
+Sorry your answer was incorrect.
+You have this many remaining tries: 6
+Your answer: 0
+
+Sorry your answer was incorrect.
+You have this many remaining tries: 5
+Your answer: False
+
+Sorry your answer was incorrect.
+You have this many remaining tries: 4
+Your answer: True
+
+Congratulations! You got it right.
+The correct answer is True
+You tried 3 questions and got 2 right.
+'''.strip())
+
 
 def check_answer(expected, actual):
     if expected == actual:
