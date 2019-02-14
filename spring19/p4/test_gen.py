@@ -58,13 +58,26 @@ class TestGen:
                     lines[i] += in_lines.pop(0)
         return '\n'.join(lines)
 
-    def gen_test(self, tries=1):
-        in_lines = ["1", "d", "str", "True"]
+    def gen_test(self, tries, has_mistakes, f_apply):
+        in_lines = [str(tries)]
+        correct = ["d", "str", "True"]
+        wrong = [["a", "b", "c", "e"],
+                 ["float", "int", "bool"],
+                 ["False", "1", "0", "None"]]
+
+        for i in range(len(correct)):
+            mistakes = random.randint(0, tries) if has_mistakes else 0
+            in_lines += [random.choice(wrong[i]) for _ in range(mistakes)]
+            if mistakes != tries:
+                in_lines += [correct[i]]
+            if f_apply:
+                in_lines = [f_apply(x) for x in in_lines]
+
         self.traces.append(self.trace_io(in_lines))
 
-    def gen_tests(self, count=1, tries=1):
+    def gen_tests(self, count=1, tries=1, has_mistakes=True, f_apply=None):
         for i in range(count):
-            self.gen_test(tries)
+            self.gen_test(tries, has_mistakes, f_apply)
 
     def dump_code(self, start=1):
         for i, trace in enumerate(self.traces):
@@ -74,14 +87,25 @@ class TestGen:
             print("    return generic_test('''")
             print(trace.strip())
             print("'''.strip())")
-            print()
+            print("\n")
 
 def main():
     random.seed(301)
     tests = TestGen()
 
-    # enter one good number and give correct grade (25%)
-    tests.gen_tests(1)
+    tests.gen_tests(1, has_mistakes=False)
+    tests.gen_tests(1, has_mistakes=False, f_apply=str.lower)
+    tests.gen_tests(1, has_mistakes=False, f_apply=str.upper)
+    tests.gen_tests(1, has_mistakes=False, f_apply=lambda x: '  '+x+'  ')
+    tests.gen_tests(49, has_mistakes=True)
+    tests.gen_tests(9, has_mistakes=True, f_apply=str.lower)
+    tests.gen_tests(9, has_mistakes=True, f_apply=str.upper)
+    tests.gen_tests(9, has_mistakes=True, f_apply=lambda x: '  '+x+'  ')
+    for i in range(1, 11):
+        tests.gen_tests(1, tries=i, has_mistakes=False)
+    tests.gen_tests(3, tries=2, has_mistakes=True)
+    tests.gen_tests(3, tries=3, has_mistakes=True)
+    tests.gen_tests(4, tries=10, has_mistakes=True)
     tests.dump_code()
 
 if __name__ == '__main__':
