@@ -3498,10 +3498,6 @@ You tried 3 questions and got 2 right.
 '''.strip())
 
 
-
-
-
-
 def check_answer(expected, actual):
     if expected == actual:
         return PASS
@@ -3522,13 +3518,15 @@ def areLinesExpected(actual_lines, expected_lines):
     actual_lines = clean_lines(actual_lines)
     expected_lines = clean_lines(expected_lines)
 
+    for a, e in zip(actual_lines, expected_lines):
+        if a.lower() != e.lower():
+            return 'expected ({}) but found ({})'.format(e, a)
+
     if len(actual_lines) < len(expected_lines):
         return 'fewer output lines than expected'
     if len(actual_lines) > len(expected_lines):
         return 'more output lines than expected'
-    for a, e in zip(actual_lines, expected_lines):
-        if a.lower() != e.lower():
-            return 'expected ({}) but found ({})'.format(e, a)
+
     return None
 
 def check_problem(actual_lines, expected_lines):
