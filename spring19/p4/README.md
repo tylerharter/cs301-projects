@@ -18,6 +18,8 @@ question 3
 Calcuate the right side first. Don't forget != means not equal to.
 ```
 
+Students who have not already submitted their project, please test your code against test2.py. Old test.py is still the same and we will evaluate your code against both the test files and take the best score. You just need to pass the tests for one of the test files, we would recommend using test2.py as it has the revised tests that will make things easier.
+
 ## Description
 
 The CS 301 midterm is coming up, so now is a good time to begin to study. A great resource for preparing is to look at the old midterm exam which is available [here](https://github.com/tylerharter/caraza-harter-com/tree/master/tyler/cs301/spring19/materials/old-exams). Since we've been learning about conditionals this week, for this project we'll build an automated study tool program to quiz you on the questions. You'll get practice with conditionals and while loops.
