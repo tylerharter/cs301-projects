@@ -9,11 +9,11 @@ Here are some corrections and clarifications:
 4. If the user gets the answer right once, you need not ask for more inputs for the same question from the user even if some number of tries are left.
 5. Use the following hint texts for the questions
 
-question 1
+question 2
 ```
 notice the quotes!
 ```
-question 2
+question 3
 ```
 Calcuate the right side first. Don't forget != means not equal to.
 ```
