@@ -2,6 +2,22 @@
 
 ## Corrections
 
+Here are some corrections and clarifications:
+1. For any question, instead of the text "Try again! You have 2 more tries" , use the text "You have this many remaining tries: " followed by the number of tries left for that question.
+2. When the user gets the answer right, we do not need feature 1 text "You answered ..."
+3. Feature 4 text "Sorry your answer is incorrect" is not expected from the tests, so you can omit it from your print statements.
+4. If the user gets the answer right once, you need not ask for more inputs for the same question from the user even if some number of tries are left.
+5. Use the following hint texts for the questions
+
+question 1
+```
+notice the quotes!
+```
+question 2
+```
+Calcuate the right side first. Don't forget != means not equal to.
+```
+
 ## Description
 
 The CS 301 midterm is coming up, so now is a good time to begin to study. A great resource for preparing is to look at the old midterm exam which is available [here](https://github.com/tylerharter/caraza-harter-com/tree/master/tyler/cs301/spring19/materials/old-exams). Since we've been learning about conditionals this week, for this project we'll build an automated study tool program to quiz you on the questions. You'll get practice with conditionals and while loops.
@@ -40,7 +56,7 @@ to have the user type in an answer.
 
 After they have entered input, print out this line:
 ```
-You answered 'a'. The correct answer is 'b
+You answered 'a'. The correct answer is 'b.
 ```
 Where 'a' is what they entered and 'b' is whatever letter is the right answer.
 
