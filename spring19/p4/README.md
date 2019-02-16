@@ -7,18 +7,37 @@ Here are some corrections and clarifications:
 2. When the user gets the answer right, we do not need feature 1 text "You answered ..."
 3. Feature 4 text "Sorry your answer is incorrect" is not expected from the tests, so you can omit it from your print statements.
 4. If the user gets the answer right once, you need not ask for more inputs for the same question from the user even if some number of tries are left.
-5. Use the following hint texts for the questions
+5. We made some tweaks to the tests to give more informative errors regarding why a test fails (so consider re-downloading them)
+6. Use the following hint texts for the questions
 
-question 2
+Question 2: notice the quotes!
+
+Question 3: calculate the right side first. Don't forget != means not equal to.
+
+We have released a new `test2.py` file with our corrections, so you
+should probably use that for testing.  However, you may still rely on
+`test.py` if you prefer (we don't want to make people who have already
+figured out how to pass the original tests redo any work).  When
+grading, we'll run both `test.py` and `test2.py`, taking the better
+score.  You can run the new tests like this:
+
 ```
-notice the quotes!
-```
-question 3
-```
-Calcuate the right side first. Don't forget != means not equal to.
+python test2.py
 ```
 
-Students who have not already submitted their project, please test your code against test2.py. Old test.py is still the same and we will evaluate your code against both the test files and take the best score. You just need to pass the tests for one of the test files, we would recommend using test2.py as it has the revised tests that will make things easier.
+If you want to run just one test when you're debugging, you can run
+`python -i test2.py`.  This will drop you into interactive mode after
+all the tests run.  This is convenient, because running each test just
+requires calling a function.  For example:
+
+```python
+>>> result = test_3()
+... lots of output ...
+>>> result
+PASS
+>>> result = test_4()
+...
+```
 
 ## Description
 
@@ -58,7 +77,7 @@ to have the user type in an answer.
 
 After they have entered input, print out this line:
 ```
-You answered 'a'. The correct answer is 'b.
+You answered 'a'. The correct answer is 'b'.
 ```
 Where 'a' is what they entered and 'b' is whatever letter is the right answer.
 
