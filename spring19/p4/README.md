@@ -12,7 +12,8 @@ Here are some corrections and clarifications:
 
 Question 2: notice the quotes!
 
-Question 3: calculate the right side first. Don't forget != means not equal to.
+Question 3: Calcuate the right side first. Don't forget != means not equal to.
+(Notice the spelling mistake! We missed it in editing.)
 
 We have released a new `test2.py` file with our corrections, so you
 should probably use that for testing.  However, you may still rely on
