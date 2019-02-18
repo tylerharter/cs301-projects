@@ -6,52 +6,37 @@ TEXT_FORMAT = "text"
 Question = collections.namedtuple("Question", ["number", "weight", "format"])
 
 questions = [
-    Question(number=1, weight=1, format=TEXT_FORMAT),
+    Question(number=1, weight=2, format=TEXT_FORMAT),
     Question(number=2, weight=1, format=TEXT_FORMAT),
     Question(number=3, weight=1, format=TEXT_FORMAT),
     Question(number=4, weight=1, format=TEXT_FORMAT),
     Question(number=5, weight=1, format=TEXT_FORMAT),
-    Question(number=6, weight=1, format=TEXT_FORMAT),
-    Question(number=7, weight=1, format=TEXT_FORMAT),
-    Question(number=8, weight=1, format=TEXT_FORMAT),
-    Question(number=9, weight=1, format=TEXT_FORMAT),
-    Question(number=10, weight=1, format=TEXT_FORMAT),
-    Question(number=11, weight=1, format=TEXT_FORMAT),
-    Question(number=12, weight=1, format=TEXT_FORMAT),
-    Question(number=13, weight=1, format=TEXT_FORMAT),
-    Question(number=14, weight=1, format=TEXT_FORMAT),
-    Question(number=15, weight=1, format=TEXT_FORMAT),
-    Question(number=16, weight=1, format=TEXT_FORMAT),
-    Question(number=17, weight=1, format=TEXT_FORMAT),
-    Question(number=18, weight=1, format=TEXT_FORMAT),
-    Question(number=19, weight=1, format=TEXT_FORMAT),
-    Question(number=20, weight=1, format=TEXT_FORMAT),    
+    Question(number=6, weight=2, format=TEXT_FORMAT),
+    Question(number=7, weight=2, format=TEXT_FORMAT),
+    Question(number=8, weight=2, format=TEXT_FORMAT),
+    Question(number=9, weight=2, format=TEXT_FORMAT),
+    Question(number=10, weight=2, format=TEXT_FORMAT),
+    Question(number=11, weight=2, format=TEXT_FORMAT),
+    Question(number=12, weight=2, format=TEXT_FORMAT),
+
 ]
 question_nums = set([q.number for q in questions])
 
 # JSON and plaintext values
 expected_json = {
-    "1": "33",
-    "2": "19.76071",
-    "3": "26.655754419999994",
-    "4": "68.06346877",
-    "5": "77.87553504",
-    "6": "68.06346877",
-    "7": "49.73757877",
-    "8": "16.96543425",
-    "9": "27.013047475",
-    "10": "19.152052834999996",
-    "11": "7.2249619343519145",
-    "12": "3.2706887566666674",
-    "13": "4.627587380000023",
-    "14": "-0.2148440299999983",
-    "15": "20.80494298333333",
-    "16": "98.55499483333321",
-    "17": "77.95994753999969",
-    "18": "-2.0353479350000327",
-    "19": "6.149171779999982",
-    "20": "-0.49974208000001497",
-}
+    "1": "529",
+    "2": "HEIDI",
+    "3": "EMMY",
+    "4": "BABE",
+    "5": "True",
+    "6": "False",
+    "7": "241",
+    "8": "288",
+    "9": "47",
+    "10": "80",
+    "11": "15",
+    "12": "65",
+    }
 
 
 
