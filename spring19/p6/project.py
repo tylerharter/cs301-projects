@@ -35,9 +35,9 @@ def preview_data():
 def get_wine_data(field, query = None, qvalue =None, index=None):
     """This function will first check if a query value is specified along with the 'field', if so, it performs a filtering operation
     on the dataset based on qvalue corresponding to the query and returns the values of the 'field'. For example,
-    calling get_wine_data('winery','country', 'Spain') gives all wineries in Spain. If no 'query' and 'qvalue' are specified,
+    calling get_wine_data('winery',query ='country', qvalue = 'Spain') gives all wineries in Spain. If no 'query' and 'qvalue' are specified,
     an index must be specified, in which case the value of field at that index is returned. For example
-    calling get_wine_data('country', 23) will return value of the column country at index 23. Any other combination of inputs
+    calling get_wine_data('country',index = 23) will return value of the column country at index 23. Any other combination of inputs
     is prohibited"""
     if __num_records:
         if query is not None:
