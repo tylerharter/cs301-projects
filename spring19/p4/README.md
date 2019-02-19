@@ -92,7 +92,7 @@ When the user gets the answer right, we do not need feature 1 text "You answered
 ### Feature 3: Clean the input on text
 You may have noticed that if the user inputs a correct answer, but it's capitalization isn't right or it has extra spaces, then Feature 2 will think it's a wrong answer.
 
-Take the user's input and remove any spaces or capitalization using the str.strip() and str.lower() built in functions.
+Create a new variable and use it to store a 'clean' version of the input by removing any spaces or capitalization using the str.strip() and str.lower() built in functions. Use the user's original input for the Feature 1 text.
 
 ### Feature 4: Tell user when answer is wrong
 
