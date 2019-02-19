@@ -1,12 +1,12 @@
 # Project 5
 
 This project will focus on **conditional statements** and **loops**. To start,
-download the 4 files given below into your project directory.
+download the 3 files given below into your project directory.
 
 Start by downloading `project.py`, `test.py` and `hurricanes.csv`. The hurricanes dataset is data about what major hurricanes were doing in their first 24 hours. Being able to see patterns here could help predict future hurricanes.
 
 Double check that these files don't get renamed by your browser (by
-running `ls` in the terminal from your `p3` project directory).
+running `ls` in the terminal from your `p5` project directory).
 You'll do all your work in a new `main.ipynb` notebook that you'll
 create and hand in when you're done.  You'll test as usual by running
 `python test.py`.
@@ -23,10 +23,12 @@ For example, if you're answering question 13, the first line of your
 cell should contain `#q13`.
 
 # Important Note
-In Computer Science, indexing starts with the number 0 (zero).
+Often, we'll often organize data by assigning numbers (called indexes) to different parts of the data (e.g., rows or columns in a table). In Computer Science, indexing starts with the number 0 (zero).
 i.e., when you have a list of things, you'll start counting them
 from 0 (zero) instead of 1 (one). To understand this better, open
-the file hurricanes.csv and take a look at it. In this file, the
+the file hurricanes.csv and take a look at it. You can open it in any spreadsheet program (like Microsoft Excel or LibraOffice Sheets) or in a basic text editor like idle or notepad. If you open it in a spreadsheet program or view in on github (https://github.com/tylerharter/cs301-projects/blob/cdhardin-project4/spring19/p5/hurricanes.csv) you will see row numbers - but notice the row numbers start at 1. Row numbers are not the same as the index numbers!
+
+In this file, the
 first row is the header (like the column names in a table).
 The remaining rows in this file are the data we are interested in.
 It is important to note that:
