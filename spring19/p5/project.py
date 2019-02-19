@@ -1,63 +1,48 @@
-from csv import DictReader as __DictReader
+import csv
 
-# key: (agency_id, year), val: spending in millions
-__data = None
+__hurricane__ = []
 
-# key: agency name, val: agency ID
-__agency_to_id = None
+def init():
+    """This function will read in the csv_file and store it in a list of dictionaries"""
+    with open('hurricanes.csv', mode='r') as csv_file:
+        csv_reader = csv.DictReader(csv_file)
+        for row in csv_reader:
+            __hurricane__.append(row)
 
+def getNumRecords():
+    """This function will return the number of records in the dataset"""
+    return len(__hurricane__)
 
-def init(path):
-    """init(path) must be called to load data before other calls will work.  You should call it like this: init("madison.csv")"""
+def getName(index):
+    """This function will return the name of the hurricane at the given index"""
+    return __hurricane__[int(index)]['Name']
 
-    global __data
-    global __agency_to_id
+def getDate(index):
+    """This function will return the date of the hurricane at the given index"""
+    return int(__hurricane__[int(index)]['Date'])
 
-    if path != 'madison.csv':
-        print("WARNING!  Opening a path other than madison.csv.  " +
-              "That's fine for testing your code yourself, but madison.csv " +
-              "will be the only file around when we test your code " +
-              "for grading.")
+def getTime(index):
+    """This function will return the time of the hurricane at the given index"""
+    return int(__hurricane__[int(index)]['Time'])
 
-    __data = {}
-    __agency_to_id = {}
+def getStatus(index):
+    """This function will return the status of the hurricane at the given index"""
+    return __hurricane__[int(index)]['Status']
 
-    with open(path) as f:
-        reader = __DictReader(f)
-        for row in reader:
-            agency_id = int(row['agency_id'])
-            __agency_to_id[row['agency']] = agency_id
-            for year in range(2015, 2018+1):
-                __data[(agency_id, year)] = float(row[str(year)])
+def getLatitude(index):
+    """This function will return the Latitude of the hurricane at the given index"""
+    return __hurricane__[int(index)]['Latitude']
 
-def dump():
-    """prints all the data to the screen"""
-    if __agency_to_id == None:
-        raise Exception("you did not call init first")
-    
-    for agency in sorted(__agency_to_id.keys()):
-        agency_id = __agency_to_id[agency]
-        print("%-7s [ID %d]" % (agency, agency_id))
-        for year in range(2015, 2018+1):
-            print("  %d: $%f MILLION" % (year, __data[(agency_id, year)]))
-        print()
+def getLongitude(index):
+    """This function will return the Longitude of the hurricane at the given index"""
+    return __hurricane__[int(index)]['Longitude']
 
+def getWindSpeed(index):
+    """This function will return the WindSpeed of the hurricane at the given index"""
+    return int(__hurricane__[int(index)]['WindSpeed'])
 
-def get_id(agency):
-    """get_id(agency) returns the ID of the specified agency."""
-    if __agency_to_id == None:
-        raise Exception("you did not call init first")
-    if not agency in __agency_to_id:
-        raise Exception("No agency '%s', only these: %s" %
-                        (str(agency), ','.join(list(__agency_to_id.keys()))))
-    return __agency_to_id[agency]
+def getOcean(index):
+    """This function will return the oceanName of the hurricane at the given index"""
+    return __hurricane__[int(index)]['Ocean']
 
-
-def get_spending(agency_id, year=2018):
-    """get_spending(agency_id, year) returns the dollars spent (in millions) by the specified agency in specified year."""
-    if __data == None:
-        raise Exception("you did not call init first")
-    if not (agency_id, year) in __data:
-        raise Exception("No data for agency %s, in year %s" %
-                        (str(agency_id), str(year)))
-    return __data[(agency_id, year)]
+init()
