@@ -11,14 +11,14 @@ questions = [
     Question(number=3, weight=1, format=TEXT_FORMAT),
     Question(number=4, weight=1, format=TEXT_FORMAT),
     Question(number=5, weight=1, format=TEXT_FORMAT),
-    Question(number=6, weight=2, format=TEXT_FORMAT),
+    Question(number=6, weight=1, format=TEXT_FORMAT),
     Question(number=7, weight=2, format=TEXT_FORMAT),
     Question(number=8, weight=2, format=TEXT_FORMAT),
     Question(number=9, weight=2, format=TEXT_FORMAT),
     Question(number=10, weight=2, format=TEXT_FORMAT),
     Question(number=11, weight=2, format=TEXT_FORMAT),
     Question(number=12, weight=2, format=TEXT_FORMAT),
-
+    Question(number=13, weight=1, format=TEXT_FORMAT),
 ]
 question_nums = set([q.number for q in questions])
 
@@ -30,12 +30,13 @@ expected_json = {
     "4": "BABE",
     "5": "True",
     "6": "False",
-    "7": "241",
-    "8": "288",
-    "9": "47",
-    "10": "80",
-    "11": "15",
-    "12": "65",
+    "7": "False"
+    "8": "241",
+    "9": "288",
+    "10": "47",
+    "11": "80",
+    "12": "15",
+    "13": "65",
     }
 
 
