@@ -89,7 +89,10 @@ to implement this function and the functions below.
 
 ### Q6: Was there a hurricane named 'Tyler'?
 
-### Q7: How many hurricanes came from the Pacific?
+### Q7: Was there a hurricane named 'Caroline'?
+You can see how having a function can help you quickly answer the same type of question multiple times with different input!
+
+### Q8: How many hurricanes came from the Pacific?
 
 To answer this, you'll need to implement the `countHurricane(oceanName)` function.
 * The purpose of this function is to compute and return the number of
@@ -100,11 +103,11 @@ ocean name as input.
 * This function should take in the name of the ocean you are searching for as `oceanName`, and it should return the count of how many times this `oceanName` was found in the dataset of hurricanes.
 * If there are no hurricanes with the given `oceanName`, then this function should return 0 (zero).
 
-### Q8: How many hurricanes came from the Atlantic?
+### Q9: How many hurricanes came from the Atlantic?
 
-### Q9: How many more hurricanes were in the Atlantic ocean than the Pacific ocean?
+### Q10: How many more hurricanes were in the Atlantic ocean than the Pacific ocean?
 
-### Q10: What is the highest wind speed of all the hurricanes in the data set?
+### Q11: What is the highest wind speed of all the hurricanes in the data set?
 
 To answer this, you'll need to implement `maxWindSpeedHurricane()` function.
 * The purpose of this function is to find and return the maximum wind speed
@@ -114,7 +117,7 @@ among all the hurricanes in the dataset.
 
 You might notice the result is not what you expect! Remember, this dataset is drawn from data on hurricanes in their first 24 hours, before they get very powerful.
 
-### Q11: What is the lowest wind speed of all the hurricanes in the data set?
+### Q12: What is the lowest wind speed of all the hurricanes in the data set?
 To answer this, you'll need to implement  `minWindSpeedHurricane()` function.
 * The purpose of this function is to find and return the minimum wind speed
 among all the hurricanes in the dataset.
@@ -122,7 +125,7 @@ among all the hurricanes in the dataset.
 * Your function should take no parameters and should return the smallest wind speed value.
 
 
-### Q12: What is the difference between the max wind speed and min wind speed of the dataset?
+### Q13: What is the difference between the max wind speed and min wind speed of the dataset?
 
 
 ### Good luck with your hurricanes project! :)

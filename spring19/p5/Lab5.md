@@ -1,6 +1,6 @@
 # Lab 5
 
-## Corrections
+These lab exercises have been selected to maximize your success on the projects and the exams. Doing it at the designated lab time will mean you have help right away when you get stuck, and will help you make regularly scheduled progress. Enjoy!
 
 ## Project 5 Project.py interface
 To understand the
@@ -29,4 +29,7 @@ The textbook has an excellent suggestion to get used to strings:
 
 ## More String practice!
 
-The website CodingBat https://codingbat.com/python has great interactive coding exercises for beginners. Try to complete the 'String-1' and 'String-2' examples.
+The website CodingBat https://codingbat.com/python has great interactive coding exercises for beginners. Try to complete both the 'String-1' and 'String-2' examples.
+
+## More practice with loops
+If you still have time, try some of the CodingBat https://codingbat.com/python loop exercises such as https://codingbat.com/prob/p193507 , https://codingbat.com/prob/p165097 https://codingbat.com/prob/p118366
