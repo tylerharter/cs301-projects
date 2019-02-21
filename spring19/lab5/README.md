@@ -90,7 +90,7 @@ name of the last hurricane (in this case, "Omar")?
 You're going to need to write lots of loops for this project.  We'll
 walk you through some examples here that will help you later.
 
-### Using `for` and `range`
+### 1. Using `for` and `range`
 
 Run this snippet and observe the output:
 
@@ -109,7 +109,7 @@ for ??? in range(???):
     ???
 ```
 
-### When to use `range`
+### 2. When to use `range`
 
 Consider these two loops:
 
@@ -136,7 +136,7 @@ Now imagine two different problems.
 Which loop is the easier starting point for each problem?  Give it a
 try, and discuss with your neighbour.
 
-### Looping over indexes
+### 3. Looping over indexes
 
 You want a loop that prints the index of every row index in `hurricanes.csv`
 (from 0 to 110, inclusive):
@@ -148,6 +148,39 @@ for idx in range(???):
 
 Your job is to replace the `???` parts below with a call to one of the
 functions in the `project` module.
+
+### 3. Looping over values
+
+Complete the following loop so it prints the name of every hurricane
+in the dataset:
+
+```python
+for idx in range(???):
+    name = ???
+    print(name)
+```
+
+Both places where `???` occurs should be replaced with calls to
+functions in `project`.
+
+### 4. Finding a maximum
+
+Relpace `???` so that the code does what the comments say it should
+do:
+
+```python
+def f(n):
+    return 3 + n % 7
+
+# we want to find the integer n in the range of 0 to 10
+# such that f(n) is largest.
+best_n = 0
+for n in range(11):
+    if ???:
+        best_n = f(n)
+
+print(best_n)
+```
 
 ## Other Practice: Textbook and Online Exercises
 
