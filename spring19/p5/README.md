@@ -37,87 +37,95 @@ For the first four, you don't have to define
 any functions of your own. Instead you should just make use of the
 functions provided in the file *project.py* by calling the corresponding
 function that you need to solve a particular problem.
+
 ### Q1: How many records are in the dataset?
+
 ### Q2: What is the name of the hurricane at index 0?
-### Q3: What is the name of the hurricane at index 3?
-### Q4: What is the name of the hurricane at index 19?
 
-### Q5: Was there a hurricane named Waldo?
+### Q3: How many deaths were caused by the hurricane at index 110?
 
-To answer this, you'll need to implement (i.e, define) the `searchHurricane(name)` function.
+### Q4: How much damage (in dollars) was done by the hurricane at index 1?
+
+Be careful!  In the data, the number was formatted with a suffix, but
+you'll need to do some processing to convert it to this: `1430000000`.
+
+While not required, you may wish to write a general function that
+handles "K", "M", and "B" suffixes (it will be handy later).
+
+### Q5: Is there a hurricane named Flossy?
+
+To get full credit on this one, you are required to use a `break` to
+finish your loop early if Flossy is found.
+
+### Q6: How many hurricanes were named Floyd?
+
+Write your code such that identifies all the variants (e.g., "Floyd", "FLOYD", "floyd", etc.).
+
+### Q7: How many total deaths are represented in the dataset?
+
+### Q8: What were the total damages across all hurricanes in the dataset, in dollars?
+
+Remember that "K" stands for thousand, "M" stands for million, and "B" stands for billion!
+
+### Q9: What is the fastest MPH ever acheived by a hurricane?
+
+### Q10: What is the name of that fastest hurricane?
+
+### Q11: In what year did that fastest hurricane occur?
+
+### Q12: What is the slowest MPH in the dataset?
+
+### Function Suggestion:
+
+We suggest you complete a function something like the following to
+answer the next several questions (this is not a requirement if you
+prefer to solve the problem another way):
 
 ```python
-# TODO: finish this function
-def searchHurricane(name):
-    # create an index variable, starting at 0
-
-    while False: # stopping condition, this will currently not loop, fix it
-        pass # this is a placeholder for an empty loop, so delete it
-
-        # use the project.getName function to check if the hurricane
-        # at the current index is the one we're looking for and if so
-        # return True
-
-        # increment your index
-    return None  # fix this
+# return name of deadliest hurricane over the given date range
+def worst_in_range(year1, year2):
+    worst_idx = 0
+    for i in range(project.count()):
+        pass # TODO: finish this code!
+    return project.get_name(worst_idx)
 ```
 
-This might be your first time attempting to implement a `while` loop.
-As a recap, there are 3 important elements to remember when designing a loop:
+### Q13: what was the deadliest hurricane in the entire dataset?
 
-1. The stopping condition.
-2. Code to run on every iteration of the loop.
-3. An increment/decrement statement.
+You may assume all years are between 1900 and 2100 (this assumption
+applies to all questions).
 
-A small framework to help you design a while loop has been given in main.py for this function.
-This should help you to determine which element goes where in the loop.
-* The purpose of this function is to find if a hurricane exists with a given
-`name` (which is provided as the input to the function).
-* This function takes the `name` of a hurricane as a parameter
-and it's goal is to return `True` if the hurricane is in the dataset, and
-`False` if it is not.
-* You may have to use the helpers functions provided in *project.py*
-to implement this function and the functions below.
+### Q14: what was the deadliest hurricane in or before 2016?
 
-### Q6: Was there a hurricane named 'Tyler'?
+### Q15: what was the deadliest hurricane between 2005 and 20016 (inclusive)?
 
-### Q7: Was there a hurricane named 'Caroline'?
-You can see how having a function can help you quickly answer the same type of question multiple times with different input!
+### Function Suggestion:
 
-### Q8: How many hurricanes came from the Pacific?
+We suggest you complete a function something like the following to
+answer the next several questions (this is not a requirement if you
+prefer to solve the problem another way):
 
-To answer this, you'll need to implement the `countHurricane(oceanName)` function.
-* The purpose of this function is to compute and return the number of
-hurricanes that occurred in a particular ocean (e.g., Pacific), given the
-ocean name as input.
-* For this function, you will still be looping over all the values in the dataset.
-* Loop through the dataset and increment a `counter` each time you find a hurricane that is from the ocean indicated by `oceanName`.
-* This function should take in the name of the ocean you are searching for as `oceanName`, and it should return the count of how many times this `oceanName` was found in the dataset of hurricanes.
-* If there are no hurricanes with the given `oceanName`, then this function should return 0 (zero).
+```python
+def decade_deaths(decade):
+    pass
+```
 
-### Q9: How many hurricanes came from the Atlantic?
+Hint: what is `year - year%10`?  Try evaluating after putting
+different values in a `year` variable.
 
-### Q10: How many more hurricanes were in the Atlantic ocean than the Pacific ocean?
+### Q16: how many people died in the decade starting in 2010?
 
-### Q11: What is the highest wind speed of all the hurricanes in the data set?
+### Q17: how many people died in the decade starting in 2000?
 
-To answer this, you'll need to implement `maxWindSpeedHurricane()` function.
-* The purpose of this function is to find and return the maximum wind speed
-among all the hurricanes in the dataset.
-* For this function, you will need to loop through all the wind speed values in the dataset and determine the largest value.
-* Your function should take no parameters and should return the largest wind speed value.
+### Q18: how many people died in the decade starting in 1990?
 
-You might notice the result is not what you expect! Remember, this dataset is drawn from data on hurricanes in their first 24 hours, before they get very powerful.
+### Q19: how many people died in the decade starting in 1980?
 
-### Q12: What is the lowest wind speed of all the hurricanes in the data set?
-To answer this, you'll need to implement  `minWindSpeedHurricane()` function.
-* The purpose of this function is to find and return the minimum wind speed
-among all the hurricanes in the dataset.
-* For this function, you will need to loop through all the wind speed values in the dataset and determine the smallest value.
-* Your function should take no parameters and should return the smallest wind speed value.
+### Q20: what was deadliest decade in the dataset?
 
-
-### Q13: What is the difference between the max wind speed and min wind speed of the dataset?
-
+Report the start year for that decade.  Only consider round numbers
+For example, the ten years starting in 1990 should be considered as a
+possible worst decade, but the ten years starting in 1991 should not
+be.
 
 ### Good luck with your hurricanes project! :)
