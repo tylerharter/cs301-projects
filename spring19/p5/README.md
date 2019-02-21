@@ -108,7 +108,7 @@ applies to all questions).
 
 ### Q14: what was the deadliest hurricane in or before 2016?
 
-### Q15: what was the deadliest hurricane between 2005 and 20016 (inclusive)?
+### Q15: what was the deadliest hurricane between 2005 and 2016 (inclusive)?
 
 ### Function Suggestion:
 
