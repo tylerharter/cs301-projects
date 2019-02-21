@@ -87,7 +87,67 @@ name of the last hurricane (in this case, "Omar")?
 
 ## Loop Warmups
 
-TODO
+You're going to need to write lots of loops for this project.  We'll
+walk you through some examples here that will help you later.
+
+### Using `for` and `range`
+
+Run this snippet and observe the output:
+
+```python
+i = 0
+while i <= 5:
+    print(i)
+    i += 1
+```
+
+Your job is to replace the `???` parts below to create a loop that
+does the same thing:
+
+```python
+for ??? in range(???):
+    ???
+```
+
+### When to use `range`
+
+Consider these two loops:
+
+Loop A:
+
+```python
+s = "bahahaha"
+for x in s:
+    pass # TODO
+```
+
+Loop B:
+
+```python
+s = "bahahaha"
+for i in range(len(s)):
+    pass # TODO
+```
+
+Now imagine two different problems.
+1. you need to print every letter in `s` on its own line
+2. you need to print the index of every "h" in `s` on its own line
+
+Which loop is the easier starting point for each problem?  Give it a
+try, and discuss with your neighbour.
+
+### Looping over indexes
+
+You want a loop that prints the index of every row index in `hurricanes.csv`
+(from 0 to 110, inclusive):
+
+```python
+for idx in range(???):
+    print(idx)
+```
+
+Your job is to replace the `???` parts below with a call to one of the
+functions in the `project` module.
 
 ## Other Practice: Textbook and Online Exercises
 
