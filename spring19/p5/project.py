@@ -1,8 +1,7 @@
-import csv
-
 __hurricane__ = []
 
-def init():
+def __init__():
+    import csv
     """This function will read in the csv_file and store it in a list of dictionaries"""
     with open('hurricanes.csv', mode='r') as csv_file:
         csv_reader = csv.DictReader(csv_file)
@@ -19,11 +18,11 @@ def get_name(idx):
 
 def get_year(idx):
     """get_year(idx) returns the name of the hurricane in row idx"""
-    return __hurricane__[int(idx)]['year']
+    return int(__hurricane__[int(idx)]['year'])
 
 def get_mph(idx):
     """get_mph(idx) returns the mph of the hurricane in row idx"""
-    return __hurricane__[int(idx)]['mph']
+    return int(__hurricane__[int(idx)]['mph'])
 
 def get_damage(idx):
     """get_damage(idx) returns the damage of the hurricane in row idx"""
@@ -31,6 +30,6 @@ def get_damage(idx):
 
 def get_deaths(idx):
     """get_deaths(idx) returns the deaths of the hurricane in row idx"""
-    return __hurricane__[int(idx)]['deaths']
+    return int(__hurricane__[int(idx)]['deaths'])
 
-init()
+__init__()

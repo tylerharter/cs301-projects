@@ -6,39 +6,52 @@ TEXT_FORMAT = "text"
 Question = collections.namedtuple("Question", ["number", "weight", "format"])
 
 questions = [
-    Question(number=1, weight=2, format=TEXT_FORMAT),
+    Question(number=1, weight=1, format=TEXT_FORMAT),
     Question(number=2, weight=1, format=TEXT_FORMAT),
     Question(number=3, weight=1, format=TEXT_FORMAT),
     Question(number=4, weight=1, format=TEXT_FORMAT),
     Question(number=5, weight=1, format=TEXT_FORMAT),
     Question(number=6, weight=1, format=TEXT_FORMAT),
-    Question(number=7, weight=2, format=TEXT_FORMAT),
-    Question(number=8, weight=2, format=TEXT_FORMAT),
-    Question(number=9, weight=2, format=TEXT_FORMAT),
-    Question(number=10, weight=2, format=TEXT_FORMAT),
-    Question(number=11, weight=2, format=TEXT_FORMAT),
-    Question(number=12, weight=2, format=TEXT_FORMAT),
+    Question(number=7, weight=1, format=TEXT_FORMAT),
+    Question(number=8, weight=1, format=TEXT_FORMAT),
+    Question(number=9, weight=1, format=TEXT_FORMAT),
+    Question(number=10, weight=1, format=TEXT_FORMAT),
+    Question(number=11, weight=1, format=TEXT_FORMAT),
+    Question(number=12, weight=1, format=TEXT_FORMAT),
     Question(number=13, weight=1, format=TEXT_FORMAT),
+    Question(number=14, weight=1, format=TEXT_FORMAT),
+    Question(number=15, weight=1, format=TEXT_FORMAT),
+    Question(number=16, weight=1, format=TEXT_FORMAT),
+    Question(number=17, weight=1, format=TEXT_FORMAT),
+    Question(number=18, weight=1, format=TEXT_FORMAT),
+    Question(number=19, weight=1, format=TEXT_FORMAT),
+    Question(number=20, weight=1, format=TEXT_FORMAT),
 ]
 question_nums = set([q.number for q in questions])
 
 # JSON and plaintext values
 expected_json = {
-    "1": "529",
-    "2": "HEIDI",
-    "3": "EMMY",
-    "4": "BABE",
+    "1": "111",
+    "2": "'Baker'",
+    "3": "1",
+    "4": "1430000000",
     "5": "True",
-    "6": "False",
-    "7": "False"
-    "8": "241",
-    "9": "288",
-    "10": "47",
-    "11": "80",
-    "12": "15",
-    "13": "65",
+    "6": "2",
+    "7": "13129",
+    "8": "792890014998",
+    "9": "190",
+    "10": "'Allen'",
+    "11": "1980",
+    "12": "75",
+    "13": "'Maria'",
+    "14": "Jeanne",
+    "15": "Katrina",
+    "16": "4452",
+    "17": "5580",
+    "18": "996",
+    "19": "483",
+    "20": "2000",
     }
-
 
 
 # find a comment something like this: #q10
@@ -83,7 +96,7 @@ def check_cell_text(qnum, cell):
     try:
         actual_float = float(actual)
         expected_float = float(expected)
-        if not math.isclose(actual_float, expected_float, rel_tol=1e-02, abs_tol=1e-02):
+        if not math.isclose(actual_float, expected_float, rel_tol=1e-06, abs_tol=1e-02):
             return "found {} in {} but expected {}".format(actual, location_name, expected)
     except Exception as e:
         if actual != expected:
