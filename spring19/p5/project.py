@@ -9,40 +9,28 @@ def init():
         for row in csv_reader:
             __hurricane__.append(row)
 
-def getNumRecords():
+def count():
     """This function will return the number of records in the dataset"""
     return len(__hurricane__)
 
-def getName(index):
-    """This function will return the name of the hurricane at the given index"""
-    return __hurricane__[int(index)]['Name']
+def get_name(idx):
+    """get_name(idx) returns the name of the hurricane in row idx"""
+    return __hurricane__[int(idx)]['name']
 
-def getDate(index):
-    """This function will return the date of the hurricane at the given index"""
-    return int(__hurricane__[int(index)]['Date'])
+def get_year(idx):
+    """get_year(idx) returns the name of the hurricane in row idx"""
+    return __hurricane__[int(idx)]['year']
 
-def getTime(index):
-    """This function will return the time of the hurricane at the given index"""
-    return int(__hurricane__[int(index)]['Time'])
+def get_mph(idx):
+    """get_mph(idx) returns the mph of the hurricane in row idx"""
+    return __hurricane__[int(idx)]['mph']
 
-def getStatus(index):
-    """This function will return the status of the hurricane at the given index"""
-    return __hurricane__[int(index)]['Status']
+def get_damage(idx):
+    """get_damage(idx) returns the damage of the hurricane in row idx"""
+    return __hurricane__[int(idx)]['damage']
 
-def getLatitude(index):
-    """This function will return the Latitude of the hurricane at the given index"""
-    return __hurricane__[int(index)]['Latitude']
-
-def getLongitude(index):
-    """This function will return the Longitude of the hurricane at the given index"""
-    return __hurricane__[int(index)]['Longitude']
-
-def getWindSpeed(index):
-    """This function will return the WindSpeed of the hurricane at the given index"""
-    return int(__hurricane__[int(index)]['WindSpeed'])
-
-def getOcean(index):
-    """This function will return the oceanName of the hurricane at the given index"""
-    return __hurricane__[int(index)]['Ocean']
+def get_deaths(idx):
+    """get_deaths(idx) returns the deaths of the hurricane in row idx"""
+    return __hurricane__[int(idx)]['deaths']
 
 init()
