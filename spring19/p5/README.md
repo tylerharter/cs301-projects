@@ -1,15 +1,23 @@
 # Project 5
 
-This project will focus on **conditional statements** and **loops**. To start,
-download the 3 files given below into your project directory.
+Hurricanes often count among the worst natural disasters, both in terms of
+monetary costs and, more importantly, human life.  Data Science can
+help us better understand these storms.  For example, take a quick
+look at this FiveThirtyEight analysis by Maggie Koerth-Baker:
+[Why We're Stuck With An Inadequate Hurricane Rating System](https://fivethirtyeight.com/features/why-were-stuck-with-an-inadequate-hurricane-rating-system/).
 
-Start by downloading `project.py`, `test.py` and `hurricanes.csv`. The hurricanes dataset is data about what major hurricanes were doing in their first 24 hours. Being able to see patterns here could help predict future hurricanes.
+For this project, you'll be analyzing data in the `hurricanes.csv`
+file.  We generated this data file by writing a Python program to
+extract stats from this page:
+https://en.wikipedia.org/wiki/List_of_United_States_hurricanes.  By
+the end of this semester, we'll teach you to extract data from
+websites like Wikipedia for yourself.
 
-Double check that these files don't get renamed by your browser (by
-running `ls` in the terminal from your `p5` project directory).
-You'll do all your work in a new `main.ipynb` notebook that you'll
-create and hand in when you're done.  You'll test as usual by running
-`python test.py`.
+This project will focus on **conditional statements** and
+**loops**. To start, download `project.py`, `test.py` and
+`hurricanes.csv`.  You'll test as usual by running `python test.py` to
+test a `main.ipynb` file (or `python test.py other.ipynb` to test a
+notebook with a different name).
 
 We won't explain how to use the `project` module here (the code in the
 `project.py` file).  The lab this week is designed to teach you how it
@@ -23,21 +31,28 @@ For example, if you're answering question 13, the first line of your
 cell should contain `#q13`.
 
 # Important Note
-Often, we'll often organize data by assigning numbers (called indexes) to different parts of the data (e.g., rows or columns in a table). In Computer Science, indexing starts with the number 0 (zero).
-i.e., when you have a list of things, you'll start counting them
-from 0 (zero) instead of 1 (one). To understand this better, open
-the file hurricanes.csv and take a look at it. You can open it in any spreadsheet program (like Microsoft Excel or LibraOffice Sheets) or in a basic text editor like idle or notepad. If you open it in a spreadsheet program or view in on github (https://github.com/tylerharter/cs301-projects/blob/cdhardin-project4/spring19/p5/hurricanes.csv) you will see row numbers - but notice the row numbers start at 1. Row numbers are not the same as the index numbers!
+
+Often, we'll often organize data by assigning numbers (called indexes)
+to different parts of the data (e.g., rows or columns in a table). In
+Computer Science, indexing typically starts with the number 0 (zero).
+i.e., when you have a list of things, you'll start counting them from
+0 (zero) instead of 1 (one). To understand this better, open the file
+hurricanes.csv and take a look at it. You can open it in any
+spreadsheet program (like Microsoft Excel or LibraOffice Sheets) or in
+a basic text editor like idle or notepad. If you open it in a
+spreadsheet program or view in on github
+(https://github.com/tylerharter/cs301-projects/blob/master/spring19/p5/hurricanes.csv)
+you will see row numbers - but notice the row numbers start at 1. Row
+numbers are not the same as the index numbers!
 
 In this file, the
 first row is the header (like the column names in a table).
 The remaining rows in this file are the data we are interested in.
 It is important to note that:
-* Hurricane 'HEIDI' is at index 0
-* Hurricane 'OLAF' is at index 1
-* Hurricane 'TINA' is at index 2
-
-and so on.
-
+* Hurricane 'Baker' is at index 0
+* Hurricane 'Camille' is at index 1
+* Hurricane 'Eloise' is at index 2
+* etc.
 
 ## Questions and Functions
 
