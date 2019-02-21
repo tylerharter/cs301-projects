@@ -109,6 +109,9 @@ for ??? in range(???):
     ???
 ```
 
+Make sure the last number printed is exactly the same with both code
+snippets!
+
 ### 2. When to use `range`
 
 Consider these two loops:
@@ -163,7 +166,18 @@ for idx in range(???):
 Both places where `???` occurs should be replaced with calls to
 functions in `project`.
 
-### 4. Finding a maximum
+### 4. Filtering data
+
+Your job is to replace the `???` parts below so that the name of every
+hurricane that occurred in 2018 in printed.
+
+```python
+for i in range(???):
+    if ???:
+        print(project.get_name(i))
+```
+
+### 5. Finding a maximum
 
 Relpace `???` so that the code does what the comments say it should
 do:
