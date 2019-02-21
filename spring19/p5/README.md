@@ -16,44 +16,20 @@ websites like Wikipedia for yourself.
 
 This project will focus on **conditional statements** and
 **loops**. To start, download `project.py`, `test.py` and
-`hurricanes.csv`.  You'll test as usual by running `python test.py` to
-test a `main.ipynb` file (or `python test.py other.ipynb` to test a
-notebook with a different name).
+`hurricanes.csv`.  You'll do your work in Jupyter Notebooks this week,
+producing a `main.ipynb` file.  You'll test as usual by running
+`python test.py` to test a `main.ipynb` file (or `python test.py
+other.ipynb` to test a notebook with a different name).
 
 We won't explain how to use the `project` module here (the code in the
 `project.py` file).  The lab this week is designed to teach you how it
-works, so be sure to do the lab from home (if you missed it) before
-starting the project.
+works.
 
 This project consists of writing code to answer 20 questions.  If
 you're answering a particular question in a cell in your notebook, you
 need to put a comment in the cell so we know what you're answering.
 For example, if you're answering question 13, the first line of your
 cell should contain `#q13`.
-
-# Important Note
-
-Often, we'll often organize data by assigning numbers (called indexes)
-to different parts of the data (e.g., rows or columns in a table). In
-Computer Science, indexing typically starts with the number 0 (zero).
-i.e., when you have a list of things, you'll start counting them from
-0 (zero) instead of 1 (one). To understand this better, open the file
-hurricanes.csv and take a look at it. You can open it in any
-spreadsheet program (like Microsoft Excel or LibraOffice Sheets) or in
-a basic text editor like idle or notepad. If you open it in a
-spreadsheet program or view in on github
-(https://github.com/tylerharter/cs301-projects/blob/master/spring19/p5/hurricanes.csv)
-you will see row numbers - but notice the row numbers start at 1. Row
-numbers are not the same as the index numbers!
-
-In this file, the
-first row is the header (like the column names in a table).
-The remaining rows in this file are the data we are interested in.
-It is important to note that:
-* Hurricane 'Baker' is at index 0
-* Hurricane 'Camille' is at index 1
-* Hurricane 'Eloise' is at index 2
-* etc.
 
 ## Questions and Functions
 
