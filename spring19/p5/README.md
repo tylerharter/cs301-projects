@@ -1,4 +1,4 @@
-# Project 5
+# Project 5: Hurricane Study
 
 Hurricanes often count among the worst natural disasters, both in terms of
 monetary costs and, more importantly, human life.  Data Science can
@@ -35,7 +35,7 @@ cell should contain `#q13`.
 
 For the first four, you don't have to define
 any functions of your own. Instead you should just make use of the
-functions provided in the file *project.py* by calling the corresponding
+functions provided in the file `project.py` by calling the corresponding
 function that you need to solve a particular problem.
 
 ### Q1: How many records are in the dataset?
@@ -57,15 +57,26 @@ handles "K", "M", and "B" suffixes (it will be handy later).
 To get full credit on this one, you are required to use a `break` to
 finish your loop early if Flossy is found.
 
+Hint: here's a loop that prints every hurricane name.  Consider
+adapting the code?
+
+```python
+for i in range(project.count()):
+    print(project.get_name(i))
+```
+
 ### Q6: How many hurricanes were named Floyd?
 
-Write your code such that identifies all the variants (e.g., "Floyd", "FLOYD", "floyd", etc.).
+Write your code such that it counts all the variants (e.g., "Floyd",
+"FLOYD", "floyd", etc.).
 
 ### Q7: How many total deaths are represented in the dataset?
 
 ### Q8: What were the total damages across all hurricanes in the dataset, in dollars?
 
-Remember that "K" stands for thousand, "M" stands for million, and "B" stands for billion!
+Remember that "K" stands for thousand, "M" stands for million, and "B"
+stands for billion!  These may appear in the dataset, but the answer
+you compute (`792890014998`) should not use them.
 
 ### Q9: What is the fastest MPH ever acheived by a hurricane?
 
