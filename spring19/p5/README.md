@@ -4,7 +4,8 @@ Hurricanes often count among the worst natural disasters, both in terms of
 monetary costs and, more importantly, human life.  Data Science can
 help us better understand these storms.  For example, take a quick
 look at this FiveThirtyEight analysis by Maggie Koerth-Baker:
-[Why We're Stuck With An Inadequate Hurricane Rating System](https://fivethirtyeight.com/features/why-were-stuck-with-an-inadequate-hurricane-rating-system/).
+[Why We're Stuck With An Inadequate Hurricane Rating System](https://fivethirtyeight.com/features/why-were-stuck-with-an-inadequate-hurricane-rating-system/)
+(you should all read FiveThirtyEight, btw!).
 
 For this project, you'll be analyzing data in the `hurricanes.csv`
 file.  We generated this data file by writing a Python program to
