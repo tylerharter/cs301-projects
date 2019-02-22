@@ -17,7 +17,7 @@ def get_name(idx):
     return __hurricane__[int(idx)]['name']
 
 def get_year(idx):
-    """get_year(idx) returns the name of the hurricane in row idx"""
+    """get_year(idx) returns the year of the hurricane in row idx"""
     return int(__hurricane__[int(idx)]['year'])
 
 def get_mph(idx):
@@ -25,7 +25,7 @@ def get_mph(idx):
     return int(__hurricane__[int(idx)]['mph'])
 
 def get_damage(idx):
-    """get_damage(idx) returns the damage of the hurricane in row idx"""
+    """get_damage(idx) returns the damage in dollars of the hurricane in row idx"""
     return __hurricane__[int(idx)]['damage']
 
 def get_deaths(idx):
