@@ -23,7 +23,7 @@ def count():
 def preview():
     """This function will show a preview of the data """
     if __wine_data is not None:
-        return __wine_data.head(10)
+        return __wine_data
     else:
         raise Exception("Please load the data file using init(path) first")
 
