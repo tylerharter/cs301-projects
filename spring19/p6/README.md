@@ -62,14 +62,14 @@ it's best to skip those.
 
 Answer in the form of a list containing no duplicates (for this and future questions).
 
-## Q4: which wineries contain the phrase "black-fruit aroma" in the description?
+## Q4: which wineries contain the phrase "beef" in the description?
 
-## Q5: in which country is the single costliest wine produced?
+This shoud match anything containing beef (in any case), regardless of
+spacing.
 
-## Q6 TODO:
-Print wineries which make wines which have `blackberry aroma`. This time, however, print the names after removing all
-spaces from the names. For example, if `Patricia Green Cellars` is one of the entries in your list, it should be converted to 
-`PatriciaGreenCellars`. We recommend you write a dedicated function to do this as it will help you to answer the next question
+## Q5: which wineries contain the phrase "zesty" in the description?
+
+## Q6: which wineries contain the phrase "black-fruit aroma" in the description?
 
 ## Q7: which wine varieties are anagrams of the phrase "antibus governance"?
 
@@ -114,32 +114,23 @@ produce a different answer.
 
 ## Q12: what is the average PPD of the "Ponzi" winery?
 
-## Q13: which winery in New Zealand has the highest average price per dollar?
+## Q13: which winery in New Zealand has the highest average PPD?
 
-## Q14 which winery in Australia has the highest average price per dollar?
+Consider writing a function to answer this and Q14 and Q15 with the
+same code.
 
-## Q15 which winery in Canada has the highest average price per dollar?
+## Q14 which winery in Australia has the highest average PPD?
 
-## Q16 (5 points):
-Given a winery X, design a function to find out `variety` of all the wines produced. Using this function output the 
-`variety` of all wines produced by `Heitz`.
+## Q15 which winery in Canada has the highest average PPD?
 
-## Q17 (5 points):
-Re-use the function above to find out the `variety` of all wines produced by `Silvan Ridge`.
+## Q16: which wine varieties are produced the by the "Quinta Nova de Nossa Senhora do Carmo" winery?
 
-## Q18 (5 points):
-What is the range of wine `prices` listed in the dataset? You can define a function that calculates the range of a list to do this.
-Note: A Range is defined as the difference between the maximum and minimum value of the list.
-For example: `[2, 1, 4, 8, 2, 5, 9, 3]` has range `9 - 1 = 8`
+Produce a Python list with no duplicates.
 
-## Q19 (5 points):
-What is the range of wine `points` listed in the dataset?
-Use the range function created above for prices to calculate the range for points in the dataset.
+## Q17: which wine varieties are produced the by the "Adega Cooperativa de Borba" winery?
 
-## Q20 (5 points):
-This is a challenge question! It requires careful thought and structuring of your code.
+## Q18: which wine varieties are produced the by the "Global Wines" winery?
 
-For this question we try to find wineries which are in direct competition with each other. By direct competition we mean
-the wineries which have the most number of wine varieties in common.
-Output the winery name which is a direct competitor to `Grand Pacific` and also output its ppd ratio. You can output these
-as a list with the winery name at index 0 and the ppd ratio at index 1.
+## Q19: what percentage of the varieties produced by "Quinta Nova de Nossa Senhora do Carmo" are also produced by "Adega Cooperativa de Borba"?
+
+## Q20 what percentage of the varieties produced by "Quinta Nova de Nossa Senhora do Carmo" are also produced by "Global Wines"?
