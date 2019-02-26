@@ -212,11 +212,11 @@ expected_json = {
     "8": ['Tempranillo Blend'],
     "9": ['Pinot Noir', 'Cabernet Sauvignon', 'Sauvignon Blanc'],
     "10": ['Tinta de Toro'],
-    "11": 0.7374517374517374,
-    "12": 1.2188841201716738,
-    "13": 'Grand Pacific',
-    "14": 'Domaine du Touja',
-    "15": 'Famiglia Cielo',
+    "11": 2.183421985815603,
+    "12": 1.288074888074888,
+    "13": 'Felton Road',
+    "14": 'Heggies Vineyard',
+    "15": 'Burrowing Owl',
     "16": ['Cabernet Sauvignon', 'Rosé'],
     "17": ['Pinot Noir', 'Muscat', 'Pinot Gris'],
     "18": 493.0,
@@ -288,7 +288,7 @@ def check_cell_text(qnum, cell):
             expected_mismatch = True
             
     if expected_mismatch:
-        return "found {} in {} but expected {}".format(actual, location_name, expected)
+        return "found {} in cell {} but expected {}".format(actual, qnum, expected)
 
     return PASS
 
