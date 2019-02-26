@@ -120,11 +120,11 @@ expected_json = {
     "13": 'Felton Road',
     "14": 'Heggies Vineyard',
     "15": 'Burrowing Owl',
-    "16": ['Cabernet Sauvignon', 'Rosé'],
-    "17": ['Pinot Noir', 'Muscat', 'Pinot Gris'],
-    "18": 493.0,
-    "19": 11,
-    "20": ['Byron', 3.7291666666666665],
+    "16": ['Portuguese White', 'Portuguese Rosé', 'Portuguese Red'],
+    "17": ['Portuguese Red', 'Portuguese White'],
+    "18": ['Touriga Nacional', 'Portuguese Sparkling', 'Portuguese Red'],
+    "19": 66.6666666666666,
+    "20": 33.3333333333333,
 }
 
 

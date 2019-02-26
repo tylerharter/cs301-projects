@@ -62,14 +62,14 @@ it's best to skip those.
 
 Answer in the form of a list containing no duplicates (for this and future questions).
 
-## Q4: which wineries contain the phrase "beef" in the description?
+## Q4: which wineries make wines containing the phrase "beef" in the description?
 
 This shoud match anything containing beef (in any case), regardless of
 spacing.
 
-## Q5: which wineries contain the phrase "zesty" in the description?
+## Q5: which wineries make wines containing the phrase "zesty" in the description?
 
-## Q6: which wineries contain the phrase "black-fruit aroma" in the description?
+## Q6: which wineries make wines containing the phrase "black-fruit aroma" in the description?
 
 ## Q7: which wine varieties are anagrams of the phrase "antibus governance"?
 
