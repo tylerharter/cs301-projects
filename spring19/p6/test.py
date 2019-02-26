@@ -1,51 +1,26 @@
 # -*- coding: utf-8 -*-
-import os, sys, subprocess, json, re, collections, math
+import os, sys, subprocess, json, re, collections, math, ast
 
 PASS = "PASS"
 TEXT_FORMAT = "text"
 Question = collections.namedtuple("Question", ["number", "weight", "format"])
 
-# group_weights = {
-#     "test_remove_nan": 3,
-#     "test_calculate_avg": 5,
-#     "test_remove_duplicates": 5,
-#     "test_filter_description": 7,
-#     "test_get_costlist_wine": 8,
-#     "test_blackberry_aroma": 5,
-#     "test_get_anagram": 7,
-#     "test_get_anagram2": 3,
-#     "test_best_rated_wine_variety": 5,
-#     "test_best_rated_wine_variety2": 5,
-#     "test_calculate_ppd": 5,
-#     "test_calculate_ppd2": 5,
-#     "test_highest_ppd_for_country1": 5,
-#     "test_highest_ppd_for_country2": 5,
-#     "test_highest_ppd_for_country3": 2,
-#     "test_get_wines_produced": 5,
-#     "test_get_wines_produced2": 5,
-#     "test_get_range": 5,
-#     "test_get_range2": 5,
-#     "test_challenge": 5
-# }
-
-
-
 questions = [
-    Question(number=1, weight=0.6, format=TEXT_FORMAT),
+    Question(number=1, weight=1, format=TEXT_FORMAT),
     Question(number=2, weight=1, format=TEXT_FORMAT),
     Question(number=3, weight=1, format=TEXT_FORMAT),
-    Question(number=4, weight=1.4, format=TEXT_FORMAT),
-    Question(number=5, weight=1.6, format=TEXT_FORMAT),
+    Question(number=4, weight=1, format=TEXT_FORMAT),
+    Question(number=5, weight=1, format=TEXT_FORMAT),
     Question(number=6, weight=1, format=TEXT_FORMAT),
-    Question(number=7, weight=1.4, format=TEXT_FORMAT),
-    Question(number=8, weight=0.6, format=TEXT_FORMAT),
+    Question(number=7, weight=1, format=TEXT_FORMAT),
+    Question(number=8, weight=1, format=TEXT_FORMAT),
     Question(number=9, weight=1, format=TEXT_FORMAT),
     Question(number=10, weight=1, format=TEXT_FORMAT),
     Question(number=11, weight=1, format=TEXT_FORMAT),
     Question(number=12, weight=1, format=TEXT_FORMAT),
     Question(number=13, weight=1, format=TEXT_FORMAT),
     Question(number=14, weight=1, format=TEXT_FORMAT),
-    Question(number=15, weight=0.4, format=TEXT_FORMAT),
+    Question(number=15, weight=1, format=TEXT_FORMAT),
     Question(number=16, weight=1, format=TEXT_FORMAT),
     Question(number=17, weight=1, format=TEXT_FORMAT),
     Question(number=18, weight=1, format=TEXT_FORMAT),
@@ -81,7 +56,7 @@ expected_json = {
          'Spain',
          'US'
     ],
-    "2": "39.407876230661039",
+    "2": 39.407876230661039,
     "3": [
          'Garnacha Blanca',
          'Mencía',
@@ -241,15 +216,15 @@ expected_json = {
     "8": ['Tempranillo Blend'],
     "9": 'Cabernet Sauvignon',
     "10": 'Tinta de Toro',
-    "11": "0.7374517374517374",
-    "12": "1.2188841201716738",
+    "11": 0.7374517374517374,
+    "12": 1.2188841201716738,
     "13": 'Grand Pacific',
     "14": 'Domaine du Touja',
     "15": 'Famiglia Cielo',
     "16": ['Cabernet Sauvignon', 'Rosé'],
     "17": ['Pinot Noir', 'Muscat', 'Pinot Gris'],
-    "18": "493.0",
-    "19": "11",
+    "18": 493.0,
+    "19": 11,
     "20": ['Byron', 3.7291666666666665],
 }
 
@@ -293,32 +268,32 @@ def check_cell_text(qnum, cell):
         return 'no outputs in an Out[N] cell'
     actual_lines = outputs[0].get('data', {}).get('text/plain', [])
     actual = ''.join(actual_lines)
+    actual = ast.literal_eval(actual)
     expected = expected_json[str(qnum)]
-    try:
-        import ast
-        # Handling homogenous list of elements
-        sorted_actual = sorted(ast.literal_eval(actual))
-        sorted_expected = sorted(expected)
-        if sorted_actual != sorted_expected:
-            return "found {} but expected {}".format(sorted_actual, sorted_expected)
-    except Exception as e:
-        try:
-            # Handling float value test cases
-            actual_float = float(actual)
-            expected_float = float(expected)
-            if not math.isclose(actual_float, expected_float, rel_tol=1e-02, abs_tol=1e-02):
-                return "found {} in {} but expected {}".format(actual, location_name, expected)
-        except:
-            try:
-                # Handling heterogenous list of elements
-                actual_list = ast.literal_eval(actual)
-                if actual_list[:-1] == expected[:-1] and actual_list != expected:
-                    # Special case for #q20 handled:
-                    if not math.isclose(actual_list[-1], expected[-1], rel_tol=1e-02, abs_tol=1e-02):
-                        return 'found {} but expected {}'.format(actual, expected)  
-            except:
-                if actual != expected:
-                    return 'found {} but expected {}'.format(actual, expected)
+
+    expected_mismatch = False
+
+    if type(expected) != type(actual):
+        return "expected an answer of type %s but found one of type %s" % (type(expected), type(actual))
+    elif type(expected) == float:
+        if not math.isclose(actual, expected, rel_tol=1e-06, abs_tol=1e-06):
+            expected_mismatch = True
+    elif type(expected) == list:
+        extra = set(actual) - set(expected)
+        missing = set(expected) - set(actual)
+        if extra:
+            return "found unexpected entry in list: %s" % repr(list(extra)[0])
+        elif missing:
+            return "missing expected entry in list: %s" % repr(list(missing)[0])
+        elif len(actual) != len(expected):
+            return "expected %d entries in the list but found %d" % (len(expected), len(actual))
+    else:
+        if expected != actual:
+            expected_mismatch = True
+            
+    if expected_mismatch:
+        return "found {} in {} but expected {}".format(actual, location_name, expected)
+
     return PASS
 
 def check_cell(question, cell):
