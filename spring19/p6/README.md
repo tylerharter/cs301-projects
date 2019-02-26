@@ -61,7 +61,7 @@ it's best to skip those.
 Answer in the form of a list containing no duplicates.
 
 TODO: Lets look at what varieties of wine are produced by individual countries by performing a filtering operation. 
-Using the API provided, print varieties of wines produced by `Spain`. Ensure that there are no repeated entries in your
+Using the API provided, return varieties of wines produced by `Spain`. Ensure that there are no repeated entries in your
 output. You can do this by writing a function to remove duplicates form your output. Writing ths function will help you in 
 questions that follow.
 
@@ -73,23 +73,23 @@ For this question you are required to perform string search operation on wine de
 
 ## Q5 (8 points):
 
-Search the dataset to identify and output the country that makes the costliest wine.
+Search the dataset to identify and return the country that makes the costliest wine.
 
 ## Q6 (5 points):
-Print wineries which make wines which have `blackberry aroma`. This time, however, print the names after removing all
+Return wineries which make wines which have `blackberry aroma`. This time, however, return the names after removing all
 spaces from the names. For example, if `Patricia Green Cellars` is one of the entries in your list, it should be converted to 
 `PatriciaGreenCellars`. We recommend you write a dedicated function to do this as it will help you to answer the next question
 
 ## Q7 (7 points):
-If you liked Professor Langdon's adventures in Da Vinci code you'll like this one:) Search the dataset and print 
+If you liked Professor Langdon's adventures in Da Vinci code you'll like this one:) Search the dataset and return 
 Which wine varieties are anagrams of the phrase `antibus governance`? An anagram is a word or phrase formed by rearranging
 the letters of a different word or phrase, typically using all the original letters exactly once. 
 (Read more here : https://en.wikipedia.org/wiki/Anagram). For this question, you need to convert both the strings you are comparing
-to lowercase, strip spaces from them and then check for them being anagrams. NOTE: RETAIN spaces when you print your final 
+to lowercase, strip spaces from them and then check for them being anagrams. NOTE: RETAIN spaces when you return your final 
 output!
 
 ## Q8 (3 points):
-Following the same rules as above output wine varieties that are anagrams of the phrase `Banned Petrol Mill`.
+Following the same rules as above return wine varieties that are anagrams of the phrase `Banned Petrol Mill`.
 
 ## Q9 (5 points):
 Which variety is the best rated wine made by `USA`?
@@ -99,10 +99,10 @@ Which variety is the best rated wine made by `Spain`?
 
 ## Q11 (5 points):
 Write a function that calculates average points per dollar for all wines made by a winery and then
-print price per dollar of the Winery called `Heitz`. Assume all prices in dataset are in dollars.
+return price per dollar of the Winery called `Heitz`. Assume all prices in dataset are in dollars.
 
 ## Q12 (5 points):
-Print price per dollar of the Winery called `Ponzi`.
+Return price per dollar of the Winery called `Ponzi`.
 
 ## Q13 (5 points):
 Which winery in `USA` has the highest price per dollar?
@@ -114,7 +114,7 @@ Which winery in `France` has the highest price per dollar?
 Which winery in `Italy` has the highest price per dollar?
 
 ## Q16 (5 points):
-Given a winery X, design a function to find out `variety` of all the wines produced. Using this function output the 
+Given a winery X, design a function to find out `variety` of all the wines produced. Using this function return the 
 `variety` of all wines produced by `Heitz`.
 
 ## Q17 (5 points):
@@ -134,5 +134,5 @@ This is a challenge question! It requires careful thought and structuring of you
 
 For this question we try to find wineries which are in direct competition with each other. By direct competition we mean
 the wineries which have the most number of wine varieties in common.
-Output the winery name which is a direct competitor to `Grand Pacific` and also output its ppd ratio. You can output these
+Return the winery name which is a direct competitor to `Grand Pacific` and also return its ppd ratio. You can return these
 as a list with the winery name at index 0 and the ppd ratio at index 1.
