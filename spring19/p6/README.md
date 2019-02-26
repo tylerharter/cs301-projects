@@ -1,11 +1,13 @@
-# Project 6
+# Project 6: Wine Study
 
-This project is a wine connoisseurs' delight! We will be exploring a
-subset (the first 1500 rows) of the Kaggle
-[wine reviews dataset](https://www.kaggle.com/zynicide/wine-reviews); you will be
-using various string manipulation functions that come with Python as
-well as rolling some of your own to solve the problems posed. Happy
-coding, and remember the [Ballmer Peak](https://xkcd.com/323/) is nothing but a myth!
+This project is a wine connoisseurs' delight!  Data Science can help us understand people's drinking habits around the world.  For example, take a look at Mona Chalabi's analysis here: [Where Do People Drink The Most Beer, Wine And Spirits?](https://fivethirtyeight.com/features/dear-mona-followup-where-do-people-drink-the-most-beer-wine-and-spirits/).
+
+For our part, We will be exploring a subset (the first 1500 rows) of the Kaggle
+[wine reviews dataset](https://www.kaggle.com/zynicide/wine-reviews);
+you will be using various string manipulation functions that come with
+Python as well as rolling some of your own to solve the problems
+posed. Happy coding, and remember the [Ballmer
+Peak](https://xkcd.com/323/) is nothing but a myth!
 
 # Directions
 
@@ -18,10 +20,10 @@ previously.
 
 Your output should be in the form of a Python list containing the
 country names.  The tests don't care about the order, but there should
-should be no duplicates.  Also, some country names are missing in the
-dataset (real-life data is often messy, unfortunately!).  Missing
-values are represented as `None`, but you should make sure `None` does
-not appear in your answer list.
+should be no duplicate entries in the lists.  Also, some country names
+are missing in the dataset (real-life data is often messy,
+unfortunately!).  Missing values are represented as `None`, but you
+should make sure `None` does not appear in your answer list.
 
 Now is a good time to run the tests with `python test.py`.  If you did Q1 correctly, it should look like this:
 
@@ -58,44 +60,48 @@ it's best to skip those.
 
 ## Q3: which wine varieties are produced by Spain?
 
-Answer in the form of a list containing no duplicates.
+Answer in the form of a list containing no duplicates (for this and future questions).
 
-TODO: Lets look at what varieties of wine are produced by individual countries by performing a filtering operation. 
-Using the API provided, print varieties of wines produced by `Spain`. Ensure that there are no repeated entries in your
-output. You can do this by writing a function to remove duplicates form your output. Writing ths function will help you in 
-questions that follow.
+## Q4: which wineries contain the phrase `black-fruit aroma` in the description?
 
-## Q4:
-For this question you are required to perform string search operation on wine description field. Use the API provided to
- get a list of wineries which make wines having the black-fruit aroma. You can use `black-fruit aroma` as search string 
- to search in the description field. Make sure your final list has no repeated entries!
- 
+## Q5: in which country is the single costliest wine produced?
 
-## Q5 (8 points):
-
-Search the dataset to identify and output the country that makes the costliest wine.
-
-## Q6 (5 points):
+## Q6 TODO:
 Print wineries which make wines which have `blackberry aroma`. This time, however, print the names after removing all
 spaces from the names. For example, if `Patricia Green Cellars` is one of the entries in your list, it should be converted to 
 `PatriciaGreenCellars`. We recommend you write a dedicated function to do this as it will help you to answer the next question
 
-## Q7 (7 points):
-If you liked Professor Langdon's adventures in Da Vinci code you'll like this one:) Search the dataset and print 
-Which wine varieties are anagrams of the phrase `antibus governance`? An anagram is a word or phrase formed by rearranging
-the letters of a different word or phrase, typically using all the original letters exactly once. 
-(Read more here : https://en.wikipedia.org/wiki/Anagram). For this question, you need to convert both the strings you are comparing
-to lowercase, strip spaces from them and then check for them being anagrams. NOTE: RETAIN spaces when you print your final 
-output!
+## Q7: which wine varieties are anagrams of the phrase "antibus governance"?
 
-## Q8 (3 points):
-Following the same rules as above output wine varieties that are anagrams of the phrase `Banned Petrol Mill`.
+If you liked Professor Langdon's adventures in Da Vinci Code, you'll like this one. :)
 
-## Q9 (5 points):
-Which variety is the best rated wine made by `USA`?
+An anagram is a word or phrase formed by rearranging the letters of a
+different word or phrase, using all the original letters exactly once.
+(Read more here: https://en.wikipedia.org/wiki/Anagram).  For our
+purposes, we'll ignore case and spaces when considering whether two
+words are anagrams of each other.
 
-## Q10 (5 points):
-Which variety is the best rated wine made by `Spain`?
+Hint: although you'll need to loop over all the names to check for
+anagrams, checking whether a single word is an anagram of another word
+does not require writing a loop.  So if you're writing something
+complicated, review the string methods and sequence operations to see
+if there is a short, clever solution.
+
+Consider writing a function to solve Q7 and Q8 with the same code.
+
+## Q8: which wine varieties are anagrams of the phrase "Banned Petrol Mill".
+
+## Q9: what is the highest-rated wine variety made in "US"?
+
+The rating is represented by the `points` column in the dataset.
+
+Your answer should be in the form of a Python list.  If there is a
+single best, that list should contain that single best variety.  If
+multiple varieties tie for best, the list should contain all that tie.
+
+Consider writing a function to solve Q9 and Q10 with the same code.
+
+## Q9: what is the highest-rated wine variety made in "Spain"?
 
 ## Q11 (5 points):
 Write a function that calculates average points per dollar for all wines made by a winery and then

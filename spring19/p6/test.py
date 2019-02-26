@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 import os, sys, subprocess, json, re, collections, math, ast
+from datetime import datetime
 
 PASS = "PASS"
 TEXT_FORMAT = "text"
@@ -75,16 +76,11 @@ expected_json = {
          'Tempranillo',
          'Moscatel'
     ],
-    "4": [
-         'Wines & Winemakers',
-         'Matarromera',
-         'Beaucanon',
-         'Substance',
-         'Val de Los Frailes',
-         'Palacio del Burgo',
-         'Maurodos',
-         'Bodega Carmen Rodríguez'
-    ],
+    "4": ['Maurodos',
+          'Val de Los Frailes',
+          'Matarromera',
+          'Palacio del Burgo',
+          'Bodega Carmen Rodríguez'],
     "5": 'Italy',
     "6": [
          'MissionHill',
@@ -214,8 +210,8 @@ expected_json = {
     ],
     "7": ['Cabernet Sauvignon'],
     "8": ['Tempranillo Blend'],
-    "9": 'Cabernet Sauvignon',
-    "10": 'Tinta de Toro',
+    "9": ['Pinot Noir', 'Cabernet Sauvignon', 'Sauvignon Blanc'],
+    "10": ['Tinta de Toro'],
     "11": 0.7374517374517374,
     "12": 1.2188841201716738,
     "13": 'Grand Pacific',
@@ -284,7 +280,7 @@ def check_cell_text(qnum, cell):
         if extra:
             return "found unexpected entry in list: %s" % repr(list(extra)[0])
         elif missing:
-            return "missing expected entry in list: %s" % repr(list(missing)[0])
+            return "missing %d entries list, such as: %s" % (len(missing), repr(list(missing)[0]))
         elif len(actual) != len(expected):
             return "expected %d entries in the list but found %d" % (len(expected), len(actual))
     else:
@@ -319,6 +315,14 @@ def grade_answers(cells):
     return results
 
 
+def file_age(filename):
+    try:
+        t = os.path.getmtime(filename)
+        return int((datetime.now() - datetime.fromtimestamp(t)).total_seconds())
+    except:
+        return 0
+
+
 def main():
     # rerun everything
     orig_notebook = 'main.ipynb'
@@ -327,6 +331,23 @@ def main():
         return
     elif len(sys.argv) == 2:
         orig_notebook = sys.argv[1]
+
+    # does notebook exist?  Is it fresh?
+    if not os.path.exists(orig_notebook):
+        print("Could not find file: %s" % orig_notebook)
+        return
+
+    age = file_age(orig_notebook)
+    if age > 30:
+        print()
+        print("#"*80)
+        print("# " + ("WARNING!  Your notebook file is %d seconds old." % age).ljust(77) + "#")
+        print("#" + " "*78 + "#")
+        print("# " + ("That's not necessarily bad, but if you were just changing your code, you").ljust(77) + "#")
+        print("# " + ("probably forgot to save your work before running the tests.").ljust(77) + "#")
+        print("#"*80)
+        print()
+
     nb = rerun_notebook(orig_notebook)
 
     # extract cells that have answers
