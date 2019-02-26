@@ -1,8 +1,8 @@
 # Project 6: Wine Study
 
-This project is a wine connoisseurs' delight!  Data Science can help us understand people's drinking habits around the world.  For example, take a look at Mona Chalabi's analysis here: [Where Do People Drink The Most Beer, Wine And Spirits?](https://fivethirtyeight.com/features/dear-mona-followup-where-do-people-drink-the-most-beer-wine-and-spirits/).
+This project is a wine connoisseurs' delight!  Data Science can help us understand people's drinking habits around the world.  For example, take a look at Mona Chalabi's analysis here: [Where Do People Drink The Most Beer, Wine And Spirits?](https://fivethirtyeight.com/features/dear-mona-followup-where-do-people-drink-the-most-beer-wine-and-spirits/)
 
-For our part, We will be exploring a subset (the first 1500 rows) of the Kaggle
+For our part, we will be exploring a modified subset (the first 1500 rows) of the Kaggle
 [wine reviews dataset](https://www.kaggle.com/zynicide/wine-reviews);
 you will be using various string manipulation functions that come with
 Python as well as rolling some of your own to solve the problems
@@ -62,7 +62,7 @@ it's best to skip those.
 
 Answer in the form of a list containing no duplicates (for this and future questions).
 
-## Q4: which wineries contain the phrase `black-fruit aroma` in the description?
+## Q4: which wineries contain the phrase "black-fruit aroma" in the description?
 
 ## Q5: in which country is the single costliest wine produced?
 
@@ -73,7 +73,7 @@ spaces from the names. For example, if `Patricia Green Cellars` is one of the en
 
 ## Q7: which wine varieties are anagrams of the phrase "antibus governance"?
 
-If you liked Professor Langdon's adventures in Da Vinci Code, you'll like this one. :)
+If you liked Professor Langdon's adventures in Da Vinci Code, you'll have fun with this one. :)
 
 An anagram is a word or phrase formed by rearranging the letters of a
 different word or phrase, using all the original letters exactly once.
@@ -101,23 +101,24 @@ multiple varieties tie for best, the list should contain all that tie.
 
 Consider writing a function to solve Q9 and Q10 with the same code.
 
-## Q9: what is the highest-rated wine variety made in "Spain"?
+## Q10: what is the highest-rated wine variety made in "Spain"?
 
-## Q11 (5 points):
-Write a function that calculates average points per dollar for all wines made by a winery and then
-print price per dollar of the Winery called `Heitz`. Assume all prices in dataset are in dollars.
+## Q11: what is the average points-per-dollar (PPD) ration of the "Heitz" winery?
 
-## Q12 (5 points):
-Print price per dollar of the Winery called `Ponzi`.
+In this question, we're trying to find the best value using the
+`points` (the rating) and `price` (cost in dollars) columns.
 
-## Q13 (5 points):
-Which winery in `USA` has the highest price per dollar?
+Be careful!  You need to compute the ratio of each wine of the given
+winery.  Dividing the sum of all points by the sum of all prices will
+produce a different answer.
 
-## Q14 (5 points):
-Which winery in `France` has the highest price per dollar?
+## Q12: what is the average PPD of the "Ponzi" winery?
 
-## Q15 (2 points):
-Which winery in `Italy` has the highest price per dollar?
+## Q13: which winery in New Zealand has the highest average price per dollar?
+
+## Q14 which winery in Australia has the highest average price per dollar?
+
+## Q15 which winery in Canada has the highest average price per dollar?
 
 ## Q16 (5 points):
 Given a winery X, design a function to find out `variety` of all the wines produced. Using this function output the 
