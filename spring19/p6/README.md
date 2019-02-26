@@ -1,56 +1,33 @@
-
 # Project 6
 
-This project is a wine connoisseurs' delight! We have decided to use the Kaggle wine reviews dataset for exploring   various fun things you can do with strings. The dataset has about 70000 lines and you will be using various string manipulation functions
-in the python library as well as roll some of your own to solve the problems posed. Happy coding!
-
-We will be working with **strings**, **loops** and **conditionals**  in this project.
-
-To start, download the 4 files given below into your project directory.
-
-* [main.py](TODO)
-* [project.py](TODO)
-* [test.py](TODO)
-* [wine_reviews.csv](TODO)
+This project is a wine connoisseurs' delight! We will be exploring a
+subset (the first 1500 rows) of the Kaggle
+[wine reviews dataset](https://www.kaggle.com/zynicide/wine-reviews); you will be
+using various string manipulation functions that come with Python as
+well as rolling some of your own to solve the problems posed. Happy
+coding, and remember the [Ballmer Peak](https://xkcd.com/323/) is nothing but a myth!
 
 # Directions
 
-It is recommended to follow the order mentioned below to complete this project:
+Begin by downloading `wine.csv`, `test.py`, and `project.py`.  Create
+a `main.ipynb` file to start answering the following questions, and
+remember to run `test.py` often.  Use the `#qN` format as you have
+previously.
 
+## Q1: which country names are listed in the `country` column of the dataset?
 
-## Getting to know the data
+Your output should be in the form of a Python list containing the
+country names.  The tests don't care about the order, but there should
+should be no duplicates.  Also, some country names are missing in the
+dataset (real-life data is often messy, unfortunately!).  Missing
+values are represented as `None`, but you should make sure `None` does
+not appear in your answer list.
 
-Lets dig in and take a look at our data. Load the dataset by calling init function and then
-use the preview_data function to take a look at the data. You need to do this to get familiar with the
-'schema' or the format of the data columns to do the rest of the project.
-First create a new notebook file called "main.ipynb" in the same directory where you downloaded the above files.
-In the first cell place the following line
+Now is a good time to run the tests with `python test.py`.  If you did Q1 correctly, it should look like this:
 
-```
-import project
-```
-Execute the above cell and there should not be any output or error message.
-
-Now its time to take a look at our data. Add the following line to the notebook and run:
-
-```
-project.previewData()
-```
-This should show first 5 lines of the dataset in your notebook. Read and get familiar with the dataset columns and the data types.
-
-**A reminder:** You should make your changes ONLY to the **main.py** file.
-DO NOT EDIT ANY OTHER FILES.
-
-After downloading all the files into the same directory try running the command below:
-
-```
-python test.py
-```
-
-and you should see the following: 
 ```
 Summary:
-  Test 1: not found
+  Test 1: PASS
   Test 2: not found
   Test 3: not found
   Test 4: not found
@@ -71,27 +48,24 @@ Summary:
   Test 19: not found
   Test 20: not found
 
-TOTAL SCORE: 0.00%
-
+TOTAL SCORE: 5.00%
 ```
 
+## Q2: what is the average wine price?
 
-## Q1 (3 points):
-List All the countries featured in this Dataset. Are all entries in the list valid Countries?
-Hint: Lookout for `nan` values in your output. They represent missing values in the dataset. Real world data often has them
- and as a data scientist you need to deal with them during your analysis. For this project you are just expected to remove
- them form your output. Hint: Import math library and use the `isnan` function. The nan value is of `float` type. 
+Be careful!  There may be missing price information for some rows, so
+it's best to skip those.
 
-## Q2 (5 points):
-For this questions you need to work on the whole dataset and calculate the average price of the wines.
+## Q3: which wine varieties are produced by Spain?
 
-## Q3 (5 points):
-Lets look at what varieties of wine are produced by individual countries by performing a filtering operation. 
+Answer in the form of a list containing no duplicates.
+
+TODO: Lets look at what varieties of wine are produced by individual countries by performing a filtering operation. 
 Using the API provided, print varieties of wines produced by `Spain`. Ensure that there are no repeated entries in your
 output. You can do this by writing a function to remove duplicates form your output. Writing ths function will help you in 
 questions that follow.
 
-## Q4 (7 points):
+## Q4:
 For this question you are required to perform string search operation on wine description field. Use the API provided to
  get a list of wineries which make wines having the black-fruit aroma. You can use `black-fruit aroma` as search string 
  to search in the description field. Make sure your final list has no repeated entries!
