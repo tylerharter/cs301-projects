@@ -1,7 +1,7 @@
 # Lab 6
 
 In this lab, we'll practice accessing CSVs, learn about sorting,
-organize data with sets, and practice processin command line
+organize data with sets, and practice processing command line
 arguments.
 
 To start, familiarize yourself with the dataset for P6 on GitHub here:
@@ -28,8 +28,8 @@ def process_csv(filename):
 
 # use process_csv to pull out the header and data rows
 csv_rows = process_csv("wine.csv")
-csv_header = rows[0]
-csv_data = rows[1:]
+csv_header = csv_rows[0]
+csv_data = csv_rows[1:]
 ```
 
 We recommend you also copy the above code into your P6 notebook when
@@ -41,10 +41,18 @@ Try running the following and thinking about the results:
 * `csv_data[:5]`
 * `csv_data[0]`
 * `csv_data[0][3]`
-* `csv_header.index["variety"]`
-* `csv_data[0][csv_header.index["variety"]]`
+* `csv_header.index("variety")`
+* `csv_data[0][csv_header.index("variety")]`
 
-While looking at the data, now try to write Python expressions to extract the following:
+Note on last two: you can find the index of a value in a list by using the `.index(val)`
+method.  For example, the following prints 2:
+
+```python
+letters = ["A", "B", "C", "D"]
+print(letters.index("C"))
+```
+
+While looking at the wine data, now try to write Python expressions to extract the following:
 * `Tinta de Toro`
 * `Ponzi`
 * `90.0`
@@ -61,10 +69,14 @@ P6, but first you need to fill in some missing pieces (ONLY change the
 ```python
 def cell(row_idx, col_name):
     col_idx = ????
-    return csv_data[????][????]
+    return csv_data[????][col_idx]
 ```
 
-Is it correct?  Test it with the following:
+Hints:
+* it's fine to access earlier global variables in this function, such as `csv_data` and `csv_header`
+* use the `index` list method
+
+Is your implementation correct?  Test it with the following:
 
 1. `cell(0, "country")` should return "US"
 2. `cell(1, "points")` should return "96"
