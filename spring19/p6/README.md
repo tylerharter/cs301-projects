@@ -103,7 +103,7 @@ Consider writing a function to solve Q9 and Q10 with the same code.
 
 ## Q10: what is the highest-rated wine variety made in "Spain"?
 
-## Q11: what is the average points-per-dollar (PPD) ration of the "Heitz" winery?
+## Q11: what is the average points-per-dollar (PPD) ratio of the "Heitz" winery?
 
 In this question, we're trying to find the best value using the
 `points` (the rating) and `price` (cost in dollars) columns.
