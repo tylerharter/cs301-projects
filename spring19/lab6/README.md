@@ -1,15 +1,13 @@
 # Lab 6
 
-In this lab, we'll practice accessing CSVs, learn about sorting,
-organize data with sets, and practice processing command line
-arguments.
+In this lab, we'll practice accessing CSVs, sorting, and using sets.
 
 To start, familiarize yourself with the dataset for P6 on GitHub here:
 [wine.csv](https://github.com/tylerharter/cs301-projects/blob/master/spring19/p6/wine.csv).
 Download the `wine.csv` to a new `lab6` directory, and start a new
 notebook in that directory for this lab.
 
-## CSV
+## CSVs
 
 [Chapter 14](https://automatetheboringstuff.com/chapter14/) of
 Automate the Boring Stuff introduces CSV files and provides a code
@@ -101,7 +99,161 @@ you're doing the lab with is also your project partner.
 
 ## Sorting
 
+There are two major ways to sort lists in Python, with the `sorted`
+function or with the `.sort` method.  You should experiment with both
+and understand their affects.  More generally, when encountering a new
+method, you should learn (a) how it modifies existing structures, and
+(b) what new values it returns, if any.
+
+Try running the following:
+
+```python
+letters = ["B", "C", "A"]
+
+result = letters.sort()
+
+print("original list:", letters)
+print("returned value:", result)
+```
+
+You should record your observations in your notes.  What does `.sort`
+do to existing structures?  What does it return?
+
+Now let's try `sorted`:
+
+```python
+letters = ["B", "C", "A"]
+
+result = sorted(letters)
+
+print("original list:", letters)
+print("returned value:", result)
+```
+
+What does `sorted` do to existing structures?  What does it return?
+
+While `.sort` only works on lists, `sorted` works on other sequences,
+such as strings.  Can you guess there's not a `.sort` for strings?
+Hint: remember strings are immutable.  Let's try `sorted` on a string:
+
+```python
+s = "BCA"
+
+result = sorted(s)
+
+print("original str:", s)
+print("returned value:", result)
+```
+
+Note that `sorted` always returns a list sequence, even if the input
+is a string sequence.
+
+Some methods both change existing structures AND return something.  Try `pop`:
+
+```python
+letters = ["B", "C", "A"]
+
+result = letters.pop(0)
+
+print("original list:", letters)
+print("returned value:", result)
+```
+
 ## Sets
 
-## Command-Line Arguments
+In class, we learned about the Python `list`.  Another simpler
+structure you'll sometimes find useful is the `set`.  You can create
+sets the same way as lists, just replacing the square brackets with
+curly braces.  Try it!
 
+```python
+example_list = ["A", "B", "C"]
+print(example_list)
+example_set = {"A", "B", "C"}
+print(example_set)
+```
+
+### `in` operator
+
+Some things are similar between lists and sets, like checking if they
+contain something.  Try this:
+
+```python
+"A" in example_list
+```
+
+And this:
+
+```python
+"A" in example_set
+```
+
+If you have a LOT of values, the `in` operator is much faster for
+Python to execute with a `set` than with a `list`.
+
+### Order (or lack thereof)
+
+Sets have no inherent ordering, so they don't support indexing.  Try
+and watch it fail:
+
+```python
+example_list[0]  # works
+example_set[0]   # crashes
+```
+
+The lack of order also matters for comparisons.  Try evaluating this
+boolean expression:
+
+```python
+["A", "B", "C"] == ["C", "B", "A"]
+```
+
+And now try this:
+
+```python
+{"A", "B", "C"} == {"C", "B", "A"}
+```
+
+### Type Conversions
+
+You can switch back and forth between lists and sets with ease.  Let's
+try it:
+
+```python
+items = [3,2,1]
+items_set = set(items)
+print(items_set)
+```
+
+Or in the other direction:
+
+```python
+items = {3,2,1}
+items_list = list(items)
+print(items_list)
+```
+
+Be careful!  When going from a set to a list, Python has to choose how
+to order the previously unordered values.  If you run the same code,
+there's no guarantee Python will always choose the same way to order
+the set values in the new list.
+
+Sometimes people convert from a more complicated type (like a float)
+to a less complicated type (like an int) and back.  Can you think why
+they might do this?  Run this code and think about it:
+
+```python
+x = 3.8
+y = float(int(x))
+print(y)
+```
+
+In the same way, sometimes people convert from a list (more
+complicated type) to a set (simpler type) and back to a list again.
+Explore the resulting effect:
+
+```python
+list_1 = ["A", "A", "B", "B", "C", "B", "A"] # try playing with different values here
+list_2 = list(set(list_1))
+print(list_2)
+```
