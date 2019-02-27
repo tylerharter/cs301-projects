@@ -133,4 +133,6 @@ Produce a Python list with no duplicates.
 
 ## Q19: what percentage of the varieties produced by "Quinta Nova de Nossa Senhora do Carmo" are also produced by "Adega Cooperativa de Borba"?
 
-## Q20 what percentage of the varieties produced by "Quinta Nova de Nossa Senhora do Carmo" are also produced by "Global Wines"?
+Quinta Nova wants to better understand their competition, so they hired a savvy data scientist (you!) to TODO
+
+## Q20: what percentage of the varieties produced by "Quinta Nova de Nossa Senhora do Carmo" are also produced by "Global Wines"?
