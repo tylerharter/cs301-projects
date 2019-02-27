@@ -69,7 +69,11 @@ P6, but first you need to fill in some missing pieces (ONLY change the
 ```python
 def cell(row_idx, col_name):
     col_idx = ????
-    return csv_data[????][col_idx]
+    val = csv_data[????][col_idx]
+    if val == "":
+        return None
+    # optional: convert types based on column name?
+    return val
 ```
 
 Hints:
