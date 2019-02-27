@@ -33,7 +33,7 @@ csv_data = csv_rows[1:]
 We recommend you also copy the above code into your P6 notebook when
 you start the project.
 
-Try running the following and thinking about the results:
+Try running the following and thinking about the results (thinking about the results involves locating the values produced in the `wine.csv` dataset):
 * `csv_header`
 * `len(csv_data)`
 * `csv_data[:5]`
@@ -61,12 +61,13 @@ Also try to complete the following:
 * `csv_data[2][csv_header.index(????)]` to get "Sauvignon Blanc"
 
 You'll use the following function as the basis for accessing data in
-P6, but first you need to fill in some missing pieces (ONLY change the
-???? parts):
+P6, but first you need to fill in some missing pieces using the
+parameters (ignore the option part for now and ONLY change the ????
+parts):
 
 ```python
 def cell(row_idx, col_name):
-    col_idx = ????
+    col_idx = csv_header.index(????)
     val = csv_data[????][col_idx]
     if val == "":
         return None
