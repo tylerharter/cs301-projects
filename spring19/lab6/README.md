@@ -75,10 +75,6 @@ def cell(row_idx, col_name):
     return val
 ```
 
-Hints:
-* it's fine to access earlier global variables in this function, such as `csv_data` and `csv_header`
-* use the `index` list method
-
 Is your implementation correct?  Test it with the following:
 
 1. `cell(0, "country")` should return "US"
@@ -93,18 +89,19 @@ a `float` (example 3) instead of strings.  Consider improving the
 value based on the column name (e.g., the value for any price might be
 cast to a float).
 
-**Important Reminder:** while you and your lab partner (if you have one) can
-collaborate on writing the `cell` function, you may not collaborate with your lab
-partner on other parts of the project, unless of your the person
-you're doing the lab with is also your project partner.
+**Important Reminder:** while you and your lab partner (if you have
+one) can collaborate on writing the `cell` function, you may not
+collaborate with your lab partner on other parts of the project,
+unless of course the person you're doing the lab with is also your
+project partner.
 
 ## Sorting
 
-There are two major ways to sort lists in Python, with the `sorted`
-function or with the `.sort` method.  You should experiment with both
-and understand their affects.  More generally, when encountering a new
-method, you should learn (a) how it modifies existing structures, and
-(b) what new values it returns, if any.
+There are two major ways to sort lists in Python: (1) with the
+`sorted` function or (2) with the `.sort` method.  You should
+experiment with both and understand their effects.  More generally,
+when encountering a new method, you should learn (a) how it modifies
+existing structures, and (b) what new values it returns, if any.
 
 Try running the following:
 
@@ -134,8 +131,10 @@ print("returned value:", result)
 What does `sorted` do to existing structures?  What does it return?
 
 While `.sort` only works on lists, `sorted` works on other sequences,
-such as strings.  Can you guess there's not a `.sort` for strings?
-Hint: remember strings are immutable.  Let's try `sorted` on a string:
+such as strings.  Can you guess why there's not the equivalent of a
+`.sort` method for strings?  Hint: remember strings are immutable.
+
+Let's try `sorted` on a string:
 
 ```python
 s = "BCA"
@@ -189,8 +188,8 @@ And this:
 "A" in example_set
 ```
 
-If you have a LOT of values, the `in` operator is much faster for
-Python to execute with a `set` than with a `list`.
+**Note:** if you have a LOT of values, the `in` operator is MUCH
+faster for Python to execute with a `set` than with a `list`.
 
 ### Order (or lack thereof)
 
@@ -258,3 +257,13 @@ list_1 = ["A", "A", "B", "B", "C", "B", "A"] # try playing with different values
 list_2 = list(set(list_1))
 print(list_2)
 ```
+
+## Project
+
+Hopefully this will help you get off to a good start on the project!  Here's how the lab relates:
+
+1. you should use the `cell` function from the lab to access data in the project
+2. sorting strings will help you detect anagrams
+3. converting a list to a set and then back to a list will remove duplicates from your list
+
+Good luck!
