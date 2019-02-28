@@ -2,7 +2,7 @@
 
 This project is a wine connoisseurs' delight!  Data Science can help us understand people's drinking habits around the world.  For example, take a look at Mona Chalabi's analysis here: [Where Do People Drink The Most Beer, Wine And Spirits?](https://fivethirtyeight.com/features/dear-mona-followup-where-do-people-drink-the-most-beer-wine-and-spirits/)
 
-For our part, we will be exploring a modified subset (the first 1500 rows) of the Kaggle
+For our part, we will be exploring a modified subset (the first 1501 rows) of the Kaggle
 [wine reviews dataset](https://www.kaggle.com/zynicide/wine-reviews);
 you will be using various string manipulation functions that come with
 Python as well as rolling some of your own to solve the problems
@@ -11,10 +11,11 @@ Peak](https://xkcd.com/323/) is nothing but a myth!
 
 # Directions
 
-Begin by downloading `wine.csv`, `test.py`, and `project.py`.  Create
-a `main.ipynb` file to start answering the following questions, and
-remember to run `test.py` often.  Use the `#qN` format as you have
-previously.
+Begin by downloading `wine.csv` and `test.py`.  Create a `main.ipynb`
+file to start answering the following questions, and remember to run
+`test.py` often.  There is no `project.py` this week, though we'll
+suggest some code in the lab that you can use to access the data.  Use
+the `#qN` format as you have previously.
 
 ## Q1: which country names are listed in the `country` column of the dataset?
 
@@ -108,9 +109,10 @@ Consider writing a function to solve Q9 and Q10 with the same code.
 In this question, we're trying to find the best value using the
 `points` (the rating) and `price` (cost in dollars) columns.
 
-Be careful!  You need to compute the ratio of each wine of the given
-winery.  Dividing the sum of all points by the sum of all prices will
-produce a different answer.
+Be careful!  You need to compute the ratio for each wine of the given
+winery, then take the average of those ratios.  Simply dividing the
+sum of all points by the sum of all prices will calculates the wrong
+answer.
 
 ## Q12: what is the average PPD of the "Ponzi" winery?
 
@@ -119,20 +121,23 @@ produce a different answer.
 Consider writing a function to answer this and Q14 and Q15 with the
 same code.
 
-## Q14 which winery in Australia has the highest average PPD?
+## Q14: which winery in Australia has the highest average PPD?
 
-## Q15 which winery in Canada has the highest average PPD?
+## Q15: which winery in Canada has the highest average PPD?
 
-## Q16: which wine varieties are produced the by the "Quinta Nova de Nossa Senhora do Carmo" winery?
+## Q16: which wine varieties are produced by the "Quinta Nova de Nossa Senhora do Carmo" winery?
 
 Produce a Python list with no duplicates.
 
-## Q17: which wine varieties are produced the by the "Adega Cooperativa de Borba" winery?
+## Q17: which wine varieties are produced by the "Adega Cooperativa de Borba" winery?
 
-## Q18: which wine varieties are produced the by the "Global Wines" winery?
+## Q18: which wine varieties are produced by the "Global Wines" winery?
 
 ## Q19: what percentage of the varieties produced by "Quinta Nova de Nossa Senhora do Carmo" are also produced by "Adega Cooperativa de Borba"?
 
-Quinta Nova wants to better understand their competition, so they hired a savvy data scientist (you!) to TODO
+Quinta Nova wants to better understand their competition, so they
+hired a savvy data scientist (you!) to keep an eye on the competition.
 
 ## Q20: what percentage of the varieties produced by "Quinta Nova de Nossa Senhora do Carmo" are also produced by "Global Wines"?
+
+Cheers!
