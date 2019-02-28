@@ -11,6 +11,9 @@ Peak](https://xkcd.com/323/) is nothing but a myth!
 
 # Directions
 
+Be sure to do lab 6 before starting this project; otherwise you
+probably won't get far.
+
 Begin by downloading `wine.csv` and `test.py`.  Create a `main.ipynb`
 file to start answering the following questions, and remember to run
 `test.py` often.  There is no `project.py` this week, though we'll
