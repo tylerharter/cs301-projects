@@ -1,5 +1,12 @@
 # Project 6: Wine Study
 
+## Corrections and Clarifications
+
+* Clarification: if the tests say `unexpected EOF while parsing`, you're probably using print instead of sending your output to an `Out[N]` box
+* Mar 2: test.py has been fixed for questions 13-15
+
+# Introduction
+
 This project is a wine connoisseurs' delight!  Data Science can help us understand people's drinking habits around the world.  For example, take a look at Mona Chalabi's analysis here: [Where Do People Drink The Most Beer, Wine And Spirits?](https://fivethirtyeight.com/features/dear-mona-followup-where-do-people-drink-the-most-beer-wine-and-spirits/)
 
 For our part, we will be exploring a modified subset (the first 1501 rows) of the Kaggle
