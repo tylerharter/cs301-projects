@@ -54,8 +54,6 @@ convenient to access this data.
 
 #### Question 1: TODO
 
----
-
 #### Question 2: what is the name of the highest-paid player?
 
 #### Question 3: what is the name of the highest net-worth player?
@@ -88,6 +86,7 @@ it returns.  For example, imagine `player_data` contained this:
 Then column 0 is `["a", "d", "g"]`, column 1 is `["b", "e", "h"]`, and
 column 2 is `["c", "f", "i"]`.  A call to `get_column(1)` should
 therefore return `["b", "e", "h"]`, and so on.
+----
 
 #### Question 5: what are the first five nationalities listed in the dataset?
 
@@ -101,40 +100,44 @@ By alphabetically, we mean according to Python (e.g., it is true that
 Don't deduplicate names in this output in the case that multiple
 players have the same name.
 
----
 #### Question 7: what is the average net worth?
 
-
-
-#### Question 8
-
-Which country's players have the least average age- Argentina, Germany, Belgium or Croatia? 
-Define as follows a function that returns the name of the country for which the average age of its players  is the least -
-```python
-def least_avg_age(countries):
-```
-where countries is a parameter that contains the list of countries. Use this function to find out the answer to the above question.
+#### Question 8: what is the average age?
 
 ---
 
-###### Define a function "player_count" with a parameter (country) which can be used to count the number of players belonging to that country. This function will be useful for many questions that follow.
-#### Question 9
-
-Find the total number of players belonging to "Portugal" using the above function.
-
-#### Question 10 
-
-Which country has the maximum players participating in FIFA18 and how many? The "player_count" function can be useful here. Output the answer in the form of (country, count_of_players)
-Hint: You will first need the list of countries participating in FIFA18.
-
-#### Question 11
-
-Define a function named age_limit taking a parameter (country) and return a list of players whose age is in the range of 16 through 20 (inclusive). 
-Get this list of players for "United States"
+Define a function `player_count` that takes a parameter, `country`,
+and counts the number of players belonging to that country. This
+function will be useful for the questions that follow.
 
 ---
 
-###### Define a function called "compare_clubs" that takes three input parameters(club1, club2, compare_on_col) and returns the name of the club with the greater average value for the column compare_on_col. For example, if you want to know which club has higher average age, the compare_on_col would be 2 for this function since age is at index 2 in the list of columns.
+#### Question 9: how many players have Portugal as their nationality?
+
+#### Question 10: which country has the most players participating in FIFA18?
+
+The `player_count` function can be useful here.
+
+Hint 1: You will first need the list of countries participating in
+FIFA18.
+
+Hint 2: Make sure you aren't calling `player_count` more times than
+necessary.  If you're note careful, the code will be very slow to
+execute!
+
+----
+
+Define a function called `compare_clubs` that takes three input
+parameters(club1, club2, compare_on_col) and returns the name of the
+club with the greater average value for the column
+`compare_on_col`. For example, if you want to know which club has
+higher average age, the `compare_on_col` would be 2 for this function
+since age is at index 2 in the list of columns.
+
+----
+
+#### Question 11: TODO
+
 
 #### Question 12
 
