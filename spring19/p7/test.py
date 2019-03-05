@@ -64,8 +64,8 @@ expected_json = {
     "5": ['Portugal', 'Argentina', 'Brazil', 'Uruguay', 'Germany'],
     "6": ['A. Abbas', 'A. Abbas', 'A. Abdallah', 'A. Abdennour', 'A. Abdi'],
     "7": 2407282.6149178543,
-    "8": 'Belgium',
-    "9": '355',
+    "8": 25.133264640219817,
+    "9": 355,
     "10": ('England', 1582),
     "11": [
         'C. Pulisic',
