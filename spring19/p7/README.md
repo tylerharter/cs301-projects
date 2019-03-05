@@ -8,7 +8,7 @@ downloading `test.py` and `Fifa18.csv`.  This dataset is too large to
 preview on GitHub (>17K rows), but you can view the
 [raw version](https://raw.githubusercontent.com/tylerharter/cs301-projects/master/spring19/p7/Fifa18.csv)
 or using a program such as [Excel](https://github.com/tylerharter/cs301-projects/blob/master/spring19/p7/excel.md).
-You can also preview the first 100 rows [here](https://github.com/tylerharter/cs301-projects/blob/master/spring19/p7/preview.md).
+You can also preview the first 100 rows [here](https://github.com/tylerharter/cs301-projects/blob/master/spring19/p7/preview.csv).
 For this project, you'll create a new `main.ipynb` and answer
 questions in the usual format.
 
@@ -19,16 +19,17 @@ analysis. We have players belonging to a wide range of nationalities
 and clubs in Fifa18. As you can see the numeric data includes their
 weekly wages (in Euros) (Yes, wages are per week!), net worth of the
 player (in Euros) and the performace rating (score out of 100). For
-instance, the player named "Neymar" is associated with Brazil, and is
+instance, the player named "Neymar" is associated with Brazil, is
 signed up by club "Paris Saint-Germain", and is paid a weekly wage of
 280000 Euros.
 
 To ingest the data to your notebook, paste the following in an early cell:
 
 ```python
+import csv
 fifa_file = open('Fifa18.csv', encoding='utf-8')
 file_reader = csv.reader(fifa_file)
-player_data = list(fileReader)
+player_data = list(file_reader)
 for row in player_data[1:]:
     for idx in [2,6,7,8]:
         row[idx] = float(row[idx])
@@ -48,20 +49,16 @@ convenient to access this data.
 ###### Define a function named "get_value" with two parameters named row_index and col_index. You should return "out_of_bounds" if the row or column indices are out of range of our list.
 ###### Reminder! Both column and row start with index 0
 
-#### Question 1
-
-Get the value of a cell using the  by passing the arguments row_index as 10 and col_index as 3 in get_value function. You should call the function you just created with these parameters.
-
-#### Question 2
-
-Call get_value and pass the values 17469,8 to the function.
+#### Question 1: TODO
 
 ---
-#### Question 3
 
-Write a function to return the name of the highest paid player in this roster and then call this function.
+#### Question 2: what is the name of the highest-paid player?
 
-#### Question 4
+#### Question 3: what is the name of the highest net-worth player?
+
+#### Question 4: what club is that player in?
+
 
 Get the name and club of the highest net worth player in the list using a function. Return the values in the form of (name, club) from this function.
 

@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-import os, sys, subprocess, json, re, collections, math
+import os, sys, subprocess, json, re, collections, math, ast
 
 PASS = "PASS"
 TEXT_FORMAT = "text"
@@ -58,9 +58,9 @@ question_nums = set([q.number for q in questions])
 # JSON and plaintext values
 expected_json = {
     "1": 'Argentina',
-    "2": 'out_of_bounds',
-    "3": 'Cristiano Ronaldo',
-    "4": ('Neymar', '190871'),
+    "2": 'Cristiano Ronaldo',
+    "3": 'Neymar',
+    "4": '190871',
     "5": ['Portugal', 'Argentina', 'Brazil', 'Uruguay', 'Germany'],
     "6": ['A. Abbas', 'A. Abbas', 'A. Abdallah', 'A. Abdennour', 'A. Abdi'],
     "7": "2407282.6149178543",
@@ -272,32 +272,32 @@ def check_cell_text(qnum, cell):
         return 'no outputs in an Out[N] cell'
     actual_lines = outputs[0].get('data', {}).get('text/plain', [])
     actual = ''.join(actual_lines)
+    actual = ast.literal_eval(actual)
     expected = expected_json[str(qnum)]
-    try:
-        import ast
-        # Handling homogenous list of elements
-        sorted_actual = sorted(ast.literal_eval(actual))
-        sorted_expected = sorted(expected)
-        if sorted_actual != sorted_expected:
-            return "found {} but expected {}".format(sorted_actual, sorted_expected)
-    except Exception as e:
-        try:
-            # Handling float value test cases
-            actual_float = float(actual)
-            expected_float = float(expected)
-            if not math.isclose(actual_float, expected_float, rel_tol=1e-02, abs_tol=1e-02):
-                return "found {} in {} but expected {}".format(actual, location_name, expected)
-        except:
-            try:
-                # Handling heterogenous list of elements
-                actual_list = ast.literal_eval(actual)
-                if actual_list[:-1] == expected[:-1] and actual_list != expected:
-                    # Special case for #q20 handled:
-                    if not math.isclose(actual_list[-1], expected[-1], rel_tol=1e-02, abs_tol=1e-02):
-                        return 'found {} but expected {}'.format(actual, expected)  
-            except:
-                if actual != expected:
-                    return 'found {} but expected {}'.format(actual, expected)
+
+    expected_mismatch = False
+
+    if type(expected) != type(actual):
+        return "expected an answer of type %s but found one of type %s" % (type(expected), type(actual))
+    elif type(expected) == float:
+        if not math.isclose(actual, expected, rel_tol=1e-06, abs_tol=1e-06):
+            expected_mismatch = True
+    elif type(expected) == list:
+        extra = set(actual) - set(expected)
+        missing = set(expected) - set(actual)
+        if extra:
+            return "found unexpected entry in list: %s" % repr(list(extra)[0])
+        elif missing:
+            return "missing %d entries list, such as: %s" % (len(missing), repr(list(missing)[0]))
+        elif len(actual) != len(expected):
+            return "expected %d entries in the list but found %d" % (len(expected), len(actual))
+    else:
+        if expected != actual:
+            expected_mismatch = True
+            
+    if expected_mismatch:
+        return "found {} in cell {} but expected {}".format(actual, qnum, expected)
+
     return PASS
 
 def check_cell(question, cell):
