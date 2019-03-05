@@ -30,13 +30,16 @@ import csv
 fifa_file = open('Fifa18.csv', encoding='utf-8')
 file_reader = csv.reader(fifa_file)
 player_data = list(file_reader)
-for row in player_data[1:]:
+header = player_data[0]
+player_data = player_data[1:]
+for row in player_data:
     for idx in [2,6,7,8]:
         row[idx] = float(row[idx])
 ```
 
 Consider peeking at the first few rows:
 ```python
+print(header)
 for row in player_data[:5]:
     print(row)
 ```
@@ -59,13 +62,17 @@ convenient to access this data.
 
 #### Question 4: what club is that player in?
 
-
-Get the name and club of the highest net worth player in the list using a function. Return the values in the form of (name, club) from this function.
-
 ---
-###### Next we are going to create a get_column function that returns an entire column from the dataset. There should be one parameter for this function col_idx.
 
-For example, if the dataset is
+Complete the following function in your notebook:
+
+```python
+get_column(col_idx):
+    pass # replace this
+```
+
+The function extracts an entire column from `player_data` to a list, which
+it returns.  For example, imagine `player_data` contained this:
 
 ```
 [
@@ -78,26 +85,26 @@ For example, if the dataset is
 ]
 ```
 
-Then column 0 is `["a", "d", "g"]`, column 1 is `["b", "e", "h"]`, column 2 is `["c", "f", "i"]`.
+Then column 0 is `["a", "d", "g"]`, column 1 is `["b", "e", "h"]`, and
+column 2 is `["c", "f", "i"]`.  A call to `get_column(1)` should
+therefore return `["b", "e", "h"]`, and so on.
 
-The function `get_column` should return the entire column (a list) at position `col_idx`.
+#### Question 5: what are the first five nationalities listed in the dataset?
 
-In the above example, `get_column(1)` should return `["b", "e", "h"]`
+Use `get_column`, then take a slice from the list that is returned to you.
 
-You're going to be using this function a lot, as it's a very common operation (getting an entire column), so make sure it works perfectly! Make sure it returns "out_of_bounds" when the column index is out of range.
+#### Question 6: which five names are alphabetically first in the dataset?
 
-#### Question 5
-Get the list of nationalities in the dataset using the get_column function you defined above.
-Output the first 5 elements as a list from this column list to the out cell.
+By alphabetically, we mean according to Python (e.g., it is true that
+`"B" < "a"`), so don't use the `lower` method or anything.
 
-#### Question6
-
-Get the list of names of the players using the same function, but this time output a list of first 5 names after alphabetically sorting them.
+Don't deduplicate names in this output in the case that multiple
+players have the same name.
 
 ---
-#### Question 7
+#### Question 7: what is the average net worth?
 
-Output the average of the net worth of all the players in this roster.
+
 
 #### Question 8
 
