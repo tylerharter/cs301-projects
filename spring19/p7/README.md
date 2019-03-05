@@ -1,51 +1,49 @@
-# Project 7: Soccer
+# DRAFT!!!
 
+# Project 7: Fédération Internationale de Football Association (Soccer!)
 
-Let's Play Fifa18 Python style! In this project, you will learn more ways of using lists and also get an introduction to using dictionaries. We will define functions, use loops and conditionals to perform data operations like sorting and basic statistical analysis. You will write the functions for this project in a jupyter notebook. If you're answering a particular question in a cell in your notebook, you need to put a comment in the cell so we know the question for which you're
-answering. For example, if you're answering question 13, the first line of your cell should contain #q13.
+Let's Play Fifa18, Python style!  In this project, you will get more
+practice with lists and start using dictionaries.  Start by
+downloading `test.py` and `Fifa18.csv`.  This dataset is too large to
+preview on GitHub (>17K rows), but you can view the
+[raw version](https://raw.githubusercontent.com/tylerharter/cs301-projects/master/spring19/p7/Fifa18.csv)
+or using a program such as [Excel](https://github.com/tylerharter/cs301-projects/blob/master/spring19/p7/excel.md).
+You can also preview the first 100 rows [here](https://github.com/tylerharter/cs301-projects/blob/master/spring19/p7/preview.md).
+For this project, you'll create a new `main.ipynb` and answer
+questions in the usual format.
 
+## The Data
 
-To start, download the files given below into your project directory and understand the dataset provided to you.
-* [README.md](https://github.com/tylerharter/cs301-projects/blob/master/spring19/p7/README.md)
-* [project.py](https://github.com/tylerharter/cs301-projects/blob/master/spring19/p7/project.py)
-* [Fifa18.csv](https://github.com/tylerharter/cs301-projects/blob/master/spring19/p7/Fifa18.csv)
-* [test.py](https://github.com/tylerharter/cs301-projects/blob/master/spring19/p7/test.py)
+Try to familarize yourself with the data before starting the
+analysis. We have players belonging to a wide range of nationalities
+and clubs in Fifa18. As you can see the numeric data includes their
+weekly wages (in Euros) (Yes, wages are per week!), net worth of the
+player (in Euros) and the performace rating (score out of 100). For
+instance, the player named "Neymar" is associated with Brazil, and is
+signed up by club "Paris Saint-Germain", and is paid a weekly wage of
+280000 Euros.
 
-## Opening the file 
-You can see the contents of the Fifa18.csv file by clicking on the file from jupyter notebook home. If you want to open it using excel, some extra steps might be required depending on your excel settings since this file is utf-8 encoded.
-If the file contents have unwanted characters (especially in windows OS), please follow the following steps. 
-* Open Microsoft Excel.
-* Click on the Data menu bar option.
-* Click on the From Text icon.
-* Navigate to the location of the file that you want to import. Click on the filename and then click on the Import button. The Text Import Wizard - Step 1 or 3 window will now appear on the screen.
-* Choose the file type that best describes your data - Delimited or Fixed Width.
-* Choose 65001: Unicode (UTF-8) from the drop-down list that appears next to File origin.
-* Click on the Next button to display the Text Import Wizard - Step 2 or 3 window.
-* Place a checkmark next to the delimiter that was used in the file you wish to import into Microsoft Excel 2007. The Data preview window will show you how your data will appear based on the delimiter that you chose. In our case, check "comma".
-* Click on the Next button to display the Text Import Wizard - Step 3 of 3.
-* Choose the appropriate data format for each column of data that you want to import. In our case, keep it "General".
-* Click on the Finish button to finish importing your data into Microsoft Excel.
+To ingest the data to your notebook, paste the following in an early cell:
 
-Similar procedure is needed for MacOS.
-
-## Data introduction
-
-Try to familarize yourself with the data before starting the analysis. We have players belonging to a wide range of nationalities and clubs in Fifa18. As you can see the numeric data includes their weekly wages (in euros) (Yes! wages per week.), networth of the player(in euros) and the performace rating(score out of 100). For instance, a player named "Neymar" belongs to Brazil and is signed up by club "Paris Saint-Germain" paying him a weekly wage of "280000 euros" and has a huge
-networth.
-
-We have provided you with a project.py file that will read the FIFA csv file and convert the data into a list of lists. Import the project file and type the following snippet to see the type of some of the numeric columns example wages, networth is float. Also check the number of rows and columns. 
-
-```sh
-import project
-PlayerData = project.PlayerData
-print(type(PlayerData[1][6]))  #this should return you float
-print(len(PlayerData)) # this prints the number of rows
-print(len(PlayerData[0])) #this is the number of columns in the data
+```python
+fifa_file = open('Fifa18.csv', encoding='utf-8')
+file_reader = csv.reader(fifa_file)
+player_data = list(fileReader)
+for row in player_data[1:]:
+    for idx in [2,6,7,8]:
+        row[idx] = float(row[idx])
 ```
-Remember that the first row in your list contains the column headings for the columns. Print the headings to see for yourself and verify with the csv file.
+
+Consider peeking at the first few rows:
+```python
+for row in player_data[:5]:
+    print(row)
+```
+
+It's up to you to write any functions that will make it more
+convenient to access this data.
 
 ## Let's Start!
-
 
 ###### Define a function named "get_value" with two parameters named row_index and col_index. You should return "out_of_bounds" if the row or column indices are out of range of our list.
 ###### Reminder! Both column and row start with index 0
@@ -65,7 +63,7 @@ Write a function to return the name of the highest paid player in this roster an
 
 #### Question 4
 
-Get the name and club of the highest networth player in the list using a function. Return the values in the form of (name, club) from this function.
+Get the name and club of the highest net worth player in the list using a function. Return the values in the form of (name, club) from this function.
 
 ---
 ###### Next we are going to create a get_column function that returns an entire column from the dataset. There should be one parameter for this function col_idx.
@@ -85,7 +83,7 @@ For example, if the dataset is
 
 Then column 0 is `["a", "d", "g"]`, column 1 is `["b", "e", "h"]`, column 2 is `["c", "f", "i"]`.
 
- The function `get_column` should return the entire column (a list) at position `col_idx`.
+The function `get_column` should return the entire column (a list) at position `col_idx`.
 
 In the above example, `get_column(1)` should return `["b", "e", "h"]`
 
@@ -102,7 +100,7 @@ Get the list of names of the players using the same function, but this time outp
 ---
 #### Question 7
 
-Output the average of the networth of all the players in this roster.
+Output the average of the net worth of all the players in this roster.
 
 #### Question 8
 

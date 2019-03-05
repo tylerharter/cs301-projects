@@ -1,0 +1,101 @@
+Id,name,Age,nationality,club,league,euro_wage,networth,score_of_100
+20801,Cristiano Ronaldo,32,Portugal,Real Madrid CF,Spanish Primera División,565000,95500000,94
+158023,L. Messi,30,Argentina,FC Barcelona,Spanish Primera División,565000,105000000,93
+190871,Neymar,25,Brazil,Paris Saint-Germain,French Ligue 1,280000,123000000,92
+176580,L. Suárez,30,Uruguay,FC Barcelona,Spanish Primera División,510000,97000000,92
+167495,M. Neuer,31,Germany,FC Bayern Munich,German Bundesliga,230000,61000000,92
+188545,R. Lewandowski,28,Poland,FC Bayern Munich,German Bundesliga,355000,92000000,91
+193080,De Gea,26,Spain,Manchester United,English Premier League,215000,64500000,90
+183277,E. Hazard,26,Belgium,Chelsea,English Premier League,295000,90500000,90
+182521,T. Kroos,27,Germany,Real Madrid CF,Spanish Primera División,340000,79000000,90
+167664,G. Higuaín,29,Argentina,Juventus,Italian Serie A,275000,77000000,90
+155862,Sergio Ramos,31,Spain,Real Madrid CF,Spanish Primera División,310000,52000000,90
+192985,K. De Bruyne,26,Belgium,Manchester City,English Premier League,285000,83000000,89
+192119,T. Courtois,25,Belgium,Chelsea,English Premier League,190000,59000000,89
+184941,A. Sánchez,28,Chile,Arsenal,English Premier League,265000,67500000,89
+177003,L. Modrić,31,Croatia,Real Madrid CF,Spanish Primera División,340000,57000000,89
+173731,G. Bale,27,Wales,Real Madrid CF,Spanish Primera División,370000,69500000,89
+153079,S. Agüero,29,Argentina,Manchester City,English Premier League,325000,66500000,89
+138956,G. Chiellini,32,Italy,Juventus,Italian Serie A,225000,38000000,89
+1179,G. Buffon,39,Italy,Juventus,Italian Serie A,110000,4500000,89
+211110,P. Dybala,23,Argentina,Juventus,Italian Serie A,215000,79000000,88
+200389,J. Oblak,24,Slovenia,Atlético Madrid,Spanish Primera División,82000,57000000,88
+194765,A. Griezmann,26,France,Atlético Madrid,Spanish Primera División,150000,75000000,88
+189509,Thiago,26,Spain,FC Bayern Munich,German Bundesliga,225000,70500000,88
+188567,P. Aubameyang,28,Gabon,Borussia Dortmund,German Bundesliga,165000,61000000,88
+184344,L. Bonucci,30,Italy,Milan,Italian Serie A,210000,44000000,88
+183907,J. Boateng,28,Germany,FC Bayern Munich,German Bundesliga,215000,48000000,88
+182493,D. Godín,31,Uruguay,Atlético Madrid,Spanish Primera División,125000,40000000,88
+178603,M. Hummels,28,Germany,FC Bayern Munich,German Bundesliga,215000,48000000,88
+176635,M. Özil,28,Germany,Arsenal,English Premier League,265000,60000000,88
+167948,H. Lloris,30,France,Tottenham Hotspur,English Premier League,165000,38000000,88
+164240,Thiago Silva,32,Brazil,Paris Saint-Germain,French Ligue 1,175000,34000000,88
+41236,Z. Ibrahimović,35,Sweden,Manchester United,English Premier League,240000,27000000,88
+9014,A. Robben,33,Netherlands,FC Bayern Munich,German Bundesliga,225000,36000000,88
+215914,N. Kanté,26,France,Chelsea,English Premier League,190000,52500000,87
+199556,M. Verratti,24,Italy,Paris Saint-Germain,French Ligue 1,130000,64500000,87
+195864,P. Pogba,24,France,Manchester United,English Premier League,195000,66500000,87
+190460,C. Eriksen,25,Denmark,Tottenham Hotspur,English Premier League,165000,65000000,87
+181872,A. Vidal,30,Chile,FC Bayern Munich,German Bundesliga,160000,37500000,87
+179813,E. Cavani,30,Uruguay,Paris Saint-Germain,French Ligue 1,160000,48500000,87
+176676,Marcelo,29,Brazil,Real Madrid CF,Spanish Primera División,250000,38000000,87
+171877,M. Hamšík,29,Slovakia,Napoli,Italian Serie A,130000,48500000,87
+168651,I. Rakitić,29,Croatia,FC Barcelona,Spanish Primera División,275000,48500000,87
+168542,David Silva,31,Spain,Manchester City,English Premier League,220000,44000000,87
+162835,S. Handanovič,32,Slovenia,Inter,Italian Serie A,91000,29000000,87
+152729,Piqué,30,Spain,FC Barcelona,Spanish Primera División,240000,37500000,87
+41,Iniesta,33,Spain,FC Barcelona,Spanish Primera División,260000,29500000,87
+202126,H. Kane,23,England,Tottenham Hotspur,English Premier League,165000,59000000,86
+198710,J. Rodríguez,25,Colombia,FC Bayern Munich,German Bundesliga,250000,56000000,86
+197781,Isco,25,Spain,Real Madrid CF,Spanish Primera División,250000,56500000,86
+197445,D. Alaba,25,Austria,FC Bayern Munich,German Bundesliga,150000,44500000,86
+192505,R. Lukaku,24,Belgium,Manchester United,English Premier League,210000,59000000,86
+191043,Alex Sandro,26,Brazil,Juventus,Italian Serie A,175000,44000000,86
+189596,T. Müller,27,Germany,FC Bayern Munich,German Bundesliga,190000,47500000,86
+189511,Sergio Busquets,28,Spain,FC Barcelona,Spanish Primera División,250000,36000000,86
+189242,Coutinho,25,Brazil,Liverpool,English Premier League,205000,56000000,86
+188350,M. Reus,28,Germany,Borussia Dortmund,German Bundesliga,120000,45000000,86
+184087,T. Alderweireld,28,Belgium,Tottenham Hotspur,English Premier League,165000,40500000,86
+179944,David Luiz,30,Brazil,Chelsea,English Premier League,190000,33000000,86
+179844,Diego Costa,28,Spain,Chelsea,English Premier League,235000,46000000,86
+178518,R. Nainggolan,29,Belgium,Roma,Italian Serie A,130000,42500000,86
+177610,Javi Martínez,28,Spain,FC Bayern Munich,German Bundesliga,165000,36000000,86
+175943,D. Mertens,30,Belgium,Napoli,Italian Serie A,135000,43000000,86
+172879,Sokratis,29,Greece,Borussia Dortmund,German Bundesliga,110000,34500000,86
+168609,Miranda,32,Brazil,Inter,Italian Serie A,115000,25500000,86
+165153,K. Benzema,29,France,Real Madrid CF,Spanish Primera División,295000,44500000,86
+162895,Cesc Fàbregas,30,Spain,Chelsea,English Premier League,210000,41000000,86
+156616,F. Ribéry,34,France,FC Bayern Munich,German Bundesliga,175000,22500000,86
+120533,Pepe,34,Portugal,Beşiktaş JK,Turkish Süper Lig,94000,13500000,86
+48940,P. Čech,35,Czech Republic,Arsenal,English Premier League,92000,10500000,86
+208418,Y. Carrasco,23,Belgium,Atlético Madrid,Spanish Primera División,77000,51500000,85
+201535,R. Varane,24,France,Real Madrid CF,Spanish Primera División,175000,46500000,85
+200145,Casemiro,25,Brazil,Real Madrid CF,Spanish Primera División,195000,42000000,85
+198219,L. Insigne,26,Italy,Napoli,Italian Serie A,115000,45000000,85
+193301,A. Lacazette,26,France,Arsenal,English Premier League,180000,48500000,85
+193041,K. Navas,30,Costa Rica,Real Madrid CF,Spanish Primera División,165000,24500000,85
+192883,H. Mkhitaryan,28,Armenia,Manchester United,English Premier League,195000,39000000,85
+192593,D. Subašić,32,Croatia,AS Monaco,French Ligue 1,46000,22000000,85
+192563,B. Leno,25,Germany,Bayer 04 Leverkusen,German Bundesliga,61000,34000000,85
+192448,M. ter Stegen,25,Germany,FC Barcelona,Spanish Primera División,155000,35500000,85
+190547,K. Glik,29,Poland,AS Monaco,French Ligue 1,60000,30000000,85
+189332,Jordi Alba,28,Spain,FC Barcelona,Spanish Primera División,215000,30500000,85
+186942,I. Gündoğan,26,Germany,Manchester City,English Premier League,190000,46000000,85
+184432,Azpilicueta,27,Spain,Chelsea,English Premier League,160000,37500000,85
+183898,A. Di María,29,Argentina,Paris Saint-Germain,French Ligue 1,145000,37500000,85
+180206,M. Pjanić,27,Bosnia Herzegovina,Juventus,Italian Serie A,160000,43500000,85
+173210,C. Marchisio,31,Italy,Juventus,Italian Serie A,160000,33000000,85
+172871,J. Vertonghen,30,Belgium,Tottenham Hotspur,English Premier League,130000,28500000,85
+170890,B. Matuidi,30,France,Juventus,Italian Serie A,145000,28500000,85
+167628,S. Ruffier,30,France,AS Saint-Étienne,French Ligue 1,49000,24500000,85
+164169,Filipe Luís,31,Brazil,Atlético Madrid,Spanish Primera División,81000,25000000,85
+139720,V. Kompany,31,Belgium,Manchester City,English Premier League,170000,26000000,85
+137186,A. Barzagli,36,Italy,Juventus,Italian Serie A,105000,5000000,85
+225508,E. Bailly,23,Ivory Coast,Manchester United,English Premier League,150000,35500000,84
+220834,Marco Asensio,21,Spain,Real Madrid CF,Spanish Primera División,175000,46000000,84
+218667,Bernardo Silva,22,Portugal,Manchester City,English Premier League,165000,43500000,84
+212218,A. Laporte,23,France,Athletic Club de Bilbao,Spanish Primera División,36000,35500000,84
+211117,D. Alli,21,England,Tottenham Hotspur,English Premier League,115000,43000000,84
+208722,S. Mané,25,Senegal,Liverpool,English Premier League,175000,39000000,84
+204963,Carvajal,25,Spain,Real Madrid CF,Spanish Primera División,195000,32000000,84
+202166,J. Draxler,23,Germany,Paris Saint-Germain,French Ligue 1,120000,39500000,84
