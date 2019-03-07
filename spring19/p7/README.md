@@ -57,6 +57,9 @@ convenient to access this data.
 
 #### Question 2: what is the name of the highest-paid player?
 
+If two players are paid the same, break the tie in favor of whoever
+appears first in the dataset.
+
 #### Question 3: what is the name of the highest net-worth player?
 
 #### Question 4: what club is that player in?
