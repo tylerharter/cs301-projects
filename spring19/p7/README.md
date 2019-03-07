@@ -1,5 +1,11 @@
 # Project 7: Fédération Internationale de Football Association
 
+## Corrections
+
+* Mar 7: for q2, there is a tie for highest wage.  Break the tie in favor of the first player, and only output that player's name.
+
+## Intro
+
 Let's Play Fifa18, Python style!  In this project, you will get more
 practice with lists and start using dictionaries.  Start by
 downloading `test.py` and `Fifa18.csv`.  This dataset is too large to
