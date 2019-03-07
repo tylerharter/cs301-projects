@@ -93,10 +93,76 @@ for en in en2sp:
 sp2en
 ```
 
+You should get this:
+
+```python
+{'perro': 'dog', 'gato': 'cat', 'pájaro': 'bird'}
+```
+
 ### Dictionary Division
+
+What if we want to do a lot of division, but we have all our
+numerators in one dictionary and all our denominators in another?
+
+```python
+numerators = {"A": 1, "B": 2, "C": 3}
+denominators = {"A": 2, "B": 4, "C": 4}
+result = {}
+for key in ????:
+    result[????] = ????[key] / ????[key]
+result
+````
+
+If done correctly, you should get `{'A': 0.5, 'B': 0.5, 'C': 0.75}`.
 
 ### Ordered Print
 
-### Dictionary Diff
+Complete the code so it prints the incidents per year, with earliest
+year first, like this:
+
+```python
+incidents = {2016: 14, 2017: 13, 2018: 16, 2014: 8, 2015: 10}
+keys = sorted(list(????.keys()))
+for k in ????:
+    print(k, incidents[????])
+```
+
+```
+2014 8
+2015 10
+2016 14
+2017 13
+2018 16
+```
+
+### Histogram
+
+Modify the above code so it prints a histogram with letters, like this:
+
+```
+2014 ********
+2015 **********
+2016 **************
+2017 *************
+2018 ****************
+```
+
+### Dictionary Max
+
+Complete the following to find the year with the most incidents:
+
+```python
+incidents = {2016: 14, 2017: 13, 2018: 16, 2014: 8, 2015: 10}
+best_key = None
+for key in incidents:
+    if best_key == None or incidents[????] > incidents[????]:
+        best_key = ????
+print("Year", best_key, "had", incidents[????], "incidents (the max)")
+```
 
 ## Project Hints
+
+1. for project questions like q12, you'll need to pair up two lists to make a dictionary (review "Dictionary from Two Lists" from the lab)
+2. q16 and q17 require some counting (review the first lab exercises)
+3. q18 and q19 require an average (review "Dictionary Division" above).
+4. q20 is finding the key that yields the max value in a dictionary (in comparison, we've solved many problems prior involving finding the argument that yields the max return value from a function)

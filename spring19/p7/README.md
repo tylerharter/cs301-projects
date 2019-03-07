@@ -149,8 +149,6 @@ like this:
  'score_of_100': 94.0}
 ```
 
-#### Question 12: what are the stats for the player with `Id` equal to 20801?
-
 #### Question 13: what are the stats for the player with `Id` equal to 190871?
 
 #### Question 14: what are the stats for the player with `Id` equal to 158023?
