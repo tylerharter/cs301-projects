@@ -159,36 +159,26 @@ dictionary like this:
 
 #### Question 15: what are the stats for the player with `Id` equal to 192985?
 
+#### Question 16: how many players are there per nationality?
 
+Answer in the form of a dictionary where the key is the nationality
+and the value is the number of players for that nationality.
 
+```python
+{'Portugal': 355,
+ 'Argentina': 948,
+ 'Brazil': 800,
+ 'Uruguay': 150,
+ 'Germany': 1132,
+ 'Poland': 332,
+ ...
+}
+```
 
-###### Make a function named 'get_unique_element_list' with an input parameter column_name. This should return a list having only distinct elements from this column which means you need to eliminate the duplicates. You can use the get_column function you defined earlier to get the list of elements of a particular column and then create a new list with only distinct elements.
+#### Question 17: how many players are there per league?
 
-#### Question 15
+#### Question 18: what is the average player age per league?
 
-Output a list of all unique leagues using the get_unique_element_list function.
+#### Question 19: what is the average player wage per league?
 
-#### Question 16
-
-Which clubs pay an average wage above 100,000 euros  per week to their players? Return a list of clubs that match the criteria.
-Hint: You can first use the get_unique_element_list function to get the participating clubs.
-
-#### Question 17
-
-Output a dictionary containing count of unique nationalities and number of clubs in the dataset. The dictionary should be of the form {'nationalities': < number of nations>, 'clubs': < number of clubs>}. 
-
-#### Question 18
-
-Which clubs have played in "German Bundesliga" league? Return a list matching the criteria.
-
-#### Question 19
-
-Define a function that takes a parameter (club) and returns a list of players with best performance ratings (score_of_100) in that club.
-
-
-#### Question 20
-
-A particular club decided to cut down each of their player's yearly wage by 2%. What is the net gross saving in euros of the club in that year? 
-Hint: 52 weeks in a year
-
- 
+#### Question 20: which league has the highest average age?
