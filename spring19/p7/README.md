@@ -1,6 +1,4 @@
-# DRAFT!!!
-
-# Project 7: Fédération Internationale de Football Association (Soccer!)
+# Project 7: Fédération Internationale de Football Association
 
 Let's Play Fifa18, Python style!  In this project, you will get more
 practice with lists and start using dictionaries.  Start by
@@ -136,8 +134,8 @@ to the `Id` column in the data.
 
 #### Question 12: what are the stats for the player with `Id` equal to 20801?
 
-Use your `player_to_dict` function.  The output should look be a
-dictionary like this:
+Use your `player_to_dict` function.  The output should be a dictionary
+like this:
 
 ```python
 {'Id': '20801',
@@ -177,8 +175,8 @@ and the value is the number of players for that nationality.
 
 #### Question 17: how many players are there per league?
 
-#### Question 18: what is the average player age per league?
+#### Question 18: what is the average player wage per league?
 
-#### Question 19: what is the average player wage per league?
+#### Question 19: what is the average player age per league?
 
 #### Question 20: which league has the highest average age?
