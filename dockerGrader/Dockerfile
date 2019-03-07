@@ -1,7 +1,6 @@
-FROM base/archlinux
-WORKDIR /tmp
-RUN pacman -Syu wget --noconfirm
-RUN wget https://repo.anaconda.com/archive/Anaconda3-5.3.0-Linux-x86_64.sh
-RUN chmod +x *.sh
-RUN ./Anaconda*.sh -b
-ENV PATH="/root/anaconda3/bin:${PATH}"
+FROM ubuntu:18.04
+RUN apt-get -y update
+RUN apt-get -y upgrade
+RUN apt-get install -y python3.7
+RUN apt-get install -y python3-pip
+RUN pip3 install jupyter numpy requests matplotlib beautifulsoup4

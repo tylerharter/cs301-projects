@@ -1,5 +1,6 @@
-import base64, boto3, botocore, os, sys, json, subprocess, shutil, time, traceback, logging
+import base64, boto3, botocore, os, sys, json, subprocess, shutil, time, traceback, logging, re
 
+SEMESTER = "spring19"
 ACCESS_KEY = "projects/{project}/users/{googleId}/curr.json"
 GOOGLE_KEY = "users/net_id_to_google/{netId}.txt"
 UPLOAD_KEY = "ta/grading/{project}/{netId}.json"
@@ -165,18 +166,19 @@ class dockerGrader:
         except:
             self.logger.info("rm cantainer failed. ID: {}".format(self.containerId))
 
+    def listTestScripts(self):
+        testCodePath = "../{}/{}".format(SEMESTER, self.project)
+        return [name for name in os.listdir(testCodePath) if re.match(r'test(\d+)?.py', name)]
+            
     # Main Functions
-    def dockerRun(self, upload=True):
+    def dockerRun(self, test="test.py", upload=True):
         # create directory to mount inside a docker container
         if os.path.exists(self.testDir):
             shutil.rmtree(self.testDir)
         os.makedirs(self.testDir)
-        res = self.downloadSubmission()
-        if not res:
-            return False
 
         # we can't use shutil.copytree here again because TEST_DIR exists
-        testCodePath = "./test/{}".format(self.project)
+        testCodePath = "../{}/{}".format(SEMESTER, self.project)
         for item in os.listdir(testCodePath):
             src = os.path.join(testCodePath, item)
             dest = os.path.join(self.testDir, item)
@@ -185,8 +187,13 @@ class dockerGrader:
             else:
                 shutil.copy2(src, dest)
 
+        # user's code
+        res = self.downloadSubmission()
+        if not res:
+            return False
+
         # run tests inside a docker container
-        image = 'shenghaozou/301testenv:v1'
+        image = 'grader' # build with docker build . -t grader
         cmd = ['timeout', '300',                           # set a timeout
                'docker', 'run',                           # start a container
                '--rm',                                    # remove the container when exit
@@ -194,9 +201,9 @@ class dockerGrader:
                '-u', str(self.currentUID),                     # run as local user (instead of root)
                '-w', '/code',                             # working dir is w/ code
                image,                                     # what docker image?
-               'timeout', '280',
-               'python3', 'test.py']                      # command to run inside
-
+               'timeout', '15',
+               'python3', test]                      # command to run inside
+        print("CMD: " + " ".join(cmd))
         try:
             subprocess.check_output(cmd).decode("ascii").replace("\n","")
         except Exception as e:
@@ -208,14 +215,14 @@ class dockerGrader:
         return True
 
     # dockerRunSafe will check the existing grade first to avoid incorrect grade override
-    def dockerRunSafe(self):
+    def dockerRunSafe(self, test):
         try:
             resultOld = self.getRemoteResult()
             scoreOld = self.tryExtractResultScore(resultOld)
             if scoreOld == 100:
                 self.logger.info('skip because old score was 100')
                 return
-            if not self.dockerRun(upload=False):
+            if not self.dockerRun(test=test, upload=False):
                 self.logger.info('skip because submission not found')
                 return
             resultNew = self.getLocalResult()
@@ -237,6 +244,7 @@ def main():
 
     if len(sys.argv) != 3:
         print("Usage: python dockerUtil.py pX[pY,...] (<netId>|?)")
+        sys.exit(1)
 
     projects = sys.argv[1].split(',')
     if sys.argv[2] == '?':
@@ -249,7 +257,8 @@ def main():
             logger.info('========================================')
             logger.info('PROJECT={}, NETID={}'.format(project_id, net_id))
             grader = dockerGrader(project_id, net_id, logger)
-            grader.dockerRunSafe()
+            for test in grader.listTestScripts():
+                grader.dockerRunSafe(test=test)
 
 if __name__ == '__main__':
     main()
