@@ -112,7 +112,9 @@ function will be useful for the questions that follow.
 
 #### Question 9: how many players have Portugal as their nationality?
 
-#### Question 10: which country has the most players participating in FIFA18?
+#### Question 10: how many players have Brazil as their nationality?
+
+#### Question 11: which country has the most players participating in FIFA18?
 
 The `player_count` function can be useful here.
 
@@ -120,44 +122,45 @@ Hint 1: You will first need the list of countries participating in
 FIFA18.
 
 Hint 2: Make sure you aren't calling `player_count` more times than
-necessary.  If you're note careful, the code will be very slow to
+necessary.  If you're not careful, the code will be very slow to
 execute!
 
 ----
 
-Define a function called `compare_clubs` that takes three input
-parameters(club1, club2, compare_on_col) and returns the name of the
-club with the greater average value for the column
-`compare_on_col`. For example, if you want to know which club has
-higher average age, the `compare_on_col` would be 2 for this function
-since age is at index 2 in the list of columns.
-
-----
-
-#### Question 11: TODO
-
-
-#### Question 12
-
-Which club pays the higher average wage to its players? "Real Madrid CF" or "FC Barcelona". Use the "compare_clubs" function with the compare_on_col having  the column number of wages attribute.
-
-#### Question 13
-
-Which club has higher average score of players? "Manchester City" or "Chelsea"?  Use the "compare_clubs" function for the performance rating (score_of_100) column.
+Define a function `player_to_dict` that takes a parameter,
+`player_id`, and returns a dict containing all the information about
+the player that matches.  Find the player row by matching `player_id`
+to the `Id` column in the data.
 
 ---
-#### Question 14
 
-Output a list of dictionaries where each dictionary contains data of a single player from our 'PlayerData' list. Do this for the first 10 players from the PlayerData list.
-The list with the first dictionary should look something like below-
+#### Question 12: what are the stats for the player with `Id` equal to 20801?
+
+Use your `player_to_dict` function.  The output should look be a
+dictionary like this:
+
+```python
+{'Id': '20801',
+ 'name': 'Cristiano Ronaldo',
+ 'Age': 32.0,
+ 'nationality': 'Portugal',
+ 'club': 'Real Madrid CF',
+ 'league': 'Spanish Primera División',
+ 'euro_wage': 565000.0,
+ 'networth': 95500000.0,
+ 'score_of_100': 94.0}
 ```
-[{'name': 'Cristiano Ronaldo',
-'club': 'Real Madrid CF',
-'nationality': 'Portugal',
-'networth': 95500000.0},
-]
-```
----
+
+#### Question 12: what are the stats for the player with `Id` equal to 20801?
+
+#### Question 13: what are the stats for the player with `Id` equal to 190871?
+
+#### Question 14: what are the stats for the player with `Id` equal to 158023?
+
+#### Question 15: what are the stats for the player with `Id` equal to 192985?
+
+
+
 
 ###### Make a function named 'get_unique_element_list' with an input parameter column_name. This should return a list having only distinct elements from this column which means you need to eliminate the duplicates. You can use the get_column function you defined earlier to get the list of elements of a particular column and then create a new list with only distinct elements.
 
