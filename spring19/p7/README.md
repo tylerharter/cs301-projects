@@ -49,10 +49,7 @@ convenient to access this data.
 
 ## Let's Start!
 
-###### Define a function named "get_value" with two parameters named row_index and col_index. You should return "out_of_bounds" if the row or column indices are out of range of our list.
-###### Reminder! Both column and row start with index 0
-
-#### Question 1: TODO
+#### Question 1: what is the name of the oldest player?
 
 #### Question 2: what is the name of the highest-paid player?
 
@@ -65,7 +62,7 @@ convenient to access this data.
 Complete the following function in your notebook:
 
 ```python
-get_column(col_idx):
+def get_column(col_idx):
     pass # replace this
 ```
 
@@ -86,6 +83,7 @@ it returns.  For example, imagine `player_data` contained this:
 Then column 0 is `["a", "d", "g"]`, column 1 is `["b", "e", "h"]`, and
 column 2 is `["c", "f", "i"]`.  A call to `get_column(1)` should
 therefore return `["b", "e", "h"]`, and so on.
+
 ----
 
 #### Question 5: what are the first five nationalities listed in the dataset?
