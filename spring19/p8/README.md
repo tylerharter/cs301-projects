@@ -6,12 +6,12 @@ Having worked our way through soccer and hurricanes, we are now going to work on
 
 Find the required files at the following links: 
 
-- [project.py](/project.py)
-- [test.py](/test.py)
-- [small_mapping.csv](/small_mapping.csv)
-- [small_movies.csv](/small_movies.csv)
-- [mapping.csv](/mapping.csv)
-- [movies.csv](/movies.csv)
+- [project.py](https://github.com/tylerharter/cs301-projects/blob/P8/spring19/p8/project.py)
+- [test.py](https://github.com/tylerharter/cs301-projects/blob/P8/spring19/p8/test.py)
+- [small_mapping.csv](https://github.com/tylerharter/cs301-projects/blob/P8/spring19/p8/small_mapping.csv)
+- [small_movies.csv](https://github.com/tylerharter/cs301-projects/blob/P8/spring19/p8/small_movies.csv)
+- [mapping.csv](https://github.com/tylerharter/cs301-projects/blob/P8/spring19/p8/mapping.csv)
+- [movies.csv](https://github.com/tylerharter/cs301-projects/blob/P8/spring19/p8/movies.csv)
 
 You will be working mainly with *movies.csv* and *mapping.csv*. The *small_movies.csv* and *small_mapping.csv* have been provided to help you debug any errors you may face while implementing Step 1.
 
