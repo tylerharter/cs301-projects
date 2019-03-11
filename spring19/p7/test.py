@@ -365,7 +365,7 @@ expected_json = {
             'English League Two': 24.357723577235774,
             'Finnish Veikkausliiga': 23.59259259259259,
             'Rep. Ireland Premier Division': 24.010563380281692},
-    "20": "Chilian Primera División",
+    "20": ["Chilian Primera División", "Campeonato Brasileiro Série A"],
 }
 
 
@@ -411,6 +411,13 @@ def check_cell_text(qnum, cell):
     expected = expected_json[str(qnum)]
 
     expected_mismatch = False
+
+    # TODO: remove per-question hacks
+    if qnum == 20:
+        if actual in expected:
+            return PASS
+        return "expected " + (" OR ".join(expected))
+
 
     if type(expected) != type(actual):
         return "expected an answer of type %s but found one of type %s" % (type(expected), type(actual))
