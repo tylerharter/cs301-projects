@@ -147,8 +147,8 @@ expected_json = {
     "16": 18,
     "17": 1247,
     "18": 2605,
-    "19": "",
-    "20": "",
+    "19": 6.401659528907912,
+    "20": 'Dr. Strangelove or: How I Learned to Stop Worrying and Love the Bomb',
 }
            
 # find a comment something like this: #q10

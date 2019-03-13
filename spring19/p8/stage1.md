@@ -1,13 +1,13 @@
-# Stage 1: Data Plubming
+# Stage 1: Data Plumbing
 
 A lot of data science work often involves *plumbing*, the process of
 getting messy data into a more useful format.  Data plumbing is the
 focus of stage 1.  We'll develop and test three functions that will be
 helpful in stage 2:
 
-1. `get_mapping(path)`
-2. `get_raw_movies(path)`
-3. `get_movies(movies_path, mapping_path)`
+1. `get_mapping(path)`: this loads a file that can be used to lookup names from IDs
+2. `get_raw_movies(path)`: this loads movie data with info represented using IDs
+3. `get_movies(movies_path, mapping_path)`: this uses the other two functions to load movie data, then replace IDs with names
 
 ---
 
@@ -92,8 +92,8 @@ movie as follows:
 
 Note that the movie files DO have a CSV header.
 
-Also note that the values for keys ```directors, actors``` and
-```genres``` is always a list, even if it has only one element.
+Also note that the cells for keys `directors`, `actors`, and
+```genres``` always a list, even if it has only one element.
 
 ---
 
@@ -115,7 +115,7 @@ The result should be this:
   'genres': ['Action', 'Crime', 'Thriller']}]
 ```
 
-Also keep value returned by `get_raw_movies` in a variable.  You
+Also, keep the value returned by `get_raw_movies` in a variable.  You
 should not call the function more often than necessary.
 
 #### Question 6: how many genres did the movie at index 0 have?
@@ -128,9 +128,9 @@ Use the data from Q5.
 
 ---
 
-Note that for the keys `actors`, `directors`, and `title`, we are only
-able to store the IDs for the corresponding names. Write a function
-named `get_movies(movies_path, mapping_path)` loads data from the
+Note that for the keys `actors`, `directors`, and `title`, we
+currently only use IDs instead of actual names. Write a function named
+`get_movies(movies_path, mapping_path)` that loads data from the
 `movies_path` file using `get_movies_raw` and converts the IDs to
 names using a mapping based on the `mapping_path` file, which you
 should load using your `get_mapping` function.
@@ -149,8 +149,8 @@ Each dictionary in the list should look something like this:
 ```
 
 Notice the difference between the previous one and this (names instead
-of IDs). This list of dictionaries is extremely vital for almost all
-of the following questions.
+of IDs). This list of dictionaries is vital for almost all of the
+following questions.
 
 We recommend you get the translation from ID to name working for title
 before you start trying to translate actors and directors.
@@ -308,11 +308,12 @@ The answer should look like this:
 
 #### Question 15: what are the movies from 1931?
 
-Hint: we've set you up a bit to encounter a bug.  Review the copy
+**Hint:** we've set you up a bit to encounter a bug.  Review the copy
 functions in the `copy` module and see if you can use one of them to
 overcome the shortcomings of the `filter_movies_by_year` function
 we're forcing you to use.  You might need to go back and tweak your
-q14 answer and potentially do a "Restart & Run All" on your notebook.
+q14 answer and potentially do a "Restart & Run All" on your notebook
+after you've fixed the bug.
 
 If you get it right, you'll get this output:
 
@@ -345,3 +346,7 @@ and Q18 at the same time.
 #### Question 17: how many unique actor names are there in the dataset?
 
 #### Question 18: how many unique director names are there in the dataset?
+
+#### Question 19: what is the average movie rating?
+
+#### Question 20: what is the longest movie title in the dataset (in terms of most characters)?
