@@ -14,15 +14,16 @@ ahead where we find out some cool facts about our favorite movies,
 actors, and directors.
 
 You'll hand in a `main.ipynb` file for this project; use the usual
-"#qN" format.  Start by downloading the following files: `test.py`,
+`#qN` format.  Start by downloading the following files: `test.py`,
 `small_mapping.csv`, `small_movies.csv`, `mapping.csv`, and
 `movies.csv`.
 
 ## The Data
 
-You will be working mainly with `movies.csv` and `mapping.csv`. The
-`small_movies.csv` and `small_mapping.csv` have been provided to help
-you debug any errors you may face while implementing Step 1.
+By stage 2, you will be mostly working mainly with `movies.csv` and
+`mapping.csv`. The `small_movies.csv` and `small_mapping.csv` have
+been provided to help you get your core logic working in stage 1 with
+some simpler data.
 
 `small_movies.csv` and `movies.csv` have 6 columns: `title`, `year`, `rating`, `directors`, `actors`, and `genres`
 
@@ -36,7 +37,7 @@ tt0066811,1971,6.0,nm0125111,"nm0000621,nm0283499,nm0604702,nm0185281","Comedy,F
 
 `small_mapping.csv` and `mapping.csv` have 2 columns: `id` and `name`
 
-Here are a few rows from mapping.csv:
+Here are a few rows from `mapping.csv`:
 
 ```
 nm0000001,Fred Astaire
@@ -47,8 +48,6 @@ tt0110997,The River Wild
 
 Each of those weird alphanumeric sequence is a unique identifier for
 either an actor or a director or a movie title.
-
-Create a *main.ipynb* file with function definitions as required to solve the following problems, while using the *mapping.csv* and *movies.csv* files. You can use *small_movies.csv* and *small_mapping.csv* as toy-datasets only for self verification purposes and not for submission purposes.
 
 ## The Stages
 

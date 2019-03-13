@@ -92,12 +92,12 @@ movie as follows:
 
 Note that the movie files DO have a CSV header.
 
-Also note that the cells for keys `directors`, `actors`, and
-```genres``` always a list, even if it has only one element.
+Also note that the values for `directors`, `actors`, and ```genres```
+always contain lists, even if those lists contain a single value.
 
 ---
 
-## Question 5: what does `get_raw_movies("small_movies.csv")` return?
+#### Question 5: what does `get_raw_movies("small_movies.csv")` return?
 
 The result should be this:
 ```
