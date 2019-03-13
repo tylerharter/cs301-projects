@@ -4,7 +4,7 @@
 
 ## Corrections
 
-* none yet
+* none (knock on wood)
 
 ## Introduction
 
@@ -13,9 +13,10 @@ to work on the IMDB Movies Dataset. A very exciting fortnight lies
 ahead where we find out some cool facts about our favorite movies,
 actors, and directors.
 
-You'll hand in a `main.ipynb` file for this project.  Start by
-downloading the following files: `test.py`, `small_mapping.csv`,
-`small_movies.csv`, `mapping.csv`, and `movies.csv`.
+You'll hand in a `main.ipynb` file for this project; use the usual
+"#qN" format.  Start by downloading the following files: `test.py`,
+`small_mapping.csv`, `small_movies.csv`, `mapping.csv`, and
+`movies.csv`.
 
 ## The Data
 

@@ -1,12 +1,30 @@
-## 1. Week 1
-### Step 1: A mapping function
+# Stage 1: Data Plubming
 
-Define a function that builds a dictionary where the keys are the IDs(remember the weird alphanumeric strings?) and the values are the corresponding names. Inputs to this function should be the mapping file. Upon calling the function, one should find something like this:
+A lot of data science work involves *plumbing*, the process of getting
+data into a useful format.  Data plumbing is the focus of stage 1
+(stage 2 is the fun part).
+
+---
+
+Start by writing a function that starts like this:
 
 ```python
-mapping1 = get_mapping("small_mapping.csv")
-print_dict(mapping1)
+def get_mapping(path):
+```
 
+When called, the `path` should refer to one of the mapping files
+(e.g., "small_mapping.csv").  The function should return a dictionary
+that maps IDs (as keys) to names (as values), based on the file
+referenced by `path`.  For example, this code:
+
+```python
+mapping = get_mapping("small_mapping.csv")
+print_dict(mapping)
+```
+
+Should print this:
+
+```
 {
   "nm0000131": "John Cusack",
   "nm0000154": "Mel Gibson",
@@ -21,20 +39,35 @@ print_dict(mapping1)
   "tt0313542": "Runaway Jury"
 }
 ```
-While solving for the project, don't use the toy dataset.
 
-#### Question 1
+The following questions pertain to `small_mapping.csv` and
+`small_movies.csv`, unless otherwise specified.
 
-Find out the corresponding value for the key **nm0000233** while using the newly built dictionary.
+---
 
-#### Question 2
+## Question 1: what is returned by your `get_mapping("small_mapping.csv")` function?
 
-Build a dictionary uses the names as keys and the IDs as corresponding values. Use this dictionary to find out the ID for **John Cusack**.
+In addition to displaying the result in the `Out [N]` area, keep the
+result in a variable for use in subsequent questions.
 
+## Question 2: what is the value associated with the key "tt0313542"?
 
-### Step 3: List of dictionaries
+Use the dictionary returned earlier. Do not call `get_mapping` a
+second time (that would be inneficient).
 
-Build a function that takes ```movies.csv``` as an input argument and returns a list of dictionaries where each dictionary represents a movie as follows:
+## Question 3: what are the values in the mapping associated with keys beginning with "tt"?
+
+Answer with a Python list.
+
+## Question 4: which keys in the mapping map to people with a first name of "Gary"?
+
+Answer with a Python list.
+
+---
+
+Build a function that takes a path to a movies CSV (e.g.,
+"small_movies.csv" or "movies.csv") as an parameter and returns a list
+of dictionaries where each dictionary represents a movie as follows:
 
 ```python
 { 
@@ -48,10 +81,15 @@ Build a function that takes ```movies.csv``` as an input argument and returns a 
 ```
 Note that the values for keys ```directors, actors``` and ```genres``` is always a list, even if it has only one element.
 
-#### Question 3
-Using this list of dictionaries that stores relevant details about each movie, find out the list of actors for the 100th movie in the list.
+---
 
-#### Question 4
+## Question 5:
+
+Using this list of dictionaries that stores relevant details about
+each movie, find out the list of actors for the 100th movie in the
+list.
+
+#### Question 6: 
 Using the same list, find out the list of genres associated with the 235th movie in the list.
 
 
