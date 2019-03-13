@@ -203,35 +203,145 @@ with the small data.  So let's try the full dataset!
 movies = get_movies("movies.csv", "mapping.csv")
 ```
 
+You are not allowed to call `get_movies` more than once for the
+"movies.csv" file in your notebook.  Reuse the `movies` variable
+instead (that's more efficient).
+
 ---
 
-### Step 5: Basic Statistics
-Using the dictionary developed above, build a function to develop the four following lists:
+#### Question 12: what are the first 3 rows in movies?
 
-List Type     | List contents
-------------- | -------------
-actors_list   | List of all unique actors
-directors_list| List of all unique movie directors
-movies_list   | List of all movie titles
-genres_list   | List of all unique genres
+The result should look like this:
 
-Note that an actor or a director can appear in more than one movie, but the list should contain only one instance. The same reasoning applies to genres as well. 
+```python
+[{'title': 'The Big Wedding',
+  'year': 2013,
+  'rating': 5.6,
+  'directors': ['Justin Zackham'],
+  'actors': ['Robert De Niro'],
+  'genres': ['Comedy', 'Drama', 'Romance']},
+ {'title': 'The Affair of the Necklace',
+  'year': 2001,
+  'rating': 6.1,
+  'directors': ['Charles Shyer'],
+  'actors': ['Simon Baker', 'Jonathan Pryce', 'Adrien Brody'],
+  'genres': ['Drama', 'History', 'Romance']},
+ {'title': 'The Barefoot Executive',
+  'year': 1971,
+  'rating': 6.0,
+  'directors': ['Robert Butler'],
+  'actors': ['Kurt Russell', 'Joe Flynn', 'Harry Morgan', 'Wally Cox'],
+  'genres': ['Comedy', 'Family']}]
+```
 
+#### Question 13: what are the last 3 rows in movies?
 
-#### Question 7
-Return the entire list of genres found out using the above function.
+The result should look like this:
 
-#### Question 8
-Return the last 5 movie titles from the movies_list found out using the function above.
+```python
+[{'title': 'Fortitude and Glory: Angelo Dundee and His Fighters',
+  'year': 2012,
+  'rating': 7.2,
+  'directors': ['Chris Tasara'],
+  'actors': ['Angelo Dundee', 'George Foreman', 'Freddie Roach'],
+  'genres': ['Sport']},
+ {'title': 'Ivanhoe',
+  'year': 1952,
+  'rating': 6.8,
+  'directors': ['Richard Thorpe'],
+  'actors': ['Robert Taylor', 'George Sanders'],
+  'genres': ['Adventure', 'Drama', 'History']},
+ {'title': 'The Great Gatsby',
+  'year': 1949,
+  'rating': 6.6,
+  'directors': ['Elliott Nugent'],
+  'actors': ['Alan Ladd', 'Macdonald Carey'],
+  'genres': ['Drama']}]
+```
 
+---
 
-#### Question 9
-**Stats Function** : Build a function that takes in all the lists you created above as input arguments and returns a dictionary of stats that should have the following structure:
+Copy the following function to your notebook, but don't change it in
+any way.
 
+```python
+# you are not allowed to change this function
+def filter_movies_by_year(movies, year):
+    i = 0
+    while i < len(movies):
+        if movies[i]["year"] != year:
+            movies.pop(i)
+        else:
+            i += 1
+    return movies
+```
 
-key          |	value 
--------------|---------------------------------------------------------
-num_movies	 |The total number of distinct movie titles in the dataset
-num_actors	 |The total number of distinct actor names in the dataset
-num_directors|The total number of distinct director names in the dataset
-num_genres	 |The total number of distinct genres in the dataset
+The `movies` parameter is for a list of movie dictionaries (similar to
+what is retured by `get_movies`) and `year` is a year to filter on.
+The function returns the movies in `movies` that were in the given
+year.
+
+---
+
+#### Question 14: what are the movies from 1930?
+
+Requirements:
+1. answer using `filter_movies_by_year`
+2. do NOT call `get_movies` on "movies.csv" more than once in your notebook
+
+The answer should look like this:
+
+```python
+[{'title': 'Hook Line and Sinker',
+  'year': 1930,
+  'rating': 6.4,
+  'directors': ['Edward F. Cline'],
+  'actors': ['Bert Wheeler', 'Robert Woolsey', 'Ralf Harolde'],
+  'genres': ['Comedy', 'Romance']},
+ {'title': 'The Big Trail',
+  'year': 1930,
+  'rating': 7.2,
+  'directors': ['Raoul Walsh', 'Louis R. Loeffler'],
+  'actors': ['John Wayne', 'El Brendel', 'Tully Marshall'],
+  'genres': ['Adventure', 'Romance', 'Western']}]
+```
+
+#### Question 15: what are the movies from 1931?
+
+Hint: we've set you up a bit to encounter a bug.  Review the copy
+functions in the `copy` module and see if you can use one of them to
+overcome the shortcomings of the `filter_movies_by_year` function
+we're forcing you to use.  You might need to go back and tweak your
+q14 answer and potentially do a "Restart & Run All" on your notebook.
+
+If you get it right, you'll get this output:
+
+```
+[{'title': 'Arizona',
+  'year': 1931,
+  'rating': 6.0,
+  'directors': ['George B. Seitz'],
+  'actors': ['John Wayne', 'Forrest Stanley'],
+  'genres': ['Drama', 'Romance']},
+ {'title': 'City Lights',
+  'year': 1931,
+  'rating': 8.5,
+  'directors': ['Charles Chaplin'],
+  'actors': ['Charles Chaplin', 'Harry Myers'],
+  'genres': ['Comedy', 'Drama', 'Romance']},
+ {'title': 'The Range Feud',
+  'year': 1931,
+  'rating': 5.8,
+  'directors': ['D. Ross Lederman'],
+  'actors': ['Buck Jones', 'John Wayne', 'Edward LeSaint'],
+  'genres': ['Mystery', 'Western']}]
+```
+
+#### Question 16: how many unique genres are there in the dataset?
+
+Think about whether you can write a function that helps you with Q17
+and Q18 at the same time.
+
+#### Question 17: how many unique actor names are there in the dataset?
+
+#### Question 18: how many unique director names are there in the dataset?
