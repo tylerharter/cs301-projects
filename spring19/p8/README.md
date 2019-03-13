@@ -24,10 +24,11 @@ You will be working mainly with `movies.csv` and `mapping.csv`. The
 `small_movies.csv` and `small_mapping.csv` have been provided to help
 you debug any errors you may face while implementing Step 1.
 
-`small_movies.csv` and `movies.csv` have 6 columns: `movie_id`, `year`, `rating`, `directors`, `actors`, and `genres`
+`small_movies.csv` and `movies.csv` have 6 columns: `title`, `year`, `rating`, `directors`, `actors`, and `genres`
 
 Here are a few rows from `movies.csv`:
 ```
+title,year,rating,directors,actors,genres
 tt1931435,2013,5.6,nm0951698,nm0000134,"Comedy,Drama,Romance"
 tt0242252,2001,6.1,nm0796124,"nm0048932,nm0000596,nm0004778","Drama,History,Romance"
 tt0066811,1971,6.0,nm0125111,"nm0000621,nm0283499,nm0604702,nm0185281","Comedy,Family"

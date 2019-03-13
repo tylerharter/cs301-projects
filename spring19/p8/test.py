@@ -35,48 +35,49 @@ question_nums = set([q.number for q in questions])
 
 # JSON and plaintext values
 expected_json = {
-    "1": 'Quentin Tarantino',
-    "2": 'nm0000131',
-    "3": ['nm0001229', 'nm0002012', 'nm0697961'],
-    "4":'tt1596346',
-    "5":5.6,
-    "6":"Soul's Midnight",
-    "7":['Action',
- 'Adventure',
- 'Animation',
- 'Comedy',
- 'Crime',
- 'Drama',
- 'Family',
- 'Fantasy',
- 'History',
- 'Horror',
- 'Music',
- 'Mystery',
- 'Romance',
- 'Sci-Fi',
- 'Sport',
- 'Thriller',
- 'War',
- 'Western'],
-    "8":['Yours, Mine and Ours',
- 'Youth of the Son',
- 'Zack and Miri Make a Porno',
- 'Zoe'],
-    "9":{'num_movies': 1855,
- 'num_actors': 2605,
- 'num_directors': 1247,
- 'num_genres': 18},
-    "10":[('Mickey Rooney', 75),
- ('Anthony Quinn', 61),
- ('George Burns', 60),
- ('Dean Stockwell', 53),
- ('Glenn Ford', 52)],
-    "11":[('Stanley Kubrick', 46),
- ('Howard Hawks', 42),
- ('Henry Hathaway', 36),
- ('Charles Chaplin', 34),
- ('Sidney Lumet', 33)],
+    "1": {'nm0000131': 'John Cusack',
+                  'nm0000154': 'Mel Gibson',
+                  'nm0000163': 'Dustin Hoffman',
+                  'nm0000418': 'Danny Glover',
+                  'nm0000432': 'Gene Hackman',
+                  'nm0000997': 'Gary Busey',
+                  'nm0001149': 'Richard Donner',
+                  'nm0001219': 'Gary Fleder',
+                  'nm0752751': 'Mitchell Ryan',
+                  'tt0313542': 'Runaway Jury',
+                  'tt0093409': 'Lethal Weapon'},
+    "2": 'Runaway Jury',
+    "3": ['Runaway Jury', 'Lethal Weapon'],
+    "4": ['nm0000997', 'nm0001219'],
+    "5":[{'title': 'tt0313542',
+  'year': 2003,
+  'rating': 7.1,
+  'directors': ['nm0001219'],
+  'actors': ['nm0000131', 'nm0000432', 'nm0000163'],
+  'genres': ['Crime', 'Drama', 'Thriller']},
+ {'title': 'tt0093409',
+  'year': 1987,
+  'rating': 7.6,
+  'directors': ['nm0001149'],
+  'actors': ['nm0000154', 'nm0000418', 'nm0000997', 'nm0752751'],
+  'genres': ['Action', 'Crime', 'Thriller']}],
+    "6":3,
+    "7":'nm0752751',
+    "8":'Runaway Jury',
+    "9":['Richard Donner'],
+    "10":['Mel Gibson', 'Danny Glover', 'Gary Busey', 'Mitchell Ryan'],
+    "11":[{'title': 'Runaway Jury',
+  'year': 2003,
+  'rating': 7.1,
+  'directors': ['Gary Fleder'],
+  'actors': ['John Cusack', 'Gene Hackman', 'Dustin Hoffman'],
+  'genres': ['Crime', 'Drama', 'Thriller']},
+ {'title': 'Lethal Weapon',
+  'year': 1987,
+  'rating': 7.6,
+  'directors': ['Richard Donner'],
+  'actors': ['Mel Gibson', 'Danny Glover', 'Gary Busey', 'Mitchell Ryan'],
+  'genres': ['Action', 'Crime', 'Thriller']}],
     "12":[('Martin Ritt', 32),
  ('Eldar Ryazanov', 31),
  ('Cecil B. DeMille', 30),
@@ -700,14 +701,19 @@ def check_cell_text(qnum, cell):
         if not math.isclose(actual, expected, rel_tol=1e-06, abs_tol=1e-06):
             expected_mismatch = True
     elif type(expected) == list:
-        extra = set(actual) - set(expected)
-        missing = set(expected) - set(actual)
-        if extra:
-            return "found unexpected entry in list: %s" % repr(list(extra)[0])
-        elif missing:
-            return "missing %d entries list, such as: %s" % (len(missing), repr(list(missing)[0]))
-        elif len(actual) != len(expected):
-            return "expected %d entries in the list but found %d" % (len(expected), len(actual))
+        try:
+            extra = set(actual) - set(expected)
+            missing = set(expected) - set(actual)
+            if extra:
+                return "found unexpected entry in list: %s" % repr(list(extra)[0])
+            elif missing:
+                return "missing %d entries list, such as: %s" % (len(missing), repr(list(missing)[0]))
+            elif len(actual) != len(expected):
+                return "expected %d entries in the list but found %d" % (len(expected), len(actual))
+        except TypeError:
+            # this happens when the list contains dicts.  Just do a simple comparison
+            if actual != expected:
+                return "expected %s" % repr(expected)
     else:
         if expected != actual:
             expected_mismatch = True

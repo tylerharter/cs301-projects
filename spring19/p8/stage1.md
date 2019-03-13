@@ -1,8 +1,13 @@
 # Stage 1: Data Plubming
 
-A lot of data science work involves *plumbing*, the process of getting
-data into a useful format.  Data plumbing is the focus of stage 1
-(stage 2 is the fun part).
+A lot of data science work often involves *plumbing*, the process of
+getting messy data into a more useful format.  Data plumbing is the
+focus of stage 1.  We'll develop and test three functions that will be
+helpful in stage 2:
+
+1. `get_mapping(path)`
+2. `get_raw_movies(path)`
+3. `get_movies(movies_path, mapping_path)`
 
 ---
 
@@ -40,34 +45,39 @@ Should print this:
 }
 ```
 
-The following questions pertain to `small_mapping.csv` and
-`small_movies.csv`, unless otherwise specified.
+Note that the mapping files DO NOT have a CSV header.
+
+The following questions pertain to `small_mapping.csv` unless
+otherwise specified.
 
 ---
 
-## Question 1: what is returned by your `get_mapping("small_mapping.csv")` function?
+#### Question 1: what is returned by your `get_mapping("small_mapping.csv")` function?
 
 In addition to displaying the result in the `Out [N]` area, keep the
 result in a variable for use in subsequent questions.
 
-## Question 2: what is the value associated with the key "tt0313542"?
+#### Question 2: what is the value associated with the key "tt0313542"?
 
 Use the dictionary returned earlier. Do not call `get_mapping` a
 second time (that would be inneficient).
 
-## Question 3: what are the values in the mapping associated with keys beginning with "tt"?
+#### Question 3: what are the values in the mapping associated with keys beginning with "tt"?
 
 Answer with a Python list.
 
-## Question 4: which keys in the mapping map to people with a first name of "Gary"?
+#### Question 4: which keys in the mapping map to people with a first name of "Gary"?
 
-Answer with a Python list.
+Answer with a Python list.  To get full points, you should write code
+that will count somebody named "gary" but will not count somebody
+named "Garyyy".
 
 ---
 
-Build a function that takes a path to a movies CSV (e.g.,
-"small_movies.csv" or "movies.csv") as an parameter and returns a list
-of dictionaries where each dictionary represents a movie as follows:
+Build a function named `get_raw_movies` that takes a path to a movies
+CSV (e.g., "small_movies.csv" or "movies.csv") as a parameter and
+returns a list of dictionaries where each dictionary represents a
+movie as follows:
 
 ```python
 { 
@@ -79,23 +89,53 @@ of dictionaries where each dictionary represents a movie as follows:
     "genres": ["genre1", "genre2", ...]
 }
 ```
-Note that the values for keys ```directors, actors``` and ```genres``` is always a list, even if it has only one element.
+
+Note that the movie files DO have a CSV header.
+
+Also note that the values for keys ```directors, actors``` and
+```genres``` is always a list, even if it has only one element.
 
 ---
 
-## Question 5:
+## Question 5: what does `get_raw_movies("small_movies.csv")` return?
 
-Using this list of dictionaries that stores relevant details about
-each movie, find out the list of actors for the 100th movie in the
-list.
+The result should be this:
+```
+[{'title': 'tt0313542',
+  'year': 2003,
+  'rating': 7.1,
+  'directors': ['nm0001219'],
+  'actors': ['nm0000131', 'nm0000432', 'nm0000163'],
+  'genres': ['Crime', 'Drama', 'Thriller']},
+ {'title': 'tt0093409',
+  'year': 1987,
+  'rating': 7.6,
+  'directors': ['nm0001149'],
+  'actors': ['nm0000154', 'nm0000418', 'nm0000997', 'nm0752751'],
+  'genres': ['Action', 'Crime', 'Thriller']}]
+```
 
-#### Question 6: 
-Using the same list, find out the list of genres associated with the 235th movie in the list.
+Also keep value returned by `get_raw_movies` in a variable.  You
+should not call the function more often than necessary.
 
+#### Question 6: how many genres did the movie at index 0 have?
 
-### Step 4: Using both files
+Use the data from Q5.
 
-Note that for the keys ```actors, directors ```and ```movie titles```, we are only able to store the IDs for the corresponding names. Build a function that replaces these IDs with their corresponding names. Input arguments to this function should be both the mapping and movies files. Each dictionary in the list should look something like:
+#### Question 7: what is the ID of the last actor listed for the move at index 1?
+
+Use the data from Q5.
+
+---
+
+Note that for the keys `actors`, `directors`, and `title`, we are only
+able to store the IDs for the corresponding names. Write a function
+named `get_movies(movies_path, mapping_path)` loads data from the
+`movies_path` file using `get_movies_raw` and converts the IDs to
+names using a mapping based on the `mapping_path` file, which you
+should load using your `get_mapping` function.
+
+Each dictionary in the list should look something like this:
 
 ```python
 { 
@@ -107,14 +147,63 @@ Note that for the keys ```actors, directors ```and ```movie titles```, we are on
     "genres": ["genre1", "genre2", ...]
 }
 ```
-Notice the difference between the previous one and this. This list of dictionaries is extremely vital for almost all of the following questions.
 
-#### Question 5
-Using this list of dictionaries that stores relevant details about each movie, find out the list of actors for the 100th movie in the list.
+Notice the difference between the previous one and this (names instead
+of IDs). This list of dictionaries is extremely vital for almost all
+of the following questions.
 
-#### Question 6
-Using the same list, find out the movie title for the 235th movie in the list.
+We recommend you get the translation from ID to name working for title
+before you start trying to translate actors and directors.
 
+After you implement your function (or implement enough of it to answer
+some of the below questions), call it and store the result in `movies`
+as follows:
+
+```python
+small = get_movies("small_movies.csv", "small_mapping.csv")
+```
+
+---
+
+#### Question 8: what is `small[0]["title"]`?
+
+Just paste `small[0]["title"]` into a cell and run it.  We're doing
+this to check that the structures in `small` (as returned by
+`get_movies` above) contain the correct data.
+
+#### Question 9: what is `small[1]["directors"]`?
+
+#### Question 10: what is `small[-1]["actors"]`?
+
+#### Question 11: what is `small`?
+
+The result should look like this:
+
+```
+[{'title': 'Runaway Jury',
+  'year': 2003,
+  'rating': 7.1,
+  'directors': ['Gary Fleder'],
+  'actors': ['John Cusack', 'Gene Hackman', 'Dustin Hoffman'],
+  'genres': ['Crime', 'Drama', 'Thriller']},
+ {'title': 'Lethal Weapon',
+  'year': 1987,
+  'rating': 7.6,
+  'directors': ['Richard Donner'],
+  'actors': ['Mel Gibson', 'Danny Glover', 'Gary Busey', 'Mitchell Ryan'],
+  'genres': ['Action', 'Crime', 'Thriller']}]
+```
+
+---
+
+If you've gotten this far, your functions must be working pretty well
+with the small data.  So let's try the full dataset!
+
+```python
+movies = get_movies("movies.csv", "mapping.csv")
+```
+
+---
 
 ### Step 5: Basic Statistics
 Using the dictionary developed above, build a function to develop the four following lists:
