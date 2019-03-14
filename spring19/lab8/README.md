@@ -22,7 +22,7 @@ nums = [1.1, 0.9, 1.2, 1.3, 0.95]
 mult = 1
 for x in nums:
     mult *= x
-result = mult ** (1/len(nums))
+result = mult ** (1/5)
 result
 ```
 
@@ -31,7 +31,7 @@ nums = [0.8, 0.7, 0.9, 0.95]
 mult = 1
 for x in nums:
     mult *= x
-result = mult ** (1/len(nums))
+result = mult ** (1/4)
 result
 ```
 
@@ -40,15 +40,16 @@ nums = [1.5, 1.4, 1.5]
 mult = 1
 for x in nums:
     mult *= x
-result = mult ** (1/len(nums))
+result = mult ** (1/3)
 result
 ```
 
 Your job is to (a) look for repetition in the above code and (b)
-identify what changes.  Then write a single function that can be used
-in all three cases.  Your general strategy is to fill the body of the
-function with the common logic (from step a) and capture the parts
-that change as parameters (from step b).  Give it a try!
+identify what parts change between the examples.  Then write a single
+function that can be used in all three cases.  Your general strategy
+should be to fill the body of the function with the common logic (from
+step a) and capture the parts that change as parameters (from step b).
+Give it a try!
 
 ### Optimizing
 
@@ -87,8 +88,8 @@ print("Winners:", count_winners(nums))
 
 The code repeatedly calls a slow function, `get_winners` (it wouldn't
 be slow normally, but we made it slow on purpose).  Your job is to
-modify the `count_winners` function so that it does the same thing,
-while calling the slow function less often.
+modify the `count_winners` function so that it does produces the same
+result while calling the slow function less often.
 
 ### Lists: remove vs. pop
 
@@ -182,7 +183,7 @@ print("total:", sum(values))
 
 Try running the following code:
 
-```
+```python
 import copy
 
 def median(nums):
@@ -200,3 +201,29 @@ print("The median is", median(values))
 print("The values are still", values)
 ```
 
+It currently prints this:
+
+```
+The values are [3, 2, 1]
+The median is 2
+The values are still [1, 2, 3]
+```
+
+But it should print this:
+
+```
+The values are [3, 2, 1]
+The median is 2
+The values are still [3, 2, 1]
+```
+
+Modify the `median` function so it uses one of the functions in the
+copy module to get a copy of nums before sorting.
+
+## Project Hints
+
+You'll need to do some conversions very similar to what we ask you to
+do in the section *Type Conversion: Version 2*.  We also create a
+scenario in the project where you'll need to create a copy of your
+data, somewhat similar to what you need to do in the *Copying*
+section.
