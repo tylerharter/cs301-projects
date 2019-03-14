@@ -17,7 +17,7 @@ The math is not important for our purposes, but the following three
 snippets all compute a geometric mean
 (https://en.wikipedia.org/wiki/Geometric_mean):
 
-```
+```python
 nums = [1.1, 0.9, 1.2, 1.3, 0.95]
 mult = 1
 for x in nums:
@@ -26,7 +26,7 @@ result = mult ** (1/5)
 result
 ```
 
-```
+```python
 nums = [0.8, 0.7, 0.9, 0.95]
 mult = 1
 for x in nums:
@@ -35,7 +35,7 @@ result = mult ** (1/4)
 result
 ```
 
-```
+```python
 nums = [1.5, 1.4, 1.5]
 mult = 1
 for x in nums:
