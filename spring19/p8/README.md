@@ -2,7 +2,7 @@
 
 ## Corrections
 
-* none (knock on wood)
+* Mar 14: the tests had questions 17 and 18 swapped, so please re-download the corrected test.py.
 
 ## Introduction
 

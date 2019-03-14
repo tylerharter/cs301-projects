@@ -145,8 +145,8 @@ expected_json = {
   'actors': ['Buck Jones', 'John Wayne', 'Edward LeSaint'],
   'genres': ['Mystery', 'Western']}],
     "16": 18,
-    "17": 1247,
-    "18": 2605,
+    "17": 2605,
+    "18": 1247,
     "19": 6.401659528907912,
     "20": 'Dr. Strangelove or: How I Learned to Stop Worrying and Love the Bomb',
 }
