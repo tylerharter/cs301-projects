@@ -1,5 +1,3 @@
-# Draft!  Don't start this project yet, because it is still being revised.
-
 # Project 8: Going to the Movies
 
 ## Corrections
