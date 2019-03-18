@@ -1,4 +1,8 @@
-# Lab 9: P8 - Stage 2
+# Lab 9: Project 8, Stage 2
+
+In this lab, you'll learn to create simple plots using dictionaries,
+decode a secret message, recurse, and take your sorting to the next
+level.  Have fun!
 
 ## Package Installation
 
@@ -138,8 +142,8 @@ plot_dict(????, "Occurrences")
 The most common letter in English is "e".  Based on your plot, can you
 guess which symbol represents the letter "e"?
 
-Bonus: improve the above code so that the y-axis shows percentage of
-symbols rather than a raw count.  For example, the plot should
+**Bonus:** improve the above code so that the y-axis shows percentage
+of symbols rather than a raw count.  For example, the plot should
 communicate that "8" represents 16% of the symbols rather merely
 reporting that "8" occurs 34 times.  *Disclaimer: the "bonus" above
 mentioned refers to the fun and satisfaction you'll obtain by doing
@@ -147,7 +151,70 @@ this exercise, rather than any actual accounting of points.*
 
 ## Binning
 
+Start by pasting the following code in a cell to setup the data:
 
+names = ["Ada", "Caitlin", "Abe", "Bobby", "Alice", "Britney", "Cindy", "Caleb"]
+
+Your job is to determine, for each letter, the average length of names
+starting with that letter.  This is a two-part task: (1) bucketize the
+names based on the first letter, and (2) run a function over each
+bucket of data to get a summary.
+
+### Step 1: Bucketize
+
+Try completing the following:
+
+```python
+buckets = {}
+
+for name in names:
+    first = name[????]
+    if not first in ????:
+        buckets[first] = [] # empty list
+    buckets[????].append(????)
+
+buckets
+```
+
+If you complete the above correctly, `buckets` will contain the following dict of lists:
+
+```python
+{'A': ['Ada', 'Abe', 'Alice'],
+ 'C': ['Caitlin', 'Cindy', 'Caleb'],
+ 'B': ['Bobby', 'Britney']}
+```
+
+### Step 2: Stats per Bucket
+
+Now complete the following:
+
+```python
+def avg_len(names):
+    total = 0
+    for name in names:
+        ???? += len(name)
+    return total / len(????)
+
+summary = {}
+for k in buckets:
+    summary[k] = avg_len(buckets[????])
+
+summary
+```
+
+Your goal is for `summary` to be a dictionary where a key is the first
+letter of a name, and the corresponding value is the average length of
+the names starting with that letter, like this:
+
+```python
+{'A': 3.6666666666666665, 'C': 5.666666666666667, 'B': 6.0}
+```
+
+Try visualizing your result:
+
+```python
+plot_dict(summary, "Avg Name Length")
+```
 
 ## Recursion
 
@@ -155,6 +222,9 @@ this exercise, rather than any actual accounting of points.*
 
 ## Function References
 
-
+Note, if you're working ahead on this lab because you're bored during
+spring break, you may wish to leave these last couple sections until
+we've covered function references in class.
 
 ## Sorting
+
