@@ -16,7 +16,7 @@ def fetchNetIds():
     rows = json.loads(response['Body'].read().decode('utf-8'))
     return [row['net_id'] for row in rows]
 
-class dockerGrader:
+class DockerGrader:
     def __init__(self, project, netId, logger):
         self.project = project
         self.netId = netId
@@ -29,6 +29,11 @@ class dockerGrader:
 
         self.submissionKey = ACCESS_KEY.format(project=self.project, googleId=self.googleId)
         self.uploadKey = UPLOAD_KEY.format(project=self.project, netId=self.netId)
+
+        # for reporting latency of run
+        self.start_time = 0
+        self.end_time = 0
+        self.logs = "no logs"
 
         self.testDir = TEST_DIR.format(netId=netId)
 
@@ -108,7 +113,11 @@ class dockerGrader:
                 with open("{}/result.json".format(self.testDir), "r") as fr:
                     serializedResult = fr.read()
             except:
-                serializedResult = json.dumps({"score":0, "error": "result not found"})
+                result = {"score":0,
+                          "error": "result.json not found",
+                          "latency": self.end_time - self.start_time,
+                          "logs": self.logs.decode("ascii").split("\n")}
+                serializedResult = json.dumps(result, indent=2)
         return serializedResult
 
     # Upload Functions
@@ -194,20 +203,33 @@ class dockerGrader:
 
         # run tests inside a docker container
         image = 'grader' # build with docker build . -t grader
-        cmd = ['timeout', '300',                           # set a timeout
-               'docker', 'run',                           # start a container
-               '--rm',                                    # remove the container when exit
-               '-v', os.path.abspath(self.testDir)+':/code',  # share the test dir inside
+        cmd = ['docker', 'run',                                # start a container
+               '-d',                                           # detach
+               '-v', os.path.abspath(self.testDir)+':/code',   # share the test dir inside
                '-u', str(self.currentUID),                     # run as local user (instead of root)
                '-w', '/code',                             # working dir is w/ code
                image,                                     # what docker image?
-               'timeout', '15',
+               'timeout', '60',
                'python3', test]                      # command to run inside
-        print("CMD: " + " ".join(cmd))
-        try:
-            subprocess.check_output(cmd).decode("ascii").replace("\n","")
-        except Exception as e:
-            self.logger.warning("docker run returns non-zero error code")
+        self.start_time = time.time()
+
+        print("RUN: " + " ".join(cmd))
+        self.containerId = subprocess.check_output(cmd).decode("ascii").replace("\n","")
+        print("CONTAINER", self.containerId)
+
+        cmd = ["docker", "wait", self.containerId]
+        print("RUN", " ".join(cmd))
+        status = subprocess.check_output(cmd)
+        self.end_time = time.time()
+
+        # get results and cleanup
+        cmd = ["docker", "logs", self.containerId]
+        print("RUN", " ".join(cmd))
+        subprocess.check_output(cmd)
+        self.logs = subprocess.check_output(cmd, stderr=subprocess.STDOUT)
+        subprocess.check_output(["docker", "rm", self.containerId])
+        
+        #print(logs)
 
         if upload:
             self.uploadResult()
@@ -229,7 +251,7 @@ class dockerGrader:
             scoreNew = self.tryExtractResultScore(resultNew)
             # only upload if new score is better
             self.logger.info("old score: {}, new score: {}".format(scoreOld, scoreNew))
-            if scoreOld == None or scoreNew > scoreOld:
+            if scoreOld == None or scoreOld == 0 or scoreNew > scoreOld:
                 self.logger.info('Uploading new score')
                 self.uploadResult()
             self.logger.debug("new test results:")
@@ -256,7 +278,7 @@ def main():
         for net_id in net_ids:
             logger.info('========================================')
             logger.info('PROJECT={}, NETID={}'.format(project_id, net_id))
-            grader = dockerGrader(project_id, net_id, logger)
+            grader = DockerGrader(project_id, net_id, logger)
             for test in grader.listTestScripts():
                 grader.dockerRunSafe(test=test)
 
