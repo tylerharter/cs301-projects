@@ -1,5 +1,224 @@
 # Draft!  Don't start this stage yet, because it is still being revised.
 
+# Stage 2: Bucketing and Summarizing
+
+In stage 1, you took data in a cumbersome form (everything was a
+string and the data contained IDs instead of names) and converted it
+to something more useful, namely lists of movie dictionaries.  In this
+stage, you'll be doing analysis on data in that more useful form.
+Much of your analysis will take the form of categorizing (aka
+bucketing) movies, then computing simple stats over each bucket.  Some
+movies will belong to multiple buckets (for example, a movie with
+multiple genres, in the case that we're categorizing by genre).
+
+You'll need to re-download `test.py` to begin this stage.  Note that
+some questions involve creating plots.  Our tests can only detect the
+whether a plot has been created, not whether the plot matches our
+requirements, so double check for yourself that the plots look correct
+to avoid deductions during code review.
+
+## Implementing the `bucketize` Function
+
+Implement the following function:
+
+```python
+def bucketize(movie_list, movie_key):
+    # TODO: return dict of lists of movie dicts
+```
+
+The `movie_list` parameter accepts a list of dictionaries, such as
+those in the `movies` or `small` variables from stage 1.  To refresh
+your memory, `small` should look like this:
+
+```
+[{'title': 'Runaway Jury',
+  'year': 2003,
+  'rating': 7.1,
+  'directors': ['Gary Fleder'],
+  'actors': ['John Cusack', 'Gene Hackman', 'Dustin Hoffman'],
+  'genres': ['Crime', 'Drama', 'Thriller']},
+ {'title': 'Lethal Weapon',
+  'year': 1987,
+  'rating': 7.6,
+  'directors': ['Richard Donner'],
+  'actors': ['Mel Gibson', 'Danny Glover', 'Gary Busey', 'Mitchell Ryan'],
+  'genres': ['Action', 'Crime', 'Thriller']}]
+```
+
+The `movie_key` parameter should refer to some key that exists in
+every dictionary in `movie_list`.  For example, for the above
+dictionaries, `movie_key` might contain "title", "year", "actors",
+etc.
+
+The result returned by the `bucketize` should be a dictionary of
+lists.  The **keys** of the result dictionary should be the values of
+the `movie_list` dictionaries that are looked up by `movie_key`.  For
+example, if `movies_list` refers to the `small` data shown above and
+`movie_key` is "year", then the keys in the returned dictionary will
+be 2003 and 1987 because `movies_list[0][movie_key]` is 2003 and
+`movies_list[1][movie_key]` is 1987.
+
+The **values** of the returned dictionary will be lists of movie
+dictionaries from `movies_list`.  For example, suppose the following
+call is made:
+
+```python
+buckets = bucketize(small, "year")
+```
+
+In this case, `bucktes[2003]` will be a list of movie dicts for the
+movies made in 2003 (in this case, just *Runaway Jury*).  Concretely,
+`buckets` should be the following:
+
+```python
+{2003: [{'title': 'Runaway Jury',
+   'year': 2003,
+   'rating': 7.1,
+   'directors': ['Gary Fleder'],
+   'actors': ['John Cusack', 'Gene Hackman', 'Dustin Hoffman'],
+   'genres': ['Crime', 'Drama', 'Thriller']}],
+ 1987: [{'title': 'Lethal Weapon',
+   'year': 1987,
+   'rating': 7.6,
+   'directors': ['Richard Donner'],
+   'actors': ['Mel Gibson', 'Danny Glover', 'Gary Busey', 'Mitchell Ryan'],
+   'genres': ['Action', 'Crime', 'Thriller']}]}
+```
+
+**Special Case:** if `m[movie_key]` for a movie `m` in `movie_list` is
+a list, then `m` should end up in multiple lists in the returned
+dictionary.  For example, suppose this code is run:
+
+```python
+buckets = bucketize(small, "genres")
+```
+
+In this case, `buckets["Crime"]`, `buckets["Drama"]`, and
+`buckets["Thriller"]` will all contain the movie dict for *Runaway
+Jury*, because that movie has three categories and therefore belongs
+in multiple categories.
+
+The first couple questions just involve testing your `bucketize`
+function, which should work with any list of dicts (even those not
+technically describing movies).  To get some test data, paste the
+following cell:
+
+```python
+test_movies = [
+{"title": "A", "year": 2018, "style": "short", "genres": ["g1"]},
+{"title": "B", "year": 2018, "style": "long",  "genres": ["g2"]},
+{"title": "C", "year": 2019, "style": "short", "genres": ["g3"]},
+{"title": "D", "year": 2019, "style": "long", "genres": ["g1", "g2", "g3"]},
+]
+```
+
+#### Question 21: what is `bucketize(test_movies, "year")`?
+
+Expected answer:
+
+```
+{2018: [{'title': 'A', 'year': 2018, 'style': 'short', 'genres': ['g1']},
+  {'title': 'B', 'year': 2018, 'style': 'long', 'genres': ['g2']}],
+ 2019: [{'title': 'C', 'year': 2019, 'style': 'short', 'genres': ['g3']},
+  {'title': 'D', 'year': 2019, 'style': 'long', 'genres': ['g1', 'g2', 'g3']}]}
+```
+
+Note that the *A* and *B* dictionaries are in the 2018 bucket and *C*
+and *D* are in the 2019 bucket.
+
+#### Question 22: what is `bucketize(test_movies, "style")`?
+
+Expected answer:
+
+```
+{'short': [{'title': 'A', 'year': 2018, 'style': 'short', 'genres': ['g1']},
+  {'title': 'C', 'year': 2019, 'style': 'short', 'genres': ['g3']}],
+ 'long': [{'title': 'B', 'year': 2018, 'style': 'long', 'genres': ['g2']},
+  {'title': 'D', 'year': 2019, 'style': 'long', 'genres': ['g1', 'g2', 'g3']}]}
+```
+
+#### Question 23: what is `bucketize(test_movies, "genres")`?
+
+Expected answer:
+
+```
+{'g1': [{'title': 'A', 'year': 2018, 'style': 'short', 'genres': ['g1']},
+  {'title': 'D', 'year': 2019, 'style': 'long', 'genres': ['g1', 'g2', 'g3']}],
+ 'g2': [{'title': 'B', 'year': 2018, 'style': 'long', 'genres': ['g2']},
+  {'title': 'D', 'year': 2019, 'style': 'long', 'genres': ['g1', 'g2', 'g3']}],
+ 'g3': [{'title': 'C', 'year': 2019, 'style': 'short', 'genres': ['g3']},
+  {'title': 'D', 'year': 2019, 'style': 'long', 'genres': ['g1', 'g2', 'g3']}]}
+```
+
+This one is tricky!  Notice how movie *D* shows up in all three
+buckets because we're bucketizing by genre, and *D* is falls under all
+three genre categories.
+
+#### Question 24: what is `bucketize(small, "genres")`?
+
+Remember that `small` is where we stored the value returned by
+`get_movies` in stage 1 when we loaded data from the
+"small_movies.csv" file.
+
+Expected answer:
+
+```
+{'Crime': [{'title': 'Runaway Jury',
+   'year': 2003,
+   'rating': 7.1,
+   'directors': ['Gary Fleder'],
+   'actors': ['John Cusack', 'Gene Hackman', 'Dustin Hoffman'],
+   'genres': ['Crime', 'Drama', 'Thriller']},
+  {'title': 'Lethal Weapon',
+   'year': 1987,
+   'rating': 7.6,
+   'directors': ['Richard Donner'],
+   'actors': ['Mel Gibson', 'Danny Glover', 'Gary Busey', 'Mitchell Ryan'],
+   'genres': ['Action', 'Crime', 'Thriller']}],
+ 'Drama': [{'title': 'Runaway Jury',
+   'year': 2003,
+   'rating': 7.1,
+   'directors': ['Gary Fleder'],
+   'actors': ['John Cusack', 'Gene Hackman', 'Dustin Hoffman'],
+   'genres': ['Crime', 'Drama', 'Thriller']}],
+ 'Thriller': [{'title': 'Runaway Jury',
+   'year': 2003,
+   'rating': 7.1,
+   'directors': ['Gary Fleder'],
+   'actors': ['John Cusack', 'Gene Hackman', 'Dustin Hoffman'],
+   'genres': ['Crime', 'Drama', 'Thriller']},
+  {'title': 'Lethal Weapon',
+   'year': 1987,
+   'rating': 7.6,
+   'directors': ['Richard Donner'],
+   'actors': ['Mel Gibson', 'Danny Glover', 'Gary Busey', 'Mitchell Ryan'],
+   'genres': ['Action', 'Crime', 'Thriller']}],
+ 'Action': [{'title': 'Lethal Weapon',
+   'year': 1987,
+   'rating': 7.6,
+   'directors': ['Richard Donner'],
+   'actors': ['Mel Gibson', 'Danny Glover', 'Gary Busey', 'Mitchell Ryan'],
+   'genres': ['Action', 'Crime', 'Thriller']}]}
+```
+
+#### Question 25: how many different unique actors appear in the `small` dataset?
+
+Hint: `bucketize(small, "actors")` bucketizes movies based on actors,
+so the number of buckets will correspond to the number of unique
+actors.  In other words, `len(bucketize(small, "actors"))` is the
+number of unique actors.
+
+**Note, for all remaining questions, answer with respect to the full
+dataset referenced by the `movies` variable (we'll ask nothing more regarding `small` or `test_movies`).**
+
+
+TODO
+- counting buckets
+- counting values in buckets (+plots)
+- counting values in buckets with filter (+plots)
+- year spread per actor/director
+- median rating per actor/director with spread >= 10 years
+
 ## Week2
 
 Over the span of this portion, we will be using the list of movie dictionaires we created in Step 4 of Week 1 to derive some interesting insights from the dataset provided.
