@@ -141,18 +141,18 @@ plot_dict(????, "Occurrences")
 The most common letter in English is "e".  Based on your plot, can you
 guess which symbol represents the letter "e"?
 
-**Bonus:** improve the above code so that the y-axis shows percentage
+**Challenge:** improve the above code so that the y-axis shows percentage
 of symbols rather than a raw count.  For example, the plot should
 communicate that "8" represents 16% of the symbols rather merely
-reporting that "8" occurs 34 times.  *Disclaimer: the "bonus" above
-mentioned refers to the fun and satisfaction you'll obtain by doing
-this exercise, rather than any actual accounting of points.*
+reporting that "8" occurs 34 times.
 
 ## Binning
 
 Start by pasting the following code in a cell to setup the data:
 
+```python
 names = ["Ada", "Caitlin", "Abe", "Bobby", "Alice", "Britney", "Cindy", "Caleb"]
+```
 
 Your job is to determine, for each letter, the average length of names
 starting with that letter.  This is a two-part task: (1) bucketize the
@@ -262,7 +262,7 @@ def reverse(s):
 
 Hints:
 * using indexing and slicing on s
-* notice that "ABCD" reversed is "BCD" reversed, concatenated with "A"
+* notice that "ABCD" reversed is "BCD" reversed (i.e., "DCB"), concatenated with "A"
 
 Try your function with a few strings.
 
@@ -272,11 +272,14 @@ Write a function that reverses a list.  So, for example,
 `list_rev([1,2,3])` should return `[3,2,1]`.  Both lists and strings
 are sequences, so the code should be very similar to your string
 reversal function.  In fact, we recommend you start by copying that
-code, calling it with a list, then identifying the one reason the
-above code doesn't work for lists.
+code, calling it with a list, then identifying the one reason the your
+previous function doesn't work for lists as well as strings.
 
-Hint: * `[1,2,3]+4` is invalid, but `[1,2,3]+[4]` performs list
-concatenation.
+Hint:
+* `[1,2,3]+4` is invalid, but `[1,2,3]+[4]` performs list concatenation.
+
+**Challenge:** can you devise a single function that works for all
+  types of sequences, including strings, lists, and tuples?
 
 ### Problem 4: Dictionary Printer
 
@@ -325,7 +328,7 @@ def hello():
 def bye():
     print("chao")
 
-f = hello
+f = hello # look carefully!  We're not calling hello, because there are no parentheses
 f()
 f = bye
 f()
