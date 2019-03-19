@@ -1,8 +1,7 @@
-# Lab 9: Project 8, Stage 2
+# Lab 9: Project 8 (Stage 2)
 
-In this lab, you'll learn to create simple plots using dictionaries,
-decode a secret message, recurse, and take your sorting to the next
-level.  Have fun!
+In this lab, you'll learn to create simple plots, decode a secret
+message, and recurse.  Have fun!
 
 ## Package Installation
 
@@ -313,8 +312,62 @@ G => 5
 ## Function References
 
 Note, if you're working ahead on this lab because you're bored during
-spring break, you may wish to leave these last couple sections until
-we've covered function references in class.
+spring break, you may wish to leave this last section until we've
+covered function references in class.
 
-## Sorting
+Try running the following code and see what happens (try running in
+Python Tutor too, if that helps):
 
+```python
+def hello():
+    print("hola")
+
+def bye():
+    print("chao")
+
+f = hello
+f()
+f = bye
+f()
+f()
+f = hello
+f()
+f()
+f()
+```
+
+Now try filling in the blanks in the following code:
+
+```python
+def hello():
+    print("hola")
+
+def bye():
+    print("chao")
+
+def good_afternoon():
+    print("buenas tardes")
+
+f = ????
+for i in range(????):
+    f()
+
+f = ????
+f()
+
+f = ????
+for i in range(????):
+    f()
+```
+
+Your goal is to get the following output:
+
+```
+hola
+hola
+hola
+hola
+buenas tardes
+chao
+chao
+```
