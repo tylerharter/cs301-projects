@@ -208,16 +208,67 @@ so the number of buckets will correspond to the number of unique
 actors.  In other words, `len(bucketize(small, "actors"))` is the
 number of unique actors.
 
-**Note, for all remaining questions, answer with respect to the full
-dataset referenced by the `movies` variable (we'll ask nothing more regarding `small` or `test_movies`).**
+#### Question 26: how many unique genres appear in the full dataset?
 
+**Note:** for this and all remaining questions, answer with respect to
+the full dataset referenced by the `movies` variable (we'll ask
+nothing more regarding `small` or `test_movies`).**
+
+#### Question 27: how many movies are there of each genre?
+
+Answer with a dictionary where each key is a genre and each value is
+how many movies have that genre, like this:
+
+```
+{'Comedy': 485,
+ 'Drama': 1094,
+ 'Romance': 352,
+ 'History': 73,
+ 'Family': 85,
+ 'Mystery': 121,
+ 'Thriller': 250,
+ 'Action': 299,
+ 'Crime': 357,
+ 'Adventure': 283,
+ 'Western': 226,
+ 'Music': 38,
+ 'Animation': 45,
+ 'Sport': 48,
+ 'Fantasy': 59,
+ 'War': 99,
+ 'Sci-Fi': 69,
+ 'Horror': 85}
+```
+
+Hint: many of these questions can be reframed as questions about buckets.  For example:
+* how many buckets are there?
+* how many items are there in each bucket?
+
+#### Question 28: how many movies are there of each genre? (plot your answer)
+
+Yes, this is the same as q27, but now you must answer with a plot
+rather than a dictionary.  Your plot should look like this:
+
+<img src="genre_count.png" width="400">
+
+Note for plot-based, the tests are only checking that a plot exists.
+If a plot is not correct, your reviewer will manually deduct points.
+
+#### Question 29: how many movies are there of each genre, prior to 2000? (plot your answer)
+
+#### Question 30: how many movies are there of each genre, in or after 2000? (plot your answer)
+
+Take a moment to compare the this and the previous plots.  What can
+you infer?  What genres have grown in popularity?  Which ones have
+fallen out of favor in recent years?
 
 TODO
 - counting buckets
 - counting values in buckets (+plots)
 - counting values in buckets with filter (+plots)
 - year spread per actor/director
-- median rating per actor/director with spread >= 10 years
+- median rating per year with > 10 movies
+- best 5 years for movies
 
 ## Week2
 
