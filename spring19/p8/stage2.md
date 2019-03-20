@@ -212,7 +212,7 @@ number of unique actors.
 
 **Note:** for this and all remaining questions, answer with respect to
 the full dataset referenced by the `movies` variable (we'll ask
-nothing more regarding `small` or `test_movies`).**
+nothing more regarding `small` or `test_movies`).
 
 #### Question 27: how many movies are there of each genre?
 
@@ -243,6 +243,8 @@ how many movies have that genre, like this:
 Hint: many of these questions can be reframed as questions about buckets.  For example:
 * how many buckets are there?
 * how many items are there in each bucket?
+
+Of what variety is q27?
 
 #### Question 28: how many movies are there of each genre? (plot your answer)
 
@@ -341,187 +343,49 @@ def top_n_span(buckets, n):
 
 Answer with the same format as above.
 
-TODO
-- counting buckets
-- counting values in buckets (+plots)
-- counting values in buckets with filter (+plots)
-- year spread per actor/director
-- median rating per year with > 10 movies
-- best 5 years for movies
+#### Question 36: what are the three genres in which movies receive the highest median rating?
 
-## Week2
+Answer with a list of length ten, containing dictionaries detailing
+the category (which genre), rating (the median for that genre), and count
+(number of movies in that genre).  It should look like this, with the
+best-rated genres first:
 
-Over the span of this portion, we will be using the list of movie dictionaires we created in Step 4 of Week 1 to derive some interesting insights from the dataset provided.
+```
+[{'category': 'Animation', 'rating': 7.3, 'count': 45},
+ {'category': 'History', 'rating': 6.7, 'count': 73},
+ {'category': 'War', 'rating': 6.7, 'count': 99}]
+```
 
-<!--
-### Step 1 : Career Activity of Actors and Directors
-Build a function that takes in the following inputs:
-  - List of movie dictionaries built in Step 4 of week1
-  - use case: String variable that can be "actors" or "directors" depending on use case
-  - start : List start index used to slice the sorted list
-  - end: List end index used to slice the sorted list
-The function should return a list of tuples that that indicate the number of movies that each actor(or director, depending on use case). has been involved in. If you run the function with appropriate parameters, it should return something like:
-```python
->>>career_span(movie_dict, "directors", 0, 10)
->>>[('John Ford', 21),
- ('Henry Hathaway', 19),
- ('George B. Seitz', 15),
- ('Robert N. Bradbury', 13),
- ('Budd Boetticher', 12),
- ('George Marshall', 12),
- ('Charles Chaplin', 11),
- ('Stanley Kubrick', 11),
- ('Edwin L. Marin', 11),
- ('George Sherman', 11)]
- ```
->**Hint:** Build a function that iterates over all the movies in the list of dictionaries and keeps a simple count of the number of instances where a director appears. Sort this dictionary using the ```dictionary_sort()``` function provided.
-#### Question 10
-Return the list top 5 actors who have appeared on the maximum number of movies, while using the function built above.
-#### Question 11
-Return the list top 5 directors who have directed the maximum number of movies, while using the function built above.
-#### Question 12
-By using proper ```start``` and ```end``` parameters, return the 6th highest to 12th highest actors in terms of the number of movies they have acted in.
+#### Question 37: what were the 10 best years for movies?
 
--->
+By "best", we mean having the highest median movie rating (this is
+true for the following questions too).  Consider refactoring your code
+from q36 into a function to answer this with a single call.  The
+output should follow the same format, but now categories are years
+instead of genres, like this:
 
-### Step 1 : Movies per year
+```
+[{'category': 1921, 'rating': 8.3, 'count': 1},
+ {'category': 1925, 'rating': 8.2, 'count': 1},
+ {'category': 1919, 'rating': 7.5, 'count': 1},
+ {'category': 1923, 'rating': 7.3, 'count': 2},
+ {'category': 1962, 'rating': 7.2, 'count': 17},
+ {'category': 1964, 'rating': 7.1, 'count': 19},
+ {'category': 1957, 'rating': 7.0, 'count': 24},
+ {'category': 1985, 'rating': 7.0, 'count': 17},
+ {'category': 1976, 'rating': 7.0, 'count': 17},
+ {'category': 1963, 'rating': 6.95, 'count': 10}]
+```
 
-Build a function that takes in the following inputs:
+What do you notice about the number of movies in the highest-rated
+years?  Think about whether we're using the best metric to identify
+the best years.
 
-  - List of movie dictionaries built in Step 4 of week1
-  - year as integer
-  
- The function should return the number of movies made in a specific year as an integer.
- 
- #### Question 10
- Return the number of movies made in the year 2000
- 
- #### Question 11
- Return the number of movies made in the year 1940
- 
- #### Question 12
- Return the year from the decade beginning 1990 in which the maximum movies were made. 
+#### Question 38: what were the 5 best years for movies, if we only consider years with at least 10 movies?
 
+Can you add a parameter to a previously created function to deal with
+this extra constraint (i.e., a minimum number of movies)?
 
+#### Question 39: who are the 6 best directors, if we only count directors having at least 3 movies?
 
-
-### Step 2 : Career Span of Actors and Directors
-
-Build a function that takes in the following inputs:
-
-  - List of movie dictionaries built in Step 4 of week1
-  - use case: String variable that can be "actors" or "directors" depending on use case
-  - start : List start index used to slice the sorted list
-  - end: List end index used to slice the sorted list
-
-The function should return a list of tuples that that indicate the career span of each actor(or director, depending on use case). If you run the function with appropriate parameters, it should return something like:
-
-```python
->>>career_span(movie_dict, "actors", 0, 10)
->>>[('Mickey Rooney', 75),
- ('Anthony Quinn', 61),
- ('George Burns', 60),
- ('Dean Stockwell', 53),
- ('Glenn Ford', 52),
- ('James Caan', 52),
- ('Robert Mitchum', 51),
- ('Kurt Russell', 50),
- ('Robert De Niro', 49),
- ('Marlon Brando', 49)]
- ```
-The output shown above simply means that Mickey Romney has acted for 75 years, Anthony Quinn for 61 years and so on.
-
-#### Question 13
-Return the list top 5 actors who have had the longest career spans, while using the function built above.
-
-
-#### Question 14
-Return the list top 5 directors who have had the longest career spans, while using the function built above.
-
-
-#### Question 15
-By using proper ```start``` and ```end``` parameters, return the 9th highest to 15th highest directors in terms of their career spans.
-
-
-### Step 3: Genre Specific Movies
-
-Build a function that takes in the following inputs:
-
-  - List of movie dictionaries built in Step 4 of week1
-  - Genre Category as a string
- 
-The function should return a list of all the movies that is associated with that genre. 
-
-> *Hint*: While iterating through the movie list, keep updating a dictionary whose key values are all the genres and corresponding value is a list of all the movies associated with it. Upon completion, you can use the second argument for the function as a key value to retrieve the associated movie list.
-
-
-Upon running the function with appropriate parameters, one should get an output similar to this:
-```python
->>>genre_list(movie_dict, "Horror")
->>>['Hide and Seek',
- 'Enemy from Space',
- 'Night Train',
- 'Haunted Gold',
- "Soul's Midnight",
- 'Creeper',
- 'Repossessed',
- 'The Night Walker',
- 'The Changeling',
- 'Garden of the Dead',
- 'The Quatermass Xperiment',
- 'Solstice',
- 'John Dies at the End',
- 'I Spit on Your
- ...
- ...
- ]
- ```
- 
- 
-#### Question 16
-Return the list of all movies associated with the genre "Action".
-
-
-#### Question 17
-
-Return the list of all movies associated with the genre "Thriller".
-
- 
-### Step 4: Best Years of Movie
-
-
-Build a function that takes in the following inputs:
-
-  - List of movie dictionaries built in Step 4 of week 1
-  - start : List start index used to slice the sorted list
-  - end: List end index used to slice the sorted list
-  
-The function should return a list of tuples that are sorted on the basis of the average rating of all movies released in a specific year. 
-
-If you run the function with appropriate parameters, the output should look something like:
-```python
->>>year_ratings(movie_dict,0,10)
->>>[(1921, 8.3),
- (1925, 8.2),
- (1919, 7.5),
- (1923, 7.3),
- (1962, 7.17),
- (1964, 7.16),
- (1928, 7.0),
- (1957, 6.91),
- (1947, 6.91),
- (1940, 6.9)]
- ```
- 
-You can use the ```dictionary_sort()``` function.
-Note: The average rating can be calculated as the ratio of sum of ratings of all movies released in a year and the number of movies released in that specific year.
- 
-#### Question 18
-Return the top 5 years of movie based on average rating
-
-#### Question 19
-Return the worst 5 years of movie based on average rating
-
-#### Question 20
-Return the top 7th to 15th years of movie based on average rating
- 
+#### Question 40: who are the 5 best actors, if we only count actors having at least 5 movies?
