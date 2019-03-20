@@ -262,6 +262,85 @@ Take a moment to compare the this and the previous plots.  What can
 you infer?  What genres have grown in popularity?  Which ones have
 fallen out of favor in recent years?
 
+#### Question 31: how many movies have there been per year, since (and including) 2000? (plot your answer)
+
+Hint: if you've written a general function to help with the previous
+questions and you've kept the relevant data in a variable, you can
+answer this with one simple line of code.
+
+#### Question 32: what are the directing career spans of the directors who have directed for at least 30 years?
+
+The span is the difference in years between year of the first movie
+they directed and the last one they directed.  Answer with a
+dictionary mapping name to years worked.  It should look like this:
+
+```
+{'Howard Hawks': 42,
+ 'Charles Chaplin': 34,
+ 'Henry Hathaway': 36,
+ 'Stanley Kubrick': 46,
+ 'Taylor Hackford': 32,
+ 'Cecil B. DeMille': 30,
+ 'Lee H. Katzin': 30,
+ 'Richard Fleischer': 32,
+ 'Sidney Lumet': 33,
+ 'George Sherman': 33,
+ 'John Huston': 30,
+ 'Robert Siodmak': 30,
+ 'Eldar Ryazanov': 31,
+ 'Martin Ritt': 32}
+```
+
+#### Question 33: what are the acting career spans of the actors who have acted for at least 40 years?
+
+#### Question 34: who are the 10 directors with the longest careers?
+
+Answer with a list of dictionaries, such that each dictionary specifies a name and span, like this:
+
+```
+[{'name': 'Mickey Rooney', 'span': 75},
+ {'name': 'Anthony Quinn', 'span': 61},
+ {'name': 'George Burns', 'span': 60},
+ {'name': 'Dean Stockwell', 'span': 53},
+ {'name': 'Glenn Ford', 'span': 52},
+ {'name': 'James Caan', 'span': 52},
+ {'name': 'Robert Mitchum', 'span': 51},
+ {'name': 'Kurt Russell', 'span': 50},
+ {'name': 'Robert De Niro', 'span': 49},
+ {'name': 'Marlon Brando', 'span': 49}]
+```
+
+This is a little tricky, so we'll sketch out a part of a function for
+you to complete that will help you find the answer:
+
+```python
+def row_ranking(row):
+    return row["span"]
+
+def top_n_span(buckets, n):
+    # TODO: spans should be a dictionary mapping name to career span
+    spans = ????
+    rows = []
+    for name in spans:
+        span = ????
+        rows.append({"name": name, "span": span})
+
+    # we want to sort the rows so that those with the biggest spans
+    # are first.  Notice that we aren't calling row_ranking, but rather
+    # passing a reference to this function to the sort method.  The sort
+    # method uses this function to determine how to rank the rows.
+    # 
+    # we do a reverse sort because we want the biggest spans first,
+    # not last
+    rows.sort(key=row_ranking, reverse=True)
+
+    # TODO: return a slice of the rows
+```
+
+#### Question 35: who are the 10 directors with the longest careers?
+
+Answer with the same format as above.
+
 TODO
 - counting buckets
 - counting values in buckets (+plots)
