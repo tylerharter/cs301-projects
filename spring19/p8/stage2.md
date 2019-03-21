@@ -1,5 +1,3 @@
-# Draft!  Don't start this stage yet, because it is still being revised.
-
 # Stage 2: Bucketing and Summarizing
 
 In stage 1, you took data in a cumbersome form (everything was a
@@ -203,7 +201,7 @@ Expected answer:
 
 #### Question 25: how many different unique actors appear in the `small` dataset?
 
-Hint: `bucketize(small, "actors")` bucketizes movies based on actors,
+**Hint:** `bucketize(small, "actors")` bucketizes movies based on actors,
 so the number of buckets will correspond to the number of unique
 actors.  In other words, `len(bucketize(small, "actors"))` is the
 number of unique actors.
@@ -211,8 +209,8 @@ number of unique actors.
 #### Question 26: how many unique genres appear in the full dataset?
 
 **Note:** for this and all remaining questions, answer with respect to
-the full dataset referenced by the `movies` variable (we'll ask
-nothing more regarding `small` or `test_movies`).
+the full dataset referenced by the `movies` variable from stage 1
+(we'll ask nothing more regarding `small` or `test_movies`).
 
 #### Question 27: how many movies are there of each genre?
 
@@ -240,7 +238,7 @@ how many movies have that genre, like this:
  'Horror': 85}
 ```
 
-Hint: many of these questions can be reframed as questions about buckets.  For example:
+**Hint:** many of these questions can be reframed as questions about buckets.  For example:
 * how many buckets are there?
 * how many items are there in each bucket?
 
@@ -260,13 +258,13 @@ If a plot is not correct, your reviewer will manually deduct points.
 
 #### Question 30: how many movies are there of each genre, in or after 2000? (plot your answer)
 
-Take a moment to compare the this and the previous plots.  What can
-you infer?  What genres have grown in popularity?  Which ones have
-fallen out of favor in recent years?
+Take a moment to compare this and the previous plot.  What can you
+infer?  What genres have grown in popularity?  Which ones have fallen
+out of favor in recent years?
 
 #### Question 31: how many movies have there been per year, since (and including) 2000? (plot your answer)
 
-Hint: if you've written a general function to help with the previous
+**Hint:** if you've written a general function to help with the previous
 questions and you've kept the relevant data in a variable, you can
 answer this with one simple line of code.
 
@@ -274,7 +272,7 @@ answer this with one simple line of code.
 
 The span is the difference in years between year of the first movie
 they directed and the last one they directed.  Answer with a
-dictionary mapping name to years worked.  It should look like this:
+dictionary, mapping name to years worked.  It should look like this:
 
 ```
 {'Howard Hawks': 42,
@@ -312,8 +310,8 @@ Answer with a list of dictionaries, such that each dictionary specifies a name a
  {'name': 'Marlon Brando', 'span': 49}]
 ```
 
-This is a little tricky, so we'll sketch out a part of a function for
-you to complete that will help you find the answer:
+This is a little tricky, so we'll sketch out part of a function for
+you to get you close:
 
 ```python
 def row_ranking(row):
@@ -345,10 +343,10 @@ Answer with the same format as above.
 
 #### Question 36: what are the three genres in which movies receive the highest median rating?
 
-Answer with a list of length ten, containing dictionaries detailing
-the category (which genre), rating (the median for that genre), and count
-(number of movies in that genre).  It should look like this, with the
-best-rated genres first:
+Answer with a list of length three, containing dictionaries detailing
+the category (which genre), rating (the median for that genre), and
+count (number of movies in that genre).  It should look like this,
+with the best-rated genres first:
 
 ```
 [{'category': 'Animation', 'rating': 7.3, 'count': 45},
@@ -378,8 +376,8 @@ instead of genres, like this:
 ```
 
 What do you notice about the number of movies in the highest-rated
-years?  Think about whether we're using the best metric to identify
-the best years.
+years?  Is the highest median a good metric for best, or can you think
+of a better metric?
 
 #### Question 38: what were the 5 best years for movies, if we only consider years with at least 10 movies?
 
@@ -388,4 +386,4 @@ this extra constraint (i.e., a minimum number of movies)?
 
 #### Question 39: who are the 6 best directors, if we only count directors having at least 3 movies?
 
-#### Question 40: who are the 5 best actors, if we only count actors having at least 5 movies?
+#### Question 40: who are the 3 best actors, if we only count actors having at least 5 movies?
