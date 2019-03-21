@@ -1,7 +1,7 @@
 # Lab 9: Project 8 (Stage 2)
 
 In this lab, you'll learn to create simple plots, decode a secret
-message, and recurse.  Have fun!
+message, and take your sorting to the next level.  Have fun!
 
 ## Package Installation
 
@@ -215,103 +215,6 @@ Try visualizing your result:
 plot_dict(summary, "Avg Name Length")
 ```
 
-## Recursion
-
-As we learned in class, a function is recursive when it calls itself,
-directly or indirectly.  We'll give you some practice here completing
-some recursive code.
-
-### Problem 1: Factorial
-
-Yes, we did this in class, but see if you can complete it from memory
-(or by deducing the answer) before referring back to your notes:
-
-```python
-def fact(n):
-    if ????:
-        return 1
-    return n * ????
-```
-
-Here's a hint (the following is math, not Python):
-
-```
-1! = 1
-2! = 1 * 2 = 2
-3! = 1 * 2 * 3 = 6
-4! = 1 * 2 * 3 * 4 = 24
-```
-
-When you're done, test your code with a few different inputs.  To
-better understand what's happening, here are a couple things you could
-do:
-* run your code in Python Tutor
-* add a print to the beginning of your function, like this: `print("fact(" + str(n) + ") was called")`
-
-### Problem 2: String Reversal
-
-We want `reverse` to reverse the letters in a string.  So, for
-example, `reverse("Nacirema")` should return "America".
-
-```python
-def reverse(s):
-    if len(s) < 2:
-        return ????
-    return reverse(????) + ????
-```
-
-Hints:
-* using indexing and slicing on s
-* notice that "ABCD" reversed is "BCD" reversed (i.e., "DCB"), concatenated with "A"
-
-Try your function with a few strings.
-
-### Problem 3: List Reversal
-
-Write a function that reverses a list.  So, for example,
-`list_rev([1,2,3])` should return `[3,2,1]`.  Both lists and strings
-are sequences, so the code should be very similar to your string
-reversal function.  In fact, we recommend you start by copying that
-code, calling it with a list, then identifying the one reason the your
-previous function doesn't work for lists as well as strings.
-
-Hint:
-* `[1,2,3]+4` is invalid, but `[1,2,3]+[4]` performs list concatenation.
-
-**Challenge:** can you devise a single function that works for all
-  types of sequences, including strings, lists, and tuples?
-
-### Problem 4: Dictionary Printer
-
-Complete the following function so that it prints nested dictionaries
-in an easy-to-read way:
-
-```python
-def dprint(d, indent=0):
-    print("Dictionary:")
-    for k in d:
-        v = d[????]
-        print(" " * indent, end="")
-        print(k + " => ", end="")
-        if type(????) == dict:
-            dprint(v, ????)
-        else:
-            print(v)
-```
-
-A call to `dprint({"A": 1, "B": {"C": 2, "D": 3, "E": {"F": 4}}, "G": 5})` should print the following:
-
-```
-Dictionary:
-A => 1
-B => Dictionary:
-  C => 2
-  D => 3
-  E => Dictionary:
-    F => 4
-G => 5
-```
-
 ## Function References
 
 Note, if you're working ahead on this lab because you're bored during
@@ -374,3 +277,113 @@ buenas tardes
 chao
 chao
 ```
+
+## Sorting
+
+Given a list `L`, we've learned two ways to sort it:
+
+* L.sort()
+* L = sorted(L)
+
+When a list contains simple values, the sorting is intuitive.  For
+example, `sorted([3,1,2])` will return `[1,2,3]`, and `sorted(["C", "B", "A"])`
+will return `["A", "B", "C"]`.  What when the list contains tuples?  Try
+and find out:
+
+```python
+tups = [
+    (2, "A"),
+    (2, "C"),
+    (1, "A"),
+    (1, "C"),
+    (1, "B"),
+    (2, "B"),
+]
+sorted(tups)
+```
+
+As you can see, Python sorts by the entries at index 0 first, breaking
+ties by looking at index 1, and so on.  This behavior allows us to
+customize sorting.  For example, suppose we have a list of two-digit
+numbers, and we want to sort based on the last digit (instead of using
+the usual sorting, which places biggest numbers first).  Run this code
+to see how this can be done:
+
+```python
+def get_sort_value(num):
+    # extract the last digit
+    return num % 10
+
+def last_digit_sorted(nums):
+    print("We want to sort these by the last digit:", nums)
+    tups = []
+    for num in nums:
+        t = (get_sort_value(num), num)
+        tups.append(t)
+    print("We'll sort these tuples instead:", tups)
+    tups.sort()
+    print("We get these tuples:", tups)
+
+    print("Let's extract the actual values from the tuples")
+    rv = []
+    for tup in tups:
+        rv.append(tup[1])
+    return rv
+
+nums = [904, 703, 802, 901]
+result = last_digit_sorted(nums)
+print("Result:", result)
+```
+
+Try running the above code and playing with it until you understand it
+("playing" means trying different numbers for `nums` and perhaps
+adding prints to see what is happening).
+
+Observe two things in the above code:
+1. most of the hard work was done in `last_digit_sorted`
+2. the simple `get_sort_value` function was where we actually determined which numbers would get sorted earlier or later
+
+Python's sort functions already provide an implementation similar to
+`last_digit_sorted`, and you can use it if you provide the equivalent
+of `get_sort_value`.  This will require passing a reference to a
+function, which Python's sort logic will call to figure out what you
+want ranked first.  Let's try it:
+
+```python
+sorted(nums, key=get_sort_value)
+```
+
+This is the regular `sorted` function, but now we're passing a keyword
+argument (i.e., `key`).  We're passing a reference to the
+`get_sort_value` function (note that we ARE NOT invoking this function
+ourselves, as there is no `()` after the function name).
+
+Let's try another special sort.  This time, we'll sort strings so that
+the shortest is first:
+
+```python
+def sort_factor(s):
+    return len(s)
+
+vals = ["C", "AAA", "BB"]
+print("Regular sorting:", sorted(vals))
+print("Custom sorting:", sorted(vals, key=sort_factor))
+```
+
+Can you complete the following code so that strings containing the
+fewest words are ranked first?
+
+```python
+def word_count(s):
+    return ????
+
+vals = ["A", "A A A A", "B B", "C C C"]
+sorted(vals, key=????)
+```
+
+## Project Hints
+
+* you'll be creating a few plots for P8, so consider copying the `plot_dict` function
+* you'll need to answer a few questions such as "what are the three genres in which movies receive the highest median rating?"  The easiest way to approach such questions is with a custom sort.
+
+Good luck!
