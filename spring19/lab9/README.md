@@ -218,7 +218,7 @@ plot_dict(summary, "Avg Name Length")
 ## Function References
 
 Note, if you're working ahead on this lab because you're bored during
-spring break, you may wish to leave this last section until we've
+spring break, you may wish to leave these last sections until we've
 covered function references in class.
 
 Try running the following code and see what happens (try running in
