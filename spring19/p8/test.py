@@ -3,12 +3,14 @@ import os, sys, subprocess, json, re, collections, math, ast
 
 PASS = "PASS"
 TEXT_FORMAT = "text"
+PNG_FORMAT = "png"
 Question = collections.namedtuple("Question", ["number", "weight", "format"])
 
 
 
 
 questions = [
+    # stage 1
     Question(number=1, weight=1, format=TEXT_FORMAT),
     Question(number=2, weight=1, format=TEXT_FORMAT),
     Question(number=3, weight=1, format=TEXT_FORMAT),
@@ -28,7 +30,28 @@ questions = [
     Question(number=17, weight=1, format=TEXT_FORMAT),
     Question(number=18, weight=1, format=TEXT_FORMAT),
     Question(number=19, weight=1, format=TEXT_FORMAT),
-    Question(number=20, weight=1, format=TEXT_FORMAT),    
+    Question(number=20, weight=1, format=TEXT_FORMAT),
+    # stage 2
+    Question(number=21, weight=1, format=TEXT_FORMAT),
+    Question(number=22, weight=1, format=TEXT_FORMAT),
+    Question(number=23, weight=1, format=TEXT_FORMAT),
+    Question(number=24, weight=1, format=TEXT_FORMAT),
+    Question(number=25, weight=1, format=TEXT_FORMAT),
+    Question(number=26, weight=1, format=TEXT_FORMAT),
+    Question(number=27, weight=1, format=TEXT_FORMAT),
+    Question(number=28, weight=1, format=PNG_FORMAT),
+    Question(number=29, weight=1, format=PNG_FORMAT),
+    Question(number=30, weight=1, format=PNG_FORMAT),
+    Question(number=31, weight=1, format=PNG_FORMAT),
+    Question(number=32, weight=1, format=TEXT_FORMAT),
+    Question(number=33, weight=1, format=TEXT_FORMAT),
+    Question(number=34, weight=1, format=TEXT_FORMAT),
+    Question(number=35, weight=1, format=TEXT_FORMAT),
+    Question(number=36, weight=1, format=TEXT_FORMAT),
+    Question(number=37, weight=1, format=TEXT_FORMAT),
+    Question(number=38, weight=1, format=TEXT_FORMAT),
+    Question(number=39, weight=1, format=TEXT_FORMAT),
+    Question(number=40, weight=1, format=TEXT_FORMAT),
 ]
 question_nums = set([q.number for q in questions])
 
@@ -149,6 +172,162 @@ expected_json = {
     "18": 1247,
     "19": 6.401659528907912,
     "20": 'Dr. Strangelove or: How I Learned to Stop Worrying and Love the Bomb',
+    "21": {2018: [{'title': 'A', 'year': 2018, 'style': 'short', 'genres': ['g1']},
+                    {'title': 'B', 'year': 2018, 'style': 'long', 'genres': ['g2']}],
+            2019: [{'title': 'C', 'year': 2019, 'style': 'short', 'genres': ['g3']},
+                     {'title': 'D', 'year': 2019, 'style': 'long', 'genres': ['g1', 'g2', 'g3']}]},
+    "22": {'short': [{'title': 'A', 'year': 2018, 'style': 'short', 'genres': ['g1']},
+                       {'title': 'C', 'year': 2019, 'style': 'short', 'genres': ['g3']}],
+            'long': [{'title': 'B', 'year': 2018, 'style': 'long', 'genres': ['g2']},
+                       {'title': 'D', 'year': 2019, 'style': 'long', 'genres': ['g1', 'g2', 'g3']}]},
+    "23": {'g1': [{'title': 'A', 'year': 2018, 'style': 'short', 'genres': ['g1']},
+                    {'title': 'D', 'year': 2019, 'style': 'long', 'genres': ['g1', 'g2', 'g3']}],
+            'g2': [{'title': 'B', 'year': 2018, 'style': 'long', 'genres': ['g2']},
+                     {'title': 'D', 'year': 2019, 'style': 'long', 'genres': ['g1', 'g2', 'g3']}],
+            'g3': [{'title': 'C', 'year': 2019, 'style': 'short', 'genres': ['g3']},
+                     {'title': 'D', 'year': 2019, 'style': 'long', 'genres': ['g1', 'g2', 'g3']}]},
+    "24": {'Crime': [{'title': 'Runaway Jury',
+                         'year': 2003,
+                         'rating': 7.1,
+                         'directors': ['Gary Fleder'],
+                         'actors': ['John Cusack', 'Gene Hackman', 'Dustin Hoffman'],
+                         'genres': ['Crime', 'Drama', 'Thriller']},
+                       {'title': 'Lethal Weapon',
+                           'year': 1987,
+                           'rating': 7.6,
+                           'directors': ['Richard Donner'],
+                           'actors': ['Mel Gibson', 'Danny Glover', 'Gary Busey', 'Mitchell Ryan'],
+                           'genres': ['Action', 'Crime', 'Thriller']}],
+            'Drama': [{'title': 'Runaway Jury',
+                          'year': 2003,
+                          'rating': 7.1,
+                          'directors': ['Gary Fleder'],
+                          'actors': ['John Cusack', 'Gene Hackman', 'Dustin Hoffman'],
+                          'genres': ['Crime', 'Drama', 'Thriller']}],
+            'Thriller': [{'title': 'Runaway Jury',
+                             'year': 2003,
+                             'rating': 7.1,
+                             'directors': ['Gary Fleder'],
+                             'actors': ['John Cusack', 'Gene Hackman', 'Dustin Hoffman'],
+                             'genres': ['Crime', 'Drama', 'Thriller']},
+                           {'title': 'Lethal Weapon',
+                               'year': 1987,
+                               'rating': 7.6,
+                               'directors': ['Richard Donner'],
+                               'actors': ['Mel Gibson', 'Danny Glover', 'Gary Busey', 'Mitchell Ryan'],
+                               'genres': ['Action', 'Crime', 'Thriller']}],
+            'Action': [{'title': 'Lethal Weapon',
+                           'year': 1987,
+                           'rating': 7.6,
+                           'directors': ['Richard Donner'],
+                           'actors': ['Mel Gibson', 'Danny Glover', 'Gary Busey', 'Mitchell Ryan'],
+                           'genres': ['Action', 'Crime', 'Thriller']}]},
+    "25": 7,
+    "26": 18,
+    "27": {'Comedy': 485,
+            'Drama': 1094,
+            'Romance': 352,
+            'History': 73,
+            'Family': 85,
+            'Mystery': 121,
+            'Thriller': 250,
+            'Action': 299,
+            'Crime': 357,
+            'Adventure': 283,
+            'Western': 226,
+            'Music': 38,
+            'Animation': 45,
+            'Sport': 48,
+            'Fantasy': 59,
+            'War': 99,
+            'Sci-Fi': 69,
+            'Horror': 85},
+    "32": {'Howard Hawks': 42,
+            'Charles Chaplin': 34,
+            'Henry Hathaway': 36,
+            'Stanley Kubrick': 46,
+            'Taylor Hackford': 32,
+            'Cecil B. DeMille': 30,
+            'Lee H. Katzin': 30,
+            'Richard Fleischer': 32,
+            'Sidney Lumet': 33,
+            'George Sherman': 33,
+            'John Huston': 30,
+            'Robert Siodmak': 30,
+            'Eldar Ryazanov': 31,
+            'Martin Ritt': 32},
+    "33": {'Robert De Niro': 49,
+            'Kurt Russell': 50,
+            'John Wayne': 46,
+            'Mickey Rooney': 75,
+            'Robert Mitchum': 51,
+            'Henry Fonda': 46,
+            'Glenn Ford': 52,
+            'Jeff Bridges': 48,
+            'James Caan': 52,
+            'Anthony Quinn': 61,
+            'Dennis Quaid': 40,
+            'Marlon Brando': 49,
+            'Armand Assante': 40,
+            'Eddie Albert': 41,
+            'Jon Voight': 44,
+            'Tony Curtis': 45,
+            'Michael Constantine': 42,
+            'Ernest Borgnine': 47,
+            'Rod Steiger': 45,
+            'George Burns': 60,
+            'Bruce Dern': 45,
+            'Fredric March': 41,
+            'Lloyd Bridges': 44,
+            'Robert Redford': 44,
+            'Dean Stockwell': 53},
+    "34": [{'name': 'Stanley Kubrick', 'span': 46},
+            {'name': 'Howard Hawks', 'span': 42},
+            {'name': 'Henry Hathaway', 'span': 36},
+            {'name': 'Charles Chaplin', 'span': 34},
+            {'name': 'Sidney Lumet', 'span': 33},
+            {'name': 'George Sherman', 'span': 33},
+            {'name': 'Taylor Hackford', 'span': 32},
+            {'name': 'Richard Fleischer', 'span': 32},
+            {'name': 'Martin Ritt', 'span': 32},
+            {'name': 'Eldar Ryazanov', 'span': 31}],
+    "35": [{'name': 'Mickey Rooney', 'span': 75},
+            {'name': 'Anthony Quinn', 'span': 61},
+            {'name': 'George Burns', 'span': 60},
+            {'name': 'Dean Stockwell', 'span': 53},
+            {'name': 'Glenn Ford', 'span': 52},
+            {'name': 'James Caan', 'span': 52},
+            {'name': 'Robert Mitchum', 'span': 51},
+            {'name': 'Kurt Russell', 'span': 50},
+            {'name': 'Robert De Niro', 'span': 49},
+            {'name': 'Marlon Brando', 'span': 49}],
+    "36": [{'category': 'Animation', 'rating': 7.3, 'count': 45},
+            {'category': 'History', 'rating': 6.7, 'count': 73},
+            {'category': 'War', 'rating': 6.7, 'count': 99}],
+    "37": [{'category': 1921, 'rating': 8.3, 'count': 1},
+            {'category': 1925, 'rating': 8.2, 'count': 1},
+            {'category': 1919, 'rating': 7.5, 'count': 1},
+            {'category': 1923, 'rating': 7.3, 'count': 2},
+            {'category': 1962, 'rating': 7.2, 'count': 17},
+            {'category': 1964, 'rating': 7.1, 'count': 19},
+            {'category': 1957, 'rating': 7.0, 'count': 24},
+            {'category': 1985, 'rating': 7.0, 'count': 17},
+            {'category': 1976, 'rating': 7.0, 'count': 17},
+            {'category': 1963, 'rating': 6.95, 'count': 10}],
+    "38": [{'category': 1962, 'rating': 7.2, 'count': 17},
+            {'category': 1964, 'rating': 7.1, 'count': 19},
+            {'category': 1957, 'rating': 7.0, 'count': 24},
+            {'category': 1985, 'rating': 7.0, 'count': 17},
+            {'category': 1976, 'rating': 7.0, 'count': 17}],
+    "39": [{'category': 'Christopher Nolan', 'rating': 8.5, 'count': 9},
+            {'category': 'Leonid Gayday', 'rating': 8.4, 'count': 5},
+            {'category': 'Stanley Kubrick', 'rating': 8.3, 'count': 11},
+            {'category': 'Sergio Leone', 'rating': 8.3, 'count': 7},
+            {'category': 'Satyajit Ray', 'rating': 8.2, 'count': 9},
+            {'category': 'Andrew Grieve', 'rating': 8.2, 'count': 6}],
+    "40": [{'category': 'Henry Bergman', 'rating': 8.2, 'count': 5},
+            {'category': 'Ioan Gruffudd', 'rating': 8.2, 'count': 6},
+            {'category': 'Robert Lindsay', 'rating': 8.2, 'count': 6}],
 }
            
 # find a comment something like this: #q10
@@ -222,10 +401,25 @@ def check_cell_text(qnum, cell):
 
     return PASS
 
+
+def check_cell_png(qnum, cell):
+    if qnum == 21:
+        print('here')
+        print(cell)
+    for output in cell.get('outputs', []):
+        if qnum == 21:
+            print(output.get('data', {}).keys())
+        if 'image/png' in output.get('data', {}):
+            return PASS
+    return 'no plot found'
+
+
 def check_cell(question, cell):
     print('Checking question %d' % question.number)
     if question.format == TEXT_FORMAT:
         return check_cell_text(question.number, cell)
+    elif question.format == PNG_FORMAT:
+        return check_cell_png(question.number, cell)
     raise Exception("invalid question type")
 
 

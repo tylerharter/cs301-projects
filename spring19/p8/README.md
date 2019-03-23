@@ -54,4 +54,4 @@ you have more time.  We recommend trying to complete stage 1 within
 one week so you have time for stage two.
 
 * [Stage 1](stage1.md): combine the data from the movie and mapping files into a more useful format.
-* Stage 2 (coming soon!): use the combined data to answer questions about movies, directors, and actors.
+* [Stage 2](stage2.md): use the combined data to answer questions about movies, directors, and actors.
