@@ -24,7 +24,7 @@ referenced by `path`.  For example, this code:
 
 ```python
 mapping = get_mapping("small_mapping.csv")
-print_dict(mapping)
+print(mapping)
 ```
 
 Should print this:

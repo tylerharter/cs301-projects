@@ -337,7 +337,7 @@ def top_n_span(buckets, n):
     # TODO: return a slice of the rows
 ```
 
-#### Question 35: who are the 10 directors with the longest careers?
+#### Question 35: who are the 10 actors with the longest careers?
 
 Answer with the same format as above.
 
