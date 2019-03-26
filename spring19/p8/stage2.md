@@ -298,16 +298,16 @@ dictionary, mapping name to years worked.  It should look like this:
 Answer with a list of dictionaries, such that each dictionary specifies a name and span, like this:
 
 ```
-[{'name': 'Mickey Rooney', 'span': 75},
- {'name': 'Anthony Quinn', 'span': 61},
- {'name': 'George Burns', 'span': 60},
- {'name': 'Dean Stockwell', 'span': 53},
- {'name': 'Glenn Ford', 'span': 52},
- {'name': 'James Caan', 'span': 52},
- {'name': 'Robert Mitchum', 'span': 51},
- {'name': 'Kurt Russell', 'span': 50},
- {'name': 'Robert De Niro', 'span': 49},
- {'name': 'Marlon Brando', 'span': 49}]
+[{'name': 'Stanley Kubrick', 'span': 46},
+ {'name': 'Howard Hawks', 'span': 42},
+ {'name': 'Henry Hathaway', 'span': 36},
+ {'name': 'Charles Chaplin', 'span': 34},
+ {'name': 'Sidney Lumet', 'span': 33},
+ {'name': 'George Sherman', 'span': 33},
+ {'name': 'Taylor Hackford', 'span': 32},
+ {'name': 'Richard Fleischer', 'span': 32},
+ {'name': 'Martin Ritt', 'span': 32},
+ {'name': 'Eldar Ryazanov', 'span': 31}]
 ```
 
 This is a little tricky, so we'll sketch out part of a function for
