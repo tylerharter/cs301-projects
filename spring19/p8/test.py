@@ -373,6 +373,7 @@ def check_cell_text(qnum, cell):
 
     expected_mismatch = False
 
+    # TODO: remove this hack!!!
     if qnum == 34 or qnum == 35:
         # check they did some reasonable sorting
         for i in range(1, len(actual)):
@@ -383,6 +384,17 @@ def check_cell_text(qnum, cell):
         expected = sorted(expected, key=lambda row: (-row["span"], row["name"]))
         actual = sorted(actual, key=lambda row: (-row["span"], row["name"]))
 
+    # TODO: remove this hack!!!
+    if 36 <= qnum <= 40:
+        # check they did some reasonable sorting
+        for i in range(1, len(actual)):
+            a = actual[i-1]["rating"]
+            b = actual[i]["rating"]
+            if a < b:
+                return "bad sort: found a rating of {} before a rating of {}".format(a, b)
+        expected = sorted(expected, key=lambda row: (-row["rating"], row["category"]))
+        actual = sorted(actual, key=lambda row: (-row["rating"], row["category"]))
+        
     if type(expected) != type(actual):
         return "expected an answer of type %s but found one of type %s" % (type(expected), type(actual))
     elif type(expected) == float:

@@ -6,7 +6,7 @@
 * Mar 25: q35 was corrected to ask about actors, not directors
 * Mar 25: there is a `project.py` file; it's not really needed for this project, but feel free to use it if it's helpful.  Stage 1 was modified to no longer code in `project.py`.
 * Mar 26: correct example output for q34
-* Apr 1: fixed test.py to accept multiple ways to break ordering ties for q34 and q35
+* Apr 1: fixed test.py to accept multiple ways to break ordering ties for q34 and following
 
 ## Introduction
 
