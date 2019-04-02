@@ -65,7 +65,7 @@ To clarify, this function must do everything you did for Question 2, as well as 
 
 #### Question 5 : What are the paths of the CSV and JSON files present in the "full_data" directory?
 
-#### Question 6 : What are the tweets present in the CSV file "sample_data/1.csv"?
+#### Question 6 : What are the tweets present in the CSV file `1.csv` in `sample_data`?
 
 Now, we will look into parsing a CSV file. 
 
@@ -83,7 +83,7 @@ Please ensure you define your namedtuple exactly according to the specifications
 
 Your goal for this question is to parse the CSV file, and construct a **list of namedtuples**, where each row of the CSV file corresponds to one namedtuple in the list. 
 
-For example, here's what the first (non-header) row of the "sample_data/1.csv" file looks like : 
+For example, here's what the first (non-header) row of the `1.csv` in `sample_data` file looks like : 
 
 `1467811372,Mon Apr 06 22:20:00 PDT 2009,USERID_6,5882,@Kwesidei not the whole crew ,True`
 
@@ -93,17 +93,17 @@ The corresponding namedtuple, should look like this :
 
 Notice that we're not using all the fields in the row, just tweet_id, username, and num_liked. Also note that num_liked is being saved as a number, not a string.
 
-#### Question 7 : What are the tweets present in the CSV file "sample_data/2.csv"?
+#### Question 7 : What are the tweets present in the CSV file `2.csv` in `sample_data`?
 
-#### Question 8 : What are the tweets present in the CSV file "full_data/1.csv"?
+#### Question 8 : What are the tweets present in the CSV file `1.csv` in `full_data`?
 
-#### Question 9 : What are the tweets present in the CSV file "full_data/2.csv"?
+#### Question 9 : What are the tweets present in the CSV file `2.csv` in `full_data`?
 
 If you just tried to run your code as-is on this file, chances are it crashed, or you had some missing data (If not, great!). This is because some of the rows in this file, are incomplete or inconsistent in some way. You must now go back and modify your CSV parsing function to deal with situations like this. 
 
 Essentially, whenever you see a row in the CSV file which does not have all the fields present, just skip that row and move on to the next one, parsing it as normal. 
 
-#### Question 10 : What are the tweets present in the JSON file "sample_data/1.json"?
+#### Question 10 : What are the tweets present in the JSON file `1.json` in `sample_data`?
 
 Just like before with the CSV files, we're going to now parse a JSON file and convert it to a list of namedtuples, so that all of our data from different files is going into one common format that's easy for us to work with. 
 
@@ -111,7 +111,7 @@ The JSON files we have have the data saved as one big dictionary, with the keys 
 
 Your task here is to convert each JSON file to a **list of namedtuples** with the exact same format for the namedtuple as before (remember, we're trying to get to a common data format we can work with). Each key-value pair in our big dictionary therefore corresponds to one namedtuple in the list. 
 
-Here's the first tweet in the JSON file, "sample_data/1.json" 
+Here's the first tweet in the JSON file, `1.json` in `sample_data` 
 
 ```json
 {
@@ -130,15 +130,15 @@ And here's the corresponding namedtuple :
 
 Remember, you need to return a **list of namedtuples**.
 
-#### Question 11 : What are the tweets present in the JSON file "sample_data/2.json"?
+#### Question 11 : What are the tweets present in the JSON file `2.json` in `sample_data`?
 
-#### Question 12 : What are the tweets present in the JSON file "full_data/5.json"?
+#### Question 12 : What are the tweets present in the JSON file `5.json` in `full_data`?
 
-#### Question 13 : What are the tweets present in the JSON file "full_data/1.json"?
+#### Question 13 : What are the tweets present in the JSON file `1.json` in `full_data`?
 
 Once again, we have some JSON files that are broken, such as this one. Unfortunately, unlike CSV files, broken JSON files are much more complicated to fix so we can't just skip over one tweet and salvage the rest, so let's just skip the entire file and **return an empty list** if we find that it is broken. The goal here is to get your code to not crash. We're dealing with tweets here, and there's billions of them for us to analyze, so losing one file is not a big deal. Your code crashing however, is a big deal. 
 
-#### Question 14 : Which file in the directory 'sample_data' contains the tweet with tweet_id '1467912100'?
+#### Question 14 : Which file in the directory 'sample_data' contains the tweet with tweet_id '1467813137'?
 
 Return the **path to the file**. If you can't find this tweet_id in any of the files in this folder, return `False`.
 
