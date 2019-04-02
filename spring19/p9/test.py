@@ -46,18 +46,18 @@ questions = [
     Question(number=19, weight=1, format=TEXT_FORMAT),
     Question(number=20, weight=1, format=TEXT_FORMAT),
     # stage 2
-    Question(number=21, weight=1, format=TEXT_FORMAT),
-    Question(number=22, weight=1, format=TEXT_FORMAT),
-    Question(number=23, weight=1, format=TEXT_FORMAT),
-    Question(number=24, weight=1, format=TEXT_FORMAT),
-    Question(number=25, weight=1, format=TEXT_FORMAT),
-    Question(number=26, weight=1, format=TEXT_FORMAT),
-    Question(number=27, weight=1, format=TEXT_FORMAT),
-    Question(number=28, weight=1, format=TEXT_FORMAT),
-    Question(number=29, weight=1, format=TEXT_FORMAT),
-    Question(number=30, weight=1, format=TEXT_FORMAT),
-    Question(number=31, weight=1, format=TEXT_FORMAT),
-    Question(number=32, weight=1, format=TEXT_FORMAT)
+    #Question(number=21, weight=1, format=TEXT_FORMAT),
+    #Question(number=22, weight=1, format=TEXT_FORMAT),
+    #Question(number=23, weight=1, format=TEXT_FORMAT),
+    #Question(number=24, weight=1, format=TEXT_FORMAT),
+    #Question(number=25, weight=1, format=TEXT_FORMAT),
+    #Question(number=26, weight=1, format=TEXT_FORMAT),
+    #Question(number=27, weight=1, format=TEXT_FORMAT),
+    #Question(number=28, weight=1, format=TEXT_FORMAT),
+    #Question(number=29, weight=1, format=TEXT_FORMAT),
+    #Question(number=30, weight=1, format=TEXT_FORMAT),
+    #Question(number=31, weight=1, format=TEXT_FORMAT),
+    #Question(number=32, weight=1, format=TEXT_FORMAT)
 
 ]
 question_nums = set([q.number for q in questions])
