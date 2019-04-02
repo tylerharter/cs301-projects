@@ -45,25 +45,25 @@ Quick note about paths : On Windows, paths use "\\" whereas on Mac and Linux, th
 
 In Python, a path too, is saved as a regular string. 
 
-#### Question 1 : What are the files present in the 'sample_data' directory?
+#### Question 1 : What are the files present in the `sample_data` directory?
 
 HINT : Look into the `os.listdir` function. Return a list of filenames, sorted in **reverse-alphabetical** order.
 
-#### Question 2 : What are the paths of all the files in the 'sample_data' directory?
+#### Question 2 : What are the paths of all the files in the `sample_data` directory?
 
 Build on what you wrote for question 1, but you must now get the path instead of just the filename.
 
 In order to achieve this, you need to use the `os.path.join()` function. Please do not hardcode "/" or "\\" because doing so will cause your function to fail on a computer that's not using the same operating system as yours. Again, return a list sorted in **reverse-alphabetical** order. 
 
-#### Question 3 : What are the paths of all the files in the 'full_data' directory?
+#### Question 3 : What are the paths of all the files in the `full_data` directory?
 
-#### Question 4 : What are the paths of the CSV and JSON files present in the "sample_data" directory?
+#### Question 4 : What are the paths of the CSV and JSON files present in the `sample_data` directory?
 
 Again, building on your code for Question 2, now write a function that filters out all files except CSV and JSON files. A CSV or JSON file is simply one that ends with ".csv" or ".json" respectively. 
 
 To clarify, this function must do everything you did for Question 2, as well as the additional step above. 
 
-#### Question 5 : What are the paths of the CSV and JSON files present in the "full_data" directory?
+#### Question 5 : What are the paths of the CSV and JSON files present in the `full_data` directory?
 
 #### Question 6 : What are the tweets present in the CSV file `1.csv` in `sample_data`?
 
@@ -152,19 +152,19 @@ Hint : Use the functions you've written to help you accomplish this task, as it 
 
 Be sure to return a **list of paths** (even if it's just 1 path) sorted in **reverse-alphabetical order**.
 
-#### Question 18 : What are the tweets present in all the files in the "sample_data" directory?
+#### Question 18 : What are the tweets present in all the files in the `sample_data` directory?
 
 Return a single **list of namedtuples** containing all the tweets, sorted in **ascending order by tweet_id**.
 
 Note that this step now gives you a way to read in multiple files present in a directory, of different formats, and end up with a single list of namedtuples, all in the same format. Let's use it to perform some data analysis that runs across all the files in a directory.
 
-#### Question 19 : What are the tweets present in all the files in the "sample_data" directory, sorted by num_liked?
+#### Question 19 : What are the tweets present in all the files in the `sample_data` directory, sorted by num_liked?
 
 Return a single **list of namedtuples** containing all the tweets, sorted in **ascending order by num_liked**.
 
 Consider extending your code in the last function to include a `sort_by` parameter.
 
-#### Question 20 : What are the first 20 tweets present in all the files in the "full_data" directory, sorted by num_liked?
+#### Question 20 : What are the first 20 tweets present in all the files in the `full_data` directory, sorted by num_liked?
 
 Return a single **list of namedtuples** of length 20 containing the first 20 tweets sorted in **ascending order by num_liked**.
 
