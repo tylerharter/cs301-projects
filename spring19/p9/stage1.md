@@ -138,17 +138,17 @@ Remember, you need to return a **list of namedtuples**.
 
 Once again, we have some JSON files that are broken, such as this one. Unfortunately, unlike CSV files, broken JSON files are much more complicated to fix so we can't just skip over one tweet and salvage the rest, so let's just skip the entire file and **return an empty list** if we find that it is broken. The goal here is to get your code to not crash. We're dealing with tweets here, and there's billions of them for us to analyze, so losing one file is not a big deal. Your code crashing however, is a big deal. 
 
-#### Question 14 : Which file in the directory 'sample_data' contains the tweet with tweet_id '1467813137'?
+#### Question 14 : Which file in the directory `sample_data` contains the tweet with tweet_id '1467813137'?
 
 Return the **path to the file**. If you can't find this tweet_id in any of the files in this folder, return `False`.
 
 Hint : Use the functions you've written to help you accomplish this task, as it involves a combination of looking through all the files in a folder, parsing them, and then looking through the parsed list. 
 
-#### Question 15 : Which file in the directory 'full_data' contains the tweet with tweet_id '1467862937'?
+#### Question 15 : Which file in the directory `full_data` contains the tweet with tweet_id '1467862937'?
 
-#### Question 16 : Which file in the directory 'full_data' contains the tweet with tweet_id '1467907751'?
+#### Question 16 : Which file in the directory `full_data` contains the tweet with tweet_id '1467907751'?
 
-#### Question 17 : Which files in the directory "sample_data" contain tweets by the user "USERID_1"?
+#### Question 17 : Which files in the directory `sample_data` contain tweets by the user "USERID_1"?
 
 Be sure to return a **list of paths** (even if it's just 1 path) sorted in **reverse-alphabetical order**.
 
