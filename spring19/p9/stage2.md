@@ -1,4 +1,6 @@
-# Stage 2 
+# DRAFT (don't start this stage yet)
+
+# Stage 2
 
 We're going to pick up where we left off in Stage 1, and focus on analyzing the dataset. Even though it spans multiple files and different formats, the fact that we did all that work in Stage 1 to bring it all into a common format means a lot of the techniques you use to analyze this data will seem familiar to what you've done before.
 

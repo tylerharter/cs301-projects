@@ -1,50 +1,5 @@
 # Stage 1
 
-# Introduction
-
-In this assignment, we're going to deal with three common problems you will encounter when dealing with almost any data science problem.
-
-* Working with multiple files
-* Working with multiple file formats
-* Working with broken files
-
-Download the zip file below to get started, and unzip it to a folder. If you are unsure how to unzip a file, please check the following links : 
-
-* Mac OS - http://osxdaily.com/2017/11/05/how-open-zip-file-mac/
-* Windows - https://support.microsoft.com/en-us/help/4028088/windows-zip-and-unzip-files
-* Ubuntu - https://www.hostingadvice.com/how-to/unzip-file-linuxubuntu/
-
-[INSERT ZIP FILE LINK]
-
-
-# File vs Filename vs Path?
-
-Before we get started with the assignment, let's talk about the distinction between these three terms, which will become important as we go along.
-
-**File** 
-
-(source : https://www.lifewire.com/what-is-a-file-2625878)
-
-*A file, in the computer world, is a self-contained piece of information available to the operating system and any number of individual programs. A computer file can be thought of much like a traditional file that one would find in an office's file cabinet. Just like an office file, information in a computer file could consist of basically anything.*
-
-In Python, we have many different ways of interacting with files, some which you have already used, such as the **open** function. 
-
-**Filename** 
-
-A filename, as you might guess, refers to the name given to a file. In Python, a filename is nothing more than a regular string. People often use the terms file and filename interchangably, because the way we refer to files is through their filename.
-
-**Path**
-
-A path is basically the location of a file on your computer. The path to a file depends on where you saved it on your computer. Windows and Mac paths look different, but they basically have a structure that looks like this : 
-
-*directory1/directory2/file1*
-
-The path above tells you that file1 is stored in directory1, which in turn, is present inside directory2. Therefore the "path" for the file `file1` is `directory1/directory2/file1`
-
-Quick note about paths : On Windows, paths use "\\" whereas on Mac and Linux, they use "/".
-
-In Python, a path too, is saved as a regular string. 
-
 #### Question 1 : What are the files present in the `sample_data` directory?
 
 HINT : Look into the `os.listdir` function. Return a list of filenames, sorted in **reverse-alphabetical** order.
