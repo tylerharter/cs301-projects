@@ -129,8 +129,69 @@ inspiration.
 
 ### JSON
 
-loads
-load
+JSON allows us to represent various Python structurs (e.g., dicts) as
+strings.  It is possible to save a string containing JSON data to a
+file (one might call such a file a JSON file, even though there is
+nothing special about the file except for its contents).
+
+Saving Python data to a JSON file is a two step process (we'll soon
+see how to make this a one-step process):
+
+1. convert the dict (or other structure) to a string
+2. write that string to a file
+
+Let's try it:
+
+```python
+# Python structures
+fruits = [
+    {"name": "apple", "count": 50, "tasty": True},
+    {"name": "watermelon", "count": 60, "tasty": False},
+    {"name": "kiwi", "count": 55, "tasty": True},
+]
+print("Python structs:", fruits)
+
+# JSON string
+json_str = json.dumps(fruits)
+print("JSON string:", json_str)
+
+# save to file
+f = open(os.path.join("fruits", "summary.json"))
+f.write(json_str)
+f.close()
+```
+
+Open `summary.json` in `idle`.  How many differences do you see
+between JSON and the Python we wrote to create the structures?
+
+Notice we had to call both `json_str = json.dumps(fruits)` and
+`f.write(json_str)`.  The `json.dump` function combines these two.
+Try it!  Replace `????` below to save some fruits of your choosing to
+a file of your choosing.
+
+```python
+# Python structures
+fruits = [
+    ????
+]
+print("Python structs:", fruits)
+
+# save to file
+f = open(os.path.join("fruits", "????"))
+json.dump(f, fruits)
+f.close()
+```
+
+Reading data back is also a two step process:
+
+1. read from file to string
+2. convert that string to JSON structures
+
+Try it:
+
+```python
+TODO
+```
 
 ### CSV
 
