@@ -1,5 +1,3 @@
-# DRAFT (don't start yet)
-
 # Project 9: Twitter
 
 ## Clarifications/Corrections
