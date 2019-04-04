@@ -1,6 +1,6 @@
 # Lab 10: Files and Formats (not ready yet!!!)
 
-In this lab, you'll get practice with files, formats, and namedtuples.
+In this lab, you'll get practice with files and formats.
 
 ## File Vocabulary
 
@@ -114,7 +114,7 @@ Now copy and adapt the above code to create a `banana.txt` and
 
 ```python
 def fruit_message(name):
-    f = open(os.path.join("fruit", name+".txt"))
+    f = open(os.path.join("fruit", name+".txt"), encoding="utf-8")
     msg = f.read()
     f.close()
     return msg
@@ -156,7 +156,7 @@ json_str = json.dumps(fruits)
 print("JSON string:", json_str)
 
 # save to file
-f = open(os.path.join("fruits", "summary.json"))
+f = open(os.path.join("fruits", "summary.json"), "w", encoding="utf-8")
 f.write(json_str)
 f.close()
 ```
@@ -177,7 +177,7 @@ fruits = [
 print("Python structs:", fruits)
 
 # save to file
-f = open(os.path.join("fruits", "????"))
+f = open(os.path.join("fruits", ????), "w", encoding="utf-8")
 json.dump(f, fruits)
 f.close()
 ```
@@ -190,13 +190,53 @@ Reading data back is also a two step process:
 Try it:
 
 ```python
-TODO
+f = open(os.path.join("fruits", "summary.json"), encoding="utf-8")
+json_str = f.read()
+f.close()
+
+data = json.loads(json_str)
+print(data)
 ```
+
+Just like `json.dump(f, data)` is a shortcut for `json.dumps` and
+`f.write`, `data = json.load(f)` is a shortcut for `f.read` and
+`json.loads`.  Try simplifying the above code to use this shortcut.
 
 ### CSV
 
-DictReader
+Create a couple CSV files by running the following:
 
-### namedtuple
+```python
+f = open(os.path.join("fruit", "good.csv"), "w", encoding="utf-8")
+f.write("fruit,count\n")
+f.write("apple,10\n")
+f.write("banana,3\n")
+f.write("orange,0\n")
+f.close()
 
-getattr
+f = open(os.path.join("fruit", "rotten.csv"), "w", encoding="utf-8")
+f.write("fruit,count\n")
+f.write("apple,10\n")
+f.write("banana,3\n")
+f.write("orange\n")
+f.close()
+```
+
+There are different ways to read CSV files.  Perhaps one of the
+easiest is with a `csv.DictReader` object.  A DictReader is created
+based on a file object.  A DictReader is an iterator object; it
+produces a dictionary for each row of a CSV file, automatically using
+the header of the CSV to determine the keys for the dicts.
+
+Try it:
+
+```python
+f = open(os.path.join("fruit", "good.csv"), encoding="utf-8")
+reader = csv.DictReader(f)
+for row in reader:
+    print(row)
+f.close()
+```
+
+TODO: print it out
+TODO: read rotten.csv
