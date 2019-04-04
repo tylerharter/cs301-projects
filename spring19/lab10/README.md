@@ -1,4 +1,4 @@
-# Lab 10: Files and Formats (not ready yet!!!)
+# Lab 10: Files and Formats
 
 In this lab, you'll get practice with files and formats, in
 preperation for P9.
@@ -182,7 +182,7 @@ print("Python structs:", fruits)
 
 # save to file
 f = open(os.path.join("fruit", ????), "w", encoding="utf-8")
-json.dump(f, fruits)
+json.dump(fruits, f)
 f.close()
 ```
 
@@ -202,9 +202,9 @@ data = json.loads(json_str)
 print(data)
 ```
 
-Just like `json.dump(f, data)` is a shortcut for `json.dumps` and
+Just like `json.dump(data, f)` is a shortcut for `json.dumps` and
 `f.write`, `data = json.load(f)` is a shortcut for `f.read` and
-`json.loads`.  Try simplifying the above code to use this shortcut.
+`json.loads`.  Try simplifying the above code by using this shortcut.
 
 ### CSV
 
@@ -242,5 +242,30 @@ for row in reader:
 f.close()
 ```
 
-TODO: print it out
-TODO: read rotten.csv
+You should see something like this:
+
+```python
+OrderedDict([('fruit', 'apple'), ('count', '10')])
+OrderedDict([('fruit', 'banana'), ('count', '3')])
+OrderedDict([('fruit', 'orange'), ('count', '0')])
+```
+
+What is an `OrderedDict`?  It behaves just like the normal `dict` with
+which you are familar, but it keeps keys in a fixed order.  The
+important thing for now is that you can use it like a regular dictionary:
+
+For example, try looking specific cells and printing them:
+
+```python
+f = open(os.path.join("fruit", "good.csv"), encoding="utf-8")
+reader = csv.DictReader(f)
+for row in reader:
+    print(row["fruit"], row["count"])
+f.close()
+```
+
+Try changing the above code to read "rotten.csv" instead of
+"good.csv".  In "rotten.csv", there is a missing value for the count
+in the orange row.  How does `DictReader` handle this?  For the
+project, you'll need to write some code to skip CSV rows with missing
+values.
