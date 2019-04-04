@@ -1,10 +1,11 @@
 # Lab 10: Files and Formats (not ready yet!!!)
 
-In this lab, you'll get practice with files and formats.
+In this lab, you'll get practice with files and formats, in
+preperation for P9.
 
 ## File Vocabulary
 
-In this lab and P9, you'll need to be familiar with the following
+For P9, you'll need to be familiar with the following
 file-related terms to know what we're asking you to do.
 
 Before we get started with the assignment, let's talk about the
@@ -15,7 +16,7 @@ we go along.
 
 * **File Name:** a name you can use for a file if you know what directory you're in.  For example, `movies.csv`, `test.py`, and `main.ipynb` are examples of file names.  Note that different files can have the same name, as long as those files are in different directories.
 
-* **Path:** a more-complete name that tells you the file name AND what directory it is in.  For example, `p8/main.ipynb` and `p9/main.ipynb` are examples of path names on a Mac, referring to a file named `main.ipynb` in the `p8` directory and a second file with the same name in the `p9` directory, respectively.  Windows uses back-slashes instead of forward slashes, so on a Windows laptop the paths would be `p7\main.ipynb` and `p8\main.ipynb`.  There may be more levels in a path to represent more levels of directories.  For example, `courses\cs301\p8\test.py` refers to the `test.py` file in the `p8` directory, which is in the `cs301` directory, which is in the `courses` directory.
+* **Path:** a more-complete name that tells you the file name AND what directory it is in.  For example, `p8/main.ipynb` and `p9/main.ipynb` are examples of path names on a Mac, referring to a file named `main.ipynb` in the `p8` directory and a second file with the same name in the `p9` directory, respectively.  Windows uses back-slashes instead of forward slashes, so on a Windows laptop the paths would be `p8\main.ipynb` and `p9\main.ipynb`.  There may be more levels in a path to represent more levels of directories.  For example, `courses\cs301\p8\test.py` refers to the `test.py` file in the `p8` directory, which is in the `cs301` directory, which is in the `courses` directory.
 
 In Python, there's not a special type for file names or paths; we just
 use regular strings instead.
@@ -28,7 +29,6 @@ Let's start by doing some imports we'll need:
 
 ```python
 import os, json, csv
-from collection import namedtuple
 ```
 
 ### Files and Directories
@@ -42,25 +42,27 @@ the current directory):
 os.listdir(".")
 ```
 
-Let's try creating a new directory for some testing by running this cell:
+Let's try creating a new directory to experiment in by running this cell:
 
 ```python
 # cell 2
-os.mkdir("fruits")
+os.mkdir("fruit")
 ```
 
 Now go back and manually rerun `cell 1` (when you called `listdir`).
-Do you see the `fruits` directory this time?
+Do you see the `fruit` directory this time?
 
 Now click `Restart & Run All` from the `Kernel` menu.  Do you notice
-that there's an exception in the cell where you created the `fruits`
+that there's an exception in the cell where you created the `fruit`
 directory?  This is because the directory already exists, and it is
 not possible to create another with the same name.
 
 There are two options for doing the `mkdir` in a way that won't cause
 your notebook to fail in the case that the directory already exists.
 To get familiar with them, replace the code with option 1 below, then
-do a "Restart & Run All".  The try option 2 as well.
+do a "Restart & Run All".
+
+Netx, try option 2 as well.
 
 #### Option 1: try/except
 
@@ -88,12 +90,12 @@ path = os.path.join("fruit", "apple.txt")
 path
 ```
 
-If you're on a Mac, you'll see `fruit\apple.txt`; on Windows, you'll
-see `fruit/apple.txt`.  Be careful!  Use this way to create paths.
+If you're on a Mac, you'll see `fruit/apple.txt`; on Windows, you'll
+see `fruit\apple.txt`.  Be careful!  Use this way to create paths.
 Never use the regular string join method we've learned, because that
 will not work on everbody's computer.
 
-Now let's create it:
+Now let's create a file with that path:
 
 ```python
 f = open(path, "w", encoding="utf-8")
@@ -112,6 +114,8 @@ Also, try using `idle` to find and open the `apple.txt` file.
 Now copy and adapt the above code to create a `banana.txt` and
 `orange.txt` file.  You can decide what to write to these files.
 
+Paste this code to a cell:
+
 ```python
 def fruit_message(name):
     f = open(os.path.join("fruit", name+".txt"), encoding="utf-8")
@@ -123,13 +127,13 @@ def fruit_message(name):
 What does `fruit_message("apple")` return?  (try it!)
 
 Try the other fruits too.  What if you try getting the message for a
-fruit that doesn't exist?  Modify `fruit_message` so it return "bad
+fruit that doesn't exist?  Modify `fruit_message` so it returns "bad
 fruit" in that scenario.  Use the `mkdir` example from earlier for
 inspiration.
 
 ### JSON
 
-JSON allows us to represent various Python structurs (e.g., dicts) as
+JSON allows us to represent various Python structures (e.g., dicts) as
 strings.  It is possible to save a string containing JSON data to a
 file (one might call such a file a JSON file, even though there is
 nothing special about the file except for its contents).
@@ -156,7 +160,7 @@ json_str = json.dumps(fruits)
 print("JSON string:", json_str)
 
 # save to file
-f = open(os.path.join("fruits", "summary.json"), "w", encoding="utf-8")
+f = open(os.path.join("fruit", "summary.json"), "w", encoding="utf-8")
 f.write(json_str)
 f.close()
 ```
@@ -177,7 +181,7 @@ fruits = [
 print("Python structs:", fruits)
 
 # save to file
-f = open(os.path.join("fruits", ????), "w", encoding="utf-8")
+f = open(os.path.join("fruit", ????), "w", encoding="utf-8")
 json.dump(f, fruits)
 f.close()
 ```
@@ -190,7 +194,7 @@ Reading data back is also a two step process:
 Try it:
 
 ```python
-f = open(os.path.join("fruits", "summary.json"), encoding="utf-8")
+f = open(os.path.join("fruit", "summary.json"), encoding="utf-8")
 json_str = f.read()
 f.close()
 
