@@ -1,12 +1,29 @@
 # Stage 1
 
+For the first few questions, we'll ask you to list files.  These
+questions have a few things in common:
+* any files with names beginning with "." should be excluded
+* you must produce a list
+* the list must be in reverse-alphabetical order
+
+Some things will vary:
+* which directory you'll look at
+* whether the list contains simples file names, or paths
+* sometimes you'll need to filter to only show files with certain extensions
+
+You may consider writing a single function to answer several questions
+(hint: things that change for different questions can often be
+represented with parameters).
+
+----
+
 #### Question 1 : What are the files present in the `sample_data` directory?
 
-HINT : Look into the `os.listdir` function. Return a list of filenames, sorted in **reverse-alphabetical** order.
+Hint: Look into the `os.listdir` function. Produce a list of file names, sorted in **reverse-alphabetical** order.
 
 #### Question 2 : What are the paths of all the files in the `sample_data` directory?
 
-Build on what you wrote for question 1, but you must now get the path instead of just the filename.
+Build on what you wrote for question 1, but you must now get the path instead of just the file name.
 
 In order to achieve this, you need to use the `os.path.join()` function. Please do not hardcode "/" or "\\" because doing so will cause your function to fail on a computer that's not using the same operating system as yours. Again, return a list sorted in **reverse-alphabetical** order. 
 
