@@ -2,7 +2,7 @@
 
 ## Clarifications/Corrections
 
-* none yet
+* Apr 8: fixed wording on q18 and q19 to match test.py (replaced "ascending" with "descending")
 
 ## Introduction
 
