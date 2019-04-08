@@ -172,12 +172,12 @@ in **ascending order by tweet_id**.
 #### Question 19: What are the tweets present in all the files in the `sample_data` directory, sorted by num_liked?
 
 Produce a single **list of Tweets** containing all the tweets, sorted
-in **ascending order by num_liked**.
+in **descending order by num_liked**.
 
 #### Question 20: What are the first 20 tweets present in all the files in the `full_data` directory, sorted by num_liked?
 
 Produce a single **list of Tweets** of length 20 containing the first
-20 tweets sorted in **ascending order by num_liked**.
+20 tweets sorted in **descending order by num_liked**.
 
 That's it for Stage 1. In the next stage, we'll begin using the data
 structures we've set up to do some analysis that spans across multiple
