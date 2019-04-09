@@ -32,4 +32,4 @@ computer (using [Mac directions](http://osxdaily.com/2017/11/05/how-open-zip-fil
 ## The Stages
 
 * [Stage 1](stage1.md): parse a mix of CSV and JSON files to get Tweet objects
-* Stage 2: not released yet
+* [Stage 2](stage2.md): learn about the tweeters and recurse

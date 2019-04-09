@@ -11,6 +11,10 @@ Through question 32, everything is about the data in `full_data`.  Use
 your code from last time to answer the questions (this means you'll
 ignore corrupt data, as in stage 1).
 
+**Note:** you'll learn about making scatter plots in lab 11, so please
+  don't ask about how to do that until we've released that lab and
+  you've had a chance to work through it.
+
 #### Question 21: How many tweets are present in total?
 
 #### Question 22: Which usernames appear in the dateset?
