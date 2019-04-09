@@ -1,5 +1,3 @@
-# DRAFT (don't start this stage yet)
-
 # Stage 2
 
 We'll now use the clean data from stage 1 to analyze the tweets of a
@@ -53,7 +51,7 @@ Answer with a scatter plot showing 10 points (one per user).  The
 x-axis represents average length, and the y-axis represents average
 likes.  It should look like this:
 
-<img src="q29.png" width="400">
+<img src="q28.png" width="400">
 
 #### Question 29: What is the username of the user represented by the outlier in the last two plots?
 
@@ -67,7 +65,41 @@ Answer with a list of Tweet objects, sorted by `num_liked` descending.
 
 ----
 
-TODO
+Write a function that takes a directory path as a parameter,
+recursively explores that directory for any files (which might be
+buried in many levels of sub directories), and finally returns a list
+of paths to files inside that directory.  The paths should be sorted
+in reverse-alphabetical order.  Exclude any files with names beginning
+with `.`.
+
+**Important:** there are Python functions that can do this for you
+  (for example, https://docs.python.org/3/library/os.html#os.walk),
+  but you need to write the recursive code for yourself.  If you use
+  one of these existing implementations, we'll deduct any points you
+  get for the remaining questions.
+
+Your function MAY use the following:
+* `os.listdir`
+* `os.path.join`
+* `os.path.isfile`
+* `os.path.isdir`
+
+Use your function to answer the following.
 
 ----
 
+#### Question 33: what are the files in the `rb9` directory of the `rb` directory of the `play` directory?
+
+#### Question 34: what are the files in the `ls` directory of the `play` directory?
+
+#### Question 35: what are the files in the `ou` directory of the `play` directory?
+
+#### Question 36: what are the files in the `play` directory?
+
+#### Question 35: what are the files in the `others` directory of the `recursive` directory?
+
+#### Question 36: what are the files in the `recursive` directory?
+
+#### Question 39: how many tweets are in the files in the `USERID_4` directory of the `recursive` directory?
+
+#### Question 40: how many tweets are in the files in the `recursive` directory?
