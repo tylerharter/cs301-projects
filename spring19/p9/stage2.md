@@ -2,56 +2,72 @@
 
 # Stage 2
 
-We're going to pick up where we left off in Stage 1, and focus on analyzing the dataset. Even though it spans multiple files and different formats, the fact that we did all that work in Stage 1 to bring it all into a common format means a lot of the techniques you use to analyze this data will seem familiar to what you've done before.
+We'll now use the clean data from stage 1 to analyze the tweets of a
+few users.  We'll also write some code to recursively find and process
+JSON nested inside multiple directories.  To start, do the following:
 
-Be sure to use your code from Stage 1 to start off your analysis from a list of namedtuples.
+1. download and extract `recursive.zip` in the same location of your notebook (you need to have the `recursive` directory in the same directory as your `main.ipynb`)
+2. re-download `test.py` to get all 40 tests
 
-#### Question 21 : How many tweets are present in total, in the "full_data" directory? 
+Through question 32, everything is about the data in `full_data`.  Use
+your code from last time to answer the questions (this means you'll
+ignore corrupt data, as in stage 1).
 
-Of course, ignoring the ones that are broken rows in CSV files, or present in broken JSON files.
+#### Question 21: How many tweets are present in total?
 
-#### Question 22 : How many unique users' tweets do we have in the 'full_data' directory? 
+#### Question 22: Which usernames appear in the dateset?
 
-#### Question 23 : What was the average number of likes received per tweet for tweets in the "full_data" directory? 
+Answer in the form of a `set`.
 
-#### Question 24 : Which tweet has the highest number of likes ("num_liked") among all the tweets in the "full_data" directory? 
+#### Question 23: How **prolific** is each user?
 
-Return only the tweet_id.
+Answer with a `dict` that maps username to the number of tweets by that user.
 
-#### Question 25 : What was user USERID_2's best tweet (tweet with the most likes) counting only the tweets in the full_data directory? 
+#### Question 24: How **popular** is each user?
 
-Return the tweet_id.
+Answer with a `dict` that maps username to the average number of likes that user gets per tweet.
 
-#### Question 26 : Which user has tweeted the most times (counting only the tweets in the "full_data" directory)?
+#### Question 25: How **verbose** is each user?
 
-Return the count of the number of times they've tweeted.
+Answer with a `dict` that maps username to the average number of characters per tweet by that user.
 
-#### Question 27 : Who has the second highest number of tweets (counting only the tweets in the "full_data" directory)? 
- 
-Again, return the count of the number of times they've tweeted. 
+#### Question 26: What is the relationship between number of tweets and length of tweets?
 
-#### Question 28 : Which user has the highest average likes per tweet (counting only the tweets in the "full_data" directory)? 
+Answer with a scatter plot showing 10 points (one per user).  The
+x-axis represents number of tweets, and the y-axis represents average
+length.  It should look like this:
 
-#### Question 29 : Which user had the highest variability (highest likes - lowest likes) in the number of likes they received for their tweets? 
+<img src="q26.png" width="400">
 
-A quick note here : this idea of reading in files of multiple formats and converting them to one format to play with is a common and powerful idea that is used everywhere in data science. 
+#### Question 27: What is the relationship between number of tweets and likes?
 
-If at this stage, you wanted to incorporate a different kind fo file format (say you got a new batch of data that uses some other format), all you'd have to do is write some code to convert it to your standard format (a list of namedtuples) but your code to do the actual data analysis itself (questions 18 through 24) wouldn't have to change at all! 
+Answer with a scatter plot showing 10 points (one per user).  The
+x-axis represents number of tweets, and the y-axis represents average
+likes.  It should look like this:
 
-This separation between the code used to read in data and prepare it (**data preprocessing**) and code used to do actual data analysis is a crucial part of data science. 
+<img src="q27.png" width="400">
 
-#### Question 30 : Which users have more total likes than user USERID_2? 
+#### Question 28: What is the relationship between length and likes?
 
-Return a list of usernames who's sum of likes across all their tweets exceeds the sum of likes that user USERID_2 has received across all their tweets. 
+Answer with a scatter plot showing 10 points (one per user).  The
+x-axis represents average length, and the y-axis represents average
+likes.  It should look like this:
 
-#### Question 31 : Which users have more total likes than user USERID_4? 
+<img src="q29.png" width="400">
 
-#### Question 32 : What are the paths to all the files in the "play" directory?
+#### Question 29: What is the username of the user represented by the outlier in the last two plots?
 
-Let's take a break from data analysis and take a look at recursion. If you look through the "play" directory, you will notice that there are *nested folders*, i.e., folders within folders. Go ahead and try running your existing code from Question 2 on this folder. 
+#### Question 30: What are the tweets made by that outlier user?
 
-You will notice that it just lists out the first level, that is, files and folder present inside the play directory itself, but it does not go any deeper (i.e. down into each individual directory within the play directory). 
+Answer with a list of Tweet objects, sorted by `num_liked` descending.
 
-For instance, there is a file called "ppt.ppt" whose path is "play/rb/ppt.ppt" which is to say, it is located inside the "rb" directory, which in turn, is located inside the play directory. Your current code does not go into the "rb" directory and look for the files present there. 
+#### Question 31: What percent of the outlier user's total likes (across all tweets) come from the most-liked tweet?
 
-Your goal for this task is to print out the paths to **all files present in the play directory and all it's nested directories**, using recursion.
+#### Question 32: If we exclude that most-liked tweet, what is that user's like-per-tweet average?
+
+----
+
+TODO
+
+----
+

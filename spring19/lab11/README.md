@@ -1,5 +1,7 @@
 # Lab 11: Recursion (Not Read Yet!!!)
 
+## Scatter
+
 ## Recursion
 
 As we learned in class, a function is recursive when it calls itself,
@@ -96,3 +98,10 @@ B => Dictionary:
     F => 4
 G => 5
 ```
+
+## Shortcuts
+
+### List Comprehensions
+
+### Default Dictionaries
+
