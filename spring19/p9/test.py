@@ -8,7 +8,7 @@ import importlib
 import inspect
 import traceback
 import re, ast, math
-from collections import namedtuple, OrderedDict
+from collections import namedtuple, OrderedDict, defaultdict
 from functools import wraps
 
 PASS = 'PASS'
@@ -46,18 +46,18 @@ questions = [
     Question(number=19, weight=1, format=TEXT_FORMAT),
     Question(number=20, weight=1, format=TEXT_FORMAT),
     # stage 2
-    #Question(number=21, weight=1, format=TEXT_FORMAT),
-    #Question(number=22, weight=1, format=TEXT_FORMAT),
-    #Question(number=23, weight=1, format=TEXT_FORMAT),
-    #Question(number=24, weight=1, format=TEXT_FORMAT),
-    #Question(number=25, weight=1, format=TEXT_FORMAT),
-    #Question(number=26, weight=1, format=TEXT_FORMAT),
-    #Question(number=27, weight=1, format=TEXT_FORMAT),
-    #Question(number=28, weight=1, format=TEXT_FORMAT),
-    #Question(number=29, weight=1, format=TEXT_FORMAT),
-    #Question(number=30, weight=1, format=TEXT_FORMAT),
-    #Question(number=31, weight=1, format=TEXT_FORMAT),
-    #Question(number=32, weight=1, format=TEXT_FORMAT)
+    Question(number=21, weight=1, format=TEXT_FORMAT),
+    Question(number=22, weight=1, format=TEXT_FORMAT),
+    Question(number=23, weight=1, format=TEXT_FORMAT),
+    Question(number=24, weight=1, format=TEXT_FORMAT),
+    Question(number=25, weight=1, format=TEXT_FORMAT),
+    Question(number=26, weight=1, format=PNG_FORMAT),
+    Question(number=27, weight=1, format=PNG_FORMAT),
+    Question(number=28, weight=1, format=PNG_FORMAT),
+    Question(number=29, weight=1, format=TEXT_FORMAT),
+    Question(number=30, weight=1, format=TEXT_FORMAT),
+    Question(number=31, weight=1, format=TEXT_FORMAT),
+    Question(number=32, weight=1, format=TEXT_FORMAT)
 
 ]
 question_nums = set([q.number for q in questions])
@@ -327,38 +327,96 @@ expected_json = {
             Tweet(tweet_id='1467862806', username='USERID_2', num_liked=9465, length=68),
             Tweet(tweet_id='1467954070', username='USERID_8', num_liked=9462, length=64)],
     "21": 445,
-    "22": 10,
-    "23": 1964182.7747747747,
-    "24": '1467894593',
-    "25": '1467894593',
-    "26": 55,
-    "27": 52,
-    "28": 'USERID_2',
+    "22": {'USERID_1',
+            'USERID_9',
+            'USERID_4',
+            'USERID_7',
+            'USERID_6',
+            'USERID_2',
+            'USERID_10',
+            'USERID_8',
+            'USERID_3',
+            'USERID_5'},
+    "23": {'USERID_1': 52,
+           'USERID_7': 55,
+           'USERID_10': 45,
+           'USERID_9': 44,
+           'USERID_4': 35,
+           'USERID_6': 51,
+           'USERID_3': 39,
+           'USERID_2': 47,
+           'USERID_5': 46,
+           'USERID_8': 31},
+    "24": {'USERID_1': 4369.115384615385,
+            'USERID_7': 5079.436363636363,
+            'USERID_10': 5728.777777777777,
+            'USERID_9': 5334.386363636364,
+            'USERID_4': 4578.8,
+            'USERID_6': 4559.588235294118,
+            'USERID_3': 5023.820512820513,
+            'USERID_2': 18494258.80851064,
+            'USERID_5': 4583.130434782609,
+            'USERID_8': 34463.45161290323},
+    "25": {'USERID_1': 81.86538461538461,
+            'USERID_7': 72.96363636363637,
+            'USERID_10': 72.71111111111111,
+            'USERID_9': 78.36363636363636,
+            'USERID_4': 73.91428571428571,
+            'USERID_6': 73.68627450980392,
+            'USERID_3': 67.15384615384616,
+            'USERID_2': 79.51063829787235,
+            'USERID_5': 73.69565217391305,
+            'USERID_8': 73.96774193548387},
     "29": 'USERID_2',
-    "30": [],
-    "31": ['USERID_2',
-           'USERID_8',
-           'USERID_7',
-           'USERID_10',
-           'USERID_9',
-           'USERID_6',
-           'USERID_1',
-           'USERID_5',
-           'USERID_3'],
-    "32": ['play/ls/lu.txt',
-           'play/ls/mf.py',
-           'play/ls/qwe/iuqwe.json',
-           'play/ls/qwe/usun.pdf',
-           'play/ou/a',
-           'play/ou/b',
-           'play/ou/quap/aoq/aqnsa',
-           'play/ou/quap/aoq/qsonj',
-           'play/ou/quap/qonxu.txt',
-           'play/ou/quap/uikwe',
-           'play/ou/v',
-           'play/rb/ppt.ppt',
-           'play/rb/rb9/12.xls',
-           'play/rb/rb9/89.csv']
+    "30": [Tweet(tweet_id='1467947913', username='USERID_2', num_liked=8578, length=36),
+            Tweet(tweet_id='1467951252', username='USERID_2', num_liked=7515, length=48),
+            Tweet(tweet_id='1467953090', username='USERID_2', num_liked=1896, length=64),
+            Tweet(tweet_id='1467953277', username='USERID_2', num_liked=494, length=31),
+            Tweet(tweet_id='1467961106', username='USERID_2', num_liked=7552, length=65),
+            Tweet(tweet_id='1467962897', username='USERID_2', num_liked=4898, length=98),
+            Tweet(tweet_id='1467968584', username='USERID_2', num_liked=777, length=132),
+            Tweet(tweet_id='1467916959', username='USERID_2', num_liked=7081, length=69),
+            Tweet(tweet_id='1467918015', username='USERID_2', num_liked=1508, length=97),
+            Tweet(tweet_id='1467918682', username='USERID_2', num_liked=8884, length=102),
+            Tweet(tweet_id='1467918850', username='USERID_2', num_liked=5383, length=103),
+            Tweet(tweet_id='1467919055', username='USERID_2', num_liked=5370, length=68),
+            Tweet(tweet_id='1467926444', username='USERID_2', num_liked=1394, length=61),
+            Tweet(tweet_id='1467926632', username='USERID_2', num_liked=2602, length=98),
+            Tweet(tweet_id='1467928764', username='USERID_2', num_liked=9026, length=41),
+            Tweet(tweet_id='1467930220', username='USERID_2', num_liked=4770, length=94),
+            Tweet(tweet_id='1467933102', username='USERID_2', num_liked=625, length=135),
+            Tweet(tweet_id='1467935121', username='USERID_2', num_liked=8740, length=37),
+            Tweet(tweet_id='1467943007', username='USERID_2', num_liked=9000, length=130),
+            Tweet(tweet_id='1467894593', username='USERID_2', num_liked=869000000, length=136),
+            Tweet(tweet_id='1467896253', username='USERID_2', num_liked=4906, length=91),
+            Tweet(tweet_id='1467897316', username='USERID_2', num_liked=7890, length=64),
+            Tweet(tweet_id='1467898511', username='USERID_2', num_liked=3477, length=99),
+            Tweet(tweet_id='1467905378', username='USERID_2', num_liked=4420, length=111),
+            Tweet(tweet_id='1467907751', username='USERID_2', num_liked=9048, length=110),
+            Tweet(tweet_id='1467908798', username='USERID_2', num_liked=1659, length=51),
+            Tweet(tweet_id='1467914499', username='USERID_2', num_liked=910, length=138),
+            Tweet(tweet_id='1467915670', username='USERID_2', num_liked=5287, length=138),
+            Tweet(tweet_id='1467862806', username='USERID_2', num_liked=9465, length=68),
+            Tweet(tweet_id='1467870866', username='USERID_2', num_liked=4166, length=82),
+            Tweet(tweet_id='1467871956', username='USERID_2', num_liked=110, length=68),
+            Tweet(tweet_id='1467872247', username='USERID_2', num_liked=6316, length=137),
+            Tweet(tweet_id='1467874916', username='USERID_2', num_liked=6935, length=23),
+            Tweet(tweet_id='1467875163', username='USERID_2', num_liked=9891, length=69),
+            Tweet(tweet_id='1467877833', username='USERID_2', num_liked=4270, length=89),
+            Tweet(tweet_id='1467878633', username='USERID_2', num_liked=2351, length=33),
+            Tweet(tweet_id='1467878971', username='USERID_2', num_liked=2238, length=27),
+            Tweet(tweet_id='1467879984', username='USERID_2', num_liked=3694, length=69),
+            Tweet(tweet_id='1467880442', username='USERID_2', num_liked=5125, length=96),
+            Tweet(tweet_id='1467889988', username='USERID_2', num_liked=7394, length=51),
+            Tweet(tweet_id='1467890222', username='USERID_2', num_liked=227, length=107),
+            Tweet(tweet_id='1467892667', username='USERID_2', num_liked=8270, length=20),
+            Tweet(tweet_id='1467852031', username='USERID_2', num_liked=4565, length=63),
+            Tweet(tweet_id='1467854917', username='USERID_2', num_liked=7741, length=30),
+            Tweet(tweet_id='1467855812', username='USERID_2', num_liked=4806, length=28),
+            Tweet(tweet_id='1467855981', username='USERID_2', num_liked=6455, length=92),
+            Tweet(tweet_id='1467862213', username='USERID_2', num_liked=2455, length=138)],
+    "31": 99.97352093731529,
+    "32": 500356.5217391304,
 }
 
 # find a comment something like this: #q10
@@ -397,11 +455,16 @@ def check_cell_text(qnum, cell):
         return 'no outputs in an Out[N] cell'
     actual_lines = outputs[0].get('data', {}).get('text/plain', [])
     actual = ''.join(actual_lines)
-    jbn = [6,7,8,9,10, 11,12, 18,19,20]
+    jbn = [6,7,8,9,10,11,12,18,19,20,30]
     if qnum in jbn:
         actual = (eval(compile(ast.parse(actual, mode='eval'), '', 'eval')))
     else:
-        actual = ast.literal_eval(actual)
+        try:
+            actual = ast.literal_eval(actual)
+        except Exception as e:
+            print("COULD NOT PARSE THIS CELL:")
+            print(actual)
+            raise e
     expected = expected_json[str(qnum)]
 
     expected_mismatch = False
