@@ -3,6 +3,7 @@
 ## Clarifications/Corrections
 
 * Apr 8: fixed wording on q18 and q19 to match test.py (replaced "ascending" with "descending")
+* Apr 9: reworded directions to download test.py (test.py isn't in a zip, so you don't need to "extract" it)
 
 ## Introduction
 
@@ -24,7 +25,7 @@ stage 2, you'll analyze your clean data.
 computer (using [Mac directions](http://osxdaily.com/2017/11/05/how-open-zip-file-mac/) or
 [Windows directions](https://support.microsoft.com/en-us/help/4028088/windows-zip-and-unzip-files)).
 
-**Step 2:** download `test.py` and extract it to the directory from step 1 (`test.py` be next to the `sample_data` directory, for example)
+**Step 2:** download `test.py` to the directory from step 1 (`test.py` be next to the `sample_data` directory, for example)
 
 **Step 3:** create a `main.ipynb` in the same location.  Do all work for both stages there, and turn it in when complete.
 
