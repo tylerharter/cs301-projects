@@ -1,4 +1,4 @@
-# Lab 11: Scatter Plots, Recursion, and Shortcuts (Not Read Yet!!!)
+# Lab 11: Scatter Plots, Recursion, and Shortcuts
 
 In this lab, you'll learn how to create scatter plots, practice
 writing recursive code, and learn two techniques (default dictionaries
@@ -277,7 +277,7 @@ scores = defaultdict(list)
 for row in rows:
     scores[row[0]].append(row[1]) # creates a new list if necessary
 
-scores
+dict(scores)
 ```
 
 Try completing the following to count letter frequencies:
