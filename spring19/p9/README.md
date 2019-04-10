@@ -29,6 +29,8 @@ computer (using [Mac directions](http://osxdaily.com/2017/11/05/how-open-zip-fil
 
 **Step 3:** create a `main.ipynb` in the same location.  Do all work for both stages there, and turn it in when complete.
 
+Note: Make sure `full_data`, `sample_data`, `main.ipynb` and `test.py` are in same directory.
+
 ## The Stages
 
 * [Stage 1](stage1.md): parse a mix of CSV and JSON files to get Tweet objects
