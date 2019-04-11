@@ -423,7 +423,7 @@ expected_json = {
             Tweet(tweet_id='1467890222', username='USERID_2', num_liked=227, length=107),
             Tweet(tweet_id='1467871956', username='USERID_2', num_liked=110, length=68)],
     "31": 99.97352093731529,
-    "32": 500356.5217391304,
+    "32": 5003.565217391304,
     "33": [os.path.join('play', 'rb', 'rb9', '89.csv'),
            os.path.join('play', 'rb', 'rb9', '12.xls')],
     "34": [os.path.join('play', 'ls', 'qwe', 'usun.pdf'),
