@@ -4,6 +4,7 @@
 
 * Apr 8: fixed wording on q18 and q19 to match test.py (replaced "ascending" with "descending")
 * Apr 9: reworded directions to download test.py (test.py isn't in a zip, so you don't need to "extract" it)
+* Apr 11: if `num_liked` is a string containing a number followed by a suffix (e.g., `"869M"` or `"915k"`), convert it to an integer, multiplying by 1000 or 1000000 as appropriate.  If it contains some other kind of string (e.g., `"unkown"`), use 0 for `num_liked` (do not discard the tweet in this case).
 
 ## Introduction
 
