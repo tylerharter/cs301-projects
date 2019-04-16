@@ -2,47 +2,27 @@
 
 # Stage 1: Web Scraping
 
-In this stage, you're going to write code to download the data files,
-load the data to Pandas DataFrames, and then answer various questions
-about the data.
+In this stage, you will write code to download the data files, load
+the data to Pandas DataFrames, and answer various questions about the
+data.
 
-The questions you must answer are below.  If a given cell is answering
-a question number N, the cell should have a comment that looks like
-this:
+#### Question 1: what is the total area across all the countries in the dataset?
 
-```python
-#qN
-... code that computes the answer ...
-```
+Write code to pull the data from here (do not manually download): https://tyler.caraza-harter.com/cs301/spring19/data/countries.json
 
-For example, the cell that answers the first question should contain a
-comment that says `#q1`.
-
-
-
-## Q1: what is the total area across all the countries in the dataset?
-
-*Hint 1*: `pd.read_json(URL)` will return a DataFrame by downloading the
- JSON file from online at URL.  If the downloaded JSON contains a list
- of dictionaries, each dictionary will be a row in the DataFrame.
+*Hint 1*: `pd.read_json(URL)` will return a DataFrame by downloading
+ the JSON file from online at URL.  If the downloaded JSON contains a
+ list of dictionaries, each dictionary will be a row in the DataFrame.
 
 *Hint 2*: review how to extract a single column as a Series from a
  DataFrame.  You can add all the values in a Series with the `.sum()`
  method.
 
-## Q2: what is the first URL in the capitals.txt page?
+#### Question 2: what is the first URL in the manifest.txt page?
 
-You may hardcode this URL in your program:
-https://tyler.caraza-harter.com/cs301/fall18/data/capitals.txt.  You
-must, however, answer this question by programmatically extracting the
-first line from capitals.txt.
+Write some code to download the list from here (do not manually download): https://tyler.caraza-harter.com/cs301/spring19/data/capitals/manifest.txt
 
-*Hint*: use requests.get to download the
- [capitals.txt](https://tyler.caraza-harter.com/cs301/fall18/data/capitals.txt),
- then split it into a list.
-
-
-## Q3 Gathering Our Data
+#### Question 3 Gathering Our Data
 
 For the rest of these questions, we are going to need the data that is spread out between the different URLS.
 The best way to do this is by gathering the data into a dataframe.
@@ -65,18 +45,20 @@ In order to make our code function off-line and save runtime we will create a ca
 
 This can be accomplished by surrounding your code from Q3 with the following:
 
-```
+```python
 if not os.path.exists("capitals.json"):
     rows = []
     ###Begin your code to extract the web-data
     
     ###End your code to extract the web-data
     
-    with open("capitals.json", "w") as f:
-        json.dump(rows, f)
+    f = open("capitals.json", "w")
+    json.dump(rows, f)
+    f.close()
 
-with open("capitals.json") as f:
-    rows = json.load(f)
+f = open("capitals.json")
+rows = json.load(f)
+f.close()
 ```
 
 This will allow your code to create a local copy of capitals.json that contains all the web-data.
@@ -84,7 +66,7 @@ This will allow your code to create a local copy of capitals.json that contains 
 Now create your Dataframe using `DataFrame(rows)`
 
 
-## Q4: what is the capital of Bermuda?
+#### Question 4: what is the capital of Bermuda?
 
 Now we can begin to answer more complex questions using our newly constructed Dataframe.
 
@@ -97,33 +79,24 @@ Our first task will be determining the capital of Bermuda.
  [Series.item()](https://pandas.pydata.org/pandas-docs/stable/generated/pandas.Series.item.html)
  function.
 
-## Q5: Which country is Maputo the capital of?
+#### Question 5: Which country is Maputo the capital of?
 
 Same Process as Q4
 
-## Q6: which 5 countries have the southern-most capitals?
+#### Question 6: which 5 countries have the southern-most capitals?
 
-*Format*: produce your answer as a JSON-formatted list of five
- countries.  The list should be sorted so that the countries with
- capitals farther south are first.
+Produce a Python list of the 5, with southernmost first.
 
-*Hint 1*: look at the documentation examples of how to sort a
+*Hint*: look at the documentation examples of how to sort a
  DataFrame with the
  [sort_values](https://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.sort_values.html)
  function.
 
-*Hint 2*: look at examples that used the
-  [head](https://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.head.html)
-  function.
+#### Question 7: which 3 countries have the northern-most capitals?
 
-## Q7: which 3 countries have the northern-most capitals?
+Produce a Python list of the 3, with nothern-most first.
 
-*Format*: produce your answer as a JSON-formatted list of three
- countries.  The list should be sorted so that the countries with
- capitals farther north are first.
-
-
-## Q8: for "birth-rate" and "death-rate", what are various summary statistics (e.g., mean, max, standard deviation, etc)?
+#### Question 8: for "birth-rate" and "death-rate", what are various summary statistics (e.g., mean, max, standard deviation, etc)?
 
 *Format*: use the
  [describe](https://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.describe.html)
@@ -132,9 +105,10 @@ Same Process as Q4
  your output, as long as your summary table has stats for birth and
  death.
 
-## Q9: for "literacy" and "phone", what are various summary statistics (e.g., mean, max, standard deviation, etc)?
+#### Question 9: for columns `literacy` and `phones`, what are various
+     summary statistics (e.g., mean, max, standard deviation, etc)?
 
-*Format*: a table generated by the describe function.
+*Format*: a table generated by the `describe` function.
 
 In [some
  countries](https://en.wikipedia.org/wiki/Decimal_separator#Arabic_numerals),
@@ -150,20 +124,15 @@ In [some
  [replace](https://pandas.pydata.org/pandas-docs/stable/generated/pandas.Series.str.replace.html)
  Pandas functions.
 
-## Q10: what is the largest land-locked country in Europe?
+#### Question 10: what is the largest land-locked country in Europe?
 
 A "land-locked" country is one that has zero coastline.  Largest is in terms of **area**.
 
-## Q11: what is the largest land-locked country in Africa?
+#### Question 11: what is the largest land-locked country in Africa?
 
-Same as Q8.
+#### Question 12: what is the largest land-locked country in South America?
 
-## Q12: what is the largest land-locked country in South America?
-
-Same as Q8.
-
-
-## Q13: what is the distance between Camp Randall Stadium and the Wisconsin State Capital?
+#### Question 13: what is the distance between Camp Randall Stadium and the Wisconsin State Capital?
 
 This isn't related to countries, but it's a good warmup for the next
 problems.  Your answer should be about 1.433899492072933 miles.
@@ -187,7 +156,7 @@ If you decide to implement it yourself (it's fun!), here are some tips:
 
 
 
-## Q14: what is the distance between India and Brazil?
+#### Question 14: what is the distance between India and Brazil?
 
 For the coordinates of a country, use its capital.
 
@@ -196,7 +165,7 @@ For the coordinates of a country, use its capital.
 
 *Hint 2*: what do you get when you evaluate `capitals.set_index('country').loc['France']`?
 
-## Q15 What are the distances between Chile, Guyana and Colombia
+#### Question 15 What are the distances between Chile, Guyana and Colombia
 
 your result should be  table with 3 rows (for each country) and 3
 columns (again for each country).  The value in each cell should
@@ -207,7 +176,7 @@ between a country and itself, the table should should NaN (instead of
 0).
 
 
-## Q16: what is the distance between every pair of South American countries?
+#### Question 16: what is the distance between every pair of South American countries?
 
 Your result should be a table with 12 rows (for each country) and 12
 columns (again for each country).  The value in each cell should be
@@ -217,7 +186,7 @@ expected.html file you downloaded.  When displaying the distance
 between a country and itself, the table should should NaN (instead of
 0).
 
-## Q17: what is the most central South American country?
+#### Question 17: what is the most central South American country?
 
 This is the country that has the shortest average distance to other
 South American countries.
@@ -231,14 +200,14 @@ South American countries.
  you want just the index, you can use `s.index`.  Both of these
  objects can readily be converted to lists.
  
-## Q18: What is the least central South American country?
+#### Question 18: What is the least central South American country?
 
 This will be the country that has the longest average distance to other
 South American countries.
 
 This should be a similiar process to what you did for Q17
 
-## Q19: how close is each country in South America to it's nearest neighbour?
+#### Question 19: how close is each country in South America to it's nearest neighbour?
 
 The answer should be in a table with countries as the index and two
 columns: `nearest` will contain the name of the nearest country and
@@ -257,7 +226,7 @@ columns: `nearest` will contain the name of the nearest country and
  minimum values.  If you run `df.idxmin()` on a DataFrame, the
  returned values contain indexes from the DataFrame.
  ??
- ## Q20: how far is each country in South America to it's furthest neighbour?
+ #### Question 20: how far is each country in South America to it's furthest neighbour?
  
  The answer should be in a table with countries as the index and two
  columns: `furthest` will contain the name of the furthest country and

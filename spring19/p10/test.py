@@ -52,7 +52,7 @@ question_nums = set([q.number for q in questions])
 
 expected_json = {
     "1": 127493303,
-    "2": os.path.join("capitals_data", "capitals_Brazil_Peru.json"),
+    "2": "Brazil_Peru.json",
     "3":[{'capital': 'Brasilia',
           'country': 'Brazil',
           'latitude': -15.783333333333333,
@@ -862,9 +862,11 @@ def check_cell_text(qnum, cell):
                     if a != e:
                         return "found %s at position %d but expected %s" % (str(a), i, str(e))
         except TypeError:
-            # this happens when the list contains dicts.  Just do a simple comparison
-            if actual != expected:
-                return "expected %s" % repr(expected)
+            if len(actual) != len(expected):
+                return "expected %d entries in the list but found %d" % (len(expected), len(actual))
+            for i,(a,e) in enumerate(zip(actual, expected)):
+                if a != e:
+                    return "found %s at position %d but expected %s" % (str(a), i, str(e))            # this happens when the list contains dicts.  Just do a simple comparison
     else:
         if expected != actual:
             expected_mismatch = True
