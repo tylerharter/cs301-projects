@@ -1,6 +1,6 @@
 # Not ready yet, don't start!
 
-# Stage 1: Web Scraping
+# Stage 1: The World Wide Web and World Wide Geography
 
 In this stage, you will write code to download the data files, load
 the data to Pandas DataFrames, and answer various questions about the
@@ -18,53 +18,42 @@ Write code to pull the data from here (do not manually download): https://tyler.
  DataFrame.  You can add all the values in a Series with the `.sum()`
  method.
 
-#### Question 2: what is the first URL in the manifest.txt page?
+Keep the DataFrame in a variable named `countries`.
+
+#### Question 2: what is the first URL in the `manifest.txt` page?
 
 Write some code to download the list from here (do not manually download): https://tyler.caraza-harter.com/cs301/spring19/data/capitals/manifest.txt
 
-#### Question 3 Gathering Our Data
-
-For the rest of these questions, we are going to need the data that is spread out between the different URLS.
-The best way to do this is by gathering the data into a dataframe.
-
-Before we are able to create our data frame we must first gather our data.
-
-The steps to accomplish this are as follows:
-
-1. Use the methods covered in class including `requests.get()` to download the data from each webpage.
-2. store all the data in a single list of dictionaries.
-
-for Question 3 output this list of dictionaries
-
-## Caching and Creating the Dataframe
-
-Due to our data being online, we don't have a version of it on our system.
-This means we always have to regather our data inbetween runs which can be quite costly.
-
-In order to make our code function off-line and save runtime we will create a cache on our local system.
-
-This can be accomplished by surrounding your code from Q3 with the following:
+----
+Complete the following function:
 
 ```python
-if not os.path.exists("capitals.json"):
-    rows = []
-    ###Begin your code to extract the web-data
-    
-    ###End your code to extract the web-data
-    
-    f = open("capitals.json", "w")
-    json.dump(rows, f)
-    f.close()
-
-f = open("capitals.json")
-rows = json.load(f)
-f.close()
+def get_json(url):
+    pass
 ```
 
-This will allow your code to create a local copy of capitals.json that contains all the web-data.
+Requirements:
+* the first time `get_json` is called for a given URL, it should download the JSON content at that URL using `requests.get`, decode it, and return the result as a Python dictionary
+* the first time `get_json` is called for a given URL, it should also save the contents to a file on your computer (for example, if URL is `https://tyler.caraza-harter.com/cs301/spring19/data/capitals/Brazil_Peru.json`, it might save a local file named `Brazil_Peru.json` in the current directory)
+* subsequent times `get_json` is called, it should return the data from the previously-downloaded file
+* `get_json` should determine whether or not it is being called the first time for a given URL by using `os.path.exists` to check whether the data has previously been downloaded
 
-Now create your Dataframe using `DataFrame(rows)`
+Test your function (e.g., make sure you can call `get_json("https://tyler.caraza-harter.com/cs301/spring19/data/capitals/Brazil_Peru.json")` more than once).
 
+For every file in `manifest.json`, use `get_json` to fetch and decode
+the contents to a Python dictionary.  Collect all these dictionaries
+in a list named `capital_rows`.
+
+----
+
+#### Question 3: what is `capital_rows`?
+
+----
+
+Create a DataFrame with `capitals = DataFrame(capital_rows)`.  Use
+`capitals` and `countries` to answer the following questions.
+
+----
 
 #### Question 4: what is the capital of Bermuda?
 
@@ -160,21 +149,15 @@ If you decide to implement it yourself (it's fun!), here are some tips:
 
 For the coordinates of a country, use its capital.
 
-*Hint 1*: if your DataFrame of capitals is called `capitals`, what do
- you get from `capitals.set_index('country')`?
+#### Question 15: What are the distances between Chile, Guyana, and Colombia?
 
-*Hint 2*: what do you get when you evaluate `capitals.set_index('country').loc['France']`?
-
-#### Question 15 What are the distances between Chile, Guyana and Colombia
-
-your result should be  table with 3 rows (for each country) and 3
-columns (again for each country).  The value in each cell should
-be the distance between the country of the row and the country 
-of the column. For a general idea of what this should look like, open the
-expected.html file you downloaded.  When displaying the distance
+Your result should be DataFrame with 3 rows (for each country) and 3
+columns (again for each country).  The value in each cell should be
+the distance between the country of the row and the country of the
+column. For a general idea of what this should look like, open the
+`expected.html` file you downloaded.  When displaying the distance
 between a country and itself, the table should should NaN (instead of
 0).
-
 
 #### Question 16: what is the distance between every pair of South American countries?
 
@@ -202,10 +185,7 @@ South American countries.
  
 #### Question 18: What is the least central South American country?
 
-This will be the country that has the longest average distance to other
-South American countries.
-
-This should be a similiar process to what you did for Q17
+This one has the largest average distance to other countries.
 
 #### Question 19: how close is each country in South America to it's nearest neighbour?
 
@@ -225,7 +205,7 @@ columns: `nearest` will contain the name of the nearest country and
  of the DataFrame, and the values of the returned Series contain the
  minimum values.  If you run `df.idxmin()` on a DataFrame, the
  returned values contain indexes from the DataFrame.
- ??
+
  #### Question 20: how far is each country in South America to it's furthest neighbour?
  
  The answer should be in a table with countries as the index and two
