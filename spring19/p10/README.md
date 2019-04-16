@@ -45,7 +45,7 @@ Tanzania_Swaziland.json
 Vanuatu_Tajikistan.json
 ```
 
-These are file names you can use to construct URLs to get locate the capital data (e.g., the first capital JSON file is here: https://tyler.caraza-harter.com/cs301/spring19/data/capitals/Brazil_Peru.json).
+These are file names you can use to construct URLs for capital data files (e.g., the first capital JSON file is here: https://tyler.caraza-harter.com/cs301/spring19/data/capitals/Brazil_Peru.json).
 
 Some of the columns require a little extra explanation:
 * area: measured in square miles
