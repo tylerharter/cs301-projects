@@ -1,5 +1,3 @@
-# Not ready yet, don't start!
-
 # Stage 1: The World Wide Web and World Wide Geography
 
 In this stage, you will write code to download the data files, load

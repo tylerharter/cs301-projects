@@ -70,4 +70,4 @@ must have the correct values at each index/column location shown in
 ## The Stages
 
 * [Stage 1](stage1.md): scrape some data files and answer some geography questions
-* Stage 2: coming soon!
+* [Stage 2](stage2.md): query a DB and generate some plots
