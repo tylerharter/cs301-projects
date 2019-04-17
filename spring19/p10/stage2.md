@@ -1,11 +1,9 @@
-# Not ready yet, don't start!
-
 # Stage 2: Database Queries and Plotting
 
 In this section, you're going to be further analyze the dataset.
 Your answers can be answered by loading your data into a
-SQLite database and sending queries to the database. You're also 
-going to create some plots to visualize your answers. 
+SQLite database and sending queries to the database. You're also
+going to create some plots to visualize your answers.
 
 ## NOTE: The following questions need to be answered using SQL queries.
 You should create a database table before you are able to answer the
@@ -23,10 +21,10 @@ countries.to_sql("countries_table", conn, if_exists="replace", index=False)
 conn.close()
 ```
 
-## Q21: what is the number of countries within each continent?
+#### Question 21: what is the number of countries within each continent?
 
 For this question, you should calculate the number of countries within every continent
-and display the `continent` name and number of countries within that continent (using a 
+and display the `continent` name and number of countries within that continent (using a
 column named `number of countries`). The results should be displayed in *ascending* order of the
 column `number of countries`. If two continents have the same number of countries, then those
 continents should be displayed in alphabetical order (e.g., if Australia and South America
@@ -38,40 +36,48 @@ Hint: SQL allows column name to contain spaces, but you need to use quotation ma
 
 **Expected output:**
 
-<img src="imgs/2-1.jpg" width="400">
+<img src="imgs/2-21.jpg" width="300">
 
-## Q22 plot the number of countries within each continent
+#### Question 22 plot the number of countries within each continent
 
 Answer with a **bar plot**.  Put continents on the x-axis and number
 of countries on the y-axis.  The continents should be sorted along the
-x-axis in ascending order by the number of countries and then alphabetically by name. 
+x-axis in ascending order by the number of countries and then alphabetically by name.
 
 **Expected output:**
 
-<img src="imgs/2-2.jpg" width="400">
+<img src="imgs/2-22.jpg" width="400">
 
-## Q23 what is the total population of each continent?
+#### Question 23 what is the total population of each continent?
 
 For this question, you should calculate the total population of every continent
-and display the `continent` name and total population of the continent (using a 
-column named `total population (million)`). The results shouldbe displayed in *descending* order of the
+and display the `continent` name and total population of the continent (using a
+column named `total population (million)`). The results should be displayed in *descending* order of the
 column `total population (million)`.
 
 **Expected output:**
 
-<img src="imgs/2-3.jpg" width="400">
+<img src="imgs/2-23.jpg" width="300">
 
-## Q24 plot the total population of each continent
+#### Question 24 plot the total population of each continent
 
 Answer with a **bar plot**.  Put continents on the x-axis and total
 populations on the y-axis.  The continents should be sorted along the
-x-axis in *descending* order of total population. 
+x-axis in *descending* order of total population.
 
 **Expected output:**
 
-<img src="imgs/2-4.jpg" width="400">
+<img src="imgs/2-24.jpg" width="400">
 
-## Q25 what are the top 10 countries that have the largest real GDP?
+#### Question 25 what is the population of each country in Australia?
+
+Autralia has the smallest populaton among all continents, let's find out what is the population of each country in this continent. You should display the `country` name and `population` of the countries. The results should be displayed in *descending* order of the column `population`.
+
+**Expected output:**
+
+<img src="imgs/2-25.jpg" width="300">
+
+#### Question 26 what are the top 10 countries that have the largest real GDP?
 
 You should display the `country` name and `real GDP (billion)` of the top 10 countries that have the largest real GDP. These top 10 countries should be
 displayed in *descending* order of real GDP.
@@ -80,19 +86,19 @@ Hint: `real GDP = population * gdp-per-capita`
 
 **Expected output:**
 
-<img src="imgs/2-5.jpg" width="400">
+<img src="imgs/2-26.jpg" width="300">
 
-## Q26 plot the real GDP of the top 10 countries
+#### Question 27 plot the real GDP of the top 10 countries
 
-To make the problem more interesting, answer with a **pie chart**. 
+To make the problem more interesting, answer with a **pie chart**.
 
-Hint: You might need to change the location of legend so that the legend does not block the pie chart, so you might need to adopt this code snippet `ax.legend(loc='center left', bbox_to_anchor=(1.1, 0.5))` where `ax` is return value of ploting function to your code. 
+Hint: You might need to change the location of legend so that the legend does not block the pie chart, so you might need to adopt this code snippet `ax.legend(loc='center left', bbox_to_anchor=(1.1, 0.5))` where `ax` is return value of ploting function to your code.
 
 **Expected output:**
 
-<img src="imgs/2-6.jpg" width="400">
+<img src="imgs/2-27.jpg" width="400">
 
-## Q27 what are the top 10 countries that have the largest gap between birth rate and death rate? 
+#### Question 28 what are the top 10 countries that have the largest gap between birth rate and death rate?
 
 You should display the `country` name, `birth-rate`, and `death-rate` of the top 10 countries that have the largest gap between `birth-rate` and `death-rate`. These top 10 countries should be displayed in *descending* order of the gap.
 
@@ -100,57 +106,83 @@ Hint: Gap is defined as the difference between `birth-rate` and `death-rate`
 
 **Expected output:**
 
-<img src="imgs/2-7.jpg" width="400">
+<img src="imgs/2-28.jpg" width="300">
 
-## Q28 plot the birth rate and death rate of the top 10 countries
+#### Question 29 plot the birth rate and death rate of the top 10 countries
 
-Answer with a **horizontal bar plot**.  Put countries on the x-axis and `birth-rate` and `death-rate` on the y-axis.  The countries should be sorted along the x-axis in *descending* order of gap. 
+Answer with a **horizontal bar plot**.  Put countries on the x-axis and `birth-rate` and `death-rate` on the y-axis.  The countries should be sorted along the x-axis in *descending* order of gap.
 
 **Expected output:**
 
-<img src="imgs/2-8.jpg" width="400">
+<img src="imgs/2-29.jpg" width="400">
 
-## Q29 what is the relationship between birth rates and death rates?
+#### Question 30 what is the relationship between birth rates and death rates?
 
 Answer with a **scatter plot** with `birth-rate` on the x-axis and `death-rate` on the y-axis. Do you observe a pattern between birth rate and death rate?
 
 **Expected output:**
 
-<img src="imgs/2-9.jpg" width="400">
+<img src="imgs/2-30.jpg" width="400">
 
-## Q30 notice that six outliers? find what countries these six points correspond to. 
+#### Question 31 notice that six outliers? find what countries these six points correspond to.
 
-You may notice the pattern between birth rate and death rate does not fit a curve exactly. Especially, there are six outliers that completely fail to fit the pattern. Let's find out what countries do these six points correspond to. 
+<img src="imgs/2-31-2.jpg" width="300">
 
-**Expected output:**
-
-<img src="imgs/2-10.jpg" width="400">
-
-## Q31 what is the relationship between infant mortality and birth rates?
-
-Answer with a **scatter plot** with `infant-mortality` on the x-axis and `birth-rate` on the y-axis. 
+You may notice the pattern between birth rate and death rate does not fit a curve exactly. Especially, there are six outliers that completely fail to fit the pattern. Let's find out what countries do these six points correspond to.
 
 **Expected output:**
 
-<img src="imgs/2-11.jpg" width="400">
+<img src="imgs/2-31.jpg" width="300">
 
-## Q32 what is the relationship between GDP per capita and death rates?
+#### Question 32 what is the correlation between birth rates and death rates?
 
-Answer with a **scatter plot** with `gdp-per-capita` on the x-axis and `death-rate` on the y-axis. 
-
-**Expected output:**
-
-<img src="imgs/2-12.jpg" width="400">
-
-## Q33 what is the relationship between GDP per capita and birth rates?
-
-Answer with a **scatter plot** with `gap-per-capita` on the x-axis and `birth-rate` on the y-axis. Do you observe a pattern between GDP per capita and birth rates? It seems that there is a correlation between GDP per capita and inverse of birth rate, so let's plot a scatter plot for that. 
+If you have a DataFrame `df`, then calling `df.corr()` will present a table showing the Pearson correlation between every pair of columns in df. A correlation of 1 is the max (so, for example, every column is correlated perfectly with itself). A high correlation between columns X and Y means that large X values tend to coincide with large Y values and small X values tend to coincide with small Y values. In some of the questions, you'll observe negative correlations (-1 being the smallest). This means that large X values tend to coincide with small Y values and vice versa.
 
 **Expected output:**
 
-<img src="imgs/2-13.jpg" width="400">
+`0.40037782919521714`
 
-## Q34 what is the relationship between GDP per capita and the inverse of birth rates?
+#### Question 33 what is the relationship between infant mortality and birth rates?
+
+Answer with a **scatter plot** with `infant-mortality` on the x-axis and `birth-rate` on the y-axis.
+
+**Expected output:**
+
+<img src="imgs/2-33.jpg" width="400">
+
+#### Question 34 what is the correlation between infant mortality and birth rates?
+
+Does this correlation value coincide with the pattern you saw in question 33? Could you give an explanation why the correlation between infant mortality and birth rates is larger than the correlation between birth rates and death rates?
+
+**Expected output:**
+
+`0.8687265678031416`
+
+#### Question 35 what is the relationship between GDP per capita and death rates?
+
+Answer with a **scatter plot** with `gdp-per-capita` on the x-axis and `death-rate` on the y-axis.
+
+**Expected output:**
+
+<img src="imgs/2-35.jpg" width="400">
+
+#### Question 36 what is the correlation between GDP per capita and death rates?
+
+Does this correlation value coincide with the pattern you saw in question 35? Could you give an interpretation of this correlation?
+
+**Expected output:**
+
+`-0.20995846867456752`
+
+#### Question 37 what is the relationship between GDP per capita and birth rates?
+
+Answer with a **scatter plot** with `gap-per-capita` on the x-axis and `birth-rate` on the y-axis. Do you observe a pattern between GDP per capita and birth rates? It seems that there is a correlation between GDP per capita and inverse of birth rate, so let's plot a scatter plot for that.
+
+**Expected output:**
+
+<img src="imgs/2-37.jpg" width="400">
+
+#### Question 38 what is the relationship between GDP per capita and the inverse of birth rates?
 
 Answer with a **scatter plot** with `gap-per-capita` on the x-axis and `inverse birth rate` on the y-axis.
 
@@ -158,11 +190,11 @@ Hint: `inverse birth rate` is defined as `1 / birth-rate`
 
 **Expected output:**
 
-<img src="imgs/2-14.jpg" width="400">
+<img src="imgs/2-38.jpg" width="400">
 
-## Q35 fit a line to the GDP per capita vs the inverse of birth rates scatter plot
+#### Question 39 fit a "y = m x + n" regression line to the scatter plot in question 37, what is the coefficients m and n?
 
-Draw a fit line over the **scatter plot**. For the fit line, first try copy/pasting this code into a notebook cell and running it to see what happens:
+For the regression line, first try copy/pasting this code into a notebook cell and running it to see what happens:
 
 ```python
 import numpy as np
@@ -186,9 +218,16 @@ df.plot.line(x='x', y='fit', c='red', ax=ax)
 ```
 
 Then adapt the above code so that it uses your DataFrame (instead of
-df) and replaces "x" with `gdp-per-capita` and "y" with `inverse birth rate`.
+df) and replaces "x" with `gdp-per-capita` and "y" with `inverse birth rate`. Answer with a **tuple** for coefficients `(m, n)`.
 
 **Expected output:**
 
-<img src="imgs/2-15.jpg" width="400">
+`(1.8422394400496355e-06, 0.03903504364953538)`
 
+#### Question 40 plot the regression line to the scatter plot
+
+To visualize how well the regression line fit the scatter points, draw a fit line over the **scatter plot**.
+
+**Expected output:**
+
+<img src="imgs/2-40.jpg" width="400">

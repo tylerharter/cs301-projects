@@ -46,7 +46,28 @@ questions = [
     Question(number=17, weight=1, format=TEXT_FORMAT),
     Question(number=18, weight=1, format=TEXT_FORMAT),
     Question(number=19, weight=1, format=HTML_FORMAT),
-    Question(number=20, weight=1, format=HTML_FORMAT)
+    Question(number=20, weight=1, format=HTML_FORMAT),
+    # stage 2
+    Question(number=21, weight=1, format=HTML_FORMAT),
+    Question(number=22, weight=1, format=PNG_FORMAT),
+    Question(number=23, weight=1, format=HTML_FORMAT),
+    Question(number=24, weight=1, format=PNG_FORMAT),
+    Question(number=25, weight=1, format=HTML_FORMAT),
+    Question(number=26, weight=1, format=HTML_FORMAT),
+    Question(number=27, weight=1, format=PNG_FORMAT),
+    Question(number=28, weight=1, format=HTML_FORMAT),
+    Question(number=29, weight=1, format=PNG_FORMAT),
+    Question(number=30, weight=1, format=PNG_FORMAT),
+    Question(number=31, weight=1, format=HTML_FORMAT),
+    Question(number=32, weight=1, format=TEXT_FORMAT),
+    Question(number=33, weight=1, format=PNG_FORMAT),
+    Question(number=34, weight=1, format=TEXT_FORMAT),
+    Question(number=35, weight=1, format=PNG_FORMAT),
+    Question(number=36, weight=1, format=TEXT_FORMAT),
+    Question(number=37, weight=1, format=PNG_FORMAT),
+    Question(number=38, weight=1, format=PNG_FORMAT),
+    Question(number=39, weight=1, format=TEXT_FORMAT),
+    Question(number=40, weight=1, format=PNG_FORMAT)
 ]
 question_nums = set([q.number for q in questions])
 
@@ -763,7 +784,11 @@ expected_json = {
     "13": 1.433899492072933,
     "14": 8840.574141306946,
     "17": 'Bolivia',
-    "18": 'Uruguay'
+    "18": 'Uruguay',
+    "32": 0.40037782919521714,
+    "34": 0.8687265678031416,
+    "36": -0.20995846867456752,
+    "39": (1.8422394400496355e-06, 0.03903504364953538)
         }
 
 def parse_df_html_table(html, question=None):
@@ -867,6 +892,16 @@ def check_cell_text(qnum, cell):
             for i,(a,e) in enumerate(zip(actual, expected)):
                 if a != e:
                     return "found %s at position %d but expected %s" % (str(a), i, str(e))            # this happens when the list contains dicts.  Just do a simple comparison
+    elif type(expected) == tuple:
+        if len(expected) != len(actual):
+            expected_mismatch = True
+        try:
+            for idx in range(len(expected)):
+                if not math.isclose(actual[idx], expected[idx], rel_tol=1e-10, abs_tol=1e-10):
+                    expected_mismatch = True
+        except:
+            expected_mismatch = True
+
     else:
         if expected != actual:
             expected_mismatch = True
