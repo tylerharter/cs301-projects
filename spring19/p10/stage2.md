@@ -1,42 +1,41 @@
 # Stage 2: Database Queries and Plotting
 
-In this section, you're going to be further analyze the dataset.
-Your answers can be answered by loading your data into a
-SQLite database and sending queries to the database. You're also
-going to create some plots to visualize your answers.
+In this section, you'll dump your DataFrames to a SQLite database.
+You'll answer questions by doing queries on that database.  Often,
+your answer will be in the form of a plot.  Check these carefully, as
+the tests only verify a plot has been created, not that it looks
+correct (TAs will manually deduct points for plotting mistakes).
 
-## NOTE: The following questions need to be answered using SQL queries.
-You should create a database table before you are able to answer the
-following questions using SQL queries. For creating a table, you may use
-the below code snippet. This code snippet creates and connects to a database
-named *countries.db* and the `to_sql()` function creates a database table
-named `countries_table` from the `countries` DataFrame
-(note this name may be different in your code) that was created using the
-*countries.json* file (in step 1).
+Create your database by pasting the following cell to your notebook.
 
-```Python
+```python
 import sqlite3
 conn = sqlite3.connect('countries.db')
-countries.to_sql("countries_table", conn, if_exists="replace", index=False)
-conn.close()
+countries_df.to_sql("countries", conn, if_exists="replace", index=False)
+capitals_df.to_sql("capitals", conn, if_exists="replace", index=False)
+
+# remember to do conn.close() at the end of your notebook
 ```
 
-#### Question 21: what is the number of countries within each continent?
+If you named your DataFrames something other than `countries_df` and
+`capitals_df`, tweak the above code to use your variable names.
 
-For this question, you should calculate the number of countries within every continent
-and display the `continent` name and number of countries within that continent (using a
-column named `number of countries`). The results should be displayed in *ascending* order of the
-column `number of countries`. If two continents have the same number of countries, then those
-continents should be displayed in alphabetical order (e.g., if Australia and South America
-have the same number of countries, then Australia should be displayed before South America).
+#### Question 21: how many countries are in each continent?
 
-Hint: pd.read_sql(query, conn) executes a SQL query on the database connection object conn and returns the result as a pandas DataFrame. You may use this function to write and execute the SQL queries by replacing the query with the appropriate SQL query.
-
-Hint: SQL allows column name to contain spaces, but you need to use quotation mark to group the name together. For example, `select count() as "number of countries" from countries_table`
-
-**Expected output:**
+Look at the `Question 21` table in `expected.html`.  Your answer
+should be a DataFrame with the same rows and columns.  It should look
+like this:
 
 <img src="imgs/2-21.jpg" width="300">
+
+Requirements:
+* use a GROUP BY query in SQL
+* sort by number of countries (most first)
+* break ties alhpabetically ("A" before "B", etc)
+* the column names should be `continent` and `number of countries`
+
+Use backtics (`` ` ``) around column names with spaces to satisfy the
+last requirement.
 
 #### Question 22 plot the number of countries within each continent
 
