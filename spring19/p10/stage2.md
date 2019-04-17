@@ -26,7 +26,7 @@ Look at the `Question 21` table in `expected.html`.  Your answer
 should be a DataFrame with the same rows and columns.  It should look
 like this:
 
-<img src="imgs/2-21.png" width="300">
+<img src="imgs/2-21.jpg" width="300">
 
 Requirements:
 * use a GROUP BY query in SQL
@@ -58,7 +58,7 @@ column `total population (million)`.
 
 **Expected output:**
 
-<img src="imgs/2-23.png" width="300">
+<img src="imgs/2-23.jpg" width="300">
 
 #### Question 24: what is the total population of each continent? (answer with a plot)
 
@@ -76,7 +76,7 @@ Autralia has the smallest populaton among all continents, let's find out what is
 
 **Expected output:**
 
-<img src="imgs/2-25.png" width="300">
+<img src="imgs/2-25.jpg" width="300">
 
 #### Question 26: what are the top 10 countries that have the largest real GDP?
 
@@ -87,7 +87,7 @@ Hint: `real GDP = population * gdp-per-capita`
 
 **Expected output:**
 
-<img src="imgs/2-26.png" width="300">
+<img src="imgs/2-26.jpg" width="300">
 
 #### Question 27: what are the top 10 countries that have the largest real GDP? (answer with a plot)
 
@@ -97,7 +97,7 @@ Hint: You might need to change the location of legend so that the legend does no
 
 **Expected output:**
 
-<img src="im:gs/2-27.png" width="400">
+<img src="imgs/2-27.png" width="400">
 
 #### Question 28: what are the top 10 countries that have the largest gap between birth rate and death rate?
 
@@ -107,7 +107,7 @@ Hint: Gap is defined as the difference between `birth-rate` and `death-rate`
 
 **Expected output:**
 
-<img src="imgs/2-28.png" width="300">
+<img src="imgs/2-28.jpg" width="300">
 
 #### Question 29: what are the top 10 countries that have the largest gap between birth rate and death rate? (answer with a plot)
 
@@ -137,7 +137,7 @@ sorted low to high.
 
 **Expected output:**
 
-<img src="imgs/2-31.png" width="300">
+<img src="imgs/2-31.jpg" width="300">
 
 #### Question 32: what is the correlation between birth rates and death rates?
 
