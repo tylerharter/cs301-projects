@@ -31,7 +31,7 @@ like this:
 Requirements:
 * use a GROUP BY query in SQL
 * sort by number of countries (most first)
-* break ties alhpabetically ("A" before "B", etc)
+* break ties alphabetically ("A" before "B", etc)
 * the column names should be `continent` and `number of countries`
 
 Use backtics (`` ` ``) around column names with spaces to satisfy the
@@ -72,7 +72,7 @@ x-axis in *descending* order of total population.
 
 #### Question 25: what is the population of each country in Australia?
 
-Autralia has the smallest populaton among all continents, let's find out what is the population of each country in this continent. You should display the `country` name and `population` of the countries. The results should be displayed in *descending* order of the column `population`.
+Australia has the smallest population among all continents, let's find out what is the population of each country in this continent. You should display the `country` name and `population` of the countries. The results should be displayed in *descending* order of the column `population`.
 
 **Expected output:**
 
@@ -93,7 +93,7 @@ Hint: `real GDP = population * gdp-per-capita`
 
 To make the problem more interesting, answer with a **pie chart**.
 
-Hint: You might need to change the location of legend so that the legend does not block the pie chart, so you might need to adopt this code snippet `ax.legend(loc='center left', bbox_to_anchor=(1.1, 0.5))` where `ax` is return value of ploting function to your code.
+Hint: You might need to change the location of legend so that the legend does not block the pie chart, so you might need to adopt this code snippet `ax.legend(loc='center left', bbox_to_anchor=(1.1, 0.5))` where `ax` is return value of plotting function to your code.
 
 **Expected output:**
 

@@ -55,7 +55,7 @@ Create a DataFrame with `capitals = DataFrame(capital_rows)`.  Use
 
 #### Question 4: what is the capital of Bermuda?
 
-Now we can begin to answer more complex questions using our newly constructed Dataframe.
+Now we can begin to answer more complex questions using our newly constructed DataFrame.
 
 Our first task will be determining the capital of Bermuda.
 
@@ -183,7 +183,7 @@ South American countries.
 
 This one has the largest average distance to other countries.
 
-#### Question 19: how close is each country in South America to it's nearest neighbour?
+#### Question 19: how close is each country in South America to it's nearest neighbor?
 
 The answer should be in a table with countries as the index and two
 columns: `nearest` will contain the name of the nearest country and
@@ -202,7 +202,7 @@ columns: `nearest` will contain the name of the nearest country and
  minimum values.  If you run `df.idxmin()` on a DataFrame, the
  returned values contain indexes from the DataFrame.
 
- #### Question 20: how far is each country in South America to it's furthest neighbour?
+ #### Question 20: how far is each country in South America to it's furthest neighbor?
  
  The answer should be in a table with countries as the index and two
  columns: `furthest` will contain the name of the furthest country and
