@@ -35,9 +35,11 @@ Requirements:
 * the column names should be `continent` and `number of countries`
 
 Use backtics (`` ` ``) around column names with spaces to satisfy the
-last requirement.
+last requirement.  You should also use the backtics to deal with
+column names containing other problematic characters as well (e.g.,
+`-`).
 
-#### Question 22: plot the number of countries within each continent
+#### Question 22: how many countries are in each continent?  (answer with a plot)
 
 Answer with a **bar plot**.  Put continents on the x-axis and number
 of countries on the y-axis.  The continents should be sorted along the
@@ -58,7 +60,7 @@ column `total population (million)`.
 
 <img src="imgs/2-23.jpg" width="300">
 
-#### Question 24: plot the total population of each continent
+#### Question 24: what is the total population of each continent? (answer with a plot)
 
 Answer with a **bar plot**.  Put continents on the x-axis and total
 populations on the y-axis.  The continents should be sorted along the
@@ -85,9 +87,9 @@ Hint: `real GDP = population * gdp-per-capita`
 
 **Expected output:**
 
-<img src,="i:gs/2-26.jpg" width="300">
+<img src="imgs/2-26.jpg" width="300">
 
-#### Question 27: plot the real GDP of the top 10 countries
+#### Question 27: what are the top 10 countries that have the largest real GDP? (answer with a plot)
 
 To make the problem more interesting, answer with a **pie chart**.
 
@@ -107,7 +109,7 @@ Hint: Gap is defined as the difference between `birth-rate` and `death-rate`
 
 <img src="imgs/2-28.jpg" width="300">
 
-#### Question 29: plot the birth rate and death rate of the top 10 countries
+#### Question 29: what are the top 10 countries that have the largest gap between birth rate and death rate? (answer with a plot)
 
 Answer with a **horizontal bar plot**.  Put countries on the x-axis and `birth-rate` and `death-rate` on the y-axis.  The countries should be sorted along the x-axis in *descending* order of gap.
 
@@ -115,7 +117,7 @@ Answer with a **horizontal bar plot**.  Put countries on the x-axis and `birth-r
 
 <img src="imgs/2-29.jpg" width="400">
 
-#### Question 30: what is the relationship between birth rates and death rates?
+#### Question 30: what is the relationship between birth rates and death rates?  (answer with a plot)
 
 Answer with a **scatter plot** with `birth-rate` on the x-axis and `death-rate` on the y-axis. Do you observe a pattern between birth rate and death rate?
 
@@ -123,11 +125,15 @@ Answer with a **scatter plot** with `birth-rate` on the x-axis and `death-rate` 
 
 <img src="imgs/2-30.jpg" width="400">
 
-#### Question 31: notice that six outliers? find what countries these six points correspond to.
+#### Question 31: notice that six outliers? which countries are they?
 
-<img src:="imgs/2-31-2.jpg" width="300">
+These are the points:
 
-You may notice the pattern between birth rate and death rate does not fit a curve exactly. Especially, there are six outliers that completely fail to fit the pattern. Let's find out what countries do these six points correspond to.
+<img src="imgs/2-31-2.jpg" width="300">
+
+Write a query with to grab rows corresponding roughly to that
+rectangle to get the points.  In the output, `birth-rate` should be
+sorted low to high.
 
 **Expected output:**
 
@@ -135,7 +141,7 @@ You may notice the pattern between birth rate and death rate does not fit a curv
 
 #### Question 32: what is the correlation between birth rates and death rates?
 
-If you h:ave a DataFrame `df`, then calling `df.corr()` will present a table showing the Pearson correlation between every pair of columns in df. A correlation of 1 is the max (so, for example, every column is correlated perfectly with itself). A high correlation between columns X and Y means that large X values tend to coincide with large Y values and small X values tend to coincide with small Y values. In some of the questions, you'll observe negative correlations (-1 being the smallest). This means that large X values tend to coincide with small Y values and vice versa.
+If you have a DataFrame `df`, then calling `df.corr()` will present a table showing the Pearson correlation between every pair of columns in df. A correlation of 1 is the max (so, for example, every column is correlated perfectly with itself). A high correlation between columns X and Y means that large X values tend to coincide with large Y values and small X values tend to coincide with small Y values. In some of the questions, you'll observe negative correlations (-1 being the smallest). This means that large X values tend to coincide with small Y values and vice versa.
 
 **Expected output:**
 
@@ -190,7 +196,7 @@ Hint: `inverse birth rate` is defined as `1 / birth-rate`
 
 <img src="imgs/2-38.jpg" width="400">
 
-#### Question 39: fit a "y = m x + n" regression line to the scatter plot in question 37, what is the coefficients m and n?
+#### Question 39: fit a `y = m * x + n` line to the scatter plot in question 37 using the least-squares method; what are the coefficients m and n?
 
 For the regression line, first try copy/pasting this code into a notebook cell and running it to see what happens:
 
@@ -207,7 +213,7 @@ res = np.linalg.lstsq(df[["x", "1"]], df["y"], rcond=None)
 
 # res is a tuple: (COEFFICIENTS, VALUE, VALUE, VALUE)
 coefficients = res[0] # coefficients is (m,n:
-m = coefficients,[0] # slope
+m = coefficients[0] # slope
 n = coefficients[1] # intercept
 ax = df.plot.scatter(x='x', y='y')
 
