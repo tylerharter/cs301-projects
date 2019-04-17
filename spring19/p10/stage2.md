@@ -26,7 +26,7 @@ Look at the `Question 21` table in `expected.html`.  Your answer
 should be a DataFrame with the same rows and columns.  It should look
 like this:
 
-<img src="imgs/2-21.jpg" width="300">
+<img src="imgs/2-21.png" width="300">
 
 Requirements:
 * use a GROUP BY query in SQL
@@ -47,7 +47,7 @@ x-axis in ascending order by the number of countries and then alphabetically by 
 
 **Expected output:**
 
-<img src="imgs/2-22.jpg" width="400">
+<img src="imgs/2-22.png" width="400">
 
 #### Question 23: what is the total population of each continent?
 
@@ -58,7 +58,7 @@ column `total population (million)`.
 
 **Expected output:**
 
-<img src="imgs/2-23.jpg" width="300">
+<img src="imgs/2-23.png" width="300">
 
 #### Question 24: what is the total population of each continent? (answer with a plot)
 
@@ -68,7 +68,7 @@ x-axis in *descending* order of total population.
 
 **Expected output:**
 
-<img src="imgs/2-24.jpg" width="400">
+<img src="imgs/2-24.png" width="400">
 
 #### Question 25: what is the population of each country in Australia?
 
@@ -76,7 +76,7 @@ Autralia has the smallest populaton among all continents, let's find out what is
 
 **Expected output:**
 
-<img src="imgs/2-25.jpg" width="300">
+<img src="imgs/2-25.png" width="300">
 
 #### Question 26: what are the top 10 countries that have the largest real GDP?
 
@@ -87,7 +87,7 @@ Hint: `real GDP = population * gdp-per-capita`
 
 **Expected output:**
 
-<img src="imgs/2-26.jpg" width="300">
+<img src="imgs/2-26.png" width="300">
 
 #### Question 27: what are the top 10 countries that have the largest real GDP? (answer with a plot)
 
@@ -97,7 +97,7 @@ Hint: You might need to change the location of legend so that the legend does no
 
 **Expected output:**
 
-<img src="im:gs/2-27.jpg" width="400">
+<img src="im:gs/2-27.png" width="400">
 
 #### Question 28: what are the top 10 countries that have the largest gap between birth rate and death rate?
 
@@ -107,7 +107,7 @@ Hint: Gap is defined as the difference between `birth-rate` and `death-rate`
 
 **Expected output:**
 
-<img src="imgs/2-28.jpg" width="300">
+<img src="imgs/2-28.png" width="300">
 
 #### Question 29: what are the top 10 countries that have the largest gap between birth rate and death rate? (answer with a plot)
 
@@ -115,7 +115,7 @@ Answer with a **horizontal bar plot**.  Put countries on the x-axis and `birth-r
 
 **Expected output:**
 
-<img src="imgs/2-29.jpg" width="400">
+<img src="imgs/2-29.png" width="400">
 
 #### Question 30: what is the relationship between birth rates and death rates?  (answer with a plot)
 
@@ -123,7 +123,7 @@ Answer with a **scatter plot** with `birth-rate` on the x-axis and `death-rate` 
 
 **Expected output:**
 
-<img src="imgs/2-30.jpg" width="400">
+<img src="imgs/2-30.png" width="400">
 
 #### Question 31: notice that six outliers? which countries are they?
 
@@ -137,7 +137,7 @@ sorted low to high.
 
 **Expected output:**
 
-<img src="imgs/2-31.jpg" width="300">
+<img src="imgs/2-31.png" width="300">
 
 #### Question 32: what is the correlation between birth rates and death rates?
 
@@ -153,7 +153,7 @@ Answer with a **scatter plot** with `infant-mortality` on the x-axis and `birth-
 
 **Expected output:**
 
-<img src="imgs/2-33.jpg" width="400">
+<img src="imgs/2-33.png" width="400">
 
 #### Question 34: what is the correlation between infant mortality and birth rates?
 
@@ -169,7 +169,7 @@ Answer with a **scatter plot** with `gdp-per-capita` on the x-axis and `death-ra
 
 **Expected output:**
 
-<img src="imgs/2-35.jpg" width="400">
+<img src="imgs/2-35.png" width="400">
 
 #### Question 36: what is the correlation between GDP per capita and death rates?:
 Does this, correlation value coincide with the pattern you saw in question 35? Could you give an interpretation of this correlation?
@@ -184,7 +184,7 @@ Answer with a **scatter plot** with `gap-per-capita` on the x-axis and `birth-ra
 
 **Expected output:**
 
-<img src="imgs/2-37.jpg" width="400">
+<img src="imgs/2-37.png" width="400">
 
 #### Question 38: what is the relationship between GDP per capita and the inverse of birth rates?
 
@@ -194,7 +194,7 @@ Hint: `inverse birth rate` is defined as `1 / birth-rate`
 
 **Expected output:**
 
-<img src="imgs/2-38.jpg" width="400">
+<img src="imgs/2-38.png" width="400">
 
 #### Question 39: fit a `y = m * x + n` line to the scatter plot in question 37 using the least-squares method; what are the coefficients m and n?
 
@@ -234,4 +234,4 @@ To visualize how well the regression line fit the scatter points, draw a fit lin
 
 **Expected output:**
 
-<img src="imgs/2-40.jpg" width="400">
+<img src="imgs/2-40.png" width="400">
