@@ -840,6 +840,13 @@ class Linter(ast.NodeVisitor):
         self.suppressed = suppressed if suppressed else [] 
         self.func_names = []
 
+    def is_severe(self):
+        for severe_name in ("repeated_function", "keyword_names", "unnnecessary_true"):
+            for warning in self.warnings:
+                if warning.name == severe_name:
+                    return True
+        return False
+
     def show_warnings(self):
         for warning, linenos in self.warnings.items(): 
             if warning.name in self.suppressed:
@@ -849,7 +856,7 @@ class Linter(ast.NodeVisitor):
             else:
                 print("LINES %s : %s" % (", ".join(map(str, linenos)), warning.msg))
 
-    def register_warning(self, warning_name, warning_msg, lineno): 
+    def register_warning(self, warning_name, warning_msg, lineno):
         w = self.warn(warning_name, warning_msg)
         self.warnings[w].append(lineno)
 
@@ -874,13 +881,13 @@ class Linter(ast.NodeVisitor):
                 # a = 10
                 if len(target.id) == 1: 
                     self.register_warning("descriptive", 
-                            "Please try to use more descriptive variable names. You used : '%s'." % target.id, 
+                            "Consider using more descriptive variable names. You used : '%s'." % target.id, 
                             target.lineno)
                 
                 # list = [..]
                 if target.id.lower() in self.forbidden_names:
                     self.register_warning("keyword_names", 
-                            "Please avoid using '%s' for a variable name, as it is a Python keyword." % target.id, 
+                            "Do not use '%s' for a variable name; that clobbers the Python type." % target.id, 
                             target.lineno)
 
                 # x = x
@@ -1054,15 +1061,35 @@ def check_cell(question, cell):
     raise Exception("invalid question type")
 
 
+def lint_cell(cell): 
+    code = "\n".join(cell.get('source', []))
+    tree = ast.parse(code)
+    l = Linter()
+    l.visit(tree)
+    return l
+
+
 def grade_answers(cells):
-    results = {'score':0, 'tests': []}
+    results = {'score':0, 'tests': [], 'lint': []}
 
     for question in questions:
         cell = cells.get(question.number, None)
         status = "not found"
 
         if question.number in cells:
+            # does it match the expected output?
             status = check_cell(question, cells[question.number])
+
+            # does it pass the linter?
+            try:
+                l = lint_cell(cell)
+                lint_warnings = [k.msg for k in l.warnings.keys()]
+                if status == PASS and l.is_severe():
+                    status = 'failed due to bad coding style (checkout output at end)'
+            except Exception as e:
+                lint_warnings = ["Lint Exception: " + str(e)]
+            for line in lint_warnings:
+                results["lint"].append("q%d: %s" % (question.number, line))
 
         row = {"test": question.number, "result": status, "weight": question.weight}
         results['tests'].append(row)
@@ -1102,11 +1129,19 @@ def main():
 
     print("\nSummary:")
     for test in results["tests"]:
-        print("  Test %d: %s" % (test["test"], test["result"]))
+        print("  Question %d: %s" % (test["test"], test["result"]))
 
     print('\nTOTAL SCORE: %.2f%%' % results['score'])
     with open('result.json', 'w') as f:
         f.write(json.dumps(results, indent=2))
+
+    if len(results["lint"]) > 0:
+        print()
+        print("!"*80)
+        print("AUTO-GENERATED CODING SUGGESTIONS FOR YOUR CONSIDERATION:")
+        for line in results["lint"]:
+            print(line)
+        print("!"*80)
 
 
 if __name__ == '__main__':
