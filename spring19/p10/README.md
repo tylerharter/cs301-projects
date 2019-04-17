@@ -67,6 +67,33 @@ doesn't care about the order of the rows or columns.  However, you
 must have the correct values at each index/column location shown in
 `expected.html`.
 
+For P10, `test.py` is pickier than it has been.  In addition to
+checking for incorrect answers, it will also check for a few common
+kinds of bad coding style.  You should look for these at the bottom of
+the output:
+
+```
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+AUTO-GENERATED CODING SUGGESTIONS FOR YOUR CONSIDERATION:
+q3: The function g has more than one definition. Avoid reusing function names
+q39: Do not use 'list' for a variable name; that clobbers the Python type.
+q40: Consider using more descriptive variable names. You used : 'm'.
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+```
+
+In some cases, `test.py` will deduct points for bad style.  In other
+cases, you should consider whether the auto-generated tips apply to
+you or not.  For example, consider this one:
+
+```
+q40: Consider using more descriptive variable names. You used : 'm'.
+```
+
+It's not good to have too many one-letter variables (it often makes it
+hard to read the code), but some are OK.  It's on you to look at your
+code and decide whether or not it's best to use a longer variable name
+in such cases.
+
 ## The Stages
 
 * [Stage 1](stage1.md): scrape some data files and answer some geography questions
