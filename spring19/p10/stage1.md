@@ -38,7 +38,7 @@ Requirements:
 
 Test your function (e.g., make sure you can call `get_json("https://tyler.caraza-harter.com/cs301/spring19/data/capitals/Brazil_Peru.json")` more than once).
 
-For every file in `manifest.json`, use `get_json` to fetch and decode
+For every file in `manifest.txt`, use `get_json` to fetch and decode
 the contents to a Python dictionary.  Collect all these dictionaries
 in a list named `capital_rows`.
 
