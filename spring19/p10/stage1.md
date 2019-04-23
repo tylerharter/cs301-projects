@@ -31,7 +31,7 @@ def get_json(url):
 ```
 
 Requirements:
-* the first time `get_json` is called for a given URL, it should download the JSON content at that URL using `requests.get`, decode it, and return the result as a Python dictionary
+* the first time `get_json` is called for a given URL, it should download the JSON content at that URL using `requests.get`, decode it, and return the result as a Python structure (list or dict, depending on the contents)
 * the first time `get_json` is called for a given URL, it should also save the contents to a file on your computer (for example, if URL is `https://tyler.caraza-harter.com/cs301/spring19/data/capitals/Brazil_Peru.json`, it might save a local file named `Brazil_Peru.json` in the current directory)
 * subsequent times `get_json` is called, it should return the data from the previously-downloaded file
 * `get_json` should determine whether or not it is being called the first time for a given URL by using `os.path.exists` to check whether the data has previously been downloaded

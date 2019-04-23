@@ -4,6 +4,7 @@
 
 * Apr 22: minor typos in q37 and q38
 * Apr 23: for those of you getting the dreaded SSLCertVerificationError, see the fix here: https://piazza.com/class/jqa9nnsyjx778j?cid=682
+* Apr 23: `get_json` directions now says "Python structure" instead of "Python dict"
 
 ## Introduction
 
