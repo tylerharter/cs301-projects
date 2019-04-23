@@ -181,7 +181,7 @@ array([[ 4.74371708, 12.00074986,  9.48743415],
 We'll use something called the *Least Squares Method* to find a fit
 line for our trees data (https://en.wikipedia.org/wiki/Least_squares).
 For CS 301, you only need to understand it at an intuitive level.
-Imagine we attached a moveable line to every point in our data, as in
+Imagine we attached a movable line to every point in our data, as in
 the following:
 
 <img src="springs.png">
@@ -219,7 +219,58 @@ inputs.head()
 
 If we have a DataFrame `df`, then `df[list_of_columns]` will create a
 DataFrame that has a subset of the original columns (as specified in
-the list), so `outputs` will look something like this:
+the list), so `outputs` will look something like this (`age` is the
+`x` in this case):
 
 <img src="inputs.png">
 
+Ok, now we're ready to crunch some numbers:
+
+```python
+result = np.linalg.lstsq(inputs, output, rcond=None)
+result
+```
+
+Notice we're passing our `inputs` DataFrame and `output` Series; numpy
+can work with these Pandas types.  The `rcond=None` is an unimportant
+detail (you should always pass that).  `result` will look something
+like this:
+
+```
+(array([2.27595611, 0.10250293]),
+ array([80.70169711]),
+ 2,
+ array([64.20719236,  3.56646379]))
+```
+
+Notice it's a tuple with four values, as described here:
+https://docs.scipy.org/doc/numpy/reference/generated/numpy.linalg.lstsq.html.
+According to the documentation, the tuple is like this:
+`(coefficients, residuals, rank, singular-values)`.  Here, we only
+care about the coefficients, so let's pull those out:
+
+```python
+slope = result[0][0]
+intercept = result[0][1]
+slope, intercept
+```
+
+Let's use this slope and intercept to fill in the `height-fitted` column correctly now:
+
+```python
+trees["height-fitted"] = trees["age"] * slope + intercept
+trees.head()
+```
+
+Let's conclude by re-plotting the scatter data and fit line:
+
+```python
+import matplotlib
+matplotlib.rcParams["font.size"] = 16
+
+ax = trees.plot.scatter(x="age", y="height", c="black", xlim=0, ylim=0)
+ax.set_xlabel("Age (years)")
+ax.set_ylabel("Height (feet)")
+
+trees.plot.line(ax=ax, x="age", y="height-fitted", color="red")
+```
