@@ -201,11 +201,12 @@ DataFrame might look like this:
 
 <img src="columns.png">
 
-Note that both coefficients need to be multiplied by something (that's
-just what the `lstsq` function expects), so we have a dummy column
-containing just ones.  As you can see, we're trying to relate the `y`
-column Series (output) to a `DataFrame` of values (inputs) from which
-we want to estimate `y`.
+Note that the coefficients (even the one for the line's intercept)
+need to be multiplied by a column (that's just what the `lstsq`
+function expects), so we have a dummy column containing just ones for
+`n`.  As you can see, we're trying to relate the `y` column Series (an
+output) to a `DataFrame` of values (the inputs) from which we want to
+estimate `y`.
 
 Let's add the dummy column to our `trees` DataFrame and pull out the
 inputs and output:
@@ -219,7 +220,7 @@ inputs.head()
 
 If we have a DataFrame `df`, then `df[list_of_columns]` will create a
 DataFrame that has a subset of the original columns (as specified in
-the list), so `outputs` will look something like this (`age` is the
+the list), so `inputs` will look something like this (`age` is the
 `x` in this case):
 
 <img src="inputs.png">
@@ -246,7 +247,7 @@ like this:
 Notice it's a tuple with four values, as described here:
 https://docs.scipy.org/doc/numpy/reference/generated/numpy.linalg.lstsq.html.
 According to the documentation, the tuple is like this:
-`(coefficients, residuals, rank, singular-values)`.  Here, we only
+`(coefficients, residuals, rank, singular_values)`.  Here, we only
 care about the coefficients, so let's pull those out:
 
 ```python
@@ -274,3 +275,5 @@ ax.set_ylabel("Height (feet)")
 
 trees.plot.line(ax=ax, x="age", y="height-fitted", color="red")
 ```
+
+<img src="final.png">
