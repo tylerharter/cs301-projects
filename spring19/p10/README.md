@@ -2,7 +2,7 @@
 
 ## Clarifications/Corrections
 
-* none yet
+* Apr 22: minor typos in q37 and q38
 
 ## Introduction
 

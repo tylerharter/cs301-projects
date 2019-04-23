@@ -180,7 +180,7 @@ Does this, correlation value coincide with the pattern you saw in question 35? C
 
 #### Question 37: what is the relationship between GDP per capita and birth rates?
 
-Answer with a **scatter plot** with `gap-per-capita` on the x-axis and `birth-rate` on the y-axis. Do you observe a pattern between GDP per capita and birth rates? It seems that there is a correlation between GDP per capita and inverse of birth rate, so let's plot a scatter plot for that.:
+Answer with a **scatter plot** with `gdp-per-capita` on the x-axis and `birth-rate` on the y-axis. Do you observe a pattern between GDP per capita and birth rates? It seems that there is a correlation between GDP per capita and inverse of birth rate, so let's plot a scatter plot for that.:
 
 **Expected output:**
 
@@ -188,7 +188,7 @@ Answer with a **scatter plot** with `gap-per-capita` on the x-axis and `birth-ra
 
 #### Question 38: what is the relationship between GDP per capita and the inverse of birth rates?
 
-Answer with a **scatter plot** with `gap-per-capita` on the x-axis and `inverse birth rate` on the y-axis.
+Answer with a **scatter plot** with `gdp-per-capita` on the x-axis and `inverse birth rate` on the y-axis.
 
 Hint: `inverse birth rate` is defined as `1 / birth-rate`
 
