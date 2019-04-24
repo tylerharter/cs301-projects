@@ -7,6 +7,7 @@
 * Apr 23: `get_json` directions now says "Python structure" instead of "Python dict"
 * Apr 24: relax how close answers need to be to expected to count them as correct
 * Apr 24: fix wording on q21 (should be "least first", not "most first")
+* Apr 24: q39 refers to q38
 
 ## Introduction
 

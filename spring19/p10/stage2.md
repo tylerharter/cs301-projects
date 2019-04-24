@@ -93,8 +93,6 @@ Hint: `real GDP = population * gdp-per-capita`
 
 To make the problem more interesting, answer with a **pie chart**.
 
-Hint: You might need to change the location of legend so that the legend does not block the pie chart, so you might need to adopt this code snippet `ax.legend(loc='center left', bbox_to_anchor=(1.1, 0.5))` where `ax` is return value of plotting function to your code.
-
 **Expected output:**
 
 <img src="imgs/2-27.png" width="400">
@@ -196,7 +194,7 @@ Hint: `inverse birth rate` is defined as `1 / birth-rate`
 
 <img src="imgs/2-38.png" width="400">
 
-#### Question 39: fit a `y = m * x + n` line to the scatter plot in question 37 using the least-squares method; what are the coefficients m and n?
+#### Question 39: fit a `y = m * x + n` line to the scatter plot in question 38 using the least-squares method; what are the coefficients m and n?
 
 For the regression line, first try copy/pasting this code into a notebook cell and running it to see what happens:
 
