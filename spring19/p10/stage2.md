@@ -30,7 +30,7 @@ like this:
 
 Requirements:
 * use a GROUP BY query in SQL
-* sort by number of countries (most first)
+* sort by number of countries (least first)
 * break ties alphabetically ("A" before "B", etc)
 * the column names should be `continent` and `number of countries`
 
