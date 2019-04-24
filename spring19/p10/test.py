@@ -958,7 +958,7 @@ def check_cell_text(qnum, cell):
     if type(expected) != type(actual):
         return "expected an answer of type %s but found one of type %s" % (type(expected), type(actual))
     elif type(expected) == float:
-        if not math.isclose(actual, expected, rel_tol=1e-06, abs_tol=1e-06):
+        if not math.isclose(actual, expected, rel_tol=1e-02, abs_tol=1e-02):
             expected_mismatch = True
     elif type(expected) == list:
         try:
@@ -985,7 +985,7 @@ def check_cell_text(qnum, cell):
             expected_mismatch = True
         try:
             for idx in range(len(expected)):
-                if not math.isclose(actual[idx], expected[idx], rel_tol=1e-10, abs_tol=1e-10):
+                if not math.isclose(actual[idx], expected[idx], rel_tol=1e-02, abs_tol=1e-02):
                     expected_mismatch = True
         except:
             expected_mismatch = True
