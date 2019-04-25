@@ -191,7 +191,7 @@ def f(n):
 best_n = 0
 for n in range(11):
     if ???:
-        best_n = f(n)
+        best_n = n
 
 print(best_n)
 ```
