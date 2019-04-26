@@ -212,7 +212,7 @@ Let's add the dummy column to our `trees` DataFrame and pull out the
 inputs and output:
 
 ```python
-output = trees["height"]
+output = trees["heights"]
 trees["one"] = 1
 inputs = trees[["age", "one"]]
 inputs.head()
