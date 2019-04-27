@@ -114,11 +114,17 @@ class DockerGrader:
                 with open("{}/result.json".format(self.testDir), "r") as fr:
                     serializedResult = fr.read()
             except:
+                logs = self.logs.decode("ascii")
+                # https://stackoverflow.com/questions/14693701/how-can-i-remove-the-ansi-escape-sequences-from-a-string-in-python
+                ansi_escape = re.compile(r'\x1B\[[0-?]*[ -/]*[@-~]')
+                logs = ansi_escape.sub('', logs)
+
                 result = {"date":datetime.now().strftime("%m/%d/%Y"),
                           "score":0,
                           "error": "result.json not found",
                           "latency": self.end_time - self.start_time,
-                          "logs": self.logs.decode("ascii").split("\n")}
+                          "logs": logs.split("\n")}
+
                 serializedResult = json.dumps(result, indent=2)
         return serializedResult
 
