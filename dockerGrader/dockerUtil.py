@@ -1,4 +1,5 @@
 import base64, boto3, botocore, os, sys, json, subprocess, shutil, time, traceback, logging, re
+from datetime import datetime
 
 SEMESTER = "spring19"
 ACCESS_KEY = "projects/{project}/users/{googleId}/curr.json"
@@ -113,7 +114,8 @@ class DockerGrader:
                 with open("{}/result.json".format(self.testDir), "r") as fr:
                     serializedResult = fr.read()
             except:
-                result = {"score":0,
+                result = {"date":datetime.now().strftime("%m/%d/%Y"),
+                          "score":0,
                           "error": "result.json not found",
                           "latency": self.end_time - self.start_time,
                           "logs": self.logs.decode("ascii").split("\n")}
@@ -251,7 +253,7 @@ class DockerGrader:
             scoreNew = self.tryExtractResultScore(resultNew)
             # only upload if new score is better
             self.logger.info("old score: {}, new score: {}".format(scoreOld, scoreNew))
-            if scoreOld == None or scoreOld == 0 or scoreNew > scoreOld:
+            if scoreOld == None or scoreOld == 0 or scoreNew >= scoreOld:
                 self.logger.info('Uploading new score')
                 self.uploadResult()
             self.logger.debug("new test results:")
