@@ -11,6 +11,7 @@ import re, ast, math
 from collections import namedtuple, OrderedDict, defaultdict
 from functools import wraps
 from bs4 import BeautifulSoup
+from datetime import datetime
 
 PASS = 'PASS'
 FAIL_STDERR = 'Program produced an error - please scroll up for more details.'
@@ -1070,7 +1071,7 @@ def lint_cell(cell):
 
 
 def grade_answers(cells):
-    results = {'score':0, 'tests': [], 'lint': []}
+    results = {'score':0, 'tests': [], 'lint': [], "date":datetime.now().strftime("%m/%d/%Y")}
 
     for question in questions:
         cell = cells.get(question.number, None)

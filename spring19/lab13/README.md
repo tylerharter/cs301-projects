@@ -47,7 +47,7 @@ Complete the following to plot a scatter of the data:
 import matplotlib
 matplotlib.rcParams["font.size"] = ????
 
-ax = trees.plot.????(x="age", y="height", c=????, xlim=0, ylim=0)
+ax = trees.plot.????(x="age", y="heights", c=????, xlim=0, ylim=0)
 ax.set_xlabel(????)
 ax.????("Height (feet)")
 ```
@@ -79,7 +79,7 @@ line on top of our scatter:
 import matplotlib
 matplotlib.rcParams["font.size"] = ????
 
-ax = trees.plot.????(x="age", y="height", c=????, xlim=0, ylim=0)
+ax = trees.plot.????(x="age", y="heights", c=????, xlim=0, ylim=0)
 ax.set_xlabel(????)
 ax.????("Height (feet)")
 
@@ -126,7 +126,7 @@ matrix
 Now create a matrix with 4 rows and 2 columns:
 
 ```python
-matrix = np.array([1,2,3,4,5,6,7,8]).reshape(2, 4)
+matrix = np.array([1,2,3,4,5,6,7,8]).reshape(4, 2)
 matrix
 ```
 
@@ -212,7 +212,7 @@ Let's add the dummy column to our `trees` DataFrame and pull out the
 inputs and output:
 
 ```python
-output = trees["height"]
+output = trees["heights"]
 trees["one"] = 1
 inputs = trees[["age", "one"]]
 inputs.head()
@@ -269,7 +269,7 @@ Let's conclude by re-plotting the scatter data and fit line:
 import matplotlib
 matplotlib.rcParams["font.size"] = 16
 
-ax = trees.plot.scatter(x="age", y="height", c="black", xlim=0, ylim=0)
+ax = trees.plot.scatter(x="age", y="heights", c="black", xlim=0, ylim=0)
 ax.set_xlabel("Age (years)")
 ax.set_ylabel("Height (feet)")
 
