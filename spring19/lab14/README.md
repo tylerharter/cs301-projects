@@ -86,7 +86,7 @@ items.append(items)
 <li> pictures of snakes
 </ol>
 
-### 6. what should replace ???? to get 50 in the result?
+### 6. what should replace ???? to get 60 in the result?
 
 Assume the <b>students</b> table looks like this:
 
