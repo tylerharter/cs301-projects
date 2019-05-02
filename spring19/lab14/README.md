@@ -38,10 +38,10 @@ print(len(b_elements))
 import numpy as np
 from numpy.random import choice
 seed_val = ???? # seed is some valid integer
-np.seed(seed_val)
-x = np.choice(5)
-np.seed(seed_val)
-y = np.choice(5)
+np.random.seed(seed_val)
+x = choice(5)
+np.random.seed(seed_val)
+y = choice(5)
 print(x, y)
 ```
 
@@ -100,7 +100,7 @@ Assume the <b>students</b> table looks like this:
 ```sql
 SELECT score
 FROM   students
-????   student = 'X' and project = 'P2'
+????   student = 'X' AND project = 'P2'
 ```
 
 <ol type="a">
@@ -154,7 +154,7 @@ df = DataFrame({
   "z": [5,6,7,8],
 })
 
-s = df[df["y"] > df["x"] | df["z"] > 7]["z"]
+s = df[(df["y"] > df["x"]) | (df["z"] > 7)]["z"]
 ```
 
 <ol type="a">
