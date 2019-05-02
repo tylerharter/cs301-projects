@@ -5,6 +5,8 @@ You can use your final lab for two purposes:
 1. ask TAs questions about P10
 2. practice the following 10 questions to prep for the final (ask TAs if you have any questions)
 
+The answers are [here](answers.md).
+
 ## Practice Questions
 
 ### 1. what is printed?
@@ -134,6 +136,14 @@ letters = Series(["A", "B", "B", "C", "C", "C", "D", "D", "D"])
 counts = letters.value_counts().value_counts() # not a typo!
 print(counts[3])
 ```
+
+<ol type="a">
+<li> 0
+<li> 1
+<li> 2
+<li> 3
+<li> 4
+</ol>
 
 ### 9. what values will be in s?
 
