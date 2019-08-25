@@ -108,3 +108,5 @@ venv.bak/
 
 # redis server temp file
 .rdb
+
+*~
