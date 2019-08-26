@@ -67,7 +67,7 @@ the "Raw" button looks like this:
 ## Step 2: Create a Python Notebook
 
 Now it gets a little tricky.  You need to figure out the path of your
-`p1` folder.  You can think of a "path" is just a more complete name
+`p1` folder.  You can think of a "path" as just a more complete name
 for a file or folder.  This is useful: if you have more than one `p1`
 folder on your computer, how do you distinguish between them?  You
 need a full pathname, something like
@@ -194,7 +194,7 @@ correct before you turn it in.  Here are the steps to use it:
 1. in your notebook, click "Kernel" from the menu, then click "Restart & Run All"
 2. confirm "Restart & Run All Cells"
 3. click "File" from the menu (beneath the Jupyter logo), then click "Save and Checkpoint"
-4. open a new terminal window, as you did in step 2 of this document (leave the previously opened one undisturbed)
+4. open a new terminal window, as you did in step 2 of this document (**important: leave the previously opened one undisturbed**)
 5. type the same `cd "P1-PATH"` command in the terminal as before, again replacing `P1-PATH` with the pathname of `p1` in your notes, and hit ENTER
 6. type `python test.py` and hit ENTER; if that doesn't work, try `python3 test.py`; if that still doesn't work, please get help during office hours.
 
@@ -254,11 +254,12 @@ partner).
 
 To hand in the notebook, complete the following steps:
 
-1. run through the tests one last time (after you added your Net ID info)
+1. save and run through the tests one last time (after you added your Net ID info)
 2. go to [https://tyler.caraza-harter.com/cs301/fall19/submission.html](https://tyler.caraza-harter.com/cs301/fall19/submission.html)
 3. select "Project 1"
 4. click "Choose File" and find your main.ipynb file
 5. click "Submit"
-6. click "View Submissions" to make sure your submission looks correct
+6. check the "Submission Status" below; it is normal to see some "info:" messages, but make sure you correct any "error:" messages
+7. click "View Submissions" to make sure your submission looks correct
 
 Congrats on finishing your first CS 301 project!
