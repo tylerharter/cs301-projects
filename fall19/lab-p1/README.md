@@ -1,4 +1,4 @@
-# Lab 1: Running Programs
+# Lab-P1: Running Programs
 
 **Important:** Before going to lab, install Python 3 on your laptop.
 We've created videos showing how to do this on
