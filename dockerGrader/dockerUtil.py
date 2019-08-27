@@ -93,7 +93,7 @@ def run_test_in_docker(code_dir):
             "logs": logs.split("\n")
         }
 
-    result["date"] = datetime.now().strftime("%m/%d/%Y"),
+    result["date"] = datetime.now().strftime("%m/%d/%Y")
     result["latency"] = t1 - t0
     return json.dumps(result, indent=2)
 
@@ -140,7 +140,7 @@ def main():
 
     projects = sys.argv[1].split(',')
     for project_id in projects:
-        submissions = get_submissions(project_id, rerun=False, email=net_id)
+        submissions = get_submissions(project_id, rerun=True, email=net_id)
         for s3path in sorted(submissions):
             print('========================================')
             print(s3path)
