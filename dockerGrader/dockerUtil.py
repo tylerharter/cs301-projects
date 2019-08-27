@@ -131,7 +131,7 @@ def main():
         print("Usage: python dockerUtil.py pX[pY,...] (<netId>|?)")
         sys.exit(1)
 
-    print('tip: run this if time is out of sync: ntpdate -s time.nist.gov')
+    print('\nTIP: run this if time is out of sync: sudo ntpdate -s time.nist.gov\n')
 
     if sys.argv[2] == '?':
         net_id = None
@@ -140,7 +140,7 @@ def main():
 
     projects = sys.argv[1].split(',')
     for project_id in projects:
-        submissions = get_submissions(project_id, rerun=True, email=net_id)
+        submissions = get_submissions(project_id, rerun=False, email=net_id)
         for s3path in sorted(submissions):
             print('========================================')
             print(s3path)
