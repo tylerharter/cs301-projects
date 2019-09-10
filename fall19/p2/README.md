@@ -35,15 +35,15 @@ Summary:
   Test 7: no outputs in an Out[N] cell
   Test 8: no outputs in an Out[N] cell
   Test 9: no outputs in an Out[N] cell
-  Test 10: found 34 but expected 7
-  Test 11: found $$$ but expected $$$$$$$$$$$$$$$
-  Test 12: found 333333333333333 but expected 45
-  Test 13: found 16 but expected 64
+  Test 10: found 3001 but expected 301
+  Test 11: found :):):) but expected :):):):):):):):):):)
+  Test 12: found 777777 but expected 42
+  Test 13: found 25 but expected 125
   Test 14: no outputs in an Out[N] cell
   Test 15: found True but expected False
   Test 16: found False but expected True
   Test 17: found False but expected True
-  Test 18: found 2 but expected True
+  Test 18: found 3 but expected True
   Test 19: found False but expected True
   Test 20: no outputs in an Out[N] cell
 
@@ -59,18 +59,18 @@ output above says "PASS" by them.  Your goal is to get more points by
 getting test.py to print "PASS" by more problems.  In some cases, you
 can see there is no answer in the original notebook (when it says `no
 outputs in an Out[N] cell`), and in other cases you need to make a
-change to correct a wrong answer (e.g., when it says `found 34 but
-expected 7`).
+change to correct a wrong answer (e.g., when it says `found 25 but
+expected 125`).
 
 Now let's open a second terminal window (we want one to run Jupyter
 and one to run the tests).  In the second one, perform the same steps
 to navigate to `p2` (again checking with `ls`).  Now run `jupyter
 notebook` (or, if that doesn't work, try `python -m jupyter
-notebook`).
+notebook`, or perhaps `python3 -m jupyter notebook`).
 
 Try solving the second question.  Then do a `Kernel` > `Restart & Run
 All`.  If that looks good, save your work, switch to your other
 terminal, and run the tests.  Make sure you're scoring 15% before
 proceeding to the other questions.
 
-Have fun, and run tests.py often to track your progress!
+Have fun, and run test.py often to track your progress!

@@ -32,6 +32,7 @@ def rerun_notebook(orig_notebook):
     # re-execute it from the beginning
     cmd = 'jupyter nbconvert --execute "{orig}" --to notebook --output="{new}" --ExecutePreprocessor.timeout=120'
     cmd = cmd.format(orig=os.path.abspath(orig_notebook), new=os.path.abspath(new_notebook))
+    print(cmd)
     subprocess.check_output(cmd, shell=True)
 
     # parse notebook
