@@ -1,294 +1,160 @@
-import base64, boto3, botocore, os, sys, json, subprocess, shutil, time, traceback, logging, re
+import base64, boto3, botocore, os, sys, json, subprocess, shutil, time, traceback, logging, re, string
 from datetime import datetime
 
-SEMESTER = "spring19"
-ACCESS_KEY = "projects/{project}/users/{googleId}/curr.json"
-GOOGLE_KEY = "users/net_id_to_google/{netId}.txt"
-UPLOAD_KEY = "ta/grading/{project}/{netId}.json"
-ROSTER_KEY = "users/roster.json"
-TEST_DIR = "/tmp/test/{netId}"
-SUBMISSIONS = 'submissions'
 BUCKET = 'caraza-harter-cs301'
+SEMESTER = "spring19"
 session = boto3.Session(profile_name='cs301ta')
 s3 = session.client('s3')
 
-def fetchNetIds():
-    response = s3.get_object(Bucket=BUCKET, Key=ROSTER_KEY)
-    rows = json.loads(response['Body'].read().decode('utf-8'))
-    return [row['net_id'] for row in rows]
 
-class DockerGrader:
-    def __init__(self, project, netId, logger):
-        self.project = project
-        self.netId = netId
-        self.containerid = None
-        self.logger = logger
-        self.googleKey = GOOGLE_KEY.format(netId=self.netId)
+def get_submissions(project, rerun, email=None):
+    prefix = 'a/projects/' + project + '/'
+    if email:
+        if not '@' in email:
+            email += '@wisc.edu'
+        prefix += to_s3_key_str(email) + '/'
 
-        self.googleId = self.lookupGoogleId()
-        self.currentUID = self.getCurrentUid()
+    submitted = set()
+    tested = set()
 
-        self.submissionKey = ACCESS_KEY.format(project=self.project, googleId=self.googleId)
-        self.uploadKey = UPLOAD_KEY.format(project=self.project, netId=self.netId)
+    for path in s3_all_keys(prefix):
+        parts = path.split('/')
+        if parts[-1] == 'submission.json':
+            submitted.add(path)
+        elif parts[-1] == 'test.json':
+            parts[-1] = 'submission.json'
+            tested.add('/'.join(parts))
+    if not rerun:
+        submitted -= tested
+    return submitted
 
-        # for reporting latency of run
-        self.start_time = 0
-        self.end_time = 0
-        self.logs = "no logs"
 
-        self.testDir = TEST_DIR.format(netId=netId)
+def fetch_submission(s3path):
+    local_dir = './s3/'+os.path.dirname(s3path)
+    if os.path.exists(local_dir):
+        shutil.rmtree(local_dir)
+    os.makedirs(local_dir)
 
-    # Util Functions
-    def getCurrentUid(self):
-        userName = os.environ.get("USER")
-        if not userName:
-            self.logger.warning("Invalid userName.")
-        r = int(subprocess.check_output(["id", "-u", userName]))
-        self.logger.info("current user: {}, current uid: {}".format(userName, r))
-        return r
+    response = s3.get_object(Bucket=BUCKET, Key=s3path)
+    submission = json.loads(response['Body'].read().decode('utf-8'))
+    fileContents = base64.b64decode(submission.pop('payload'))
+    fileName = submission['filename']
+    # override the filename if it is a python source file
+    if len(fileName) >= 3 and fileName.endswith('.py'):
+        fileName = "main.py"
+    elif len(fileName) >= 6 and fileName.endswith('.ipynb'):
+        fileName = "main.ipynb"
+    with open(os.path.join(local_dir, fileName), 'wb') as f:
+        f.write(fileContents)
+    return local_dir
 
-    def lookupGoogleId(self):
-        try:
-            response = s3.get_object(Bucket=BUCKET, Key=self.googleKey)
-            netId = response['Body'].read().decode('utf-8')
-            return netId
-        except botocore.exceptions.ClientError as e:
-            if not e.response['Error']['Code'] == "NoSuchKey":
-                # unexpected error
-                self.logger.warning(
-                    'Unexpected error when look up Googlg ID:' + e.response['Error']['Code'])
-                raise e
 
-    def tryExtractResultScore(self, blob):
-        try:
-            result = json.loads(blob)
-            if result and "upload" in result and not result["upload"]:
-                return None
-            return result.get('score', 0)
-        except:
-            return 0
+def run_test_in_docker(code_dir):
+    # build with docker build . -t grader
+    image = 'grader'
 
-    # Download Functions
-    def downloadSubmission(self):
-        if not self.googleId:
-            return
-        # a project path will look something like this:
-        # projects/p0/users/115799594197844895033/curr.json
-        self.logger.info('downloading {} to {}'.format(self.submissionKey, self.testDir))
-        # download
-        try:
-            response = s3.get_object(Bucket=BUCKET, Key=self.submissionKey)
-        except botocore.exceptions.ClientError as e:
-            if e.response['Error']['Code'] == "NoSuchKey":
-                self.logger.warning('no submission found')
-                return False
-            # unexpected error
-            self.logger.warning(
-                'Unexpected error when look up Googlg ID:' + e.response['Error']['Code'])
-            raise e
+    cmd = ['docker', 'run',                           # start a container
+           '-d',                                      # detach
+           '-v', os.path.abspath(code_dir)+':/code',  # share the test dir inside
+           '-w', '/code',                             # working dir is w/ code
+           image,                                     # what docker image?
+           'timeout', '60',                           # timeout
+           'python3', 'test.py']                      # command to run inside
 
-        submission = json.loads(response['Body'].read().decode('utf-8'))
-        fileContents = base64.b64decode(submission.pop('payload'))
-        fileName = submission['filename']
-        # override the filename if it is a python source file
-        if len(fileName) >= 3 and fileName.endswith('.py'):
-            fileName = "main.py"
-        elif len(fileName) >= 6 and fileName.endswith('.ipynb'):
-            fileName = "main.ipynb"
-        with open(os.path.join(self.testDir, fileName), 'wb') as f:
-            f.write(fileContents)
-        return True
+    print("RUN: " + " ".join(cmd))
+    containerId = subprocess.check_output(cmd).decode("ascii").replace("\n","")
+    t0 = time.time()
+    print("CONTAINER", containerId)
 
-    def getRemoteResult(self):
-        try:
-            response = s3.get_object(Bucket=BUCKET, Key=self.uploadKey)
-            return response['Body'].read().decode('utf-8')
-        except:
-            return json.dumps({"score":0, "error": "s3 fetching failed", "upload": False})
+    cmd = ["docker", "wait", containerId]
+    print("RUN", " ".join(cmd))
+    status = subprocess.check_output(cmd)
+    t1 = time.time()
 
-    def getLocalResult(self, errorLog = None):
-        if errorLog:
-            serializedResult = json.dumps(errorLog)
+    # cleanup
+    cmd = ["docker", "logs", containerId]
+    print("RUN", " ".join(cmd))
+    subprocess.check_output(cmd)
+    logs = subprocess.check_output(cmd, stderr=subprocess.STDOUT)
+    logs = logs.decode("ascii")
+    # https://stackoverflow.com/questions/14693701/how-can-i-remove-the-ansi-escape-sequences-from-a-string-in-python
+    ansi_escape = re.compile(r'\x1B\[[0-?]*[ -/]*[@-~]')
+    logs = ansi_escape.sub('', logs)
+    subprocess.check_output(["docker", "rm", containerId])
+
+    # get result
+    try:
+        with open("{}/result.json".format(code_dir)) as f:
+            result = json.load(f)
+    except Exception as e:
+        result = {
+            "score":0,
+            "error": str(e),
+            "logs": logs.split("\n")
+        }
+
+    result["date"] = datetime.now().strftime("%m/%d/%Y")
+    result["latency"] = t1 - t0
+    return json.dumps(result, indent=2)
+
+
+def s3_all_keys(Prefix):
+    ls = s3.list_objects_v2(Bucket=BUCKET, Prefix=Prefix, MaxKeys=10000)
+    keys = []
+    while True:
+        print('...list_objects...')
+        contents = [obj['Key'] for obj in ls.get('Contents',[])]
+        keys.extend(contents)
+        if not 'NextContinuationToken' in ls:
+            break
+        ls = s3.list_objects_v2(Bucket=BUCKET, Prefix=Prefix,
+                                ContinuationToken=ls['NextContinuationToken'],
+                                MaxKeys=10000)
+    return keys
+
+
+safe_s3_chars = set(string.ascii_letters + string.digits + ".-_")
+def to_s3_key_str(s):
+    s3key = []
+    for c in s:
+        if c in safe_s3_chars:
+            s3key.append(c)
+        elif c == "@":
+            s3key.append('*at*')
         else:
-            try:
-                with open("{}/result.json".format(self.testDir), "r") as fr:
-                    serializedResult = fr.read()
-            except:
-                logs = self.logs.decode("ascii")
-                # https://stackoverflow.com/questions/14693701/how-can-i-remove-the-ansi-escape-sequences-from-a-string-in-python
-                ansi_escape = re.compile(r'\x1B\[[0-?]*[ -/]*[@-~]')
-                logs = ansi_escape.sub('', logs)
+            s3key.append('*%d*' % ord(c))
+    return "".join(s3key)
 
-                result = {"date":datetime.now().strftime("%m/%d/%Y"),
-                          "score":0,
-                          "error": "result.json not found",
-                          "latency": self.end_time - self.start_time,
-                          "logs": logs.split("\n")}
-
-                serializedResult = json.dumps(result, indent=2)
-        return serializedResult
-
-    # Upload Functions
-    def uploadResult(self, errorLog = None):
-        serializedResult = self.getLocalResult(errorLog)
-        s3.put_object(
-            Bucket=BUCKET,
-            Key=self.uploadKey,
-            Body=serializedResult.encode('utf-8'),
-            ContentType='text/plain')
-        shutil.rmtree(self.testDir)
-
-    # Container Operation Functions
-    def containerStatus(self):
-        checkCmd = ["docker", "inspect", "-f", "{{.State.ExitCode}} {{.State.Running}}", self.containerId]
-        try:
-            output = subprocess.check_output(checkCmd).decode("ascii").replace("\n","")
-        except:
-            self.logger.info("conatiner {} not existed.".format(self.containerId))
-            return None, None
-        response = output.split(' ')
-        str2bool = {"false" : False, "true" : True}
-        if len(response) == 2:
-            return int(response[0]), str2bool[response[1]]
-        else:
-            self.logger.warning("Unexpected response when checking the container {} running status. Response: {}".format(self.containerId, output))
-            return None, None
-
-    def dockerLiveCheck(self, hardLimit = False):
-        exitCode, isRunning = self.containerStatus()
-        if isRunning:
-            if hardLimit:
-                self.uploadResult({"score":0, "error":"Timeout"})
-                self.logger.info("project: {}, netId: {}, timeout".format(
-                    self.project, self.netId))
-            else:
-                self.logger.info("project: {}, netId: {}, soft limit check failed.".format(
-                    self.project, self.netId))
-                return True
-        elif exitCode:
-            self.uploadResult({"score":0, "error":"ExitCode:" + str(exitCode)})
-            self.logger.info("project: {}, netId: {}, exit with {}".format(
-            self.project, self.netId, exitCode))
-        else:
-            self.uploadResult()
-            self.logger.info("project: {}, netId: {}, docker exit normally".format(
-                self.project, self.netId))
-        return False
-
-    def rmContainer(self):
-        forceRmCmd = ["docker", "container", "rm", "-f", self.containerId]
-        self.logger.info("rm container with the following command: {}".format(" ".join(forceRmCmd)))
-        try:
-            subprocess.check_output(forceRmCmd)
-        except:
-            self.logger.info("rm cantainer failed. ID: {}".format(self.containerId))
-
-    def listTestScripts(self):
-        testCodePath = "../{}/{}".format(SEMESTER, self.project)
-        return [name for name in os.listdir(testCodePath) if re.match(r'test(\d+)?.py', name)]
-            
-    # Main Functions
-    def dockerRun(self, test="test.py", upload=True):
-        # create directory to mount inside a docker container
-        if os.path.exists(self.testDir):
-            shutil.rmtree(self.testDir)
-        os.makedirs(self.testDir)
-
-        # we can't use shutil.copytree here again because TEST_DIR exists
-        testCodePath = "../{}/{}".format(SEMESTER, self.project)
-        for item in os.listdir(testCodePath):
-            src = os.path.join(testCodePath, item)
-            dest = os.path.join(self.testDir, item)
-            if os.path.isdir(src):
-                shutil.copytree(src, dest)
-            else:
-                shutil.copy2(src, dest)
-
-        # user's code
-        res = self.downloadSubmission()
-        if not res:
-            return False
-
-        # run tests inside a docker container
-        image = 'grader' # build with docker build . -t grader
-        cmd = ['docker', 'run',                                # start a container
-               '-d',                                           # detach
-               '-v', os.path.abspath(self.testDir)+':/code',   # share the test dir inside
-               '-u', str(self.currentUID),                     # run as local user (instead of root)
-               '-w', '/code',                             # working dir is w/ code
-               image,                                     # what docker image?
-               'timeout', '60',
-               'python3', test]                      # command to run inside
-        self.start_time = time.time()
-
-        print("RUN: " + " ".join(cmd))
-        self.containerId = subprocess.check_output(cmd).decode("ascii").replace("\n","")
-        print("CONTAINER", self.containerId)
-
-        cmd = ["docker", "wait", self.containerId]
-        print("RUN", " ".join(cmd))
-        status = subprocess.check_output(cmd)
-        self.end_time = time.time()
-
-        # get results and cleanup
-        cmd = ["docker", "logs", self.containerId]
-        print("RUN", " ".join(cmd))
-        subprocess.check_output(cmd)
-        self.logs = subprocess.check_output(cmd, stderr=subprocess.STDOUT)
-        subprocess.check_output(["docker", "rm", self.containerId])
-        
-        #print(logs)
-
-        if upload:
-            self.uploadResult()
-
-        return True
-
-    # dockerRunSafe will check the existing grade first to avoid incorrect grade override
-    def dockerRunSafe(self, test):
-        try:
-            resultOld = self.getRemoteResult()
-            scoreOld = self.tryExtractResultScore(resultOld)
-            if scoreOld == 100:
-                self.logger.info('skip because old score was 100')
-                return
-            if not self.dockerRun(test=test, upload=False):
-                self.logger.info('skip because submission not found')
-                return
-            resultNew = self.getLocalResult()
-            scoreNew = self.tryExtractResultScore(resultNew)
-            # only upload if new score is better
-            self.logger.info("old score: {}, new score: {}".format(scoreOld, scoreNew))
-            if scoreOld == None or scoreOld == 0 or scoreNew >= scoreOld:
-                self.logger.info('Uploading new score')
-                self.uploadResult()
-            self.logger.debug("new test results:")
-            self.logger.debug(resultNew)
-        except Exception as e:
-            self.logger.error("Fatal error in dockerRun", exc_info=True)
 
 def main():
-    logger = logging.getLogger()
-    logger.setLevel(logging.INFO)
-    logger.addHandler(logging.StreamHandler(sys.stdout))
-
     if len(sys.argv) != 3:
         print("Usage: python dockerUtil.py pX[pY,...] (<netId>|?)")
         sys.exit(1)
 
-    projects = sys.argv[1].split(',')
-    if sys.argv[2] == '?':
-        net_ids = fetchNetIds()
-    else:
-        net_ids = [sys.argv[2]]
+    print('\nTIP: run this if time is out of sync: sudo ntpdate -s time.nist.gov\n')
 
+    if sys.argv[2] == '?':
+        net_id = None
+    else:
+        net_id = sys.argv[2]
+
+    projects = sys.argv[1].split(',')
     for project_id in projects:
-        for net_id in net_ids:
-            logger.info('========================================')
-            logger.info('PROJECT={}, NETID={}'.format(project_id, net_id))
-            grader = DockerGrader(project_id, net_id, logger)
-            for test in grader.listTestScripts():
-                grader.dockerRunSafe(test=test)
+        submissions = get_submissions(project_id, rerun=False, email=net_id)
+        for s3path in sorted(submissions):
+            print('========================================')
+            print(s3path)
+
+            codedir = fetch_submission(s3path)
+            test = "../{}/{}/test.py".format(SEMESTER, project_id)
+            shutil.copyfile(test, codedir+'/test.py')
+            result = run_test_in_docker(codedir)
+            s3.put_object(
+                Bucket=BUCKET,
+                Key='/'.join(s3path.split('/')[:-1] + ['test.json']),
+                Body=result.encode('utf-8'),
+                ContentType='text/plain')
+
 
 if __name__ == '__main__':
     main()

@@ -1,5 +1,11 @@
 # Project 1 (P1)
 
+## Clarifications/Corrections
+
+* September 9: Updated test.py. For those who have been getting errors of the type "jupyter not recognized" when running it, please re-download.
+
+## Step 0: Setting up your environment 
+
 **Important:** Before proceeding, install Python 3 on your laptop.
 We've created videos showing how to do this on
 [Windows](https://youtu.be/9DdOYx9EEXQ) and
