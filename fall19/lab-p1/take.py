@@ -1,3 +1,5 @@
+import sys
+
 n = 13
 print("This game is called Take-Away!")
 print("There are {} dollars and one exclamation mark.".format(n-1))
@@ -14,6 +16,9 @@ while True:
 
     # input
     choice = input("choose between 1 and 3 (or type 'q' to quit): ")
+    if type(choice) != str:
+        print("Oops!  Are you using Python 2?  Should be Python 3.")
+        sys.exit(1)
     if choice.strip() == "q":
         print("quiting early")
         break
