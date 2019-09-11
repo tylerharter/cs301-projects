@@ -110,7 +110,7 @@ hit enter:
 cd "P1-PATH"
 ```
 
-Type `ls` and hit enter.  If you've done everything correctly so far,
+Type `ls` and hit enter (that's the letter, not a one).  If you've done everything correctly so far,
 you should see the `test.py` file that you downloaded in step 1
 listed.
 
