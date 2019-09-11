@@ -86,7 +86,7 @@ hit enter:
 cd "LAB1-PATH"
 ```
 
-Type `ls` and hit enter.  If you've done everything correctly so far,
+Type `ls` (that's a one, not the letter) and hit enter.  If you've done everything correctly so far,
 you should see the "hello.py" file that you downloaded in step 1
 listed.
 
