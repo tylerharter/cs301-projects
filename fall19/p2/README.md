@@ -1,5 +1,10 @@
 # Project 2
 
+## Clarifications/Corrections
+
+* September 11: Updated main.ipynb: Updated q18 statement for more clarification
+
+
 In this project, you'll learn about types, operators, and boolean
 logic.  To start, create a `p2` directory, and download `main.ipynb`
 and `test.py` to that directory (IMPORTANT: use the same process to
