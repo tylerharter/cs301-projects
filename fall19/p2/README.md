@@ -1,5 +1,11 @@
 # Project 2
 
+## Clarifications/Corrections
+
+* September 13: fixed test.py to better find Jupyter for certain setups
+
+## Overview
+
 In this project, you'll learn about types, operators, and boolean
 logic.  To start, create a `p2` directory, and download `main.ipynb`
 and `test.py` to that directory (IMPORTANT: use the same process to
