@@ -2,7 +2,7 @@ import base64, boto3, botocore, os, sys, json, subprocess, shutil, time, traceba
 from datetime import datetime
 
 BUCKET = 'caraza-harter-cs301'
-SEMESTER = "spring19"
+SEMESTER = "fall19"
 session = boto3.Session(profile_name='cs301ta')
 s3 = session.client('s3')
 
@@ -95,6 +95,7 @@ def run_test_in_docker(code_dir):
 
     result["date"] = datetime.now().strftime("%m/%d/%Y")
     result["latency"] = t1 - t0
+    print("Score:", result["score"])
     return json.dumps(result, indent=2)
 
 
@@ -127,8 +128,8 @@ def to_s3_key_str(s):
 
 
 def main():
-    if len(sys.argv) != 3:
-        print("Usage: python dockerUtil.py pX[pY,...] (<netId>|?)")
+    if len(sys.argv) < 3:
+        print("Usage: python dockerUtil.py pX[pY,...] (<netId>|?) [-rerun]")
         sys.exit(1)
 
     print('\nTIP: run this if time is out of sync: sudo ntpdate -s time.nist.gov\n')
@@ -138,9 +139,14 @@ def main():
     else:
         net_id = sys.argv[2]
 
+    if '-rerun' in sys.argv:
+        rerun = True
+    else:
+        rerun = False
+
     projects = sys.argv[1].split(',')
     for project_id in projects:
-        submissions = get_submissions(project_id, rerun=False, email=net_id)
+        submissions = get_submissions(project_id, rerun=rerun, email=net_id)
         for s3path in sorted(submissions):
             print('========================================')
             print(s3path)
