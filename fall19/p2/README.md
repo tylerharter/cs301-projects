@@ -2,8 +2,8 @@
 
 ## Clarifications/Corrections
 
-* September 11: Updated main.ipynb: Updated q18 statement for more clarification
-
+* Sep 11: Updated main.ipynb: Updated q18 statement for more clarification
+* Sep 13: Fixed test.py to work on machines where Jupyter is run with `py -m jupyter notebook`
 
 In this project, you'll learn about types, operators, and boolean
 logic.  To start, create a `p2` directory, and download `main.ipynb`
