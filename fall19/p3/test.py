@@ -197,7 +197,7 @@ def main():
         print("\nPlease fix the following, then rerun the tests:")
         for issue in issues:
             print(' - ' + issue)
-        print()
+        print("")
         sys.exit(1)
 
     # extract cells that have answers
