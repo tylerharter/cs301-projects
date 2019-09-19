@@ -2,7 +2,7 @@ import base64, boto3, botocore, os, sys, json, subprocess, shutil, time, traceba
 from datetime import datetime
 
 BUCKET = 'caraza-harter-cs301'
-SEMESTER = "spring19"
+SEMESTER = "fall19"
 session = boto3.Session(profile_name='cs301ta')
 s3 = session.client('s3')
 
