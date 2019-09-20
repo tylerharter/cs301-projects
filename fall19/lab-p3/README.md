@@ -310,8 +310,8 @@ As you may have noticed, each department has an ID and a name.
 `get_spending` looks up spending in a specific year, given an ID.
 `get_id` looks up an ID given a name.  Try a few uses:
 
-* `project.get_id("mayor")` (looks up ID of major agency, which should be 3)
-* `project.get_spending(2, 2015)` (looks up spending of agency 3 in 2015, which should be 1.44024423)
+* `project.get_id("mayor")` (looks up ID of major agency, which should be 2)
+* `project.get_spending(2, 2015)` (looks up spending of agency 2 in 2015, which should be 1.44024423)
 * `project.get_spending(project.get_id("mayor"), 2015)` (looks up spending of mayor agency in 2015; mayor agency has ID 2)
 * `project.get_spending(project.get_id("mayor"))` (looks up spending of mayor agency in 2018, the default year argument)
 
