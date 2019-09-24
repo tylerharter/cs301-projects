@@ -74,7 +74,7 @@ def rerun_notebook(orig_notebook):
         nb = nbformat.read(f, as_version=nbformat.NO_CONVERT)
     ep = nbconvert.preprocessors.ExecutePreprocessor(timeout=120, kernel_name='python3')
     try:
-        out = ep.preprocess(nb)
+        out = ep.preprocess(nb, {'metadata': {'path': os.getcwd()}})
     except nbconvert.preprocessors.CellExecutionError:
         out = None
         msg = 'Error executing the notebook "%s".\n\n' % orig_notebook

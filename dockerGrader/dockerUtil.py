@@ -139,10 +139,9 @@ def main():
     else:
         net_id = sys.argv[2]
 
-    if '-rerun' in sys.argv:
-        rerun = True
-    else:
-        rerun = False
+    rerun = True if '-rerun' in sys.argv else False
+
+    safe = True if '-safe' in sys.argv else False
 
     projects = sys.argv[1].split(',')
     for project_id in projects:
@@ -155,11 +154,13 @@ def main():
             test = "../{}/{}/test.py".format(SEMESTER, project_id)
             shutil.copyfile(test, codedir+'/test.py')
             result = run_test_in_docker(codedir)
-            s3.put_object(
-                Bucket=BUCKET,
-                Key='/'.join(s3path.split('/')[:-1] + ['test.json']),
-                Body=result.encode('utf-8'),
-                ContentType='text/plain')
+            
+            if not safe:
+                s3.put_object(
+                    Bucket=BUCKET,
+                    Key='/'.join(s3path.split('/')[:-1] + ['test.json']),
+                    Body=result.encode('utf-8'),
+                    ContentType='text/plain')
 
 
 if __name__ == '__main__':
