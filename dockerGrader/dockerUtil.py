@@ -151,10 +151,14 @@ def main():
             print(s3path)
 
             codedir = fetch_submission(s3path)
-            test = "../{}/{}/test.py".format(SEMESTER, project_id)
-            shutil.copyfile(test, codedir+'/test.py')
+            project_dir = "../{}/{}/".format(SEMESTER, project_id)
+            for item in os.listdir(project_dir):
+                if item not in ['README.md', 'main.ipynb', 'main.py'] and os.path.isfile(os.path.join(project_dir, item)):
+                    src = os.path.join(project_dir, item)
+                    dst = os.path.join(codedir, item)
+                    shutil.copyfile(src, dst)
             result = run_test_in_docker(codedir)
-            
+
             if not safe:
                 s3.put_object(
                     Bucket=BUCKET,
