@@ -47,7 +47,7 @@ Sometimes, when a program requires many different packages, developers like to l
 ```
 pip install -r requirements.txt
 ```
-
+Note: if you are working on Lab machine, you might see which says access is denied. Follow the instructions [here](labinstall.md) to install the required packages on lab machines. 
 ## Download
 
 Download the following to a new directory named `lab-p4` (remember to
