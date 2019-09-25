@@ -1,4 +1,4 @@
-import os, sys, subprocess, json, re, collections, math, nbconvert, nbformat
+import os, sys, subprocess, json, re, collections, math
 
 PASS = "PASS"
 TEXT_FORMAT = "text"
@@ -65,27 +65,32 @@ def extract_question_num(cell):
     return None
 
 
+# find correct python command based on version 
+def get_python_cmd():
+    cmds = ['py', 'python3', 'python']
+    for cmd in cmds:
+        try:
+            out = subprocess.check_output(cmd + ' -V', shell=True, universal_newlines=True)
+            m = re.match(r'Python\s+(\d+\.\d+)\.*\d*', out)
+            if m:
+                if float(m.group(1)) >= 3.6:
+                    return cmd
+        except subprocess.CalledProcessError:
+            pass
+    else:
+        return ''
+
 # rerun notebook and return parsed JSON
 def rerun_notebook(orig_notebook):
     new_notebook = 'cs-301-test.ipynb'
 
     # re-execute it from the beginning
-    with open(orig_notebook) as f:
-        nb = nbformat.read(f, as_version=nbformat.NO_CONVERT)
-    ep = nbconvert.preprocessors.ExecutePreprocessor(timeout=120, kernel_name='python3')
-    try:
-        out = ep.preprocess(nb, {'metadata': {'path': os.getcwd()}})
-    except nbconvert.preprocessors.CellExecutionError:
-        out = None
-        msg = 'Error executing the notebook "%s".\n\n' % orig_notebook
-        msg += 'See notebook "%s" for the traceback.' % new_notebook
-        print(msg)
-        raise
-    finally:
-        with open(new_notebook, mode='w', encoding='utf-8') as f:
-            nbformat.write(nb, f)
-
-    # Note: Here we are saving and reloading, this isn't needed but can help student's debug
+    py_cmd = get_python_cmd()
+    cmd = 'jupyter nbconvert --execute "{orig}" --to notebook --output="{new}" --ExecutePreprocessor.timeout=120'
+    cmd = cmd.format(orig=os.path.abspath(orig_notebook), new=os.path.abspath(new_notebook))
+    if py_cmd:
+        cmd = py_cmd + ' -m ' + cmd
+    subprocess.check_output(cmd, shell=True)
 
     # parse notebook
     with open(new_notebook) as f:
