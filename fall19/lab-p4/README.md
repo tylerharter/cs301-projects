@@ -152,7 +152,7 @@ Now fix `predict_hungry`.  Does re-running the test case you came up with reveal
 
 ## P4: Forecasting Diabetes
 
-For P4, we'll use some real data, posted on Kaggle (https://www.kaggle.com/uciml/pima-indians-diabetes-database), but originally from this 1988 study: https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2245318/pdf/procascamc00018-0276.pdf.  The study attempts to forecast diabetes in Pima women, a population particularly susceptible to the disease (https://en.wikipedia.org/wiki/Pima_people).  The `diabetes.csv` file we asked you to download contains the metrics for the individuals in this study.  The paper described the variables explored in the study:
+For P4, we'll use some real data, posted on Kaggle (https://www.kaggle.com/uciml/pima-indians-diabetes-database), but originally from this 1988 study: https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2245318/pdf/procascamc00018-0276.pdf.  The study attempts to forecast diabetes in Pima women, a population particularly susceptible to the disease (https://en.wikipedia.org/wiki/Pima_people).  The `diabetes.csv` file we asked you to download contains the metrics for the individuals in this study.  The 1988 paper describes the variables explored in the study:
 
 ```
 1. Number of times pregnant
@@ -190,6 +190,6 @@ To conclude the lab, run the following:
 idle gen_tree.py
 ```
 
-Take a few minutes to peruse the code.  There are certainly things here you won't understand yet, and that we won't even cover this semester, but it's important to realize that it's possible to solve complicated problems with relatively little code (this is under 50 lines!).  There are also probably many details you CAN already pick out.  For example, what are the function names?  What parameters do they have?  What modules are imported?  `sklearn` is a popular machine learning module (with many models beyond decision trees), and it's something you may want to learn more about on your own after this semester.  `pandas` is a popular module for dealing with tables of data, and we WILL spend significant time learning it in the last third of this semester.
+Take a few minutes to peruse the code.  There are certainly things here you won't understand yet, and that we won't even cover this semester, but it's important to realize that it's possible to solve complicated problems with relatively little code (this is under 100 lines!).  There are also probably many details you CAN already pick out.  For example, what are the function names?  What parameters do they have?  What modules are imported?  `sklearn` is a popular machine learning module (with many models beyond decision trees), and it's something you may want to learn more about on your own after this semester.  `pandas` is a popular module for dealing with tables of data, and we WILL spend significant time learning it in the last third of this semester.
 
 Good luck on P4!
