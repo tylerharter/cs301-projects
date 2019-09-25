@@ -31,6 +31,13 @@ def predict3(glucose=None, bmi=None, age=None):
     in the tree) to forecast the patient is likely to get diabetes,
     and False (corresponding to class=0 in the tree) otherwise.
     '''
+
+    # TODO: for the challenge questions, get rid of this check, and
+    # replace None values with the average for the population, using
+    # the column_avg function you'll complete
+    if glucose == None or bmi == None or age == None:
+        return "replacing None with the avg not implemented yet"
+
     pass # TODO: implement the third tree
 
 

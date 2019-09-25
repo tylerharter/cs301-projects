@@ -55,6 +55,16 @@ In addition to manually testing, you can run `test.py` from another terminal win
 
 ## Challenge Questions
 
+What would you do if you had only partial information about a patient?  For example, suppose you only knew their BMI and age.  Could you use the decision tree, even without knowing glucose?
+
+One approach would be to replacing missing values with the average from the total population.  This is what we'll do for the last three questions.
+
+First, finish implement the `column_avg` function in p4.py.  Questions q16 and q17 in `main.ipynb` try to use this function.
+
+Second, modify `predict3` so that when it gets `None` for any of the parameters (`None` is the default argument for each parameter) it will use the average (from `column_avg`) instead.  Doing this correctly will solve q18, q19, and q20.
+
+Happy Coding!
+
 
 ## References and Optional Reading
 
