@@ -49,6 +49,16 @@ def fetch_submission(s3path):
     return local_dir
 
 
+def fetch_results(s3path):
+    s3path = s3path.replace('submission.json', 'test.json')
+    response = s3.get_object(Bucket=BUCKET, Key=s3path)
+    try:
+        submission = json.loads(response['Body'].read().decode('utf-8'))
+        return submission['score']
+    except botocore.errorfactory.NoSuchKey:
+        return 0
+
+
 def run_test_in_docker(code_dir):
     # build with docker build . -t grader
     image = 'grader'
@@ -95,8 +105,7 @@ def run_test_in_docker(code_dir):
 
     result["date"] = datetime.now().strftime("%m/%d/%Y")
     result["latency"] = t1 - t0
-    print("Score:", result["score"])
-    return json.dumps(result, indent=2)
+    return json.dumps(result, indent=2), result["score"]
 
 
 def s3_all_keys(Prefix):
@@ -129,19 +138,23 @@ def to_s3_key_str(s):
 
 def main():
     if len(sys.argv) < 3:
-        print("Usage: python dockerUtil.py pX[pY,...] (<netId>|?) [-rerun]")
+        print("Usage: python dockerUtil.py pX[pY,...] (<netId>|?) [-rerun] [-keep-best] [-safe]")
         sys.exit(1)
 
     print('\nTIP: run this if time is out of sync: sudo ntpdate -s time.nist.gov\n')
 
-    if sys.argv[2] == '?':
-        net_id = None
-    else:
-        net_id = sys.argv[2]
-
+    net_id = None if sys.argv[2] == '?' else sys.argv[2]
     rerun = True if '-rerun' in sys.argv else False
-
     safe = True if '-safe' in sys.argv else False
+
+    if '-keep-best' in sys.argv:
+        if not rerun:
+            print("Cannot keep best score if tests aren't rerun. Please use -rerun -keep-best instead.")
+        else:
+            keepbest = True
+    else:
+        keepbest = False
+
 
     projects = sys.argv[1].split(',')
     for project_id in projects:
@@ -157,9 +170,11 @@ def main():
                     src = os.path.join(project_dir, item)
                     dst = os.path.join(codedir, item)
                     shutil.copyfile(src, dst)
-            result = run_test_in_docker(codedir)
-
+            result, score = run_test_in_docker(codedir)
+            print(f'Score: {score}')
             if not safe:
+                if rerun and keepbest and score < fetch_results(s3path):
+                    continue 
                 s3.put_object(
                     Bucket=BUCKET,
                     Key='/'.join(s3path.split('/')[:-1] + ['test.json']),
