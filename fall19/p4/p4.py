@@ -66,7 +66,7 @@ dataset = pd.read_csv("diabetes.csv")
 
 
 def column_sum(column_name):
-    return dataset["column_name"].sum()
+    return dataset[column_name].sum()
 
 
 def row_count():
