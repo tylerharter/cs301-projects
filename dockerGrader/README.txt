@@ -16,12 +16,17 @@ Changes to dockerUtil:
     -Keepbest flag: re-run all but only update grade if better
     -S3dir flag: specify the s3 cached directory
     -Cleanup flag: remove s3 cache directory if set
+*Copy over all files (except excluded) from project dir to code dir
+    -Added exclude flag to specify which files not to copy
+        -Accepts UNIX style file matching patterns
+*Removed hard requirement on submission filename (for p4 to work)
+*Added basic logging (more to come hopefully)
+*Added some docstrings and more documentation
 *PEP8-ified everything for better readability
 *Removed some dependencies that weren't used
+*Simplified s3 interface with use of pagination
 
 TODO:
-*Add exclude files option in setup codedir
 *Add logging with logfile and verbosity flag
 *Add live, anonymous stats collection (can help detects if tests have error)
-*Simplify s3 interface with pagination (see: https://adamj.eu/tech/2018/01/09/using-boto3-think-pagination/)
 

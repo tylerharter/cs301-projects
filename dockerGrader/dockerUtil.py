@@ -6,12 +6,17 @@ import time
 import base64
 import shutil
 import string
+import fnmatch
+import logging
 import argparse
 from datetime import datetime
 
 # Third party libs
 import boto3
 import docker
+
+
+logging.basicConfig(level=logging.INFO, format='%(message)s')
 
 
 class Database:
@@ -53,11 +58,6 @@ class Database:
         submission = json.loads(response['Body'].read().decode('utf-8'))
         file_contents = base64.b64decode(submission.pop('payload'))
         file_name = submission['filename']
-        # override the filename if it is a python source file
-        if len(file_name) >= 3 and file_name.endswith('.py'):
-            file_name = "main.py"
-        elif len(file_name) >= 6 and file_name.endswith('.ipynb'):
-            file_name = "main.ipynb"
         with open(os.path.join(local_dir, file_name), 'wb') as f:
             f.write(file_contents)
         return local_dir
@@ -67,8 +67,10 @@ class Database:
         response = self.s3.get_object(Bucket=self.BUCKET, Key=s3path)
         try:
             submission = json.loads(response['Body'].read().decode('utf-8'))
+            logging.debug(f'Previous submission found for {s3path}')
             return submission['score']
         except self.s3.exceptions.NoSuchKey:
+            logging.debug(f'No previous submission found for {s3path}')
             return 0
 
     def put_submission(self, key, submission):
@@ -79,17 +81,13 @@ class Database:
                            ContentType='text/plain')
 
     def s3_all_keys(self, prefix):
-        ls = self.s3.list_objects_v2(Bucket=self.BUCKET, Prefix=prefix, MaxKeys=10000)
-        keys = []
-        while True:
-            print('...list_objects...')
-            contents = [obj['Key'] for obj in ls.get('Contents', [])]
-            keys.extend(contents)
-            if 'NextContinuationToken' not in ls:
-                break
-            ls = self.s3.list_objects_v2(Bucket=self.BUCKET, Prefix=prefix, MaxKeys=10000,
-                                         ContinuationToken=ls['NextContinuationToken'])
-        return keys
+        paginator = self.s3.get_paginator('list_objects')
+        operation_parameters = {'Bucket': self.BUCKET,
+                                'Prefix': prefix}
+        page_iterator = paginator.paginate(**operation_parameters)
+        for page in page_iterator:
+            logging.info('...list_objects...')
+            yield from [item['Key'] for item in page['Contents']]
 
     def to_s3_key_str(self, s):
         s3key = []
@@ -108,17 +106,22 @@ class Database:
 
 
 class Grader(Database):
-    def __init__(self, projects, netid, *args, safe=False, overwrite=False, keepbest=False, **kwargs):
+    def __init__(self, projects, netid, *args, safe=False, overwrite=False,
+                 keepbest=False, exclude=None, **kwargs):
         self.projects = projects
         self.netid = None if netid == '?' else netid
         self.safe = safe
         self.overwrite = overwrite
         self.keepbest = keepbest
-        self.excluded_files = ['README.md', 'main.ipynb', 'main.py']
+        self.excluded_files = ['README.md', 'main.ipynb', 'main.py'] \
+            if not exclude else exclude
         super().__init__(*args, **kwargs)
 
     def run_test_in_docker(self, code_dir, image='grader',
                            cmd='python3 test.py', cwd='/code', timeout=60):
+        """Run tests in a detached container with attached volume code_dir
+        and working directory cdw. Wait timeout seconds for container, then
+        save results and logs, remove container and volumes"""
         shared_dir = {os.path.abspath(code_dir): {'bind': cwd, 'mode': 'rw'}}
         client = docker.from_env()
 
@@ -126,7 +129,7 @@ class Grader(Database):
         t0 = time.time()
         container = client.containers.run(image, cmd, detach=True,
                                           volumes=shared_dir, working_dir=cwd)
-        print('CONTAINER', container.id)
+        logging.info(f'CONTAINER {container.id}')
         container.wait(timeout=timeout)
         t1 = time.time()
 
@@ -151,25 +154,35 @@ class Grader(Database):
 
     @staticmethod
     def parse_logs(logs):
-        # https://stackoverflow.com/questions/14693701/how-can-i-remove-the-ansi-escape-sequences-from-a-string-in-python
+        """Parse docker logs to make them printable.
+        See: https://stackoverflow.com/questions/14693701"""
         logs = logs.decode('ascii')
         ansi_escape = re.compile(r'\x1B\[[0-?]*[ -/]*[@-~]')
         return ansi_escape.sub('', logs)
 
-    def setup_codedir(self, project_dir, code_dir):
+    def setup_codedir(self, project_dir, code_dir, overwrite_existing=False):
+        """Copy necessary files from project dir to code dir"""
         for item in os.listdir(project_dir):
             item_path = os.path.join(project_dir, item)
-            if item not in self.excluded_files and os.path.isfile(item_path):
+            if not overwrite_existing and item in os.listdir(code_dir):
+                continue
+            if not self.is_excluded(item) and os.path.isfile(item_path):
                 src = os.path.join(project_dir, item)
                 dst = os.path.join(code_dir, item)
                 shutil.copyfile(src, dst)
 
+    def is_excluded(self, item):
+        """Determine which files not to copy in setup_codedir"""
+        return any(fnmatch.fnmatch(item, p) for p in self.excluded_files)
+
     def run_grader(self):
+        """For each project and submission, setup environment, run tests
+        in docker container, save results or any error/logs"""
         for project_id in self.projects:
             submissions = self.get_submissions(project_id, rerun=self.overwrite or self.keepbest, email=self.netid)
             for s3path in sorted(submissions):
-                print('========================================')
-                print(s3path)
+                logging.info('========================================')
+                logging.info(s3path)
 
                 # Setup environment
                 code_dir = self.fetch_submission(s3path)
@@ -179,14 +192,14 @@ class Grader(Database):
                 # Run tests in docker and save results
                 result = self.run_test_in_docker(code_dir)
                 new_score = result['score']
-                print(f'Score: {new_score}')
+                logging.info(f'Score: {new_score}')
                 if not self.safe:
                     if self.keepbest and new_score < self.fetch_results(s3path):
-                        print(f'Skipped {s3path} because better grade exists')
+                        logging.info(f'Skipped {s3path} because better grade exists')
                     else:
                         self.put_submission('/'.join(s3path.split('/')[:-1] + ['test.json']), result)
                 else:
-                    print(f'Did not upload results, running in safe mode')
+                    logging.info(f'Did not upload results, running in safe mode')
         self.clear_caches()
 
 
@@ -203,6 +216,11 @@ if __name__ == '__main__':
     rerun_group = parser.add_mutually_exclusive_group()
     rerun_group.add_argument('-overwrite', action='store_true', help='rerun grader and overwrite any existing results.')
     rerun_group.add_argument('-keepbest', action='store_true', help='rerun grader, only update result if better.')
+    parser.add_argument('-exclude', type=str, nargs='*',
+                        help='exclude files from being copied to codedir. '
+                             'Accepts filenames or UNIX-style filename pattern'
+                             ' matching. By default README.md, main.ipynb, '
+                             'main.py are excluded')
 
     grader_args = parser.parse_args()
     g = Grader(**vars(grader_args))
