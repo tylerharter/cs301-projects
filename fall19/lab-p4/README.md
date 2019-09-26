@@ -51,13 +51,13 @@ pip install -r requirements.txt
 ##### Installation of graphviz
  - For windows system, you also need to download and install graphviz from [here](https://graphviz.gitlab.io/_pages/Download/Download_windows.html), Uncomment the lines in the gen_tree.py (Lines 10 and 11) which mentions the path of graphviz on your system. (You might have to edit the path if its different for your system.)
  - For Mac systems, You can use brew to install graphviz. Use this to install Homebrew (in your terminal):
-```
-/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-```
+ ```
+ /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+ ```
 Use this to install graphviz next:
-```
-brew install graphviz
-```
+ ```
+ brew install graphviz
+ ```
 
 If you are working on Lab machine, you might see an error which says "access is denied". Follow the instructions [here](labinstall.md) to install the required packages on lab machines.
 
