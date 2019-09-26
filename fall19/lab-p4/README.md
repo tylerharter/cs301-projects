@@ -1,4 +1,4 @@
-# Lab P4: Decision Trees (Under Revision)
+# Lab P4: Decision Trees
 
 Suppose you're a doctor, and you want to identify patients at risk for
 diabetes.  You'll probably have a number of questions you'll to answer

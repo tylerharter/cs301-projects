@@ -1,4 +1,4 @@
-# Project 4: Forecasting Diabetes (Under Revision, don't start yet!)
+# Project 4: Forecasting Diabetes
 
 ## Corrections
 
