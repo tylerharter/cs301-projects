@@ -1,8 +1,7 @@
 # Project 4: Forecasting Diabetes
 
 ## Corrections
-
-* none yet
+* Sep 26: quotations removed from column_name argument in column_sum. Download p4.py again.
 
 ## Overview
 
