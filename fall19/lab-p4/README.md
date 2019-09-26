@@ -1,4 +1,4 @@
-# Lab P4: Decision Trees (Under Revision)
+# Lab P4: Decision Trees
 
 Suppose you're a doctor, and you want to identify patients at risk for
 diabetes.  You'll probably have a number of questions you'll to answer
@@ -47,14 +47,19 @@ Sometimes, when a program requires many different packages, developers like to l
 ```
 pip install -r requirements.txt
 ```
-Note: if you are working on Lab machine, you might see which says access is denied. Follow the instructions [here](labinstall.md) to install the required packages on lab machines. 
+
+##### Note
+ - If you are working on windows system, you also need to download and install graphviz from [here](https://graphviz.gitlab.io/_pages/Download/Download_windows.html), Uncomment the lines in the gen_tree.py which mentions the path of graphviz. (You might have to edit the path if its different for your system.)
+ - Note: If you are working on Lab machine, you might see an error which says "access is denied". Follow the instructions [here](labinstall.md) to install the required packages on lab machines.
+
+
 ## Download
 
 Download the following to a new directory named `lab-p4` (remember to
 right-click "RAW" from the preview page when downloading from GitHub):
 
 * diabetes.csv
-* gen_tree.csv
+* gen_tree.py
 
 ## First Decision Tree
 
@@ -73,7 +78,7 @@ wakeup,now,lunch-hungry
 10,11,0
 ```
 
-That first row tells you the information recorded in the file: what time did you wakeup, what time is it now, and are you hungry for lunch?  The other rows contain actual data.  For example, the row `8,10,0` means that at 10am, after waking up at 8am, you were not hungry (1 is for hungry, 0 is for not hungry).  As another example, `11,13,1` means that at 1pm, after waking up at 11am, you were hungry.
+That first row tells you the information recorded in the file: what time did you wakeup, what time is it now, and are you hungry for lunch?  The other rows contain actual data.  For example, the row `8,10,0` means that if you wake up at 8am then you will not be hungry at 10am (1 is for hungry, 0 is for not hungry).  As another example, `11,13,1` means that if you wake up at 11am then at 1pm you will be hungry.
 
 Ok, now let's run our program, `gen_tree.py`.  Try it (make sure to use python3 if necessary):
 
