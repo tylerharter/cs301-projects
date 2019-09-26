@@ -48,7 +48,7 @@ Sometimes, when a program requires many different packages, developers like to l
 pip install -r requirements.txt
 ```
 
-Note: If you working on windows system, you also need to download and install graphviz from [here](https://graphviz.gitlab.io/_pages/Download/Download_windows.html), Uncomment the lines in the gen_tree.py which mentions the path of graphviz. Edit the path if its different for your system.
+Note: If you are working on windows system, you also need to download and install graphviz from [here](https://graphviz.gitlab.io/_pages/Download/Download_windows.html), Uncomment the lines in the gen_tree.py which mentions the path of graphviz. Edit the path if its different for your system.
 
 ## Download
 
