@@ -56,7 +56,7 @@ Download the following to a new directory named `lab-p4` (remember to
 right-click "RAW" from the preview page when downloading from GitHub):
 
 * diabetes.csv
-* gen_tree.csv
+* gen_tree.py
 
 ## First Decision Tree
 
