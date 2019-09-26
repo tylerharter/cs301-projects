@@ -5,6 +5,11 @@ from sklearn.tree import DecisionTreeClassifier
 from sklearn.tree import export_graphviz
 from sklearn.tree._tree import TREE_LEAF
 
+# Download and install graphviz from https://graphviz.gitlab.io/_pages/Download/Download_windows.html
+# Uncomment the following and edit the path of the graphviz if its different for your machine
+# import os
+# os.environ["PATH"] += os.pathsep + 'C:/Program Files (x86)/Graphviz2.38/bin/'
+
 # draw decision tree and save it to filename
 def dump_decision_tree(clf, feature_cols, filename):
     dot_data = io.StringIO()
