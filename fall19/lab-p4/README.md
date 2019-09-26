@@ -73,7 +73,7 @@ wakeup,now,lunch-hungry
 10,11,0
 ```
 
-That first row tells you the information recorded in the file: what time did you wakeup, what time is it now, and are you hungry for lunch?  The other rows contain actual data.  For example, the row `8,10,0` means that at 10am, after waking up at 8am, you were not hungry (1 is for hungry, 0 is for not hungry).  As another example, `11,13,1` means that at 1pm, after waking up at 11am, you were hungry.
+That first row tells you the information recorded in the file: what time did you wakeup, what time is it now, and are you hungry for lunch?  The other rows contain actual data.  For example, the row `8,10,0` means that if you wake up at 8am then you will not be hungry at 10am (1 is for hungry, 0 is for not hungry).  As another example, `11,13,1` means that if you wake up at 11am then at 1pm you will be hungry.
 
 Ok, now let's run our program, `gen_tree.py`.  Try it (make sure to use python3 if necessary):
 
