@@ -19,9 +19,16 @@ def dump_decision_tree(clf, feature_cols, filename):
                     feature_names = feature_cols,
                     impurity=False,
                     class_names=['0','1'])
-    graph = pydotplus.graph_from_dot_data(dot_data.getvalue())
-    graph.write_png(filename)
-
+    try:
+        graph = pydotplus.graph_from_dot_data(dot_data.getvalue())
+        graph.write_png(filename)
+        return True
+    except pydotplus.graphviz.InvocationException as e:
+        print(e)
+        print("Install graphviz")
+        dotf = open(filename[:-4]+'.txt','w')
+        dotf.write(dot_data.getvalue())
+        dotf.close()    
 
 # what classes might different descendents of a node predict?
 def classes(t, index):
@@ -59,8 +66,8 @@ def main():
     df = pd.read_csv(in_csv)
     dt = decision_tree_classifier(df, df.columns, max_depth=int(depth))
     prune_index(dt.tree_, 0)
-    dump_decision_tree(dt, df.columns[:-1], out_png)
-    print("open %s to see the resulting tree" % out_png)
+    if(dump_decision_tree(dt, df.columns[:-1], out_png)):
+        print("open %s to see the resulting tree" % out_png)
 
 
 if __name__ == "__main__":
