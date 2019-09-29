@@ -3,22 +3,23 @@
 # Lab 5
 
 This lab is designed to introduce you to `project.py` for P5 and
-introduce some fundamental looping patterns you'll be using.
-Completing this lab will improves your odds of success on the projects
-and the exams. Doing it at the designated lab time will mean you have
-help right away when you get stuck, and will help you make regularly
-scheduled progress. Enjoy!
+introduce some fundamental looping patterns you'll be using. We will
+also create a new module `labproject.py` and learn to manipulate strings,
+which will be useful for P5. Completing this lab will improves your odds
+of success on the projects and the exams. Doing it at the designated lab
+time will mean you have help right away when you get stuck, and will help
+you make regularly scheduled progress. Enjoy!
 
 ## Project API
 
 The `project.py` file helps give you access to the dataset you'll use
 this week, `hurricanes.csv`.  Start by looking at the dataset here:
-https://github.com/tylerharter/cs301-projects/blob/master/spring19/p5/hurricanes.csv.
+https://github.com/tylerharter/cs301-projects/blob/master/fall19/p5/hurricanes.csv.
 This data is a summary of statistics pulled from Wikipedia:
 https://en.wikipedia.org/wiki/List_of_United_States_hurricanes.  Look
-through the dataset for a recent hurricane, such as hurricane Maria,
+through the dataset for a recent hurricane, such as hurricane Michael,
 and briefly familiarize yourself with some of the numbers.  The data
-shows name, year, max wind speed (in MPH), damage (in dollars), and
+shows name, the date of formation, the date of dissipation, max wind speed (in MPH), damage (in dollars), and
 deaths.  Note that the death stats are usually direct deaths, meaning
 they don't count deaths that occur after the storm due to, say,
 infrastructure damage.
@@ -33,9 +34,9 @@ perspective of `project.py`, the indexes of Baker, Camille, and Eloise
 are 0, 1, and 2 respectively (and so on).
 
 Download
-[hurricanes.csv](https://github.com/tylerharter/cs301-projects/blob/master/spring19/p5/hurricanes.csv)
+[hurricanes.csv](https://github.com/tylerharter/cs301-projects/blob/master/fall19/p5/hurricanes.csv)
 and
-[project.py](https://github.com/tylerharter/cs301-projects/blob/master/spring19/p5/project.py)
+[project.py](https://github.com/tylerharter/cs301-projects/blob/master/fall19/p5/project.py)
 to a `lab5` directory that you create, and start a new notebook in
 that directory for some scratch work.
 
@@ -71,16 +72,16 @@ make sure you have the `hurricanes.csv` file open in GitHub and find
 where the data returned by the function call is coming from):
 
 1. `project.get_name(0)`
-2. `project.get_year(0)`
+2. `project.get_name(1)`
 3. `project.get_mph(0)`
 4. `project.get_deaths(0)`
 5. `project.get_damage(0)`
 6. `project.get_damage(1)`
 7. `project.get_name(project.count())`
 
-For 6, note that the damage amount ends with "B".  In this dataset,
-"K" represents one thousand, "M" represents one million, and "B"
-represents one billion.  Write a function that takes a string, and
+For 5 and 6, note that the damage amount ends with "M" and "B" respectively.
+In this dataset, "K" represents one thousand, "M" represents one million,
+and "B" represents one billion. Write a function that takes a string, and
 returns True if (and only if) the parameter passed to it ends in one
 of these suffixes.
 
@@ -144,7 +145,7 @@ try, and discuss with your neighbour.
 ### 3. Looping over indexes
 
 You want a loop that prints the index of every row index in `hurricanes.csv`
-(from 0 to 110, inclusive):
+(from 0 to 131, inclusive):
 
 ```python
 for idx in range(???):
@@ -171,7 +172,7 @@ functions in `project`.
 ### 4. Filtering data
 
 Your job is to replace the `???` parts below so that the name of every
-hurricane that occurred in 2018 in printed.
+hurricane with a speed under 80 mph in printed.
 
 ```python
 for i in range(???):
@@ -197,6 +198,62 @@ for n in range(11):
 
 print(best_n)
 ```
+
+### Working with strings
+
+We have seen how several of the functions in `project.py` work. We have
+not yet looked at the functions `get_formed()` and `get_dissipated()`.
+Let us do that now. Run the following in the interactive mode:
+
+1. `project.get_formed(0)`
+2. `project.get_dissipated(0)`
+
+The dates are represented in the standard mm/dd/yyyy notation. This date
+is represented as a string. Note that the dates have been formatted so
+that two digits are used to represent the month even when the month can
+be represented using only one digit. So, '8/18/1950' is represented as
+`08/18/1950` This is to make it easier to extract data from the string.
+Run the following code:
+
+```python
+print(project.get_formed(0)[:2])
+```
+
+The above code displays the month in which the hurricane at index 0 was
+formed. Can you guess what the following code does?
+
+```python
+print(project.get_formed(0)[-4:])
+```
+
+### Creating our own module
+
+We will now create our own module `labproject` to which, we will add
+functions that we will use in P5. First, head over to the shell and type
+`idle labproject.py` to create a new module. Since our module is empty,
+let us start by adding a few functions. Copy/paste the following
+code into your file.
+
+```python
+def get_month(date):
+    '''Returns the month when the date is the in the 'mm//dd/yyyy' format'''
+    return int(date[:2])
+
+def get_day(date):
+    '''Returns the day when the date is the in the 'mm//dd/yyyy' format'''
+    pass #TODO: Use string slicing to return the day
+
+
+def get_year(date):
+    '''Returns the year when the date is the in the 'mm//dd/yyyy' format'''
+    pass #TODO: Use string slicing to return the year
+```
+
+Fill in the `get_day()` and `get_year()` functions. Now that you
+have these three functions, `get_month()`, `get_day()` and `get_year()`
+in your file, save it and close it. Congratulations! You have now created
+your own module. Try to import it and call the functions we have just
+created.
 
 ## Other Practice: Textbook and Online Exercises
 
