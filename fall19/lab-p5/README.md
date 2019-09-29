@@ -212,7 +212,7 @@ The dates are represented in the standard mm/dd/yyyy notation. This date
 is represented as a string. Note that the dates have been formatted so
 that two digits are used to represent the month even when the month can
 be represented using only one digit. So, '8/18/1950' is represented as
-`08/18/1950` This is to make it easier to extract data from the string.
+`'08/18/1950'` This is to make it easier to extract data from the string.
 Run the following code:
 
 ```python
