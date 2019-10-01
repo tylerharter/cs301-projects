@@ -236,16 +236,16 @@ code into your file.
 
 ```python
 def get_month(date):
-    '''Returns the month when the date is the in the 'mm//dd/yyyy' format'''
+    '''Returns the month when the date is the in the 'mm/dd/yyyy' format'''
     return int(date[:2])
 
 def get_day(date):
-    '''Returns the day when the date is the in the 'mm//dd/yyyy' format'''
+    '''Returns the day when the date is the in the 'mm/dd/yyyy' format'''
     pass #TODO: Use string slicing to return the day
 
 
 def get_year(date):
-    '''Returns the year when the date is the in the 'mm//dd/yyyy' format'''
+    '''Returns the year when the date is the in the 'mm/dd/yyyy' format'''
     pass #TODO: Use string slicing to return the year
 ```
 
@@ -254,28 +254,3 @@ have these three functions, `get_month()`, `get_day()` and `get_year()`
 in your file, save it and close it. Congratulations! You have now created
 your own module. Try to import it and call the functions we have just
 created.
-
-## Other Practice: Textbook and Online Exercises
-
-If you're looking for additional practice before starting the project,
-you can find it online or in Think Python.  Below are some suggestions
-for getting started.
-
-### Think Python
-
-The textbook has an excellent suggestion to get used to strings:
-"Write a function that takes a string as an argument and displays the
-letters backward, one per line."  Do this once using a `while` loop,
-and once using a `for` loop.
-
-### Coding Bat
-
-The website CodingBat (https://codingbat.com/python) has great
-interactive coding exercises for beginners. Try to complete both the
-'String-1' and 'String-2' examples.  You can also practice loops with
-these problems:
-
- * https://codingbat.com/python
- * https://codingbat.com/prob/p193507
- * https://codingbat.com/prob/p165097
- * https://codingbat.com/prob/p118366

@@ -2,6 +2,12 @@
 
 # Project 5: Hurricane Study
 
+## Corrections/Clarifications
+
+* none yet
+
+## Overview
+
 Hurricanes often count among the worst natural disasters, both in terms of
 monetary costs and, more importantly, human life.  Data Science can
 help us better understand these storms.  For example, take a quick
@@ -93,11 +99,12 @@ def deadliest_in_range(year1, year2):
     return project.get_name(worst_idx)
 ```
 
-Hint: You can import the module `labproject` we created in the lab, and use
-any function from there. In order to import it, first copy/paste `labproject.py`
-into the P5 directory.
+Hint: You can copy the functions from the `labproject.py` we created
+in the lab and paste them in your notebook.
 
 ### Q10: What was the deadliest hurricane between 2010 and 2019 (inclusive)?
+
+For this in the following, consider count a hurricane as in the year it was formed (not dissipated).
 
 ### Q11: What was the deadliest hurricane of the 20th century (1901 to 2000, inclusive)?
 
@@ -111,7 +118,7 @@ Remember that "K" stands for thousand, "M" stands for million, and "B"
 stands for billion!  These may appear in the dataset, but the answer
 you compute (`864230464997`) should not use them.
 
-### Q15: How many years experienced the formation of atleast four hurricanes?
+### Q15: How many years experienced the formation of at least four hurricanes?
 
 ### Function Suggestion:
 
@@ -122,10 +129,10 @@ prefer to solve the problem another way):
 ```python
 # return number of huricanes formed in month mm
 def hurricanes_in_month(mm):
-    no_of_hurricanes = 0
+    num_of_hurricanes = 0
     for i in range(project.count()):
         pass # TODO: finish this code!
-    return no_of_hurricanes
+    return num_of_hurricanes
 ```
 
 ### Q16: How many hurricanes were formed in the month of July?
