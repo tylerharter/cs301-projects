@@ -22,11 +22,14 @@ https://en.wikipedia.org/wiki/List_of_United_States_hurricanes.  By
 the end of this semester, we'll teach you to extract data from
 websites like Wikipedia for yourself.
 
-This project will focus on **loops** and **strings**. To start, download
-`project.py`, `test.py` and `hurricanes.csv`.  You'll do your work in
-Jupyter Notebooks this week, producing a `main.ipynb` file.  You'll test
-as usual by running `python test.py` to test a `main.ipynb` file (or
-`python test.py other.ipynb` to test a notebook with a different name).
+This project will focus on **loops** and **strings**. To start,
+download `project.py`, `test.py` and `hurricanes.csv`.  You'll do your
+work in Jupyter Notebooks this week, producing a `main.ipynb` file.
+You'll test as usual by running `python test.py` to test a
+`main.ipynb` file (or `python test.py other.ipynb` to test a notebook
+with a different name).  You may not use any extra modules that you
+need to install with pip (only the standard modules that come with
+Python, such as `math`).
 
 We won't explain how to use the `project` module here (the code in the
 `project.py` file).  The lab this week is designed to teach you how it
@@ -93,9 +96,11 @@ prefer to solve the problem another way):
 ```python
 # return name of deadliest hurricane over the given date range
 def deadliest_in_range(year1, year2):
-    worst_idx = ???
+    worst_idx = None
     for i in range(project.count()):
-        pass # TODO: finish this code!
+        if ????:  # TODO: check if year is in range
+            if worst_idx == None or ????:  # TODO: it is worse than previous?
+                # TODO: finish this code!
     return project.get_name(worst_idx)
 ```
 
@@ -139,10 +144,12 @@ def hurricanes_in_month(mm):
 
 ### Q17: How many hurricanes were formed in the month of December?
 
-### Q18: Which month experienced the formation of the most number of hurricanes?
+### Q18: How many hurricanes were formed in the month of January?
 
-### Q19: How many New Year's Days passed between the formation of the two hurricane Omars?
+### Q19: How many hurricanes were formed in the month of May?
 
-### Q20: How many hurricanes were raging on a July 4?
+### Q20: Which month experienced the formation of the most number of hurricanes?
+
+Answer with a number (e.g., 1 for Jan, etc.).
 
 ### Good luck with your hurricanes project! :)
