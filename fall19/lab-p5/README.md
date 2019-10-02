@@ -1,6 +1,6 @@
 # UNDER REVISION (don't start yet!)
 
-# Lab 5
+# Lab P5
 
 This lab is designed to introduce you to `project.py` for P5 and
 introduce some fundamental looping patterns you'll be using. We will
@@ -22,14 +22,14 @@ and briefly familiarize yourself with some of the numbers.  The data
 shows name, the date of formation, the date of dissipation, max wind speed (in MPH), damage (in dollars), and
 deaths.  Note that the death stats are usually direct deaths, meaning
 they don't count deaths that occur after the storm due to, say,
-infrastructure damage.
+infrastructure damage to hospitals.
 
 Often, we'll often organize data by assigning numbers (called indexes)
 to different parts of the data (e.g., rows or columns in a table). In
 Computer Science, indexing typically starts with the number 0 (zero);
 i.e., when you have a sequence of things, you'll start counting them
 from 0 (zero) instead of 1 (one).  Thus, you should **ignore the
-numbers show by GitHub to the left of the rows**.  From the
+numbers shown by GitHub to the left of the rows**.  From the
 perspective of `project.py`, the indexes of Baker, Camille, and Eloise
 are 0, 1, and 2 respectively (and so on).
 
@@ -79,11 +79,11 @@ where the data returned by the function call is coming from):
 6. `project.get_damage(1)`
 7. `project.get_name(project.count())`
 
-For 5 and 6, note that the damage amount ends with "M" and "B" respectively.
-In this dataset, "K" represents one thousand, "M" represents one million,
-and "B" represents one billion. Write a function that takes a string, and
-returns True if (and only if) the parameter passed to it ends in one
-of these suffixes.
+For 5 and 6, note that the damage amount ends with "M" and "B"
+respectively.  In this dataset, "K" represents one thousand, "M"
+represents one million, and "B" represents one billion.  In the
+project, you'll need to convert these strings to the appropriate
+floats (e.g., `"1.5K"` will become `1500.0`).
 
 Oops, example 7 failed!  Can you change the code so that you get the
 name of the last hurricane (in this case, "Omar")?
@@ -203,7 +203,7 @@ print(best_n)
 
 We have seen how several of the functions in `project.py` work. We have
 not yet looked at the functions `get_formed()` and `get_dissipated()`.
-Let us do that now. Run the following in the interactive mode:
+Let us do that now. Run each of the following in its own cell:
 
 1. `project.get_formed(0)`
 2. `project.get_dissipated(0)`
@@ -229,10 +229,14 @@ print(project.get_formed(0)[-4:])
 ### Creating our own module
 
 We will now create our own module `labproject` to which, we will add
-functions that we will use in P5. First, head over to the shell and type
-`idle labproject.py` to create a new module. Since our module is empty,
-let us start by adding a few functions. Copy/paste the following
-code into your file.
+functions that we will use in P5 (note that since you can only hand in
+one file for the projects, you won't import this when you're doing P5;
+instead, you'll copy the code from the .py file to a cell in your
+notebook).
+
+First, head over to the shell and type `idle labproject.py` to create
+a new module. Since our module is empty, let us start by adding a few
+functions. Copy/paste the following code into your file.
 
 ```python
 def get_month(date):
