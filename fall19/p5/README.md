@@ -107,7 +107,8 @@ functions you created in lab to your project notebook if you like.
 
 ### Q10: What was the deadliest hurricane between 2010 and 2019 (inclusive)?
 
-For this in the following, consider count a hurricane as in the year it was formed (not dissipated).
+For this and the following, count a hurricane as being in the year it
+was formed (not dissipated).
 
 ### Q11: What was the deadliest hurricane of the 20th century (1901 to 2000, inclusive)?
 
