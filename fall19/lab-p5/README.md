@@ -1,6 +1,6 @@
 # UNDER REVISION (don't start yet!)
 
-# Lab P5
+# Lab P5: Looping Patterns and Hurricane API
 
 This lab is designed to introduce you to `project.py` for P5 and
 introduce some fundamental looping patterns you'll be using. We will
@@ -257,4 +257,4 @@ Fill in the `get_day()` and `get_year()` functions. Now that you
 have these three functions, `get_month()`, `get_day()` and `get_year()`
 in your file, save it and close it. Congratulations! You have now created
 your own module. Try to import it and call the functions we have just
-created.
+created (e.g., try `get_year("10/02/2019")` and similar).
