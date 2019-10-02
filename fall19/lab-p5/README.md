@@ -1,5 +1,3 @@
-# UNDER REVISION (don't start yet!)
-
 # Lab P5: Looping Patterns and Hurricane API
 
 This lab is designed to introduce you to `project.py` for P5 and
@@ -227,7 +225,7 @@ formed. Can you guess what the following code does?
 print(project.get_formed(0)[-4:])
 ```
 
-### Creating Some Helper Functions
+### Creating some helper functions
 
 We will now finish three functions that will be useful for dealing
 with dates in P5.  Copy/paste the following code into your notebook

@@ -1,5 +1,3 @@
-# UNDER REVISION (don't start yet!)
-
 # Project 5: Hurricane Study
 
 ## Corrections/Clarifications
