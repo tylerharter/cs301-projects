@@ -94,18 +94,18 @@ answer the next several questions (this is not a requirement if you
 prefer to solve the problem another way):
 
 ```python
-# return name of deadliest hurricane over the given date range
+# return index of deadliest hurricane over the given date range
 def deadliest_in_range(year1, year2):
     worst_idx = None
     for i in range(project.count()):
         if ????:  # TODO: check if year is in range
             if worst_idx == None or ????:  # TODO: it is worse than previous?
                 # TODO: finish this code!
-    return project.get_name(worst_idx)
+    return worst_idx
 ```
 
-Hint: You can copy the functions from the `labproject.py` we created
-in the lab and paste them in your notebook.
+Hint: You can copy the `get_month`, `get_day`, and `get_year`
+functions you created in lab to your project notebook if you like.
 
 ### Q10: What was the deadliest hurricane between 2010 and 2019 (inclusive)?
 
@@ -123,8 +123,6 @@ Remember that "K" stands for thousand, "M" stands for million, and "B"
 stands for billion!  These may appear in the dataset, but the answer
 you compute (`864230464997`) should not use them.
 
-### Q15: How many years experienced the formation of at least four hurricanes?
-
 ### Function Suggestion:
 
 We suggest you complete a function something like the following to
@@ -140,15 +138,19 @@ def hurricanes_in_month(mm):
     return num_of_hurricanes
 ```
 
-### Q16: How many hurricanes were formed in the month of July?
+### Q15: How many hurricanes were formed in the month of July?
 
-### Q17: How many hurricanes were formed in the month of December?
+### Q16: How many hurricanes were formed in the month of December?
 
-### Q18: How many hurricanes were formed in the month of January?
+### Q17: How many hurricanes were formed in the month of January?
 
-### Q19: How many hurricanes were formed in the month of May?
+### Q18: How many hurricanes were formed in the month of May?
 
-### Q20: Which month experienced the formation of the most number of hurricanes?
+### Q19: Which month experienced the formation of the most number of hurricanes?
+
+## Challenge Question
+
+### Q20: How many years experienced the formation of at least four hurricanes?
 
 Answer with a number (e.g., 1 for Jan, etc.).
 

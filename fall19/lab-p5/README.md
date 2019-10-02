@@ -4,11 +4,12 @@
 
 This lab is designed to introduce you to `project.py` for P5 and
 introduce some fundamental looping patterns you'll be using. We will
-also create a new module `labproject.py` and learn to manipulate strings,
-which will be useful for P5. Completing this lab will improves your odds
-of success on the projects and the exams. Doing it at the designated lab
-time will mean you have help right away when you get stuck, and will help
-you make regularly scheduled progress. Enjoy!
+also learn to manipulate strings, which will be useful for P5.
+
+Completing this lab will improves your odds of success on the projects
+and the exams. Doing it at the designated lab time will mean you have
+help right away when you get stuck, and will help you make regularly
+scheduled progress. Enjoy!
 
 ## Project API
 
@@ -226,17 +227,11 @@ formed. Can you guess what the following code does?
 print(project.get_formed(0)[-4:])
 ```
 
-### Creating our own module
+### Creating Some Helper Functions
 
-We will now create our own module `labproject` to which, we will add
-functions that we will use in P5 (note that since you can only hand in
-one file for the projects, you won't import this when you're doing P5;
-instead, you'll copy the code from the .py file to a cell in your
-notebook).
-
-First, head over to the shell and type `idle labproject.py` to create
-a new module. Since our module is empty, let us start by adding a few
-functions. Copy/paste the following code into your file.
+We will now finish three functions that will be useful for dealing
+with dates in P5.  Copy/paste the following code into your notebook
+and finish the TODOs:
 
 ```python
 def get_month(date):
@@ -253,8 +248,6 @@ def get_year(date):
     pass #TODO: Use string slicing to return the year
 ```
 
-Fill in the `get_day()` and `get_year()` functions. Now that you
-have these three functions, `get_month()`, `get_day()` and `get_year()`
-in your file, save it and close it. Congratulations! You have now created
-your own module. Try to import it and call the functions we have just
-created (e.g., try `get_year("10/02/2019")` and similar).
+When you are done with the functions, think of some test cases (e.g.,
+`get_year("10/02/2019")`) to make sure they are correct.  You may copy
+these functions to your project notebook if you like.
