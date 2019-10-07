@@ -1,4 +1,12 @@
-import os, sys, subprocess, json, re, collections, math
+import os
+import re
+import sys
+import json
+import math
+import collections
+
+import nbconvert
+import nbformat
 
 PASS = "PASS"
 TEXT_FORMAT = "text"
@@ -31,28 +39,27 @@ question_nums = set([q.number for q in questions])
 
 # JSON and plaintext values
 expected_json = {
-    "1": "111",
-    "2": "'Baker'",
+    "1": "132",
+    "2": "'Carol'",
     "3": "1",
-    "4": "1430000000",
-    "5": "True",
-    "6": "2",
-    "7": "13129",
-    "8": "792890014998",
-    "9": "190",
-    "10": "'Allen'",
-    "11": "1980",
-    "12": "75",
-    "13": "'Maria'",
-    "14": "Jeanne",
-    "15": "Katrina",
-    "16": "4452",
-    "17": "5580",
-    "18": "996",
-    "19": "483",
-    "20": "2000",
+    "4": "True",
+    "5": "3",
+    "6": "190",
+    "7": "Allen",
+    "8": "13500000",
+    "9": "18959",
+    "10": "'Maria'",
+    "11": "'Inez'",
+    "12": "1899",
+    "13": "226500000",
+    "14": "864230465000",
+    "15": "17",
+    "16": "3",
+    "17": "3",
+    "18": "2",
+    "19": "9",
+    "20": "10",
     }
-
 
 # find a comment something like this: #q10
 def extract_question_num(cell):
@@ -69,9 +76,22 @@ def rerun_notebook(orig_notebook):
     new_notebook = 'cs-301-test.ipynb'
 
     # re-execute it from the beginning
-    cmd = 'jupyter nbconvert --execute "{orig}" --to notebook --output="{new}" --ExecutePreprocessor.timeout=120'
-    cmd = cmd.format(orig=os.path.abspath(orig_notebook), new=os.path.abspath(new_notebook))
-    subprocess.check_output(cmd, shell=True)
+    with open(orig_notebook) as f:
+        nb = nbformat.read(f, as_version=nbformat.NO_CONVERT)
+    ep = nbconvert.preprocessors.ExecutePreprocessor(timeout=120, kernel_name='python3')
+    try:
+        out = ep.preprocess(nb, {'metadata': {'path': os.getcwd()}})
+    except nbconvert.preprocessors.CellExecutionError:
+        out = None
+        msg = 'Error executing the notebook "%s".\n\n' % orig_notebook
+        msg += 'See notebook "%s" for the traceback.' % new_notebook
+        print(msg)
+        raise
+    finally:
+        with open(new_notebook, mode='w', encoding='utf-8') as f:
+            nbformat.write(nb, f)
+
+    # Note: Here we are saving and reloading, this isn't needed but can help student's debug
 
     # parse notebook
     with open(new_notebook) as f:
@@ -90,13 +110,20 @@ def check_cell_text(qnum, cell):
     outputs = cell.get('outputs', [])
     if len(outputs) == 0:
         return 'no outputs in an Out[N] cell'
-    actual_lines = outputs[0].get('data', {}).get('text/plain', [])
+    actual_lines = None
+    for out in outputs:
+        lines = out.get('data', {}).get('text/plain', [])
+        if lines:
+            actual_lines = lines
+            break
+    if actual_lines == None:
+        return 'no Out[N] output found for cell (note: printing the output does not work)'
     actual = ''.join(actual_lines).strip().strip("'")
     expected = expected_json[str(qnum)].strip().strip("'")
     try:
         actual_float = float(actual)
         expected_float = float(expected)
-        if not math.isclose(actual_float, expected_float, rel_tol=1e-06, abs_tol=1e-02):
+        if not math.isclose(actual_float, expected_float, rel_tol=1e-02, abs_tol=1e-02):
             return "found {} in {} but expected {}".format(actual, location_name, expected)
     except Exception as e:
         if actual != expected:
