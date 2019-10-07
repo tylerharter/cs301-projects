@@ -25,8 +25,8 @@ Changes to dockerUtil:
 *PEP8-ified everything for better readability
 *Removed some dependencies that weren't used
 *Simplified s3 interface with use of pagination
+*Added live, anonymous stats collection, dump pickle file to statsfile
 
 TODO:
 *Add logging with logfile and verbosity flag
-*Add live, anonymous stats collection (can help detects if tests have error)
 

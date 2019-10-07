@@ -3,17 +3,20 @@ import os
 import re
 import json
 import time
+import atexit
 import base64
 import shutil
 import string
 import fnmatch
 import logging
 import argparse
+import _pickle as pickle
 from datetime import datetime
 
 # Third party libs
 import boto3
 import docker
+import pandas as pd
 
 
 logging.basicConfig(level=logging.INFO, format='%(message)s')
@@ -49,7 +52,7 @@ class Database:
             submitted -= tested
         return submitted
 
-    def fetch_submission(self, s3path):
+    def fetch_submission(self, s3path, file_name=None):
         local_dir = os.path.join(self.S3_DIR, os.path.dirname(s3path))
         if os.path.exists(local_dir):
             shutil.rmtree(local_dir)
@@ -57,10 +60,10 @@ class Database:
         response = self.s3.get_object(Bucket=self.BUCKET, Key=s3path)
         submission = json.loads(response['Body'].read().decode('utf-8'))
         file_contents = base64.b64decode(submission.pop('payload'))
-        file_name = submission['filename']
+        file_name = file_name if file_name else submission['filename']
         with open(os.path.join(local_dir, file_name), 'wb') as f:
             f.write(file_contents)
-        return local_dir
+        return local_dir, file_name
 
     def fetch_results(self, s3path):
         s3path = s3path.replace('submission.json', 'test.json')
@@ -107,18 +110,23 @@ class Database:
 
 class Grader(Database):
     def __init__(self, projects, netid, *args, safe=False, overwrite=False,
-                 keepbest=False, exclude=None, **kwargs):
+                 keepbest=False, stats_file=None, exclude=None,
+                 force_filename=None, **kwargs):
+        atexit.register(self.close)
         self.projects = projects
         self.netid = None if netid == '?' else netid
         self.safe = safe
         self.overwrite = overwrite
         self.keepbest = keepbest
+        self.stats_file = stats_file
         self.excluded_files = ['README.md', 'main.ipynb', 'main.py'] \
             if not exclude else exclude
+        self.stats = pd.DataFrame()
+        self.force_filename = force_filename
         super().__init__(*args, **kwargs)
 
-    def run_test_in_docker(self, code_dir, image='grader',
-                           cmd='python3 test.py', cwd='/code', timeout=60):
+    def run_test_in_docker(self, code_dir, image='grader', cwd='/code', timeout=60,
+                           cmd='python3 test.py', submission_fname=None):
         """Run tests in a detached container with attached volume code_dir
         and working directory cdw. Wait timeout seconds for container, then
         save results and logs, remove container and volumes"""
@@ -127,6 +135,8 @@ class Grader(Database):
 
         # Run in docker container
         t0 = time.time()
+        if submission_fname:
+            cmd += ' ' + submission_fname
         container = client.containers.run(image, cmd, detach=True,
                                           volumes=shared_dir, working_dir=cwd)
         logging.info(f'CONTAINER {container.id}')
@@ -185,7 +195,7 @@ class Grader(Database):
                 logging.info(s3path)
 
                 # Setup environment
-                code_dir = self.fetch_submission(s3path)
+                code_dir, submission_fname = self.fetch_submission(s3path, file_name=self.force_filename)
                 project_dir = f'../{self.SEMESTER}/{project_id}/'
                 self.setup_codedir(project_dir, code_dir)
 
@@ -193,6 +203,7 @@ class Grader(Database):
                 result = self.run_test_in_docker(code_dir)
                 new_score = result['score']
                 logging.info(f'Score: {new_score}')
+                self.collect_stats(result)
                 if not self.safe:
                     if self.keepbest and new_score < self.fetch_results(s3path):
                         logging.info(f'Skipped {s3path} because better grade exists')
@@ -200,7 +211,23 @@ class Grader(Database):
                         self.put_submission('/'.join(s3path.split('/')[:-1] + ['test.json']), result)
                 else:
                     logging.info(f'Did not upload results, running in safe mode')
+        self.close()
+
+    def collect_stats(self, result):
+        tests = result.get('tests', [])
+        if tests:
+            row = {i: d['result'] == 'PASS' for i, d in enumerate(tests)}
+            self.stats = self.stats.append(row, ignore_index=True)
+        else:
+            logging.error(f'Error running tests: \n'
+                          f' {json.dumps(result, indent=2)}')
+
+    def close(self):
         self.clear_caches()
+        if self.stats_file:
+            self.stats = self.stats.sample(frac=1).reset_index(drop=True)
+            with open(self.stats_file, 'wb') as f:
+                pickle.dump(self.stats, f)
 
 
 if __name__ == '__main__':
@@ -210,17 +237,22 @@ if __name__ == '__main__':
                         help='id(s) of project to run autograder on.')
     parser.add_argument('netid', type=str,
                         help='netid of student to run autograder on, or "?" for all students.')
-    parser.add_argument('-safe', action='store_true', help='run grader without uploading results to s3.')
-    parser.add_argument('-s3dir', type=str, help='directory of local s3 caches.')
-    parser.add_argument('-cleanup', action='store_true', help='remove temporary s3 dir after execution')
+    parser.add_argument('-s', '--safe', action='store_true', help='run grader without uploading results to s3.')
+    parser.add_argument('-d', '--s3dir', type=str, default='./s3',
+                        help='directory of local s3 caches.')
+    parser.add_argument('-c', '--cleanup', action='store_true', help='remove temporary s3 dir after execution')
     rerun_group = parser.add_mutually_exclusive_group()
-    rerun_group.add_argument('-overwrite', action='store_true', help='rerun grader and overwrite any existing results.')
-    rerun_group.add_argument('-keepbest', action='store_true', help='rerun grader, only update result if better.')
-    parser.add_argument('-exclude', type=str, nargs='*',
+    rerun_group.add_argument('-o', '--overwrite', action='store_true', help='rerun grader and overwrite any existing results.')
+    rerun_group.add_argument('-k', '--keepbest', action='store_true', help='rerun grader, only update result if better.')
+    parser.add_argument('-sf', '--statsfile', type=str, dest='stats_file',
+                        help='save stats to file as a pickled dataframe')
+    parser.add_argument('-x', '--exclude', type=str, nargs='*',
                         help='exclude files from being copied to codedir. '
                              'Accepts filenames or UNIX-style filename pattern'
                              ' matching. By default README.md, main.ipynb, '
                              'main.py are excluded')
+    parser.add_argument('-ff', '--force-filename', type=str, dest='force_filename',
+                        help='force submission to have this filename')
 
     grader_args = parser.parse_args()
     g = Grader(**vars(grader_args))
