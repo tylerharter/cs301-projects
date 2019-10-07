@@ -5,7 +5,6 @@
 ## Corrections and Clarifications
 
 * Clarification: if the tests say `unexpected EOF while parsing`, you're probably using print instead of sending your output to an `Out[N]` box
-* Mar 2: test.py has been fixed for questions 13-15
 
 # Introduction
 
@@ -66,23 +65,24 @@ Summary:
 TOTAL SCORE: 5.00%
 ```
 
-## Q2: what is the average wine price?
+## Q2: what is the average points (rating) of wine?
 
-Be careful!  There may be missing price information for some rows, so
+Be careful!  There may be missing rating points information for some rows, so
 it's best to skip those.
 
-## Q3: which wine varieties are produced by Spain?
+## Q3: List all wineries which produce wine in South Africa?
 
 Answer in the form of a list containing no duplicates (for this and future questions).
 
-## Q4: which wineries make wines containing the phrase "beef" in the description?
+## Q4: which wine varieties contain the phrase "caramelized" in the description?
 
 This shoud match anything containing beef (in any case), regardless of
 spacing.
 
-## Q5: which wineries make wines containing the phrase "zesty" in the description?
+## Q5: which wine varieties contain the phrase "lemon-lime soda" in the description?
 
-## Q6: which wineries make wines containing the phrase "black-fruit aroma" in the description?
+
+## Q6: which wineries make wines containing the phrase "cherry-berry" in the description?
 
 ## Q7: which wine varieties are anagrams of the phrase "antibus governance"?
 
@@ -104,9 +104,9 @@ Consider writing a function to solve Q7 and Q8 with the same code.
 
 ## Q8: which wine varieties are anagrams of the phrase "Banned Petrol Mill".
 
-## Q9: what is the highest-rated wine variety made in "US"?
+## Q9: which winery produces the highest-priced wine in "US"?
 
-The rating is represented by the `points` column in the dataset.
+The rating is represented by the `price` column in the dataset.
 
 Your answer should be in the form of a Python list.  If there is a
 single best, that list should contain that single best variety.  If
@@ -114,9 +114,9 @@ multiple varieties tie for best, the list should contain all that tie.
 
 Consider writing a function to solve Q9 and Q10 with the same code.
 
-## Q10: what is the highest-rated wine variety made in "Spain"?
+## Q10: what is the highest-rated wine variety made in "France"?
 
-## Q11: what is the average points-per-dollar (PPD) ratio of the "Heitz" winery?
+## Q11: what is the average points-per-dollar (PPD) ratio of the "Ponzi" winery?
 
 In this question, we're trying to find the best value using the
 `points` (the rating) and `price` (cost in dollars) columns.
@@ -126,30 +126,34 @@ winery, then take the average of those ratios.  Simply dividing the
 sum of all points by the sum of all prices will calculates the wrong
 answer.
 
-## Q12: what is the average PPD of the "Ponzi" winery?
+## Q12: what is the average PPD of the "Blue Farm" winery?
 
-## Q13: which winery in New Zealand has the highest average PPD?
+## Q13: which winery in Portugal has the lowest average PPD?
 
 Consider writing a function to answer this and Q14 and Q15 with the
 same code.
 
-## Q14: which winery in Australia has the highest average PPD?
+## Q14: which winery in Australia has the lowest average PPD?
 
-## Q15: which winery in Canada has the highest average PPD?
+## Q15: which winery in Italy has the lowest average PPD?
 
-## Q16: which wine varieties are produced by the "Quinta Nova de Nossa Senhora do Carmo" winery?
+## Q16: which wine varieties are produced by the "Global Wines" winery?
 
 Produce a Python list with no duplicates.
 
-## Q17: which wine varieties are produced by the "Adega Cooperativa de Borba" winery?
+## Q17: which wine varieties are produced by the "Quinta Nova de Nossa Senhora do Carmo" winery?
 
-## Q18: which wine varieties are produced by the "Global Wines" winery?
-
-## Q19: what percentage of the varieties produced by "Quinta Nova de Nossa Senhora do Carmo" are also produced by "Adega Cooperativa de Borba"?
-
+## Q18: what percentage of the varieties produced by "Global Wines" are also produced by "Quinta Nova de Nossa Senhora do Carmo"?
 Quinta Nova wants to better understand their competition, so they
 hired a savvy data scientist (you!) to keep an eye on the competition.
 
-## Q20: what percentage of the varieties produced by "Quinta Nova de Nossa Senhora do Carmo" are also produced by "Global Wines"?
+## Party Planning: Suppose you are throwing a birthday party for your friends and family guests. You decided to buy one costliest wine in the US for family guests and one cheapest wine for your friends. (But you promised your friends to treat with the costliest wine when you get a job offer :P)
+
+
+## Q19: what is the cheapest wine that you could find in US"?
+Ignore the cells, which does not mention the price value.
+
+
+## Q20: What was the budget of your party ? 
 
 Cheers!
