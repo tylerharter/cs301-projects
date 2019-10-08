@@ -1,9 +1,16 @@
-# -*- coding: utf-8 -*-
-import os, sys, subprocess, json, re, collections, math, ast
-from datetime import datetime
+import os
+import re
+import sys
+import json
+import math
+import collections
+import ast
+import nbconvert
+import nbformat
 
 PASS = "PASS"
 TEXT_FORMAT = "text"
+
 Question = collections.namedtuple("Question", ["number", "weight", "format"])
 
 questions = [
@@ -26,7 +33,7 @@ questions = [
     Question(number=17, weight=1, format=TEXT_FORMAT),
     Question(number=18, weight=1, format=TEXT_FORMAT),
     Question(number=19, weight=1, format=TEXT_FORMAT),
-    Question(number=20, weight=1, format=TEXT_FORMAT),    
+    Question(number=20, weight=1, format=TEXT_FORMAT),
 ]
 question_nums = set([q.number for q in questions])
 
@@ -110,12 +117,25 @@ def rerun_notebook(orig_notebook):
     new_notebook = 'cs-301-test.ipynb'
 
     # re-execute it from the beginning
-    cmd = 'jupyter nbconvert --execute "{orig}" --to notebook --output="{new}" --ExecutePreprocessor.timeout=120'
-    cmd = cmd.format(orig=os.path.abspath(orig_notebook), new=os.path.abspath(new_notebook))
-    subprocess.check_output(cmd, shell=True)
+    with open(orig_notebook, encoding='utf-8') as f:
+        nb = nbformat.read(f, as_version=nbformat.NO_CONVERT)
+    ep = nbconvert.preprocessors.ExecutePreprocessor(timeout=120, kernel_name='python3')
+    try:
+        out = ep.preprocess(nb, {'metadata': {'path': os.getcwd()}})
+    except nbconvert.preprocessors.CellExecutionError:
+        out = None
+        msg = 'Error executing the notebook "%s".\n\n' % orig_notebook
+        msg += 'See notebook "%s" for the traceback.' % new_notebook
+        print(msg)
+        raise
+    finally:
+        with open(new_notebook, mode='w', encoding='utf-8') as f:
+            nbformat.write(nb, f)
+
+    # Note: Here we are saving and reloading, this isn't needed but can help student's debug
 
     # parse notebook
-    with open(new_notebook,encoding='utf-8') as f:
+    with open(new_notebook, encoding='utf-8') as f:
         nb = json.load(f)
     return nb
 
@@ -165,6 +185,7 @@ def check_cell(question, cell):
     print('Checking question %d' % question.number)
     if question.format == TEXT_FORMAT:
         return check_cell_text(question.number, cell)
+
     raise Exception("invalid question type")
 
 
@@ -184,14 +205,6 @@ def grade_answers(cells):
     return results
 
 
-def file_age(filename):
-    try:
-        t = os.path.getmtime(filename)
-        return int((datetime.now() - datetime.fromtimestamp(t)).total_seconds())
-    except:
-        return 0
-
-
 def main():
     # rerun everything
     orig_notebook = 'main.ipynb'
@@ -200,23 +213,6 @@ def main():
         return
     elif len(sys.argv) == 2:
         orig_notebook = sys.argv[1]
-
-    # does notebook exist?  Is it fresh?
-    if not os.path.exists(orig_notebook):
-        print("Could not find file: %s" % orig_notebook)
-        return
-
-    age = file_age(orig_notebook)
-    if age > 30:
-        print()
-        print("#"*80)
-        print("# " + ("WARNING!  Your notebook file is %d seconds old." % age).ljust(77) + "#")
-        print("#" + " "*78 + "#")
-        print("# " + ("That's not necessarily bad, but if you were just changing your code, you").ljust(77) + "#")
-        print("# " + ("probably forgot to save your work before running the tests.").ljust(77) + "#")
-        print("#"*80)
-        print()
-
     nb = rerun_notebook(orig_notebook)
 
     # extract cells that have answers
@@ -247,4 +243,3 @@ def main():
 
 if __name__ == '__main__':
     main()
-
