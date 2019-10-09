@@ -24,6 +24,7 @@ def process_csv(filename):
     exampleFile = open(filename, encoding="utf-8")
     exampleReader = csv.reader(exampleFile)
     exampleData = list(exampleReader)
+    exampleFile.close()
     return exampleData
 
 # use process_csv to pull out the header and data rows

@@ -4,9 +4,9 @@
 
 ## Corrections and Clarifications
 
-* Clarification: if the tests say `unexpected EOF while parsing`, you're probably using print instead of sending your output to an `Out[N]` box
+* none yet
 
-# Introduction
+## Introduction
 
 This project is a wine connoisseurs' delight!  Data Science can help us understand people's drinking habits around the world.  For example, take a look at Mona Chalabi's analysis here: [Where Do People Drink The Most Beer, Wine And Spirits?](https://fivethirtyeight.com/features/dear-mona-followup-where-do-people-drink-the-most-beer-wine-and-spirits/)
 
@@ -17,7 +17,7 @@ Python as well as rolling some of your own to solve the problems
 posed. Happy coding, and remember the [Ballmer
 Peak](https://xkcd.com/323/) is nothing but a myth!
 
-# Directions
+## Directions
 
 Be sure to do lab 6 before starting this project; otherwise you
 probably won't get far.
@@ -28,7 +28,7 @@ file to start answering the following questions, and remember to run
 suggest some code in the lab that you can use to access the data.  Use
 the `#qN` format as you have previously.
 
-## Q1: which country names are listed in the `country` column of the dataset?
+### Q1: which country names are listed in the `country` column of the dataset?
 
 Your output should be in the form of a Python list containing the
 country names.  The tests don't care about the order, but there should
@@ -65,26 +65,26 @@ Summary:
 TOTAL SCORE: 5.00%
 ```
 
-## Q2: what is the average points (rating) of wine?
+### Q2: what is the average points (rating) of wine?
 
 Be careful!  There may be missing rating points information for some rows, so
 it's best to skip those.
 
-## Q3: List all wineries which produce wine in South Africa?
+### Q3: List all wineries which produce wine in South Africa?
 
 Answer in the form of a list containing no duplicates (for this and future questions).
 
-## Q4: which wine varieties contain the phrase "caramelized" in the description?
+### Q4: which wine varieties contain the phrase "caramelized" in the description?
 
-This shoud match anything containing beef (in any case), regardless of
+This shoud match anything containing "caramelized (in any case), regardless of
 spacing.
 
-## Q5: which wine varieties contain the phrase "lemon-lime soda" in the description?
+### Q5: which wine varieties contain the phrase "lemon-lime soda" in the description?
 
 
-## Q6: which wineries make wines containing the phrase "cherry-berry" in the description?
+### Q6: which wineries make wines containing the phrase "cherry-berry" in the description?
 
-## Q7: which wine varieties are anagrams of the phrase "antibus governance"?
+### Q7: which wine varieties are anagrams of the phrase "antibus governance"?
 
 If you liked Professor Langdon's adventures in Da Vinci Code, you'll have fun with this one. :)
 
@@ -102,11 +102,9 @@ if there is a short, clever solution.
 
 Consider writing a function to solve Q7 and Q8 with the same code.
 
-## Q8: which wine varieties are anagrams of the phrase "Banned Petrol Mill".
+### Q8: which wine varieties are anagrams of the phrase "Banned Petrol Mill".
 
-## Q9: which winery produces the highest-priced wine in "US"?
-
-The rating is represented by the `price` column in the dataset.
+### Q9: which winery produces the highest-priced wine in "US"?
 
 Your answer should be in the form of a Python list.  If there is a
 single best, that list should contain that single best variety.  If
@@ -114,9 +112,9 @@ multiple varieties tie for best, the list should contain all that tie.
 
 Consider writing a function to solve Q9 and Q10 with the same code.
 
-## Q10: what is the highest-rated wine variety made in "France"?
+### Q10: what is the highest-rated wine variety made in "France"?
 
-## Q11: what is the average points-per-dollar (PPD) ratio of the "Ponzi" winery?
+### Q11: what is the average points-per-dollar (PPD) ratio of the "Ponzi" winery?
 
 In this question, we're trying to find the best value using the
 `points` (the rating) and `price` (cost in dollars) columns.
@@ -126,34 +124,40 @@ winery, then take the average of those ratios.  Simply dividing the
 sum of all points by the sum of all prices will calculates the wrong
 answer.
 
-## Q12: what is the average PPD of the "Blue Farm" winery?
+### Q12: what is the average PPD of the "Blue Farm" winery?
 
-## Q13: which winery in Portugal has the lowest average PPD?
+### Q13: which winery in New Zealand has the lowest average PPD?
 
 Consider writing a function to answer this and Q14 and Q15 with the
 same code.
 
-## Q14: which winery in Australia has the lowest average PPD?
+### Q14: which winery in Australia has the lowest average PPD?
 
-## Q15: which winery in Italy has the lowest average PPD?
+### Q15: which winery in Canada has the lowest average PPD?
 
-## Q16: which wine varieties are produced by the "Global Wines" winery?
+### Q16: which wine varieties are produced by the "Global Wines" winery?
 
 Produce a Python list with no duplicates.
 
-## Q17: which wine varieties are produced by the "Quinta Nova de Nossa Senhora do Carmo" winery?
+### Q17: which wine varieties are produced by the "Quinta Nova de Nossa Senhora do Carmo" winery?
 
-## Q18: what percentage of the varieties produced by "Global Wines" are also produced by "Quinta Nova de Nossa Senhora do Carmo"?
+### Q18: what percentage of the varieties produced by "Global Wines" are also produced by "Quinta Nova de Nossa Senhora do Carmo"?
 Quinta Nova wants to better understand their competition, so they
 hired a savvy data scientist (you!) to keep an eye on the competition.
 
-## Party Planning: Suppose you are throwing a birthday party for your friends and family guests. You decided to buy one costliest wine in the US for family guests and one cheapest wine for your friends. (But you promised your friends to treat with the costliest wine when you get a job offer :P)
+----
 
+Suppose you are throwing a birthday party for your friends and family
+guests. You decided to buy one bottle of the costliest wine in the US
+for family guests and one of the cheapest wine for your friends (but
+you promise your friends to treat with the costliest wine when you
+get a job offer).
 
-## Q19: what is the cheapest wine that you could find in US"?
+----
+
+### Q19: what is the cost of cheapest wine that you could find in US?
 Ignore the cells, which does not mention the price value.
 
-
-## Q20: What was the budget of your party ? 
+### Q20: What is the total cost of buying the two bottles?
 
 Cheers!

@@ -1,10 +1,11 @@
+import ast
 import os
 import re
 import sys
 import json
 import math
 import collections
-import ast
+
 import nbconvert
 import nbformat
 
@@ -80,27 +81,26 @@ expected_json = {
     "4": [
         'White Blend', 
         'Chardonnay', 
-        'Rhône-style White Blend'
+        'Rhône-style White Blend',
+        'Syrah'
     ],
     "5": ['Pinot Grigio', 'Chardonnay', 'Sparkling Blend'],
-    "6": ['Lavau', "Ca'Romè", '460 Casina Bric', 'Azari', 'Prieuré de Montézargues'],
+    "6": ['Rosé', 'Cabernet Sauvignon', 'Nebbiolo'],
     "7": ['Cabernet Sauvignon'],
     "8": ['Tempranillo Blend'],
     "9": ['Hall'],
     "10": ['Provence red blend', 'Tannat', 'Malbec'],
     "11": 1.288074888074888,
     "12": 1.3628968253968254,
-    "13": 'Magnum Vinhos',
+    "13": 'Kumeu River',
     "14": "D'Arenberg",
-    "15": 'Gaja',
+    "15": 'Burrowing Owl',
     "16": ['Portuguese Red', 'Portuguese Sparkling', 'Touriga Nacional'],
     "17": ['Portuguese Rosé', 'Portuguese Red', 'Portuguese White'],
     "18": 33.33333333333333,
     "19": 10.0,
     "20": 335.0,
 }
-
-
 
 # find a comment something like this: #q10
 def extract_question_num(cell):
@@ -117,7 +117,7 @@ def rerun_notebook(orig_notebook):
     new_notebook = 'cs-301-test.ipynb'
 
     # re-execute it from the beginning
-    with open(orig_notebook, encoding='utf-8') as f:
+    with open(orig_notebook) as f:
         nb = nbformat.read(f, as_version=nbformat.NO_CONVERT)
     ep = nbconvert.preprocessors.ExecutePreprocessor(timeout=120, kernel_name='python3')
     try:
@@ -135,7 +135,7 @@ def rerun_notebook(orig_notebook):
     # Note: Here we are saving and reloading, this isn't needed but can help student's debug
 
     # parse notebook
-    with open(new_notebook, encoding='utf-8') as f:
+    with open(new_notebook) as f:
         nb = json.load(f)
     return nb
 
@@ -151,7 +151,13 @@ def check_cell_text(qnum, cell):
     outputs = cell.get('outputs', [])
     if len(outputs) == 0:
         return 'no outputs in an Out[N] cell'
-    actual_lines = outputs[0].get('data', {}).get('text/plain', [])
+    for out in outputs:
+        lines = out.get('data', {}).get('text/plain', [])
+        if lines:
+            actual_lines = lines
+            break
+    if actual_lines == None:
+        return 'no Out[N] output found for cell (note: printing the output does not work)'
     actual = ''.join(actual_lines)
     actual = ast.literal_eval(actual)
     expected = expected_json[str(qnum)]
@@ -180,6 +186,7 @@ def check_cell_text(qnum, cell):
         return "found {} in cell {} but expected {}".format(actual, qnum, expected)
 
     return PASS
+
 
 def check_cell(question, cell):
     print('Checking question %d' % question.number)
