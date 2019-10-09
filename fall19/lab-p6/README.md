@@ -1,11 +1,11 @@
 # UNDER REVISION (don't start yet!)
 
-# Lab 6
+# Lab P6
 
 In this lab, we'll practice accessing CSVs, sorting, and using sets.
 
 To start, familiarize yourself with the dataset for P6 on GitHub here:
-[wine.csv](https://github.com/tylerharter/cs301-projects/blob/master/spring19/p6/wine.csv).
+[wine.csv](https://github.com/tylerharter/cs301-projects/blob/master/fall19/p6/wine.csv).
 Download the `wine.csv` to a new `lab6` directory, and start a new
 notebook in that directory for this lab.
 
@@ -164,10 +164,11 @@ print("returned value:", result)
 
 ## Sets
 
-In class, we learned about the Python `list`.  Another simpler
-structure you'll sometimes find useful is the `set`.  You can create
-sets the same way as lists, just replacing the square brackets with
-curly braces.  Try it!
+In class, we learned about the Python `list` sequence.  Another
+simpler structure you'll sometimes find useful is the `set`.  A set is
+NOT a sequence because it does not keep all the values in any
+particular order.  You can create sets the same way as lists, just
+replacing the square brackets with curly braces.  Try it!
 
 ```python
 example_list = ["A", "B", "C"]
