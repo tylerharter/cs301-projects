@@ -93,7 +93,7 @@ expected_json = {
     "11": 1.288074888074888,
     "12": 1.3628968253968254,
     "13": 'Kumeu River',
-    "14": "D'Arenberg",
+    "14": ["D'Arenberg", 'Dalrymple'],
     "15": 'Burrowing Owl',
     "16": ['Portuguese Red', 'Portuguese Sparkling', 'Touriga Nacional'],
     "17": ['Portuguese Rosé', 'Portuguese Red', 'Portuguese White'],

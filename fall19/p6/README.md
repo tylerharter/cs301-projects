@@ -1,5 +1,3 @@
-# UNDER REVISION (don't start yet!)
-
 # Project 6: Wine Study
 
 ## Corrections and Clarifications
@@ -82,7 +80,7 @@ spacing.
 ### Q5: which wine varieties contain the phrase "lemon-lime soda" in the description?
 
 
-### Q6: which wineries make wines containing the phrase "cherry-berry" in the description?
+### Q6: which wine varieties contain the phrase "cherry-berry" in the description?
 
 ### Q7: which wine varieties are anagrams of the phrase "antibus governance"?
 
@@ -132,6 +130,9 @@ Consider writing a function to answer this and Q14 and Q15 with the
 same code.
 
 ### Q14: which winery in Australia has the lowest average PPD?
+
+Careful, two wineries tie in this one!  Answer with a list containing
+the names of the two wineries.
 
 ### Q15: which winery in Canada has the lowest average PPD?
 

@@ -1,5 +1,3 @@
-# UNDER REVISION (don't start yet!)
-
 # Lab P6
 
 In this lab, we'll practice accessing CSVs, sorting, and using sets.
