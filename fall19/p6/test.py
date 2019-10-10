@@ -135,7 +135,7 @@ def rerun_notebook(orig_notebook):
     # Note: Here we are saving and reloading, this isn't needed but can help student's debug
 
     # parse notebook
-    with open(new_notebook) as f:
+    with open(new_notebook, encoding='utf-8') as f:
         nb = json.load(f)
     return nb
 
