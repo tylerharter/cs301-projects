@@ -10,12 +10,12 @@ import string
 import fnmatch
 import logging
 import argparse
-import _pickle as pickle
 from datetime import datetime
 
 # Third party libs
 import boto3
 import docker
+from requests.exceptions import ConnectionError, ReadTimeout
 import pandas as pd
 
 
@@ -137,14 +137,23 @@ class Grader(Database):
         t0 = time.time()
         if submission_fname:
             cmd += ' ' + submission_fname
+
         container = client.containers.run(image, cmd, detach=True,
-                                          volumes=shared_dir, working_dir=cwd)
+                                          volumes=shared_dir,
+                                          working_dir=cwd)
         logging.info(f'CONTAINER {container.id}')
-        container.wait(timeout=timeout)
+
+        try:
+            container.wait(timeout=timeout)
+            logs = self.parse_logs(container.logs())
+        except (ConnectionError, ReadTimeout):
+            container.stop()
+            logs = 'Timeout Exceeded. Infinite loop maybe?'
+            logging.info(f'TIMEOUT EXCEEDED')
+
         t1 = time.time()
 
-        # Get logs and remove container
-        logs = self.parse_logs(container.logs())
+        # Remove container
         container.remove(v=True)
 
         # Get results
@@ -226,8 +235,7 @@ class Grader(Database):
         self.clear_caches()
         if self.stats_file:
             self.stats = self.stats.sample(frac=1).reset_index(drop=True)
-            with open(self.stats_file, 'wb') as f:
-                pickle.dump(self.stats, f)
+            self.stats.to_pickle(self.stats_file)
 
 
 if __name__ == '__main__':

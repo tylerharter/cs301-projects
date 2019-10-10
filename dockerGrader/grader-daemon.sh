@@ -10,14 +10,17 @@ BASE=$(git merge-base @ "$UPSTREAM")
 run_grader() {
     echo "Running Auto-grader\n"
 
-    echo "Auto-grader for P3:"
-    python3 dockerUtil.py p3 ? -ff main.ipynb -x *.png -d ~/s3 -c
+    echo "\n\nAuto-grader for P6:"
+    python3 dockerUtil.py p6 ? -ff main.ipynb -d ~/s3 -c
 
-    echo "Auto-grader for P4:"
+    echo "\n\nAuto-grader for P5:"
+    python3 dockerUtil.py p5 ? -ff main.ipynb -x *.png -d ~/s3 -c
+
+    echo "\n\nAuto-grader for P4:"
     python3 dockerUtil.py p4 ? -ff p4.py -x *.png -d ~/s3 -c
 
-    echo "Auto-grader for P5:"
-    python3 dockerUtil.py p5 ? -ff main.ipynb -x *.png -d ~/s3 -c
+    echo "\n\nAuto-grader for P3:"
+    python3 dockerUtil.py p3 ? -ff main.ipynb -x *.png -d ~/s3 -c
 }
 
 ntpdate -s time.nist.gov
