@@ -127,7 +127,10 @@ answer.
 ### Q13: which winery in New Zealand has the lowest average PPD?
 
 Consider writing a function to answer this and Q14 and Q15 with the
-same code.
+same code. Make sure to return a string if there is only one winery having 
+the lowest PPD, otherwise return a list of wineries. 
+Hint: Suppose 'winery_list' is the list of all wineries having the lowest average PPD.
+Now, check if the len(winery_list) is 1, then return winery_list[0], otherwise return winery_list.
 
 ### Q14: which winery in Australia has the lowest average PPD?
 
