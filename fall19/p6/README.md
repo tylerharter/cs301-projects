@@ -2,7 +2,7 @@
 
 ## Corrections and Clarifications
 
-* none yet
+* Oct 14: give better error when question cell has no output
 
 ## Introduction
 
