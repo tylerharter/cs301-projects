@@ -1,21 +1,18 @@
-# UNDER REVISION (don't start yet!)
-
 # Project 7: Fédération Internationale de Football Association
 
 ## Corrections
 
-* Mar 7: for q2, there is a tie for highest wage.  Break the tie in favor of the first player, and only output that player's name.
-* Mar 11: for q20, the tests have been modified to accept either of two correct answers: Chilian Primera División OR Campeonato Brasileiro Série A
+NOT YET
 
 ## Intro
 
-Let's Play Fifa18, Python style!  In this project, you will get more
+Let's Play Fifa19, Python style!  In this project, you will get more
 practice with lists and start using dictionaries.  Start by
-downloading `test.py` and `Fifa18.csv`.  This dataset is too large to
+downloading `test.py` and `Fifa19.csv`.  This dataset is too large to
 preview on GitHub (>17K rows), but you can view the
-[raw version](https://raw.githubusercontent.com/tylerharter/cs301-projects/master/spring19/p7/Fifa18.csv)
-or using a program such as [Excel](https://github.com/tylerharter/cs301-projects/blob/master/spring19/p7/excel.md).
-You can also preview the first 100 rows [here](https://github.com/tylerharter/cs301-projects/blob/master/spring19/p7/preview.csv).
+[raw version](https://github.com/tylerharter/cs301-projects/raw/master/fall19/p7/Fifa19.csv)
+or using a program such as [Excel](https://github.com/tylerharter/cs301-projects/blob/master/fall19/p7/excel.md).
+You can also preview an example with 100 rows [here](https://github.com/tylerharter/cs301-projects/blob/master/spring19/p7/preview.csv).
 For this project, you'll create a new `main.ipynb` and answer
 questions in the usual format.
 
@@ -23,24 +20,24 @@ questions in the usual format.
 
 Try to familarize yourself with the data before starting the
 analysis. We have players belonging to a wide range of nationalities
-and clubs in Fifa18. As you can see the numeric data includes their
+and clubs in Fifa19. As you can see the data includes their
 weekly wages (in Euros) (Yes, wages are per week!), net worth of the
 player (in Euros) and the performace rating (score out of 100). For
 instance, the player named "Neymar" is associated with Brazil, is
-signed up by club "Paris Saint-Germain", and is paid a weekly wage of
-280000 Euros.
+signed up by club "Paris Saint-Germain", and is paid a weekly wage of '€290K'
+(290000 Euros).
 
 To ingest the data to your notebook, paste the following in an early cell:
 
 ```python
 import csv
-fifa_file = open('Fifa18.csv', encoding='utf-8')
+fifa_file = open('Fifa19.csv', encoding='utf-8-sig')
 file_reader = csv.reader(fifa_file)
 player_data = list(file_reader)
 header = player_data[0]
 player_data = player_data[1:]
 for row in player_data:
-    for idx in [2,6,7,8]:
+    for idx in [2,4]:
         row[idx] = float(row[idx])
 ```
 
@@ -63,9 +60,9 @@ convenient to access this data.
 If two players are paid the same, break the tie in favor of whoever
 appears first in the dataset.
 
-#### Question 3: what is the name of the highest net-worth player?
+#### Question 3: what is the name of the highest value player?
 
-#### Question 4: what club is that player in?
+#### Question 4: what club is that player(in above q3) in?
 
 ---
 
@@ -108,7 +105,7 @@ By alphabetically, we mean according to Python (e.g., it is true that
 Don't deduplicate names in this output in the case that multiple
 players have the same name.
 
-#### Question 7: what is the average net worth?
+#### Question 7: what is the average value?
 
 #### Question 8: what is the average age?
 
@@ -124,16 +121,15 @@ function will be useful for the questions that follow.
 
 #### Question 10: how many players have Brazil as their nationality?
 
-#### Question 11: which country has the most players participating in FIFA18?
+#### Question 11: which country has the most players participating in FIFA19?
 
 The `player_count` function can be useful here.
 
-Hint 1: You will first need the list of countries participating in
-FIFA18.
-
-Hint 2: Make sure you aren't calling `player_count` more times than
+Hint 1: Make sure you aren't calling `player_count` more times than
 necessary.  If you're not careful, the code will be very slow to
 execute!
+
+Hint 2: Mutiple ways to implement your code. Try to find the best way!
 
 ----
 
@@ -151,14 +147,17 @@ like this:
 
 ```python
 {'Id': '20801',
- 'name': 'Cristiano Ronaldo',
- 'Age': 32.0,
- 'nationality': 'Portugal',
- 'club': 'Real Madrid CF',
- 'league': 'Spanish Primera División',
- 'euro_wage': 565000.0,
- 'networth': 95500000.0,
- 'score_of_100': 94.0}
+ 'Name': 'Cristiano Ronaldo',
+ 'Age': 33.0,
+ 'Nationality': 'Portugal',
+ 'Overall': 94.0,
+ 'Club': 'Juventus',
+ 'Value': '€77M',
+ 'Wage': '€405K',
+ 'Preferred Foot': 'Right',
+ 'Jersey Number': '7',
+ 'Height': "6'2",
+ 'Weight': '183lbs'}
 ```
 
 #### Question 13: what are the stats for the player with `Id` equal to 190871?
@@ -173,20 +172,21 @@ Answer in the form of a dictionary where the key is the nationality
 and the value is the number of players for that nationality.
 
 ```python
-{'Portugal': 355,
- 'Argentina': 948,
- 'Brazil': 800,
- 'Uruguay': 150,
- 'Germany': 1132,
- 'Poland': 332,
+{'Argentina': 937,
+ 'Portugal': 322,
+ 'Brazil': 827,
+ 'Spain': 1072,
+ 'Belgium': 260,
  ...
 }
 ```
 
-#### Question 17: how many players are there per league?
+#### Question 17: how many players for each Jersey Number(do not need to deal with the empty number case)?
 
-#### Question 18: what is the average player wage per league?
+For the following questions, hints in lab-p7 will be very useful.
 
-#### Question 19: what is the average player age per league?
+#### Question 18: what is the average player score(namely 'overall') per Jersey Number?
 
-#### Question 20: which league has the highest average age?
+#### Question 19: which number has highest average overall?
+
+#### Question 20: which club has highest average wage?

@@ -1,5 +1,3 @@
-# UNDER REVISION (don't start yet!)
-
 # Lab 7: Dictionaries
 
 In this lab, we'll practice using dictionaries in preperation for P7
@@ -168,5 +166,5 @@ print("Year", best_key, "had", incidents[????], "incidents (the max)")
 
 1. for project questions like q12, you'll need to pair up two lists to make a dictionary (review "Dictionary from Two Lists" from the lab)
 2. q16 and q17 require some counting (review the first lab exercises)
-3. q18 and q19 require an average (review "Dictionary Division" above).
-4. q20 is finding the key that yields the max value in a dictionary (in comparison, we've solved many problems prior involving finding the argument that yields the max return value from a function)
+3. q18  requires an average (review "Dictionary Division" above).
+4. q19 and q20 are finding the key that yields the max value in a dictionary (in comparison, we've solved many problems prior involving finding the argument that yields the max return value from a function)
