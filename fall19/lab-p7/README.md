@@ -1,4 +1,4 @@
-# Lab 7: Dictionaries
+# Lab 7: Dictionaries (not released yet, don't start!)
 
 In this lab, we'll practice using dictionaries in preperation for P7
 (and exam 2!).  Start a new scratch notebook to do the exercises.
