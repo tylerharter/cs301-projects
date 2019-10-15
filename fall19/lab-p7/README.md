@@ -121,7 +121,7 @@ Complete the code so it prints the incidents per year, with earliest
 year first, like this:
 
 ```python
-incidents = {2016: 14, 2019 18, 2017: 13, 2018: 16, 2014: 8, 2015: 10}
+incidents = {2016: 14, 2019: 18, 2017: 13, 2018: 16, 2014: 8, 2015: 10}
 keys = sorted(list(????.keys()))
 for k in ????:
     print(k, incidents[????])
@@ -154,7 +154,7 @@ Modify the above code so it prints a histogram with letters, like this:
 Complete the following to find the year with the most incidents:
 
 ```python
-incidents = {2016: 14, 2019 18, 2017: 13, 2018: 16, 2014: 8, 2015: 10}
+incidents = {2016: 14, 2019: 18, 2017: 13, 2018: 16, 2014: 8, 2015: 10}
 best_key = None
 for key in incidents:
     if best_key == None or incidents[????] > incidents[????]:

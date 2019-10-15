@@ -200,6 +200,6 @@ For the following questions, your lab work will be especially useful.
 
 Answer with a dict, mapping Jersey Number to average score.
 
-#### Question 19: which number has highest average overall?
+#### Question 19: which Jersey Number has highest average overall?
 
 #### Question 20: which club has highest average wage?
