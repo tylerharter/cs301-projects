@@ -1,8 +1,17 @@
-# -*- coding: utf-8 -*-
-import os, sys, subprocess, json, re, collections, math, ast
+import ast
+import os
+import re
+import sys
+import json
+import math
+import collections
+
+import nbconvert
+import nbformat
 
 PASS = "PASS"
 TEXT_FORMAT = "text"
+
 Question = collections.namedtuple("Question", ["number", "weight", "format"])
 
 questions = [
@@ -25,10 +34,9 @@ questions = [
     Question(number=17, weight=1, format=TEXT_FORMAT),
     Question(number=18, weight=1, format=TEXT_FORMAT),
     Question(number=19, weight=1, format=TEXT_FORMAT),
-    Question(number=20, weight=1, format=TEXT_FORMAT),    
+    Question(number=20, weight=1, format=TEXT_FORMAT),
 ]
 question_nums = set([q.number for q in questions])
-
 
 # JSON and plaintext values
 expected_json = {
@@ -455,10 +463,9 @@ expected_json = {
             '51': 58.0,
             '59': 57.2,
             '85': 57.0},
-    "19": 'Real Madrid',
-    "20": '79',
+    "19": '79',
+    "20": 'Real Madrid',
 }
-
 
 # find a comment something like this: #q10
 def extract_question_num(cell):
@@ -475,12 +482,25 @@ def rerun_notebook(orig_notebook):
     new_notebook = 'cs-301-test.ipynb'
 
     # re-execute it from the beginning
-    cmd = 'jupyter nbconvert --execute "{orig}" --to notebook --output="{new}" --ExecutePreprocessor.timeout=120'
-    cmd = cmd.format(orig=os.path.abspath(orig_notebook), new=os.path.abspath(new_notebook))
-    subprocess.check_output(cmd, shell=True)
+    with open(orig_notebook) as f:
+        nb = nbformat.read(f, as_version=nbformat.NO_CONVERT)
+    ep = nbconvert.preprocessors.ExecutePreprocessor(timeout=120, kernel_name='python3')
+    try:
+        out = ep.preprocess(nb, {'metadata': {'path': os.getcwd()}})
+    except nbconvert.preprocessors.CellExecutionError:
+        out = None
+        msg = 'Error executing the notebook "%s".\n\n' % orig_notebook
+        msg += 'See notebook "%s" for the traceback.' % new_notebook
+        print(msg)
+        raise
+    finally:
+        with open(new_notebook, mode='w', encoding='utf-8') as f:
+            nbformat.write(nb, f)
+
+    # Note: Here we are saving and reloading, this isn't needed but can help student's debug
 
     # parse notebook
-    with open(new_notebook,encoding='utf-8') as f:
+    with open(new_notebook, encoding='utf-8') as f:
         nb = json.load(f)
     return nb
 
@@ -496,19 +516,19 @@ def check_cell_text(qnum, cell):
     outputs = cell.get('outputs', [])
     if len(outputs) == 0:
         return 'no outputs in an Out[N] cell'
-    actual_lines = outputs[0].get('data', {}).get('text/plain', [])
+    actual_lines = None
+    for out in outputs:
+        lines = out.get('data', {}).get('text/plain', [])
+        if lines:
+            actual_lines = lines
+            break
+    if actual_lines == None:
+        return 'no Out[N] output found for cell (note: printing the output does not work)'
     actual = ''.join(actual_lines)
     actual = ast.literal_eval(actual)
     expected = expected_json[str(qnum)]
 
     expected_mismatch = False
-
-    # TODO: remove per-question hacks
-    if qnum == 20:
-        if actual in expected:
-            return PASS
-        return "expected " + (" OR ".join(expected))
-
 
     if type(expected) != type(actual):
         return "expected an answer of type %s but found one of type %s" % (type(expected), type(actual))
@@ -533,10 +553,12 @@ def check_cell_text(qnum, cell):
 
     return PASS
 
+
 def check_cell(question, cell):
     print('Checking question %d' % question.number)
     if question.format == TEXT_FORMAT:
         return check_cell_text(question.number, cell)
+
     raise Exception("invalid question type")
 
 

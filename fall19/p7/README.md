@@ -2,17 +2,17 @@
 
 ## Corrections
 
-NOT YET
+* none yet
 
 ## Intro
 
 Let's Play Fifa19, Python style!  In this project, you will get more
 practice with lists and start using dictionaries.  Start by
-downloading `test.py` and `Fifa19.csv`.  This dataset is too large to
+downloading `test.py` and `Fifa19.csv` (which was adapted from [this dataset](https://www.kaggle.com/karangadiya/fifa19)).  This dataset is too large to
 preview on GitHub (>17K rows), but you can view the
 [raw version](https://github.com/tylerharter/cs301-projects/raw/master/fall19/p7/Fifa19.csv)
 or using a program such as [Excel](https://github.com/tylerharter/cs301-projects/blob/master/fall19/p7/excel.md).
-You can also preview an example with 100 rows [here](https://github.com/tylerharter/cs301-projects/blob/master/spring19/p7/preview.csv).
+You can also preview an example with 100 rows [here](https://github.com/tylerharter/cs301-projects/blob/master/fall19/p7/preview.csv).
 For this project, you'll create a new `main.ipynb` and answer
 questions in the usual format.
 
@@ -21,7 +21,7 @@ questions in the usual format.
 Try to familarize yourself with the data before starting the
 analysis. We have players belonging to a wide range of nationalities
 and clubs in Fifa19. As you can see the data includes their
-weekly wages (in Euros) (Yes, wages are per week!), net worth of the
+weekly wages, in Euros (yes, wages are per week!), net worth of the
 player (in Euros) and the performace rating (score out of 100). For
 instance, the player named "Neymar" is associated with Brazil, is
 signed up by club "Paris Saint-Germain", and is paid a weekly wage of '€290K'
@@ -31,9 +31,11 @@ To ingest the data to your notebook, paste the following in an early cell:
 
 ```python
 import csv
-fifa_file = open('Fifa19.csv', encoding='utf-8-sig')
+
+fifa_file = open('Fifa19.csv', encoding='utf-8')
 file_reader = csv.reader(fifa_file)
 player_data = list(file_reader)
+fifa_file.close()
 header = player_data[0]
 player_data = player_data[1:]
 for row in player_data:
@@ -69,26 +71,29 @@ appears first in the dataset.
 Complete the following function in your notebook:
 
 ```python
-def get_column(col_idx):
+def get_column(col_name):
     pass # replace this
 ```
 
 The function extracts an entire column from `player_data` to a list, which
 it returns.  For example, imagine `player_data` contained this:
 
-```
+```python
 [
     ["a", "b", "c"],
-
     ["d", "e", "f"],
-
     ["g", "h", "i"]
-
 ]
 ```
 
-Then column 0 is `["a", "d", "g"]`, column 1 is `["b", "e", "h"]`, and
-column 2 is `["c", "f", "i"]`.  A call to `get_column(1)` should
+And `header` contains this:
+
+```python
+["X", "Y", "Z"],
+```
+
+Then column "X" is `["a", "d", "g"]`, column "Y" is `["b", "e", "h"]`, and
+column "Z" is `["c", "f", "i"]`.  A call to `get_column("Y")` should
 therefore return `["b", "e", "h"]`, and so on.
 
 ----
@@ -181,11 +186,19 @@ and the value is the number of players for that nationality.
 }
 ```
 
-#### Question 17: how many players for each Jersey Number(do not need to deal with the empty number case)?
+#### Question 17: how many players for each Jersey Number?
 
-For the following questions, hints in lab-p7 will be very useful.
+Jersey Number should be a string (don't convert it).  In 60 cases, the
+Jersey Number is the empty string.  Your dictionary should include
+this.
 
-#### Question 18: what is the average player score(namely 'overall') per Jersey Number?
+----
+
+For the following questions, your lab work will be especially useful.
+
+#### Question 18: what is the average player score (represented by the `overall` column) per Jersey Number?
+
+Answer with a dict, mapping Jersey Number to average score.
 
 #### Question 19: which number has highest average overall?
 
