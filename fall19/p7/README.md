@@ -1,4 +1,4 @@
-# Project 7: Fédération Internationale de Football Association (not released yet, don't start!)
+# Project 7: Fédération Internationale de Football Association
 
 ## Corrections
 
