@@ -57,7 +57,7 @@ otherwise specified.
 In addition to displaying the result in the `Out [N]` area, keep the
 result in a variable for use in subsequent questions.
 
-#### Question 2: what is the value associated with the key "tt0313542"?
+#### Question 2: what is the value associated with the key "nm0752751"?
 
 Use the dictionary returned earlier. Do not call `get_mapping` a
 second time (that would be inneficient).

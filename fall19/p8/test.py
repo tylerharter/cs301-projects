@@ -69,7 +69,7 @@ expected_json = {
                   'nm0752751': 'Mitchell Ryan',
                   'tt0313542': 'Runaway Jury',
                   'tt0093409': 'Lethal Weapon'},
-    "2": 'Runaway Jury',
+    "2": 'Mitchell Ryan',
     "3": ['Runaway Jury', 'Lethal Weapon'],
     "4": ['nm0000997', 'nm0001219'],
     "5":[{'title': 'tt0313542',
