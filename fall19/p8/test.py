@@ -1,16 +1,22 @@
-# -*- coding: utf-8 -*-
-import os, sys, subprocess, json, re, collections, math, ast
+import ast
+import os
+import re
+import sys
+import json
+import math
+import collections
+
+import nbconvert
+import nbformat
 
 PASS = "PASS"
 TEXT_FORMAT = "text"
 PNG_FORMAT = "png"
+
 Question = collections.namedtuple("Question", ["number", "weight", "format"])
 
-
-
-
 questions = [
-    # stage 1
+    #stage 1
     Question(number=1, weight=1, format=TEXT_FORMAT),
     Question(number=2, weight=1, format=TEXT_FORMAT),
     Question(number=3, weight=1, format=TEXT_FORMAT),
@@ -31,7 +37,7 @@ questions = [
     Question(number=18, weight=1, format=TEXT_FORMAT),
     Question(number=19, weight=1, format=TEXT_FORMAT),
     Question(number=20, weight=1, format=TEXT_FORMAT),
-    # stage 2
+    #stage 2
     Question(number=21, weight=1, format=TEXT_FORMAT),
     Question(number=22, weight=1, format=TEXT_FORMAT),
     Question(number=23, weight=1, format=TEXT_FORMAT),
@@ -53,8 +59,8 @@ questions = [
     Question(number=39, weight=1, format=TEXT_FORMAT),
     Question(number=40, weight=1, format=TEXT_FORMAT),
 ]
-question_nums = set([q.number for q in questions])
 
+question_nums = set([q.number for q in questions])
 
 # JSON and plaintext values
 expected_json = {
@@ -323,7 +329,7 @@ expected_json = {
             {'category': 'Ioan Gruffudd', 'rating': 8.2, 'count': 6},
             {'category': 'Robert Lindsay', 'rating': 8.2, 'count': 6}],
 }
-           
+
 # find a comment something like this: #q10
 def extract_question_num(cell):
     for line in cell.get('source', []):
@@ -339,12 +345,25 @@ def rerun_notebook(orig_notebook):
     new_notebook = 'cs-301-test.ipynb'
 
     # re-execute it from the beginning
-    cmd = 'jupyter nbconvert --execute "{orig}" --to notebook --output="{new}" --ExecutePreprocessor.timeout=120'
-    cmd = cmd.format(orig=os.path.abspath(orig_notebook), new=os.path.abspath(new_notebook))
-    subprocess.check_output(cmd, shell=True)
+    with open(orig_notebook, encoding='utf-8') as f:
+        nb = nbformat.read(f, as_version=nbformat.NO_CONVERT)
+    ep = nbconvert.preprocessors.ExecutePreprocessor(timeout=120, kernel_name='python3')
+    try:
+        out = ep.preprocess(nb, {'metadata': {'path': os.getcwd()}})
+    except nbconvert.preprocessors.CellExecutionError:
+        out = None
+        msg = 'Error executing the notebook "%s".\n\n' % orig_notebook
+        msg += 'See notebook "%s" for the traceback.' % new_notebook
+        print(msg)
+        raise
+    finally:
+        with open(new_notebook, mode='w', encoding='utf-8') as f:
+            nbformat.write(nb, f)
+
+    # Note: Here we are saving and reloading, this isn't needed but can help student's debug
 
     # parse notebook
-    with open(new_notebook,encoding='utf-8') as f:
+    with open(new_notebook, encoding='utf-8') as f:
         nb = json.load(f)
     return nb
 
@@ -355,12 +374,18 @@ def normalize_json(orig):
     except:
         return 'not JSON'
 
-
 def check_cell_text(qnum, cell):
     outputs = cell.get('outputs', [])
     if len(outputs) == 0:
         return 'no outputs in an Out[N] cell'
-    actual_lines = outputs[0].get('data', {}).get('text/plain', [])
+    actual_lines = None
+    for out in outputs:
+        lines = out.get('data', {}).get('text/plain', [])
+        if lines:
+            actual_lines = lines
+            break
+    if actual_lines == None:
+        return 'no Out[N] output found for cell (note: printing the output does not work)'
     actual = ''.join(actual_lines)
     actual = ast.literal_eval(actual)
     expected = expected_json[str(qnum)]
@@ -388,14 +413,14 @@ def check_cell_text(qnum, cell):
                 return "bad sort: found a rating of {} before a rating of {}".format(a, b)
         expected = sorted(expected, key=lambda row: (-row["rating"], row["category"]))
         actual = sorted(actual, key=lambda row: (-row["rating"], row["category"]))
-        
+    
     if type(expected) != type(actual):
         return "expected an answer of type %s but found one of type %s" % (type(expected), type(actual))
     elif type(expected) == float:
         if not math.isclose(actual, expected, rel_tol=1e-06, abs_tol=1e-06):
             expected_mismatch = True
     elif type(expected) == list:
-        try:
+        try: 
             extra = set(actual) - set(expected)
             missing = set(expected) - set(actual)
             if extra:
@@ -416,7 +441,6 @@ def check_cell_text(qnum, cell):
         return "found {} in cell {} but expected {}".format(actual, qnum, expected)
 
     return PASS
-
 
 def check_cell_png(qnum, cell):
     if qnum == 21:
@@ -487,7 +511,7 @@ def main():
         print("  Test %d: %s" % (test["test"], test["result"]))
 
     print('\nTOTAL SCORE: %.2f%%' % results['score'])
-    with open('result.json', 'w') as f:
+    with open('result.json', 'w', encoding='utf-8') as f:
         f.write(json.dumps(results, indent=2))
 
 
