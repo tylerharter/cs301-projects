@@ -151,6 +151,7 @@ def check_cell_text(qnum, cell):
     outputs = cell.get('outputs', [])
     if len(outputs) == 0:
         return 'no outputs in an Out[N] cell'
+    actual_lines = None
     for out in outputs:
         lines = out.get('data', {}).get('text/plain', [])
         if lines:

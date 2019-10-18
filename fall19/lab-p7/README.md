@@ -1,5 +1,3 @@
-# UNDER REVISION (don't start yet!)
-
 # Lab 7: Dictionaries
 
 In this lab, we'll practice using dictionaries in preperation for P7
@@ -11,10 +9,10 @@ In this lab, we'll practice using dictionaries in preperation for P7
 
 Fill in the blanks so that `counts` becomes a dictionary where each
 key is a character and the corresponding value is how many times it
-appeared in `text`.
+appeared in `PI`.
 
 ```python
-text = "do, re, do, re, mi, do, re, mi, fa, sol, la, ti"
+PI = "three, dot, one, four, one, five, nine, two, six, five, three, five, nine"
 counts = {}
 for char in ????:
     if not char in counts:
@@ -27,15 +25,15 @@ counts
 If done correctly, you should see something like this:
 
 ```python
-{'d': 3, 'o': 4, ',': 11, ' ': 11, 'r': 3, 'e': 3, 'm': 2, 'i': 3, 'f': 1, 'a': 2, 's': 1, 'l': 2, 't': 1}
+{'t': 4, 'h': 2, 'r': 3, 'e': 11, ',': 12, ' ': 12, 'd': 1, 'o': 5, 'n': 6, 'f': 4, 'u': 1, 'i': 6, 'v': 3, 'w': 1, 's': 1, 'x': 1}
 ```
 
 ### Counting Words
 
 ```python
-text = "do, re, do, re, mi, do, re, mi, fa, sol, la, ti"
+PI = "three, dot, one, four, one, five, nine, two, six, five, three, five, nine"
 counts = {}
-for word in text.????(????):
+for word in PI.????(????):
     if ????:
         ????
     else:
@@ -46,7 +44,7 @@ counts
 If done correctly, you should see something like this:
 
 ```python
-{'do': 3, 're': 3, 'mi': 2, 'fa': 1, 'sol': 1, 'la': 1, 'ti': 1}
+{'three': 2, 'dot': 1, 'one': 2, 'four': 1, 'five': 3, 'nine': 2, 'two': 1, 'six': 1}
 ```
 
 ### Dictionary from Two Lists
@@ -54,8 +52,8 @@ If done correctly, you should see something like this:
 Fill in the blanks:
 
 ```python
-keys = ["dog", "cat", "bird"]
-vals = ["perro", "gato", "pájaro"]
+keys = ["three", "zero", "one"]
+vals = ["tres", "cero", "uno"]
 en2sp = ???? # empty dictionary
 for i in range(len(????)):
     en2sp[keys[????]] = ????
@@ -66,13 +64,13 @@ The resulting dictionary should map the English words to the Spanish
 words, like this:
 
 ```python
-{'dog': 'perro', 'cat': 'gato', 'bird': 'pájaro'}
+{'three': 'tres', 'zero': 'cero', 'one': 'uno'}
 ```
 
 Try using your dictionary:
 
 ```python
-words = "the dog chased the cat down the stairs".split(" ")
+words = "I love Comp Sci three zero one".split(" ")
 for i in range(len(words)):
     default = words[i] # don't translate it
     words[i] = en2sp.get(words[i], default)
@@ -98,7 +96,7 @@ sp2en
 You should get this:
 
 ```python
-{'perro': 'dog', 'gato': 'cat', 'pájaro': 'bird'}
+{'tres': 'three', 'cero': 'zero', 'uno': 'one'}
 ```
 
 ### Dictionary Division
@@ -123,7 +121,7 @@ Complete the code so it prints the incidents per year, with earliest
 year first, like this:
 
 ```python
-incidents = {2016: 14, 2017: 13, 2018: 16, 2014: 8, 2015: 10}
+incidents = {2016: 14, 2019: 18, 2017: 13, 2018: 16, 2014: 8, 2015: 10}
 keys = sorted(list(????.keys()))
 for k in ????:
     print(k, incidents[????])
@@ -135,6 +133,7 @@ for k in ????:
 2016 14
 2017 13
 2018 16
+2019 18
 ```
 
 ### Histogram
@@ -147,6 +146,7 @@ Modify the above code so it prints a histogram with letters, like this:
 2016 **************
 2017 *************
 2018 ****************
+2019 ******************
 ```
 
 ### Dictionary Max
@@ -154,7 +154,7 @@ Modify the above code so it prints a histogram with letters, like this:
 Complete the following to find the year with the most incidents:
 
 ```python
-incidents = {2016: 14, 2017: 13, 2018: 16, 2014: 8, 2015: 10}
+incidents = {2016: 14, 2019: 18, 2017: 13, 2018: 16, 2014: 8, 2015: 10}
 best_key = None
 for key in incidents:
     if best_key == None or incidents[????] > incidents[????]:
@@ -166,5 +166,5 @@ print("Year", best_key, "had", incidents[????], "incidents (the max)")
 
 1. for project questions like q12, you'll need to pair up two lists to make a dictionary (review "Dictionary from Two Lists" from the lab)
 2. q16 and q17 require some counting (review the first lab exercises)
-3. q18 and q19 require an average (review "Dictionary Division" above).
-4. q20 is finding the key that yields the max value in a dictionary (in comparison, we've solved many problems prior involving finding the argument that yields the max return value from a function)
+3. q18  requires an average (review "Dictionary Division" above).
+4. q19 and q20 are finding the key that yields the max value in a dictionary (in comparison, we've solved many problems prior involving finding the argument that yields the max return value from a function)

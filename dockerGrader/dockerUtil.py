@@ -164,7 +164,7 @@ class Grader(Database):
             result = {
                 'score': 0,
                 'error': str(e),
-                'logs': logs.split("\n")
+                'logs': logs[:50_000].split("\n")
             }
 
         result['date'] = datetime.now().strftime("%m/%d/%Y")
@@ -175,9 +175,12 @@ class Grader(Database):
     def parse_logs(logs):
         """Parse docker logs to make them printable.
         See: https://stackoverflow.com/questions/14693701"""
-        logs = logs.decode('ascii')
-        ansi_escape = re.compile(r'\x1B\[[0-?]*[ -/]*[@-~]')
-        return ansi_escape.sub('', logs)
+        try:
+            logs = logs.decode('ascii')
+            ansi_escape = re.compile(r'\x1B\[[0-?]*[ -/]*[@-~]')
+            return ansi_escape.sub('', logs)
+        except UnicodeDecodeError as e:
+            return str(e)
 
     def setup_codedir(self, project_dir, code_dir, overwrite_existing=False):
         """Copy necessary files from project dir to code dir"""
