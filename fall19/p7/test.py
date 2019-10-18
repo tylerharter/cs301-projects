@@ -482,7 +482,7 @@ def rerun_notebook(orig_notebook):
     new_notebook = 'cs-301-test.ipynb'
 
     # re-execute it from the beginning
-    with open(orig_notebook) as f:
+    with open(orig_notebook, encoding='utf-8') as f:
         nb = nbformat.read(f, as_version=nbformat.NO_CONVERT)
     ep = nbconvert.preprocessors.ExecutePreprocessor(timeout=120, kernel_name='python3')
     try:
@@ -610,7 +610,7 @@ def main():
         print("  Test %d: %s" % (test["test"], test["result"]))
 
     print('\nTOTAL SCORE: %.2f%%' % results['score'])
-    with open('result.json', 'w') as f:
+    with open('result.json', 'w', encoding='utf-8') as f:
         f.write(json.dumps(results, indent=2))
 
 
