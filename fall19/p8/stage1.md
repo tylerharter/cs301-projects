@@ -62,7 +62,7 @@ result in a variable for use in subsequent questions.
 Use the dictionary returned earlier. Do not call `get_mapping` a
 second time (that would be inneficient).
 
-#### Question 3: what are the values in the mapping associated with keys beginning with "tt"?
+#### Question 3: what are the values in the mapping associated with keys beginning with "nm"?
 
 Answer with a Python list.
 
@@ -171,9 +171,9 @@ Just paste `small[0]["title"]` into a cell and run it.  We're doing
 this to check that the structures in `small` (as returned by
 `get_movies` above) contain the correct data.
 
-#### Question 9: what is `small[1]["directors"]`?
+#### Question 9: what is `small[1]["actors"]`?
 
-#### Question 10: what is `small[-1]["actors"]`?
+#### Question 10: what is `small[-1]["directors"]`?
 
 #### Question 11: what is `small`?
 
@@ -283,7 +283,7 @@ year.
 
 ---
 
-#### Question 14: what are the movies from 1930?
+#### Question 14: what are the movies from 1929?
 
 Requirements:
 1. answer using `filter_movies_by_year`
@@ -292,18 +292,24 @@ Requirements:
 The answer should look like this:
 
 ```python
-[{'title': 'Hook Line and Sinker',
-  'year': 1930,
-  'rating': 6.4,
-  'directors': ['Edward F. Cline'],
-  'actors': ['Bert Wheeler', 'Robert Woolsey', 'Ralf Harolde'],
-  'genres': ['Comedy', 'Romance']},
- {'title': 'The Big Trail',
-  'year': 1930,
-  'rating': 7.2,
-  'directors': ['Raoul Walsh', 'Louis R. Loeffler'],
-  'actors': ['John Wayne', 'El Brendel', 'Tully Marshall'],
-  'genres': ['Adventure', 'Romance', 'Western']}]
+[{'title': 'Redskin',
+  'year': 1929,
+  'rating': 7.0,
+  'directors': ['Victor Schertzinger'],
+  'actors': ['Richard Dix', 'Tully Marshall', 'George Regas'],
+  'genres': ['Adventure', 'Drama', 'Western']},
+ {'title': 'The Girl in the Show',
+  'year': 1929,
+  'rating': 6.5,
+  'directors': ['Edgar Selwyn'],
+  'actors': ['Raymond Hackett', 'Edward J. Nugent'],
+  'genres': ['Comedy']},
+ {'title': 'Atlantic',
+  'year': 1929,
+  'rating': 5.5,
+  'directors': ['Ewald André Dupont'],
+  'actors': ['Franklin Dyall', 'John Stuart'],
+  'genres': ['Drama']}]
 ```
 
 #### Question 15: what are the movies from 1931?
@@ -343,9 +349,9 @@ If you get it right, you'll get this output:
 Think about whether you can write a function that helps you with Q17
 and Q18 at the same time.
 
-#### Question 17: how many unique actor names are there in the dataset?
+#### Question 17: how many unique director names are there in the dataset?
 
-#### Question 18: how many unique director names are there in the dataset?
+#### Question 18: which movie has the highest number of actors? Give the output of the movie title as a string.
 
 #### Question 19: what is the average movie rating?
 

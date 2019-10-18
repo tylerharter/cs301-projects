@@ -206,7 +206,7 @@ so the number of buckets will correspond to the number of unique
 actors.  In other words, `len(bucketize(small, "actors"))` is the
 number of unique actors.
 
-#### Question 26: how many unique genres appear in the full dataset?
+#### Question 26: how many unique actors appear in the full dataset?
 
 **Note:** for this and all remaining questions, answer with respect to
 the full dataset referenced by the `movies` variable from stage 1
@@ -291,7 +291,7 @@ dictionary, mapping name to years worked.  It should look like this:
  'Martin Ritt': 32}
 ```
 
-#### Question 33: what are the acting career spans of the actors who have acted for at least 40 years?
+#### Question 33: what are the acting career spans of the actors who have acted for at least 50 years?
 
 #### Question 34: who are the 10 directors with the longest careers?
 
@@ -384,6 +384,6 @@ of a better metric?
 Can you add a parameter to a previously created function to deal with
 this extra constraint (i.e., a minimum number of movies)?
 
-#### Question 39: who are the 6 best directors, if we only count directors having at least 3 movies?
+#### Question 39: who are the best directors, if we only count directors having at least 5 movies and rating at least 8? 
 
 #### Question 40: who are the 3 best actors, if we only count actors having at least 5 movies?
