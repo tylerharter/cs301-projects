@@ -351,7 +351,7 @@ and Q18 at the same time.
 
 #### Question 17: how many unique director names are there in the dataset?
 
-#### Question 18: which movie has the highest number of actors? Give the output of the movie title as a string.
+#### Question 18: which movie has the highest number of actors? Output should be the movie title in string format.
 
 #### Question 19: what is the average movie rating?
 
