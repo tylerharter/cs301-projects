@@ -2,7 +2,7 @@
 
 ## Corrections
 
-* none yet
+* Oct 18: test.py is updated. Please re-download it.
 
 ## Intro
 
