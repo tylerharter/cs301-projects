@@ -1,6 +1,4 @@
-# UNDER REVISION (don't start yet!)
-
-# Lab 8: Coding Practice
+# Lab-P8a: Coding Practice
 
 This lab is designed to help you prep for P8, as well as give practice
 with concepts we've seen a lot of students struggling with.  In

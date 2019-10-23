@@ -1,5 +1,3 @@
-# UNDER REVISION (don't start yet!)
-
 # Project 8: Going to the Movies
 
 ## Clarifications/Corrections
