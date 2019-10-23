@@ -181,6 +181,9 @@ for ???? in range(len(????)):
 print("total:", sum(values))
 ```
 
+Notice how converting the original data in-place (i.e., we modified
+the list itself) lets us just use the `sum` function at the end?
+
 ### Copying
 
 Try running the following code:

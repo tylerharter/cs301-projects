@@ -9,11 +9,10 @@ bucketing) movies, then computing simple stats over each bucket.  Some
 movies will belong to multiple buckets (for example, a movie with
 multiple genres, in the case that we're categorizing by genre).
 
-You'll need to re-download `test.py` to begin this stage.  Note that
-some questions involve creating plots.  Our tests can only detect the
-whether a plot has been created, not whether the plot matches our
-requirements, so double check for yourself that the plots look correct
-to avoid deductions during code review.
+Note that some questions involve creating plots.  Our tests can only
+detect the whether a plot has been created, not whether the plot
+matches our requirements, so double check for yourself that the plots
+look correct to avoid deductions during code review.
 
 ## Implementing the `bucketize` Function
 
@@ -64,7 +63,7 @@ call is made:
 buckets = bucketize(small, "year")
 ```
 
-In this case, `bucktes[2003]` will be a list of movie dicts for the
+In this case, `buckets[2003]` will be a list of movie dicts for the
 movies made in 2003 (in this case, just *Runaway Jury*).  Concretely,
 `buckets` should be the following:
 
@@ -251,12 +250,25 @@ rather than a dictionary.  Your plot should look like this:
 
 <img src="genre_count.png" width="400">
 
-Note for plot-based, the tests are only checking that a plot exists.
-If a plot is not correct, your reviewer will manually deduct points.
+For plot-based, the tests are only checking that a plot exists.  If a
+plot is not correct, your reviewer will manually deduct points.
+
+Note: we introduce how to create plots in Lab-P8a.  So if you're
+working ahead, you might need to save this question until that lab has
+been released.  Also, in case you missed it from the lab, if you don't
+have `%matplotlib inline` in a cell, your first plot might not show up
+in the notebook after a Restart & Run All.
 
 #### Question 29: how many movies are there of each genre, prior to 2000? (plot your answer)
 
+**Mediocre Hint:** creating the right functions so that the return
+  value from one call can be the argument to for another call is the key to
+  doing this without writing very complicated code.  For example, your
+  instructor solved this problem with a single line of code: `plot_dict(bucket_counts(filter_year(movies, None, 1999), "genres"))`.  What code did he use for `bucket_counts` and `filter_year`?  Well, if we told you that, it wouldn't be an "awesome" hint instead of "mediocre" one, right?
+
 #### Question 30: how many movies are there of each genre, in or after 2000? (plot your answer)
+
+**Another Mediocre Hint:** Your instructor solved this one with `plot_dict(bcounts(filter_year(movies, 2000, None), "genres"))`.
 
 Take a moment to compare this and the previous plot.  What can you
 infer?  What genres have grown in popularity?  Which ones have fallen
@@ -271,8 +283,9 @@ answer this with one simple line of code.
 #### Question 32: what are the directing career spans of the directors who have directed for at least 30 years?
 
 The span is the difference in years between year of the first movie
-they directed and the last one they directed.  Answer with a
-dictionary, mapping name to years worked.  It should look like this:
+they directed and the last one they directed (so if they only ever
+directed in one year, the span is 0).  Answer with a dictionary,
+mapping name to years worked.  It should look like this:
 
 ```
 {'Howard Hawks': 42,
@@ -384,6 +397,6 @@ of a better metric?
 Can you add a parameter to a previously created function to deal with
 this extra constraint (i.e., a minimum number of movies)?
 
-#### Question 39: who are the best directors, if we only count directors having at least 5 movies and rating at least 8? 
+#### Question 39: who are the best 4 directors, if we only count directors having at least 3 movies? 
 
 #### Question 40: who are the 3 best actors, if we only count actors having at least 5 movies?

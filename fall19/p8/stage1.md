@@ -45,7 +45,8 @@ Should print this:
 }
 ```
 
-Note that the mapping files DO NOT have a CSV header.
+Note that the mapping files do not have a CSV header, so hardcoding
+the column indexes is OK in this case.
 
 The following questions pertain to `small_mapping.csv` unless
 otherwise specified.
@@ -90,7 +91,8 @@ movie as follows:
 }
 ```
 
-Note that the movie files DO have a CSV header.
+Note that the movie files DO have a CSV header.  You must use it to
+find the indexes (hardcoding 0, 1, etc will lose you points).
 
 Also note that the values for `directors`, `actors`, and ```genres```
 always contain lists, even if those lists contain a single value.
@@ -116,7 +118,9 @@ The result should be this:
 ```
 
 Also, keep the value returned by `get_raw_movies` in a variable.  You
-should not call the function more often than necessary.
+should not call the function more often than necessary (in other
+words, keep the returned data structures in a variable to re-use for
+multiple questions).
 
 #### Question 6: how many genres did the movie at index 0 have?
 
@@ -283,7 +287,7 @@ year.
 
 ---
 
-#### Question 14: what are the movies from 1929?
+#### Question 14: what are the movies from 1931?
 
 Requirements:
 1. answer using `filter_movies_by_year`
@@ -292,27 +296,27 @@ Requirements:
 The answer should look like this:
 
 ```python
-[{'title': 'Redskin',
-  'year': 1929,
-  'rating': 7.0,
-  'directors': ['Victor Schertzinger'],
-  'actors': ['Richard Dix', 'Tully Marshall', 'George Regas'],
-  'genres': ['Adventure', 'Drama', 'Western']},
- {'title': 'The Girl in the Show',
-  'year': 1929,
-  'rating': 6.5,
-  'directors': ['Edgar Selwyn'],
-  'actors': ['Raymond Hackett', 'Edward J. Nugent'],
-  'genres': ['Comedy']},
- {'title': 'Atlantic',
-  'year': 1929,
-  'rating': 5.5,
-  'directors': ['Ewald André Dupont'],
-  'actors': ['Franklin Dyall', 'John Stuart'],
-  'genres': ['Drama']}]
+[{'title': 'Arizona',
+  'year': 1931,
+  'rating': 6.0,
+  'directors': ['George B. Seitz'],
+  'actors': ['John Wayne', 'Forrest Stanley'],
+  'genres': ['Drama', 'Romance']},
+ {'title': 'City Lights',
+  'year': 1931,
+  'rating': 8.5,
+  'directors': ['Charles Chaplin'],
+  'actors': ['Charles Chaplin', 'Harry Myers'],
+  'genres': ['Comedy', 'Drama', 'Romance']},
+ {'title': 'The Range Feud',
+  'year': 1931,
+  'rating': 5.8,
+  'directors': ['D. Ross Lederman'],
+  'actors': ['Buck Jones', 'John Wayne', 'Edward LeSaint'],
+  'genres': ['Mystery', 'Western']}]
 ```
 
-#### Question 15: what are the movies from 1931?
+#### Question 15: what are the movies from 1932?
 
 **Hint:** we've set you up a bit to encounter a bug.  Review the copy
 functions in the `copy` module and see if you can use one of them to
