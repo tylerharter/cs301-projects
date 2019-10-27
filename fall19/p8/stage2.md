@@ -253,7 +253,7 @@ rather than a dictionary.  Your plot should look like this:
 For plot-based, the tests are only checking that a plot exists.  If a
 plot is not correct, your reviewer will manually deduct points.
 
-Note: we introduce how to create plots in Lab-P8a.  So if you're
+Note: we introduce how to create plots in Lab-P8b.  So if you're
 working ahead, you might need to save this question until that lab has
 been released.  Also, in case you missed it from the lab, if you don't
 have `%matplotlib inline` in a cell, your first plot might not show up

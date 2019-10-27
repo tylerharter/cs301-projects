@@ -2,7 +2,7 @@
 
 ## Clarifications/Corrections
 
-* none yet
+* Oct 27: we cover plotting in the labs on Oct 31 or Nov 1, so just leave the relevant questions until Lab-P8b is released.
 
 ## Introduction
 
