@@ -400,8 +400,8 @@ If you get it right, you'll get this output:
 
 #### Question 16: how many unique genres are there in the dataset?
 
-Think about whether you can write a function that helps you with Q17
-and Q18 at the same time.
+Think about whether you can write a function that helps you with Q16
+and Q17 at the same time.
 
 #### Question 17: how many unique director names are there in the dataset?
 
