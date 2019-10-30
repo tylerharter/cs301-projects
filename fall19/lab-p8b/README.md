@@ -1,6 +1,4 @@
-# UNDER REVISION (don't start yet!)
-
-# Lab 9: Project 8 (Stage 2)
+# Lab-P8b: Plotting, Binning, and Sorting
 
 In this lab, you'll learn to create simple plots, decode a secret
 message, and take your sorting to the next level.  Have fun!
