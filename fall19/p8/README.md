@@ -4,6 +4,7 @@
 
 * Oct 27: we cover plotting in the labs on Oct 31 or Nov 1, so just leave the relevant questions until Lab-P8b is released.
 * Oct 29: fixed typo in hint for Q16
+* Oct 29: fixed hint for Q29 and Q30 to include axis label
 
 ## Introduction
 

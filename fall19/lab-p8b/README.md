@@ -29,7 +29,7 @@ pip install pandas
 
 If you're on the lab machines, the above will fail because these will
 already be installed, and you are not allowed to make changes.  You
-may also many "Requirement already satisfied" messages (e.g., if you
+may also see "Requirement already satisfied" messages (e.g., if you
 already installed these by following the setup videos we provided at
 the beginning of the semester), so don't be surprised if your output
 looks something like this:
@@ -52,7 +52,7 @@ Common issues:
 
 Creating a dictionary will often be the first step towards creating a
 bar plot in Python.  In particular, each dictionary key might
-correspond to a category (along the x-axis) and each value might
+correspond to a category (along the x-axis), and each value might
 correspond to an amount (along the y-axis).  To setup plotting in
 Python, paste following into two separate cells (with no other code
 added):

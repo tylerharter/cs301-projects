@@ -264,11 +264,11 @@ in the notebook after a Restart & Run All.
 **Mediocre Hint:** creating the right functions so that the return
   value from one call can be the argument to for another call is the key to
   doing this without writing very complicated code.  For example, your
-  instructor solved this problem with a single line of code: `plot_dict(bucket_counts(filter_year(movies, None, 1999), "genres"))`.  What code did he use for `bucket_counts` and `filter_year`?  Well, if we told you that, it wouldn't be be a "mediocre" hint, would it?
+  instructor solved this problem with a single line of code: `plot_dict(bucket_counts(filter_year(movies, None, 1999), "genres"), "Movie Count")`.  What code did he use for `bucket_counts` and `filter_year`?  Well, if we told you that, it wouldn't be be a "mediocre" hint, would it?
 
 #### Question 30: how many movies are there of each genre, in or after 2000? (plot your answer)
 
-**Another Mediocre Hint:** Your instructor solved this one with `plot_dict(bucket_counts(filter_year(movies, 2000, None), "genres"))`.
+**Another Mediocre Hint:** Your instructor solved this one with `plot_dict(bcounts(filter_year(movies, 2000, None), "genres"), "Movie Count")`.
 
 Take a moment to compare this and the previous plot.  What can you
 infer?  What genres have grown in popularity?  Which ones have fallen
