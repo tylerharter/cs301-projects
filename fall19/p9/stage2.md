@@ -35,7 +35,7 @@ As you can see, there are two outliers on this graph with a very high number of 
 
 Your plot should look like this:
 
-<img src="q26.png" width="400">
+<img src="q26.PNG" width="400">
 
 Do you see any interesting patterns here? Why do you think the products with the least number of reviews have the most variance in their average rating?
 
