@@ -27,7 +27,7 @@ Answer with a `dict` that maps the name of a product to its average rating acros
 
 Answer with a scatter plot showing all of the products. The x-axis should represent the number of reviews, and the y-axis should represent the average rating. It should look like this:
 
-<img src="q25.png" width="400">
+<img src="q25.PNG" width="400">
 
 As you can see, there are two outliers on this graph with a very high number of reviews, that make it difficult to make out the other points on the graph.
 
@@ -45,13 +45,13 @@ The x-axis should represent a month (and year) and the y-axis should represent t
 
 Your plot should look like this:  
 
-<img src="q27.png" width="400">
+<img src="q27.PNG" width="400">
 
 #### Question 28: Plot a bar graph of number of reviews of the product 'Fire Tablet, 7 Display, Wi-Fi, 8 GB - Includes Special Offers, Magenta' across all the months.
 
 Your plot should look like this:
 
-<img src="q28.png" width="400">
+<img src="q28.PNG" width="400">
 
 Do you see any similarities between the two plots. Plot the same graph for other products and see if the patterns persist. Can you find explanations for them?
 
@@ -63,7 +63,7 @@ Hint: Now might be a good time to create a `bucketize` function to sort the revi
 
 Your plot should look like this:
 
-<img src="q29.png" width="400">
+<img src="q29.PNG" width="400">
 
 Using this plot, can you infer the rating of a review given its text length? See if this pattern holds for title length as well. If not, look at the data and try to you explain why.
 
@@ -73,7 +73,7 @@ Answer with a scatter plot. The x-axis should represent the rating and the y-axi
 
 Your plot should look like this:
 
-<img src="q30.png" width="400">
+<img src="q30.PNG" width="400">
 
 What ratings are the most helpful and what ratings are the least helpful? Why could that be?
 
@@ -83,7 +83,7 @@ Answer with a scatter plot. The x-axis should represent the rating and the y-axi
 
 Your plot should look like this:
 
-<img src="q31.png" width="400">
+<img src="q31.PNG" width="400">
 
 Can you explain why the graph isn't more linear?
 
