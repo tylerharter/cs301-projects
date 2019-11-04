@@ -89,19 +89,19 @@ Can you explain why the graph isn't more linear?
 
 #### Question 32: Which words appear most commonly in the text of reviews with rating 5. List only the words that appear more than 1000 times.
 
-Answer with a `dict` mapping the words to the number of times they appear in the review text.
+Answer with a `list` of words sorted in decreasing order of the number of times they appear in the review text.
 
 Is this data meaningful? Can you think of ways of extracting useful information about the mood of the reviewer from the words in the review text?
 
 #### Question 33: Which words appear most commonly in the title of reviews with rating 5. List only the words that appear more than 100 times.
 
-Answer with a `dict` mapping the words to the number of times they appear in the review title.
+Answer with a `list` of words sorted in decreasing order of the number of times they appear in the review title.
 
 Can you infer anything about the mood of the reviewers who rate products highly? Why couldn't you get this information from the review text so easily?
 
 #### Question 34: Which words appear most commonly in the title of reviews with rating 1. List only the words that appear more than once.
 
-Answer with a `dict` mapping the words to the number of times they appear in the review title.
+Answer with a `list` of words sorted in decreasing order of the number of times they appear in the review title.
 
 Do you notice any differences between the two dictionaries? Can you try to find the words that appear most commonly in the title of reviews with other ratings? Do you notice any patterns?
 
