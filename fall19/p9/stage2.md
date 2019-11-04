@@ -131,7 +131,7 @@ Use your function to answer the following.
 
 ----
 
-#### Question 35: List the files in the `helpful` directory of the `rating5` directory.
+#### Question 35: List the paths in the `helpful` directory of the `rating5` directory.
 
 #### Question 36: List the paths of all the files in the `rating4` directory.
 
