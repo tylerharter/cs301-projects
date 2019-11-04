@@ -398,6 +398,8 @@ def check_cell_text(qnum, cell):
                 return "found %d unexpected entries, such as: %s" % (len(extra), repr(list(extra)[0]))
             elif len(actual) != len(expected):
                 return "expected %d entries in the list but found %d" % (len(expected), len(actual))
+            elif len(actual) == len(expected) and set(actual) == set(expected) and actual != expected:
+                return "list not sorted"
             else:
                 for i,(a,e) in enumerate(zip(actual, expected)):
                     if a != e:
