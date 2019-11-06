@@ -1,4 +1,4 @@
-# Project 9: Amazon Reviews
+# Project 9: Amazon Reviews (don't start yet, work in progress!!!)
 
 ## Introduction
 
