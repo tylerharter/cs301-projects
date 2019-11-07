@@ -1,4 +1,6 @@
-# Lab 11: Scatter Plots, Recursion, and Shortcuts
+# DON'T START YET (still revising)
+
+# Lab P9b: Scatter Plots, Recursion, and Shortcuts
 
 In this lab, you'll learn how to create scatter plots, practice
 writing recursive code, and learn two techniques (default dictionaries
