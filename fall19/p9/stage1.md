@@ -59,16 +59,16 @@ Your output should look like this:
 
 The keys in the above dictionary are the Amazon Standard Identification Numbers (or asin), that Amazon uses to identify its products.
 
-We will now try to read the CSV files that contain the reviews. Once again, you should consider creating a function to read CSV files given the filename.
+We will now try to read the CSV files that contain the reviews. Once again, you should consider creating a function to read CSV files given the filename. Use this function to read `review1.csv` to see what's in there.
 
 #### Question 6: What is the review *text* of review with id `1410`?
 
 #### Question 7: What is the review *text* of review with id `69899`?
 
-#### Question 8: What is the review *title* of review id `28013`?
-
 Careful, this one isn't in `review1.csv`. To get credit, make sure
 your code looks through all the CSV files to find the review.
+
+#### Question 8: What is the review *title* of review id `28013`?
 
 #### Question 9: What file contained the review with that id?
 
@@ -147,7 +147,7 @@ In other words, if any row in a CSV file does not have all its fields, the row s
 
 #### Question 15: What is the Review object with review id `42931`?
 
-#### Question 16: List the first ten Review objects in the dataset, sorted by increasing order of their review ids.
+#### Question 16: List the first ten Review objects in the entire dataset, sorted by increasing order of their review ids.
 
 It is likely that your code crashed when you tried to read some of the files. That is because some of the JSON files are broken. Unlike broken CSV files, broken JSON files are much harder to salvage. Your code should skip any JSON files that you are unable to parse using  `json.load`.
 
