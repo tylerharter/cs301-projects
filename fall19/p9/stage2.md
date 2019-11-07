@@ -133,15 +133,23 @@ Use your function to answer the following.
 
 ----
 
-#### Question 35: List the paths in the `helpful` directory of the `rating5` directory.
+#### Question 35: List the paths in the `helpful` directory of `rating5` of `broken_file`.
 
-#### Question 36: List the paths of all the files in the `rating4` directory.
+For this and the following, please sort in reverse-alphabetical order.
 
-List the paths of the files inside the directory, as well as the paths of all files inside any sub-directories.
+#### Question 36: List the paths of all the files in the `rating4` directory of `broken_file`.
+
+List the paths of the files inside the directory, as well as the paths
+of all files inside any sub-directories.
+
+You must write a recursive function to find these (remember to cite
+anything you use if you base your function on code you find online or
+in an example we provide).
 
 #### Question 37: List the paths of all the files in the `broken_file` directory.
 
-List the paths of the files inside the directory, as well as the paths of all files inside any sub-directories.
+List the paths of the files inside the directory, as well as the paths
+of all files inside any sub-directories.
 
 #### Question 38: Combine all the files in `broken_file` and find the number of unique products being reviewed in these files.
 
