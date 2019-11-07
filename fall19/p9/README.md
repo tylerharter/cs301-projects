@@ -1,5 +1,8 @@
 # Project 9: Amazon Reviews
 
+## Clarifications/Corrections:
+* Nov 7: Added hints for Q7 and Q16
+
 ## Introduction
 
 In this project, you'll be analyzing a collection of reviews of Amazon products (adapted from https://www.kaggle.com/datafiniti/consumer-reviews-of-amazon-products/data).
