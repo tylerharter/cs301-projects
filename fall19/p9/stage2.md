@@ -1,4 +1,4 @@
-# Stage 2
+# Stage 2 (don't start yet, work in progress!)
 
 We'll now use the clean data from stage 1 to analyze the reviews of the Amazon products. We'll also write some code to recursively find and process
 files nested inside multiple directories. To start, download and extract `broken_file.zip` in the same location of your notebook (you need to have the `broken_file` directory in the same directory as your `main.ipynb`)
@@ -17,7 +17,7 @@ Find the users with most reviews. Answer with a `dict` that maps username to the
 
 Answer with a `dict` that maps username to the total number of times when other people found their reviews helpful.
 
-#### Question 24: Find the average rating of all products.
+#### Question 24: Find the average rating of each product.
 
 Answer with a `dict` that maps the name of a product to its average rating across all reviews.
 
@@ -88,6 +88,8 @@ Your plot should look like this:
 Can you explain why the graph isn't more linear?
 
 #### Question 32: Which words appear most commonly in the text of reviews with rating 5. List only the words that appear more than 1000 times.
+
+For simplicity, you can use `txt.lower().split(" ")` to get the words from a string `txt` (this counts punctuation as part of a word, which is not ideal, but won't affect the results to greatly).
 
 Answer with a `list` of words sorted in decreasing order of the number of times they appear in the review text.
 

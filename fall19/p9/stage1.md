@@ -61,21 +61,24 @@ The keys in the above dictionary are the Amazon Standard Identification Numbers 
 
 We will now try to read the CSV files that contain the reviews. Once again, you should consider creating a function to read CSV files given the filename.
 
-#### Question 6: What are the first 5 reviews in the file `review1.csv`?
+#### Question 6: What is the review *text* of review with id `1410`?
 
-#### Question 7: What is the review text of review id `1410`?
+#### Question 7: What is the review *text* of review with id `69899`?
 
-#### Question 8: What is the review title of review id `28013`?
+#### Question 8: What is the review *title* of review id `28013`?
 
-Hint: The review need not necessarily be in `review1.csv`. Look through all the CSV files to find the review.
+Careful, this one isn't in `review1.csv`. To get credit, make sure
+your code looks through all the CSV files to find the review.
 
 #### Question 9: What file contained the review with that id?
 
-Consider creating a function `find_file` that returns the name of the CSV file containing a given review id.
+----
 
 Note that the CSV files we have been reading so far do not contain any information about the product that is being reviewed! That information is stored in the JSON files.
 
 Each JSON file stores information about the reviews in the corresponding CSV file. So, `review1.json` stores information about the reviews in `review1.csv`, `review2.json` stores information about the reviews in `review2.csv` and so on. Feel free to take a look at any of these JSON files, to see how the data is stored.
+
+----
 
 #### Question 10: What is the data stored in `sample_reviews.json`?
 
@@ -118,21 +121,23 @@ review
 
 Running the above in a cell should produce output like this:
 
-```python
+```
 Review(id=68358, username='Preacherman', asin='B01BH83OOM', title='Easy to set up', text='Enjoying the product and feel the ease of use is good.', rating=5, do_recommend=True, num_helpful=0, date='2017-07-07')
 ```
 
 ----
 
-Build a function `get_reviews` that accepts a CSV review file and a JSON review file and combines them to produce a list of `Review` objects.
+Build a function `get_reviews` that accepts a CSV review file and a JSON review file and combines them to produce a list of `Review` objects, which it either returns or yields (your choice!).
 
-#### Question 11: What is returned by your function `get_reviews('sample_reviews.csv', 'sample_reviews.json')`?
+#### Question 11: What is produced by your function `get_reviews('sample_reviews.csv', 'sample_reviews.json')`?
 
-The output should be a list of five Reviews.
+The output should be a list of five Reviews.  If you chose to write a generator with yield, just convert the generator object to a list.
 
-#### Question 12: What are the first ten Review objects in the list returned by `get_reviews('review1.csv', 'review1.json')`?
+Be careful, if you get the types wrong for any of the Reviews, the tests won't recognize it.
 
-#### Question 13: What are the last ten Review objects in the list returned by `get_reviews('review2.csv', 'review2.json')`?
+#### Question 12: What are the first ten Review objects in the list produced by `get_reviews('review1.csv', 'review1.json')`?
+
+#### Question 13: What are the last ten Review objects in the list produced by `get_reviews('review2.csv', 'review2.json')`?
 
 It is likely that your code crashed or your output has some missing data. That is because some of the rows in the CSV files are incomplete. Go back and modify the function you used to parse the CSV file, so that any rows that have missing data are ignored.
 
@@ -140,11 +145,7 @@ In other words, if any row in a CSV file does not have all its fields, the row s
 
 #### Question 14: What is the Review object with review id `84713`?
 
-Hint: Try using the function `find_file` from Question 10 before calling `get_reviews`.
-
 #### Question 15: What is the Review object with review id `42931`?
-
-It is a bit cumbersome finding the file every time we are given the id. Combine all the files to create a list of all the reviews for this next question.
 
 #### Question 16: List the first ten Review objects in the dataset, sorted by increasing order of their review ids.
 
