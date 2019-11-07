@@ -1,7 +1,7 @@
 # Project 9: Amazon Reviews
 
 ## Clarifications/Corrections:
-* Nov 7: Added hints for Q7 and Q16
+* Nov 7: Added hints for Q7
 
 ## Introduction
 
