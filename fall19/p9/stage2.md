@@ -1,7 +1,8 @@
-# Stage 2 (don't start yet, work in progress!)
+# Stage 2
 
-We'll now use the clean data from stage 1 to analyze the reviews of the Amazon products. We'll also write some code to recursively find and process
-files nested inside multiple directories. To start, download and extract `broken_file.zip` in the same location of your notebook (you need to have the `broken_file` directory in the same directory as your `main.ipynb`)
+We'll now use the clean data from stage 1 to analyze the reviews of the Amazon products. We'll also write some code to recursively find and process files nested inside multiple directories. To start, download and extract `broken_file.zip` in the same location of your notebook (you need to have the `broken_file` directory in the same directory as your `main.ipynb`).
+
+Also remember to download the latest version of `test.py`.
 
 **Note:** You'll learn about making scatter plots in lab 11, so please
   don't ask about how to do that until we've released that lab and
@@ -39,23 +40,7 @@ Your plot should look like this:
 
 Do you see any interesting patterns here? Why do you think the products with the least number of reviews have the most variance in their average rating?
 
-#### Question 27: Plot a bar graph of number of reviews of the product 'Fire Kids Edition Tablet, 7 Display, Wi-Fi, 16 GB, Pink Kid-Proof Case' across all the months.
-
-The x-axis should represent a month (and year) and the y-axis should represent the number of reviews of the product from that month.
-
-Your plot should look like this:  
-
-<img src="q27.PNG" width="400">
-
-#### Question 28: Plot a bar graph of number of reviews of the product 'Fire Tablet, 7 Display, Wi-Fi, 8 GB - Includes Special Offers, Magenta' across all the months.
-
-Your plot should look like this:
-
-<img src="q28.PNG" width="400">
-
-Do you see any similarities between the two plots. Plot the same graph for other products and see if the patterns persist. Can you find explanations for them?
-
-#### Question 29: What is the relationship between the rating and the average text length?
+#### Question 27: What is the relationship between the rating and the average text length?
 
 Answer with a scatter plot. The x-axis should represent the rating and the y-axis should represent the average text length of a review with that rating.
 
@@ -67,7 +52,7 @@ Your plot should look like this:
 
 Using this plot, can you infer the rating of a review given its text length? See if this pattern holds for title length as well. If not, look at the data and try to you explain why.
 
-#### Question 30: What is the relationship between the rating and the likelihood of the review being helpful?
+#### Question 28: What is the relationship between the rating and the likelihood of the review being helpful?
 
 Answer with a scatter plot. The x-axis should represent the rating and the y-axis should represent the percentage of reviews that were found helpful by at least one person.
 
@@ -77,7 +62,9 @@ Your plot should look like this:
 
 What ratings are the most helpful and what ratings are the least helpful? Why could that be?
 
-#### Question 31: What is the relationship between the rating and the likelihood of the product being recommended?
+#### Question 29: What is the average rating of all reviews which recommend the corresponding products?
+
+#### Question 30: What is the relationship between the rating and the likelihood of the product being recommended?
 
 Answer with a scatter plot. The x-axis should represent the rating and the y-axis should represent the percentage of reviews that recommended the product.
 
@@ -87,25 +74,31 @@ Your plot should look like this:
 
 Can you explain why the graph isn't more linear?
 
-#### Question 32: Which words appear most commonly in the text of reviews with rating 5. List only the words that appear more than 1000 times.
+#### Question 31: Which words appear most commonly in the text of reviews with rating 5. List only the words that appear more than 1000 times.
 
 For simplicity, you can use `txt.lower().split(" ")` to get the words from a string `txt` (this counts punctuation as part of a word, which is not ideal, but won't affect the results to greatly).
 
-Answer with a `list` of words sorted in decreasing order of the number of times they appear in the review text.
+Answer with a `dict` mapping the words to the number of times they appear in the review text.
 
 Is this data meaningful? Can you think of ways of extracting useful information about the mood of the reviewer from the words in the review text?
 
-#### Question 33: Which words appear most commonly in the title of reviews with rating 5. List only the words that appear more than 100 times.
+#### Question 32: Which words appear most commonly in the title of reviews with rating 5. List only the words that appear more than 100 times.
 
-Answer with a `list` of words sorted in decreasing order of the number of times they appear in the review title.
+Answer with a `dict` mapping the words to the number of times they appear in the review title.
 
 Can you infer anything about the mood of the reviewers who rate products highly? Why couldn't you get this information from the review text so easily?
 
-#### Question 34: Which words appear most commonly in the title of reviews with rating 1. List only the words that appear more than once.
+#### Question 33: Which words appear most commonly in the title of reviews with rating 1. List only the words that appear more than once.
 
-Answer with a `list` of words sorted in decreasing order of the number of times they appear in the review title.
+Answer with a `dict` mapping the words to the number of times they appear in the review title.
 
 Do you notice any differences between the two dictionaries? Can you try to find the words that appear most commonly in the title of reviews with other ratings? Do you notice any patterns?
+
+#### Question 34: Which words appear most commonly in the title of reviews with rating 3 List only the words that appear more than 10 times.
+
+Answer with a `dict` mapping the words to the number of times they appear in the review title.
+
+What differences and similarities do you see between the words in these three lists?
 
 ----
 Now, we have some good news! The data from the JSON file that was broken(`review4.json`) has been found! Unfortunately, the data is not stored in a single JSON file. It has instead been broken down into multiple files and stored inside the directory `broken_file`. Explore this directory using Finder or Explorer to see how the data is stored there.
@@ -153,8 +146,10 @@ of all files inside any sub-directories.
 
 #### Question 38: Combine all the files in `broken_file` and find the number of unique products being reviewed in these files.
 
+Let us now combine the data we found in `broken_file` with the original data. Use the data from `broken_file` along with `review4.csv` to create Review objects corresponding to the reviews in `review4.csv`.
+
 #### Question 39: Combine all the files in the directories `data` and `broken_file`, and find the total number of reviews.
 
-Remember that you have to ignore data that you cannot parse.
+**Hint**: You can still use your `get_reviews` function defined in stage 1. Write the data gathered from the directory `broken_data` into a new json file (say `broken_data.json`), and then use `get_reviews('review4.csv', 'broken_data.json')` to parse the data. Then do not forget to delete the new file using the command `os.remove('broken_data.json')`, so it does not affect your answers to any of your other questions.
 
 #### Question 40: What is the percentage of change in the average rating changed for the product 'Fire Tablet, 7 Display, Wi-Fi, 8 GB - Includes Special Offers, Magenta', because of the addition of the new data?
