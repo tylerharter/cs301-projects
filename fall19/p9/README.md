@@ -31,4 +31,4 @@ Note: Make sure `data`, `main.ipynb` and `test.py` are in same directory.  Other
 ## The Stages
 
 * [Stage 1](stage1.md): parse a mix of CSV and JSON files to get Review objects
-* Stage 2: not released yet!
+* [Stage 2](stage2.md): analyze the reviews of the Amazon products

@@ -1,15 +1,16 @@
 #!/usr/bin/python
 
-import json
+import ast
 import os
-import subprocess
+import re
 import sys
-import importlib
-import inspect
-import traceback
-import re, ast, math
-from collections import namedtuple, OrderedDict, defaultdict
-from functools import wraps
+import json
+import math
+import collections
+from collections import namedtuple
+
+import nbconvert
+import nbformat
 
 PASS = 'PASS'
 FAIL_STDERR = 'Program produced an error - please scroll up for more details.'
@@ -45,6 +46,27 @@ questions = [
     Question(number=18, weight=1, format=TEXT_FORMAT),
     Question(number=19, weight=1, format=TEXT_FORMAT),
     Question(number=20, weight=1, format=TEXT_FORMAT),
+    # stage 2
+    Question(number=21, weight=1, format=TEXT_FORMAT),
+    Question(number=22, weight=1, format=TEXT_FORMAT),
+    Question(number=23, weight=1, format=TEXT_FORMAT),
+    Question(number=24, weight=1, format=TEXT_FORMAT),
+    Question(number=25, weight=1, format=PNG_FORMAT),
+    Question(number=26, weight=1, format=PNG_FORMAT),
+    Question(number=27, weight=1, format=PNG_FORMAT),
+    Question(number=28, weight=1, format=PNG_FORMAT),
+    Question(number=29, weight=1, format=TEXT_FORMAT),
+    Question(number=30, weight=1, format=PNG_FORMAT),
+    Question(number=31, weight=1, format=TEXT_FORMAT),
+    Question(number=32, weight=1, format=TEXT_FORMAT),
+    Question(number=33, weight=1, format=TEXT_FORMAT),
+    Question(number=34, weight=1, format=TEXT_FORMAT),
+    Question(number=35, weight=1, format=TEXT_FORMAT),
+    Question(number=36, weight=1, format=TEXT_FORMAT),
+    Question(number=37, weight=1, format=TEXT_FORMAT),
+    Question(number=38, weight=1, format=TEXT_FORMAT),
+    Question(number=39, weight=1, format=TEXT_FORMAT),
+    Question(number=40, weight=1, format=TEXT_FORMAT),
 ]
 question_nums = set([q.number for q in questions])
 
@@ -141,7 +163,149 @@ expected_json = {
     "17": 165,
     "18": 12,
     "19": 'Fire Tablet, 7 Display, Wi-Fi, 8 GB - Includes Special Offers, Magenta',
-    "20": Review(id=85969, username='Beninkc', asin='B018Y229OU', title='5 star device crippled by amazon', text='This device would be the best possible tablet for the money if it had Google Play. However Amazon chose to block access to it. This took their well made tablet with a beautiful screen and great performance from an amazing value to a waste of money. This is my last amazon branded product.If you use a lot of apps or want specific apps shop for another device.', rating=1, do_recommend=False, num_helpful=20, date='2016-02-14')
+    "20": Review(id=85969, username='Beninkc', asin='B018Y229OU', title='5 star device crippled by amazon', text='This device would be the best possible tablet for the money if it had Google Play. However Amazon chose to block access to it. This took their well made tablet with a beautiful screen and great performance from an amazing value to a waste of money. This is my last amazon branded product.If you use a lot of apps or want specific apps shop for another device.', rating=1, do_recommend=False, num_helpful=20, date='2016-02-14'),
+    "21": 3798,
+    "22": {'Dave': 5,
+            'Missy': 4,
+            '1234': 4,
+            'Steve': 4,
+            'Chris': 4,
+            'Angie': 4,
+            'Mike': 4,
+            'Susan': 4,
+            'Manny': 3,
+            'Michael': 3,
+            'Susie': 3,
+            'Bill': 3,
+            'Charles': 3,
+            'Dani': 3,
+            'mike': 3,
+            'Rick': 3,
+            'Kindle': 3,
+            'Mimi': 3,
+            'Jojo': 3,
+            'Charlie': 3,
+            'Anonymous': 3,
+            'kcladyz': 3,
+            'David': 3,
+            'Josh': 3,
+            'Pete': 3,
+            'John': 3,
+            'Richard': 3,
+            'Bubba': 3,
+            'Grandma': 3,
+            'Frank': 3},
+    "23": {'Beninkc': 20,
+            'Roberto002007': 7,
+            'Dick': 5,
+            'CarlosEA': 10,
+            'EricO': 7,
+            'Junior': 7,
+            'TerrieT': 5,
+            'LadyEsco702': 8,
+            'safissad': 8,
+            'Quasimodo': 5,
+            'iMax': 5,
+            'mysixpack': 6,
+            'Deejay': 8,
+            'stephfasc22': 5,
+            'AshT': 5,
+            'fenton': 6,
+            'Rodge': 6,
+            'Ellen': 10,
+            'Karch': 5,
+            'FrankW': 5,
+            'Kime': 5,
+            'Mark': 5,
+            '1Briansapp': 5,
+            'trouble': 5,
+            'Stuartc': 8,
+            'Earthdog': 27},
+    "24": {'Fire Tablet, 7 Display, Wi-Fi, 8 GB - Includes Special Offers, Magenta': 4.490408673894913,
+            'All-New Fire HD 8 Tablet, 8 HD Display, Wi-Fi, 16 GB - Includes Special Offers, Magenta': 4.6,
+            'Kindle Oasis E-reader with Leather Charging Cover - Merlot, 6 High-Resolution Display (300 ppi), Wi-Fi - Includes Special Offers': 4.866666666666666,
+            'All-New Fire HD 8 Tablet, 8 HD Display, Wi-Fi, 32 GB - Includes Special Offers, Magenta': 4.574468085106383,
+            'Fire HD 8 Tablet with Alexa, 8 HD Display, 32 GB, Tangerine - with Special Offers': 3.8333333333333335,
+            'All-New Kindle E-reader - Black, 6" Glare-Free Touchscreen Display, Wi-Fi - Includes Special Offers': 4.590163934426229,
+            'Amazon 9W PowerFast Official OEM USB Charger and Power Adapter for Fire Tablets and Kindle eReaders': 4.7272727272727275,
+            'Amazon Tap Smart Assistant Alexa enabled (black) Brand New': 4.6909090909090905,
+            'Amazon Echo (2nd Generation) Smart Assistant Oak Finish Priority Shipping': 5.0,
+            'Kindle Voyage E-reader, 6 High-Resolution Display (300 ppi) with Adaptive Built-in Light, PagePress Sensors, Wi-Fi - Includes Special Offers': 4.666666666666667,
+            'All-new Echo (2nd Generation) with improved sound, powered by Dolby, and a new design Walnut Finish': 5.0,
+            'Fire Kids Edition Tablet, 7 Display, Wi-Fi, 16 GB, Pink Kid-Proof Case': 4.603448275862069,
+            'All-New Fire HD 8 Tablet, 8 HD Display, Wi-Fi, 32 GB - Includes Special Offers, Black': 4.583333333333333},
+    "29": 4.607549120992761,
+    "31": {'i': 1317,
+             'for': 1800,
+             'my': 1146,
+             'to': 1442,
+             'it': 1286,
+             'this': 1016,
+             'the': 1740,
+             'a': 1134,
+             'and': 1818},
+    "32": {'great': 1093,
+             'tablet': 681,
+             'fire': 104,
+             'for': 617,
+             'the': 231,
+             'my': 138,
+             'kindle': 142,
+             'to': 106,
+             'good': 212,
+             'price': 149,
+             'gift': 105,
+             'it': 137,
+             'a': 143,
+             'love': 158,
+             'kids': 132,
+             'awesome': 108,
+             'product': 179},
+    "33": {'not': 8,
+             'very': 3,
+             'disappointed': 2,
+             'poor': 2,
+             'does': 2,
+             'amazon': 5,
+             'a': 5,
+             'great': 2,
+             '5': 2,
+             'work': 2,
+             'to': 2,
+             'use': 2,
+             'and': 2,
+             'kindle': 2,
+             'tablet': 4,
+             'for': 2,
+             'good': 2,
+             'really': 2,
+             'with': 2},
+    "34": {'tablet': 51,
+             'the': 18,
+             'great': 37,
+             'good': 42,
+             'for': 60,
+             'price': 18,
+             'ok': 18,
+             'a': 17,
+             'not': 13},
+    "35": [os.path.join('broken_file', 'rating5', 'helpful', 'helpful.json')],
+    "36": [os.path.join('broken_file', 'rating4', 'very_helpful', 'very_helpful.json'),
+            os.path.join('broken_file', 'rating4', 'others', 'short', 'short.json'),
+            os.path.join('broken_file', 'rating4', 'others', 'others', 'others.json'),
+            os.path.join('broken_file', 'rating4', 'not_helpful.json')],
+    "37": [os.path.join('broken_file', 'rating5', 'others.json'),
+            os.path.join('broken_file', 'rating5', 'helpful', 'helpful.json'),
+            os.path.join('broken_file', 'rating4', 'very_helpful', 'very_helpful.json'),
+            os.path.join('broken_file', 'rating4', 'others', 'short', 'short.json'),
+            os.path.join('broken_file', 'rating4', 'others', 'others', 'others.json'),
+            os.path.join('broken_file', 'rating4', 'not_helpful.json'),
+            os.path.join('broken_file', 'rating3', 'others', 'others.json'),
+            os.path.join('broken_file', 'rating3', 'long', 'long.json'),
+            os.path.join('broken_file', 'others.json')],
+    "38": 1,
+    "39": 4992,
+    "40": 0.31190229022053717,
 }
 
 # find a comment something like this: #q10
@@ -153,19 +317,34 @@ def extract_question_num(cell):
             return int(m.group(1))
     return None
 
+
 # rerun notebook and return parsed JSON
 def rerun_notebook(orig_notebook):
     new_notebook = 'cs-301-test.ipynb'
 
     # re-execute it from the beginning
-    cmd = 'jupyter nbconvert --execute "{orig}" --to notebook --output="{new}" --ExecutePreprocessor.timeout=120'
-    cmd = cmd.format(orig=os.path.abspath(orig_notebook), new=os.path.abspath(new_notebook))
-    subprocess.check_output(cmd, shell=True)
+    with open(orig_notebook, encoding='utf-8') as f:
+        nb = nbformat.read(f, as_version=nbformat.NO_CONVERT)
+    ep = nbconvert.preprocessors.ExecutePreprocessor(timeout=120, kernel_name='python3')
+    try:
+        out = ep.preprocess(nb, {'metadata': {'path': os.getcwd()}})
+    except nbconvert.preprocessors.CellExecutionError:
+        out = None
+        msg = 'Error executing the notebook "%s".\n\n' % orig_notebook
+        msg += 'See notebook "%s" for the traceback.' % new_notebook
+        print(msg)
+        raise
+    finally:
+        with open(new_notebook, mode='w', encoding='utf-8') as f:
+            nbformat.write(nb, f)
+
+    # Note: Here we are saving and reloading, this isn't needed but can help student's debug
 
     # parse notebook
-    with open(new_notebook,encoding='utf-8') as f:
+    with open(new_notebook, encoding='utf-8') as f:
         nb = json.load(f)
     return nb
+
 
 def normalize_json(orig):
     try:
@@ -173,12 +352,18 @@ def normalize_json(orig):
     except:
         return 'not JSON'
 
-
 def check_cell_text(qnum, cell):
     outputs = cell.get('outputs', [])
     if len(outputs) == 0:
         return 'no outputs in an Out[N] cell'
-    actual_lines = outputs[0].get('data', {}).get('text/plain', [])
+    actual_lines = None
+    for out in outputs:
+        lines = out.get('data', {}).get('text/plain', [])
+        if lines:
+            actual_lines = lines
+            break
+    if actual_lines == None:
+        return 'no Out[N] output found for cell (note: printing the output does not work)'
     actual = ''.join(actual_lines)
     jbn = [6,7,8,9,10,11,12,13,14,15,16,20]
     if qnum in jbn:
@@ -228,9 +413,13 @@ def check_cell_text(qnum, cell):
 
     return PASS
 
-
 def check_cell_png(qnum, cell):
+    if qnum == 21:
+        print('here')
+        print(cell)
     for output in cell.get('outputs', []):
+        if qnum == 21:
+            print(output.get('data', {}).keys())
         if 'image/png' in output.get('data', {}):
             return PASS
     return 'no plot found'
@@ -269,9 +458,6 @@ def main():
         return
     elif len(sys.argv) == 2:
         orig_notebook = sys.argv[1]
-
-    assert(os.path.exists("data"))
-
     nb = rerun_notebook(orig_notebook)
 
     # extract cells that have answers
@@ -296,7 +482,7 @@ def main():
         print("  Test %d: %s" % (test["test"], test["result"]))
 
     print('\nTOTAL SCORE: %.2f%%' % results['score'])
-    with open('result.json', 'w') as f:
+    with open('result.json', 'w', encoding='utf-8') as f:
         f.write(json.dumps(results, indent=2))
 
 
