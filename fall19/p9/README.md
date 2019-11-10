@@ -2,6 +2,8 @@
 
 ## Clarifications/Corrections:
 * Nov 7: Added hints for Q7
+* Nov 10: Stage 2 released
+* Nov 10: `test.py` updated.
 
 ## Introduction
 
