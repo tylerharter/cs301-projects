@@ -63,8 +63,6 @@ What ratings are the most helpful and what ratings are the least helpful? Why co
 
 #### Question 29: What is the average rating of all reviews which recommend the corresponding products?
 
-Hint: Use your bucketize on `do_recommend` category.
-
 #### Question 30: What is the relationship between the rating and the likelihood of the product being recommended?
 
 Answer with a scatter plot. The x-axis should represent the rating and the y-axis should represent the percentage of reviews that recommended the product.
@@ -89,17 +87,17 @@ Answer with a `list` of words sorted in decreasing order of the number of times 
 
 Can you infer anything about the mood of the reviewers who rate products highly? Why couldn't you get this information from the review text so easily?
 
-#### Question 33: Which words appear most commonly in the title of reviews with rating 3 List only the words that appear more than 10 times.
+#### Question 33: Which words appear most commonly in the title of reviews with rating 1. List only the words that appear more than once.
 
 Answer with a `list` of words sorted in decreasing order of the number of times they appear in the review title.
 
-Do you find any different moods from these words?
+Do you notice any differences between the two lists? Can you try to find the words that appear most commonly in the title of reviews with other ratings? Do you notice any patterns?
 
-#### Question 34: Which words appear most commonly in the title of reviews with rating 1. List only the words that appear more than once.
+#### Question 34: Which words appear most commonly in the title of reviews with rating 3 List only the words that appear more than 10 times.
 
 Answer with a `list` of words sorted in decreasing order of the number of times they appear in the review title.
 
-Do you notice any differences between the two dictionaries? Can you try to find the words that appear most commonly in the title of reviews with other ratings? Do you notice any patterns?
+What differences and similarities do you see between these words in these three lists?
 
 ----
 Now, we have some good news! The data from the JSON file that was broken(`review4.json`) has been found! Unfortunately, the data is not stored in a single JSON file. It has instead been broken down into multiple files and stored inside the directory `broken_file`. Explore this directory using Finder or Explorer to see how the data is stored there.
@@ -147,9 +145,11 @@ of all files inside any sub-directories.
 
 #### Question 38: Combine all the files in `broken_file` and find the number of unique products being reviewed in these files.
 
+Let us now combine the data we found in `broken_file` with the original data. Use the data from `broken_file` along with `review4.csv` to create Review objects corresponding to the reviews in `review4.csv`.
+
 #### Question 39: Combine all the files in the directories `data` and `broken_file`, and find the total number of reviews.
 
-Hint: You can still use your `get_reviews` function defined in stage 1. Write the data gathered from the directory `broken_data` into a new json file, and then use that file along with `review4.csv` to parse the data by using `get_reviews()`. Then do not forget to delete the new file.
+**Hint**: You can still use your `get_reviews` function defined in stage 1. Write the data gathered from the directory `broken_data` into a new json file, and then use that file along with `review4.csv` to parse the data by using `get_reviews()`. Then do not forget to delete the new file, so it does not affect your answers to any of your other questions.
 
 Remember that you have to ignore data that you cannot parse.
 
