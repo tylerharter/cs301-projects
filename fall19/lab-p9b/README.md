@@ -1,5 +1,3 @@
-# DON'T START YET (still revising)
-
 # Lab P9b: Scatter Plots, Recursion, and Shortcuts
 
 In this lab, you'll learn how to create scatter plots, practice
