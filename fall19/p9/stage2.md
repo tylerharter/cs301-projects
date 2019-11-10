@@ -1,7 +1,8 @@
-# Stage 2 (don't start yet, work in progress!)
+# Stage 2 (Still under revision)
 
-We'll now use the clean data from stage 1 to analyze the reviews of the Amazon products. We'll also write some code to recursively find and process
-files nested inside multiple directories. To start, download and extract `broken_file.zip` in the same location of your notebook (you need to have the `broken_file` directory in the same directory as your `main.ipynb`)
+We'll now use the clean data from stage 1 to analyze the reviews of the Amazon products. We'll also write some code to recursively find and process files nested inside multiple directories. To start, download and extract `broken_file.zip` in the same location of your notebook (you need to have the `broken_file` directory in the same directory as your `main.ipynb`).
+
+Also remember to download the latest version of `test.py`.
 
 **Note:** You'll learn about making scatter plots in lab 11, so please
   don't ask about how to do that until we've released that lab and
@@ -77,27 +78,27 @@ Can you explain why the graph isn't more linear?
 
 For simplicity, you can use `txt.lower().split(" ")` to get the words from a string `txt` (this counts punctuation as part of a word, which is not ideal, but won't affect the results to greatly).
 
-Answer with a `list` of words sorted in decreasing order of the number of times they appear in the review text.
+Answer with a `dict` mapping the words to the number of times they appear in the review text.
 
 Is this data meaningful? Can you think of ways of extracting useful information about the mood of the reviewer from the words in the review text?
 
 #### Question 32: Which words appear most commonly in the title of reviews with rating 5. List only the words that appear more than 100 times.
 
-Answer with a `list` of words sorted in decreasing order of the number of times they appear in the review title.
+Answer with a `dict` mapping the words to the number of times they appear in the review title.
 
 Can you infer anything about the mood of the reviewers who rate products highly? Why couldn't you get this information from the review text so easily?
 
 #### Question 33: Which words appear most commonly in the title of reviews with rating 1. List only the words that appear more than once.
 
-Answer with a `list` of words sorted in decreasing order of the number of times they appear in the review title.
+Answer with a `dict` mapping the words to the number of times they appear in the review title.
 
-Do you notice any differences between the two lists? Can you try to find the words that appear most commonly in the title of reviews with other ratings? Do you notice any patterns?
+Do you notice any differences between the two dictionaries? Can you try to find the words that appear most commonly in the title of reviews with other ratings? Do you notice any patterns?
 
 #### Question 34: Which words appear most commonly in the title of reviews with rating 3 List only the words that appear more than 10 times.
 
-Answer with a `list` of words sorted in decreasing order of the number of times they appear in the review title.
+Answer with a `dict` mapping the words to the number of times they appear in the review title.
 
-What differences and similarities do you see between these words in these three lists?
+What differences and similarities do you see between the words in these three lists?
 
 ----
 Now, we have some good news! The data from the JSON file that was broken(`review4.json`) has been found! Unfortunately, the data is not stored in a single JSON file. It has instead been broken down into multiple files and stored inside the directory `broken_file`. Explore this directory using Finder or Explorer to see how the data is stored there.
@@ -149,8 +150,6 @@ Let us now combine the data we found in `broken_file` with the original data. Us
 
 #### Question 39: Combine all the files in the directories `data` and `broken_file`, and find the total number of reviews.
 
-**Hint**: You can still use your `get_reviews` function defined in stage 1. Write the data gathered from the directory `broken_data` into a new json file, and then use that file along with `review4.csv` to parse the data by using `get_reviews()`. Then do not forget to delete the new file, so it does not affect your answers to any of your other questions.
-
-Remember that you have to ignore data that you cannot parse.
+**Hint**: You can still use your `get_reviews` function defined in stage 1. Write the data gathered from the directory `broken_data` into a new json file (say `broken_data.json`), and then use `get_reviews('review4.csv', 'broken_data.json')` to parse the data. Then do not forget to delete the new file using the command `os.remove('broken_data.json')`, so it does not affect your answers to any of your other questions.
 
 #### Question 40: What is the percentage of change in the average rating changed for the product 'Fire Tablet, 7 Display, Wi-Fi, 8 GB - Includes Special Offers, Magenta', because of the addition of the new data?
