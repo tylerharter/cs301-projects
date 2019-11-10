@@ -152,4 +152,6 @@ Let us now combine the data we found in `broken_file` with the original data. Us
 
 **Hint**: You can still use your `get_reviews` function defined in stage 1. Write the data gathered from the directory `broken_data` into a new json file (say `broken_data.json`), and then use `get_reviews('review4.csv', 'broken_data.json')` to parse the data. Then do not forget to delete the new file using the command `os.remove('broken_data.json')`, so it does not affect your answers to any of your other questions.
 
+Of course, you are free to solve this problem by other means if you wish to do so.
+
 #### Question 40: What is the percentage of change in the average rating changed for the product 'Fire Tablet, 7 Display, Wi-Fi, 8 GB - Includes Special Offers, Magenta', because of the addition of the new data?
