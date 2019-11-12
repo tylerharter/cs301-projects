@@ -12,6 +12,8 @@ from collections import namedtuple, OrderedDict, defaultdict
 from functools import wraps
 from bs4 import BeautifulSoup
 from datetime import datetime
+import nbconvert
+import nbformat
 
 PASS = 'PASS'
 FAIL_STDERR = 'Program produced an error - please scroll up for more details.'
@@ -74,7 +76,7 @@ question_nums = set([q.number for q in questions])
 
 expected_json = {
     "1": 127493303,
-    "2": "Brazil_Peru.json",
+    "2": 174,
     "3":[{'capital': 'Brasilia',
           'country': 'Brazil',
           'latitude': -15.783333333333333,
@@ -830,7 +832,7 @@ def extract_question_num(cell):
 import ast
 from collections import defaultdict, namedtuple
 
-import ast 
+import ast
 from collections import defaultdict, namedtuple
 
 class Linter(ast.NodeVisitor):
@@ -838,7 +840,7 @@ class Linter(ast.NodeVisitor):
         self.warn = namedtuple('WARN', 'name msg')
         self.forbidden_names = {"set", "list", "dict"}
         self.warnings = defaultdict(list)
-        self.suppressed = suppressed if suppressed else [] 
+        self.suppressed = suppressed if suppressed else []
         self.func_names = []
 
     def is_severe(self):
@@ -849,10 +851,10 @@ class Linter(ast.NodeVisitor):
         return False
 
     def show_warnings(self):
-        for warning, linenos in self.warnings.items(): 
+        for warning, linenos in self.warnings.items():
             if warning.name in self.suppressed:
                 continue
-            if len(linenos) == 1: 
+            if len(linenos) == 1:
                 print("LINE %s : %s" % (linenos[0], warning.msg))
             else:
                 print("LINES %s : %s" % (", ".join(map(str, linenos)), warning.msg))
@@ -861,58 +863,58 @@ class Linter(ast.NodeVisitor):
         w = self.warn(warning_name, warning_msg)
         self.warnings[w].append(lineno)
 
-    def visit_FunctionDef(self, node): 
+    def visit_FunctionDef(self, node):
         # repeated names
-        if node.name in self.func_names: 
-            self.register_warning("repeated_function", 
-                    "The function %s has more than one definition. Avoid reusing function names" % node.name, 
+        if node.name in self.func_names:
+            self.register_warning("repeated_function",
+                    "The function %s has more than one definition. Avoid reusing function names" % node.name,
                     node.lineno)
         else:
-            self.func_names.append(node.name) 
+            self.func_names.append(node.name)
 
-        # def BADNAME() 
-        if node.name.lower() != node.name: 
-            self.register_warning("snake_case", 
-                    "The convention in Python is to use lowercase names for function names, with words separated by '_', you used '%s'." % node.name, 
+        # def BADNAME()
+        if node.name.lower() != node.name:
+            self.register_warning("snake_case",
+                    "The convention in Python is to use lowercase names for function names, with words separated by '_', you used '%s'." % node.name,
                     node.lineno)
 
-    def visit_Assign(self, node): 
+    def visit_Assign(self, node):
         for target in node.targets:
             if type(target) == ast.Name:
                 # a = 10
-                if len(target.id) == 1: 
-                    self.register_warning("descriptive", 
-                            "Consider using more descriptive variable names. You used : '%s'." % target.id, 
+                if len(target.id) == 1:
+                    self.register_warning("descriptive",
+                            "Consider using more descriptive variable names. You used : '%s'." % target.id,
                             target.lineno)
-                
+
                 # list = [..]
                 if target.id.lower() in self.forbidden_names:
-                    self.register_warning("keyword_names", 
-                            "Do not use '%s' for a variable name; that clobbers the Python type." % target.id, 
+                    self.register_warning("keyword_names",
+                            "Do not use '%s' for a variable name; that clobbers the Python type." % target.id,
                             target.lineno)
 
                 # x = x
-                if type(node.value) == ast.Name and node.value.id == target.id: 
-                    self.register_warning("self_assign", 
-                            "Self assignment : the statement %s = %s is superflous" % (node.value.id, target.id), 
+                if type(node.value) == ast.Name and node.value.id == target.id:
+                    self.register_warning("self_assign",
+                            "Self assignment : the statement %s = %s is superflous" % (node.value.id, target.id),
                             target.lineno)
 
-    def visit_Compare(self, node): 
+    def visit_Compare(self, node):
         # a == True
-        if len(node.comparators) == 1: 
-            if type(node.comparators[0]) == ast.NameConstant and node.comparators[0].value: 
-                self.register_warning("unnnecessary_true", 
-                        "Instead of doing something like 'if %s == True:', you can simply do, 'if a:'" % node.left.id, 
+        if len(node.comparators) == 1:
+            if type(node.comparators[0]) == ast.NameConstant and node.comparators[0].value:
+                self.register_warning("unnnecessary_true",
+                        "Instead of doing something like 'if %s == True:', you can simply do, 'if a:'" % node.left.id,
                         node.lineno)
 
-    def visit_For(self, node): 
-        if type(node.body[-1]) == ast.Continue: 
-            self.register_warning("bad_continue", 
-                    "A continue as the last statement in a loop is unnecessary, as the loop proceeds to the next iteration anyway", 
+    def visit_For(self, node):
+        if type(node.body[-1]) == ast.Continue:
+            self.register_warning("bad_continue",
+                    "A continue as the last statement in a loop is unnecessary, as the loop proceeds to the next iteration anyway",
                     node.body[-1].lineno)
 
-    def visit_Return(self, node): 
-        pass 
+    def visit_Return(self, node):
+        pass
 
 
 # rerun notebook and return parsed JSON
@@ -920,9 +922,22 @@ def rerun_notebook(orig_notebook):
     new_notebook = 'cs-301-test.ipynb'
 
     # re-execute it from the beginning
-    cmd = 'jupyter nbconvert --execute "{orig}" --to notebook --output="{new}" --ExecutePreprocessor.timeout=120'
-    cmd = cmd.format(orig=os.path.abspath(orig_notebook), new=os.path.abspath(new_notebook))
-    subprocess.check_output(cmd, shell=True)
+    with open(orig_notebook) as f:
+        nb = nbformat.read(f, as_version=nbformat.NO_CONVERT)
+    ep = nbconvert.preprocessors.ExecutePreprocessor(timeout=120, kernel_name='python3')
+    try:
+        out = ep.preprocess(nb, {'metadata': {'path': os.getcwd()}})
+    except nbconvert.preprocessors.CellExecutionError:
+        out = None
+        msg = 'Error executing the notebook "%s".\n\n' % orig_notebook
+        msg += 'See notebook "%s" for the traceback.' % new_notebook
+        print(msg)
+        raise
+    finally:
+        with open(new_notebook, mode='w', encoding='utf-8') as f:
+            nbformat.write(nb, f)
+
+    # Note: Here we are saving and reloading, this isn't needed but can help student's debug
 
     # parse notebook
     with open(new_notebook,encoding='utf-8') as f:
@@ -1062,7 +1077,7 @@ def check_cell(question, cell):
     raise Exception("invalid question type")
 
 
-def lint_cell(cell): 
+def lint_cell(cell):
     code = "\n".join(cell.get('source', []))
     tree = ast.parse(code)
     l = Linter()
