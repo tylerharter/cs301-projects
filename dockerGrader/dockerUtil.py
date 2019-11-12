@@ -188,10 +188,15 @@ class Grader(Database):
             item_path = os.path.join(project_dir, item)
             if not overwrite_existing and item in os.listdir(code_dir):
                 continue
-            if not self.is_excluded(item) and os.path.isfile(item_path):
-                src = os.path.join(project_dir, item)
-                dst = os.path.join(code_dir, item)
-                shutil.copyfile(src, dst)
+            if not self.is_excluded(item) and not os.path.islink(item):
+                if os.path.isfile(item_path):
+                    dst = os.path.join(code_dir, item)
+                    shutil.copyfile(item_path, dst)
+                elif os.path.isdir(item_path):
+                    dst = os.path.join(code_dir, item)
+                    if not os.path.isdir(dst):
+                        os.mkdir(dst)
+                    self.setup_codedir(item_path, dst)
 
     def is_excluded(self, item):
         """Determine which files not to copy in setup_codedir"""
