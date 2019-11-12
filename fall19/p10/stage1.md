@@ -20,8 +20,11 @@ Keep the DataFrame in a variable named `countries`.
 
 #### Question 2: How many capitals do we have in the world?
 
-You need to write some code to scrape the dataset from [here](http://techslides.com/list-of-countries-and-capitals). It contains the table of all the countries and capitals with latitude and longitude in tabular format. Do not download the data using the csv or json file download link. You need to write the code to scrape the data from this table.
-Start by install Beautiful Soup and requests using pip.
+You need to write some code to scrape the data from [here](http://techslides.com/list-of-countries-and-capitals).
+It contains the table of all the countries and capitals with latitude and longitude in tabular format.
+Do not download the data using the csv or json file download link.
+You need to write the code to scrape the data from this table.
+Start by install `Beautiful Soup` and `requests` using pip.
 
 ----
 Complete the following function:
@@ -31,11 +34,13 @@ def get_capitals(url):
     pass
 ```
 
-Requirements:
-* Download the html for the webpage using `requests`.
-* Use beautiful soup to find table containing the data.
+Requirements for `get_capitals` function:
+* Download the html for the webpage using `requests` module.
+* Use beautiful soup to convert html text to soup. Find the table containing the data.
 * Find all the rows and columns in the table and save it in a dictionary.
-* You output should look like this
+* Return the dictionary contains countries, capitals and location coordinate.
+* Filter and keep only those countries which are present in `countries` variable
+* You output should look something like this
 
 ```
 [

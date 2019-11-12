@@ -7,7 +7,7 @@ None yet.
 For your final CS 301 project, you're going to analyze the whole
 world!
 
-Specifically, you're going to study various statistics for 175
+Specifically, you're going to study various statistics for 174
 countries, answering questions such as: *what is the correlation
 between a country's literacy rate and GDP?*
 
@@ -18,12 +18,12 @@ automatically).  You'll do all your work in a `main.ipynb`.
 # Data
 
 For this project, you'll be using one large JSON file with statistics
-about 174 countries. As it happens in a common data science project,
-this is a not a complete dataset for our task and hence,
+about 174 countries. This is not the complete dataset for our task and hence,
 you will be also be collecting additional data from
-[here](http://techslides.com/list-of-countries-and-capitals)
+[here](http://techslides.com/list-of-countries-and-capitals).
+Open the link and look though the table.
 
-You should start by looking at these two web resources:
+You should also look here and get familiar with the data:
 
 * https://tyler.caraza-harter.com/cs301/spring19/data/countries.json
 
