@@ -4,6 +4,7 @@
 * Nov 7: Added hints for Q7
 * Nov 10: Stage 2 released
 * Nov 10: `test.py` updated.
+* Nov 12: Added a section on linting, see bottom of document
 
 ## Introduction
 
@@ -34,3 +35,9 @@ Note: Make sure `data`, `main.ipynb` and `test.py` are in same directory.  Other
 
 * [Stage 1](stage1.md): parse a mix of CSV and JSON files to get Review objects
 * [Stage 2](stage2.md): analyze the reviews of the Amazon products
+
+## Linting
+
+We are now introducing linting as a way to help you write better code. Please check it out 
+and try running it on your code! Everything you need to know to get started is explained 
+[here](../../linter/README.md).
