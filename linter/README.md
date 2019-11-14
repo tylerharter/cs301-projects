@@ -21,6 +21,10 @@ so let's just install pylint like so:
 ```
 pip install pylint
 ```
+
+Then download the `lint.py` file above and place it in the directory where the code you want to lint is. 
+Next, navigate to that directory with `cd`.
+
 Reminder: Based on your setup, you might need to prefix `python3 -m` or `py -m` or something else to run the command above.  
 
 ## How it works
