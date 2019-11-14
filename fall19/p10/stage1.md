@@ -1,46 +1,43 @@
 # Stage 1: The World Wide Web and World Wide Geography
 
 In this stage, you will write code to scrape some data from a webpage,
-save it in desired format, load the data to Pandas DataFrames,
+save it in json format, load the data to Pandas DataFrames,
 and answer various questions about the data.
 
-#### Question 1: what is the total area across all the countries in the dataset?
+#### Question 1: what is the total area across all the countries in our dataset?
 
-Write code to pull the data from here (do not manually download): https://tyler.caraza-harter.com/cs301/fall19/data/countries.json
+Write code to pull the data from here (do not manually download): https://raw.githubusercontent.com/tylerharter/caraza-harter-com/master/tyler/cs301/fall19/data/countries.json
 
-*Hint 1*: `pd.read_json(URL)` will return a DataFrame by downloading
- the JSON file from online at URL.  If the downloaded JSON contains a
- list of dictionaries, each dictionary will be a row in the DataFrame.
+Create a `download_countries()` function, which downloads the json file from the above url using `requests` module (requests.get() method) and then saves the `countries.json` file using json.dump() method. Make sure to call this function only once in your notebook.
+
+Then create a Dataframe from this file and calculate the total area.
+
+*Hint 1*: `pd.read_json(FILENAME)` will return a DataFrame by reading from
+ the JSON file.  If the file contains list of dictionaries, each dictionary will be a row in the DataFrame.
 
 *Hint 2*: review how to extract a single column as a Series from a
- DataFrame.  You can add all the values in a Series with the `.sum()`
+ DataFrame. You can add all the values in a Series with the `.sum()`
  method.
 
-Keep the DataFrame in a variable named `countries`.
+#### Question 2: How many countries do we have in our dataset?
 
-#### Question 2: How many capitals do we have in the world?
+----
 
-You need to write some code to scrape the data from [here](http://techslides.com/list-of-countries-and-capitals).
+Now, we will scrape some some data from here: http://techslides.com/list-of-countries-and-capitals
 It contains the table of all the countries and capitals with latitude and longitude in tabular format.
 Do not download the data using the csv or json file download link.
 You need to write the code to scrape the data from this table.
 Start by install `Beautiful Soup` and `requests` using pip.
 
-----
-Complete the following function:
 
-```python
-def get_capitals(url):
-    pass
-```
-
-Requirements for `get_capitals` function:
-* Download the html for the webpage using `requests` module.
-* Use beautiful soup to convert html text to soup. Find the table containing the data.
-* Find all the rows and columns in the table and save it in a dictionary.
-* Return the dictionary contains countries, capitals and location coordinate.
-* Filter and keep only those countries which are present in `countries` variable
-* You output should look something like this
+Create a `download_capitals()` function, which should do the following:
+* Download the html for the webpage using `requests` module (Hint: requests.get() method)
+* Use beautiful soup to convert html text to soup.
+* Find the table containing the data (Hint: .find() or .find_all() methods can be used).
+* Find all the rows in the table (Note: rows are inside 'tr' html tag and data is in 'td' tag).
+* Create a dictionary containing country name, capital and location coordinate. Create a list of dictionaries for all the countries.
+<!-- * We only want those rows which are also present in `countries` variable. You need to filter and keep only such countries in our list. -->
+* Save this list into file titled `capitals.json`. You can use json.dump() method. You file should look something like this.
 
 ```
 [
@@ -67,18 +64,31 @@ Requirements for `get_capitals` function:
   .
 ]
 ```
-Save your list of capitals in a named `capital_rows`. Number of capitals would be the length of this capitals list. Return `len(capitals_row)` in your notebook.
+----
+Now that we have completed our `download_countries()` and `download_capitals()` function, we want to make sure that we only download the data once and not every time we run the notebook. For this, we will provide you with the code of some basic caching. Copy paste the following code into your notebook. Use only `get_json()` function to read json file and do not call `download_countries()` or `download_capitals()` anywhere else in your notebook.
+
+```python
+def get_json(filename):
+  if not os.path.exists(filename):
+    if (filename=='countries.json'):
+      download_countries()
+    if (filename=='capitals.json'):
+      download_capitals()
+
+  with open(filename) as json_file:
+    data = json.load(json_file)
+  return data
+```
+
+
+#### Question 3: How many capitals do we have in the world?
+
+Load the list of capitals in a variable named `capital_rows` using `get_json("capitals.json")`. Number of capitals would be the length of this capitals list. Return `len(capital_rows)` in your notebook.
 
 ----
+You should note that we have more countries in our scraped dataset than our countries.json file. This is a common problem that data analysts face when we try to use two different datasets. Lets remove extra countries in our scraped dataset and make sure `capital_rows` only contains countries that are also in `countries.json` before you move to the next questoins.
 
-#### Question 3: what is `capital_rows`?
-
-----
-
-Create a DataFrame with `capitals = DataFrame(capital_rows)`.  Use
-`capitals` and `countries` to answer the following questions.
-
-----
+Create a DataFrame with `capitals = DataFrame(capital_rows)`. Use `capitals` and `countries` to answer the following questions.
 
 #### Question 4: what is the capital of Bermuda?
 
