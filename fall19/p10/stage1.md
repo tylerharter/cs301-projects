@@ -4,22 +4,32 @@ In this stage, you will write code to scrape some data from a webpage,
 save it in json format, load the data to Pandas DataFrames,
 and answer various questions about the data.
 
-#### Question 1: what is the total area across all the countries in our dataset?
+#### Question 1: How many countries do we have in our dataset?
+
 
 Write code to pull the data from here (do not manually download): https://raw.githubusercontent.com/tylerharter/caraza-harter-com/master/tyler/cs301/fall19/data/countries.json
 
-Create a `download_countries()` function, which downloads the json file from the above url using `requests` module (requests.get() method) and then saves the `countries.json` file using json.dump() method. Make sure to call this function only once in your notebook.
+Create a `download_countries()` function. We gave you a small snippet to start. It returns None, if the file 'country.json' already exists. This makes sure that we only download the file once and not every time we call `download_countries()`.
 
-Then create a Dataframe from this file and calculate the total area.
+```python
+def download_countries():
+  if os.path.exists('countries.json'):
+    return None
 
-*Hint 1*: `pd.read_json(FILENAME)` will return a DataFrame by reading from
+  # TODO: add the code here
+  pass
+```
+
+Once you have downloaded the file, create a Dataframe `countries` from this file and calculate the number of countries
+
+*Hint*: `pd.read_json('countries.json')` will return a DataFrame by reading from
  the JSON file.  If the file contains list of dictionaries, each dictionary will be a row in the DataFrame.
 
-*Hint 2*: review how to extract a single column as a Series from a
+#### Question 2: what is the total area across all the countries in our dataset?
+
+*Hint*: review how to extract a single column as a Series from a
  DataFrame. You can add all the values in a Series with the `.sum()`
  method.
-
-#### Question 2: How many countries do we have in our dataset?
 
 ----
 
@@ -30,13 +40,14 @@ You need to write the code to scrape the data from this table.
 Start by install `Beautiful Soup` and `requests` using pip.
 
 
-Create a `download_capitals()` function, which should do the following:
-* Download the html for the webpage using `requests` module (Hint: requests.get() method)
+Create a `download_capitals()` function, similar to above, which should do the following:
+* If 'capitals.json' exits already, then return None (we dont want to download again)
+* Download the html for the webpage using `requests` module. (Hint: requests.get() method)
 * Use beautiful soup to convert html text to soup.
 * Find the table containing the data (Hint: .find() or .find_all() methods can be used).
 * Find all the rows in the table (Note: rows are inside 'tr' html tag and data is in 'td' tag).
 * Create a dictionary containing country name, capital and location coordinate. Create a list of dictionaries for all the countries.
-<!-- * We only want those rows which are also present in `countries` variable. You need to filter and keep only such countries in our list. -->
+* We only want those rows which are also present in `countries` variable. You need to filter and keep only such countries in our list.
 * Save this list into file titled `capitals.json`. You can use json.dump() method. You file should look something like this.
 
 ```
@@ -64,31 +75,14 @@ Create a `download_capitals()` function, which should do the following:
   .
 ]
 ```
-----
-Now that we have completed our `download_countries()` and `download_capitals()` function, we want to make sure that we only download the data once and not every time we run the notebook. For this, we will provide you with the code of some basic caching. Copy paste the following code into your notebook. Use only `get_json()` function to read json file and do not call `download_countries()` or `download_capitals()` anywhere else in your notebook.
 
-```python
-def get_json(filename):
-  if not os.path.exists(filename):
-    if (filename=='countries.json'):
-      download_countries()
-    if (filename=='capitals.json'):
-      download_capitals()
+Load the list of capitals in a variable named `capital_rows` using json.load() method.
 
-  with open(filename) as json_file:
-    data = json.load(json_file)
-  return data
-```
-
-
-#### Question 3: How many capitals do we have in the world?
-
-Load the list of capitals in a variable named `capital_rows` using `get_json("capitals.json")`. Number of capitals would be the length of this capitals list. Return `len(capital_rows)` in your notebook.
+#### Question 3: What is `capital_rows`?
 
 ----
-You should note that we have more countries in our scraped dataset than our countries.json file. This is a common problem that data analysts face when we try to use two different datasets. Lets remove extra countries in our scraped dataset and make sure `capital_rows` only contains countries that are also in `countries.json` before you move to the next questoins.
 
-Create a DataFrame with `capitals = DataFrame(capital_rows)`. Use `capitals` and `countries` to answer the following questions.
+Create a DataFrame with `capitals = DataFrame(capital_rows)`. Use `capitals` and `countries` dataframe to answer the following questions.
 
 #### Question 4: what is the capital of Bermuda?
 
