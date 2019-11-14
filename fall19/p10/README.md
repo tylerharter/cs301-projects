@@ -27,7 +27,7 @@ Open the link and look though the table.
 
 You should also look here and get familiar with the data:
 
-* https://tyler.caraza-harter.com/cs301/spring19/data/countries.json
+* https://raw.githubusercontent.com/tylerharter/caraza-harter-com/master/tyler/cs301/fall19/data/countries.json
 
 Some of the columns require a little extra explanation:
 * area: measured in square miles
