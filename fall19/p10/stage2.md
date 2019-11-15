@@ -26,7 +26,7 @@ Look at the `Question 21` table in `expected.html`.  Your answer
 should be a DataFrame with the same rows and columns.  It should look
 like this:
 
-<img src="imgs/2-21.jpg" width="300">
+<img src="imgs/2-21.PNG" width="300">
 
 Requirements:
 * use a GROUP BY query in SQL
@@ -47,7 +47,7 @@ x-axis in ascending order by the number of countries and then alphabetically by 
 
 **Expected output:**
 
-<img src="imgs/2-22.png" width="400">
+<img src="imgs/2-22.PNG" width="400">
 
 #### Question 23: What is the total population of each continent?
 
@@ -58,7 +58,7 @@ column `total population (million)`.
 
 **Expected output:**
 
-<img src="imgs/2-23.jpg" width="300">
+<img src="imgs/2-23.PNG" width="300">
 
 #### Question 24: What is the total population of each continent? (answer with a plot)
 
@@ -68,7 +68,7 @@ x-axis in *descending* order of total population.
 
 **Expected output:**
 
-<img src="imgs/2-24.png" width="400">
+<img src="imgs/2-24.PNG" width="400">
 
 #### Question 25: What is the population of each country in South America?
 
@@ -76,7 +76,7 @@ You should display the `country` name and `population` of the countries. The res
 
 **Expected output:**
 
-<img src="imgs/2-25.jpg" width="300">
+<img src="imgs/2-25.PNG" width="200">
 
 #### Question 26: What are the top 10 countries that have the largest real GDP?
 
@@ -87,7 +87,7 @@ Hint: `real GDP = population * gdp-per-capita`
 
 **Expected output:**
 
-<img src="imgs/2-26.jpg" width="300">
+<img src="imgs/2-26.PNG" width="300">
 
 #### Question 27: What are the top 10 countries that have the largest real GDP? (answer with a plot)
 
@@ -95,7 +95,7 @@ To make the problem more interesting, answer with a **pie chart**.
 
 **Expected output:**
 
-<img src="imgs/2-27.png" width="400">
+<img src="imgs/2-27.PNG" width="400">
 
 #### Question 28: What are the top 15 countries that have the largest gap between birth rate and death rate?
 
@@ -103,7 +103,7 @@ You should display the `country` name, `birth-rate`, and `death-rate` of the top
 
 **Expected output:**
 
-<img src="imgs/2-28.jpg" width="300">
+<img src="imgs/2-28.PNG" width="200">
 
 #### Question 29: What are the top 15 countries that have the largest gap between birth rate and death rate? (answer with a plot)
 
@@ -111,7 +111,7 @@ Answer with a **horizontal bar plot**. Put countries on the x-axis and `birth-ra
 
 **Expected output:**
 
-<img src="imgs/2-29.png" width="400">
+<img src="imgs/2-29.PNG" width="400">
 
 #### Question 30: What is the relationship between death rates and birth rates? (answer with a plot)
 
@@ -119,13 +119,13 @@ Answer with a **scatter plot** with `death-rate` on the x-axis and `birth-rate` 
 
 **Expected output:**
 
-<img src="imgs/2-30.png" width="400">
+<img src="imgs/2-30.PNG" width="400">
 
 #### Question 31: Did you notice the six outliers? Which countries are they?
 
 These are the points:
 
-<img src="imgs/2-31-2.jpg" width="300">
+<img src="imgs/2-31-2.PNG" width="300">
 
 Write a query with to grab rows corresponding roughly to that
 rectangle to get the points.  In the output, `death-rate` should be
@@ -133,7 +133,7 @@ sorted low to high.
 
 **Expected output:**
 
-<img src="imgs/2-31.jpg" width="300">
+<img src="imgs/2-31-1.PNG" width="300">
 
 #### Question 32: What is the correlation between death rates and birth rates?
 
@@ -149,7 +149,7 @@ Answer with a **scatter plot** with `gdp-per-capita` on the x-axis and `phones` 
 
 **Expected output:**
 
-<img src="imgs/2-33.png" width="400">
+<img src="imgs/2-33.PNG" width="400">
 
 #### Question 34: What is the correlation between GDP per capita and number of phones per capita?
 
@@ -165,14 +165,14 @@ Answer with a **scatter plot** with `literacy` on the x-axis and `gdp-per-capita
 
 **Expected output:**
 
-<img src="imgs/2-35.png" width="400">
+<img src="imgs/2-35.PNG" width="400">
 
 #### Question 36: What is the relationship between GDP per capita and death rates?:
 Answer with a **scatter plot** with `gdp-per-capita` on the x-axis and `death-rate` on the y-axis.
 
 **Expected output:**
 
-<img src="imgs/2-36.png" width="400">
+<img src="imgs/2-36.PNG" width="400">
 
 #### Question 37: What is the relationship between GDP per capita and birth rates?
 
@@ -180,7 +180,7 @@ Answer with a **scatter plot** with `gdp-per-capita` on the x-axis and `birth-ra
 
 **Expected output:**
 
-<img src="imgs/2-37.png" width="400">
+<img src="imgs/2-37.PNG" width="400">
 
 #### Question 38: What is the relationship between GDP per capita and the inverse of birth rates?
 
@@ -190,7 +190,7 @@ Hint: `inverse birth rate` is defined as `1 / birth-rate`
 
 **Expected output:**
 
-<img src="imgs/2-38.png" width="400">
+<img src="imgs/2-38.PNG" width="400">
 
 #### Question 39: fit a `y = m * x + n` line to the scatter plot in question 38 using the least-squares method; what are the coefficients m and n?
 
@@ -230,4 +230,4 @@ To visualize how well the regression line fit the scatter points, draw a fit lin
 
 **Expected output:**
 
-<img src="imgs/2-40.png" width="400">
+<img src="imgs/2-40.PNG" width="400">

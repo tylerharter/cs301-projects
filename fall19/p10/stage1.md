@@ -16,7 +16,7 @@ Once you have created the file, create a Dataframe `countries` from this file
 
  Before you proceed, make sure that `countries.head()` displays the following:
 
- <img src="imgs/1-1.png" width="700">
+ <img src="imgs/1-1.png" width="1000">
 
 #### Question 1: How many countries do we have in our dataset?
 
@@ -47,7 +47,8 @@ Create a `get_capitals()` function, similar to above, which should do the follow
 
 Create a DataFrame named `capitals` from this file. Before you proceed, make sure that `capitals.head()` displays the following:
 
-<img src="imgs/1-2.png" width="700">
+<img src="imgs/1-2.PNG" width="300">
+
 ----
 
  Use `capitals` and `countries` dataframes to answer the following questions.
