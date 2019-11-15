@@ -95,7 +95,7 @@ To make the problem more interesting, answer with a **pie chart**.
 
 **Expected output:**
 
-<img src="imgs/2-27.PNG" width="400">
+<img src="imgs/2-27.PNG" width="300">
 
 #### Question 28: What are the top 15 countries that have the largest gap between birth rate and death rate?
 
@@ -103,7 +103,7 @@ You should display the `country` name, `birth-rate`, and `death-rate` of the top
 
 **Expected output:**
 
-<img src="imgs/2-28.PNG" width="200">
+<img src="imgs/2-28.PNG" width="300">
 
 #### Question 29: What are the top 15 countries that have the largest gap between birth rate and death rate? (answer with a plot)
 
@@ -111,7 +111,7 @@ Answer with a **horizontal bar plot**. Put countries on the x-axis and `birth-ra
 
 **Expected output:**
 
-<img src="imgs/2-29.PNG" width="400">
+<img src="imgs/2-29.PNG" width="500">
 
 #### Question 30: What is the relationship between death rates and birth rates? (answer with a plot)
 
@@ -125,7 +125,7 @@ Answer with a **scatter plot** with `death-rate` on the x-axis and `birth-rate` 
 
 These are the points:
 
-<img src="imgs/2-31-2.PNG" width="300">
+<img src="imgs/2-31-2.PNG" width="400">
 
 Write a query with to grab rows corresponding roughly to that
 rectangle to get the points.  In the output, `death-rate` should be
