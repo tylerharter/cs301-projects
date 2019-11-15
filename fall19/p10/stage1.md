@@ -4,30 +4,25 @@ In this stage, you will write code to scrape some data from a webpage,
 save it in json format, load the data to Pandas DataFrames,
 and answer various questions about the data.
 
-#### Question 1: How many countries do we have in our dataset?
+Use the `retrieve()` function from Lab 10a to pull the data from here (do not manually download): https://raw.githubusercontent.com/tylerharter/caraza-harter-com/master/tyler/cs301/fall19/data/countries.json
+**Warning**: If you do not use `retrieve()` to fetch the data or if you fetch the data more than once, you will lose points.
 
+Create a `get_countries()` function to convert the retrieved data into a list of dictionaries and dump it into the file `countries.json`.
 
-Write code to pull the data from here (do not manually download): https://raw.githubusercontent.com/tylerharter/caraza-harter-com/master/tyler/cs301/fall19/data/countries.json
-
-Create a `download_countries()` function. We gave you a small snippet to start. It returns None, if the file 'country.json' already exists. This makes sure that we only download the file once and not every time we call `download_countries()`.
-
-```python
-def download_countries():
-  if os.path.exists('countries.json'):
-    return None
-
-  # TODO: add the code here
-  pass
-```
-
-Once you have downloaded the file, create a Dataframe `countries` from this file and calculate the number of countries
+Once you have created the file, create a Dataframe `countries` from this file
 
 *Hint*: `pd.read_json('countries.json')` will return a DataFrame by reading from
- the JSON file.  If the file contains list of dictionaries, each dictionary will be a row in the DataFrame.
+ the JSON file. If the file contains list of dictionaries, each dictionary will be a row in the DataFrame.
+
+ Before you proceed, make sure that `countries.head()` displays the following:
+
+ <img src="imgs/1-1.png" width="700">
+
+#### Question 1: How many countries do we have in our dataset?
 
 #### Question 2: what is the total area across all the countries in our dataset?
 
-*Hint*: review how to extract a single column as a Series from a
+*Hint*: Review how to extract a single column as a Series from a
  DataFrame. You can add all the values in a Series with the `.sum()`
  method.
 
@@ -39,87 +34,55 @@ Do not download the data using the csv or json file download link.
 You need to write the code to scrape the data from this table.
 Start by install `Beautiful Soup` and `requests` using pip.
 
+Once again, use `retrieve()` to fetch the data, and then use Beautiful Soup to parse it.
 
-Create a `download_capitals()` function, similar to above, which should do the following:
-* If 'capitals.json' exits already, then return None (we dont want to download again)
-* Download the html for the webpage using `requests` module. (Hint: requests.get() method)
-* Use beautiful soup to convert html text to soup.
+
+Create a `get_capitals()` function, similar to above, which should do the following:
+* Use beautiful soup to convert the html text to soup.
 * Find the table containing the data (Hint: .find() or .find_all() methods can be used).
 * Find all the rows in the table (Note: rows are inside 'tr' html tag and data is in 'td' tag).
 * Create a dictionary containing country name, capital and location coordinate. Create a list of dictionaries for all the countries.
-* We only want those rows which are also present in `countries` variable. You need to filter and keep only such countries in our list.
+* This web page has more countries than `countries.json`. We will ignore the countries that are not in that file. You need to filter and keep only the countries whose names appear in `countries.json`.
 * Save this list into file titled `capitals.json`. You can use json.dump() method. You file should look something like this.
 
-```
-[
-  {
-    "capital": "Brasilia",
-    "country": "Brazil",
-    "latitude": -15.783333333333333,
-    "longitude": -47.916667
-  },
-  {
-    "capital": "Nouakchott",
-    "country": "Mauritania",
-    "latitude": 18.066666666666666,
-    "longitude": -15.966667000000001
-  },
-  {
-    "capital": "Bern",
-    "country": "Switzerland",
-    "latitude": 46.91666666666666,
-    "longitude": 7.466667
-  },
-  .
-  .
-  .
-]
-```
+Create a DataFrame named `capitals` from this file. Before you proceed, make sure that `capitals.head()` displays the following:
 
-Load the list of capitals in a variable named `capital_rows` using json.load() method.
-
-#### Question 3: What is `capital_rows`?
-
+<img src="imgs/1-2.png" width="700">
 ----
 
-Create a DataFrame with `capitals = DataFrame(capital_rows)`. Use `capitals` and `countries` dataframe to answer the following questions.
+ Use `capitals` and `countries` dataframes to answer the following questions.
 
-#### Question 4: what is the capital of Bermuda?
+#### Question 3: List the countries in `capitals.json`.
 
-Now we can begin to answer more complex questions using our newly constructed DataFrame.
-
-Our first task will be determining the capital of Bermuda.
-
+#### Question 4: What is the capital of Cuba?
 
 *Hint*: you can use fancy indexing to extract the row where the
- `Country` equals "China".  Then, extract the `Capital` Series, from
- which you can grab the only value with the
- [Series.item()](https://pandas.pydata.org/pandas-docs/stable/generated/pandas.Series.item.html)
- function.
+ `country` equals "Cuba".  Then, extract the `capital` Series, from
+ which you can grab the only value using next(iter(...))
 
-#### Question 5: Which country's capital is Maputo?
+#### Question 5: Which country's capital is Tbilisi?
 
-#### Question 6: which 5 countries have the southern-most capitals?
+#### Question 6: Which 7 countries have the southern-most capitals?
 
-Produce a Python list of the 5, with southernmost first.
+Produce a Python list of the 7, with southernmost first.
 
 *Hint*: look at the documentation examples of how to sort a
  DataFrame with the
  [sort_values](https://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.sort_values.html)
  function.
 
-#### Question 7: which 3 countries have the northern-most capitals?
+#### Question 7: Which 5 countries have the northern-most capitals?
 
-#### Question 8: for "birth-rate" and "death-rate", what are various summary statistics (e.g., mean, max, standard deviation, etc)?
+#### Question 8: For `birth-rate` and `death-rate`, what are various summary statistics (e.g., mean, max, standard deviation, etc)?
 
 *Format*: use the
  [describe](https://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.describe.html)
  function on a DataFrame that contains `birth-rate` and `death-rate`
- columns.  You may include summary statistics for other columns in
+ columns. You may include summary statistics for other columns in
  your output, as long as your summary table has stats for birth and
  death.
 
-#### Question 9: for columns `literacy` and `phones`, what are various summary statistics?
+#### Question 9: For columns `literacy` and `phones`, what are various summary statistics?
 
 *Format*: a table generated by the `describe` function.
 
@@ -137,46 +100,43 @@ In [some
  [replace](https://pandas.pydata.org/pandas-docs/stable/generated/pandas.Series.str.replace.html)
  Pandas functions.
 
-#### Question 10: what is the largest land-locked country in Europe?
+#### Question 10: What is the largest land-locked country in Europe?
 
-A "land-locked" country is one that has zero coastline.  Largest is in terms of **area**.
+A "land-locked" country is one that has zero coastline. Largest is in terms of **area**.
 
-#### Question 11: what is the largest land-locked country in Africa?
+#### Question 11: What is the largest land-locked country in Asia?
 
-#### Question 12: what is the largest land-locked country in South America?
+#### Question 12: What is the most populous land-locked country in Asia?
 
-#### Question 13: what is the distance between Camp Randall Stadium and the Wisconsin State Capital?
+#### Question 13: What is the distance between Camp Randall Stadium and the Wisconsin State Capital?
 
 This isn't related to countries, but it's a good warmup for the next
-problems.  Your answer should be about 1.433899492072933 miles.
+problems.  Your answer should be about 1.4339 miles.
 
 Assumptions:
-* the latitude/longitude of Randall Stadium is 43.070231,-89.411893
-* the latitude/longitude of the Wisconsin Capital is 43.074645,-89.384113
-* use the Haversine formula: [http://www.movable-type.co.uk/scripts/gis-faq-5.1.html](http://www.movable-type.co.uk/scripts/gis-faq-5.1.html)
-* the radius of the earth is 3956 miles
-* answer in miles
+* The latitude/longitude of Randall Stadium is 43.070231,-89.411893
+* The latitude/longitude of the Wisconsin Capital is 43.074645,-89.384113
+* Use the Haversine formula: [http://www.movable-type.co.uk/scripts/gis-faq-5.1.html](http://www.movable-type.co.uk/scripts/gis-faq-5.1.html)
+* The radius of the earth is 3956 miles
+* You should answer in miles
 
 If you find code online that computes the Haversine distance for you,
-great!  You are allowed to use it as long as (1) it works and (2) you
-cite the source with a comment.  Note that we won't help you
+great! You are allowed to use it as long as (1) it works and (2) you
+cite the source with a comment. Note that we won't help you
 troubleshoot Haversine functions you didn't write yourself during
 office hours, so if you want help, you should start from scratch on
 this one.
 
 If you decide to implement it yourself (it's fun!), here are some tips:
-* review the formula: [http://www.movable-type.co.uk/scripts/gis-faq-5.1.html](http://www.movable-type.co.uk/scripts/gis-faq-5.1.html)
-* remember that latitude and longitude are in degrees, but sin, cos, and other Python math functions usually expect radians.  Consider [math.radians](https://docs.python.org/3/library/math.html#math.radians)
+* Review the formula: [http://www.movable-type.co.uk/scripts/gis-faq-5.1.html](http://www.movable-type.co.uk/scripts/gis-faq-5.1.html)
+* Remember that latitude and longitude are in degrees, but sin, cos, and other Python math functions usually expect radians.  Consider [math.radians](https://docs.python.org/3/library/math.html#math.radians)
 * This means that before you do anything with the long and latitudes make sure to convert them to radians as your FIRST STEP
-* people often use x^N to mean x raised to the Nth power.  Make sure you write it as x**N in Python.
 
-
-
-#### Question 14: what is the distance between India and Brazil?
+#### Question 14: What is the distance between France and Japan?
 
 For the coordinates of a country, use its capital.
 
-#### Question 15: What are the distances between Chile, Guyana, and Colombia?
+#### Question 15: What are the distances between Guam, New Zealand, and Australia?
 
 Your result should be DataFrame with 3 rows (for each country) and 3
 columns (again for each country).  The value in each cell should be
@@ -186,7 +146,7 @@ column. For a general idea of what this should look like, open the
 between a country and itself, the table should should NaN (instead of
 0).
 
-#### Question 16: what is the distance between every pair of South American countries?
+#### Question 16: What is the distance between every pair of countries in the Australian continent?
 
 Your result should be a table with 12 rows (for each country) and 12
 columns (again for each country).  The value in each cell should be
@@ -196,25 +156,24 @@ expected.html file you downloaded.  When displaying the distance
 between a country and itself, the table should should NaN (instead of
 0).
 
-#### Question 17: what is the most central South American country?
+#### Question 17: What is the most central country in the Australian continent?
 
-This is the country that has the shortest average distance to other
-South American countries.
+This is the country that has the shortest average distance to other countries in Australia.
 
-*Hint 1*: check out the following Pandas functions:
+*Hint 1*: Check out the following Pandas functions:
 * [DataFrame.mean](https://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.mean.html)
 * [Series.sort_values](https://pandas.pydata.org/pandas-docs/stable/generated/pandas.Series.sort_values.html) (note this is not the same as the DataFrame.sort_values function you've used before)
 
-*Hint 2*: a Pandas Series contains indexed values.  If you have a
+*Hint 2*: A Pandas Series contains indexed values. If you have a
  Series `s` and you want just the values, you can use `s.values`; if
- you want just the index, you can use `s.index`.  Both of these
+ you want just the index, you can use `s.index`. Both of these
  objects can readily be converted to lists.
 
-#### Question 18: What is the least central South American country?
+#### Question 18: What is the least central country in Australia?
 
 This one has the largest average distance to other countries.
 
-#### Question 19: how close is each country in South America to it's nearest neighbor?
+#### Question 19: How close is each country in Australia to it's nearest neighbor?
 
 The answer should be in a table with countries as the index and two
 columns: `nearest` will contain the name of the nearest country and
@@ -233,8 +192,8 @@ columns: `nearest` will contain the name of the nearest country and
  minimum values.  If you run `df.idxmin()` on a DataFrame, the
  returned values contain indexes from the DataFrame.
 
- #### Question 20: how far is each country in South America to it's furthest neighbor?
+#### Question 20: How far is each country in Australia to it's furthest neighbor?
 
  The answer should be in a table with countries as the index and two
  columns: `furthest` will contain the name of the furthest country and
- `distance` will contain the distance to that nearest country
+ `distance` will contain the distance to that furthest country.
