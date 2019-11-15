@@ -4,10 +4,10 @@ In this stage, you will write code to scrape some data from a webpage,
 save it in json format, load the data to Pandas DataFrames,
 and answer various questions about the data.
 
-Use the `retrieve()` function from Lab 10a to pull the data from here (do not manually download): https://raw.githubusercontent.com/tylerharter/caraza-harter-com/master/tyler/cs301/fall19/data/countries.json
-**Warning**: If you do not use `retrieve()` to fetch the data or if you fetch the data more than once, you will lose points.
+Use the `download` function from Lab 10a to pull the data from here (do not manually download): https://raw.githubusercontent.com/tylerharter/caraza-harter-com/master/tyler/cs301/fall19/data/countries.json
+and store it in `countries.json`.
 
-Create a `get_countries()` function to convert the retrieved data into a list of dictionaries and dump it into the file `countries.json`.
+**Warning**: Make sure your `download` function does not download the file if it already exists. The TAs will manually deduct points otherwise.
 
 Once you have created the file, create a Dataframe `countries` from this file
 
@@ -32,13 +32,13 @@ Now, we will scrape some some data from here: http://techslides.com/list-of-coun
 It contains the table of all the countries and capitals with latitude and longitude in tabular format.
 Do not download the data using the csv or json file download link.
 You need to write the code to scrape the data from this table.
-Start by install `Beautiful Soup` and `requests` using pip.
+Start by install `Beautiful Soup` using pip.
 
-Once again, use `retrieve()` to fetch the data, and then use Beautiful Soup to parse it.
+First, call `download('capitals.html', 'http://techslides.com/list-of-countries-and-capitals')` to download the webpage. You can open `capitals.html`
+and make sure that this page looks fine.
 
-
-Create a `get_capitals()` function, similar to above, which should do the following:
-* Use beautiful soup to convert the html text to soup.
+Now do the following:
+* Read from `capitals.html` and use beautiful soup to convert the html text to soup.
 * Find the table containing the data (Hint: .find() or .find_all() methods can be used).
 * Find all the rows in the table (Note: rows are inside 'tr' html tag and data is in 'td' tag).
 * Create a dictionary containing country name, capital and location coordinate. Create a list of dictionaries for all the countries.
@@ -153,7 +153,7 @@ Your result should be a table with 12 rows (for each country) and 12
 columns (again for each country).  The value in each cell should be
 the distance between the country of the row and the country of the
 column.  For a general idea of what this should look like, open the
-expected.html file you downloaded.  When displaying the distance
+`expected.html` file you downloaded.  When displaying the distance
 between a country and itself, the table should should NaN (instead of
 0).
 
