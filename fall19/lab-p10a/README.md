@@ -120,10 +120,6 @@ also save it on your computer.  If you need to view the same page
 again soon, your browser may use the file on your computer instead of
 re-fetching the original.  This technique is called caching.
 
-You'll program a simple caching technique when you implement the
-`get_json` function for P10.
-
-
 ## Implementing Caching
 
 We will now implement a `download` function with caching.
@@ -141,6 +137,11 @@ def download(filename, url):
 
 Now call `download("hello.html", "https://tyler.caraza-harter.com/hello.html")`.
 You should be able to see `hello.html` in your Explorer/Finder.
+
+### Relevance to P10
+
+You will have to use this `download` function to download files during P10. This will ensure
+that you do not download the files multiple times.
 
 ## Creating DataFrames
 
@@ -199,14 +200,3 @@ inner dicts will be the index of the DataFrame.  Try it!
 DataFrame({"x":{"A":1,"B":3},
            "y":{"A":2,"B":4}})
 ```
-
-### Relevance to P10
-
-In question 3 of stage 1, you'll construct a list of dicts for the
-purposes of creating a DataFrame with country details.
-
-For questions 15 and 16 in stage 1, the easiest way to create the
-DataFrame is probably from a dict of dicts (option 4).  You might
-build this nested dict structure (perhaps named `dist`) such that
-`dist[country1][country2]` is the distance between `country1` and
-`country2`.
