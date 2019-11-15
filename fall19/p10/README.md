@@ -1,9 +1,9 @@
-## Under Development, do not start working on P10 yet.
-
-# Project 10: Geography, and the World Wide Web
+# Project 10: Geography, and the World Wide Web (Under Construction)
 
 ## Clarifications/Corrections
-None yet.
+
+* None yet!
+
 ## Introduction
 
 For your final CS 301 project, you're going to analyze the whole
@@ -20,14 +20,14 @@ automatically).  You'll do all your work in a `main.ipynb`.
 # Data
 
 For this project, you'll be using one large JSON file with statistics
-about 174 countries. This is not the complete dataset for our task and hence,
-you will be also be collecting additional data from
-[here](http://techslides.com/list-of-countries-and-capitals).
-Open the link and look though the table.
+about 174 countries adapted from
+[here](https://www.kaggle.com/fernandol/countries-of-the-world).
+and you will also fetch data directly from
+[here](http://techslides.com/list-of-countries-and-capitals)
 
-You should also look here and get familiar with the data:
-
+First check these resources:
 * https://raw.githubusercontent.com/tylerharter/caraza-harter-com/master/tyler/cs301/fall19/data/countries.json
+* http://techslides.com/list-of-countries-and-capitals
 
 Some of the columns require a little extra explanation:
 * area: measured in square miles
@@ -49,7 +49,7 @@ doesn't care about the order of the rows or columns.  However, you
 must have the correct values at each index/column location shown in
 `expected.html`.
 
-For P10, `test.py` is pickier than it has been.  In addition to
+For P10, `test.py` is pickier than it has been. In addition to
 checking for incorrect answers, it will also check for a few common
 kinds of bad coding style.  You should look for these at the bottom of
 the output:
@@ -68,7 +68,7 @@ cases, you should consider whether the auto-generated tips apply to
 you or not.  For example, consider this one:
 
 ```
-q40: Consider using more descriptive variable names. You used : 'm'.
+q39: Consider using more descriptive variable names. You used : 'm'.
 ```
 
 It's not good to have too many one-letter variables (it often makes it
