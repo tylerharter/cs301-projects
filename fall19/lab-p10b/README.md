@@ -1,3 +1,5 @@
+# DON'T START YET (under revision)
+
 # Lab 10b: Fit Lines
 
 In this lab, you'll learn three things:

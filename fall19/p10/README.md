@@ -1,3 +1,5 @@
+# DON'T START YET (under revision)
+
 # Project 10: Geography, and the World Wide Web (Under Construction)
 
 ## Clarifications/Corrections
