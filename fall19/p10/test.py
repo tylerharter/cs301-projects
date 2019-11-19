@@ -542,9 +542,10 @@ def main():
     passing = sum(t['weight'] for t in results['tests'] if t['result'] == PASS)
     total = sum(t['weight'] for t in results['tests'])
 
-    lint_msgs = lint(orig_notebook, verbosity=1, show=False)
-    lint_msgs = filter(lambda msg: msg in ALLOWED_LINT_ERRS, lint_msgs)
+    lint_msgs = lint(orig_notebook, verbose=1, show=False)
+    lint_msgs = filter(lambda msg: msg not in ALLOWED_LINT_ERRS, lint_msgs)
     lint_msgs = list(lint_msgs)
+    results["lint"] = [str(l) for l in lint_msgs]
 
     functionality_score = 90.0 * passing / total
     linting_score = max(0.0, 10.0-len(lint_msgs))
@@ -554,14 +555,15 @@ def main():
     for test in results["tests"]:
         print("  Question %d: %s" % (test["test"], test["result"]))
 
-    msg_types = defaultdict(list)
-    for msg in lint_msgs:
-        msg_types[msg.category].append(msg)
-    print("\n Linting Summary:")
-    for msg_type, msgs in msg_types.items():
-        print('  ' + msg_type.title() + ' Messages:')
-        for msg in msgs:
-            print('   ', msg)
+    if len(lint_msgs) > 0:
+        msg_types = defaultdict(list)
+        for msg in lint_msgs:
+            msg_types[msg.category].append(msg)
+        print("\nLinting Summary:")
+        for msg_type, msgs in msg_types.items():
+            print('  ' + msg_type.title() + ' Messages:')
+            for msg in msgs:
+                print('    ' + str(msg))
 
     print('\nTOTAL SCORE: %.2f%%' % results['score'])
     with open('result.json', 'w') as f:
