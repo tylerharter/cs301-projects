@@ -2,18 +2,47 @@
 
 import json
 import os
-import subprocess
 import sys
-import importlib
-import inspect
-import traceback
 import re, ast, math
 from collections import namedtuple, OrderedDict, defaultdict
-from functools import wraps
 from bs4 import BeautifulSoup
 from datetime import datetime
 import nbconvert
 import nbformat
+
+try:
+    from lint import lint
+except ImportError:
+    err_msg = """Please download lint.py and place it in this directory for 
+    the tests to run correctly. If you haven't yet looked at the linting module, 
+    it is designed to help you improve your code so take a look at: 
+    https://github.com/tylerharter/cs301-projects/tree/master/linter"""
+    raise FileNotFoundError(err_msg)
+
+ALLOWED_LINT_ERRS = {
+  "W0703": "broad-except",
+  "R1716": "chained-comparison",
+  "E0601": "used-before-assignment",
+  "W0105": "pointless-string-statement",
+  "E1135": "unsupported-membership-test",
+  "R1711": "useless-return",
+  "E0001": "syntax-error",
+  "W0143": "comparison-with-callable",
+  "E1102": "not-callable",
+  "W0107": "unnecessary-pass",
+  "W0301": "unnecessary-semicolon",
+  "W0404": "reimported",
+  "W0101": "unreachable",
+  "R1714": "consider-using-in",
+  "W0311": "bad-indentation",
+  "E0102": "function-redefined",
+  "E0602": "undefined-variable",
+  "W0104": "pointless-statement",
+  "W0622": "redefined-builtin",
+  "W0702": "bare-except",
+  "R1703": "simplifiable-if-statement",
+  "W0631": "undefined-loop-variable",
+}
 
 PASS = 'PASS'
 FAIL_STDERR = 'Program produced an error - please scroll up for more details.'
@@ -306,93 +335,6 @@ def extract_question_num(cell):
             return int(m.group(1))
     return None
 
-import ast
-from collections import defaultdict, namedtuple
-
-import ast
-from collections import defaultdict, namedtuple
-
-class Linter(ast.NodeVisitor):
-    def __init__(self, suppressed=None):
-        self.warn = namedtuple('WARN', 'name msg')
-        self.forbidden_names = {"set", "list", "dict"}
-        self.warnings = defaultdict(list)
-        self.suppressed = suppressed if suppressed else []
-        self.func_names = []
-
-    def is_severe(self):
-        for severe_name in ("repeated_function", "keyword_names", "unnnecessary_true"):
-            for warning in self.warnings:
-                if warning.name == severe_name:
-                    return True
-        return False
-
-    def show_warnings(self):
-        for warning, linenos in self.warnings.items():
-            if warning.name in self.suppressed:
-                continue
-            if len(linenos) == 1:
-                print("LINE %s : %s" % (linenos[0], warning.msg))
-            else:
-                print("LINES %s : %s" % (", ".join(map(str, linenos)), warning.msg))
-
-    def register_warning(self, warning_name, warning_msg, lineno):
-        w = self.warn(warning_name, warning_msg)
-        self.warnings[w].append(lineno)
-
-    def visit_FunctionDef(self, node):
-        # repeated names
-        if node.name in self.func_names:
-            self.register_warning("repeated_function",
-                    "The function %s has more than one definition. Avoid reusing function names" % node.name,
-                    node.lineno)
-        else:
-            self.func_names.append(node.name)
-
-        # def BADNAME()
-        if node.name.lower() != node.name:
-            self.register_warning("snake_case",
-                    "The convention in Python is to use lowercase names for function names, with words separated by '_', you used '%s'." % node.name,
-                    node.lineno)
-
-    def visit_Assign(self, node):
-        for target in node.targets:
-            if type(target) == ast.Name:
-                # a = 10
-                if len(target.id) == 1:
-                    self.register_warning("descriptive",
-                            "Consider using more descriptive variable names. You used : '%s'." % target.id,
-                            target.lineno)
-
-                # list = [..]
-                if target.id.lower() in self.forbidden_names:
-                    self.register_warning("keyword_names",
-                            "Do not use '%s' for a variable name; that clobbers the Python type." % target.id,
-                            target.lineno)
-
-                # x = x
-                if type(node.value) == ast.Name and node.value.id == target.id:
-                    self.register_warning("self_assign",
-                            "Self assignment : the statement %s = %s is superflous" % (node.value.id, target.id),
-                            target.lineno)
-
-    def visit_Compare(self, node):
-        # a == True
-        if len(node.comparators) == 1:
-            if type(node.comparators[0]) == ast.NameConstant and node.comparators[0].value:
-                self.register_warning("unnnecessary_true",
-                        "Instead of doing something like 'if %s == True:', you can simply do, 'if a:'" % node.left.id,
-                        node.lineno)
-
-    def visit_For(self, node):
-        if type(node.body[-1]) == ast.Continue:
-            self.register_warning("bad_continue",
-                    "A continue as the last statement in a loop is unnecessary, as the loop proceeds to the next iteration anyway",
-                    node.body[-1].lineno)
-
-    def visit_Return(self, node):
-        pass
-
 
 # rerun notebook and return parsed JSON
 def rerun_notebook(orig_notebook):
@@ -554,14 +496,6 @@ def check_cell(question, cell):
     raise Exception("invalid question type")
 
 
-def lint_cell(cell):
-    code = "\n".join(cell.get('source', []))
-    tree = ast.parse(code)
-    l = Linter()
-    l.visit(tree)
-    return l
-
-
 def grade_answers(cells):
     results = {'score':0, 'tests': [], 'lint': [], "date":datetime.now().strftime("%m/%d/%Y")}
 
@@ -572,17 +506,6 @@ def grade_answers(cells):
         if question.number in cells:
             # does it match the expected output?
             status = check_cell(question, cells[question.number])
-
-            # does it pass the linter?
-            try:
-                l = lint_cell(cell)
-                lint_warnings = [k.msg for k in l.warnings.keys()]
-                if status == PASS and l.is_severe():
-                    status = 'failed due to bad coding style (checkout output at end)'
-            except Exception as e:
-                lint_warnings = ["Lint Exception: " + str(e)]
-            for line in lint_warnings:
-                results["lint"].append("q%d: %s" % (question.number, line))
 
         row = {"test": question.number, "result": status, "weight": question.weight}
         results['tests'].append(row)
@@ -618,23 +541,31 @@ def main():
     results = grade_answers(answer_cells)
     passing = sum(t['weight'] for t in results['tests'] if t['result'] == PASS)
     total = sum(t['weight'] for t in results['tests'])
-    results['score'] = 100.0 * passing / total
+
+    lint_msgs = lint(orig_notebook, verbosity=1, show=False)
+    lint_msgs = filter(lambda msg: msg in ALLOWED_LINT_ERRS, lint_msgs)
+    lint_msgs = list(lint_msgs)
+
+    functionality_score = 90.0 * passing / total
+    linting_score = max(0.0, 10.0-len(lint_msgs))
+    results['score'] = functionality_score + linting_score
 
     print("\nSummary:")
     for test in results["tests"]:
         print("  Question %d: %s" % (test["test"], test["result"]))
 
+    msg_types = defaultdict(list)
+    for msg in lint_msgs:
+        msg_types[msg.category].append(msg)
+    print("\n Linting Summary:")
+    for msg_type, msgs in msg_types.items():
+        print('  ' + msg_type.title() + ' Messages:')
+        for msg in msgs:
+            print('   ', msg)
+
     print('\nTOTAL SCORE: %.2f%%' % results['score'])
     with open('result.json', 'w') as f:
         f.write(json.dumps(results, indent=2))
-
-    if len(results["lint"]) > 0:
-        print()
-        print("!"*80)
-        print("AUTO-GENERATED CODING SUGGESTIONS FOR YOUR CONSIDERATION:")
-        for line in results["lint"]:
-            print(line)
-        print("!"*80)
 
 
 if __name__ == '__main__':
