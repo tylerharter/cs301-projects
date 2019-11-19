@@ -10,19 +10,22 @@ from pylint import epylint
 
 class LintMessage:
     """A simple data container for each linting message"""
-    def __init__(self, path, line, category, msg_id, symbol, obj, msg, cell=None):
+    def __init__(self, path, line, category, msg_id, symbol, obj, msg,
+                 cell=None, data=None):
         # Assumes line number and cell number are zero indexed
         self.path, self.line, self.category = path, int(line), category
         self.msg_id, self.symbol, self.obj, self.msg = msg_id, symbol, obj, msg
-        self.cell = cell
+        self.cell, self.data = cell, data
 
     @classmethod
-    def from_stdout(cls, stdout):
+    def from_stdout(cls, stdout, source=None):
         # From the standard out, create one record per linter message
         pattern = r'(\S+):(\d*): (\w*) \((\w*), ([\w-]*), (.*)\) (.*)'
         objects = [cls(*l) for l in re.findall(pattern, stdout)]
         for obj in objects:
             obj.line -= 1
+            if source:
+                obj.data = source[obj.line]
         return objects
 
     def __str__(self):
@@ -41,13 +44,15 @@ class ScriptLinter:
 
     def lint_script(self):
         """Call pylint and create LintMessages for each msg"""
+        with open(self.path, 'r', encoding='utf-8') as f:
+            source = f.read().splitlines()
         cmd = self.path + ' --persistent=no --score=no'
         pylint_stdout, pylint_stderr = epylint.py_run(cmd, return_std=True)
         stdout = pylint_stdout.getvalue()
         stderr = pylint_stderr.getvalue()
         if stderr:
             print(stderr)
-        return LintMessage.from_stdout(stdout)
+        return LintMessage.from_stdout(stdout, source=source)
 
     def filter_messages(self, msgs):
         """Filter messages based on verbosity"""
@@ -69,11 +74,11 @@ class ScriptLinter:
 
 class NotebookLinter(ScriptLinter):
     def __init__(self, path, cleanup=True, verbose=False):
+        super().__init__(path, verbose=verbose)
         self.cell_lines = []
         self.cleanup = cleanup
         if not path.endswith('.ipynb'):
             raise ValueError('File needs to be a IPython Notebook (.ipynb)')
-        super().__init__(path, verbose=verbose)
 
     def lint_notebook(self):
         """Lint the generated script and map the massages to their
@@ -120,6 +125,12 @@ class NotebookLinter(ScriptLinter):
         self.cell_lines = np.array(self.cell_lines)
         return script_path
 
+    @staticmethod
+    def is_not_jupyter_magic(msg):
+        is_magic = msg.data.startswith('%') or msg.data.startswith('!')
+        is_error = msg.msg_id == "E0001"
+        return not (is_magic and is_error)
+
     def filter_messages(self, msgs):
         """Filter messages that might have been created due to
         converting the notebook to a script"""
@@ -128,6 +139,8 @@ class NotebookLinter(ScriptLinter):
         # If they are the last line of a cell (used to display)
         last_line = lambda msg: msg.line+1 == self.cell_lines[msg.cell]
         msgs = filter(lambda msg: not (last_line(msg) and msg.msg_id in ('W0106', 'W0104')), msgs)
+        # Remove errors caused by jupyter magics like %matplotlib inline
+        msgs = filter(self.is_not_jupyter_magic, msgs)
         return list(msgs)
 
     def run(self):

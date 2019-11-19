@@ -26,7 +26,6 @@ ALLOWED_LINT_ERRS = {
   "W0105": "pointless-string-statement",
   "E1135": "unsupported-membership-test",
   "R1711": "useless-return",
-  "E0001": "syntax-error",
   "W0143": "comparison-with-callable",
   "E1102": "not-callable",
   "W0107": "unnecessary-pass",
@@ -543,13 +542,13 @@ def main():
     total = sum(t['weight'] for t in results['tests'])
 
     lint_msgs = lint(orig_notebook, verbose=1, show=False)
-    lint_msgs = filter(lambda msg: msg not in ALLOWED_LINT_ERRS, lint_msgs)
+    lint_msgs = filter(lambda msg: msg.msg_id in ALLOWED_LINT_ERRS, lint_msgs)
     lint_msgs = list(lint_msgs)
     results["lint"] = [str(l) for l in lint_msgs]
 
-    functionality_score = 90.0 * passing / total
-    linting_score = max(0.0, 10.0-len(lint_msgs))
-    results['score'] = functionality_score + linting_score
+    functionality_score = 100.0 * passing / total
+    linting_score = min(10.0, len(lint_msgs))
+    results['score'] = max(functionality_score - linting_score, 0.0)
 
     print("\nSummary:")
     for test in results["tests"]:
