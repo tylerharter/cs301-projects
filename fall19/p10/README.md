@@ -53,30 +53,23 @@ must have the correct values at each index/column location shown in
 
 For P10, `test.py` is pickier than it has been. In addition to
 checking for incorrect answers, it will also check for a few common
-kinds of bad coding style.  You should look for these at the bottom of
-the output:
+kinds of bad coding style. You should look for linting messages at the bottom 
+of the output, for example:
 
 ```
-!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-AUTO-GENERATED CODING SUGGESTIONS FOR YOUR CONSIDERATION:
-q3: The function g has more than one definition. Avoid reusing function names
-q39: Do not use 'list' for a variable name; that clobbers the Python type.
-q40: Consider using more descriptive variable names. You used : 'm'.
-!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+Linting Summary:
+  Warning Messages:
+    cell: 1, line: 4 - Redefining built-in 'id'
+    cell: 1, line: 3 - Reimport 'numpy' (imported line 2)
+    cell: 1, line: 5 - Unnecessary pass statement
+    cell: 1, line: 2 - Unused import numpy 
 ```
 
-In some cases, `test.py` will deduct points for bad style.  In other
-cases, you should consider whether the auto-generated tips apply to
-you or not.  For example, consider this one:
+In this case, `test.py` will deduct 1 point per linter message because of 
+bad style, and at most deduct 10 points. For more information about the linter 
+as well as how to run the full linter to see all of the automatically generated 
+advice and feedback, please check out the [linting README](../../linter/README.md).
 
-```
-q39: Consider using more descriptive variable names. You used : 'm'.
-```
-
-It's not good to have too many one-letter variables (it often makes it
-hard to read the code), but some are OK.  It's on you to look at your
-code and decide whether or not it's best to use a longer variable name
-in such cases.
 
 ## The Stages
 
