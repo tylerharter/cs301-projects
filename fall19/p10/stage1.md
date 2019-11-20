@@ -12,7 +12,7 @@ and store it in `countries.json`.
 Once you have created the file, create a Dataframe `countries` from this file
 
 *Hint*: `pd.read_json('countries.json')` will return a DataFrame by reading from
- the JSON file. If the file contains list of dictionaries, each dictionary will be a row in the DataFrame.
+ the JSON file. If the file contains lists of dictionaries, each dictionary will be a row in the DataFrame.
 
  Before you proceed, make sure that `countries.head()` displays the following:
 
@@ -32,7 +32,7 @@ Now, we will scrape some some data from here: http://techslides.com/list-of-coun
 It contains the table of all the countries and capitals with latitude and longitude in tabular format.
 Do not download the data using the csv or json file download link.
 You need to write the code to scrape the data from this table.
-Start by install `Beautiful Soup` using pip.
+Start by installing BeautifulSoup using pip, as discussed in class.
 
 First, call `download('capitals.html', 'http://techslides.com/list-of-countries-and-capitals')` to download the webpage. You can open `capitals.html`
 and make sure that this page looks fine.
@@ -42,7 +42,7 @@ Now do the following:
 * Find the table containing the data (Hint: .find() or .find_all() methods can be used).
 * Find all the rows in the table (Note: rows are inside 'tr' html tag and data is in 'td' tag).
 * Create a dictionary containing country name, capital and location coordinate. Create a list of dictionaries for all the countries.
-* This web page has more countries than `countries.json`. We will ignore the countries that are not in that file. You need to filter and keep only the countries whose names appear in `countries.json`.
+* **Carful!** This web page has more countries than `countries.json`. We will ignore the countries that are not in that file. You need to filter and keep only the 174 countries whose names also appear in `countries.json`.
 * Save this list into file titled `capitals.json`. You can use json.dump() method. You file should look something like this.
 
 Create a DataFrame named `capitals` from this file. Before you proceed, make sure that `capitals.head()` displays the following:
@@ -53,7 +53,9 @@ Create a DataFrame named `capitals` from this file. Before you proceed, make sur
 
  Use `capitals` and `countries` dataframes to answer the following questions.
 
-#### Question 3: List the countries in `capitals.json`.
+#### Question 3: What are the country names in `capitals.json`?
+
+Answer with an alphabetically-sorted Python list.
 
 #### Question 4: What is the capital of Cuba?
 
@@ -192,6 +194,10 @@ columns: `nearest` will contain the name of the nearest country and
  of the DataFrame, and the values of the returned Series contain the
  minimum values.  If you run `df.idxmin()` on a DataFrame, the
  returned values contain indexes from the DataFrame.
+
+*Hint 3*: if you get an error message about dtypes when running
+ idxmin, make sure your DataFrame contains only floats (use
+ `df.astype(float)` if necessary).
 
 #### Question 20: How far is each country in Australia to it's furthest neighbor?
 

@@ -68,7 +68,7 @@ Linting Summary:
 In this case, `test.py` will deduct 1 point per linter message because of 
 bad style, and at most deduct 10 points. For more information about the linter 
 as well as how to run the full linter to see all of the automatically generated 
-advice and feedback, please check out the [linting README](../../linter/README.md).
+advice and feedback, please check out the [linting README](../../linter).
 
 
 ## The Stages
