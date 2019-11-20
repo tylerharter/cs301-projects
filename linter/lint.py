@@ -202,8 +202,3 @@ if __name__ == '__main__':
 
     grader_args = parser.parse_args()
     lint(**vars(grader_args))
-
-    try:
-        pass
-    except:
-        pass
