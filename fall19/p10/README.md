@@ -25,7 +25,7 @@ For this project, you'll be using one large JSON file with statistics
 about 174 countries adapted from
 [here](https://www.kaggle.com/fernandol/countries-of-the-world).
 and you will also extract data from a snapshot of
-[this page](http://techslides.com/list-of-countries-and-capitals)
+[this page](http://techslides.com/list-of-countries-and-capitals).
 
 First check these resources:
 * https://raw.githubusercontent.com/tylerharter/caraza-harter-com/master/tyler/cs301/fall19/data/countries.json
