@@ -1,5 +1,3 @@
-# DON'T START YET (under revision)
-
 # Lab 10a: Time and Creating DataFrames
 
 In this lab, you'll learn two things:

@@ -1,6 +1,4 @@
-# DON'T START YET (under revision)
-
-# Project 10: Geography, and the World Wide Web (Under Construction)
+# Project 10: Geography, and the World Wide Web
 
 ## Clarifications/Corrections
 
@@ -74,4 +72,4 @@ advice and feedback, please check out the [linting README](../../linter).
 ## The Stages
 
 * [Stage 1](stage1.md): scrape some data files and answer some geography questions
-* [Stage 2](stage2.md): query a DB and generate some plots
+* Stage 2: query a DB and generate some plots (not released yet!)

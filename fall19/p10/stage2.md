@@ -1,4 +1,6 @@
-# Stage 2: Database Queries and Plotting
+# NOT RELEASED YET, DON'T START!!!
+
+# Stage 2: Databases and Plotting
 
 In this section, you'll dump your DataFrames to a SQLite database.
 You'll answer questions by doing queries on that database.  Often,

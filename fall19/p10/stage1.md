@@ -1,4 +1,4 @@
-# Stage 1: The World Wide Web and World Wide Geography
+# Stage 1: Web and Pandas
 
 In this stage, you will write code to scrape some data from a webpage,
 save it in json format, load the data to Pandas DataFrames,
@@ -28,21 +28,24 @@ Once you have created the file, create a Dataframe `countries` from this file
 
 ----
 
-Now, we will scrape some some data from here: http://techslides.com/list-of-countries-and-capitals
-It contains the table of all the countries and capitals with latitude and longitude in tabular format.
+Now, we will scrape some some data from here: http://techslides.com/list-of-countries-and-capitals.
+This page contains the table of all the countries and capitals with latitude and longitude in tabular format.
 Do not download the data using the csv or json file download link.
 You need to write the code to scrape the data from this table.
 Start by installing BeautifulSoup using pip, as discussed in class.
 
-First, call `download('capitals.html', 'http://techslides.com/list-of-countries-and-capitals')` to download the webpage. You can open `capitals.html`
-and make sure that this page looks fine.
+Then call `download('capitals.html', 'https://raw.githubusercontent.com/tylerharter/cs301-projects/master/fall19/p10/techslides-snapshot.html')`
+to download the webpage. Note that this code is not downloading the
+original webpage, but a snapshot of it (this is to avoid creating
+excessive load on their servers).  You can open `capitals.html` and
+make sure that this page looks fine.
 
 Now do the following:
 * Read from `capitals.html` and use beautiful soup to convert the html text to soup.
 * Find the table containing the data (Hint: .find() or .find_all() methods can be used).
 * Find all the rows in the table (Note: rows are inside 'tr' html tag and data is in 'td' tag).
 * Create a dictionary containing country name, capital and location coordinate. Create a list of dictionaries for all the countries.
-* **Carful!** This web page has more countries than `countries.json`. We will ignore the countries that are not in that file. You need to filter and keep only the 174 countries whose names also appear in `countries.json`.
+* **Careful!** This web page has more countries than `countries.json`. We will ignore the countries that are not in that file. You need to filter and keep only the 174 countries whose names also appear in `countries.json`.
 * Save this list into file titled `capitals.json`. You can use json.dump() method. You file should look something like this.
 
 Create a DataFrame named `capitals` from this file. Before you proceed, make sure that `capitals.head()` displays the following:
