@@ -81,7 +81,7 @@ code style is not on par with these style guides.
 
 If we save the following snippet in a program called badcode.py
 
-```
+```python
 for i in range(10):
     if i == 1 or i == 3 or i == 5 or i == 7 or i == 9:
             print('i is odd')
@@ -91,7 +91,7 @@ for i in range(10):
 
 And then run 
 
-```
+```python
 python3 lint.py badcode.py
 ```
 
@@ -104,7 +104,7 @@ line: 2 - Consider merging these comparisons with "in" to 'i in (1, 3, 5, 7, 9)'
 
 This indicates there's an easy way to simplify our code. So lets try it! Change the code to this:
 
-```
+```python
 for i in range(10):
     if i in (1, 3, 5, 7, 9):
             print('i is odd')
@@ -155,7 +155,7 @@ messages, so please always take linting messages with a grain of salt.
 
 Let's save the following code in badcode.py:
 
-```
+```python
 found = False
 
 for i in range(10):
