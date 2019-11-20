@@ -16,6 +16,14 @@ class LintMessage:
         self.path, self.line, self.category = path, int(line), category
         self.msg_id, self.symbol, self.obj, self.msg = msg_id, symbol, obj, msg
         self.cell, self.data = cell, data
+        self.enhance_msg()
+
+    def enhance_msg(self):
+        map = {
+            "W0702": "Too broad exception clause. You should try catching "
+                     "specific exceptions",
+        }
+        self.msg = map.get(self.msg_id, self.msg)
 
     @classmethod
     def from_stdout(cls, stdout, source=None):
@@ -118,18 +126,32 @@ class NotebookLinter(ScriptLinter):
             nb = nbformat.read(f, as_version=nbformat.NO_CONVERT)
         cells = [cell['source'] for cell in nb['cells']
                  if cell['cell_type'] == 'code' and cell['source']]
-        source = '\n'.join(cells)
+        source = self.comment_jupyter_magics('\n'.join(cells))
         with open(script_path, 'w', encoding='utf-8') as f:
             f.write(source)
         self.cell_lines = [len(cell.splitlines()) for cell in cells]
         self.cell_lines = np.array(self.cell_lines)
         return script_path
 
-    @staticmethod
-    def is_not_jupyter_magic(msg):
-        is_magic = msg.data.startswith('%') or msg.data.startswith('!')
+    def comment_jupyter_magics(self, source):
+        """Commments out jupyter magics"""
+        #TODO: make this more robust, a multiline string can break this.
+        cleaned_source = []
+        for line in source.splitlines():
+            if self.line_is_jupyter_magic(line):
+                cleaned_source.append('# ' + line)
+            else:
+                cleaned_source.append(line)
+        return '\n'.join(cleaned_source)
+
+    def is_not_jupyter_magic(self, msg):
+        is_magic = self.line_is_jupyter_magic(msg.data)
         is_error = msg.msg_id == "E0001"
         return not (is_magic and is_error)
+
+    @staticmethod
+    def line_is_jupyter_magic(line):
+        return line.startswith('%') or line.startswith('!')
 
     def filter_messages(self, msgs):
         """Filter messages that might have been created due to
@@ -180,3 +202,8 @@ if __name__ == '__main__':
 
     grader_args = parser.parse_args()
     lint(**vars(grader_args))
+
+    try:
+        pass
+    except:
+        pass
