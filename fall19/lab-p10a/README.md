@@ -1,9 +1,42 @@
-# Lab 10a: Time and Creating DataFrames
+# Lab 10a: Lint, Time, and Creating DataFrames
 
-In this lab, you'll learn two things:
+In this lab, you'll learn three things:
 
-1. how to time your code
-2. different ways to construct DataFrames
+1. how to run the 301 linter
+2. how to time your code
+3. different ways to construct DataFrames
+
+## Lint
+
+"Lint" refers to bad code that is not necessarily buggy (though "bad"
+coding style often leads to bugs).  A linter helps warn you about
+common issues.
+
+For project P10, we're adding a simple linter as part of the tests.
+It will notify you of code that is bad style, deducting 1% per issue
+(for a max of a 10% penalty).  You can also run the linter yourself,
+apart from the tests.  Let's do that now.
+
+Read the documentation
+[here](https://github.com/tylerharter/cs301-projects/tree/master/linter),
+then download `lint.py`.
+
+In a new notebook (e.g., named `lint_nb.ipynb`), paste the following code:
+
+```python
+def abs(list):
+    list = list[:] # copy it
+    for i in range(len(list)):
+        if list[i] < 0:
+            list[i] = -list[i]
+    return list
+
+abs([-1, -3, 5, -4, 8])
+```
+
+Now run the linter: `python lint.py -v lint_nb.ipynb` (change the name
+if necessary).  Consider why the linter is complaining, then write a
+better version of the function to make the linter happy.
 
 ## Timing
 
