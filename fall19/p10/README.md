@@ -13,17 +13,19 @@ Specifically, you're going to study various statistics for 174
 countries, answering questions such as: *what is the correlation
 between a country's literacy rate and GDP?*
 
-To start, download `test.py` and `expected.html`.  Do not download any
-data files manually (you must write Python code to download these
-automatically).  You'll do all your work in a `main.ipynb`.
+To start, download `test.py` and `expected.html`.  You'll also need to
+download `lint.py` (see linter documentation under "Testing" below).
+Do not download any data files manually (you must write Python code to
+download these automatically).  You'll do all your work in a
+`main.ipynb`.
 
 # Data
 
 For this project, you'll be using one large JSON file with statistics
 about 174 countries adapted from
 [here](https://www.kaggle.com/fernandol/countries-of-the-world).
-and you will also fetch data directly from
-[here](http://techslides.com/list-of-countries-and-capitals)
+and you will also extract data from a snapshot of
+[this page](http://techslides.com/list-of-countries-and-capitals)
 
 First check these resources:
 * https://raw.githubusercontent.com/tylerharter/caraza-harter-com/master/tyler/cs301/fall19/data/countries.json
