@@ -1,5 +1,3 @@
-# NOT RELEASED YET, DON'T START!!!
-
 # Stage 2: Databases and Plotting
 
 In this section, you'll dump your DataFrames to a SQLite database.
@@ -93,11 +91,11 @@ Hint: `real GDP = population * gdp-per-capita`
 
 #### Question 27: What are the top 10 countries that have the largest real GDP? (answer with a plot)
 
-To make the problem more interesting, answer with a **pie chart**.
-
 **Expected output:**
 
-<img src="imgs/2-27.PNG" width="300">
+<img src="imgs/2-27.PNG" width="400">
+
+Make sure to include the "other" category.
 
 #### Question 28: What are the top 15 countries that have the largest gap between birth rate and death rate?
 
