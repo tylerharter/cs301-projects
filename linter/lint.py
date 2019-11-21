@@ -42,8 +42,10 @@ class LintMessage:
             return f'cell: {self.cell+1}, line: {self.line+1} - {self.msg}'
         return f'line: {self.line+1} - {self.msg}'
 
-    def full_str(self):
-        return f'{self.msg_id}, {self.symbol}, ' + self.__str__()
+    def full_str(self, indent=0):
+        p = f'{" "*indent}{self.msg_id}, {self.symbol}, ' + self.__str__()
+        p += '\n' + " "*indent + 'on line: ' + self.data.strip() + '\n'
+        return p
 
 
 class ScriptLinter:
@@ -124,12 +126,12 @@ class NotebookLinter(ScriptLinter):
             raise IOError(f'File {script_path} exists already, please delete or rename')
         with open(self.path, 'r', encoding='utf-8') as f:
             nb = nbformat.read(f, as_version=nbformat.NO_CONVERT)
-        cells = [cell['source'] for cell in nb['cells']
-                 if cell['cell_type'] == 'code' and cell['source']]
-        source = self.comment_jupyter_magics('\n'.join(cells))
+        self.cells = [cell['source'] for cell in nb['cells']
+                      if cell['cell_type'] == 'code' and cell['source']]
+        source = self.comment_jupyter_magics('\n'.join(self.cells))
         with open(script_path, 'w', encoding='utf-8') as f:
             f.write(source)
-        self.cell_lines = [len(cell.splitlines()) for cell in cells]
+        self.cell_lines = [len(cell.split('\n')) for cell in self.cells]
         self.cell_lines = np.array(self.cell_lines)
         return script_path
 
@@ -153,14 +155,17 @@ class NotebookLinter(ScriptLinter):
     def line_is_jupyter_magic(line):
         return line.startswith('%') or line.startswith('!')
 
+    def last_line_of_code(self, msg):
+        cell_str = self.cells[msg.cell]
+        return cell_str.strip().endswith(msg.data)
+
     def filter_messages(self, msgs):
         """Filter messages that might have been created due to
         converting the notebook to a script"""
         msgs = super().filter_messages(msgs)
         # Remove expression-not-assigned and pointless-statement warnings
         # If they are the last line of a cell (used to display)
-        last_line = lambda msg: msg.line+1 == self.cell_lines[msg.cell]
-        msgs = filter(lambda msg: not (last_line(msg) and msg.msg_id in ('W0106', 'W0104')), msgs)
+        msgs = filter(lambda msg: not (self.last_line_of_code(msg) and msg.msg_id in ('W0106', 'W0104')), msgs)
         # Remove errors caused by jupyter magics like %matplotlib inline
         msgs = filter(self.is_not_jupyter_magic, msgs)
         return list(msgs)
@@ -186,7 +191,7 @@ def lint(path, *args, show=True, debug=False, **kwargs):
         for msg_type, msgs in msg_types.items():
             print(f'{msg_type.title()} Messages:')
             for msg in msgs:
-                print(msg.full_str() if debug else str(msg))
+                print(msg.full_str(indent=2) if debug else '  ' + str(msg))
             print()
         return None
     return msgs
@@ -194,7 +199,8 @@ def lint(path, *args, show=True, debug=False, **kwargs):
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='Linter for CS301')
-    parser.add_argument('-d', '--debug', action='store_true', help=argparse.SUPPRESS)
+    parser.add_argument('-d', '--debug', action='store_true',
+                        help='Extra information about the linting message')
     parser.add_argument('path', type=str, help='path of file to lint (.ipynb or .py)')
     parser.add_argument('-v', '--verbose', action='count', default=0,
                         help='by default don\'t show warnings nor convention'
