@@ -4,6 +4,8 @@
 
 * Nov 20: Please re-download latest lint.py as there was an issue with jupyter 
 magics such as (%matplotlib inline)
+* Nov 23: Fixed a small bug that created unnecessary "Statement seems to have 
+no effect" errors.
 
 ## Introduction
 

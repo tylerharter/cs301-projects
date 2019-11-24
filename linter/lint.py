@@ -6,6 +6,7 @@ from collections import defaultdict
 import nbformat
 import numpy as np
 from pylint import epylint
+import astroid
 
 
 class LintMessage:
@@ -146,6 +147,10 @@ class NotebookLinter(ScriptLinter):
                 cleaned_source.append(line)
         return '\n'.join(cleaned_source)
 
+    @staticmethod
+    def remove_comments(source):
+        return astroid.parse(source).as_string().strip()
+
     def is_not_jupyter_magic(self, msg):
         is_magic = self.line_is_jupyter_magic(msg.data)
         is_error = msg.msg_id == "E0001"
@@ -157,7 +162,9 @@ class NotebookLinter(ScriptLinter):
 
     def last_line_of_code(self, msg):
         cell_str = self.cells[msg.cell]
-        return cell_str.strip().endswith(msg.data)
+        cell_str = self.remove_comments(cell_str)
+        line_str = self.remove_comments(msg.data)
+        return cell_str.endswith(line_str)
 
     def filter_messages(self, msgs):
         """Filter messages that might have been created due to
