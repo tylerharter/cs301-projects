@@ -3,9 +3,11 @@
 ## Clarifications/Corrections
 
 * Nov 20: Please re-download latest lint.py as there was an issue with jupyter 
-magics such as (%matplotlib inline)
+magics such as (%matplotlib inline).
 * Nov 23: Fixed a small bug that created unnecessary "Statement seems to have 
 no effect" errors.
+* Nov 25: Filtered out "Statement seems to have no effect" errors that were 
+generated from notebooks.
 
 ## Introduction
 

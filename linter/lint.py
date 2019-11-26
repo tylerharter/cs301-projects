@@ -161,6 +161,7 @@ class NotebookLinter(ScriptLinter):
         return line.startswith('%') or line.startswith('!')
 
     def last_line_of_code(self, msg):
+        #TODO: Tests more, it doesnt work all the time
         cell_str = self.cells[msg.cell]
         cell_str = self.remove_comments(cell_str)
         line_str = self.remove_comments(msg.data)
@@ -172,7 +173,7 @@ class NotebookLinter(ScriptLinter):
         msgs = super().filter_messages(msgs)
         # Remove expression-not-assigned and pointless-statement warnings
         # If they are the last line of a cell (used to display)
-        msgs = filter(lambda msg: not (self.last_line_of_code(msg) and msg.msg_id in ('W0106', 'W0104')), msgs)
+        msgs = filter(lambda msg: msg.msg_id not in ('W0106', 'W0104'), msgs)
         # Remove errors caused by jupyter magics like %matplotlib inline
         msgs = filter(self.is_not_jupyter_magic, msgs)
         return list(msgs)

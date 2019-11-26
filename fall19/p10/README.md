@@ -2,7 +2,8 @@
 
 ## Clarifications/Corrections
 
-* None yet!
+* Note: If you have experienced problems with the linter, please re-download 
+a newer version [here](../../linter/lint.py).
 
 ## Introduction
 
