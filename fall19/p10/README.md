@@ -2,6 +2,8 @@
 
 ## Clarifications/Corrections
 
+* Dec 2: Fixed small test.py bug as found in [this piazza post](https://piazza.com/class/jzkcu4am8lmc3?cid=828), 
+thanks for finding it! You might want to re-download test.py if you are having issues with it.
 * Note: If you have experienced problems with the linter, please re-download 
 a newer version [here](../../linter/lint.py).
 
