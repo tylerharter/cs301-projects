@@ -8,5 +8,5 @@ RUN apt-get -y update
 RUN apt-get -y upgrade
 RUN apt-get install -y python3.7
 RUN apt-get install -y python3-pip
-RUN pip3 install jupyter pandas numpy requests matplotlib beautifulsoup4 statistics recordclass haversine sklearn
+RUN pip3 install jupyter pandas numpy requests matplotlib beautifulsoup4 statistics recordclass haversine sklearn lxml geopy pylint bs4
 RUN apt-get -y install zip
