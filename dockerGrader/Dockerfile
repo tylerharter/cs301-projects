@@ -4,6 +4,7 @@ RUN sed -i -e 's/# en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/' /etc/locale.gen && loca
 ENV LANG en_US.UTF-8
 ENV LANGUAGE en_US:en
 ENV LC_ALL en_US.UTF-8
+ENV PYTHONDONTWRITEBYTECODE=1 
 RUN apt-get -y update
 RUN apt-get -y upgrade
 RUN apt-get install -y python3.7

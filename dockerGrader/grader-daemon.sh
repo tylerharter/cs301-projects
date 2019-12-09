@@ -13,6 +13,7 @@ PY=/nobackup/cs301-pyenv/bin/python3
 
 
 run_grader() {
+    export PYTHONDONTWRITEBYTECODE=1
     export AWS_SHARED_CREDENTIALS_FILE="/nobackup/.aws/credentials"
 
     echo "Running Auto-grader\n"
