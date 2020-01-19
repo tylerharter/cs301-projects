@@ -99,7 +99,7 @@ Make sure to include the "other" category.
 
 #### Question 28: What are the top 15 countries that have the largest gap between birth rate and death rate?
 
-You should display the `country` name, `birth-rate`, and `death-rate` of the top 15 countries that have the largest gap between `birth-rate` and `death-rate`. These top 15 countries should be displayed in *descending* order of the ratio.
+You should display the `country` name, `birth-rate`, and `death-rate` of the top 15 countries that have the largest gap between `birth-rate` and `death-rate`. These top 15 countries should be displayed in *descending* order of the gap.
 
 **Expected output:**
 
